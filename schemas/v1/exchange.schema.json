@@ -1,0 +1,307 @@
+{
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "novel_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "exchange_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "sequence": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "previous_exchange_id": {
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "uuid"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "previous_digest": {
+      "anyOf": [
+        {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "session_id": {
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "uuid"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "expected_git_head": {
+      "anyOf": [
+        {
+          "type": "string",
+          "pattern": "^([0-9a-f]{40}|[0-9a-f]{64})$"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "recorded_at": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "Z$"
+    },
+    "operation": {
+      "enum": [
+        "bootstrap",
+        "conversation",
+        "maintenance"
+      ]
+    },
+    "messages": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "message_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "role": {
+            "enum": [
+              "user",
+              "assistant"
+            ]
+          },
+          "text": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "message_id",
+          "role",
+          "text"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "input_artifacts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "artifact_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "original_text": {
+            "type": "string"
+          },
+          "parsed_value": {},
+          "digest": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          }
+        },
+        "required": [
+          "artifact_id",
+          "original_text",
+          "parsed_value",
+          "digest"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "record_versions": {
+      "type": "array",
+      "items": {
+        "$ref": "records.schema.json#/$defs/record"
+      }
+    },
+    "continuity_review": {
+      "type": "object",
+      "properties": {
+        "coverage": {
+          "enum": [
+            "complete",
+            "incomplete",
+            "not_applicable"
+          ]
+        },
+        "reviewed_record_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "records.schema.json#/$defs/record_ref"
+          }
+        },
+        "unavailable_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "records.schema.json#/$defs/record_ref"
+          }
+        },
+        "canon_hold_refs": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "uuid"
+              },
+              {
+                "const": "*"
+              }
+            ]
+          }
+        },
+        "finding_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        "summary": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "coverage",
+        "reviewed_record_refs",
+        "unavailable_refs",
+        "canon_hold_refs",
+        "finding_ids",
+        "summary"
+      ],
+      "additionalProperties": false
+    },
+    "payload_digest": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    }
+  },
+  "required": [
+    "schema_version",
+    "novel_id",
+    "exchange_id",
+    "sequence",
+    "previous_exchange_id",
+    "previous_digest",
+    "session_id",
+    "expected_git_head",
+    "recorded_at",
+    "operation",
+    "messages",
+    "input_artifacts",
+    "record_versions",
+    "continuity_review",
+    "payload_digest"
+  ],
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "operation": {
+            "const": "bootstrap"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "sequence": {
+            "const": 1
+          },
+          "previous_exchange_id": {
+            "type": "null"
+          },
+          "previous_digest": {
+            "type": "null"
+          },
+          "session_id": {
+            "type": "null"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "operation": {
+            "const": "conversation"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "messages": {
+            "type": "array",
+            "items": {},
+            "minItems": 2,
+            "maxItems": 2,
+            "prefixItems": [
+              {
+                "type": "object",
+                "properties": {
+                  "message_id": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "role": {
+                    "const": "user"
+                  },
+                  "text": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "message_id",
+                  "role",
+                  "text"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "message_id": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "role": {
+                    "const": "assistant"
+                  },
+                  "text": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "message_id",
+                  "role",
+                  "text"
+                ],
+                "additionalProperties": false
+              }
+            ]
+          }
+        }
+      }
+    }
+  ],
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://novel-creator.invalid/schemas/v1/exchange.schema.json"
+}

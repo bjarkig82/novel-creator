@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "novel-creator"
+version = "0.1.0"
+description = "Local, Git-backed story exchange persistence"
+requires-python = ">=3.11"
+dependencies = ["jsonschema>=4.23,<5"]
+
+[project.optional-dependencies]
+test = []
+
+[project.scripts]
+novel-creator = "novel_creator.cli:main"
+
+[tool.setuptools]
+packages = ["novel_creator", "novel_creator.schemas", "novel_creator.schemas.v1"]
+package-dir = {"novel_creator" = "src/novel_creator", "novel_creator.schemas" = "schemas"}
+
+[tool.setuptools.package-data]
+"novel_creator.schemas.v1" = ["*.json"]

@@ -1,0 +1,1535 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://novel-creator.invalid/schemas/v1/records.schema.json",
+  "$defs": {
+    "record_ref": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "range": {
+      "type": "object",
+      "properties": {
+        "start": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "end": {
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "start",
+        "end"
+      ],
+      "additionalProperties": false
+    },
+    "message_source": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "message"
+        },
+        "exchange_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "message_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "range": {
+          "$ref": "#/$defs/range"
+        }
+      },
+      "required": [
+        "type",
+        "exchange_id",
+        "message_id"
+      ],
+      "additionalProperties": false
+    },
+    "artifact_source": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "bootstrap_artifact"
+        },
+        "exchange_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "artifact_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "pointer": {
+          "type": "string",
+          "pattern": "^(|/.*)$"
+        }
+      },
+      "required": [
+        "type",
+        "exchange_id",
+        "artifact_id",
+        "pointer"
+      ],
+      "additionalProperties": false
+    },
+    "source": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/message_source"
+        },
+        {
+          "$ref": "#/$defs/artifact_source"
+        }
+      ]
+    },
+    "time_axis": {
+      "type": "object",
+      "properties": {
+        "precision": {
+          "enum": [
+            "known",
+            "partial",
+            "unknown"
+          ]
+        },
+        "event_anchor": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/record_ref"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "start": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "end": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "before_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/record_ref"
+          }
+        },
+        "after_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/record_ref"
+          }
+        }
+      },
+      "required": [
+        "precision",
+        "event_anchor",
+        "start",
+        "end",
+        "before_refs",
+        "after_refs"
+      ],
+      "additionalProperties": false
+    },
+    "time_ref": {
+      "type": "object",
+      "properties": {
+        "chronology": {
+          "$ref": "#/$defs/time_axis"
+        },
+        "narrative": {
+          "$ref": "#/$defs/time_axis"
+        }
+      },
+      "required": [
+        "chronology",
+        "narrative"
+      ],
+      "additionalProperties": false
+    },
+    "preference": {
+      "type": "object",
+      "properties": {
+        "state": {
+          "enum": [
+            "unknown",
+            "supplied",
+            "interpreted",
+            "default"
+          ]
+        },
+        "original_text": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "interpretation": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "origin": {
+          "enum": [
+            "supplied",
+            "interpreted",
+            "system_default"
+          ]
+        },
+        "source_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/source"
+          }
+        }
+      },
+      "required": [
+        "state",
+        "original_text",
+        "interpretation",
+        "origin",
+        "source_refs"
+      ],
+      "additionalProperties": false
+    },
+    "novel_project": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "kind": {
+          "const": "novel_project"
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "previous_revision": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "source_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/source"
+          }
+        },
+        "created_exchange_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "origin": {
+          "enum": [
+            "supplied",
+            "interpreted",
+            "system_default"
+          ]
+        },
+        "title": {
+          "$ref": "#/$defs/preference"
+        },
+        "original_concept": {
+          "$ref": "#/$defs/preference"
+        },
+        "creative_brief": {
+          "type": "object",
+          "properties": {
+            "genre": {
+              "$ref": "#/$defs/preference"
+            },
+            "subgenres": {
+              "$ref": "#/$defs/preference"
+            },
+            "audience": {
+              "$ref": "#/$defs/preference"
+            },
+            "tone": {
+              "$ref": "#/$defs/preference"
+            },
+            "style": {
+              "$ref": "#/$defs/preference"
+            },
+            "perspective": {
+              "$ref": "#/$defs/preference"
+            },
+            "complexity": {
+              "$ref": "#/$defs/preference"
+            }
+          },
+          "required": [
+            "genre",
+            "subgenres",
+            "audience",
+            "tone",
+            "style",
+            "perspective",
+            "complexity"
+          ],
+          "additionalProperties": false
+        },
+        "manuscript_language": {
+          "type": "string",
+          "pattern": "^[A-Za-z]{2,8}(-[A-Za-z0-9]{1,8})*$"
+        },
+        "workflow_preferences": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/$defs/preference"
+          }
+        },
+        "review_preferences": {
+          "type": "object",
+          "properties": {
+            "routine_checkpoint": {
+              "enum": [
+                "on_request",
+                "session_close",
+                "every_exchange"
+              ],
+              "default": "on_request"
+            }
+          },
+          "required": [
+            "routine_checkpoint"
+          ],
+          "additionalProperties": false
+        },
+        "creative_directions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "text": {
+                "type": "string"
+              },
+              "source_refs": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/source"
+                }
+              }
+            },
+            "required": [
+              "text",
+              "source_refs"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "id",
+        "kind",
+        "revision",
+        "previous_revision",
+        "source_refs",
+        "created_exchange_id",
+        "origin",
+        "title",
+        "original_concept",
+        "creative_brief",
+        "manuscript_language",
+        "workflow_preferences",
+        "review_preferences",
+        "creative_directions"
+      ],
+      "additionalProperties": false
+    },
+    "session": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "kind": {
+          "const": "session"
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "previous_revision": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "source_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/source"
+          }
+        },
+        "created_exchange_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "origin": {
+          "enum": [
+            "supplied",
+            "interpreted",
+            "system_default"
+          ]
+        },
+        "topic": {
+          "type": "string"
+        },
+        "mode": {
+          "enum": [
+            "guided",
+            "open"
+          ]
+        },
+        "state": {
+          "enum": [
+            "open",
+            "closed"
+          ]
+        },
+        "started_exchange_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "last_exchange_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "related_record_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        "unresolved_question_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        "derived_context_ref": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "kind",
+        "revision",
+        "previous_revision",
+        "source_refs",
+        "created_exchange_id",
+        "origin",
+        "topic",
+        "mode",
+        "state",
+        "started_exchange_id",
+        "last_exchange_id",
+        "related_record_ids",
+        "unresolved_question_ids",
+        "derived_context_ref"
+      ],
+      "additionalProperties": false
+    },
+    "idea": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "kind": {
+          "const": "idea"
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "previous_revision": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "source_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/source"
+          }
+        },
+        "created_exchange_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "origin": {
+          "enum": [
+            "supplied",
+            "interpreted",
+            "system_default"
+          ]
+        },
+        "statement": {
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "proposed",
+            "accepted",
+            "rejected",
+            "unresolved",
+            "superseded"
+          ]
+        },
+        "related_element_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        "alternative_group_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "uuid"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "selected_parts": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "decision_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        "resulting_assertion_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "uuid"
+          }
+        }
+      },
+      "required": [
+        "id",
+        "kind",
+        "revision",
+        "previous_revision",
+        "source_refs",
+        "created_exchange_id",
+        "origin",
+        "statement",
+        "status",
+        "related_element_ids",
+        "alternative_group_id",
+        "selected_parts",
+        "decision_ids",
+        "resulting_assertion_ids"
+      ],
+      "additionalProperties": false
+    },
+    "story_element": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "kind": {
+          "const": "story_element"
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "previous_revision": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "source_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/source"
+          }
+        },
+        "created_exchange_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "origin": {
+          "enum": [
+            "supplied",
+            "interpreted",
+            "system_default"
+          ]
+        },
+        "element_type": {
+          "enum": [
+            "character",
+            "location",
+            "event",
+            "plot_thread"
+          ]
+        },
+        "display_name": {
+          "type": "string"
+        },
+        "aliases": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "status": {
+          "enum": [
+            "proposed",
+            "accepted",
+            "rejected",
+            "unresolved",
+            "superseded"
+          ]
+        },
+        "assertion_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        "relationship_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        "dependency_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/record_ref"
+          }
+        },
+        "time_ref": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/time_ref"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "decision_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "uuid"
+          }
+        }
+      },
+      "required": [
+        "id",
+        "kind",
+        "revision",
+        "previous_revision",
+        "source_refs",
+        "created_exchange_id",
+        "origin",
+        "element_type",
+        "display_name",
+        "aliases",
+        "status",
+        "assertion_ids",
+        "relationship_ids",
+        "dependency_refs",
+        "time_ref",
+        "decision_ids"
+      ],
+      "additionalProperties": false
+    },
+    "relationship": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "kind": {
+          "const": "relationship"
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "previous_revision": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "source_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/source"
+          }
+        },
+        "created_exchange_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "origin": {
+          "enum": [
+            "supplied",
+            "interpreted",
+            "system_default"
+          ]
+        },
+        "from_element_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "to_element_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "meaning": {
+          "type": "string"
+        },
+        "perspective": {
+          "enum": [
+            "author_truth",
+            "character_knowledge",
+            "character_belief",
+            "reader_revelation"
+          ]
+        },
+        "holder_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "uuid"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "reader_audience": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "time_ref": {
+          "$ref": "#/$defs/time_ref"
+        },
+        "status": {
+          "enum": [
+            "proposed",
+            "accepted",
+            "rejected",
+            "unresolved",
+            "superseded"
+          ]
+        },
+        "decision_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "uuid"
+          }
+        }
+      },
+      "required": [
+        "id",
+        "kind",
+        "revision",
+        "previous_revision",
+        "source_refs",
+        "created_exchange_id",
+        "origin",
+        "from_element_id",
+        "to_element_id",
+        "meaning",
+        "perspective",
+        "holder_id",
+        "reader_audience",
+        "time_ref",
+        "status",
+        "decision_ids"
+      ],
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "perspective": {
+                "enum": [
+                  "character_knowledge",
+                  "character_belief"
+                ]
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "holder_id": {
+                "type": "string",
+                "format": "uuid"
+              },
+              "reader_audience": {
+                "type": "null"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "perspective": {
+                "const": "reader_revelation"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "reader_audience": {
+                "type": "string",
+                "minLength": 1
+              },
+              "holder_id": {
+                "type": "null"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "perspective": {
+                "const": "author_truth"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "reader_audience": {
+                "type": "null"
+              },
+              "holder_id": {
+                "type": "null"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "assertion": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "kind": {
+          "const": "assertion"
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "previous_revision": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "source_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/source"
+          }
+        },
+        "created_exchange_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "origin": {
+          "enum": [
+            "supplied",
+            "interpreted",
+            "system_default"
+          ]
+        },
+        "subject_element_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "predicate": {
+          "type": "string"
+        },
+        "value": {
+          "oneOf": [
+            {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "null"
+              ]
+            },
+            {
+              "$ref": "#/$defs/record_ref"
+            }
+          ]
+        },
+        "perspective": {
+          "enum": [
+            "author_truth",
+            "character_knowledge",
+            "character_belief",
+            "reader_revelation"
+          ]
+        },
+        "holder_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "uuid"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "reader_audience": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "time_ref": {
+          "$ref": "#/$defs/time_ref"
+        },
+        "truth_state": {
+          "enum": [
+            "affirmed",
+            "denied",
+            "unknown"
+          ]
+        },
+        "status": {
+          "enum": [
+            "proposed",
+            "accepted",
+            "rejected",
+            "unresolved",
+            "superseded"
+          ]
+        },
+        "decision_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        "supersedes": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/record_ref"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "kind",
+        "revision",
+        "previous_revision",
+        "source_refs",
+        "created_exchange_id",
+        "origin",
+        "subject_element_id",
+        "predicate",
+        "value",
+        "perspective",
+        "holder_id",
+        "reader_audience",
+        "time_ref",
+        "truth_state",
+        "status",
+        "decision_ids",
+        "supersedes"
+      ],
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "perspective": {
+                "enum": [
+                  "character_knowledge",
+                  "character_belief"
+                ]
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "holder_id": {
+                "type": "string",
+                "format": "uuid"
+              },
+              "reader_audience": {
+                "type": "null"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "perspective": {
+                "const": "reader_revelation"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "reader_audience": {
+                "type": "string",
+                "minLength": 1
+              },
+              "holder_id": {
+                "type": "null"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "perspective": {
+                "const": "author_truth"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "reader_audience": {
+                "type": "null"
+              },
+              "holder_id": {
+                "type": "null"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "decision": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "kind": {
+          "const": "decision"
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "previous_revision": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "source_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/source"
+          }
+        },
+        "created_exchange_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "origin": {
+          "enum": [
+            "supplied",
+            "interpreted",
+            "system_default"
+          ]
+        },
+        "action": {
+          "enum": [
+            "accept",
+            "reject",
+            "correct",
+            "revise",
+            "reverse",
+            "resolve",
+            "defer"
+          ]
+        },
+        "user_message_ref": {
+          "$ref": "#/$defs/message_source"
+        },
+        "span": {
+          "$ref": "#/$defs/range"
+        },
+        "target_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/record_ref"
+          },
+          "minItems": 1
+        },
+        "selected_parts": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "prior_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/record_ref"
+          }
+        },
+        "result_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/record_ref"
+          }
+        },
+        "reason": {
+          "type": "string"
+        },
+        "affected_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/record_ref"
+          }
+        },
+        "review_required_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/record_ref"
+          }
+        }
+      },
+      "required": [
+        "id",
+        "kind",
+        "revision",
+        "previous_revision",
+        "source_refs",
+        "created_exchange_id",
+        "origin",
+        "action",
+        "user_message_ref",
+        "span",
+        "target_refs",
+        "selected_parts",
+        "prior_refs",
+        "result_refs",
+        "reason",
+        "affected_refs",
+        "review_required_refs"
+      ],
+      "additionalProperties": false
+    },
+    "question": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "kind": {
+          "const": "question"
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "previous_revision": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "source_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/source"
+          }
+        },
+        "created_exchange_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "origin": {
+          "enum": [
+            "supplied",
+            "interpreted",
+            "system_default"
+          ]
+        },
+        "text": {
+          "type": "string"
+        },
+        "related_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/record_ref"
+          }
+        },
+        "alternative_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        "state": {
+          "enum": [
+            "open",
+            "resolved"
+          ]
+        },
+        "resolution_decision_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "uuid"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "kind",
+        "revision",
+        "previous_revision",
+        "source_refs",
+        "created_exchange_id",
+        "origin",
+        "text",
+        "related_refs",
+        "alternative_ids",
+        "state",
+        "resolution_decision_id"
+      ],
+      "additionalProperties": false
+    },
+    "finding": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "kind": {
+          "const": "finding"
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "previous_revision": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "source_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/source"
+          }
+        },
+        "created_exchange_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "origin": {
+          "enum": [
+            "supplied",
+            "interpreted",
+            "system_default"
+          ]
+        },
+        "category": {
+          "enum": [
+            "motivation",
+            "chronology",
+            "knowledge",
+            "plot_dependency",
+            "world_rule",
+            "relationship"
+          ]
+        },
+        "assessment": {
+          "enum": [
+            "conflict",
+            "uncertainty",
+            "opportunity"
+          ]
+        },
+        "severity": {
+          "enum": [
+            "significant",
+            "advisory"
+          ]
+        },
+        "affected_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/record_ref"
+          }
+        },
+        "explanation": {
+          "type": "string"
+        },
+        "consequences": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "resolution_options": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "disposition": {
+          "enum": [
+            "open",
+            "rejected_idea",
+            "revised_idea",
+            "revised_canon",
+            "intentional",
+            "deferred",
+            "resolved"
+          ]
+        },
+        "decision_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        "narrative_explanation": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "kind",
+        "revision",
+        "previous_revision",
+        "source_refs",
+        "created_exchange_id",
+        "origin",
+        "category",
+        "assessment",
+        "severity",
+        "affected_refs",
+        "explanation",
+        "consequences",
+        "resolution_options",
+        "disposition",
+        "decision_ids",
+        "narrative_explanation"
+      ],
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "assessment": {
+                "const": "opportunity"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "severity": {
+                "const": "advisory"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "record": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/novel_project"
+        },
+        {
+          "$ref": "#/$defs/session"
+        },
+        {
+          "$ref": "#/$defs/idea"
+        },
+        {
+          "$ref": "#/$defs/story_element"
+        },
+        {
+          "$ref": "#/$defs/relationship"
+        },
+        {
+          "$ref": "#/$defs/assertion"
+        },
+        {
+          "$ref": "#/$defs/decision"
+        },
+        {
+          "$ref": "#/$defs/question"
+        },
+        {
+          "$ref": "#/$defs/finding"
+        }
+      ]
+    }
+  },
+  "$ref": "#/$defs/record"
+}
