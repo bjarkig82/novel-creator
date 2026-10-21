@@ -49,7 +49,11 @@ if bash .specify/scripts/bash/check-prerequisites.sh --json --require-spec --req
     echo 'ERROR: Missing tasks.md should fail prerequisite checks' >&2
     exit 1
 fi
-rg -q '\$speckit-tasks' "$fixture/error.txt"
+if command -v rg >/dev/null 2>&1; then
+    rg -q '\$speckit-tasks' "$fixture/error.txt"
+else
+    grep -Fq '$speckit-tasks' "$fixture/error.txt"
+fi
 printf '# Tasks\n' > specs/001-cloud-smoke/tasks.md
 bash .specify/scripts/bash/check-prerequisites.sh --json --require-spec --require-tasks --include-tasks > "$fixture/check.json"
 jq -e '.AVAILABLE_DOCS | index("tasks.md") != null' "$fixture/check.json" > /dev/null

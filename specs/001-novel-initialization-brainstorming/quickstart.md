@@ -1,17 +1,20 @@
 # Quickstart and Validation Guide
 
-Status: the persistence foundation and structural verification commands below
-are implemented. The numbered product journeys remain planned and blocked by
-the actual-host gate and their story implementation tasks. `init`, `session`,
-`context`, `inspect`, `validate` and `recover` currently return explicit unavailable
-errors; `exchange save` is implemented. Do not report planned journeys as executed
-acceptance tests or structural checks as proof of host behavior.
+Status: the scoped actual-host capture gate has passed. `init`, `session list`,
+`context`, `inspect`, `validate`, `exchange save` and explicit `recover` inspection/
+retry are implemented. Settings and session transitions use typed exchange
+revisions. Shared guidance/authority/continuity resources and English/Icelandic
+resource selection are present; their full creative-host, human, language and
+release evaluations remain incomplete. See [current usage](../../README.md) and
+[record format](../../docs/record-format.md). The numbered scenarios below remain
+acceptance procedures, not claims that every product/human evaluation has run.
 
 ## Prerequisites and installation verification
 
 Use Python >=3.11, Git >=2.39 with a configured local author identity, and a
 supported Codex host with filesystem/shell access to an independent novel folder.
-Run the release checks on Linux, macOS and Windows before claiming each platform.
+Run the release checks on Linux and Windows before claiming each platform.
+macOS support and verification are deferred from the current release.
 The host owns authentication and voice transcription; the tool needs no model key.
 Use disposable directories outside the framework repository for all examples.
 
@@ -41,8 +44,8 @@ bash tests/speckit-smoke.sh
 Before attempting product initialization, follow the disposable installed-fixture
 procedure in [host-capture.md](../../tests/evaluations/host-capture.md). The minimal
 fixture uses production persistence without implementing the stories. The actual
-host gate remains BLOCKED: synthetic turns and subprocess context readers cannot
-pass automatic-turn, genuine fresh-chat or display-interruption checks.
+host gate now has scoped real Desktop evidence; synthetic turns and subprocess
+context readers alone do not establish product creative quality or release readiness.
 
 ## 1. Planned first vertical slice and host capability gate
 
@@ -169,5 +172,5 @@ This guide separates current foundation checks from future product verification.
 A completed plan does not establish host
 capture, language quality, performance, accessibility or novice outcomes. Record
 their actual results during implementation and release review. Continue with
-`$speckit-implement` for available foundation work; dependent story work must wait
-for the actual-host gate. Do not treat this guide as release evidence.
+`$speckit-implement` for remaining story/evaluation work. The capture gate has
+passed within its documented scope. Do not treat this guide as release evidence.

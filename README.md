@@ -9,15 +9,78 @@ JSON schemas, source/authorization validation, atomic local saves and a disposab
 installed host-spike fixture. Saves preserve unrelated staged work and manuscript
 files; the tool does not push automatically.
 
-Novel initialization, brainstorming, session management, production context and
-inspection, and safe recovery are not implemented. Their CLI entries return an
-explicit unavailable error. Actual Codex capture remains **unverified** and blocks
-dependent story implementation; no host, bilingual workflow or feature release
-is claimed supported. See the [host evaluation](tests/evaluations/host-capture.md).
+Initialization, settings revisions, installed context/inspection/session listing
+and explicit pending/published recovery are implemented. Shared Codex workflows
+cover guided/open brainstorming, capture, authority and continuity; their new
+product-level creative judgments still need actual host and human evaluation.
+The actual Codex capture capability gate has **passed**
+for the tested Windows Desktop native-tool/text-input combination with scoped
+filesystem approval. Dependent story implementation can begin; bilingual workflow
+and feature release readiness remain unverified. See the [host evaluation](tests/evaluations/host-capture.md).
 
 ## Development
 
-For the manual host test and the remaining delivery milestones, see
+Create a UTF-8 brief JSON file. `{}` starts with no concept and unknown creative
+preferences. A supplied brief can combine answers:
+
+```json
+{"title":"Bréf","original_concept":"A keeper receives letters from tomorrow.","manuscript_language":"is","creative_brief":{"genre":"Mystery","tone":null},"review_preferences":{"routine_checkpoint":"on_request"}}
+```
+
+From the configured Python environment, initialize an explicit novel path outside
+the framework and every other Git repository:
+
+```powershell
+python -m novel_creator init --path C:\Novels\MyNovel --brief-file C:\Novels\brief.json --json
+python C:\Novels\MyNovel\.novel-creator\run.py context --novel C:\Novels\MyNovel --json
+python C:\Novels\MyNovel\.novel-creator\run.py session list --novel C:\Novels\MyNovel --json
+python C:\Novels\MyNovel\.novel-creator\run.py validate --novel C:\Novels\MyNovel --json
+```
+
+Use your own paths. Git needs an existing author/committer identity; installation
+does not invent one or alter global configuration. Unrelated occupied directories
+are refused. Existing AGENTS.md is preserved. Interrupted initialization retains
+its original brief/payload; retry with that unchanged brief and inspect any conflict.
+Repeated setup on a recognized novel offers continuation without replacing it.
+
+Open the new novel folder in Codex. Its installed `$novel-init`,
+`$novel-brainstorm`, `$novel-resume` and `$novel-inspect` entries load pinned shared
+workflows. Setup can finish before brainstorming. Start guided or request open
+exploration, change topics or ask for fewer suggestions. The host prepares typed
+session/capture revisions and saves every exact exchange before displaying it.
+Session start, resume, mode changes and closure are records in that same transaction.
+Python/jsonschema/jsonschema-rs remain required; no framework path, model key or dashboard is needed.
+
+Resume lists stable session IDs, restores saved focus/mode and offers any saved
+reply with display unconfirmed. Inspect source-backed records and history:
+
+```powershell
+python C:\Novels\MyNovel\.novel-creator\run.py inspect --novel C:\Novels\MyNovel --kind assertion --json
+python C:\Novels\MyNovel\.novel-creator\run.py recover --novel C:\Novels\MyNovel --exchange EXCHANGE_UUID --json
+python C:\Novels\MyNovel\.novel-creator\run.py recover --novel C:\Novels\MyNovel --exchange EXCHANGE_UUID --retry --expected-head CONFIRMED_HEAD --json
+```
+
+For a first unpublished bootstrap use `--expected-head unborn`. Inspection alone
+does not write. Explicit retry preserves the payload/IDs and published saves are
+cleaned without replay; stale checkpoints and changed managed files conflict.
+Held locks are disclosed and never silently stolen. On a save failure, pause
+authority and show the last confirmed checkpoint plus unsaved pending exchange.
+Default sandbox hard-link denials can require scoped filesystem approval.
+
+Clear acceptance establishes only selected facts. Ambiguity asks one focused
+question. Correct/revise/reverse explicitly, retaining prior versions, sources and
+direct impact for inspection. Contradictions cite sources and options; deferral
+keeps the idea unresolved and holds affected canon. Unavailable context is
+disclosed and revalidated after restoration. These changes never authorize
+manuscript edits. See [record ownership and compatibility](docs/record-format.md).
+
+The automated journeys verify storage and record behavior. Actual creative-host
+judgments, five-novice evaluations, full English/Icelandic semantic parity,
+representative performance and remaining platform/durability checks are still
+required before release. Voice capture/transcription and spoken output belong to
+the host; exact spoken-output fidelity is unverified.
+
+For verified commands and the remaining delivery milestones, see
 [Testing and completing the current feature](docs/testing-and-completion-guide.md).
 
 Requires Python >=3.11 and Git >=2.39. From this checkout:
@@ -98,3 +161,20 @@ can replace those instructions.
 
 Validate the Bash scripts in an isolated temporary checkout with
 `bash tests/speckit-smoke.sh` (requires `jq` and `rg` for assertions).
+
+### Optional validation cache
+
+For repeated reads/saves, `NOVEL_CREATOR_VALIDATION_KEY_FILE` may point to an
+existing private 32-byte cache key file at an absolute path outside the novel. The
+CLI only reads this runtime configuration; it never creates or modifies the key.
+With no key configured, full validation remains available.
+
+The cache under `.novel-creator/local/cache/` contains authenticated validation
+metadata bound to the exact Git snapshot, schemas and runtime. Records are read
+from Git and their object hashes are checked. Cache files can be deleted safely;
+the next read validates fully and rebuilds them. A changed snapshot/schema,
+malformed proof or novel-supplied key cannot bypass validation or authorize canon.
+
+The repeatable benchmark creates its own temporary external key and removes it
+afterward. `--no-validation-cache` measures the full-validation configuration.
+See [measured performance and platform limits](tests/evaluations/performance.md).

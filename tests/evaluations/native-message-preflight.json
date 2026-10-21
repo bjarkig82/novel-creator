@@ -1,0 +1,15 @@
+{
+  "recorded_at": "2026-10-21T17:12:37.057448+00:00",
+  "fixture": "C:\\Users\\BjarkiGunnarsson\\novel-creator-host-tests\\spike-03",
+  "purpose": "focused real Desktop native-message input parity check; not yet started",
+  "checkpoint": {
+    "git_head": "4ad16e6c487ce31d13beb5bc4cec54bebc4f222d",
+    "exchange_id": "77a48cc2-5768-4411-a09f-d20e9748161c",
+    "sequence": 1
+  },
+  "git_status_clean": true,
+  "checksums_verified": 13,
+  "adapter_sha256": "2df7e63dae711aa7acb8d44a1e4bcfac9978a6ea70709c22598d17230cfe6280",
+  "bootstrap_cleanup_required": false,
+  "gate_status": "BLOCKED pending actual host comparison; existing spike-02 B/C/D/E/F retained"
+}

@@ -112,7 +112,7 @@ if $PATHS_ONLY; then
     if $JSON_MODE; then
         # Minimal JSON paths payload (no validation performed)
         if has_jq; then
-            jq -cn \
+            MSYS2_ARG_CONV_EXCL='*' jq -cn \
                 --arg repo_root "$REPO_ROOT" \
                 --arg branch "$CURRENT_BRANCH" \
                 --arg feature_dir "$FEATURE_DIR" \
@@ -201,13 +201,13 @@ if $JSON_MODE; then
             json_docs=$(printf '%s\n' "${docs[@]}" | jq -R . | jq -s .)
         fi
         if [[ -n "$TEMPLATE_NAME" ]]; then
-            jq -cn \
+            MSYS2_ARG_CONV_EXCL='*' jq -cn \
                 --arg feature_dir "$FEATURE_DIR" \
                 --argjson docs "$json_docs" \
                 --arg template_content "$TEMPLATE_CONTENT" \
                 '{FEATURE_DIR:$feature_dir,AVAILABLE_DOCS:$docs,TEMPLATE_CONTENT:$template_content}'
         else
-            jq -cn \
+            MSYS2_ARG_CONV_EXCL='*' jq -cn \
                 --arg feature_dir "$FEATURE_DIR" \
                 --argjson docs "$json_docs" \
                 '{FEATURE_DIR:$feature_dir,AVAILABLE_DOCS:$docs}'

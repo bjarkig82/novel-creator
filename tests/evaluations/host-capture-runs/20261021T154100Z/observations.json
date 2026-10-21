@@ -1,0 +1,100 @@
+{
+  "recorded_at": "2026-10-21T15:42:10.836560+00:00",
+  "timezone": "Atlantic/Reykjavik",
+  "desktop": {
+    "version": "26.1016.51333",
+    "build": "21161",
+    "channel": "prod",
+    "source": "Codex app check_app_update tool"
+  },
+  "model": {
+    "label": "GPT-6.1 Sol",
+    "reasoning": "Medium",
+    "source": "human model-selector report in this chat",
+    "revision": null
+  },
+  "python": "3.13.13 (tags/v3.13.13:01104ce, Apr  7 2026, 19:25:48) [MSC v.1944 64 bit (AMD64)]",
+  "interpreter": "C:\\Users\\BjarkiGunnarsson\\source\\repos\\Personal\\novel-creator\\.venv\\Scripts\\python.exe",
+  "os": "Windows-11-10.0.26300-SP0",
+  "filesystem": "unverified",
+  "fixture": "C:\\Users\\BjarkiGunnarsson\\novel-creator-host-tests\\spike-20261021T154100Z",
+  "dependencies": {
+    "jsonschema": "4.26.0",
+    "attrs": "26.1.0",
+    "jsonschema-specifications": "2025.9.1",
+    "referencing": "0.37.0",
+    "rpds-py": "2026.6.3",
+    "typing_extensions": "4.16.0",
+    "novel-creator": "0.1.0"
+  },
+  "git-version": {
+    "exit_code": 0,
+    "stdout": "git version 2.53.0.windows.3\n",
+    "stderr": ""
+  },
+  "framework-head": {
+    "exit_code": 0,
+    "stdout": "b46e67185596b6193cc32f240fc1aac160e01d51\n",
+    "stderr": ""
+  },
+  "fixture-head": {
+    "exit_code": 0,
+    "stdout": "411b27a2635c1d6394d55f624c87f85b75f6ae60\n",
+    "stderr": ""
+  },
+  "fixture-status": {
+    "exit_code": 0,
+    "stdout": "D  story/exchanges/000001-126934f0-4f30-464b-8988-3aa6a289f706.json\n?? story/\n",
+    "stderr": ""
+  },
+  "fixture-log": {
+    "exit_code": 0,
+    "stdout": "411b27a2635c1d6394d55f624c87f85b75f6ae60 Save story exchange 126934f0-4f30-464b-8988-3aa6a289f706\n5661b3b18b64b4d2bbc5083e94333a85010fe88a Install disposable host-spike fixture\n",
+    "stderr": ""
+  },
+  "fixture-context": {
+    "exit_code": 0,
+    "stdout": "{\"fixture_only\": true, \"checkpoint\": {\"git_head\": \"411b27a2635c1d6394d55f624c87f85b75f6ae60\", \"exchange_id\": \"126934f0-4f30-464b-8988-3aa6a289f706\", \"sequence\": 1}, \"saved_messages\": [], \"display_confirmed\": false}\r\n",
+    "stderr": ""
+  },
+  "manifest_sha256": "3af30c42df1259ff83016817bd98f3fbeefc5ff64c72f5bddca65118a9f07240",
+  "manifest_verification": {
+    ".novel-creator\\run.py": true,
+    ".novel-creator\\src\\fixture-context.py": true,
+    ".novel-creator\\src\\fixture-prepare.py": true,
+    ".novel-creator\\src\\novel_creator\\cli.py": true,
+    ".novel-creator\\src\\novel_creator\\records.py": true,
+    ".novel-creator\\src\\novel_creator\\storage.py": true,
+    ".novel-creator\\src\\novel_creator\\validation.py": true,
+    ".novel-creator\\src\\novel_creator\\__init__.py": true,
+    ".novel-creator\\src\\novel_creator\\__main__.py": true,
+    ".novel-creator\\src\\novel_creator\\schemas\\__init__.py": true,
+    ".novel-creator\\src\\novel_creator\\schemas\\v1\\exchange.schema.json": true,
+    ".novel-creator\\src\\novel_creator\\schemas\\v1\\records.schema.json": true,
+    ".novel-creator\\src\\novel_creator\\schemas\\v1\\__init__.py": true
+  },
+  "local_receipt_files": [
+    "126934f0-4f30-464b-8988-3aa6a289f706.json"
+  ],
+  "setup_result": {
+    "ok": true,
+    "operation": "exchange.save",
+    "novel_id": "56e54926-21c4-40f2-8ce5-18880f807190",
+    "data": {
+      "saved": true,
+      "already_saved": false,
+      "cleanup_required": true
+    },
+    "warnings": [
+      "Saved; managed index recovery required"
+    ],
+    "checkpoint": {
+      "git_head": "411b27a2635c1d6394d55f624c87f85b75f6ae60",
+      "exchange_id": "126934f0-4f30-464b-8988-3aa6a289f706",
+      "sequence": 1
+    }
+  },
+  "setup_result_source": "Exact JSON fields transcribed from setup.py stdout tool receipt; process exit 0.",
+  "human_display_evidence": "None; cases A-F not started. No screenshots or display-order observations collected.",
+  "sandbox_context_caveat": "A non-escalated read returned null checkpoint while git reported Permission denied. Discard as checkpoint evidence; use the captured normal-access context only."
+}

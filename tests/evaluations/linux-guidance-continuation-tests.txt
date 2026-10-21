@@ -1,0 +1,6 @@
+test_installed_turns_preserve_mode_topic_preferences_and_exact_messages (tests.integration.test_guidance_journey.GuidanceJourney.test_installed_turns_preserve_mode_topic_preferences_and_exact_messages) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 1.808s
+
+OK

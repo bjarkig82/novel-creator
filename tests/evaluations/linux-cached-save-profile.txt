@@ -1,0 +1,33 @@
+         3150942 function calls (3150049 primitive calls) in 2.128 seconds
+
+   Ordered by: cumulative time
+   List reduced from 404 to 25 due to restriction <25>
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.000    0.000    2.128    2.128 benchmark_records.py:87(worker)
+        1    0.016    0.016    1.554    1.554 storage.py:535(save)
+        1    0.003    0.003    1.538    1.538 storage.py:377(_save)
+        2    0.035    0.018    1.134    0.567 storage.py:167(read_snapshot)
+        2    0.020    0.010    0.825    0.413 storage.py:298(check_managed)
+    10012    0.039    0.000    0.618    0.000 storage.py:66(safe_path)
+       33    0.001    0.000    0.583    0.018 storage.py:27(git)
+       33    0.000    0.000    0.580    0.018 subprocess.py:506(run)
+        1    0.002    0.002    0.571    0.571 storage.py:163(read_history)
+       33    0.000    0.000    0.562    0.017 subprocess.py:1165(communicate)
+       33    0.039    0.001    0.562    0.017 subprocess.py:2062(_communicate)
+    10004    0.010    0.000    0.482    0.000 __init__.py:299(loads)
+    17313    0.029    0.000    0.459    0.000 selectors.py:402(select)
+    10004    0.011    0.000    0.453    0.000 decoder.py:332(decode)
+    10004    0.433    0.000    0.433    0.000 decoder.py:343(raw_decode)
+    17313    0.424    0.000    0.424    0.000 {method 'poll' of 'select.poll' objects}
+    10002    0.019    0.000    0.411    0.000 storage.py:141(_batch_blobs)
+    30039    0.013    0.000    0.366    0.000 pathlib.py:911(is_symlink)
+    40067    0.007    0.000    0.360    0.000 pathlib.py:837(stat)
+    40072    0.049    0.000    0.353    0.000 {built-in method posix.stat}
+    30039    0.006    0.000    0.350    0.000 pathlib.py:844(lstat)
+    60198    0.038    0.000    0.316    0.000 pathlib.py:437(__str__)
+    40126    0.010    0.000    0.305    0.000 pathlib.py:447(__fspath__)
+    60126    0.022    0.000    0.293    0.000 pathlib.py:551(drive)
+    40075    0.030    0.000    0.271    0.000 pathlib.py:407(_load_parts)
+
+

@@ -5,17 +5,19 @@ The lock serializes this tool, not arbitrary external Git operations.
 """
 from contextlib import contextmanager
 import hashlib
+import io
 import json
 import os
 from pathlib import Path, PurePosixPath
 import re
 import shutil
+import stat
 import subprocess
 import sys
 import tempfile
 import uuid
 
-from . import records, validation
+from . import records, validation, validation_cache
 from .cli import ToolError
 
 
@@ -62,7 +64,7 @@ def root_path(root):
     return path
 
 
-def safe_path(root, relative, *, setup=False):
+def safe_path(root, relative, *, setup=False, _regular_leaf=False):
     """Allow only fixed managed locations; check each existing path component."""
     path = PurePosixPath(relative)
     if (not relative or path.is_absolute() or '..' in path.parts or '\\' in relative or
@@ -71,19 +73,28 @@ def safe_path(root, relative, *, setup=False):
     allowed = (BUNDLE.fullmatch(relative) or relative.startswith('.novel-creator/local/') or
                relative == '.novel-creator/manifest.json')
     if setup:
-        allowed = allowed or (relative in ('.gitignore', '.gitattributes') or
+        allowed = allowed or (relative in ('.gitignore', '.gitattributes', 'AGENTS.md') or
                     relative.startswith(('.novel-creator/src/', '.novel-creator/schemas/',
                      '.novel-creator/workflows/', '.novel-creator/languages/')) or
                     relative == '.novel-creator/run.py' or
                     bool(re.fullmatch(r'\.agents/skills/novel-[a-z-]+/SKILL\.md', relative)))
     if not allowed:
         raise ToolError(2, 'Write is outside the managed allowlist')
-    current = Path(root)
-    for part in path.parts:
-        current = current / part
-        if current.is_symlink():
+    current = os.fspath(root)
+    parts = path.parts
+    for index, part in enumerate(parts):
+        current = os.path.join(current, part)
+        try:
+            mode = os.lstat(current).st_mode
+        except FileNotFoundError:
+            if _regular_leaf and index == len(parts) - 1:
+                raise ToolError(3, 'Managed file is missing or has an unsafe mode')
+            continue
+        if stat.S_ISLNK(mode):
             raise ToolError(2, 'Symlink in managed path')
-    return current
+        if _regular_leaf and index == len(parts) - 1 and not stat.S_ISREG(mode):
+            raise ToolError(3, 'Managed file is missing or has an unsafe mode')
+    return Path(current)
 
 
 def bundle_path(bundle):
@@ -137,23 +148,67 @@ def _prefix_checkpoint(root, history, commit, entries):
     return confirmed
 
 
+def _batch_blobs(root, entries, paths):
+    """One snapshot-bound Git request, with binary lengths and per-path failures."""
+    if not paths:
+        return
+    result = git(root, 'cat-file', '--batch', input=''.join(entries[p][1] + '\n' for p in paths).encode(), check=False)
+    stream = io.BytesIO(result.stdout)
+    for path in paths:
+        try:
+            header = stream.readline().decode('ascii').strip().split()
+            if len(header) != 3 or header[0] != entries[path][1] or header[1] != 'blob':
+                raise ValueError('Unavailable blob')
+            size = int(header[2])
+            if size < 0:
+                raise ValueError('Invalid blob size')
+            raw = stream.read(size)
+            if len(raw) != size or stream.read(1) != b'\n':
+                raise ValueError('Truncated blob')
+            yield path, raw
+        except (UnicodeError, ValueError):
+            yield path, ToolError(4, 'Committed exchange blob is unavailable', affected_refs=[path])
+
+
 def read_history(root, commit=None):
+    return read_snapshot(root, commit)[0]
+
+
+def read_snapshot(root, commit=None):
+    """Return the validated prefix and its ephemeral indexes from one Git tree."""
     root = Path(root)
     commit = commit or head(root)
     history = []
+    chain = validation.ExchangeValidator()
     entries = committed_entries(root, commit)
-    for path in sorted(p for p in entries if p.startswith('story/exchanges/')):
+    certified = validation_cache.trusted(root, commit, entries)
+    chain.cache_hit = certified
+    paths = sorted(p for p in entries if p.startswith('story/exchanges/'))
+    for path, raw in _batch_blobs(root, entries, paths):
         try:
             if not BUNDLE.fullmatch(path) or entries[path][0] != '100644':
                 raise ToolError(4, 'Invalid committed exchange path or file mode', affected_refs=[path])
-            value = records.loads(git(root, 'cat-file', 'blob', entries[path][1]))
+            if isinstance(raw, ToolError):
+                raise raw
+            if certified:
+                oid = entries[path][1]
+                algorithm = 'sha256' if len(oid) == 64 else 'sha1'
+                actual = hashlib.new(algorithm, b'blob ' + str(len(raw)).encode() + b'\0' + raw).hexdigest()
+                if actual != oid:
+                    raise ToolError(4, 'Committed exchange object hash differs from validated snapshot', affected_refs=[path])
+                value = json.loads(raw)
+            else:
+                value = records.loads(raw)
             if not isinstance(value, dict):
                 raise ValueError('Exchange must be an object')
             if value.get('schema_version') != '1.0':
                 raise ToolError(4, 'Unsupported exchange schema', affected_refs=[path])
-            validation.validate_exchange(value, history)
             if bundle_path(value) != path:
                 raise ValueError('Exchange filename mismatch')
+            if certified:
+                chain._append_certified(value)
+            else:
+                chain._append_owned(value)
         except (ToolError, ValueError, TypeError, KeyError) as cause:
             error = cause if isinstance(cause, ToolError) else ToolError(4, 'Committed exchange context is unreadable')
             error.affected_refs = error.affected_refs or [path]
@@ -162,7 +217,9 @@ def read_history(root, commit=None):
                 raise
             raise error from cause
         history.append(value)
-    return history
+    if not certified:
+        validation_cache.remember(root, commit, entries)
+    return history, chain
 
 
 def read_receipt(root, path):
@@ -250,21 +307,36 @@ def index_entries(root, paths):
 
 def check_managed(root, commit, paths):
     entries = committed_entries(root, commit)
+    indexed = {}
+    for entry in index_entries(root, []).split(b'\0'):
+        if entry:
+            _, path_bytes = entry.split(b'\t', 1)
+            path = path_bytes.decode('utf-8')
+            indexed[path] = indexed.get(path, b'') + entry + b'\0'
+    managed = []
     for path, (mode, oid) in entries.items():
         if path.startswith(('story/exchanges/', '.novel-creator/')) and not path.startswith('.novel-creator/local/'):
-            target = safe_path(root, path, setup=True)
-            if mode != '100644' or not target.is_file():
+            target = safe_path(root, path, setup=True, _regular_leaf=True)
+            if mode != '100644':
                 raise ToolError(3, 'Managed file is missing or has an unsafe mode')
-            current = git(root, 'hash-object', '--no-filters', '--', str(target)).decode().strip()
-            if current != oid:
-                raise ToolError(3, 'Managed working file changed outside the exchange transaction')
             baseline = f'100644 {oid} 0\t{path}\0'.encode()
-            if index_entries(root, [path]) != baseline:
+            if indexed.get(path, b'') != baseline:
                 raise ToolError(3, 'Managed index entry changed outside the transaction')
+            managed.append((target, oid))
+    if managed:
+        # Git's native reader avoids Python open() overhead for every file while
+        # hashing every byte, including same-size/mtime edits. C quoting protects
+        # spaces, quotes and non-ASCII paths in the stdin-paths protocol.
+        payload = ''.join(json.dumps(target.as_posix(), ensure_ascii=False) + '\n' for target, _ in managed).encode()
+        hashes = git(root, 'hash-object', '--no-filters', '--stdin-paths', input=payload).decode().splitlines()
+        if len(hashes) != len(managed):
+            raise ToolError(5, 'Managed file hashing returned an incomplete result')
+        if any(current != oid for current, (_, oid) in zip(hashes, managed)):
+            raise ToolError(3, 'Managed working file changed outside the exchange transaction')
     for path in paths:
         if path in entries:
             raise ToolError(3, 'Exchange path already exists in confirmed history')
-        if index_entries(root, [path]):
+        if indexed.get(path, b''):
             raise ToolError(3, 'New managed exchange has incompatible staged contents')
 
 
@@ -293,7 +365,9 @@ def sync_index(root, paths, baseline, commit):
         entries = committed_entries(root, commit)
         payload = b''.join(f'{entries[p][0]} {entries[p][1]} 0\t{p}\0'.encode() for p in paths)
         git(root, 'update-index', '-z', '--index-info', input=payload, env={'GIT_INDEX_FILE': str(lock)})
-        with lock.open('rb') as stream:
+        # Windows FlushFileBuffers requires write access; a read-only descriptor
+        # makes an otherwise published save permanently need index recovery.
+        with lock.open('r+b') as stream:
             os.fsync(stream.fileno())
         os.replace(lock, index)
         fsync_directory(index.parent)
@@ -323,7 +397,7 @@ def _save(root, bundle, *, fault=None):
         try:
             reference = branch(root)
             initial = head(root)
-            history = read_history(root, initial)
+            history, chain = read_snapshot(root, initial)
             confirmed = checkpoint(root, history, initial)
             for old in history:
                 if old['exchange_id'] == pending_id:
@@ -353,7 +427,7 @@ def _save(root, bundle, *, fault=None):
                                 expected_head=bundle.get('expected_git_head'), actual_head=initial)
             if bundle.get('schema_version') != '1.0':
                 raise ToolError(4, 'Unsupported exchange schema')
-            validation.validate_exchange(bundle, history)
+            chain.append(bundle)
             manifest_path = safe_path(root, '.novel-creator/manifest.json')
             manifest = records.loads(manifest_path.read_bytes())
             if manifest.get('novel_id') != bundle['novel_id']:
@@ -451,6 +525,7 @@ def _save(root, bundle, *, fault=None):
                 state['cleanup_required'] = False
                 fault('before_receipt')
                 atomic_json(receipt, state)
+                validation_cache.remember(root, candidate, candidate_entries)
                 return success(bundle, candidate)
             except (OSError, ToolError):
                 return success(bundle, candidate, cleanup=True, warnings=['Saved; managed index recovery required'])
@@ -493,3 +568,106 @@ def save(root, bundle, *, fault=None):
             pass
         raise ToolError(5, 'Writer lock cleanup failed; inspect recovery',
                         pending=bundle.get('exchange_id') if isinstance(bundle, dict) else None) from error
+
+
+def recover(root, exchange_id, *, retry=False, expected_head=None):
+    """Inspect freely; retry publishes unchanged work or finishes managed cleanup.
+
+    Never remove a writer lock, reset a ref, or replay a published bundle.
+    """
+    root = root_path(root)
+    try:
+        if str(uuid.UUID(exchange_id)) != exchange_id:
+            raise ValueError()
+    except (ValueError, TypeError, AttributeError) as error:
+        raise ToolError(2, 'Recovery requires an exchange UUID') from error
+    initial = head(root)
+    history = read_history(root, initial)
+    confirmed = checkpoint(root, history, initial)
+    receipt_path = safe_path(root, f'.novel-creator/local/{exchange_id}.json')
+    receipt = read_receipt(root, receipt_path) if receipt_path.exists() else None
+    bundle = next((b for b in history if b['exchange_id'] == exchange_id), None)
+    published = bundle is not None
+    if bundle is None and receipt:
+        bundle = receipt['bundle']
+        try:
+            if bundle['exchange_id'] != exchange_id:
+                raise ValueError('Receipt identity mismatch')
+            validation.validate_exchange(bundle, history)
+        except (ValueError, TypeError, KeyError) as error:
+            raise ToolError(4, 'Pending payload is unavailable', checkpoint=confirmed, pending=exchange_id) from error
+    if bundle is None:
+        raise ToolError(4, 'No saved or pending exchange with this identity', checkpoint=confirmed)
+    paths = [bundle_path(bundle)]
+    saved_commit = None
+    if published:
+        saved_commit = git(root, 'log', '-1', '--format=%H', initial, '--', paths[0]).decode().strip()
+        if bundle['expected_git_head'] is None:
+            manifest = records.loads(git(root, 'show', saved_commit + ':.novel-creator/manifest.json'))
+            paths += ['.novel-creator/manifest.json', '.gitignore'] + manifest.get('managed_paths', [])
+    elif receipt:
+        paths = receipt['paths']
+    paths = sorted(set(paths))
+    for path in paths:
+        safe_path(root, path, setup=True)
+    cleanup = False
+    if published:
+        entries = committed_entries(root, saved_commit)
+        try:
+            desired = b''.join(f'{entries[p][0]} {entries[p][1]} 0\t{p}\0'.encode() for p in paths)
+        except KeyError as error:
+            raise ToolError(4, 'Saved recovery scope is unavailable', checkpoint=confirmed) from error
+        cleanup = index_entries(root, paths) != desired or bool(receipt and receipt.get('cleanup_required'))
+    held = safe_path(root, '.novel-creator/local/write.lock').exists()
+    report = {'ok': True, 'operation': 'recover', 'novel_id': bundle['novel_id'],
+              'checkpoint': confirmed, 'warnings': [], 'data': {
+                  'state': 'cleanup_needed' if cleanup else ('published' if published else 'pending'),
+                  'saved': published, 'cleanup_required': cleanup, 'writer_lock_held': held,
+                  'exchange_id': exchange_id, 'saved_response_display': 'unconfirmed',
+                  'saved_response': next((m['text'] for m in bundle['messages'] if m['role'] == 'assistant'), None) if published else None,
+                  'next_action': 'Inspect lock ownership; never remove a live lock' if held else
+                                 ('Explicit unchanged retry required' if cleanup or not published else 'Continue from saved context')}}
+    if not retry:
+        return report
+    actual_expected = None if expected_head == 'unborn' else expected_head
+    if actual_expected != initial:
+        raise ToolError(3, 'Recovery checkpoint changed', checkpoint=confirmed, pending=exchange_id,
+                        expected_head=actual_expected, actual_head=initial)
+    if not published:
+        result = save(root, bundle)
+        result['operation'] = 'recover'
+        return result
+    with writer_lock(root, pending=exchange_id):
+        if head(root) != initial:
+            raise ToolError(3, 'Recovery checkpoint advanced', checkpoint=confirmed, pending=exchange_id)
+        if not cleanup:
+            result = success(bundle, saved_commit, already=True)
+            result['operation'] = 'recover'
+            return result
+        if initial != saved_commit:
+            raise ToolError(3, 'Published cleanup requires inspection after branch advancement', checkpoint=confirmed)
+        current = index_entries(root, paths)
+        if receipt:
+            if receipt['bundle'] != bundle or receipt['branch'] != branch(root):
+                raise ToolError(3, 'Recovery receipt changed', checkpoint=confirmed)
+            baseline = receipt['baseline_index'].encode()
+        else:
+            prior_entries = committed_entries(root, bundle['expected_git_head'])
+            baseline = b''.join(f'{prior_entries[p][0]} {prior_entries[p][1]} 0\t{p}\0'.encode()
+                                for p in paths if p in prior_entries)
+        if current not in (baseline, desired):
+            raise ToolError(3, 'Managed index changed; cleanup would overwrite staged work', checkpoint=confirmed)
+        for path in paths:
+            target = safe_path(root, path, setup=True)
+            if not target.is_file() or git(root, 'hash-object', '--no-filters', '--', str(target)).decode().strip() != entries[path][1]:
+                raise ToolError(3, 'Managed working file changed; cleanup paused', checkpoint=confirmed, affected_refs=[path])
+        try:
+            sync_index(root, paths, current, saved_commit)
+            if receipt:
+                receipt.update(state='published', cleanup_required=False)
+                atomic_json(receipt_path, receipt)
+        except (OSError, ToolError) as error:
+            raise ToolError(5, 'Saved checkpoint retained; index cleanup still required', checkpoint=confirmed, pending=exchange_id) from error
+        result = success(bundle, saved_commit, already=True)
+        result['operation'] = 'recover'
+        return result

@@ -1,0 +1,43 @@
++ set -euo pipefail
++++ dirname tests/speckit-smoke.sh
+++ CDPATH=
+++ cd tests/..
+++ pwd
++ repo_root=/c/Users/BjarkiGunnarsson/source/repos/Personal/novel-creator
+++ mktemp -d
++ fixture=/tmp/tmp.9jU6C2dkIM
++ trap 'rm -rf "$fixture"' EXIT
++ mkdir -p '/tmp/tmp.9jU6C2dkIM/repo with spaces'
++ cp -R /c/Users/BjarkiGunnarsson/source/repos/Personal/novel-creator/.specify '/tmp/tmp.9jU6C2dkIM/repo with spaces/'
++ cd '/tmp/tmp.9jU6C2dkIM/repo with spaces'
++ rm -f .specify/feature.json
++ unset SPECIFY_FEATURE_DIRECTORY SPECIFY_FEATURE SPECIFY_INIT_DIR
++ for script in .specify/scripts/bash/*.sh
++ bash -n .specify/scripts/bash/check-prerequisites.sh
++ for script in .specify/scripts/bash/*.sh
++ bash -n .specify/scripts/bash/common.sh
++ for script in .specify/scripts/bash/*.sh
++ bash -n .specify/scripts/bash/create-new-feature.sh
++ for script in .specify/scripts/bash/*.sh
++ bash -n .specify/scripts/bash/resolve-template.sh
++ for script in .specify/scripts/bash/*.sh
++ bash -n .specify/scripts/bash/setup-plan.sh
++ for script in .specify/scripts/bash/*.sh
++ bash -n .specify/scripts/bash/setup-tasks.sh
++ for name in check-prerequisites create-new-feature resolve-template setup-plan setup-tasks
++ bash .specify/scripts/bash/check-prerequisites.sh --help
++ for name in check-prerequisites create-new-feature resolve-template setup-plan setup-tasks
++ bash .specify/scripts/bash/create-new-feature.sh --help
++ for name in check-prerequisites create-new-feature resolve-template setup-plan setup-tasks
++ bash .specify/scripts/bash/resolve-template.sh --help
++ for name in check-prerequisites create-new-feature resolve-template setup-plan setup-tasks
++ bash .specify/scripts/bash/setup-plan.sh --help
++ for name in check-prerequisites create-new-feature resolve-template setup-plan setup-tasks
++ bash .specify/scripts/bash/setup-tasks.sh --help
++ bash .specify/scripts/bash/resolve-template.sh spec-template --json
++ jq -e '.TEMPLATE_NAME == "spec-template" and (.TEMPLATE_CONTENT | length > 0)' /tmp/tmp.9jU6C2dkIM/template.json
++ export SPECIFY_FEATURE_DIRECTORY=specs/001-cloud-smoke
++ SPECIFY_FEATURE_DIRECTORY=specs/001-cloud-smoke
++ bash .specify/scripts/bash/check-prerequisites.sh --json --paths-only
++ jq -e '.FEATURE_DIR | startswith("/") and endswith("/specs/001-cloud-smoke")' /tmp/tmp.9jU6C2dkIM/paths.json
++ rm -rf /tmp/tmp.9jU6C2dkIM

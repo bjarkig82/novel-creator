@@ -1,0 +1,142 @@
+{
+  "source": "Actual fresh Desktop chat and committed fixture; no whitespace normalization.",
+  "thread_id": "01a15f97-8f21-70c0-8254-f2c5a88031de",
+  "turn_id": "01a15f97-a601-7103-8abf-175f2a5096a0",
+  "checkpoint": {
+    "git_head": "bc7318a0d534b8e21600cedc669d67661e8daf34",
+    "exchange_id": "1e9054a1-f963-4a15-9b8e-35e0d32fe837",
+    "sequence": 2
+  },
+  "native_input_file": "C:\\Users\\BjarkiGunnarsson\\novel-creator-host-tests\\spike-03\\.novel-creator\\local\\evidence\\native-user-message.json",
+  "native_object_equal": true,
+  "native_payload_committed_user_text_equal": true,
+  "exact_assistant_final_equal": true,
+  "native_save_event_precedes_final": true,
+  "terminal_lf_preserved": true,
+  "user_text_sha256": "c0c7dfadd7d293f7172596d51c3a75c4a713a6a71fa4d67f9e9dd73449e367ed",
+  "assistant_text_sha256": "45e008fdef3ab449a36a7856be9cc58b8125ac75fed062f3638efa833c0437fa",
+  "checksums_verified": 13,
+  "git_status_clean": true,
+  "history": [
+    {
+      "schema_version": "1.0",
+      "novel_id": "718bad8c-fea3-4695-bccd-c2d403037b6e",
+      "exchange_id": "77a48cc2-5768-4411-a09f-d20e9748161c",
+      "sequence": 1,
+      "previous_exchange_id": null,
+      "previous_digest": null,
+      "session_id": null,
+      "expected_git_head": "2b5d1be776968bc8d1f31066b6e659efada85cfa",
+      "recorded_at": "2026-10-21T17:11:52.922963Z",
+      "operation": "bootstrap",
+      "messages": [],
+      "input_artifacts": [],
+      "record_versions": [],
+      "continuity_review": {
+        "coverage": "not_applicable",
+        "reviewed_record_refs": [],
+        "unavailable_refs": [],
+        "canon_hold_refs": [],
+        "finding_ids": [],
+        "summary": "Disposable host fixture bootstrap"
+      },
+      "payload_digest": "068b6d43e494beec839317983e61d564bdb33d3412abebc19a5199c0b5cbe6f6"
+    },
+    {
+      "schema_version": "1.0",
+      "novel_id": "718bad8c-fea3-4695-bccd-c2d403037b6e",
+      "exchange_id": "1e9054a1-f963-4a15-9b8e-35e0d32fe837",
+      "sequence": 2,
+      "previous_exchange_id": "77a48cc2-5768-4411-a09f-d20e9748161c",
+      "previous_digest": "068b6d43e494beec839317983e61d564bdb33d3412abebc19a5199c0b5cbe6f6",
+      "session_id": null,
+      "expected_git_head": "4ad16e6c487ce31d13beb5bc4cec54bebc4f222d",
+      "recorded_at": "2026-10-21T17:52:58.079416Z",
+      "operation": "conversation",
+      "messages": [
+        {
+          "message_id": "3507d377-1e69-4d02-8730-ad10e4f86943",
+          "role": "user",
+          "text": "Run the focused message-capture check described in AGENTS.md.\n\nUse this Python executable:\nC:\\Users\\BjarkiGunnarsson\\source\\repos\\Personal\\novel-creator\\.venv\\Scripts\\python.exe\n\nSave before displaying this exact reply:\nNative capture is ready.\n"
+        },
+        {
+          "message_id": "87ef93a5-bdd5-4e55-9d59-efbcf89c7612",
+          "role": "assistant",
+          "text": "Native capture is ready."
+        }
+      ],
+      "input_artifacts": [],
+      "record_versions": [],
+      "continuity_review": {
+        "coverage": "not_applicable",
+        "reviewed_record_refs": [],
+        "unavailable_refs": [],
+        "canon_hold_refs": [],
+        "finding_ids": [],
+        "summary": "Host protocol fixture only; no canon or narrative judgment"
+      },
+      "payload_digest": "1197b57c54e681fc9471f479bfc67705f4ddf7d952361e410cdb23ccf8d682d0"
+    }
+  ],
+  "receipt": {
+    "state": "published",
+    "bundle": {
+      "schema_version": "1.0",
+      "novel_id": "718bad8c-fea3-4695-bccd-c2d403037b6e",
+      "exchange_id": "1e9054a1-f963-4a15-9b8e-35e0d32fe837",
+      "sequence": 2,
+      "previous_exchange_id": "77a48cc2-5768-4411-a09f-d20e9748161c",
+      "previous_digest": "068b6d43e494beec839317983e61d564bdb33d3412abebc19a5199c0b5cbe6f6",
+      "session_id": null,
+      "expected_git_head": "4ad16e6c487ce31d13beb5bc4cec54bebc4f222d",
+      "recorded_at": "2026-10-21T17:52:58.079416Z",
+      "operation": "conversation",
+      "messages": [
+        {
+          "message_id": "3507d377-1e69-4d02-8730-ad10e4f86943",
+          "role": "user",
+          "text": "Run the focused message-capture check described in AGENTS.md.\n\nUse this Python executable:\nC:\\Users\\BjarkiGunnarsson\\source\\repos\\Personal\\novel-creator\\.venv\\Scripts\\python.exe\n\nSave before displaying this exact reply:\nNative capture is ready.\n"
+        },
+        {
+          "message_id": "87ef93a5-bdd5-4e55-9d59-efbcf89c7612",
+          "role": "assistant",
+          "text": "Native capture is ready."
+        }
+      ],
+      "input_artifacts": [],
+      "record_versions": [],
+      "continuity_review": {
+        "coverage": "not_applicable",
+        "reviewed_record_refs": [],
+        "unavailable_refs": [],
+        "canon_hold_refs": [],
+        "finding_ids": [],
+        "summary": "Host protocol fixture only; no canon or narrative judgment"
+      },
+      "payload_digest": "1197b57c54e681fc9471f479bfc67705f4ddf7d952361e410cdb23ccf8d682d0"
+    },
+    "branch": "refs/heads/main",
+    "expected_head": "4ad16e6c487ce31d13beb5bc4cec54bebc4f222d",
+    "paths": [
+      "story/exchanges/000002-1e9054a1-f963-4a15-9b8e-35e0d32fe837.json"
+    ],
+    "baseline_index": "",
+    "cleanup_required": false,
+    "candidate": "bc7318a0d534b8e21600cedc669d67661e8daf34"
+  },
+  "native_user_message": {
+    "type": "userMessage",
+    "id": "01a15f97-b3af-75d0-92bf-a9815bcd12fe",
+    "content": [
+      {
+        "type": "text",
+        "text": "Run the focused message-capture check described in AGENTS.md.\n\nUse this Python executable:\nC:\\Users\\BjarkiGunnarsson\\source\\repos\\Personal\\novel-creator\\.venv\\Scripts\\python.exe\n\nSave before displaying this exact reply:\nNative capture is ready.\n"
+      }
+    ]
+  },
+  "limitations": [
+    "Initial native source JSON placed in receipt directory caused code 4; chat moved source into evidence and retained payload.",
+    "Sandbox publication failed safely; native scoped normal-filesystem retry saved unchanged payload before final display.",
+    "New input-path selection is verified here; B/C/D/E/F are retained from spike-02, not rerun in spike-03."
+  ]
+}

@@ -1,0 +1,32 @@
+         3291756 function calls (3057495 primitive calls) in 15.814 seconds
+
+   Ordered by: cumulative time
+   List reduced from 411 to 24 due to restriction <24>
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.000    0.000   15.816   15.816 benchmark_records.py:85(worker)
+        1    0.000    0.000   14.909   14.909 storage.py:514(save)
+        1    0.001    0.001   14.909   14.909 storage.py:357(_save)
+        2    0.041    0.021   13.012    6.506 storage.py:283(check_managed)
+     2004    0.011    0.000   11.316    0.006 _abc.py:621(read_bytes)
+     2006    0.004    0.000   11.157    0.006 _local.py:529(open)
+     2077   11.152    0.005   11.154    0.005 {built-in method _io.open}
+       65    0.000    0.000    2.113    0.033 threading.py:1059(join)
+       65    0.005    0.000    2.021    0.031 {method 'join' of '_thread._ThreadHandle' objects}
+       31    0.002    0.000    1.824    0.059 storage.py:27(git)
+       31    0.001    0.000    1.814    0.059 subprocess.py:512(run)
+        2    0.007    0.003    1.664    0.832 storage.py:167(read_snapshot)
+       31    0.000    0.000    1.604    0.052 subprocess.py:1178(communicate)
+       31    0.001    0.000    1.597    0.052 subprocess.py:1623(_communicate)
+    65/31    0.000    0.000    1.589    0.051 threading.py:1001(_bootstrap)
+    65/31    0.020    0.000    1.589    0.051 threading.py:1028(_bootstrap_inner)
+    65/31    0.001    0.000    1.579    0.051 threading.py:984(run)
+    62/31    0.000    0.000    1.484    0.048 subprocess.py:1614(_readerthread)
+  186/160    0.002    0.000    1.411    0.009 {method 'close' of '_io.BufferedReader' objects}
+     8040    0.004    0.000    1.263    0.000 _local.py:510(stat)
+     8040    1.136    0.000    1.258    0.000 {built-in method nt.stat}
+     2009    0.035    0.000    1.214    0.001 storage.py:66(safe_path)
+     6027    0.007    0.000    1.041    0.000 _abc.py:513(is_symlink)
+     6027    0.004    0.000    1.032    0.000 _abc.py:432(lstat)
+
+

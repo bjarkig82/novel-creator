@@ -10,6 +10,49 @@ from tests.helpers import repository, git, envelope, seal, FailAt, uid
 
 
 class StorageTests(unittest.TestCase):
+    def test_byte_hash_guard_rejects_same_size_same_timestamp_edits_for_both_git_formats(self):
+        for object_format in ('sha1', 'sha256'):
+            with self.subTest(object_format=object_format), repository(object_format=object_format) as root:
+                initial = envelope(root)
+                initial['continuity_review']['summary'] = 'Fixture only: Þóra\r\n'
+                initial = seal(initial)
+                storage.save(root, initial)
+                checkpoint = storage.head(root)
+                self.assertEqual(len(checkpoint), 40 if object_format == 'sha1' else 64)
+                path = root / storage.bundle_path(initial)
+                before = path.stat()
+                raw = path.read_bytes()
+                changed = raw.replace(b'Fixture only', b'Fixture evil')
+                self.assertNotEqual(raw, changed)
+                self.assertEqual(len(raw), len(changed))
+                path.write_bytes(changed)
+                os.utime(path, ns=(before.st_atime_ns, before.st_mtime_ns))
+                index = (root / '.git/index').read_bytes()
+                with self.assertRaises(ToolError) as error:
+                    storage.save(root, envelope(root, previous=initial))
+                self.assertEqual(error.exception.code, 3)
+                self.assertEqual(storage.head(root), checkpoint)
+                self.assertEqual((root / '.git/index').read_bytes(), index)
+                self.assertEqual(path.read_bytes(), changed)
+
+    def test_clean_save_continuation_and_retry_leave_managed_index_synchronized(self):
+        for unborn in (False, True):
+            with self.subTest(unborn=unborn), repository(unborn=unborn) as root:
+                first = envelope(root)
+                for data in (first, envelope(root, previous=first)):
+                    # The next exchange must expect the checkpoint just saved.
+                    data = seal(dict(data, expected_git_head=storage.head(root)))
+                    saved = storage.save(root, data)
+                    self.assertFalse(saved['data']['cleanup_required'])
+                    self.assertEqual(git(root, 'diff', '--cached', '--name-only'), '')
+                    receipt = root / '.novel-creator/local' / (data['exchange_id'] + '.json')
+                    self.assertFalse(json.loads(receipt.read_text())['cleanup_required'])
+                    retry = storage.save(root, data)
+                    self.assertEqual(retry['checkpoint'], saved['checkpoint'])
+                    self.assertTrue(retry['data']['already_saved'])
+                    self.assertFalse(retry['data']['cleanup_required'])
+                self.assertEqual(len(storage.read_history(root)), 2)
+
     def test_private_index_preserves_unrelated_staged_and_manuscript(self):
         with repository() as root:
             manuscript = root / 'chapter.md'
@@ -172,16 +215,24 @@ class StorageTests(unittest.TestCase):
                                   (root / 'story', root / '.novel-creator')
                                   for path in directory.rglob('*') if path.is_file()}, managed)
 
-    def test_traversal_symlink_and_payload_paths_rejected(self):
+    def test_traversal_and_payload_paths_rejected(self):
         with repository() as root:
             for path in ('../outside', 'story/../chapter.md', '/tmp/outside', 'chapter.md'):
                 with self.subTest(path=path), self.assertRaises(ToolError): storage.safe_path(root, path)
-            data = envelope(root)
-            (root / 'story').symlink_to(root / '.novel-creator', target_is_directory=True)
-            with self.assertRaises(ToolError): storage.save(root, data)
         with repository() as root:
             data = envelope(root, destination='../chapter.md')
             with self.assertRaises(ToolError): storage.save(root, data)
+
+    def test_real_symlink_path_rejected_when_creation_is_available(self):
+        with repository() as root:
+            try:
+                (root / 'story').symlink_to(root / '.novel-creator', target_is_directory=True)
+            except OSError as error:
+                if getattr(error, 'winerror', None) == 1314:
+                    self.skipTest('Real symlink rejection unverified: Windows symlink privilege unavailable (1314)')
+                raise
+            with self.assertRaises(ToolError):
+                storage.save(root, envelope(root))
 
     def test_unrelated_index_change_during_save_survives_cleanup(self):
         with repository() as root:

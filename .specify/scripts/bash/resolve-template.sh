@@ -44,7 +44,7 @@ fi
 
 if $JSON_MODE; then
     if has_jq; then
-        jq -cn \
+        MSYS2_ARG_CONV_EXCL='*' jq -cn \
             --arg template_name "$TEMPLATE_NAME" \
             --arg template_content "$TEMPLATE_CONTENT" \
             '{TEMPLATE_NAME:$template_name,TEMPLATE_CONTENT:$template_content}'

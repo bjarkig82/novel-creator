@@ -60,6 +60,30 @@ def parser():
 def main(argv=None):
     try:
         args = parser().parse_args(argv)
+        if args.command == 'init':
+            from pathlib import Path
+            from .install import initialize
+            try:
+                raw = Path(args.brief_file).read_bytes().decode('utf-8', errors='strict')
+            except UnicodeError as error:
+                raise ToolError(2, 'Brief must be strict UTF-8 JSON') from error
+            result = initialize(args.path, raw)
+            print(json.dumps(result, ensure_ascii=False, allow_nan=False))
+            return 0
+        if args.command == 'recover':
+            from .storage import recover
+            if args.retry and args.expected_head is None:
+                raise ToolError(2, 'Recovery retry requires --expected-head (use unborn before the first commit)')
+            result = recover(args.novel, args.exchange, retry=args.retry, expected_head=args.expected_head)
+            print(json.dumps(result, ensure_ascii=False, allow_nan=False))
+            return 0
+        if args.command in ('context', 'validate', 'inspect') or (args.command == 'session' and args.action == 'list'):
+            from .context import read
+            result = read(args.novel, operation=args.command, session=getattr(args, 'session', None),
+                          kind=getattr(args, 'kind', None), identifier=getattr(args, 'id', None),
+                          revision=getattr(args, 'revision', None))
+            print(json.dumps(result, ensure_ascii=False, allow_nan=False))
+            return 0
         if args.command == "exchange" and args.action == "save":
             from pathlib import Path
             from . import records, storage

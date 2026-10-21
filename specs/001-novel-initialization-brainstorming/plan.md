@@ -28,8 +28,10 @@ Caches and summaries are explicitly derived; no database.
 **Testing**: unittest, temporary real Git repositories, JSON Schema validation,
 fault injection and subprocess contract tests; actual Codex bilingual scenarios
 and five novice evaluators for the human success criteria.
-**Target Platform**: Linux, macOS and Windows with Python and Git; capability
+**Target Platform**: Linux and Windows with Python and Git; capability
 verification for each supported Codex host/version before claiming support.
+macOS support and verification are deferred from the current release by the
+user's scope decision on 2026-10-21.
 **Project Type**: Installable local tooling and native agent skills.
 **Performance Goals**: Deterministic read p95 <=2s and validation/local save p95
 <=1s, 30 warm runs on a documented laptop and representative dataset; host model

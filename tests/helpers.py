@@ -19,10 +19,12 @@ def git(root, *args, env=None, check=True):
 
 
 @contextmanager
-def repository(unborn=False):
+def repository(unborn=False, object_format=None):
     with tempfile.TemporaryDirectory(prefix="novel-test-") as directory:
-        root = Path(directory)
-        git(root, "init", "-b", "main")
+        # Windows temp locations may resolve through an alias/junction. Pass a
+        # canonical root without relaxing production traversal/symlink checks.
+        root = Path(directory).resolve()
+        git(root, "init", "-b", "main", *(['--object-format=' + object_format] if object_format else []))
         git(root, "config", "user.name", "Disposable Test")
         git(root, "config", "user.email", "test@example.invalid")
         (root / ".novel-creator/local").mkdir(parents=True)
@@ -81,3 +83,26 @@ class FailAt:
     def __call__(self, point):
         if point == self.point:
             raise OSError("Injected failure: " + point)
+
+
+def held_conflict_transition(root=None, disposition='deferred'):
+    """A blocked proposal and a later acceptance with no conflict resolution."""
+    first = envelope(root)
+    proposal = idea(first)
+    finding = record(first, 'finding', category='knowledge', assessment='conflict',
+        severity='significant', affected_refs=[{'id': proposal['id']}],
+        explanation='Knowledge arrives too late', consequences=[], resolution_options=[],
+        disposition=disposition, decision_ids=[], narrative_explanation=None)
+    first = seal(dict(first, record_versions=[proposal, finding]))
+    exchange = envelope(root, previous=first)
+    exchange['messages'][0]['text'] = 'Accept the proposal.'
+    source = {'type': 'message', 'exchange_id': exchange['exchange_id'],
+              'message_id': exchange['messages'][0]['message_id']}
+    decision = record(exchange, 'decision', action='accept', user_message_ref=source,
+        span={'start': 0, 'end': 19}, target_refs=[{'id': proposal['id'], 'revision': 2}],
+        selected_parts=[], prior_refs=[], result_refs=[], reason='Accept proposal only',
+        affected_refs=[], review_required_refs=[], source_refs=[source], origin='supplied')
+    accepted = dict(proposal, revision=2, previous_revision=1, status='accepted',
+                    decision_ids=[decision['id']], source_refs=[source], origin='supplied')
+    exchange['record_versions'] = [accepted, decision]
+    return first, exchange, finding

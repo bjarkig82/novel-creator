@@ -1,0 +1,166 @@
+{
+  "language": "en",
+  "status": "authored expectations; actual host judgment pending",
+  "cases": [
+    {
+      "id": "C1",
+      "category": "motivation",
+      "established_source": {
+        "id": "canon-source-1",
+        "text": "The keeper has sworn to protect the sister."
+      },
+      "user_text": "Without any changed motive, the keeper deliberately betrays her.",
+      "expected_assessment": "conflict",
+      "severity": "significant",
+      "interrupt_next_response": true,
+      "expected_consequence": "The action conflicts with the established protective motive.",
+      "resolutions": [
+        "reject_idea",
+        "revise_idea",
+        "revise_canon",
+        "intentional",
+        "defer"
+      ]
+    },
+    {
+      "id": "C2",
+      "category": "chronology",
+      "established_source": {
+        "id": "canon-source-2",
+        "text": "The keeper arrives after midnight."
+      },
+      "user_text": "The keeper performs the rescue at ten that evening.",
+      "expected_assessment": "conflict",
+      "severity": "significant",
+      "interrupt_next_response": true,
+      "expected_consequence": "The rescue requires presence before arrival.",
+      "resolutions": [
+        "reject_idea",
+        "revise_idea",
+        "revise_canon",
+        "intentional",
+        "defer"
+      ]
+    },
+    {
+      "id": "C3",
+      "category": "knowledge",
+      "established_source": {
+        "id": "canon-source-3",
+        "text": "The keeper learns the code after the ship sinks."
+      },
+      "user_text": "The keeper uses that code to prevent the sinking.",
+      "expected_assessment": "conflict",
+      "severity": "significant",
+      "interrupt_next_response": true,
+      "expected_consequence": "The action requires knowledge not yet acquired.",
+      "resolutions": [
+        "reject_idea",
+        "revise_idea",
+        "revise_canon",
+        "intentional",
+        "defer"
+      ]
+    },
+    {
+      "id": "C4",
+      "category": "plot_dependency",
+      "established_source": {
+        "id": "canon-source-4",
+        "text": "The escape requires the only boat."
+      },
+      "user_text": "Destroy that boat before the unchanged escape.",
+      "expected_assessment": "conflict",
+      "severity": "significant",
+      "interrupt_next_response": true,
+      "expected_consequence": "The accepted escape loses its prerequisite.",
+      "resolutions": [
+        "reject_idea",
+        "revise_idea",
+        "revise_canon",
+        "intentional",
+        "defer"
+      ]
+    },
+    {
+      "id": "C5",
+      "category": "world_rule",
+      "established_source": {
+        "id": "canon-source-5",
+        "text": "No letter can cross the sealed boundary."
+      },
+      "user_text": "An ordinary unexceptional letter crosses it.",
+      "expected_assessment": "conflict",
+      "severity": "significant",
+      "interrupt_next_response": true,
+      "expected_consequence": "The event contradicts the explicit rule.",
+      "resolutions": [
+        "reject_idea",
+        "revise_idea",
+        "revise_canon",
+        "intentional",
+        "defer"
+      ]
+    },
+    {
+      "id": "C6",
+      "category": "relationship",
+      "established_source": {
+        "id": "canon-source-6",
+        "text": "The siblings have never met before the reunion."
+      },
+      "user_text": "Their shared childhood memory motivates the reunion.",
+      "expected_assessment": "conflict",
+      "severity": "significant",
+      "interrupt_next_response": true,
+      "expected_consequence": "The motivation requires a prior relationship that canon excludes.",
+      "resolutions": [
+        "reject_idea",
+        "revise_idea",
+        "revise_canon",
+        "intentional",
+        "defer"
+      ]
+    },
+    {
+      "id": "I01",
+      "user_text": "A character lies about the sender; author truth is separately recorded.",
+      "perspective": "character_belief",
+      "expected_assessment": "intentional",
+      "interrupt_next_response": false,
+      "may_establish_canon": false
+    },
+    {
+      "id": "I02",
+      "user_text": "The reader sees the letter only after the event, though the keeper saw it before.",
+      "perspective": "reader_revelation",
+      "expected_assessment": "intentional",
+      "interrupt_next_response": false,
+      "may_establish_canon": false
+    },
+    {
+      "id": "I03",
+      "user_text": "The narrator is unreliable and the discrepancy is explicitly intended.",
+      "perspective": "character_belief",
+      "expected_assessment": "intentional",
+      "interrupt_next_response": false,
+      "may_establish_canon": false
+    },
+    {
+      "id": "I04",
+      "user_text": "The time the keeper learned the secret is unknown.",
+      "perspective": "character_knowledge",
+      "expected_assessment": "uncertainty",
+      "interrupt_next_response": false,
+      "may_establish_canon": false
+    },
+    {
+      "id": "O01",
+      "user_text": "A recorded brass seal could foreshadow the sender.",
+      "perspective": "author_truth",
+      "expected_assessment": "opportunity",
+      "interrupt_next_response": false,
+      "may_establish_canon": false
+    }
+  ]
+}

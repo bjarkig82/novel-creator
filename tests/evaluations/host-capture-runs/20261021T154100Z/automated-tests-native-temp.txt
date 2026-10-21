@@ -1,0 +1,148 @@
+test_held_lock_json_discloses_pending_id_and_only_verifiable_checkpoint (tests.contract.test_cli.CliContract.test_held_lock_json_discloses_pending_id_and_only_verifiable_checkpoint) ... ok
+test_help (tests.contract.test_cli.CliContract.test_help) ... ok
+test_invalid_arguments_are_single_json_error (tests.contract.test_cli.CliContract.test_invalid_arguments_are_single_json_error) ... ok
+test_malformed_input_is_json_error_not_traceback (tests.contract.test_cli.CliContract.test_malformed_input_is_json_error_not_traceback) ... ok
+test_malformed_stored_data_returns_one_unavailable_json_error (tests.contract.test_cli.CliContract.test_malformed_stored_data_returns_one_unavailable_json_error) ... ok
+test_published_save_with_lock_cleanup_failure_is_cli_success (tests.contract.test_cli.CliContract.test_published_save_with_lock_cleanup_failure_is_cli_success) ... ok
+test_save_and_retry_through_subprocess (tests.contract.test_cli.CliContract.test_save_and_retry_through_subprocess) ... ok
+test_stale_write_json_includes_expected_and_actual_heads (tests.contract.test_cli.CliContract.test_stale_write_json_includes_expected_and_actual_heads) ... ok
+test_unavailable_journal_error_discloses_last_valid_checkpoint (tests.contract.test_cli.CliContract.test_unavailable_journal_error_discloses_last_valid_checkpoint) ... FAIL
+test_acceptance_can_target_unchanged_prior_proposition (tests.contract.test_exchange.ExchangeContract.test_acceptance_can_target_unchanged_prior_proposition) ... ok
+test_all_typed_records_have_valid_structural_examples (tests.contract.test_exchange.ExchangeContract.test_all_typed_records_have_valid_structural_examples) ... ok
+test_artifact_digest_pointer_and_no_canon_authorization (tests.contract.test_exchange.ExchangeContract.test_artifact_digest_pointer_and_no_canon_authorization) ... ok
+test_bad_chain_and_unknown_schema (tests.contract.test_exchange.ExchangeContract.test_bad_chain_and_unknown_schema) ... ok
+test_bootstrap_and_chain_are_atomic (tests.contract.test_exchange.ExchangeContract.test_bootstrap_and_chain_are_atomic) ... ok
+test_canon_authorization_must_target_the_resulting_revision (tests.contract.test_exchange.ExchangeContract.test_canon_authorization_must_target_the_resulting_revision) ... ok
+test_canon_authorization_requires_current_user_message (tests.contract.test_exchange.ExchangeContract.test_canon_authorization_requires_current_user_message) ... ok
+test_duplicate_exchange_message_identity_rejected (tests.contract.test_exchange.ExchangeContract.test_duplicate_exchange_message_identity_rejected) ... ok
+test_duplicates_and_digest (tests.contract.test_exchange.ExchangeContract.test_duplicates_and_digest) ... ok
+test_maintenance_cannot_introduce_canon (tests.contract.test_exchange.ExchangeContract.test_maintenance_cannot_introduce_canon) ... ok
+test_message_sources_and_actual_user_authorization (tests.contract.test_exchange.ExchangeContract.test_message_sources_and_actual_user_authorization) ... ok
+test_same_bundle_forward_references_and_missing_reference (tests.contract.test_exchange.ExchangeContract.test_same_bundle_forward_references_and_missing_reference) ... ok
+test_schema_requires_complete_typed_records (tests.contract.test_exchange.ExchangeContract.test_schema_requires_complete_typed_records) ... ok
+test_typed_id_lists_cannot_reference_wrong_record_kind (tests.contract.test_exchange.ExchangeContract.test_typed_id_lists_cannot_reference_wrong_record_kind) ... ok
+test_fixture_refuses_existing_directory (tests.integration.test_host_fixture.HostFixtureTests.test_fixture_refuses_existing_directory) ... ok
+test_installed_fixture_is_independent_and_preserves_exact_visible_text (tests.integration.test_host_fixture.HostFixtureTests.test_installed_fixture_is_independent_and_preserves_exact_visible_text) ... FAIL
+test_competing_commit_before_publication_never_contains_candidate (tests.integration.test_storage.StorageTests.test_competing_commit_before_publication_never_contains_candidate) ... ok
+test_fault_windows_preserve_authority_and_pending_payload (tests.integration.test_storage.StorageTests.test_fault_windows_preserve_authority_and_pending_payload) ... ok
+test_held_lock_reports_failure_context_without_mutating_owner_or_saved_work (tests.integration.test_storage.StorageTests.test_held_lock_reports_failure_context_without_mutating_owner_or_saved_work) ... ok
+test_lock_cleanup_error_after_publication_still_returns_saved (tests.integration.test_storage.StorageTests.test_lock_cleanup_error_after_publication_still_returns_saved) ... ok
+test_lock_stale_parent_and_managed_changes (tests.integration.test_storage.StorageTests.test_lock_stale_parent_and_managed_changes) ... ok
+test_lost_receipt_after_cleanup_remains_clean_identical_success (tests.integration.test_storage.StorageTests.test_lost_receipt_after_cleanup_remains_clean_identical_success) ... FAIL
+test_lost_receipt_after_publication_detects_index_cleanup (tests.integration.test_storage.StorageTests.test_lost_receipt_after_publication_detects_index_cleanup) ... ok
+test_malformed_receipts_block_retry_and_further_saves (tests.integration.test_storage.StorageTests.test_malformed_receipts_block_retry_and_further_saves) ... ok
+test_managed_staged_change_during_save_reports_conflict (tests.integration.test_storage.StorageTests.test_managed_staged_change_during_save_reports_conflict) ... ok
+test_missing_git_identity_leaves_pending_and_authority_unchanged (tests.integration.test_storage.StorageTests.test_missing_git_identity_leaves_pending_and_authority_unchanged) ... ok
+test_nonobject_committed_json_is_unavailable (tests.integration.test_storage.StorageTests.test_nonobject_committed_json_is_unavailable) ... ok
+test_pending_bundle_change_after_candidate_is_rejected (tests.integration.test_storage.StorageTests.test_pending_bundle_change_after_candidate_is_rejected) ... ok
+test_post_ref_interruption_returns_saved_cleanup_warning (tests.integration.test_storage.StorageTests.test_post_ref_interruption_returns_saved_cleanup_warning) ... ok
+test_private_index_preserves_unrelated_staged_and_manuscript (tests.integration.test_storage.StorageTests.test_private_index_preserves_unrelated_staged_and_manuscript) ... FAIL
+test_published_cleanup_failure_is_saved_and_pauses_writes (tests.integration.test_storage.StorageTests.test_published_cleanup_failure_is_saved_and_pauses_writes) ... ok
+test_receipt_failure_returns_published_checkpoint_without_replay (tests.integration.test_storage.StorageTests.test_receipt_failure_returns_published_checkpoint_without_replay) ... ok
+test_stale_checkpoint_diagnostics_include_expected_and_actual_heads (tests.integration.test_storage.StorageTests.test_stale_checkpoint_diagnostics_include_expected_and_actual_heads) ... ok
+test_traversal_symlink_and_payload_paths_rejected (tests.integration.test_storage.StorageTests.test_traversal_symlink_and_payload_paths_rejected) ... ERROR
+test_unborn_bootstrap_and_identical_changed_retry (tests.integration.test_storage.StorageTests.test_unborn_bootstrap_and_identical_changed_retry) ... ok
+test_unreadable_successor_retains_last_verifiable_checkpoint (tests.integration.test_storage.StorageTests.test_unreadable_successor_retains_last_verifiable_checkpoint) ... 
+  test_unreadable_successor_retains_last_verifiable_checkpoint (tests.integration.test_storage.StorageTests.test_unreadable_successor_retains_last_verifiable_checkpoint) (damage='[]') ... FAIL
+  test_unreadable_successor_retains_last_verifiable_checkpoint (tests.integration.test_storage.StorageTests.test_unreadable_successor_retains_last_verifiable_checkpoint) (damage='{') ... FAIL
+  test_unreadable_successor_retains_last_verifiable_checkpoint (tests.integration.test_storage.StorageTests.test_unreadable_successor_retains_last_verifiable_checkpoint) (damage='unsupported') ... FAIL
+test_unrelated_index_change_during_save_survives_cleanup (tests.integration.test_storage.StorageTests.test_unrelated_index_change_during_save_survives_cleanup) ... FAIL
+test_unsupported_committed_schema_is_unavailable (tests.integration.test_storage.StorageTests.test_unsupported_committed_schema_is_unavailable) ... ok
+test_valid_prefix_never_labels_a_damaged_commit_as_a_checkpoint (tests.integration.test_storage.StorageTests.test_valid_prefix_never_labels_a_damaged_commit_as_a_checkpoint) ... ok
+test_canonical_unicode_sorted_keys_and_array_order (tests.unit.test_digest.DigestTests.test_canonical_unicode_sorted_keys_and_array_order) ... ok
+test_nonfinite_serialization_rejected (tests.unit.test_digest.DigestTests.test_nonfinite_serialization_rejected) ... ok
+test_overflow_number_is_not_finite_json (tests.unit.test_digest.DigestTests.test_overflow_number_is_not_finite_json) ... ok
+test_strict_input (tests.unit.test_digest.DigestTests.test_strict_input) ... ok
+
+======================================================================
+ERROR: test_traversal_symlink_and_payload_paths_rejected (tests.integration.test_storage.StorageTests.test_traversal_symlink_and_payload_paths_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 180, in test_traversal_symlink_and_payload_paths_rejected
+    (root / 'story').symlink_to(root / '.novel-creator', target_is_directory=True)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\pathlib\_local.py", line 789, in symlink_to
+    os.symlink(target, self, target_is_directory)
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+OSError: [WinError 1314] A required privilege is not held by the client: 'C:\\Users\\BjarkiGunnarsson\\novel-creator-host-tests\\preflight-20261021T154000Z\\novel-test-rr4vei_i\\.novel-creator' -> 'C:\\Users\\BjarkiGunnarsson\\novel-creator-host-tests\\preflight-20261021T154000Z\\novel-test-rr4vei_i\\story'
+
+======================================================================
+FAIL: test_unavailable_journal_error_discloses_last_valid_checkpoint (tests.contract.test_cli.CliContract.test_unavailable_journal_error_discloses_last_valid_checkpoint)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\contract\test_cli.py", line 105, in test_unavailable_journal_error_discloses_last_valid_checkpoint
+    self.assertEqual(error['last_confirmed_checkpoint'], saved['checkpoint'])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: None != {'git_head': 'fb7252f4d89d5b5a173b90b7682[80 chars]': 1}
+
+======================================================================
+FAIL: test_installed_fixture_is_independent_and_preserves_exact_visible_text (tests.integration.test_host_fixture.HostFixtureTests.test_installed_fixture_is_independent_and_preserves_exact_visible_text)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_host_fixture.py", line 28, in test_installed_fixture_is_independent_and_preserves_exact_visible_text
+    self.assertEqual(save.returncode, 0, save.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 3 != 0 : Prior transaction requires recovery before further saves
+
+
+======================================================================
+FAIL: test_lost_receipt_after_cleanup_remains_clean_identical_success (tests.integration.test_storage.StorageTests.test_lost_receipt_after_cleanup_remains_clean_identical_success)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 357, in test_lost_receipt_after_cleanup_remains_clean_identical_success
+    self.assertFalse(retry['data']['cleanup_required'])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_private_index_preserves_unrelated_staged_and_manuscript (tests.integration.test_storage.StorageTests.test_private_index_preserves_unrelated_staged_and_manuscript)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 26, in test_private_index_preserves_unrelated_staged_and_manuscript
+    self.assertEqual(git(root, 'diff', '--cached', '--name-only'), 'chapter.md')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'chapter.md\nstory/exchanges/000001-1f3b3a58-40de-424d-9ce9-871d6c657f0c.json' != 'chapter.md'
+  chapter.md
+- story/exchanges/000001-1f3b3a58-40de-424d-9ce9-871d6c657f0c.json
+
+
+======================================================================
+FAIL: test_unreadable_successor_retains_last_verifiable_checkpoint (tests.integration.test_storage.StorageTests.test_unreadable_successor_retains_last_verifiable_checkpoint) (damage='[]')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 273, in test_unreadable_successor_retains_last_verifiable_checkpoint
+    self.assertEqual(error.exception.checkpoint, saved['checkpoint'])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: None != {'git_head': '70e7d0eb390af7e75a454a91605[80 chars]': 1}
+
+======================================================================
+FAIL: test_unreadable_successor_retains_last_verifiable_checkpoint (tests.integration.test_storage.StorageTests.test_unreadable_successor_retains_last_verifiable_checkpoint) (damage='{')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 273, in test_unreadable_successor_retains_last_verifiable_checkpoint
+    self.assertEqual(error.exception.checkpoint, saved['checkpoint'])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: None != {'git_head': '8cc06e779efc6d2cea47c052b21[80 chars]': 1}
+
+======================================================================
+FAIL: test_unreadable_successor_retains_last_verifiable_checkpoint (tests.integration.test_storage.StorageTests.test_unreadable_successor_retains_last_verifiable_checkpoint) (damage='unsupported')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 273, in test_unreadable_successor_retains_last_verifiable_checkpoint
+    self.assertEqual(error.exception.checkpoint, saved['checkpoint'])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: None != {'git_head': 'c96359c1c544cd64eafa8aae021[80 chars]': 1}
+
+======================================================================
+FAIL: test_unrelated_index_change_during_save_survives_cleanup (tests.integration.test_storage.StorageTests.test_unrelated_index_change_during_save_survives_cleanup)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 193, in test_unrelated_index_change_during_save_survives_cleanup
+    self.assertFalse(result['data']['cleanup_required'])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+----------------------------------------------------------------------
+Ran 52 tests in 260.827s
+
+FAILED (failures=8, errors=1)

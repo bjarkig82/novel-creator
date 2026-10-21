@@ -1,0 +1,21 @@
+{
+  "novel_id": "718bad8c-fea3-4695-bccd-c2d403037b6e",
+  "schema_version": "1.0",
+  "bundle_version": "0.1.0",
+  "fixture_only": true,
+  "checksums": {
+    ".novel-creator\\run.py": "ea80589216519e4599277107eb055b3ac7b039d1fdb0a9b47bcc59fa55e1906f",
+    ".novel-creator\\src\\fixture-context.py": "005d295422e05e36a8f73d05de6aaa1f9d78ea8396e29b5846a460fec585b2ff",
+    ".novel-creator\\src\\fixture-prepare.py": "d86272e8fc691dd9dd01cf6c7a6822c27535769dde8b18bacf2744488befe204",
+    ".novel-creator\\src\\novel_creator\\cli.py": "e75e1d7f0a88390018e1148de22fed72f099adb34fd3dc42401e0319b6837548",
+    ".novel-creator\\src\\novel_creator\\records.py": "146477ef0b84795e571b1b65c9e225ec9c5a1f6aedaa6acddbac213c2d819e12",
+    ".novel-creator\\src\\novel_creator\\storage.py": "95cc771723fa59ec7ae8705c6369cb9aaed90866f46ac4f54ba8b26946eb3844",
+    ".novel-creator\\src\\novel_creator\\validation.py": "5bbcfcb39f25413e3959299441efff173315cf5afdb26fbc17dc71190edeaa0a",
+    ".novel-creator\\src\\novel_creator\\__init__.py": "277031de0bb8a6cf825d6f25829addaefcdee170a24613786fe6cdc561c2738a",
+    ".novel-creator\\src\\novel_creator\\__main__.py": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+    ".novel-creator\\src\\novel_creator\\schemas\\__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    ".novel-creator\\src\\novel_creator\\schemas\\v1\\exchange.schema.json": "5430748f7e56ad42c51e4e9fce1f661b1bca4286387ad48139731ea36188e5f5",
+    ".novel-creator\\src\\novel_creator\\schemas\\v1\\records.schema.json": "59d707afe6eb325723154931d066959fc3f7b8e6c9f8b985b2b006067c3902a8",
+    ".novel-creator\\src\\novel_creator\\schemas\\v1\\__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

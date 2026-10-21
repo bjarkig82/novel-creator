@@ -1,15 +1,64 @@
 # Testing Novel Creator and finishing the current feature
 
+## Current implemented commands
+
+Initialization, settings revisions, context, session list, inspection, structural
+validation and explicit recovery are now implemented. Installed Codex entries
+load shared guidance, resumption, authority and continuity workflows. Use the
+[current README](../README.md) for runnable setup and recovery examples.
+
+The host capture gate has passed; no repeat of its Stop-button exercise is needed.
+The new product workflows still require their actual host/human evaluations,
+bilingual semantic checks, full consumer matrix and representative performance.
+[Release evidence](../tests/evaluations/release-readiness.md) separates completed
+structural journeys from those remaining gates. Older procedures below are
+historical/planned guidance where they describe unavailable commands.
+
+## Current decision: PASS — focused spike-03 confirmation
+
+The actual Desktop capture gate is passed for the tested Windows Desktop
+native-tool, single typed-text input and scoped filesystem approval combination.
+Native source, prepared payload and committed user text match exactly, including
+the ending LF; the displayed reply matches the saved assistant text, and the
+save event precedes display. [Actual run and scope](../tests/evaluations/host-capture-runs/20261021T171237Z-spike-03/README.md).
+
+Spike-02 supplies the retained automatic-turn, interruption, fresh-chat,
+failure-disclosure and unchanged-retry evidence. Spike-03 resolves its manual
+here-string input loss using the original native userMessage text. Capture
+source JSON belongs under `.novel-creator/local/evidence/`, outside root receipt
+discovery. No old exchange or payload ID was rewritten.
+
+T012/T069/T089/T103/T116 are complete; T013's current decision is PASS. No further
+manual host test is required for this change. Dependent story implementation may
+begin. Product workflows, release readiness, voice, other hosts and unattended
+default-sandbox operation remain unverified.
+
+The earlier assessments and procedures below are retained as historical records.
+Their BLOCKED/pending statements are superseded by this decision; their test
+counts describe their respective runs.
+
+## Historical assessments and procedures
+
 This guide covers the current **Novel Initialization and Guided Brainstorming**
 feature. Start with the host test below. Once it passes, Codex can implement the
 remaining workflows in the planned order.
+
+The user has now completed the spike-02 hands-on A-F exercises. A remaining
+exact-user-text discrepancy led to the revised native-input adapter. For its
+focused follow-up, use a new fixture containing that adapter and send one typed
+test message. Let Codex compare the current native userMessage, prepared JSON,
+committed user text and final response with no trimming or newline conversion.
+The adapter's AGENTS.md describes the native read_thread prerequisite and
+--user-message-file preparation mode. Do not repeat the prior Stop-button test
+unless a later change invalidates that evidence. Preserve existing fixtures.
 
 ## 1. Where the project stands
 
 The persistence foundation works: versioned JSON records, source validation,
 current-message authorization, atomic local Git saves, unchanged retries and
-structured errors. The latest automated run passed **52 tests** and the Bash
-smoke checks. These tests establish storage behavior, not the quality of an AI
+structured errors. An earlier Linux run passed **52 tests** and the Bash
+smoke checks; see the [current Windows foundation report](../tests/evaluations/platform-results.md)
+for local results and unavailable coverage. These tests establish storage behavior, not the quality of an AI
 conversation or complete product readiness.
 
 Initialization, full brainstorming, session management, production context and
@@ -96,8 +145,10 @@ python -m unittest discover -v
 If PowerShell blocks activation, use `.\.venv\Scripts\python.exe` instead of
 `python` for each command; no execution-policy change is needed.
 
-The baseline is 52 passing tests at the time this guide was written. Keep the
-actual output. Stop to investigate a failing baseline before calling the host
+The original baseline was 52 passing tests; new regressions can change the count.
+Keep the actual output and distinguish skipped coverage from passes. For Windows
+temporary-path setup, see [development instructions](development.md#windows-foundation-remediation--2026-10-21).
+Stop to investigate a failing baseline before calling the host
 experiment successful. The optional developer smoke check is
 `bash tests/speckit-smoke.sh`; it also requires Bash, `jq` and `rg`.
 
@@ -151,7 +202,7 @@ Create a note containing:
 - Date/time and timezone; operating system and filesystem when known.
 - Codex desktop version from its About screen, or `codex --version` for a CLI run.
 - Model label and any revision/build identifier the host actually exposes.
-- Python, Git and jsonschema versions; fixture path and starting checkpoint.
+- Python, Git, jsonschema and jsonschema-rs versions; fixture path and starting checkpoint.
 - The fixture's `.novel-creator/manifest.json` and its checksum information.
 
 Useful commands in the activated environment:
@@ -159,7 +210,7 @@ Useful commands in the activated environment:
 ```text
 python --version
 git --version
-python -c "import importlib.metadata; print(importlib.metadata.version('jsonschema'))"
+python -c "import importlib.metadata; print(importlib.metadata.version('jsonschema')); print(importlib.metadata.version('jsonschema-rs'))"
 ```
 
 Never invent an unavailable version. Record the displayed label and explicitly
@@ -439,7 +490,7 @@ The specification's full acceptance criteria remain authoritative. In particular
 - **Performance:** 100 sessions, 5,000 exchanges, 10,000 active assertions and
   25 MiB JSON; 30 warm runs, p95 read at most 2 seconds and validate/local save
   at most 1 second, excluding model latency; report cold reads and hardware.
-- **Platforms and release:** collect Linux/macOS/Windows evidence required by the
+- **Platforms and release:** collect Linux/Windows evidence required by the
   plan; do not claim support for unverified combinations. All automated tests,
   quickstart journeys, release evidence and required reviews must pass.
 

@@ -1,0 +1,768 @@
+test_held_lock_json_discloses_pending_id_and_only_verifiable_checkpoint (tests.contract.test_cli.CliContract.test_held_lock_json_discloses_pending_id_and_only_verifiable_checkpoint) ... 
+  test_held_lock_json_discloses_pending_id_and_only_verifiable_checkpoint (tests.contract.test_cli.CliContract.test_held_lock_json_discloses_pending_id_and_only_verifiable_checkpoint) (context='saved') ... ERROR
+test_help (tests.contract.test_cli.CliContract.test_help) ... ok
+test_invalid_arguments_are_single_json_error (tests.contract.test_cli.CliContract.test_invalid_arguments_are_single_json_error) ... ok
+test_malformed_input_is_json_error_not_traceback (tests.contract.test_cli.CliContract.test_malformed_input_is_json_error_not_traceback) ... ok
+test_malformed_stored_data_returns_one_unavailable_json_error (tests.contract.test_cli.CliContract.test_malformed_stored_data_returns_one_unavailable_json_error) ... 
+  test_malformed_stored_data_returns_one_unavailable_json_error (tests.contract.test_cli.CliContract.test_malformed_stored_data_returns_one_unavailable_json_error) (area='committed', raw='[]') ... ERROR
+  test_malformed_stored_data_returns_one_unavailable_json_error (tests.contract.test_cli.CliContract.test_malformed_stored_data_returns_one_unavailable_json_error) (area='committed', raw='null') ... ERROR
+  test_malformed_stored_data_returns_one_unavailable_json_error (tests.contract.test_cli.CliContract.test_malformed_stored_data_returns_one_unavailable_json_error) (area='committed', raw='{') ... ERROR
+  test_malformed_stored_data_returns_one_unavailable_json_error (tests.contract.test_cli.CliContract.test_malformed_stored_data_returns_one_unavailable_json_error) (area='receipt', raw='[]') ... ERROR
+  test_malformed_stored_data_returns_one_unavailable_json_error (tests.contract.test_cli.CliContract.test_malformed_stored_data_returns_one_unavailable_json_error) (area='receipt', raw='null') ... ERROR
+  test_malformed_stored_data_returns_one_unavailable_json_error (tests.contract.test_cli.CliContract.test_malformed_stored_data_returns_one_unavailable_json_error) (area='receipt', raw='{') ... ERROR
+test_published_save_with_lock_cleanup_failure_is_cli_success (tests.contract.test_cli.CliContract.test_published_save_with_lock_cleanup_failure_is_cli_success) ... FAIL
+test_save_and_retry_through_subprocess (tests.contract.test_cli.CliContract.test_save_and_retry_through_subprocess) ... FAIL
+test_stale_write_json_includes_expected_and_actual_heads (tests.contract.test_cli.CliContract.test_stale_write_json_includes_expected_and_actual_heads) ... ok
+test_unavailable_journal_error_discloses_last_valid_checkpoint (tests.contract.test_cli.CliContract.test_unavailable_journal_error_discloses_last_valid_checkpoint) ... ERROR
+test_acceptance_can_target_unchanged_prior_proposition (tests.contract.test_exchange.ExchangeContract.test_acceptance_can_target_unchanged_prior_proposition) ... ok
+test_all_typed_records_have_valid_structural_examples (tests.contract.test_exchange.ExchangeContract.test_all_typed_records_have_valid_structural_examples) ... ok
+test_artifact_digest_pointer_and_no_canon_authorization (tests.contract.test_exchange.ExchangeContract.test_artifact_digest_pointer_and_no_canon_authorization) ... ok
+test_bad_chain_and_unknown_schema (tests.contract.test_exchange.ExchangeContract.test_bad_chain_and_unknown_schema) ... ok
+test_bootstrap_and_chain_are_atomic (tests.contract.test_exchange.ExchangeContract.test_bootstrap_and_chain_are_atomic) ... ok
+test_canon_authorization_must_target_the_resulting_revision (tests.contract.test_exchange.ExchangeContract.test_canon_authorization_must_target_the_resulting_revision) ... ok
+test_canon_authorization_requires_current_user_message (tests.contract.test_exchange.ExchangeContract.test_canon_authorization_requires_current_user_message) ... ok
+test_duplicate_exchange_message_identity_rejected (tests.contract.test_exchange.ExchangeContract.test_duplicate_exchange_message_identity_rejected) ... ok
+test_duplicates_and_digest (tests.contract.test_exchange.ExchangeContract.test_duplicates_and_digest) ... ok
+test_maintenance_cannot_introduce_canon (tests.contract.test_exchange.ExchangeContract.test_maintenance_cannot_introduce_canon) ... ok
+test_message_sources_and_actual_user_authorization (tests.contract.test_exchange.ExchangeContract.test_message_sources_and_actual_user_authorization) ... ok
+test_same_bundle_forward_references_and_missing_reference (tests.contract.test_exchange.ExchangeContract.test_same_bundle_forward_references_and_missing_reference) ... ok
+test_schema_requires_complete_typed_records (tests.contract.test_exchange.ExchangeContract.test_schema_requires_complete_typed_records) ... ok
+test_typed_id_lists_cannot_reference_wrong_record_kind (tests.contract.test_exchange.ExchangeContract.test_typed_id_lists_cannot_reference_wrong_record_kind) ... ok
+test_fixture_refuses_existing_directory (tests.integration.test_host_fixture.HostFixtureTests.test_fixture_refuses_existing_directory) ... ok
+test_installed_fixture_is_independent_and_preserves_exact_visible_text (tests.integration.test_host_fixture.HostFixtureTests.test_installed_fixture_is_independent_and_preserves_exact_visible_text) ... FAIL
+test_competing_commit_before_publication_never_contains_candidate (tests.integration.test_storage.StorageTests.test_competing_commit_before_publication_never_contains_candidate) ... FAIL
+test_fault_windows_preserve_authority_and_pending_payload (tests.integration.test_storage.StorageTests.test_fault_windows_preserve_authority_and_pending_payload) ... 
+  test_fault_windows_preserve_authority_and_pending_payload (tests.integration.test_storage.StorageTests.test_fault_windows_preserve_authority_and_pending_payload) (point='before_file') ... ERROR
+  test_fault_windows_preserve_authority_and_pending_payload (tests.integration.test_storage.StorageTests.test_fault_windows_preserve_authority_and_pending_payload) (point='after_file') ... ERROR
+  test_fault_windows_preserve_authority_and_pending_payload (tests.integration.test_storage.StorageTests.test_fault_windows_preserve_authority_and_pending_payload) (point='after_candidate') ... ERROR
+  test_fault_windows_preserve_authority_and_pending_payload (tests.integration.test_storage.StorageTests.test_fault_windows_preserve_authority_and_pending_payload) (point='before_ref') ... ERROR
+test_held_lock_reports_failure_context_without_mutating_owner_or_saved_work (tests.integration.test_storage.StorageTests.test_held_lock_reports_failure_context_without_mutating_owner_or_saved_work) ... 
+  test_held_lock_reports_failure_context_without_mutating_owner_or_saved_work (tests.integration.test_storage.StorageTests.test_held_lock_reports_failure_context_without_mutating_owner_or_saved_work) (context='saved') ... ERROR
+test_lock_cleanup_error_after_publication_still_returns_saved (tests.integration.test_storage.StorageTests.test_lock_cleanup_error_after_publication_still_returns_saved) ... ERROR
+test_lock_stale_parent_and_managed_changes (tests.integration.test_storage.StorageTests.test_lock_stale_parent_and_managed_changes) ... ok
+test_lost_receipt_after_cleanup_remains_clean_identical_success (tests.integration.test_storage.StorageTests.test_lost_receipt_after_cleanup_remains_clean_identical_success) ... ERROR
+test_lost_receipt_after_publication_detects_index_cleanup (tests.integration.test_storage.StorageTests.test_lost_receipt_after_publication_detects_index_cleanup) ... ERROR
+test_malformed_receipts_block_retry_and_further_saves (tests.integration.test_storage.StorageTests.test_malformed_receipts_block_retry_and_further_saves) ... 
+  test_malformed_receipts_block_retry_and_further_saves (tests.integration.test_storage.StorageTests.test_malformed_receipts_block_retry_and_further_saves) (raw='[]') ... ERROR
+  test_malformed_receipts_block_retry_and_further_saves (tests.integration.test_storage.StorageTests.test_malformed_receipts_block_retry_and_further_saves) (raw='null') ... ERROR
+  test_malformed_receipts_block_retry_and_further_saves (tests.integration.test_storage.StorageTests.test_malformed_receipts_block_retry_and_further_saves) (raw='{}') ... ERROR
+  test_malformed_receipts_block_retry_and_further_saves (tests.integration.test_storage.StorageTests.test_malformed_receipts_block_retry_and_further_saves) (raw='{') ... ERROR
+  test_malformed_receipts_block_retry_and_further_saves (tests.integration.test_storage.StorageTests.test_malformed_receipts_block_retry_and_further_saves) (raw='{"state":"pending","bundle":[]}') ... ERROR
+test_managed_staged_change_during_save_reports_conflict (tests.integration.test_storage.StorageTests.test_managed_staged_change_during_save_reports_conflict) ... FAIL
+test_missing_git_identity_leaves_pending_and_authority_unchanged (tests.integration.test_storage.StorageTests.test_missing_git_identity_leaves_pending_and_authority_unchanged) ... ok
+test_nonobject_committed_json_is_unavailable (tests.integration.test_storage.StorageTests.test_nonobject_committed_json_is_unavailable) ... ok
+test_pending_bundle_change_after_candidate_is_rejected (tests.integration.test_storage.StorageTests.test_pending_bundle_change_after_candidate_is_rejected) ... ok
+test_post_ref_interruption_returns_saved_cleanup_warning (tests.integration.test_storage.StorageTests.test_post_ref_interruption_returns_saved_cleanup_warning) ... ERROR
+test_private_index_preserves_unrelated_staged_and_manuscript (tests.integration.test_storage.StorageTests.test_private_index_preserves_unrelated_staged_and_manuscript) ... ERROR
+test_published_cleanup_failure_is_saved_and_pauses_writes (tests.integration.test_storage.StorageTests.test_published_cleanup_failure_is_saved_and_pauses_writes) ... ERROR
+test_receipt_failure_returns_published_checkpoint_without_replay (tests.integration.test_storage.StorageTests.test_receipt_failure_returns_published_checkpoint_without_replay) ... ERROR
+test_stale_checkpoint_diagnostics_include_expected_and_actual_heads (tests.integration.test_storage.StorageTests.test_stale_checkpoint_diagnostics_include_expected_and_actual_heads) ... ok
+test_traversal_symlink_and_payload_paths_rejected (tests.integration.test_storage.StorageTests.test_traversal_symlink_and_payload_paths_rejected) ... ERROR
+test_unborn_bootstrap_and_identical_changed_retry (tests.integration.test_storage.StorageTests.test_unborn_bootstrap_and_identical_changed_retry) ... ERROR
+test_unreadable_successor_retains_last_verifiable_checkpoint (tests.integration.test_storage.StorageTests.test_unreadable_successor_retains_last_verifiable_checkpoint) ... 
+  test_unreadable_successor_retains_last_verifiable_checkpoint (tests.integration.test_storage.StorageTests.test_unreadable_successor_retains_last_verifiable_checkpoint) (damage='[]') ... ERROR
+  test_unreadable_successor_retains_last_verifiable_checkpoint (tests.integration.test_storage.StorageTests.test_unreadable_successor_retains_last_verifiable_checkpoint) (damage='{') ... ERROR
+  test_unreadable_successor_retains_last_verifiable_checkpoint (tests.integration.test_storage.StorageTests.test_unreadable_successor_retains_last_verifiable_checkpoint) (damage='unsupported') ... ERROR
+test_unrelated_index_change_during_save_survives_cleanup (tests.integration.test_storage.StorageTests.test_unrelated_index_change_during_save_survives_cleanup) ... ERROR
+test_unsupported_committed_schema_is_unavailable (tests.integration.test_storage.StorageTests.test_unsupported_committed_schema_is_unavailable) ... ok
+test_valid_prefix_never_labels_a_damaged_commit_as_a_checkpoint (tests.integration.test_storage.StorageTests.test_valid_prefix_never_labels_a_damaged_commit_as_a_checkpoint) ... ERROR
+test_canonical_unicode_sorted_keys_and_array_order (tests.unit.test_digest.DigestTests.test_canonical_unicode_sorted_keys_and_array_order) ... ok
+test_nonfinite_serialization_rejected (tests.unit.test_digest.DigestTests.test_nonfinite_serialization_rejected) ... ok
+test_overflow_number_is_not_finite_json (tests.unit.test_digest.DigestTests.test_overflow_number_is_not_finite_json) ... ok
+test_strict_input (tests.unit.test_digest.DigestTests.test_strict_input) ... ok
+
+======================================================================
+ERROR: test_held_lock_json_discloses_pending_id_and_only_verifiable_checkpoint (tests.contract.test_cli.CliContract.test_held_lock_json_discloses_pending_id_and_only_verifiable_checkpoint) (context='saved')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 392, in _save
+    os.link(temporary, final)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\BjarkiGunnarsson\\source\\repos\\Personal\\novel-creator\\.cache\\host-capture\\temp\\novel-test-218zm37j\\story\\exchanges\\prepare-68446ht4' -> 'C:\\Users\\BjarkiGunnarsson\\source\\repos\\Personal\\novel-creator\\.cache\\host-capture\\temp\\novel-test-218zm37j\\story\\exchanges\\000001-1b46d4ce-9d67-4e17-bf48-280be4273794.json'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\contract\test_cli.py", line 139, in test_held_lock_json_discloses_pending_id_and_only_verifiable_checkpoint
+    expected = storage.save(root, first)['checkpoint']
+               ~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 473, in save
+    return _save(root, bundle, fault=fault)
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 467, in _save
+    raise ToolError(5, 'Exchange save failed; pending work is not confirmed', checkpoint=confirmed, pending=pending_id) from error
+novel_creator.cli.ToolError: Exchange save failed; pending work is not confirmed
+
+======================================================================
+ERROR: test_malformed_stored_data_returns_one_unavailable_json_error (tests.contract.test_cli.CliContract.test_malformed_stored_data_returns_one_unavailable_json_error) (area='committed', raw='[]')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 392, in _save
+    os.link(temporary, final)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\BjarkiGunnarsson\\source\\repos\\Personal\\novel-creator\\.cache\\host-capture\\temp\\novel-test-tnp8egnh\\story\\exchanges\\prepare-lv15f3sx' -> 'C:\\Users\\BjarkiGunnarsson\\source\\repos\\Personal\\novel-creator\\.cache\\host-capture\\temp\\novel-test-tnp8egnh\\story\\exchanges\\000001-d69a15aa-a472-4a0e-bf36-315dec255ffb.json'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\contract\test_cli.py", line 66, in test_malformed_stored_data_returns_one_unavailable_json_error
+    storage.save(root, first)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 473, in save
+    return _save(root, bundle, fault=fault)
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 467, in _save
+    raise ToolError(5, 'Exchange save failed; pending work is not confirmed', checkpoint=confirmed, pending=pending_id) from error
+novel_creator.cli.ToolError: Exchange save failed; pending work is not confirmed
+
+======================================================================
+ERROR: test_malformed_stored_data_returns_one_unavailable_json_error (tests.contract.test_cli.CliContract.test_malformed_stored_data_returns_one_unavailable_json_error) (area='committed', raw='null')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 392, in _save
+    os.link(temporary, final)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\BjarkiGunnarsson\\source\\repos\\Personal\\novel-creator\\.cache\\host-capture\\temp\\novel-test-_wm_kr08\\story\\exchanges\\prepare-lnjjh9nx' -> 'C:\\Users\\BjarkiGunnarsson\\source\\repos\\Personal\\novel-creator\\.cache\\host-capture\\temp\\novel-test-_wm_kr08\\story\\exchanges\\000001-af0a402b-b68d-4376-add3-d3860190de05.json'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\contract\test_cli.py", line 66, in test_malformed_stored_data_returns_one_unavailable_json_error
+    storage.save(root, first)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 473, in save
+    return _save(root, bundle, fault=fault)
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 467, in _save
+    raise ToolError(5, 'Exchange save failed; pending work is not confirmed', checkpoint=confirmed, pending=pending_id) from error
+novel_creator.cli.ToolError: Exchange save failed; pending work is not confirmed
+
+======================================================================
+ERROR: test_malformed_stored_data_returns_one_unavailable_json_error (tests.contract.test_cli.CliContract.test_malformed_stored_data_returns_one_unavailable_json_error) (area='committed', raw='{')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 392, in _save
+    os.link(temporary, final)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\BjarkiGunnarsson\\source\\repos\\Personal\\novel-creator\\.cache\\host-capture\\temp\\novel-test-5sag7sti\\story\\exchanges\\prepare-hro4j1wt' -> 'C:\\Users\\BjarkiGunnarsson\\source\\repos\\Personal\\novel-creator\\.cache\\host-capture\\temp\\novel-test-5sag7sti\\story\\exchanges\\000001-cf1686aa-67d9-4667-8412-9111f4c7b236.json'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\contract\test_cli.py", line 66, in test_malformed_stored_data_returns_one_unavailable_json_error
+    storage.save(root, first)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 473, in save
+    return _save(root, bundle, fault=fault)
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 467, in _save
+    raise ToolError(5, 'Exchange save failed; pending work is not confirmed', checkpoint=confirmed, pending=pending_id) from error
+novel_creator.cli.ToolError: Exchange save failed; pending work is not confirmed
+
+======================================================================
+ERROR: test_malformed_stored_data_returns_one_unavailable_json_error (tests.contract.test_cli.CliContract.test_malformed_stored_data_returns_one_unavailable_json_error) (area='receipt', raw='[]')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 392, in _save
+    os.link(temporary, final)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\BjarkiGunnarsson\\source\\repos\\Personal\\novel-creator\\.cache\\host-capture\\temp\\novel-test-uvfa7uwt\\story\\exchanges\\prepare-4r7d6kib' -> 'C:\\Users\\BjarkiGunnarsson\\source\\repos\\Personal\\novel-creator\\.cache\\host-capture\\temp\\novel-test-uvfa7uwt\\story\\exchanges\\000001-b7ee4277-89c2-46fa-99fe-1559c4eefbdc.json'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\contract\test_cli.py", line 66, in test_malformed_stored_data_returns_one_unavailable_json_error
+    storage.save(root, first)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 473, in save
+    return _save(root, bundle, fault=fault)
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 467, in _save
+    raise ToolError(5, 'Exchange save failed; pending work is not confirmed', checkpoint=confirmed, pending=pending_id) from error
+novel_creator.cli.ToolError: Exchange save failed; pending work is not confirmed
+
+======================================================================
+ERROR: test_malformed_stored_data_returns_one_unavailable_json_error (tests.contract.test_cli.CliContract.test_malformed_stored_data_returns_one_unavailable_json_error) (area='receipt', raw='null')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 392, in _save
+    os.link(temporary, final)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\BjarkiGunnarsson\\source\\repos\\Personal\\novel-creator\\.cache\\host-capture\\temp\\novel-test-4lj9okx7\\story\\exchanges\\prepare-qmkp24pc' -> 'C:\\Users\\BjarkiGunnarsson\\source\\repos\\Personal\\novel-creator\\.cache\\host-capture\\temp\\novel-test-4lj9okx7\\story\\exchanges\\000001-291eb8dd-613d-42e0-a12f-5cf5d8f5761b.json'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\contract\test_cli.py", line 66, in test_malformed_stored_data_returns_one_unavailable_json_error
+    storage.save(root, first)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 473, in save
+    return _save(root, bundle, fault=fault)
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 467, in _save
+    raise ToolError(5, 'Exchange save failed; pending work is not confirmed', checkpoint=confirmed, pending=pending_id) from error
+novel_creator.cli.ToolError: Exchange save failed; pending work is not confirmed
+
+======================================================================
+ERROR: test_malformed_stored_data_returns_one_unavailable_json_error (tests.contract.test_cli.CliContract.test_malformed_stored_data_returns_one_unavailable_json_error) (area='receipt', raw='{')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 392, in _save
+    os.link(temporary, final)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\BjarkiGunnarsson\\source\\repos\\Personal\\novel-creator\\.cache\\host-capture\\temp\\novel-test-dr1ordc1\\story\\exchanges\\prepare-73rqhv1y' -> 'C:\\Users\\BjarkiGunnarsson\\source\\repos\\Personal\\novel-creator\\.cache\\host-capture\\temp\\novel-test-dr1ordc1\\story\\exchanges\\000001-a154f8ae-8219-416e-91ee-f137bad7655d.json'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\contract\test_cli.py", line 66, in test_malformed_stored_data_returns_one_unavailable_json_error
+    storage.save(root, first)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 473, in save
+    return _save(root, bundle, fault=fault)
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 467, in _save
+    raise ToolError(5, 'Exchange save failed; pending work is not confirmed', checkpoint=confirmed, pending=pending_id) from error
+novel_creator.cli.ToolError: Exchange save failed; pending work is not confirmed
+
+======================================================================
+ERROR: test_unavailable_journal_error_discloses_last_valid_checkpoint (tests.contract.test_cli.CliContract.test_unavailable_journal_error_discloses_last_valid_checkpoint)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 392, in _save
+    os.link(temporary, final)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\BjarkiGunnarsson\\source\\repos\\Personal\\novel-creator\\.cache\\host-capture\\temp\\novel-test-q71g0dnv\\story\\exchanges\\prepare-od0tlqdb' -> 'C:\\Users\\BjarkiGunnarsson\\source\\repos\\Personal\\novel-creator\\.cache\\host-capture\\temp\\novel-test-q71g0dnv\\story\\exchanges\\000001-82a58b88-f176-4142-be08-33f84faf0424.json'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\contract\test_cli.py", line 93, in test_unavailable_journal_error_discloses_last_valid_checkpoint
+    saved = storage.save(root, first)
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 473, in save
+    return _save(root, bundle, fault=fault)
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 467, in _save
+    raise ToolError(5, 'Exchange save failed; pending work is not confirmed', checkpoint=confirmed, pending=pending_id) from error
+novel_creator.cli.ToolError: Exchange save failed; pending work is not confirmed
+
+======================================================================
+ERROR: test_fault_windows_preserve_authority_and_pending_payload (tests.integration.test_storage.StorageTests.test_fault_windows_preserve_authority_and_pending_payload) (point='before_file')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 392, in _save
+    os.link(temporary, final)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\BjarkiGunnarsson\\source\\repos\\Personal\\novel-creator\\.cache\\host-capture\\temp\\novel-test-nuz0clup\\story\\exchanges\\prepare-8fo1tzjn' -> 'C:\\Users\\BjarkiGunnarsson\\source\\repos\\Personal\\novel-creator\\.cache\\host-capture\\temp\\novel-test-nuz0clup\\story\\exchanges\\000001-aaeddf5d-b822-4426-93a9-aad4e95e307d.json'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 75, in test_fault_windows_preserve_authority_and_pending_payload
+    self.assertTrue(storage.save(root, data)['data']['saved'])
+                    ~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 473, in save
+    return _save(root, bundle, fault=fault)
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 467, in _save
+    raise ToolError(5, 'Exchange save failed; pending work is not confirmed', checkpoint=confirmed, pending=pending_id) from error
+novel_creator.cli.ToolError: Exchange save failed; pending work is not confirmed
+
+======================================================================
+ERROR: test_fault_windows_preserve_authority_and_pending_payload (tests.integration.test_storage.StorageTests.test_fault_windows_preserve_authority_and_pending_payload) (point='after_file')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 392, in _save
+    os.link(temporary, final)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\BjarkiGunnarsson\\source\\repos\\Personal\\novel-creator\\.cache\\host-capture\\temp\\novel-test-eay7iwoc\\story\\exchanges\\prepare-9qqe194r' -> 'C:\\Users\\BjarkiGunnarsson\\source\\repos\\Personal\\novel-creator\\.cache\\host-capture\\temp\\novel-test-eay7iwoc\\story\\exchanges\\000001-11b9eb09-01c0-4025-a13e-fdfc3ee4bff7.json'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 75, in test_fault_windows_preserve_authority_and_pending_payload
+    self.assertTrue(storage.save(root, data)['data']['saved'])
+                    ~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 473, in save
+    return _save(root, bundle, fault=fault)
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 467, in _save
+    raise ToolError(5, 'Exchange save failed; pending work is not confirmed', checkpoint=confirmed, pending=pending_id) from error
+novel_creator.cli.ToolError: Exchange save failed; pending work is not confirmed
+
+======================================================================
+ERROR: test_fault_windows_preserve_authority_and_pending_payload (tests.integration.test_storage.StorageTests.test_fault_windows_preserve_authority_and_pending_payload) (point='after_candidate')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 392, in _save
+    os.link(temporary, final)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\BjarkiGunnarsson\\source\\repos\\Personal\\novel-creator\\.cache\\host-capture\\temp\\novel-test-yz3jwue6\\story\\exchanges\\prepare-3l2rgbfv' -> 'C:\\Users\\BjarkiGunnarsson\\source\\repos\\Personal\\novel-creator\\.cache\\host-capture\\temp\\novel-test-yz3jwue6\\story\\exchanges\\000001-59fda069-85fd-4553-b7a1-48a337922d36.json'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 75, in test_fault_windows_preserve_authority_and_pending_payload
+    self.assertTrue(storage.save(root, data)['data']['saved'])
+                    ~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 473, in save
+    return _save(root, bundle, fault=fault)
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 467, in _save
+    raise ToolError(5, 'Exchange save failed; pending work is not confirmed', checkpoint=confirmed, pending=pending_id) from error
+novel_creator.cli.ToolError: Exchange save failed; pending work is not confirmed
+
+======================================================================
+ERROR: test_fault_windows_preserve_authority_and_pending_payload (tests.integration.test_storage.StorageTests.test_fault_windows_preserve_authority_and_pending_payload) (point='before_ref')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 392, in _save
+    os.link(temporary, final)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\BjarkiGunnarsson\\source\\repos\\Personal\\novel-creator\\.cache\\host-capture\\temp\\novel-test-ksubh540\\story\\exchanges\\prepare-o6kj8_gn' -> 'C:\\Users\\BjarkiGunnarsson\\source\\repos\\Personal\\novel-creator\\.cache\\host-capture\\temp\\novel-test-ksubh540\\story\\exchanges\\000001-09439667-016e-4b6c-8a3f-e14e73748ba3.json'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 75, in test_fault_windows_preserve_authority_and_pending_payload
+    self.assertTrue(storage.save(root, data)['data']['saved'])
+                    ~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 473, in save
+    return _save(root, bundle, fault=fault)
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 467, in _save
+    raise ToolError(5, 'Exchange save failed; pending work is not confirmed', checkpoint=confirmed, pending=pending_id) from error
+novel_creator.cli.ToolError: Exchange save failed; pending work is not confirmed
+
+======================================================================
+ERROR: test_held_lock_reports_failure_context_without_mutating_owner_or_saved_work (tests.integration.test_storage.StorageTests.test_held_lock_reports_failure_context_without_mutating_owner_or_saved_work) (context='saved')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 392, in _save
+    os.link(temporary, final)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\BjarkiGunnarsson\\source\\repos\\Personal\\novel-creator\\.cache\\host-capture\\temp\\novel-test-uxyuzoap\\story\\exchanges\\prepare-k4ipicsn' -> 'C:\\Users\\BjarkiGunnarsson\\source\\repos\\Personal\\novel-creator\\.cache\\host-capture\\temp\\novel-test-uxyuzoap\\story\\exchanges\\000001-4d95b5b5-d656-4cf2-9be9-cf7e5b3b6571.json'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 134, in test_held_lock_reports_failure_context_without_mutating_owner_or_saved_work
+    expected = storage.save(root, first)['checkpoint']
+               ~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 473, in save
+    return _save(root, bundle, fault=fault)
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 467, in _save
+    raise ToolError(5, 'Exchange save failed; pending work is not confirmed', checkpoint=confirmed, pending=pending_id) from error
+novel_creator.cli.ToolError: Exchange save failed; pending work is not confirmed
+
+======================================================================
+ERROR: test_lock_cleanup_error_after_publication_still_returns_saved (tests.integration.test_storage.StorageTests.test_lock_cleanup_error_after_publication_still_returns_saved)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 392, in _save
+    os.link(temporary, final)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\BjarkiGunnarsson\\source\\repos\\Personal\\novel-creator\\.cache\\host-capture\\temp\\novel-test-3nwn3gw7\\story\\exchanges\\prepare-75fgbtg9' -> 'C:\\Users\\BjarkiGunnarsson\\source\\repos\\Personal\\novel-creator\\.cache\\host-capture\\temp\\novel-test-3nwn3gw7\\story\\exchanges\\000001-99d31a24-7168-4495-981b-90a5969f7c3b.json'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 324, in test_lock_cleanup_error_after_publication_still_returns_saved
+    result = storage.save(root, data)
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 473, in save
+    return _save(root, bundle, fault=fault)
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 467, in _save
+    raise ToolError(5, 'Exchange save failed; pending work is not confirmed', checkpoint=confirmed, pending=pending_id) from error
+novel_creator.cli.ToolError: Exchange save failed; pending work is not confirmed
+
+======================================================================
+ERROR: test_lost_receipt_after_cleanup_remains_clean_identical_success (tests.integration.test_storage.StorageTests.test_lost_receipt_after_cleanup_remains_clean_identical_success)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 392, in _save
+    os.link(temporary, final)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\BjarkiGunnarsson\\source\\repos\\Personal\\novel-creator\\.cache\\host-capture\\temp\\novel-test-ch4k_qnf\\story\\exchanges\\prepare-6gto0ll9' -> 'C:\\Users\\BjarkiGunnarsson\\source\\repos\\Personal\\novel-creator\\.cache\\host-capture\\temp\\novel-test-ch4k_qnf\\story\\exchanges\\000001-495614b3-05a4-4c5d-8351-7c93e5b973e4.json'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 353, in test_lost_receipt_after_cleanup_remains_clean_identical_success
+    result = storage.save(root,data)
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 473, in save
+    return _save(root, bundle, fault=fault)
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 467, in _save
+    raise ToolError(5, 'Exchange save failed; pending work is not confirmed', checkpoint=confirmed, pending=pending_id) from error
+novel_creator.cli.ToolError: Exchange save failed; pending work is not confirmed
+
+======================================================================
+ERROR: test_lost_receipt_after_publication_detects_index_cleanup (tests.integration.test_storage.StorageTests.test_lost_receipt_after_publication_detects_index_cleanup)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 392, in _save
+    os.link(temporary, final)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\BjarkiGunnarsson\\source\\repos\\Personal\\novel-creator\\.cache\\host-capture\\temp\\novel-test-4hxxn1d0\\story\\exchanges\\prepare-mb4thxpi' -> 'C:\\Users\\BjarkiGunnarsson\\source\\repos\\Personal\\novel-creator\\.cache\\host-capture\\temp\\novel-test-4hxxn1d0\\story\\exchanges\\000001-6c58f18d-619c-4382-b5de-8a74e6d8adcd.json'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 333, in test_lost_receipt_after_publication_detects_index_cleanup
+    result = storage.save(root, data, fault=FailAt('before_cleanup'))
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 473, in save
+    return _save(root, bundle, fault=fault)
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 467, in _save
+    raise ToolError(5, 'Exchange save failed; pending work is not confirmed', checkpoint=confirmed, pending=pending_id) from error
+novel_creator.cli.ToolError: Exchange save failed; pending work is not confirmed
+
+======================================================================
+ERROR: test_malformed_receipts_block_retry_and_further_saves (tests.integration.test_storage.StorageTests.test_malformed_receipts_block_retry_and_further_saves) (raw='[]')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 392, in _save
+    os.link(temporary, final)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\BjarkiGunnarsson\\source\\repos\\Personal\\novel-creator\\.cache\\host-capture\\temp\\novel-test-mu0s0p5b\\story\\exchanges\\prepare-792dc83k' -> 'C:\\Users\\BjarkiGunnarsson\\source\\repos\\Personal\\novel-creator\\.cache\\host-capture\\temp\\novel-test-mu0s0p5b\\story\\exchanges\\000001-8a12890e-d9bd-4d83-b1c5-aa8cebdc7b64.json'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 299, in test_malformed_receipts_block_retry_and_further_saves
+    saved = storage.save(root, first)
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 473, in save
+    return _save(root, bundle, fault=fault)
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 467, in _save
+    raise ToolError(5, 'Exchange save failed; pending work is not confirmed', checkpoint=confirmed, pending=pending_id) from error
+novel_creator.cli.ToolError: Exchange save failed; pending work is not confirmed
+
+======================================================================
+ERROR: test_malformed_receipts_block_retry_and_further_saves (tests.integration.test_storage.StorageTests.test_malformed_receipts_block_retry_and_further_saves) (raw='null')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 392, in _save
+    os.link(temporary, final)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\BjarkiGunnarsson\\source\\repos\\Personal\\novel-creator\\.cache\\host-capture\\temp\\novel-test-7a54agn9\\story\\exchanges\\prepare-nz35kt88' -> 'C:\\Users\\BjarkiGunnarsson\\source\\repos\\Personal\\novel-creator\\.cache\\host-capture\\temp\\novel-test-7a54agn9\\story\\exchanges\\000001-f347a6ff-d93b-49db-a373-b5ade0f7b206.json'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 299, in test_malformed_receipts_block_retry_and_further_saves
+    saved = storage.save(root, first)
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 473, in save
+    return _save(root, bundle, fault=fault)
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 467, in _save
+    raise ToolError(5, 'Exchange save failed; pending work is not confirmed', checkpoint=confirmed, pending=pending_id) from error
+novel_creator.cli.ToolError: Exchange save failed; pending work is not confirmed
+
+======================================================================
+ERROR: test_malformed_receipts_block_retry_and_further_saves (tests.integration.test_storage.StorageTests.test_malformed_receipts_block_retry_and_further_saves) (raw='{}')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 392, in _save
+    os.link(temporary, final)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\BjarkiGunnarsson\\source\\repos\\Personal\\novel-creator\\.cache\\host-capture\\temp\\novel-test-ndm8avsp\\story\\exchanges\\prepare-kw1wauzo' -> 'C:\\Users\\BjarkiGunnarsson\\source\\repos\\Personal\\novel-creator\\.cache\\host-capture\\temp\\novel-test-ndm8avsp\\story\\exchanges\\000001-75202dd4-ff42-4790-b769-c4a786e74501.json'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 299, in test_malformed_receipts_block_retry_and_further_saves
+    saved = storage.save(root, first)
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 473, in save
+    return _save(root, bundle, fault=fault)
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 467, in _save
+    raise ToolError(5, 'Exchange save failed; pending work is not confirmed', checkpoint=confirmed, pending=pending_id) from error
+novel_creator.cli.ToolError: Exchange save failed; pending work is not confirmed
+
+======================================================================
+ERROR: test_malformed_receipts_block_retry_and_further_saves (tests.integration.test_storage.StorageTests.test_malformed_receipts_block_retry_and_further_saves) (raw='{')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 392, in _save
+    os.link(temporary, final)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\BjarkiGunnarsson\\source\\repos\\Personal\\novel-creator\\.cache\\host-capture\\temp\\novel-test-_1h1cpz6\\story\\exchanges\\prepare-v3k4ahz4' -> 'C:\\Users\\BjarkiGunnarsson\\source\\repos\\Personal\\novel-creator\\.cache\\host-capture\\temp\\novel-test-_1h1cpz6\\story\\exchanges\\000001-a1f9f4eb-b765-407b-a920-37672108630b.json'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 299, in test_malformed_receipts_block_retry_and_further_saves
+    saved = storage.save(root, first)
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 473, in save
+    return _save(root, bundle, fault=fault)
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 467, in _save
+    raise ToolError(5, 'Exchange save failed; pending work is not confirmed', checkpoint=confirmed, pending=pending_id) from error
+novel_creator.cli.ToolError: Exchange save failed; pending work is not confirmed
+
+======================================================================
+ERROR: test_malformed_receipts_block_retry_and_further_saves (tests.integration.test_storage.StorageTests.test_malformed_receipts_block_retry_and_further_saves) (raw='{"state":"pending","bundle":[]}')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 392, in _save
+    os.link(temporary, final)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\BjarkiGunnarsson\\source\\repos\\Personal\\novel-creator\\.cache\\host-capture\\temp\\novel-test-nd0mdeyu\\story\\exchanges\\prepare-1sorvwu4' -> 'C:\\Users\\BjarkiGunnarsson\\source\\repos\\Personal\\novel-creator\\.cache\\host-capture\\temp\\novel-test-nd0mdeyu\\story\\exchanges\\000001-fefece8c-c8ee-4815-9be5-45e04a5f375d.json'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 299, in test_malformed_receipts_block_retry_and_further_saves
+    saved = storage.save(root, first)
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 473, in save
+    return _save(root, bundle, fault=fault)
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 467, in _save
+    raise ToolError(5, 'Exchange save failed; pending work is not confirmed', checkpoint=confirmed, pending=pending_id) from error
+novel_creator.cli.ToolError: Exchange save failed; pending work is not confirmed
+
+======================================================================
+ERROR: test_post_ref_interruption_returns_saved_cleanup_warning (tests.integration.test_storage.StorageTests.test_post_ref_interruption_returns_saved_cleanup_warning)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 392, in _save
+    os.link(temporary, final)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\BjarkiGunnarsson\\source\\repos\\Personal\\novel-creator\\.cache\\host-capture\\temp\\novel-test-vb9fo_tv\\story\\exchanges\\prepare-gk7y7dzc' -> 'C:\\Users\\BjarkiGunnarsson\\source\\repos\\Personal\\novel-creator\\.cache\\host-capture\\temp\\novel-test-vb9fo_tv\\story\\exchanges\\000001-3b0457fc-3343-4011-8b47-b65f573dbe6c.json'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 220, in test_post_ref_interruption_returns_saved_cleanup_warning
+    result = storage.save(root, data, fault=FailAt('after_ref'))
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 473, in save
+    return _save(root, bundle, fault=fault)
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 467, in _save
+    raise ToolError(5, 'Exchange save failed; pending work is not confirmed', checkpoint=confirmed, pending=pending_id) from error
+novel_creator.cli.ToolError: Exchange save failed; pending work is not confirmed
+
+======================================================================
+ERROR: test_private_index_preserves_unrelated_staged_and_manuscript (tests.integration.test_storage.StorageTests.test_private_index_preserves_unrelated_staged_and_manuscript)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 392, in _save
+    os.link(temporary, final)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\BjarkiGunnarsson\\source\\repos\\Personal\\novel-creator\\.cache\\host-capture\\temp\\novel-test-qdlwsg7p\\story\\exchanges\\prepare-j0wwkb41' -> 'C:\\Users\\BjarkiGunnarsson\\source\\repos\\Personal\\novel-creator\\.cache\\host-capture\\temp\\novel-test-qdlwsg7p\\story\\exchanges\\000001-c219585f-f4fc-43fd-b626-929e331ea007.json'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 21, in test_private_index_preserves_unrelated_staged_and_manuscript
+    result = storage.save(root, data)
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 473, in save
+    return _save(root, bundle, fault=fault)
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 467, in _save
+    raise ToolError(5, 'Exchange save failed; pending work is not confirmed', checkpoint=confirmed, pending=pending_id) from error
+novel_creator.cli.ToolError: Exchange save failed; pending work is not confirmed
+
+======================================================================
+ERROR: test_published_cleanup_failure_is_saved_and_pauses_writes (tests.integration.test_storage.StorageTests.test_published_cleanup_failure_is_saved_and_pauses_writes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 392, in _save
+    os.link(temporary, final)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\BjarkiGunnarsson\\source\\repos\\Personal\\novel-creator\\.cache\\host-capture\\temp\\novel-test-541vp5ir\\story\\exchanges\\prepare-j_hjquzz' -> 'C:\\Users\\BjarkiGunnarsson\\source\\repos\\Personal\\novel-creator\\.cache\\host-capture\\temp\\novel-test-541vp5ir\\story\\exchanges\\000001-db2f9df9-1486-4228-9a0b-c8e03df57684.json'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 80, in test_published_cleanup_failure_is_saved_and_pauses_writes
+    result = storage.save(root, first, fault=FailAt('before_cleanup'))
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 473, in save
+    return _save(root, bundle, fault=fault)
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 467, in _save
+    raise ToolError(5, 'Exchange save failed; pending work is not confirmed', checkpoint=confirmed, pending=pending_id) from error
+novel_creator.cli.ToolError: Exchange save failed; pending work is not confirmed
+
+======================================================================
+ERROR: test_receipt_failure_returns_published_checkpoint_without_replay (tests.integration.test_storage.StorageTests.test_receipt_failure_returns_published_checkpoint_without_replay)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 392, in _save
+    os.link(temporary, final)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\BjarkiGunnarsson\\source\\repos\\Personal\\novel-creator\\.cache\\host-capture\\temp\\novel-test-6dtqudy1\\story\\exchanges\\prepare-9vkqtjpj' -> 'C:\\Users\\BjarkiGunnarsson\\source\\repos\\Personal\\novel-creator\\.cache\\host-capture\\temp\\novel-test-6dtqudy1\\story\\exchanges\\000001-a08bb746-f88d-4739-8205-d02ddcc25022.json'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 92, in test_receipt_failure_returns_published_checkpoint_without_replay
+    result = storage.save(root, data, fault=FailAt('before_receipt'))
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 473, in save
+    return _save(root, bundle, fault=fault)
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 467, in _save
+    raise ToolError(5, 'Exchange save failed; pending work is not confirmed', checkpoint=confirmed, pending=pending_id) from error
+novel_creator.cli.ToolError: Exchange save failed; pending work is not confirmed
+
+======================================================================
+ERROR: test_traversal_symlink_and_payload_paths_rejected (tests.integration.test_storage.StorageTests.test_traversal_symlink_and_payload_paths_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 180, in test_traversal_symlink_and_payload_paths_rejected
+    (root / 'story').symlink_to(root / '.novel-creator', target_is_directory=True)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\pathlib\_local.py", line 789, in symlink_to
+    os.symlink(target, self, target_is_directory)
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+OSError: [WinError 1314] A required privilege is not held by the client: 'C:\\Users\\BjarkiGunnarsson\\source\\repos\\Personal\\novel-creator\\.cache\\host-capture\\temp\\novel-test-mqaqc7kd\\.novel-creator' -> 'C:\\Users\\BjarkiGunnarsson\\source\\repos\\Personal\\novel-creator\\.cache\\host-capture\\temp\\novel-test-mqaqc7kd\\story'
+
+======================================================================
+ERROR: test_unborn_bootstrap_and_identical_changed_retry (tests.integration.test_storage.StorageTests.test_unborn_bootstrap_and_identical_changed_retry)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 392, in _save
+    os.link(temporary, final)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\BjarkiGunnarsson\\source\\repos\\Personal\\novel-creator\\.cache\\host-capture\\temp\\novel-test-zkwvz8tg\\story\\exchanges\\prepare-s3mrtl6v' -> 'C:\\Users\\BjarkiGunnarsson\\source\\repos\\Personal\\novel-creator\\.cache\\host-capture\\temp\\novel-test-zkwvz8tg\\story\\exchanges\\000001-68a29bcd-a167-4cb4-b65e-fb5fae48ea34.json'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 32, in test_unborn_bootstrap_and_identical_changed_retry
+    result = storage.save(root, data)
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 473, in save
+    return _save(root, bundle, fault=fault)
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 467, in _save
+    raise ToolError(5, 'Exchange save failed; pending work is not confirmed', checkpoint=confirmed, pending=pending_id) from error
+novel_creator.cli.ToolError: Exchange save failed; pending work is not confirmed
+
+======================================================================
+ERROR: test_unreadable_successor_retains_last_verifiable_checkpoint (tests.integration.test_storage.StorageTests.test_unreadable_successor_retains_last_verifiable_checkpoint) (damage='[]')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 392, in _save
+    os.link(temporary, final)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\BjarkiGunnarsson\\source\\repos\\Personal\\novel-creator\\.cache\\host-capture\\temp\\novel-test-f17ojsvt\\story\\exchanges\\prepare-0rpncr7v' -> 'C:\\Users\\BjarkiGunnarsson\\source\\repos\\Personal\\novel-creator\\.cache\\host-capture\\temp\\novel-test-f17ojsvt\\story\\exchanges\\000001-3f7ff0cd-db6d-4bfe-b5f1-bc955f5219cd.json'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 259, in test_unreadable_successor_retains_last_verifiable_checkpoint
+    saved = storage.save(root, first)
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 473, in save
+    return _save(root, bundle, fault=fault)
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 467, in _save
+    raise ToolError(5, 'Exchange save failed; pending work is not confirmed', checkpoint=confirmed, pending=pending_id) from error
+novel_creator.cli.ToolError: Exchange save failed; pending work is not confirmed
+
+======================================================================
+ERROR: test_unreadable_successor_retains_last_verifiable_checkpoint (tests.integration.test_storage.StorageTests.test_unreadable_successor_retains_last_verifiable_checkpoint) (damage='{')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 392, in _save
+    os.link(temporary, final)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\BjarkiGunnarsson\\source\\repos\\Personal\\novel-creator\\.cache\\host-capture\\temp\\novel-test-m78dlbtq\\story\\exchanges\\prepare-8xam4myv' -> 'C:\\Users\\BjarkiGunnarsson\\source\\repos\\Personal\\novel-creator\\.cache\\host-capture\\temp\\novel-test-m78dlbtq\\story\\exchanges\\000001-03e9f826-6095-4ae2-a0d7-f233d35d783b.json'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 259, in test_unreadable_successor_retains_last_verifiable_checkpoint
+    saved = storage.save(root, first)
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 473, in save
+    return _save(root, bundle, fault=fault)
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 467, in _save
+    raise ToolError(5, 'Exchange save failed; pending work is not confirmed', checkpoint=confirmed, pending=pending_id) from error
+novel_creator.cli.ToolError: Exchange save failed; pending work is not confirmed
+
+======================================================================
+ERROR: test_unreadable_successor_retains_last_verifiable_checkpoint (tests.integration.test_storage.StorageTests.test_unreadable_successor_retains_last_verifiable_checkpoint) (damage='unsupported')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 392, in _save
+    os.link(temporary, final)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\BjarkiGunnarsson\\source\\repos\\Personal\\novel-creator\\.cache\\host-capture\\temp\\novel-test-cdujmxys\\story\\exchanges\\prepare-5bg10lxq' -> 'C:\\Users\\BjarkiGunnarsson\\source\\repos\\Personal\\novel-creator\\.cache\\host-capture\\temp\\novel-test-cdujmxys\\story\\exchanges\\000001-9dce42e7-98dd-4970-854f-1f224554c6fa.json'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 259, in test_unreadable_successor_retains_last_verifiable_checkpoint
+    saved = storage.save(root, first)
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 473, in save
+    return _save(root, bundle, fault=fault)
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 467, in _save
+    raise ToolError(5, 'Exchange save failed; pending work is not confirmed', checkpoint=confirmed, pending=pending_id) from error
+novel_creator.cli.ToolError: Exchange save failed; pending work is not confirmed
+
+======================================================================
+ERROR: test_unrelated_index_change_during_save_survives_cleanup (tests.integration.test_storage.StorageTests.test_unrelated_index_change_during_save_survives_cleanup)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 392, in _save
+    os.link(temporary, final)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\BjarkiGunnarsson\\source\\repos\\Personal\\novel-creator\\.cache\\host-capture\\temp\\novel-test-1zhzw5r3\\story\\exchanges\\prepare-er17h6ye' -> 'C:\\Users\\BjarkiGunnarsson\\source\\repos\\Personal\\novel-creator\\.cache\\host-capture\\temp\\novel-test-1zhzw5r3\\story\\exchanges\\000001-e852e64d-33a9-4f40-bf11-f0de0a710383.json'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 192, in test_unrelated_index_change_during_save_survives_cleanup
+    result = storage.save(root, envelope(root), fault=stage)
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 473, in save
+    return _save(root, bundle, fault=fault)
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 467, in _save
+    raise ToolError(5, 'Exchange save failed; pending work is not confirmed', checkpoint=confirmed, pending=pending_id) from error
+novel_creator.cli.ToolError: Exchange save failed; pending work is not confirmed
+
+======================================================================
+ERROR: test_valid_prefix_never_labels_a_damaged_commit_as_a_checkpoint (tests.integration.test_storage.StorageTests.test_valid_prefix_never_labels_a_damaged_commit_as_a_checkpoint)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 392, in _save
+    os.link(temporary, final)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\BjarkiGunnarsson\\source\\repos\\Personal\\novel-creator\\.cache\\host-capture\\temp\\novel-test-np9_7524\\story\\exchanges\\prepare-b57q4ia0' -> 'C:\\Users\\BjarkiGunnarsson\\source\\repos\\Personal\\novel-creator\\.cache\\host-capture\\temp\\novel-test-np9_7524\\story\\exchanges\\000001-c9e2abf4-a742-4440-9981-d06ef08bb654.json'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 282, in test_valid_prefix_never_labels_a_damaged_commit_as_a_checkpoint
+    saved = storage.save(root, first)
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 473, in save
+    return _save(root, bundle, fault=fault)
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 467, in _save
+    raise ToolError(5, 'Exchange save failed; pending work is not confirmed', checkpoint=confirmed, pending=pending_id) from error
+novel_creator.cli.ToolError: Exchange save failed; pending work is not confirmed
+
+======================================================================
+FAIL: test_published_save_with_lock_cleanup_failure_is_cli_success (tests.contract.test_cli.CliContract.test_published_save_with_lock_cleanup_failure_is_cli_success)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\contract\test_cli.py", line 191, in test_published_save_with_lock_cleanup_failure_is_cli_success
+    self.assertEqual(code,0)
+    ~~~~~~~~~~~~~~~~^^^^^^^^
+AssertionError: 5 != 0
+
+======================================================================
+FAIL: test_save_and_retry_through_subprocess (tests.contract.test_cli.CliContract.test_save_and_retry_through_subprocess)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\contract\test_cli.py", line 35, in test_save_and_retry_through_subprocess
+    self.assertEqual(result.returncode, 0, result.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 5 != 0 : Exchange save failed; pending work is not confirmed
+
+
+======================================================================
+FAIL: test_installed_fixture_is_independent_and_preserves_exact_visible_text (tests.integration.test_host_fixture.HostFixtureTests.test_installed_fixture_is_independent_and_preserves_exact_visible_text)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_host_fixture.py", line 18, in test_installed_fixture_is_independent_and_preserves_exact_visible_text
+    self.assertEqual(result.returncode, 0, result.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 2 != 0 : Fixture must be outside any existing repository
+
+
+======================================================================
+FAIL: test_competing_commit_before_publication_never_contains_candidate (tests.integration.test_storage.StorageTests.test_competing_commit_before_publication_never_contains_candidate)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 56, in test_competing_commit_before_publication_never_contains_candidate
+    self.assertEqual(error.exception.code, 3)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 5 != 3
+
+======================================================================
+FAIL: test_managed_staged_change_during_save_reports_conflict (tests.integration.test_storage.StorageTests.test_managed_staged_change_during_save_reports_conflict)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 215, in test_managed_staged_change_during_save_reports_conflict
+    self.assertIn(storage.bundle_path(data), git(root, 'diff', '--cached', '--name-only'))
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'story/exchanges/000001-f085fb57-0d65-43d6-bb00-22b33e4f2644.json' not found in ''
+
+----------------------------------------------------------------------
+Ran 52 tests in 105.501s
+
+FAILED (failures=5, errors=32)

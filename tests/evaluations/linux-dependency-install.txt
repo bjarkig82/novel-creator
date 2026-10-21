@@ -1,0 +1,39 @@
+Obtaining file:///home/bjarki/.cache/novel-creator-verification/run.I6IApw
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Checking if build backend supports build_editable: started
+  Checking if build backend supports build_editable: finished with status 'done'
+  Getting requirements to build editable: started
+  Getting requirements to build editable: finished with status 'done'
+  Preparing editable metadata (pyproject.toml): started
+  Preparing editable metadata (pyproject.toml): finished with status 'done'
+Collecting attrs==26.1.0 (from -r requirements-lock.txt (line 1))
+  Using cached attrs-26.1.0-py3-none-any.whl.metadata (8.8 kB)
+Collecting jsonschema==4.26.0 (from -r requirements-lock.txt (line 2))
+  Using cached jsonschema-4.26.0-py3-none-any.whl.metadata (7.6 kB)
+Collecting jsonschema-rs==0.59.0 (from -r requirements-lock.txt (line 3))
+  Using cached jsonschema_rs-0.59.0-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (32 kB)
+Collecting jsonschema-specifications==2025.9.1 (from -r requirements-lock.txt (line 4))
+  Using cached jsonschema_specifications-2025.9.1-py3-none-any.whl.metadata (2.9 kB)
+Collecting referencing==0.37.0 (from -r requirements-lock.txt (line 5))
+  Using cached referencing-0.37.0-py3-none-any.whl.metadata (2.8 kB)
+Collecting rpds-py==2026.6.3 (from -r requirements-lock.txt (line 6))
+  Using cached rpds_py-2026.6.3-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.1 kB)
+Collecting typing_extensions==4.16.0 (from -r requirements-lock.txt (line 7))
+  Using cached typing_extensions-4.16.0-py3-none-any.whl.metadata (3.3 kB)
+Using cached jsonschema-4.26.0-py3-none-any.whl (90 kB)
+Using cached jsonschema_rs-0.59.0-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (6.1 MB)
+Using cached attrs-26.1.0-py3-none-any.whl (67 kB)
+Using cached jsonschema_specifications-2025.9.1-py3-none-any.whl (18 kB)
+Using cached referencing-0.37.0-py3-none-any.whl (26 kB)
+Using cached rpds_py-2026.6.3-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (366 kB)
+Using cached typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+Building wheels for collected packages: novel-creator
+  Building editable for novel-creator (pyproject.toml): started
+  Building editable for novel-creator (pyproject.toml): finished with status 'done'
+  Created wheel for novel-creator: filename=novel_creator-0.1.0-0.editable-py3-none-any.whl size=3174 sha256=040bbf7d7105776cf41a13793e0da49010fe828d21ab6289d38c78d888888cc8
+  Stored in directory: /tmp/pip-ephem-wheel-cache-fxs84vim/wheels/cb/c8/c7/38ffb2bf1c0cca39c43a05ccdf8289c4e06d11066e0c4fc832
+Successfully built novel-creator
+Installing collected packages: typing_extensions, rpds-py, jsonschema-rs, attrs, referencing, jsonschema-specifications, jsonschema, novel-creator
+
+Successfully installed attrs-26.1.0 jsonschema-4.26.0 jsonschema-rs-0.59.0 jsonschema-specifications-2025.9.1 novel-creator-0.1.0 referencing-0.37.0 rpds-py-2026.6.3 typing_extensions-4.16.0

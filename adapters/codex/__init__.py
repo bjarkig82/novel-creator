@@ -1,0 +1,1 @@
+"""Replaceable Codex integration resources."""

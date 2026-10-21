@@ -1,0 +1,408 @@
+{
+  "source": "Native Codex read_thread public user/assistant messages, save-command results, and turn status. Hidden reasoning and unrelated tool commands excluded. Evidence export only; committed fixture Git remains authoritative.",
+  "threads": [
+    {
+      "threadId": "01a15f44-b3d0-7c12-882b-a0d35ac96ba4",
+      "title": "Start host-capture test",
+      "cwd": "C:\\Users\\BjarkiGunnarsson\\novel-creator-host-tests\\spike-02",
+      "hasMore": false,
+      "turns": [
+        {
+          "id": "01a15f57-dfbb-7763-b4f0-df610c2a26d2",
+          "status": "interrupted",
+          "startedAt": 1792600956,
+          "completedAt": 1792601007,
+          "items": [
+            {
+              "type": "userMessage",
+              "text": "Save this exact reply:\nThe keeper locks the letter in a drawer.\n\nAfter saving succeeds, show “Saved. Press Stop now.” as a progress update.\n\nThen keep waiting in 30-second intervals until I click Stop. Do not display the final reply or finish on your own.\n"
+            },
+            {
+              "type": "agentMessage",
+              "phase": "commentary",
+              "text": "I’ll save the exact reply with your full message, show the requested progress update, then wait in 30-second intervals until you stop me.\n"
+            },
+            {
+              "type": "saveCommandResult",
+              "exitCode": 0,
+              "durationMs": 6058,
+              "output": {
+                "text": "{\"ok\": true, \"operation\": \"exchange.save\", \"novel_id\": \"4d329c8a-4c33-4eec-82ea-6878764b369d\", \"data\": {\"saved\": true, \"already_saved\": false, \"cleanup_required\": false}, \"warnings\": [], \"checkpoint\": {\"git_head\": \"21a88fd7cc5a8b7584df4e51b95c625bc4478b7b\", \"exchange_id\": \"50763b76-b3eb-4241-ae65-44adef549b3e\", \"sequence\": 7}}\r\n",
+                "truncated": false
+              }
+            },
+            {
+              "type": "agentMessage",
+              "phase": "commentary",
+              "text": "Saved. Press Stop now.\n"
+            }
+          ]
+        },
+        {
+          "id": "01a15f51-57c3-72c1-a1b5-b3512386f8f7",
+          "status": "completed",
+          "startedAt": 1792600528,
+          "completedAt": 1792600607,
+          "items": [
+            {
+              "type": "userMessage",
+              "text": "Repeat the interruption test. Save this exact reply:\nThe keeper leaves the letter sealed.\n\nAfter saving succeeds, show a progress update saying “Saved. Press Stop now.” Then wait 45 seconds before displaying the final reply.\n"
+            },
+            {
+              "type": "agentMessage",
+              "phase": "commentary",
+              "text": "I’ll save the exact reply with your full message, then show the requested progress update and wait 45 seconds.\n"
+            },
+            {
+              "type": "saveCommandResult",
+              "exitCode": 0,
+              "durationMs": 4253,
+              "output": {
+                "text": "{\"ok\": true, \"operation\": \"exchange.save\", \"novel_id\": \"4d329c8a-4c33-4eec-82ea-6878764b369d\", \"data\": {\"saved\": true, \"already_saved\": false, \"cleanup_required\": false}, \"warnings\": [], \"checkpoint\": {\"git_head\": \"41ec346cd6a75ea6afe4395447b68da5adac7f12\", \"exchange_id\": \"c7361253-24e3-4749-8d40-40b4bc857e66\", \"sequence\": 6}}\r\n",
+                "truncated": false
+              }
+            },
+            {
+              "type": "agentMessage",
+              "phase": "commentary",
+              "text": "Saved. Press Stop now.\n"
+            },
+            {
+              "type": "sleep",
+              "durationMs": 45000
+            },
+            {
+              "type": "agentMessage",
+              "phase": "final_answer",
+              "text": "The keeper leaves the letter sealed."
+            }
+          ]
+        },
+        {
+          "id": "01a15f4d-a10e-7412-b265-eca4a722c037",
+          "status": "completed",
+          "startedAt": 1792600285,
+          "completedAt": 1792600362,
+          "items": [
+            {
+              "type": "userMessage",
+              "text": "Save this exact reply: The keeper leaves the letter sealed.\n\nAfter the save succeeds, wait 45 seconds before displaying it, so I can press Stop. Preserve my full message using the existing saving instructions.\n"
+            },
+            {
+              "type": "agentMessage",
+              "phase": "commentary",
+              "text": "I’ll preserve your full message, save the exact reply, then wait 45 seconds before displaying it.\n"
+            },
+            {
+              "type": "saveCommandResult",
+              "exitCode": 0,
+              "durationMs": 5419,
+              "output": {
+                "text": "{\"ok\": true, \"operation\": \"exchange.save\", \"novel_id\": \"4d329c8a-4c33-4eec-82ea-6878764b369d\", \"data\": {\"saved\": true, \"already_saved\": false, \"cleanup_required\": false}, \"warnings\": [], \"checkpoint\": {\"git_head\": \"ece43927c783dab1a1664a835b34fae69537f420\", \"exchange_id\": \"263d490b-5ec0-480c-9fc3-b07b6a2d3bb6\", \"sequence\": 5}}\r\n",
+                "truncated": false
+              }
+            },
+            {
+              "type": "sleep",
+              "durationMs": 45000
+            },
+            {
+              "type": "agentMessage",
+              "phase": "final_answer",
+              "text": "The keeper leaves the letter sealed."
+            }
+          ]
+        },
+        {
+          "id": "01a15f4b-b05b-7be3-8674-92969863818e",
+          "status": "completed",
+          "startedAt": 1792600158,
+          "completedAt": 1792600188,
+          "items": [
+            {
+              "type": "userMessage",
+              "text": "What could make the keeper afraid to open it?\n"
+            },
+            {
+              "type": "agentMessage",
+              "phase": "commentary",
+              "text": "I’ll read the fixture context and save the response before displaying it.\n"
+            },
+            {
+              "type": "saveCommandResult",
+              "exitCode": 0,
+              "durationMs": 4209,
+              "output": {
+                "text": "{\"ok\": true, \"operation\": \"exchange.save\", \"novel_id\": \"4d329c8a-4c33-4eec-82ea-6878764b369d\", \"data\": {\"saved\": true, \"already_saved\": false, \"cleanup_required\": false}, \"warnings\": [], \"checkpoint\": {\"git_head\": \"4f6c7b98c0a373007272ff0e02368d84ee51f0d0\", \"exchange_id\": \"6e5cae78-a867-4711-b3ba-bf8b22334524\", \"sequence\": 4}}\r\n",
+                "truncated": false
+              }
+            },
+            {
+              "type": "agentMessage",
+              "phase": "final_answer",
+              "text": "A few possibilities:\n\n- The previous letter predicted a death, and the keeper recognized the victim only after it happened.\n- The envelope bears a private mark the keeper once used for letters they could never bring themselves to send.\n- The handwriting has a tremor the keeper does not have yet.\n- Across the seal, in their own hand: \"You can still choose not to know.\"\n\nOr the fear is more intimate: the keeper has spent years waiting for someone to return, and suspects tomorrow's self will finally tell them to stop."
+            }
+          ]
+        },
+        {
+          "id": "01a15f4a-9857-73d3-ab55-968b5c1fc986",
+          "status": "completed",
+          "startedAt": 1792600086,
+          "completedAt": 1792600112,
+          "items": [
+            {
+              "type": "userMessage",
+              "text": "The next letter is written in the keeper's own handwriting.\n"
+            },
+            {
+              "type": "agentMessage",
+              "phase": "commentary",
+              "text": "I’ll read the fixture context and save this exchange before displaying the response.\n"
+            },
+            {
+              "type": "saveCommandResult",
+              "exitCode": 0,
+              "durationMs": 3694,
+              "output": {
+                "text": "{\"ok\": true, \"operation\": \"exchange.save\", \"novel_id\": \"4d329c8a-4c33-4eec-82ea-6878764b369d\", \"data\": {\"saved\": true, \"already_saved\": false, \"cleanup_required\": false}, \"warnings\": [], \"checkpoint\": {\"git_head\": \"2e1e54bed200cb41105a9a8666c9fbc7ccb10069\", \"exchange_id\": \"4254ba3b-039c-495e-b111-7ddbed981f28\", \"sequence\": 3}}\r\n",
+                "truncated": false
+              }
+            },
+            {
+              "type": "agentMessage",
+              "phase": "final_answer",
+              "text": "Does the keeper trust the handwriting enough to follow the letter, or try to prove that someone has forged it?"
+            }
+          ]
+        },
+        {
+          "id": "01a15f48-24c2-7dc3-8993-68a57732ebbf",
+          "status": "completed",
+          "startedAt": 1792599926,
+          "completedAt": 1792599972,
+          "items": [
+            {
+              "type": "userMessage",
+              "text": "Please investigate why the save failed. If the sandbox blocked a required filesystem operation, request approval for that specific operation.\n\nRetry the existing pending payload unchanged—do not prepare a new response or reset anything. Display the saved response only after the save succeeds.\n"
+            },
+            {
+              "type": "agentMessage",
+              "phase": "commentary",
+              "text": "I’ll inspect the failure and retry the existing payload unchanged. If a required filesystem operation was blocked by the sandbox, I’ll request approval for that operation.\n"
+            },
+            {
+              "type": "agentMessage",
+              "phase": "commentary",
+              "text": "I’m using the systematic-debugging skill to locate the failure. The receipt is still pending, the checkpoint has not advanced, and the exchange file is absent. I’ll retry through the launcher with temporary error reporting to identify the failing operation without changing the payload or adapter.\n"
+            },
+            {
+              "type": "saveCommandResult",
+              "exitCode": 1,
+              "durationMs": 2863,
+              "output": {
+                "text": "payload_sha256=4e9f4c62e922e1a7cb1df8aca415294808cc7640dc6438747a3e6b82ab866c76\r\n{\"diagnostic\": \"PermissionError\", \"line\": 394, \"errno\": 13, \"winerror\": 5, \"filename\": \"C:\\\\Users\\\\BjarkiGunnarsson\\\\novel-creator-host-tests\\\\spike-02\\\\story\\\\exchanges\\\\prepare-a9tfs0b7\", \"filename2\": \"C:\\\\Users\\\\BjarkiGunnarsson\\\\novel-creator-host-tests\\\\spike-02\\\\story\\\\exchanges\\\\000002-b601787e-ae8c-476f-a17b-c2f836b7e26e.json\", \"message\": \"[WinError 5] Access is denied: 'C:\\\\\\\\Users\\\\\\\\BjarkiGunnarsson\\\\\\\\novel-creator-host-tests\\\\\\\\spike-02\\\\\\\\story\\\\\\\\exchanges\\\\\\\\prepare-a9tfs0b7' -> 'C:\\\\\\\\Users\\\\\\\\BjarkiGunnarsson\\\\\\\\novel-creator-host-tests\\\\\\\\spike-02\\\\\\\\story\\\\\\\\exchanges\\\\\\\\000002-b601787e-ae8c-476f-a17b-c2f836b7e26e.json'\"}\r\nExchange save failed; pending work is not confirmed\r\n{\"ok\": false, \"error\": {\"code\": 5, \"message\": \"Exchange save failed; pending work is not confirmed\", \"affected_refs\": [], \"retryable\": true}, \"last_confirmed_checkpoint\": {\"git_head\": \"5c139e0f0377729e508bbfa5b2f032f56e693a46\", \"exchange_id\": \"cb790bb2-0e42-4a40-a4b3-f5a1eac3ca3d\", \"sequence\": 1}, \"pending_exchange_id\": \"b601787e-ae8c-476f-a17b-c2f836b7e26e\"}\r\n",
+                "truncated": false
+              }
+            },
+            {
+              "type": "agentMessage",
+              "phase": "commentary",
+              "text": "The launcher fails at `os.link`, which publishes the prepared exchange file: Windows returns “Access is denied” (`WinError 5`). The payload is unchanged. I’ll request an elevated retry of the launcher so it can create that hard link and complete the local Git checkpoint.\n"
+            },
+            {
+              "type": "saveCommandResult",
+              "exitCode": 0,
+              "durationMs": 3545,
+              "output": {
+                "text": "{\"ok\": true, \"operation\": \"exchange.save\", \"novel_id\": \"4d329c8a-4c33-4eec-82ea-6878764b369d\", \"data\": {\"saved\": true, \"already_saved\": false, \"cleanup_required\": false}, \"warnings\": [], \"checkpoint\": {\"git_head\": \"8e4e347cb8d016dc7ce356205e96228120012408\", \"exchange_id\": \"b601787e-ae8c-476f-a17b-c2f836b7e26e\", \"sequence\": 2}}\r\n",
+                "truncated": false
+              }
+            },
+            {
+              "type": "agentMessage",
+              "phase": "final_answer",
+              "text": "What arrives in the first letter: a warning, a confession, or a request the lighthouse keeper cannot ignore?"
+            }
+          ]
+        },
+        {
+          "id": "01a15f44-c619-7d61-bf53-5bb478b55a5d",
+          "status": "completed",
+          "startedAt": 1792599705,
+          "completedAt": 1792599756,
+          "items": [
+            {
+              "type": "userMessage",
+              "text": "Start the host-capture test. Read AGENTS.md and follow its saving instructions.\n\nUse this Python executable:\nC:\\Users\\BjarkiGunnarsson\\source\\repos\\Personal\\novel-creator\\.venv\\Scripts\\python.exe\n\nStory idea: a lighthouse keeper receives letters from tomorrow.\n"
+            },
+            {
+              "type": "agentMessage",
+              "phase": "commentary",
+              "text": "I’ll read the fixture context and saving instructions, then save the exact test response before displaying it.\n"
+            },
+            {
+              "type": "saveCommandResult",
+              "exitCode": 1,
+              "durationMs": 2449,
+              "output": {
+                "text": "Exchange save failed; pending work is not confirmed\r\n{\"ok\": false, \"error\": {\"code\": 5, \"message\": \"Exchange save failed; pending work is not confirmed\", \"affected_refs\": [], \"retryable\": true}, \"last_confirmed_checkpoint\": {\"git_head\": \"5c139e0f0377729e508bbfa5b2f032f56e693a46\", \"exchange_id\": \"cb790bb2-0e42-4a40-a4b3-f5a1eac3ca3d\", \"sequence\": 1}, \"pending_exchange_id\": \"b601787e-ae8c-476f-a17b-c2f836b7e26e\"}\r\n",
+                "truncated": false
+              }
+            },
+            {
+              "type": "agentMessage",
+              "phase": "final_answer",
+              "text": "The response is unsaved; the launcher reported “Exchange save failed; pending work is not confirmed.” Further work is paused.\n\nLast confirmed checkpoint: sequence `1`, exchange `cb790bb2-0e42-4a40-a4b3-f5a1eac3ca3d`, commit `5c139e0f0377729e508bbfa5b2f032f56e693a46`.\n\nPending exchange: `b601787e-ae8c-476f-a17b-c2f836b7e26e`. Its payload and IDs are retained unchanged for retry."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "threadId": "01a15f5a-17e7-72e3-9b46-e1c5bf30d155",
+      "title": "Recover saved fixture reply",
+      "cwd": "C:\\Users\\BjarkiGunnarsson\\novel-creator-host-tests\\spike-02",
+      "hasMore": false,
+      "turns": [
+        {
+          "id": "01a15f5f-a510-7911-9ae1-42bb655a92c6",
+          "status": "completed",
+          "startedAt": 1792601466,
+          "completedAt": 1792601485,
+          "items": [
+            {
+              "type": "userMessage",
+              "text": "The test lock has been removed. Retry the existing pending payload unchanged. Request approval if a required filesystem operation is blocked. Once saving succeeds, display the saved reply.\n"
+            },
+            {
+              "type": "agentMessage",
+              "phase": "commentary",
+              "text": "I’ll retry the existing payload unchanged and display its prepared reply after the save is confirmed.\n"
+            },
+            {
+              "type": "saveCommandResult",
+              "exitCode": 0,
+              "durationMs": 7543,
+              "output": {
+                "text": "{\"ok\": true, \"operation\": \"exchange.save\", \"novel_id\": \"4d329c8a-4c33-4eec-82ea-6878764b369d\", \"data\": {\"saved\": true, \"already_saved\": false, \"cleanup_required\": false}, \"warnings\": [], \"checkpoint\": {\"git_head\": \"aefc319663a948fcce1ec06d4f1097e084f864fc\", \"exchange_id\": \"3c5fb0fc-83b2-4e57-839a-d6b534eac869\", \"sequence\": 9}}\r\n",
+                "truncated": false
+              }
+            },
+            {
+              "type": "agentMessage",
+              "phase": "final_answer",
+              "text": "If the keeper recognizes the seal, locking the letter away could be a deliberate response to its sender. Recognition might suggest fear, loyalty, or a connection the keeper wants to conceal. The useful question is: is the keeper protecting the letter, or protecting someone from it?"
+            }
+          ]
+        },
+        {
+          "id": "01a15f5d-f824-7782-bdee-17a585cb8c0d",
+          "status": "completed",
+          "startedAt": 1792601356,
+          "completedAt": 1792601385,
+          "items": [
+            {
+              "type": "userMessage",
+              "text": "Perhaps the keeper recognizes the seal. What does that suggest?\n"
+            },
+            {
+              "type": "agentMessage",
+              "phase": "commentary",
+              "text": "I’ll check the fixture’s saved context, then save the reply before displaying it.\n"
+            },
+            {
+              "type": "saveCommandResult",
+              "exitCode": 1,
+              "durationMs": 1207,
+              "output": {
+                "text": "Novel writer lock held; inspect recovery before removal\r\n{\"ok\": false, \"error\": {\"code\": 6, \"message\": \"Novel writer lock held; inspect recovery before removal\", \"affected_refs\": [], \"retryable\": true}, \"last_confirmed_checkpoint\": {\"git_head\": \"43d91d21dcc90f6c9d512270df1d1d3661700b27\", \"exchange_id\": \"f2c1fa2e-d5cc-443c-b1d4-64fbfd06a503\", \"sequence\": 8}, \"pending_exchange_id\": \"3c5fb0fc-83b2-4e57-839a-d6b534eac869\"}\r\n",
+                "truncated": false
+              }
+            },
+            {
+              "type": "agentMessage",
+              "phase": "final_answer",
+              "text": "The prepared reply is unsaved because the fixture’s writer lock is held. Further authoritative work is paused pending recovery.\n\nLast confirmed checkpoint: sequence 8, commit `43d91d21dcc90f6c9d512270df1d1d3661700b27`.\n\nPending exchange: `3c5fb0fc-83b2-4e57-839a-d6b534eac869`. Its payload remains unchanged for retry."
+            }
+          ]
+        },
+        {
+          "id": "01a15f5c-5202-7a92-a9ff-9684b5dbf291",
+          "status": "completed",
+          "startedAt": 1792601248,
+          "completedAt": 1792601289,
+          "items": [
+            {
+              "type": "userMessage",
+              "text": "Investigate the save failure. If a required filesystem operation was blocked, request approval for that operation.\n\nRetry the existing pending payload unchanged. Do not generate a new response or reset anything. Display the prepared response once saving succeeds.\n"
+            },
+            {
+              "type": "agentMessage",
+              "phase": "commentary",
+              "text": "I’ll inspect the failed save, identify any blocked filesystem operation, and retry the existing payload unchanged.\n"
+            },
+            {
+              "type": "saveCommandResult",
+              "exitCode": 1,
+              "durationMs": 3263,
+              "output": {
+                "text": "{\r\n  \"state\": \"pending\",\r\n  \"bundle\": {\r\n    \"schema_version\": \"1.0\",\r\n    \"novel_id\": \"4d329c8a-4c33-4eec-82ea-6878764b369d\",\r\n    \"exchange_id\": \"f2c1fa2e-d5cc-443c-b1d4-64fbfd06a503\",\r\n    \"sequence\": 8,\r\n    \"previous_exchange_id\": \"50763b76-b3eb-4241-ae65-44adef549b3e\",\r\n    \"previous_digest\": \"6fbdef0dfbe169087d1e3d52fbbdcea3bfc1a560491db893505268b0a7549af1\",\r\n    \"session_id\": null,\r\n    \"expected_git_head\": \"21a88fd7cc5a8b7584df4e51b95c625bc4478b7b\",\r\n    \"recorded_at\": \"2026-10-21T16:46:00.543425Z\",\r\n    \"operation\": \"conversation\",\r\n    \"messages\": [\r\n      {\r\n        \"message_id\": \"bfe9faec-d529-4e26-ad87-b60e55d5aebb\",\r\n        \"role\": \"user\",\r\n        \"text\": \"Read AGENTS.md and recover the last saved reply from this fixture’s files. Show its checkpoint and saved reply without assuming I already saw it. Follow the saving instructions for this turn.\\n\\nUse this Python executable:\\nC:\\\\Users\\\\BjarkiGunnarsson\\\\source\\\\repos\\\\Personal\\\\novel-creator\\\\.venv\\\\Scripts\\\\python.exe\"\r\n      },\r\n      {\r\n        \"message_id\": \"3c000df5-cda7-433d-b0cd-04b9be6db373\",\r\n        \"role\": \"assistant\",\r\n        \"text\": \"Recovered checkpoint: sequence 7, exchange `50763b76-b3eb-4241-ae65-44adef549b3e`, commit `21a88fd7cc5a8b7584df4e51b95c625bc4478b7b`.\\n\\nDisplay was not confirmed. The exact saved reply was:\\n\\nThe keeper locks the letter in a drawer.\"\r\n      }\r\n    ],\r\n    \"input_artifacts\": [],\r\n    \"record_versions\": [],\r\n    \"continuity_review\": {\r\n      \"coverage\": \"not_applicable\",\r\n      \"reviewed_record_refs\": [],\r\n      \"unavailable_refs\": [],\r\n      \"canon_hold_refs\": [],\r\n      \"finding_ids\": [],\r\n      \"summary\": \"Host protocol fixture only; no canon or narrative judgment\"\r\n    },\r\n    \"payload_digest\": \"2c6f211ce8f7fea07be355e37310ba27536ff4820d7c305e616e4d9229953c11\"\r\n  },\r\n  \"branch\": \"refs/heads/main\",\r\n  \"expected_head\": \"21a88fd7cc5a8b7584df4e51b95c625bc4478b7b\",\r\n  \"paths\": [\r\n    \"story/exchanges/000008-f2c1fa2e-d5cc-443c-b1d4-64fbfd06a503.json\"\r\n  ],\r\n  \"baseline_index\": \"\",\r\n  \"cleanup_required\": false\r\n}\r\nFalse\r\nLINK_FAILURE PermissionError(13, 'Access is denied') source: C:\\Users\\BjarkiGunnarsson\\novel-creator-host-tests\\spike-02\\story\\exchanges\\prepare-4z3iz29h destination: C:\\Users\\BjarkiGunnarsson\\novel-creator-host-tests\\spike-02\\story\\exchanges\\000008-f2c1fa2e-d5cc-443c-b1d4-64fbfd06a503.json\r\nExchange save failed; pending work is not confirmed\r\n{\"ok\": false, \"error\": {\"code\": 5, \"message\": \"Exchange save failed; pending work is not confirmed\", \"affected_refs\": [], \"retryable\": true}, \"last_confirmed_checkpoint\": {\"git_head\": \"21a88fd7cc5a8b7584df4e51b95c625bc4478b7b\", \"exchange_id\": \"50763b76-b3eb-4241-ae65-44adef549b3e\", \"sequence\": 7}, \"pending_exchange_id\": \"f2c1fa2e-d5cc-443c-b1d4-64fbfd06a503\"}\r\n",
+                "truncated": false
+              }
+            },
+            {
+              "type": "agentMessage",
+              "phase": "commentary",
+              "text": "The save was blocked by “Access is denied” when creating the exchange file through a hard link. I’ll request approval to retry the unchanged payload through the local launcher, including its required filesystem and Git writes.\n"
+            },
+            {
+              "type": "saveCommandResult",
+              "exitCode": 0,
+              "durationMs": 7145,
+              "output": {
+                "text": "{\"ok\": true, \"operation\": \"exchange.save\", \"novel_id\": \"4d329c8a-4c33-4eec-82ea-6878764b369d\", \"data\": {\"saved\": true, \"already_saved\": false, \"cleanup_required\": false}, \"warnings\": [], \"checkpoint\": {\"git_head\": \"43d91d21dcc90f6c9d512270df1d1d3661700b27\", \"exchange_id\": \"f2c1fa2e-d5cc-443c-b1d4-64fbfd06a503\", \"sequence\": 8}}\r\n",
+                "truncated": false
+              }
+            },
+            {
+              "type": "agentMessage",
+              "phase": "final_answer",
+              "text": "Recovered checkpoint: sequence 7, exchange `50763b76-b3eb-4241-ae65-44adef549b3e`, commit `21a88fd7cc5a8b7584df4e51b95c625bc4478b7b`.\n\nDisplay was not confirmed. The exact saved reply was:\n\nThe keeper locks the letter in a drawer."
+            }
+          ]
+        },
+        {
+          "id": "01a15f5a-33e3-7690-a8e9-ebf806d885cf",
+          "status": "completed",
+          "startedAt": 1792601109,
+          "completedAt": 1792601173,
+          "items": [
+            {
+              "type": "userMessage",
+              "text": "Read AGENTS.md and recover the last saved reply from this fixture’s files. Show its checkpoint and saved reply without assuming I already saw it. Follow the saving instructions for this turn.\n\nUse this Python executable:\nC:\\Users\\BjarkiGunnarsson\\source\\repos\\Personal\\novel-creator\\.venv\\Scripts\\python.exe\n"
+            },
+            {
+              "type": "agentMessage",
+              "phase": "commentary",
+              "text": "I’ll read the fixture instructions and saved state, then save this turn before showing the recovered reply and its checkpoint.\n"
+            },
+            {
+              "type": "saveCommandResult",
+              "exitCode": 1,
+              "durationMs": 5302,
+              "output": {
+                "text": "Exchange save failed; pending work is not confirmed\r\n{\"ok\": false, \"error\": {\"code\": 5, \"message\": \"Exchange save failed; pending work is not confirmed\", \"affected_refs\": [], \"retryable\": true}, \"last_confirmed_checkpoint\": {\"git_head\": \"21a88fd7cc5a8b7584df4e51b95c625bc4478b7b\", \"exchange_id\": \"50763b76-b3eb-4241-ae65-44adef549b3e\", \"sequence\": 7}, \"pending_exchange_id\": \"f2c1fa2e-d5cc-443c-b1d4-64fbfd06a503\"}\r\n",
+                "truncated": false
+              }
+            },
+            {
+              "type": "agentMessage",
+              "phase": "final_answer",
+              "text": "This turn’s response is unsaved; saving failed, so authoritative work is paused.\n\nLast confirmed checkpoint: sequence 7, exchange `50763b76-b3eb-4241-ae65-44adef549b3e`, commit `21a88fd7cc5a8b7584df4e51b95c625bc4478b7b`.\n\nIts saved reply, with display unconfirmed:\n\n> The keeper locks the letter in a drawer.\n\nPending exchange: `f2c1fa2e-d5cc-443c-b1d4-64fbfd06a503`. Its payload and IDs are retained unchanged."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

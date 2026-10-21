@@ -1,0 +1,11 @@
+{
+  "manufacturer": "LENOVO",
+  "model": "22AWS00800",
+  "physical_memory_bytes": 33847832576,
+  "logical_cpus": 8,
+  "windows": "Windows 11 10.0.26300",
+  "linux": "Ubuntu 24.04.4 LTS under WSL2",
+  "linux_kernel": "6.6.87.2-microsoft-standard-WSL2",
+  "linux_fixture_filesystem": "ext4",
+  "date": "2026-10-21"
+}

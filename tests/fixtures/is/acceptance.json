@@ -1,0 +1,350 @@
+{
+  "language": "is",
+  "status": "Paired authored expectations; semantic parity and actual host judgment unverified",
+  "cases": [
+    {
+      "id": "A01",
+      "user_text": "Samþykktu að vitavörðurinn sé sendandinn.",
+      "source_span": {
+        "start": 0,
+        "end": 41
+      },
+      "expected_action": "accept",
+      "selected_propositions": [
+        "keeper_sender"
+      ],
+      "requires_repeat_approval": false
+    },
+    {
+      "id": "A02",
+      "user_text": "Ákveðum að fórnarlambið sé bróðir vitavarðarins.",
+      "source_span": {
+        "start": 0,
+        "end": 48
+      },
+      "expected_action": "accept",
+      "selected_propositions": [
+        "victim_brother"
+      ],
+      "requires_repeat_approval": false
+    },
+    {
+      "id": "A03",
+      "user_text": "Já, staðfestum að ljósið hafi bilað þetta kvöld.",
+      "source_span": {
+        "start": 0,
+        "end": 48
+      },
+      "expected_action": "accept",
+      "selected_propositions": [
+        "lamp_failed"
+      ],
+      "requires_repeat_approval": false
+    },
+    {
+      "id": "A04",
+      "user_text": "Engin brú liggur að eyjunni. Gerum það að staðreynd.",
+      "source_span": {
+        "start": 0,
+        "end": 52
+      },
+      "expected_action": "accept",
+      "selected_propositions": [
+        "island_no_bridge"
+      ],
+      "requires_repeat_approval": false
+    },
+    {
+      "id": "A05",
+      "user_text": "Notum vetrarumhverfið.",
+      "source_span": {
+        "start": 0,
+        "end": 22
+      },
+      "expected_action": "accept",
+      "selected_propositions": [
+        "winter"
+      ],
+      "requires_repeat_approval": false
+    },
+    {
+      "id": "A06",
+      "user_text": "Höldum systurinni sem rannsakanda.",
+      "source_span": {
+        "start": 0,
+        "end": 34
+      },
+      "expected_action": "accept",
+      "selected_propositions": [
+        "sister_investigator"
+      ],
+      "requires_repeat_approval": false
+    },
+    {
+      "id": "A07",
+      "user_text": "Veljum koparinnsiglið.",
+      "source_span": {
+        "start": 0,
+        "end": 22
+      },
+      "expected_action": "accept",
+      "selected_propositions": [
+        "brass_seal"
+      ],
+      "requires_repeat_approval": false
+    },
+    {
+      "id": "A08",
+      "user_text": "Vitavörðurinn þekkir sjómanninn. Það er ákveðið.",
+      "source_span": {
+        "start": 0,
+        "end": 48
+      },
+      "expected_action": "accept",
+      "selected_propositions": [
+        "knows_sailor"
+      ],
+      "requires_repeat_approval": false
+    },
+    {
+      "id": "A09",
+      "user_text": "Aðeins sendandahlutinn er samþykktur; morðið er óákveðið.",
+      "source_span": {
+        "start": 0,
+        "end": 57
+      },
+      "expected_action": "accept",
+      "selected_propositions": [
+        "keeper_sender"
+      ],
+      "requires_repeat_approval": false
+    },
+    {
+      "id": "A10",
+      "user_text": "Höldum storminum en látum skipskaðann vera möguleika.",
+      "source_span": {
+        "start": 0,
+        "end": 53
+      },
+      "expected_action": "accept",
+      "selected_propositions": [
+        "storm"
+      ],
+      "requires_repeat_approval": false
+    },
+    {
+      "id": "A11",
+      "user_text": "Ég samþykki bláa ljósið, ekki viðvörunarbjölluna.",
+      "source_span": {
+        "start": 0,
+        "end": 49
+      },
+      "expected_action": "accept",
+      "selected_propositions": [
+        "blue_light"
+      ],
+      "requires_repeat_approval": false
+    },
+    {
+      "id": "A12",
+      "user_text": "Staðfestum að bréfið hafi komið fyrir dögun.",
+      "source_span": {
+        "start": 0,
+        "end": 44
+      },
+      "expected_action": "accept",
+      "selected_propositions": [
+        "before_dawn"
+      ],
+      "requires_repeat_approval": false
+    },
+    {
+      "id": "N01",
+      "user_text": "Áhugavert.",
+      "source_span": {
+        "start": 0,
+        "end": 10
+      },
+      "expected_action": "retain_proposal",
+      "selected_propositions": [],
+      "reason": "praise"
+    },
+    {
+      "id": "N02",
+      "user_text": "Kannski sendi vitavörðurinn það.",
+      "source_span": {
+        "start": 0,
+        "end": 32
+      },
+      "expected_action": "retain_proposal",
+      "selected_propositions": [],
+      "reason": "tentative"
+    },
+    {
+      "id": "N03",
+      "user_text": "Hvað ef fórnarlambið er bróðir?",
+      "source_span": {
+        "start": 0,
+        "end": 31
+      },
+      "expected_action": "retain_proposal",
+      "selected_propositions": [],
+      "reason": "hypothetical"
+    },
+    {
+      "id": "N04",
+      "user_text": "Persónan segir: „Ég drap hann.“",
+      "source_span": {
+        "start": 0,
+        "end": 31
+      },
+      "expected_action": "retain_proposal",
+      "selected_propositions": [],
+      "reason": "quoted_dialogue"
+    },
+    {
+      "id": "N05",
+      "user_text": "",
+      "source_span": null,
+      "expected_action": "retain_proposal",
+      "selected_propositions": [],
+      "reason": "silence"
+    },
+    {
+      "id": "N06",
+      "user_text": "Mér líkar þessir möguleikar.",
+      "source_span": {
+        "start": 0,
+        "end": 28
+      },
+      "expected_action": "retain_proposal",
+      "selected_propositions": [],
+      "reason": "praise"
+    },
+    {
+      "id": "N07",
+      "user_text": "Nei, höfnum sendandahugmyndinni.",
+      "source_span": {
+        "start": 0,
+        "end": 32
+      },
+      "expected_action": "reject",
+      "selected_propositions": [],
+      "reason": "rejection"
+    },
+    {
+      "id": "N08",
+      "user_text": "Gæti ljósið hafa bilað?",
+      "source_span": {
+        "start": 0,
+        "end": 23
+      },
+      "expected_action": "retain_proposal",
+      "selected_propositions": [],
+      "reason": "question"
+    },
+    {
+      "id": "N09",
+      "user_text": "Já.",
+      "source_span": {
+        "start": 0,
+        "end": 3
+      },
+      "expected_action": "clarify",
+      "selected_propositions": [],
+      "reason": "ambiguous_target"
+    },
+    {
+      "id": "N10",
+      "user_text": "Þetta gæti gengið einhvern daginn.",
+      "source_span": {
+        "start": 0,
+        "end": 34
+      },
+      "expected_action": "retain_proposal",
+      "selected_propositions": [],
+      "reason": "tentative"
+    },
+    {
+      "id": "N11",
+      "user_text": "Segjum að brú lægi að eyjunni.",
+      "source_span": {
+        "start": 0,
+        "end": 30
+      },
+      "expected_action": "retain_proposal",
+      "selected_propositions": [],
+      "reason": "hypothetical"
+    },
+    {
+      "id": "N12",
+      "user_text": "Höldum báðum valkostum opnum.",
+      "source_span": {
+        "start": 0,
+        "end": 29
+      },
+      "expected_action": "retain_proposal",
+      "selected_propositions": [],
+      "reason": "unresolved_alternatives"
+    },
+    {
+      "id": "D01",
+      "user_text": "Gerum systurina að morðingjanum.",
+      "explicit_direction": "Systirin verður að vera saklaus.",
+      "expected_action": "clarify_protected_direction",
+      "selected_propositions": []
+    }
+  ],
+  "revisions": [
+    {
+      "id": "R1",
+      "user_text": "Endurskoðum sendandann úr útgáfu 0 í útgáfu 1.",
+      "prior_version": 1,
+      "result_version": 2,
+      "expected_action": "revise",
+      "preserve_history": true,
+      "review_direct_dependencies": true,
+      "edit_manuscript": false
+    },
+    {
+      "id": "R2",
+      "user_text": "Endurskoðum sendandann úr útgáfu 1 í útgáfu 2.",
+      "prior_version": 2,
+      "result_version": 3,
+      "expected_action": "revise",
+      "preserve_history": true,
+      "review_direct_dependencies": true,
+      "edit_manuscript": false
+    },
+    {
+      "id": "R3",
+      "user_text": "Endurskoðum sendandann úr útgáfu 2 í útgáfu 3.",
+      "prior_version": 3,
+      "result_version": 4,
+      "expected_action": "revise",
+      "preserve_history": true,
+      "review_direct_dependencies": true,
+      "edit_manuscript": false
+    },
+    {
+      "id": "R4",
+      "user_text": "Endurskoðum sendandann úr útgáfu 3 í útgáfu 4.",
+      "prior_version": 4,
+      "result_version": 5,
+      "expected_action": "revise",
+      "preserve_history": true,
+      "review_direct_dependencies": true,
+      "edit_manuscript": false
+    },
+    {
+      "id": "R5",
+      "user_text": "Endurskoðum sendandann úr útgáfu 4 í útgáfu 5.",
+      "prior_version": 5,
+      "result_version": 6,
+      "expected_action": "revise",
+      "preserve_history": true,
+      "review_direct_dependencies": true,
+      "edit_manuscript": false
+    }
+  ]
+}

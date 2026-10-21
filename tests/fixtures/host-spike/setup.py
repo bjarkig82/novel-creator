@@ -36,6 +36,10 @@ def setup(target):
     (target / '.gitignore').write_text('.novel-creator/local/\n__pycache__/\n*.pyc\n', encoding='utf-8')
     novel = str(uuid.uuid4())
     files = [p for p in managed.rglob('*') if p.is_file()]
+    # A framework copied from a Windows mount can mark text files executable.
+    # Fixture metadata uses the same regular-file mode as production bundles.
+    for path in files:
+        path.chmod(0o644)
     manifest = {'novel_id': novel, 'schema_version': '1.0', 'bundle_version': '0.1.0', 'fixture_only': True,
                 'checksums': {str(p.relative_to(target)): hashlib.sha256(p.read_bytes()).hexdigest() for p in files}}
     (managed / 'manifest.json').write_text(json.dumps(manifest, indent=2), encoding='utf-8')

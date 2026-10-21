@@ -1,0 +1,966 @@
+{
+  "fixture": "C:\\Users\\BjarkiGunnarsson\\novel-creator-host-tests\\spike-02",
+  "checkpoint": {
+    "git_head": "aefc319663a948fcce1ec06d4f1097e084f864fc",
+    "exchange_id": "3c5fb0fc-83b2-4e57-839a-d6b534eac869",
+    "sequence": 9
+  },
+  "git_status_clean": true,
+  "manifest_checksums_verified": 13,
+  "committed_exchanges": [
+    {
+      "schema_version": "1.0",
+      "novel_id": "4d329c8a-4c33-4eec-82ea-6878764b369d",
+      "exchange_id": "cb790bb2-0e42-4a40-a4b3-f5a1eac3ca3d",
+      "sequence": 1,
+      "previous_exchange_id": null,
+      "previous_digest": null,
+      "session_id": null,
+      "expected_git_head": "d8570aca6ebb9afc69367464dbfe1441bde9d340",
+      "recorded_at": "2026-10-21T16:18:57.045793Z",
+      "operation": "bootstrap",
+      "messages": [],
+      "input_artifacts": [],
+      "record_versions": [],
+      "continuity_review": {
+        "coverage": "not_applicable",
+        "reviewed_record_refs": [],
+        "unavailable_refs": [],
+        "canon_hold_refs": [],
+        "finding_ids": [],
+        "summary": "Disposable host fixture bootstrap"
+      },
+      "payload_digest": "2b266005d7169c39e9587b7f91135400c7408005dc15ea3f6da367e569610066"
+    },
+    {
+      "schema_version": "1.0",
+      "novel_id": "4d329c8a-4c33-4eec-82ea-6878764b369d",
+      "exchange_id": "b601787e-ae8c-476f-a17b-c2f836b7e26e",
+      "sequence": 2,
+      "previous_exchange_id": "cb790bb2-0e42-4a40-a4b3-f5a1eac3ca3d",
+      "previous_digest": "2b266005d7169c39e9587b7f91135400c7408005dc15ea3f6da367e569610066",
+      "session_id": null,
+      "expected_git_head": "5c139e0f0377729e508bbfa5b2f032f56e693a46",
+      "recorded_at": "2026-10-21T16:22:25.998946Z",
+      "operation": "conversation",
+      "messages": [
+        {
+          "message_id": "0699716d-34db-4979-9202-47579b0c9403",
+          "role": "user",
+          "text": "Start the host-capture test. Read AGENTS.md and follow its saving instructions.\n\nUse this Python executable:\nC:\\Users\\BjarkiGunnarsson\\source\\repos\\Personal\\novel-creator\\.venv\\Scripts\\python.exe\n\nStory idea: a lighthouse keeper receives letters from tomorrow."
+        },
+        {
+          "message_id": "abc5385f-ffea-4c5b-aeb3-a3899826d837",
+          "role": "assistant",
+          "text": "What arrives in the first letter: a warning, a confession, or a request the lighthouse keeper cannot ignore?"
+        }
+      ],
+      "input_artifacts": [],
+      "record_versions": [],
+      "continuity_review": {
+        "coverage": "not_applicable",
+        "reviewed_record_refs": [],
+        "unavailable_refs": [],
+        "canon_hold_refs": [],
+        "finding_ids": [],
+        "summary": "Host protocol fixture only; no canon or narrative judgment"
+      },
+      "payload_digest": "9a23483206f364be804f23ee14bfc5c6fe04a1a5579df66609b7a7b5072935e7"
+    },
+    {
+      "schema_version": "1.0",
+      "novel_id": "4d329c8a-4c33-4eec-82ea-6878764b369d",
+      "exchange_id": "4254ba3b-039c-495e-b111-7ddbed981f28",
+      "sequence": 3,
+      "previous_exchange_id": "b601787e-ae8c-476f-a17b-c2f836b7e26e",
+      "previous_digest": "9a23483206f364be804f23ee14bfc5c6fe04a1a5579df66609b7a7b5072935e7",
+      "session_id": null,
+      "expected_git_head": "8e4e347cb8d016dc7ce356205e96228120012408",
+      "recorded_at": "2026-10-21T16:28:19.313427Z",
+      "operation": "conversation",
+      "messages": [
+        {
+          "message_id": "b855c002-3bd2-4cbf-b9a8-9f85cd3d52fa",
+          "role": "user",
+          "text": "The next letter is written in the keeper's own handwriting."
+        },
+        {
+          "message_id": "6252c90c-a177-45d2-8448-a6c6084f74f1",
+          "role": "assistant",
+          "text": "Does the keeper trust the handwriting enough to follow the letter, or try to prove that someone has forged it?"
+        }
+      ],
+      "input_artifacts": [],
+      "record_versions": [],
+      "continuity_review": {
+        "coverage": "not_applicable",
+        "reviewed_record_refs": [],
+        "unavailable_refs": [],
+        "canon_hold_refs": [],
+        "finding_ids": [],
+        "summary": "Host protocol fixture only; no canon or narrative judgment"
+      },
+      "payload_digest": "d29c6ec5b0984130694c060151790b302a4d4d6487f48dd32c02b050db40c0de"
+    },
+    {
+      "schema_version": "1.0",
+      "novel_id": "4d329c8a-4c33-4eec-82ea-6878764b369d",
+      "exchange_id": "6e5cae78-a867-4711-b3ba-bf8b22334524",
+      "sequence": 4,
+      "previous_exchange_id": "4254ba3b-039c-495e-b111-7ddbed981f28",
+      "previous_digest": "d29c6ec5b0984130694c060151790b302a4d4d6487f48dd32c02b050db40c0de",
+      "session_id": null,
+      "expected_git_head": "2e1e54bed200cb41105a9a8666c9fbc7ccb10069",
+      "recorded_at": "2026-10-21T16:29:35.769375Z",
+      "operation": "conversation",
+      "messages": [
+        {
+          "message_id": "34bfd3cf-913b-4f59-9550-d288b8c2d6ac",
+          "role": "user",
+          "text": "What could make the keeper afraid to open it?"
+        },
+        {
+          "message_id": "6dad369f-0b77-4cca-991b-270349c1386c",
+          "role": "assistant",
+          "text": "A few possibilities:\n\n- The previous letter predicted a death, and the keeper recognized the victim only after it happened.\n- The envelope bears a private mark the keeper once used for letters they could never bring themselves to send.\n- The handwriting has a tremor the keeper does not have yet.\n- Across the seal, in their own hand: \"You can still choose not to know.\"\n\nOr the fear is more intimate: the keeper has spent years waiting for someone to return, and suspects tomorrow's self will finally tell them to stop."
+        }
+      ],
+      "input_artifacts": [],
+      "record_versions": [],
+      "continuity_review": {
+        "coverage": "not_applicable",
+        "reviewed_record_refs": [],
+        "unavailable_refs": [],
+        "canon_hold_refs": [],
+        "finding_ids": [],
+        "summary": "Host protocol fixture only; no canon or narrative judgment"
+      },
+      "payload_digest": "f70a3e9500da2fde3a6bd1b5df2ee18529073a10f7baa0b00c4c139f6d631bb0"
+    },
+    {
+      "schema_version": "1.0",
+      "novel_id": "4d329c8a-4c33-4eec-82ea-6878764b369d",
+      "exchange_id": "263d490b-5ec0-480c-9fc3-b07b6a2d3bb6",
+      "sequence": 5,
+      "previous_exchange_id": "6e5cae78-a867-4711-b3ba-bf8b22334524",
+      "previous_digest": "f70a3e9500da2fde3a6bd1b5df2ee18529073a10f7baa0b00c4c139f6d631bb0",
+      "session_id": null,
+      "expected_git_head": "4f6c7b98c0a373007272ff0e02368d84ee51f0d0",
+      "recorded_at": "2026-10-21T16:31:41.278807Z",
+      "operation": "conversation",
+      "messages": [
+        {
+          "message_id": "870b1dd8-0d5c-42f8-92bd-ea04b65fdd55",
+          "role": "user",
+          "text": "Save this exact reply: The keeper leaves the letter sealed.\n\nAfter the save succeeds, wait 45 seconds before displaying it, so I can press Stop. Preserve my full message using the existing saving instructions."
+        },
+        {
+          "message_id": "0cd41fb1-3f11-4002-b53a-97f9ee9d9e8a",
+          "role": "assistant",
+          "text": "The keeper leaves the letter sealed."
+        }
+      ],
+      "input_artifacts": [],
+      "record_versions": [],
+      "continuity_review": {
+        "coverage": "not_applicable",
+        "reviewed_record_refs": [],
+        "unavailable_refs": [],
+        "canon_hold_refs": [],
+        "finding_ids": [],
+        "summary": "Host protocol fixture only; no canon or narrative judgment"
+      },
+      "payload_digest": "772f3ddb4d5b351b47e7014b6463f4f6037a9788b2254af56f1f76f928cdf03c"
+    },
+    {
+      "schema_version": "1.0",
+      "novel_id": "4d329c8a-4c33-4eec-82ea-6878764b369d",
+      "exchange_id": "c7361253-24e3-4749-8d40-40b4bc857e66",
+      "sequence": 6,
+      "previous_exchange_id": "263d490b-5ec0-480c-9fc3-b07b6a2d3bb6",
+      "previous_digest": "772f3ddb4d5b351b47e7014b6463f4f6037a9788b2254af56f1f76f928cdf03c",
+      "session_id": null,
+      "expected_git_head": "ece43927c783dab1a1664a835b34fae69537f420",
+      "recorded_at": "2026-10-21T16:35:43.395667Z",
+      "operation": "conversation",
+      "messages": [
+        {
+          "message_id": "c77edfa0-771f-47d9-bad2-74caac4aee87",
+          "role": "user",
+          "text": "Repeat the interruption test. Save this exact reply:\nThe keeper leaves the letter sealed.\n\nAfter saving succeeds, show a progress update saying “Saved. Press Stop now.” Then wait 45 seconds before displaying the final reply."
+        },
+        {
+          "message_id": "93726e37-e160-48d7-bfcc-9671c2c4ffb2",
+          "role": "assistant",
+          "text": "The keeper leaves the letter sealed."
+        }
+      ],
+      "input_artifacts": [],
+      "record_versions": [],
+      "continuity_review": {
+        "coverage": "not_applicable",
+        "reviewed_record_refs": [],
+        "unavailable_refs": [],
+        "canon_hold_refs": [],
+        "finding_ids": [],
+        "summary": "Host protocol fixture only; no canon or narrative judgment"
+      },
+      "payload_digest": "054d4eb042f9c6aecae42d8400b34e3fad4831d3ad05c041b6f6c9222b4fb112"
+    },
+    {
+      "schema_version": "1.0",
+      "novel_id": "4d329c8a-4c33-4eec-82ea-6878764b369d",
+      "exchange_id": "50763b76-b3eb-4241-ae65-44adef549b3e",
+      "sequence": 7,
+      "previous_exchange_id": "c7361253-24e3-4749-8d40-40b4bc857e66",
+      "previous_digest": "054d4eb042f9c6aecae42d8400b34e3fad4831d3ad05c041b6f6c9222b4fb112",
+      "session_id": null,
+      "expected_git_head": "41ec346cd6a75ea6afe4395447b68da5adac7f12",
+      "recorded_at": "2026-10-21T16:43:10.745404Z",
+      "operation": "conversation",
+      "messages": [
+        {
+          "message_id": "07212a51-c1e4-40c9-87a7-a94f3584df17",
+          "role": "user",
+          "text": "Save this exact reply:\nThe keeper locks the letter in a drawer.\n\nAfter saving succeeds, show “Saved. Press Stop now.” as a progress update.\n\nThen keep waiting in 30-second intervals until I click Stop. Do not display the final reply or finish on your own."
+        },
+        {
+          "message_id": "8001f820-1291-4c9f-b517-81ddc898a4ac",
+          "role": "assistant",
+          "text": "The keeper locks the letter in a drawer."
+        }
+      ],
+      "input_artifacts": [],
+      "record_versions": [],
+      "continuity_review": {
+        "coverage": "not_applicable",
+        "reviewed_record_refs": [],
+        "unavailable_refs": [],
+        "canon_hold_refs": [],
+        "finding_ids": [],
+        "summary": "Host protocol fixture only; no canon or narrative judgment"
+      },
+      "payload_digest": "6fbdef0dfbe169087d1e3d52fbbdcea3bfc1a560491db893505268b0a7549af1"
+    },
+    {
+      "schema_version": "1.0",
+      "novel_id": "4d329c8a-4c33-4eec-82ea-6878764b369d",
+      "exchange_id": "f2c1fa2e-d5cc-443c-b1d4-64fbfd06a503",
+      "sequence": 8,
+      "previous_exchange_id": "50763b76-b3eb-4241-ae65-44adef549b3e",
+      "previous_digest": "6fbdef0dfbe169087d1e3d52fbbdcea3bfc1a560491db893505268b0a7549af1",
+      "session_id": null,
+      "expected_git_head": "21a88fd7cc5a8b7584df4e51b95c625bc4478b7b",
+      "recorded_at": "2026-10-21T16:46:00.543425Z",
+      "operation": "conversation",
+      "messages": [
+        {
+          "message_id": "bfe9faec-d529-4e26-ad87-b60e55d5aebb",
+          "role": "user",
+          "text": "Read AGENTS.md and recover the last saved reply from this fixture’s files. Show its checkpoint and saved reply without assuming I already saw it. Follow the saving instructions for this turn.\n\nUse this Python executable:\nC:\\Users\\BjarkiGunnarsson\\source\\repos\\Personal\\novel-creator\\.venv\\Scripts\\python.exe"
+        },
+        {
+          "message_id": "3c000df5-cda7-433d-b0cd-04b9be6db373",
+          "role": "assistant",
+          "text": "Recovered checkpoint: sequence 7, exchange `50763b76-b3eb-4241-ae65-44adef549b3e`, commit `21a88fd7cc5a8b7584df4e51b95c625bc4478b7b`.\n\nDisplay was not confirmed. The exact saved reply was:\n\nThe keeper locks the letter in a drawer."
+        }
+      ],
+      "input_artifacts": [],
+      "record_versions": [],
+      "continuity_review": {
+        "coverage": "not_applicable",
+        "reviewed_record_refs": [],
+        "unavailable_refs": [],
+        "canon_hold_refs": [],
+        "finding_ids": [],
+        "summary": "Host protocol fixture only; no canon or narrative judgment"
+      },
+      "payload_digest": "2c6f211ce8f7fea07be355e37310ba27536ff4820d7c305e616e4d9229953c11"
+    },
+    {
+      "schema_version": "1.0",
+      "novel_id": "4d329c8a-4c33-4eec-82ea-6878764b369d",
+      "exchange_id": "3c5fb0fc-83b2-4e57-839a-d6b534eac869",
+      "sequence": 9,
+      "previous_exchange_id": "f2c1fa2e-d5cc-443c-b1d4-64fbfd06a503",
+      "previous_digest": "2c6f211ce8f7fea07be355e37310ba27536ff4820d7c305e616e4d9229953c11",
+      "session_id": null,
+      "expected_git_head": "43d91d21dcc90f6c9d512270df1d1d3661700b27",
+      "recorded_at": "2026-10-21T16:49:33.267489Z",
+      "operation": "conversation",
+      "messages": [
+        {
+          "message_id": "56827ce0-59b5-4df1-8f8b-20d4ccbc9d00",
+          "role": "user",
+          "text": "Perhaps the keeper recognizes the seal. What does that suggest?"
+        },
+        {
+          "message_id": "fac43f6c-1657-46bb-ae5e-085eb59f6085",
+          "role": "assistant",
+          "text": "If the keeper recognizes the seal, locking the letter away could be a deliberate response to its sender. Recognition might suggest fear, loyalty, or a connection the keeper wants to conceal. The useful question is: is the keeper protecting the letter, or protecting someone from it?"
+        }
+      ],
+      "input_artifacts": [],
+      "record_versions": [],
+      "continuity_review": {
+        "coverage": "not_applicable",
+        "reviewed_record_refs": [],
+        "unavailable_refs": [],
+        "canon_hold_refs": [],
+        "finding_ids": [],
+        "summary": "Host protocol fixture only; no canon or narrative judgment"
+      },
+      "payload_digest": "4c1cddcde935f5eb2a89b379b1b54b81db51cd450d12881627f542acb8b6f19d"
+    }
+  ],
+  "receipts": {
+    "cb790bb2-0e42-4a40-a4b3-f5a1eac3ca3d": {
+      "state": "published",
+      "bundle": {
+        "schema_version": "1.0",
+        "novel_id": "4d329c8a-4c33-4eec-82ea-6878764b369d",
+        "exchange_id": "cb790bb2-0e42-4a40-a4b3-f5a1eac3ca3d",
+        "sequence": 1,
+        "previous_exchange_id": null,
+        "previous_digest": null,
+        "session_id": null,
+        "expected_git_head": "d8570aca6ebb9afc69367464dbfe1441bde9d340",
+        "recorded_at": "2026-10-21T16:18:57.045793Z",
+        "operation": "bootstrap",
+        "messages": [],
+        "input_artifacts": [],
+        "record_versions": [],
+        "continuity_review": {
+          "coverage": "not_applicable",
+          "reviewed_record_refs": [],
+          "unavailable_refs": [],
+          "canon_hold_refs": [],
+          "finding_ids": [],
+          "summary": "Disposable host fixture bootstrap"
+        },
+        "payload_digest": "2b266005d7169c39e9587b7f91135400c7408005dc15ea3f6da367e569610066"
+      },
+      "branch": "refs/heads/main",
+      "expected_head": "d8570aca6ebb9afc69367464dbfe1441bde9d340",
+      "paths": [
+        "story/exchanges/000001-cb790bb2-0e42-4a40-a4b3-f5a1eac3ca3d.json"
+      ],
+      "baseline_index": "",
+      "cleanup_required": false,
+      "candidate": "5c139e0f0377729e508bbfa5b2f032f56e693a46"
+    },
+    "b601787e-ae8c-476f-a17b-c2f836b7e26e": {
+      "state": "published",
+      "bundle": {
+        "schema_version": "1.0",
+        "novel_id": "4d329c8a-4c33-4eec-82ea-6878764b369d",
+        "exchange_id": "b601787e-ae8c-476f-a17b-c2f836b7e26e",
+        "sequence": 2,
+        "previous_exchange_id": "cb790bb2-0e42-4a40-a4b3-f5a1eac3ca3d",
+        "previous_digest": "2b266005d7169c39e9587b7f91135400c7408005dc15ea3f6da367e569610066",
+        "session_id": null,
+        "expected_git_head": "5c139e0f0377729e508bbfa5b2f032f56e693a46",
+        "recorded_at": "2026-10-21T16:22:25.998946Z",
+        "operation": "conversation",
+        "messages": [
+          {
+            "message_id": "0699716d-34db-4979-9202-47579b0c9403",
+            "role": "user",
+            "text": "Start the host-capture test. Read AGENTS.md and follow its saving instructions.\n\nUse this Python executable:\nC:\\Users\\BjarkiGunnarsson\\source\\repos\\Personal\\novel-creator\\.venv\\Scripts\\python.exe\n\nStory idea: a lighthouse keeper receives letters from tomorrow."
+          },
+          {
+            "message_id": "abc5385f-ffea-4c5b-aeb3-a3899826d837",
+            "role": "assistant",
+            "text": "What arrives in the first letter: a warning, a confession, or a request the lighthouse keeper cannot ignore?"
+          }
+        ],
+        "input_artifacts": [],
+        "record_versions": [],
+        "continuity_review": {
+          "coverage": "not_applicable",
+          "reviewed_record_refs": [],
+          "unavailable_refs": [],
+          "canon_hold_refs": [],
+          "finding_ids": [],
+          "summary": "Host protocol fixture only; no canon or narrative judgment"
+        },
+        "payload_digest": "9a23483206f364be804f23ee14bfc5c6fe04a1a5579df66609b7a7b5072935e7"
+      },
+      "branch": "refs/heads/main",
+      "expected_head": "5c139e0f0377729e508bbfa5b2f032f56e693a46",
+      "paths": [
+        "story/exchanges/000002-b601787e-ae8c-476f-a17b-c2f836b7e26e.json"
+      ],
+      "baseline_index": "",
+      "cleanup_required": false,
+      "candidate": "8e4e347cb8d016dc7ce356205e96228120012408"
+    },
+    "4254ba3b-039c-495e-b111-7ddbed981f28": {
+      "state": "published",
+      "bundle": {
+        "schema_version": "1.0",
+        "novel_id": "4d329c8a-4c33-4eec-82ea-6878764b369d",
+        "exchange_id": "4254ba3b-039c-495e-b111-7ddbed981f28",
+        "sequence": 3,
+        "previous_exchange_id": "b601787e-ae8c-476f-a17b-c2f836b7e26e",
+        "previous_digest": "9a23483206f364be804f23ee14bfc5c6fe04a1a5579df66609b7a7b5072935e7",
+        "session_id": null,
+        "expected_git_head": "8e4e347cb8d016dc7ce356205e96228120012408",
+        "recorded_at": "2026-10-21T16:28:19.313427Z",
+        "operation": "conversation",
+        "messages": [
+          {
+            "message_id": "b855c002-3bd2-4cbf-b9a8-9f85cd3d52fa",
+            "role": "user",
+            "text": "The next letter is written in the keeper's own handwriting."
+          },
+          {
+            "message_id": "6252c90c-a177-45d2-8448-a6c6084f74f1",
+            "role": "assistant",
+            "text": "Does the keeper trust the handwriting enough to follow the letter, or try to prove that someone has forged it?"
+          }
+        ],
+        "input_artifacts": [],
+        "record_versions": [],
+        "continuity_review": {
+          "coverage": "not_applicable",
+          "reviewed_record_refs": [],
+          "unavailable_refs": [],
+          "canon_hold_refs": [],
+          "finding_ids": [],
+          "summary": "Host protocol fixture only; no canon or narrative judgment"
+        },
+        "payload_digest": "d29c6ec5b0984130694c060151790b302a4d4d6487f48dd32c02b050db40c0de"
+      },
+      "branch": "refs/heads/main",
+      "expected_head": "8e4e347cb8d016dc7ce356205e96228120012408",
+      "paths": [
+        "story/exchanges/000003-4254ba3b-039c-495e-b111-7ddbed981f28.json"
+      ],
+      "baseline_index": "",
+      "cleanup_required": false,
+      "candidate": "2e1e54bed200cb41105a9a8666c9fbc7ccb10069"
+    },
+    "6e5cae78-a867-4711-b3ba-bf8b22334524": {
+      "state": "published",
+      "bundle": {
+        "schema_version": "1.0",
+        "novel_id": "4d329c8a-4c33-4eec-82ea-6878764b369d",
+        "exchange_id": "6e5cae78-a867-4711-b3ba-bf8b22334524",
+        "sequence": 4,
+        "previous_exchange_id": "4254ba3b-039c-495e-b111-7ddbed981f28",
+        "previous_digest": "d29c6ec5b0984130694c060151790b302a4d4d6487f48dd32c02b050db40c0de",
+        "session_id": null,
+        "expected_git_head": "2e1e54bed200cb41105a9a8666c9fbc7ccb10069",
+        "recorded_at": "2026-10-21T16:29:35.769375Z",
+        "operation": "conversation",
+        "messages": [
+          {
+            "message_id": "34bfd3cf-913b-4f59-9550-d288b8c2d6ac",
+            "role": "user",
+            "text": "What could make the keeper afraid to open it?"
+          },
+          {
+            "message_id": "6dad369f-0b77-4cca-991b-270349c1386c",
+            "role": "assistant",
+            "text": "A few possibilities:\n\n- The previous letter predicted a death, and the keeper recognized the victim only after it happened.\n- The envelope bears a private mark the keeper once used for letters they could never bring themselves to send.\n- The handwriting has a tremor the keeper does not have yet.\n- Across the seal, in their own hand: \"You can still choose not to know.\"\n\nOr the fear is more intimate: the keeper has spent years waiting for someone to return, and suspects tomorrow's self will finally tell them to stop."
+          }
+        ],
+        "input_artifacts": [],
+        "record_versions": [],
+        "continuity_review": {
+          "coverage": "not_applicable",
+          "reviewed_record_refs": [],
+          "unavailable_refs": [],
+          "canon_hold_refs": [],
+          "finding_ids": [],
+          "summary": "Host protocol fixture only; no canon or narrative judgment"
+        },
+        "payload_digest": "f70a3e9500da2fde3a6bd1b5df2ee18529073a10f7baa0b00c4c139f6d631bb0"
+      },
+      "branch": "refs/heads/main",
+      "expected_head": "2e1e54bed200cb41105a9a8666c9fbc7ccb10069",
+      "paths": [
+        "story/exchanges/000004-6e5cae78-a867-4711-b3ba-bf8b22334524.json"
+      ],
+      "baseline_index": "",
+      "cleanup_required": false,
+      "candidate": "4f6c7b98c0a373007272ff0e02368d84ee51f0d0"
+    },
+    "263d490b-5ec0-480c-9fc3-b07b6a2d3bb6": {
+      "state": "published",
+      "bundle": {
+        "schema_version": "1.0",
+        "novel_id": "4d329c8a-4c33-4eec-82ea-6878764b369d",
+        "exchange_id": "263d490b-5ec0-480c-9fc3-b07b6a2d3bb6",
+        "sequence": 5,
+        "previous_exchange_id": "6e5cae78-a867-4711-b3ba-bf8b22334524",
+        "previous_digest": "f70a3e9500da2fde3a6bd1b5df2ee18529073a10f7baa0b00c4c139f6d631bb0",
+        "session_id": null,
+        "expected_git_head": "4f6c7b98c0a373007272ff0e02368d84ee51f0d0",
+        "recorded_at": "2026-10-21T16:31:41.278807Z",
+        "operation": "conversation",
+        "messages": [
+          {
+            "message_id": "870b1dd8-0d5c-42f8-92bd-ea04b65fdd55",
+            "role": "user",
+            "text": "Save this exact reply: The keeper leaves the letter sealed.\n\nAfter the save succeeds, wait 45 seconds before displaying it, so I can press Stop. Preserve my full message using the existing saving instructions."
+          },
+          {
+            "message_id": "0cd41fb1-3f11-4002-b53a-97f9ee9d9e8a",
+            "role": "assistant",
+            "text": "The keeper leaves the letter sealed."
+          }
+        ],
+        "input_artifacts": [],
+        "record_versions": [],
+        "continuity_review": {
+          "coverage": "not_applicable",
+          "reviewed_record_refs": [],
+          "unavailable_refs": [],
+          "canon_hold_refs": [],
+          "finding_ids": [],
+          "summary": "Host protocol fixture only; no canon or narrative judgment"
+        },
+        "payload_digest": "772f3ddb4d5b351b47e7014b6463f4f6037a9788b2254af56f1f76f928cdf03c"
+      },
+      "branch": "refs/heads/main",
+      "expected_head": "4f6c7b98c0a373007272ff0e02368d84ee51f0d0",
+      "paths": [
+        "story/exchanges/000005-263d490b-5ec0-480c-9fc3-b07b6a2d3bb6.json"
+      ],
+      "baseline_index": "",
+      "cleanup_required": false,
+      "candidate": "ece43927c783dab1a1664a835b34fae69537f420"
+    },
+    "c7361253-24e3-4749-8d40-40b4bc857e66": {
+      "state": "published",
+      "bundle": {
+        "schema_version": "1.0",
+        "novel_id": "4d329c8a-4c33-4eec-82ea-6878764b369d",
+        "exchange_id": "c7361253-24e3-4749-8d40-40b4bc857e66",
+        "sequence": 6,
+        "previous_exchange_id": "263d490b-5ec0-480c-9fc3-b07b6a2d3bb6",
+        "previous_digest": "772f3ddb4d5b351b47e7014b6463f4f6037a9788b2254af56f1f76f928cdf03c",
+        "session_id": null,
+        "expected_git_head": "ece43927c783dab1a1664a835b34fae69537f420",
+        "recorded_at": "2026-10-21T16:35:43.395667Z",
+        "operation": "conversation",
+        "messages": [
+          {
+            "message_id": "c77edfa0-771f-47d9-bad2-74caac4aee87",
+            "role": "user",
+            "text": "Repeat the interruption test. Save this exact reply:\nThe keeper leaves the letter sealed.\n\nAfter saving succeeds, show a progress update saying “Saved. Press Stop now.” Then wait 45 seconds before displaying the final reply."
+          },
+          {
+            "message_id": "93726e37-e160-48d7-bfcc-9671c2c4ffb2",
+            "role": "assistant",
+            "text": "The keeper leaves the letter sealed."
+          }
+        ],
+        "input_artifacts": [],
+        "record_versions": [],
+        "continuity_review": {
+          "coverage": "not_applicable",
+          "reviewed_record_refs": [],
+          "unavailable_refs": [],
+          "canon_hold_refs": [],
+          "finding_ids": [],
+          "summary": "Host protocol fixture only; no canon or narrative judgment"
+        },
+        "payload_digest": "054d4eb042f9c6aecae42d8400b34e3fad4831d3ad05c041b6f6c9222b4fb112"
+      },
+      "branch": "refs/heads/main",
+      "expected_head": "ece43927c783dab1a1664a835b34fae69537f420",
+      "paths": [
+        "story/exchanges/000006-c7361253-24e3-4749-8d40-40b4bc857e66.json"
+      ],
+      "baseline_index": "",
+      "cleanup_required": false,
+      "candidate": "41ec346cd6a75ea6afe4395447b68da5adac7f12"
+    },
+    "50763b76-b3eb-4241-ae65-44adef549b3e": {
+      "state": "published",
+      "bundle": {
+        "schema_version": "1.0",
+        "novel_id": "4d329c8a-4c33-4eec-82ea-6878764b369d",
+        "exchange_id": "50763b76-b3eb-4241-ae65-44adef549b3e",
+        "sequence": 7,
+        "previous_exchange_id": "c7361253-24e3-4749-8d40-40b4bc857e66",
+        "previous_digest": "054d4eb042f9c6aecae42d8400b34e3fad4831d3ad05c041b6f6c9222b4fb112",
+        "session_id": null,
+        "expected_git_head": "41ec346cd6a75ea6afe4395447b68da5adac7f12",
+        "recorded_at": "2026-10-21T16:43:10.745404Z",
+        "operation": "conversation",
+        "messages": [
+          {
+            "message_id": "07212a51-c1e4-40c9-87a7-a94f3584df17",
+            "role": "user",
+            "text": "Save this exact reply:\nThe keeper locks the letter in a drawer.\n\nAfter saving succeeds, show “Saved. Press Stop now.” as a progress update.\n\nThen keep waiting in 30-second intervals until I click Stop. Do not display the final reply or finish on your own."
+          },
+          {
+            "message_id": "8001f820-1291-4c9f-b517-81ddc898a4ac",
+            "role": "assistant",
+            "text": "The keeper locks the letter in a drawer."
+          }
+        ],
+        "input_artifacts": [],
+        "record_versions": [],
+        "continuity_review": {
+          "coverage": "not_applicable",
+          "reviewed_record_refs": [],
+          "unavailable_refs": [],
+          "canon_hold_refs": [],
+          "finding_ids": [],
+          "summary": "Host protocol fixture only; no canon or narrative judgment"
+        },
+        "payload_digest": "6fbdef0dfbe169087d1e3d52fbbdcea3bfc1a560491db893505268b0a7549af1"
+      },
+      "branch": "refs/heads/main",
+      "expected_head": "41ec346cd6a75ea6afe4395447b68da5adac7f12",
+      "paths": [
+        "story/exchanges/000007-50763b76-b3eb-4241-ae65-44adef549b3e.json"
+      ],
+      "baseline_index": "",
+      "cleanup_required": false,
+      "candidate": "21a88fd7cc5a8b7584df4e51b95c625bc4478b7b"
+    },
+    "f2c1fa2e-d5cc-443c-b1d4-64fbfd06a503": {
+      "state": "published",
+      "bundle": {
+        "schema_version": "1.0",
+        "novel_id": "4d329c8a-4c33-4eec-82ea-6878764b369d",
+        "exchange_id": "f2c1fa2e-d5cc-443c-b1d4-64fbfd06a503",
+        "sequence": 8,
+        "previous_exchange_id": "50763b76-b3eb-4241-ae65-44adef549b3e",
+        "previous_digest": "6fbdef0dfbe169087d1e3d52fbbdcea3bfc1a560491db893505268b0a7549af1",
+        "session_id": null,
+        "expected_git_head": "21a88fd7cc5a8b7584df4e51b95c625bc4478b7b",
+        "recorded_at": "2026-10-21T16:46:00.543425Z",
+        "operation": "conversation",
+        "messages": [
+          {
+            "message_id": "bfe9faec-d529-4e26-ad87-b60e55d5aebb",
+            "role": "user",
+            "text": "Read AGENTS.md and recover the last saved reply from this fixture’s files. Show its checkpoint and saved reply without assuming I already saw it. Follow the saving instructions for this turn.\n\nUse this Python executable:\nC:\\Users\\BjarkiGunnarsson\\source\\repos\\Personal\\novel-creator\\.venv\\Scripts\\python.exe"
+          },
+          {
+            "message_id": "3c000df5-cda7-433d-b0cd-04b9be6db373",
+            "role": "assistant",
+            "text": "Recovered checkpoint: sequence 7, exchange `50763b76-b3eb-4241-ae65-44adef549b3e`, commit `21a88fd7cc5a8b7584df4e51b95c625bc4478b7b`.\n\nDisplay was not confirmed. The exact saved reply was:\n\nThe keeper locks the letter in a drawer."
+          }
+        ],
+        "input_artifacts": [],
+        "record_versions": [],
+        "continuity_review": {
+          "coverage": "not_applicable",
+          "reviewed_record_refs": [],
+          "unavailable_refs": [],
+          "canon_hold_refs": [],
+          "finding_ids": [],
+          "summary": "Host protocol fixture only; no canon or narrative judgment"
+        },
+        "payload_digest": "2c6f211ce8f7fea07be355e37310ba27536ff4820d7c305e616e4d9229953c11"
+      },
+      "branch": "refs/heads/main",
+      "expected_head": "21a88fd7cc5a8b7584df4e51b95c625bc4478b7b",
+      "paths": [
+        "story/exchanges/000008-f2c1fa2e-d5cc-443c-b1d4-64fbfd06a503.json"
+      ],
+      "baseline_index": "",
+      "cleanup_required": false,
+      "candidate": "43d91d21dcc90f6c9d512270df1d1d3661700b27"
+    },
+    "3c5fb0fc-83b2-4e57-839a-d6b534eac869": {
+      "state": "published",
+      "bundle": {
+        "schema_version": "1.0",
+        "novel_id": "4d329c8a-4c33-4eec-82ea-6878764b369d",
+        "exchange_id": "3c5fb0fc-83b2-4e57-839a-d6b534eac869",
+        "sequence": 9,
+        "previous_exchange_id": "f2c1fa2e-d5cc-443c-b1d4-64fbfd06a503",
+        "previous_digest": "2c6f211ce8f7fea07be355e37310ba27536ff4820d7c305e616e4d9229953c11",
+        "session_id": null,
+        "expected_git_head": "43d91d21dcc90f6c9d512270df1d1d3661700b27",
+        "recorded_at": "2026-10-21T16:49:33.267489Z",
+        "operation": "conversation",
+        "messages": [
+          {
+            "message_id": "56827ce0-59b5-4df1-8f8b-20d4ccbc9d00",
+            "role": "user",
+            "text": "Perhaps the keeper recognizes the seal. What does that suggest?"
+          },
+          {
+            "message_id": "fac43f6c-1657-46bb-ae5e-085eb59f6085",
+            "role": "assistant",
+            "text": "If the keeper recognizes the seal, locking the letter away could be a deliberate response to its sender. Recognition might suggest fear, loyalty, or a connection the keeper wants to conceal. The useful question is: is the keeper protecting the letter, or protecting someone from it?"
+          }
+        ],
+        "input_artifacts": [],
+        "record_versions": [],
+        "continuity_review": {
+          "coverage": "not_applicable",
+          "reviewed_record_refs": [],
+          "unavailable_refs": [],
+          "canon_hold_refs": [],
+          "finding_ids": [],
+          "summary": "Host protocol fixture only; no canon or narrative judgment"
+        },
+        "payload_digest": "4c1cddcde935f5eb2a89b379b1b54b81db51cd450d12881627f542acb8b6f19d"
+      },
+      "branch": "refs/heads/main",
+      "expected_head": "43d91d21dcc90f6c9d512270df1d1d3661700b27",
+      "paths": [
+        "story/exchanges/000009-3c5fb0fc-83b2-4e57-839a-d6b534eac869.json"
+      ],
+      "baseline_index": "",
+      "cleanup_required": false,
+      "candidate": "aefc319663a948fcce1ec06d4f1097e084f864fc"
+    }
+  },
+  "payload_sha256": {
+    "b601787e-ae8c-476f-a17b-c2f836b7e26e": "4e9f4c62e922e1a7cb1df8aca415294808cc7640dc6438747a3e6b82ab866c76",
+    "4254ba3b-039c-495e-b111-7ddbed981f28": "8e749be816148cc03aef14bac1086df97acc7bd649d13f6d83925796857e4f5d",
+    "6e5cae78-a867-4711-b3ba-bf8b22334524": "91887721fe6232f447698f00a2334a256fe737ce762ed3c88c25f1ef22a42d87",
+    "263d490b-5ec0-480c-9fc3-b07b6a2d3bb6": "211c923b78bb950d4a1ed3bdd29d32a8509cd5525f3971df22d6abf7de22c7a3",
+    "c7361253-24e3-4749-8d40-40b4bc857e66": "e7711d863da863be9a74d324a174f0c063914178d2ae44f8654657ad73cbb8b9",
+    "50763b76-b3eb-4241-ae65-44adef549b3e": "2ba61cc4c59511eb8b99fb71d7a272b469f1b18b9fa14dd36b097efcb25d73bf",
+    "f2c1fa2e-d5cc-443c-b1d4-64fbfd06a503": "d9a90f4131a3e4028283248ed36161d73e356ad3a527b871e076c4b26e65c672",
+    "3c5fb0fc-83b2-4e57-839a-d6b534eac869": "2bc150f793bf6308b51c05dc2da6d6a83af7ec5731e4c85dcd50511fddcb2b06"
+  },
+  "coordinator_evidence": {
+    "case-b-20261021T163102Z.json": {
+      "case": "B",
+      "recorded_at": "2026-10-21T16:31:02.227465+00:00",
+      "kind": "automated unchanged-payload CLI retry; no display-order claim",
+      "payload_sha256": "91887721fe6232f447698f00a2334a256fe737ce762ed3c88c25f1ef22a42d87",
+      "before": {
+        "head": "4f6c7b98c0a373007272ff0e02368d84ee51f0d0",
+        "commit_count": 5,
+        "exchange_count": 4
+      },
+      "after": {
+        "head": "4f6c7b98c0a373007272ff0e02368d84ee51f0d0",
+        "commit_count": 5,
+        "exchange_count": 4
+      },
+      "receipt": {
+        "ok": true,
+        "operation": "exchange.save",
+        "novel_id": "4d329c8a-4c33-4eec-82ea-6878764b369d",
+        "data": {
+          "saved": true,
+          "already_saved": true,
+          "cleanup_required": false
+        },
+        "warnings": [],
+        "checkpoint": {
+          "git_head": "4f6c7b98c0a373007272ff0e02368d84ee51f0d0",
+          "exchange_id": "6e5cae78-a867-4711-b3ba-bf8b22334524",
+          "sequence": 4
+        }
+      }
+    },
+    "case-c-20261021T164441Z.json": {
+      "case": "C",
+      "recorded_at": "2026-10-21T16:44:41.867951+00:00",
+      "checkpoint": {
+        "git_head": "21a88fd7cc5a8b7584df4e51b95c625bc4478b7b",
+        "exchange_id": "50763b76-b3eb-4241-ae65-44adef549b3e",
+        "sequence": 7
+      },
+      "receipt_state": "published",
+      "cleanup_required": false,
+      "host_turn_id": "01a15f57-dfbb-7763-b4f0-df610c2a26d2",
+      "host_turn_status": "interrupted",
+      "host_record_observation": "successful save receipt then operational Saved. Press Stop now. commentary; no final assistant message in interrupted turn",
+      "human_observation_source": "user report in coordinating chat",
+      "human_observation": "I finally managed to press stop at the right time now :D",
+      "limitations": "Human timing report and host turn record; no independent screen recording supplied for this attempt."
+    },
+    "case-d-20261021T164902Z.json": {
+      "case": "D",
+      "recorded_at": "2026-10-21T16:49:02.306505+00:00",
+      "fresh_chat_id": "01a15f5a-17e7-72e3-9b46-e1c5bf30d155",
+      "recovered_exchange_id": "50763b76-b3eb-4241-ae65-44adef549b3e",
+      "recovery_response_exchange_id": "f2c1fa2e-d5cc-443c-b1d4-64fbfd06a503",
+      "checkpoint_after_recovery_save": {
+        "git_head": "43d91d21dcc90f6c9d512270df1d1d3661700b27",
+        "exchange_id": "f2c1fa2e-d5cc-443c-b1d4-64fbfd06a503",
+        "sequence": 8
+      },
+      "source": "committed fixture data, fresh-chat readback, and user-pasted visible reply",
+      "result": "fresh chat recovered prior reply without story retelling; initial response save failed, then unchanged-payload retry saved it",
+      "limitations": "Successful fresh-chat save required explicit retry and scoped filesystem approval; no claim of seamless save under default sandbox."
+    },
+    "case-e-20261021T165041Z.json": {
+      "case": "E",
+      "recorded_at": "2026-10-21T16:50:41.461946+00:00",
+      "host_chat_id": "01a15f5a-17e7-72e3-9b46-e1c5bf30d155",
+      "observed_cli_error_code": 6,
+      "checkpoint_before_and_after": {
+        "git_head": "43d91d21dcc90f6c9d512270df1d1d3661700b27",
+        "exchange_id": "f2c1fa2e-d5cc-443c-b1d4-64fbfd06a503",
+        "sequence": 8
+      },
+      "pending_exchange_id": "3c5fb0fc-83b2-4e57-839a-d6b534eac869",
+      "payload_sha256": "2bc150f793bf6308b51c05dc2da6d6a83af7ec5731e4c85dcd50511fddcb2b06",
+      "source": "host command result, committed fixture readback and user-pasted visible failure disclosure",
+      "result": "visible unsaved disclosure and pause; authority unchanged; original payload retained",
+      "fault_removal": "verified exact empty coordinator-created lock; removed without recursion or force"
+    },
+    "case-e-injected-lock.json": {
+      "case": "E setup",
+      "recorded_at": "2026-10-21T16:49:02.306505+00:00",
+      "injected_by": "coordinating implementation chat",
+      "lock": "C:\\Users\\BjarkiGunnarsson\\novel-creator-host-tests\\spike-02\\.novel-creator\\local\\write.lock",
+      "empty_test_lock": true,
+      "baseline_checkpoint": {
+        "git_head": "43d91d21dcc90f6c9d512270df1d1d3661700b27",
+        "exchange_id": "f2c1fa2e-d5cc-443c-b1d4-64fbfd06a503",
+        "sequence": 8
+      },
+      "instruction": "Retain through failed-save observation; remove only this exact empty injected directory during case F."
+    },
+    "case-f-20261021T165314Z.json": {
+      "case": "F",
+      "recorded_at": "2026-10-21T16:53:14.300627+00:00",
+      "pending_exchange_id": "3c5fb0fc-83b2-4e57-839a-d6b534eac869",
+      "payload_sha256": "2bc150f793bf6308b51c05dc2da6d6a83af7ec5731e4c85dcd50511fddcb2b06",
+      "parent_was_original_failure_checkpoint": true,
+      "host_retry_saved_once": true,
+      "displayed_reply_matches_committed_reply": true,
+      "host_chat_id": "01a15f5a-17e7-72e3-9b46-e1c5bf30d155",
+      "host_retry_turn_id": "01a15f5f-a510-7911-9ae1-42bb655a92c6",
+      "before_identical_repeat": {
+        "head": "aefc319663a948fcce1ec06d4f1097e084f864fc",
+        "commit_count": 10,
+        "exchange_count": 9
+      },
+      "after_identical_repeat": {
+        "head": "aefc319663a948fcce1ec06d4f1097e084f864fc",
+        "commit_count": 10,
+        "exchange_count": 9
+      },
+      "identical_repeat_receipt": {
+        "ok": true,
+        "operation": "exchange.save",
+        "novel_id": "4d329c8a-4c33-4eec-82ea-6878764b369d",
+        "data": {
+          "saved": true,
+          "already_saved": true,
+          "cleanup_required": false
+        },
+        "warnings": [],
+        "checkpoint": {
+          "git_head": "aefc319663a948fcce1ec06d4f1097e084f864fc",
+          "exchange_id": "3c5fb0fc-83b2-4e57-839a-d6b534eac869",
+          "sequence": 9
+        }
+      },
+      "source": "committed history, native host visible command/final output, user-pasted reply and coordinator CLI repeat",
+      "limitations": "Coordinator repeated the exact payload for the no-duplicate check; no new host message was injected."
+    },
+    "setup-preflight.json": {
+      "recorded_at": "2026-10-21T16:19:28.407718+00:00",
+      "fixture": "C:\\Users\\BjarkiGunnarsson\\novel-creator-host-tests\\spike-02",
+      "python": "C:\\Users\\BjarkiGunnarsson\\source\\repos\\Personal\\novel-creator\\.venv\\Scripts\\python.exe",
+      "python_version": "3.13.13",
+      "os": "Windows-11-10.0.26300-SP0",
+      "git_version": "git version 2.53.0.windows.3",
+      "jsonschema": "4.26.0",
+      "checksums_verified": 13,
+      "git_status_clean": true,
+      "bootstrap_cleanup_required": false,
+      "context": {
+        "fixture_only": true,
+        "checkpoint": {
+          "git_head": "5c139e0f0377729e508bbfa5b2f032f56e693a46",
+          "exchange_id": "cb790bb2-0e42-4a40-a4b3-f5a1eac3ca3d",
+          "sequence": 1
+        },
+        "saved_messages": [],
+        "display_confirmed": false
+      },
+      "actual_host_cases": "not started; no host gate pass claimed"
+    }
+  },
+  "native_event_order_and_exact_final_checks": [
+    {
+      "thread_id": "01a15f44-b3d0-7c12-882b-a0d35ac96ba4",
+      "turn_id": "01a15f57-dfbb-7763-b4f0-df610c2a26d2",
+      "exchange_id": "50763b76-b3eb-4241-ae65-44adef549b3e",
+      "sequence": 7,
+      "successful_save_precedes_final_in_native_event_record": false,
+      "exact_final_text_match": false,
+      "turn_interrupted_without_final": true
+    },
+    {
+      "thread_id": "01a15f44-b3d0-7c12-882b-a0d35ac96ba4",
+      "turn_id": "01a15f51-57c3-72c1-a1b5-b3512386f8f7",
+      "exchange_id": "c7361253-24e3-4749-8d40-40b4bc857e66",
+      "sequence": 6,
+      "successful_save_precedes_final_in_native_event_record": true,
+      "exact_final_text_match": true,
+      "turn_interrupted_without_final": false
+    },
+    {
+      "thread_id": "01a15f44-b3d0-7c12-882b-a0d35ac96ba4",
+      "turn_id": "01a15f4d-a10e-7412-b265-eca4a722c037",
+      "exchange_id": "263d490b-5ec0-480c-9fc3-b07b6a2d3bb6",
+      "sequence": 5,
+      "successful_save_precedes_final_in_native_event_record": true,
+      "exact_final_text_match": true,
+      "turn_interrupted_without_final": false
+    },
+    {
+      "thread_id": "01a15f44-b3d0-7c12-882b-a0d35ac96ba4",
+      "turn_id": "01a15f4b-b05b-7be3-8674-92969863818e",
+      "exchange_id": "6e5cae78-a867-4711-b3ba-bf8b22334524",
+      "sequence": 4,
+      "successful_save_precedes_final_in_native_event_record": true,
+      "exact_final_text_match": true,
+      "turn_interrupted_without_final": false
+    },
+    {
+      "thread_id": "01a15f44-b3d0-7c12-882b-a0d35ac96ba4",
+      "turn_id": "01a15f4a-9857-73d3-ab55-968b5c1fc986",
+      "exchange_id": "4254ba3b-039c-495e-b111-7ddbed981f28",
+      "sequence": 3,
+      "successful_save_precedes_final_in_native_event_record": true,
+      "exact_final_text_match": true,
+      "turn_interrupted_without_final": false
+    },
+    {
+      "thread_id": "01a15f44-b3d0-7c12-882b-a0d35ac96ba4",
+      "turn_id": "01a15f48-24c2-7dc3-8993-68a57732ebbf",
+      "exchange_id": "b601787e-ae8c-476f-a17b-c2f836b7e26e",
+      "sequence": 2,
+      "successful_save_precedes_final_in_native_event_record": true,
+      "exact_final_text_match": true,
+      "turn_interrupted_without_final": false
+    },
+    {
+      "thread_id": "01a15f5a-17e7-72e3-9b46-e1c5bf30d155",
+      "turn_id": "01a15f5f-a510-7911-9ae1-42bb655a92c6",
+      "exchange_id": "3c5fb0fc-83b2-4e57-839a-d6b534eac869",
+      "sequence": 9,
+      "successful_save_precedes_final_in_native_event_record": true,
+      "exact_final_text_match": true,
+      "turn_interrupted_without_final": false
+    },
+    {
+      "thread_id": "01a15f5a-17e7-72e3-9b46-e1c5bf30d155",
+      "turn_id": "01a15f5c-5202-7a92-a9ff-9684b5dbf291",
+      "exchange_id": "f2c1fa2e-d5cc-443c-b1d4-64fbfd06a503",
+      "sequence": 8,
+      "successful_save_precedes_final_in_native_event_record": true,
+      "exact_final_text_match": true,
+      "turn_interrupted_without_final": false
+    }
+  ],
+  "limitations": [
+    "Host event order plus user observations; no independent screen recording.",
+    "Native user-message readback includes a terminal LF absent from prepared user text. Visible content matches, but raw submitted-user-text byte parity is not established."
+  ]
+}

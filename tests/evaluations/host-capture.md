@@ -1,5 +1,92 @@
 # Codex save-before-emit capability gate
 
+## Current decision: PASS — focused spike-03 confirmation
+
+The actual Desktop capture gate is passed for the tested Windows Desktop
+native-tool, single typed-text input and scoped filesystem approval combination.
+Native source, prepared payload and committed user text match exactly, including
+the ending LF; the displayed reply matches the saved assistant text, and the
+save event precedes display. [Actual run and scope](host-capture-runs/20261021T171237Z-spike-03/README.md).
+
+Spike-02 supplies the retained automatic-turn, interruption, fresh-chat,
+failure-disclosure and unchanged-retry evidence. Spike-03 resolves its manual
+here-string input loss using the original native userMessage text. Capture
+source JSON belongs under `.novel-creator/local/evidence/`, outside root receipt
+discovery. No old exchange or payload ID was rewritten.
+
+T012/T069/T089/T103/T116 are complete; T013's current decision is PASS. No further
+manual host test is required for this change. Dependent story implementation may
+begin. Product workflows, release readiness, voice, other hosts and unattended
+default-sandbox operation remain unverified.
+
+The earlier assessments and procedures below are retained as historical records.
+Their BLOCKED/pending statements are superseded by this decision; their test
+counts describe their respective runs.
+
+## Historical assessments and procedures
+
+## Revised exact-input adapter — focused host confirmation pending
+
+T116 adds fixture-prepare.py --user-message-file and updates the Desktop adapter
+to serialize the actual current native userMessage instead of retyping it with
+a PowerShell here-string. Its native text is preserved verbatim, including LF,
+CRLF, leading spaces and intentional trailing blank lines. No universal newline
+normalization or host-delimiter exemption is introduced. Missing native tooling,
+ambiguous/truncated sources or multi-input messages stop this text-only spike.
+
+The new installed regression failed before implementation and passed afterward
+for the exact whitespace cases and invalid-source rejection. The remaining gate
+check is one focused real user turn under the revised pinned adapter: compare
+selected native source, prepared payload, saved bundle and final displayed text
+without normalization. Full suite results are recorded in the development
+evidence. Existing spike-02 B/C/D/E/F remain valid and unchanged; do not repeat
+the Stop exercise solely for this input-boundary change. T116/T103/T012 remain
+unchecked and T013 BLOCKED until the actual-host comparison is supported.
+
+## Actual Desktop experiment — 2026-10-21, spike-02
+
+[Run report and evidence](host-capture-runs/20261021T161928Z-spike-02/README.md):
+real ordinary follow-ups, a user-stopped saved response, genuine fresh-chat
+recovery, an injected held-lock failure and unchanged retries were exercised.
+B/C/D/E/F are supported, with scoped filesystem approval required after initial
+and fresh-chat sandbox failures. Seven displayed finals match committed replies.
+
+**Gate remains BLOCKED** on exact user-message parity: all eight captured user
+messages omit the terminal LF present in native public user-message readback.
+The source of that boundary difference must be established and capture corrected
+or the host-only delimiter proven before exact text fidelity can pass. See the
+run's unnormalized comparison. No human Stop-test repetition is currently needed.
+Return to narrow native adapter planning; T012/T069/T089/T103 stay unchecked and
+dependent story work remains blocked. Earlier unavailable-host assessments below
+are historical; this run now supplies substantial real host evidence.
+
+## Foundation remediation reassessment — 2026-10-21
+
+The Windows index-flush defect is fixed under T102/T111; the final foundation
+suite ran 54 tests (53 passed, one explicit symlink-privilege skip) with exit 0. See
+[platform evidence](platform-results.md). Structural installed-fixture tests
+are distinct from actual host behavior. The earlier Desktop fixture remains
+untouched and must not be reused or manually repaired for a passing result.
+
+T012/T069/T089/T103 remain unverified; T013 remains **BLOCKED**. This implementation
+chat has not collected genuine subsequent story turns, human-observed
+save-before-display timing, controlled display interruption or fresh-chat
+recovery evidence. No host/model/version support is established by a clean
+subprocess fixture. The next experiment must use a new fixture after clean
+foundation preflight, then follow the existing actual-host procedure with real
+user participation. Return to that adapter evaluation before dependent T014+
+or their convergence equivalents; no custom runtime or weaker gate is substituted.
+
+## Windows Desktop preflight — 2026-10-21
+
+[Run evidence](host-capture-runs/20261021T154100Z/README.md): Desktop
+26.1016.51333 build 21161; user-reported GPT-6.1 Sol, Medium. The new independent
+fixture committed bootstrap but returned `cleanup_required: true`. The requested
+safeguard requires stopping and preserving receipts/history. Cases A–F have not
+started; no display-order, interruption or fresh-chat result is claimed.
+T012/T069/T089 remain unverified; **T013 remains BLOCKED**. See the run report
+and retained test logs for baseline failures and environment limitations.
+
 ## Decision: BLOCKED — actual host evidence unavailable
 
 Recorded 2026-10-21. T012 is **unverified**, not passed. T013's decision is to

@@ -67,7 +67,7 @@ if $JSON_MODE; then
         else
             json_docs=$(printf '%s\n' "${docs[@]}" | jq -R . | jq -s .)
         fi
-        jq -cn \
+        MSYS2_ARG_CONV_EXCL='*' jq -cn \
             --arg feature_dir "$FEATURE_DIR" \
             --argjson docs "$json_docs" \
             --arg tasks_template "${TASKS_TEMPLATE:-}" \

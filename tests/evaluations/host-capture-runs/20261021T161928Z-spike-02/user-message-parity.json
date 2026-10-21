@@ -1,0 +1,69 @@
+{
+  "source": "Native public user-message text compared directly against committed user-message text; no whitespace normalization applied.",
+  "results": [
+    {
+      "sequence": 2,
+      "exchange_id": "b601787e-ae8c-476f-a17b-c2f836b7e26e",
+      "exact_user_message_match": false,
+      "native_user_text_has_one_additional_terminal_lf": true,
+      "stored_user_sha256": "f28659b990ee2c9ffaeb7ecc05bdd6d36f1d2a2f619e28ccca645850fa24b90d",
+      "native_user_sha256": "753c8a44f1f8e5698d1912a03d9caf4ec6584ae9b2c5df6877d574ceb697df86"
+    },
+    {
+      "sequence": 3,
+      "exchange_id": "4254ba3b-039c-495e-b111-7ddbed981f28",
+      "exact_user_message_match": false,
+      "native_user_text_has_one_additional_terminal_lf": true,
+      "stored_user_sha256": "875e6411be37720717700e426f8d7da7e233eb4f1177e36e123f65595fa5498c",
+      "native_user_sha256": "6c46d43fc5edbde285303de1ed884ec71833ebc4d9ecc26ee41d7bc3ea975209"
+    },
+    {
+      "sequence": 4,
+      "exchange_id": "6e5cae78-a867-4711-b3ba-bf8b22334524",
+      "exact_user_message_match": false,
+      "native_user_text_has_one_additional_terminal_lf": true,
+      "stored_user_sha256": "d69b519d77fd2a8697c93de46b0db47a7c4199009fc0365f45189e64e54951dc",
+      "native_user_sha256": "ee2303c4dcc471f6a12d87c0df02235a32b9d746485e222d268b4afa6be95f70"
+    },
+    {
+      "sequence": 5,
+      "exchange_id": "263d490b-5ec0-480c-9fc3-b07b6a2d3bb6",
+      "exact_user_message_match": false,
+      "native_user_text_has_one_additional_terminal_lf": true,
+      "stored_user_sha256": "d35c0e6f601464d90549de9751b0715ace155f1a22ffc8e92f21a28f246272e8",
+      "native_user_sha256": "dd8b2fd48b25a071feb05287444aa21f52409e2fd32285da926a7f89d73c3f5c"
+    },
+    {
+      "sequence": 6,
+      "exchange_id": "c7361253-24e3-4749-8d40-40b4bc857e66",
+      "exact_user_message_match": false,
+      "native_user_text_has_one_additional_terminal_lf": true,
+      "stored_user_sha256": "1e616f7cb097af5172b99c20b55347b3e0be17377ce43f1839c792bbadb01175",
+      "native_user_sha256": "6e4fc1220d7e83cdc59dea52f3e9a92eb5bde8e680f26e078392bf8c9af6e17c"
+    },
+    {
+      "sequence": 7,
+      "exchange_id": "50763b76-b3eb-4241-ae65-44adef549b3e",
+      "exact_user_message_match": false,
+      "native_user_text_has_one_additional_terminal_lf": true,
+      "stored_user_sha256": "2fab4c02f209078ef25839b187f0a0427cc221ca38efc10f60b516804d75a676",
+      "native_user_sha256": "2ff63669ec24985065259cf7354ee77f480d9bfa31d1fa990dff83d553bd589c"
+    },
+    {
+      "sequence": 8,
+      "exchange_id": "f2c1fa2e-d5cc-443c-b1d4-64fbfd06a503",
+      "exact_user_message_match": false,
+      "native_user_text_has_one_additional_terminal_lf": true,
+      "stored_user_sha256": "4453359e8ad260ba1b088756a016884e1b6fde00cbe3a503bdba11f183f75d0a",
+      "native_user_sha256": "2a83fea8f7209c2547d9550aeb288dcd9513900a29a4e53d3c69c82fd1abe24d"
+    },
+    {
+      "sequence": 9,
+      "exchange_id": "3c5fb0fc-83b2-4e57-839a-d6b534eac869",
+      "exact_user_message_match": false,
+      "native_user_text_has_one_additional_terminal_lf": true,
+      "stored_user_sha256": "bf2efc268cd6b0167e1c84ece147b80ffff0b87fb7687feda0027c8666be27b7",
+      "native_user_sha256": "05fd792cb93ce74a0e29180ab0e1cdf27392e37f41d77095671d1eb0066888bb"
+    }
+  ]
+}

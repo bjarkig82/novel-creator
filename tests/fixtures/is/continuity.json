@@ -1,0 +1,166 @@
+{
+  "language": "is",
+  "status": "Paired authored expectations; semantic parity and actual host judgment unverified",
+  "cases": [
+    {
+      "id": "C1",
+      "category": "motivation",
+      "established_source": {
+        "id": "canon-source-1",
+        "text": "Vitavörðurinn hefur svarið að vernda systurina."
+      },
+      "user_text": "Án breyttrar hvatar svíkur vitavörðurinn hana viljandi.",
+      "expected_assessment": "conflict",
+      "severity": "significant",
+      "interrupt_next_response": true,
+      "expected_consequence": "Athöfnin stangast á við staðfesta verndarhvöt.",
+      "resolutions": [
+        "reject_idea",
+        "revise_idea",
+        "revise_canon",
+        "intentional",
+        "defer"
+      ]
+    },
+    {
+      "id": "C2",
+      "category": "chronology",
+      "established_source": {
+        "id": "canon-source-2",
+        "text": "Vitavörðurinn kemur eftir miðnætti."
+      },
+      "user_text": "Vitavörðurinn bjargar þeim klukkan tíu sama kvöld.",
+      "expected_assessment": "conflict",
+      "severity": "significant",
+      "interrupt_next_response": true,
+      "expected_consequence": "Björgunin krefst nærveru fyrir komuna.",
+      "resolutions": [
+        "reject_idea",
+        "revise_idea",
+        "revise_canon",
+        "intentional",
+        "defer"
+      ]
+    },
+    {
+      "id": "C3",
+      "category": "knowledge",
+      "established_source": {
+        "id": "canon-source-3",
+        "text": "Vitavörðurinn lærir kóðann eftir að skipið sekkur."
+      },
+      "user_text": "Vitavörðurinn notar kóðann til að koma í veg fyrir að skipið sökkvi.",
+      "expected_assessment": "conflict",
+      "severity": "significant",
+      "interrupt_next_response": true,
+      "expected_consequence": "Athöfnin krefst vitneskju sem hann hefur ekki öðlast.",
+      "resolutions": [
+        "reject_idea",
+        "revise_idea",
+        "revise_canon",
+        "intentional",
+        "defer"
+      ]
+    },
+    {
+      "id": "C4",
+      "category": "plot_dependency",
+      "established_source": {
+        "id": "canon-source-4",
+        "text": "Flóttinn krefst eina bátsins."
+      },
+      "user_text": "Eyðileggjum bátinn fyrir óbreyttan flóttann.",
+      "expected_assessment": "conflict",
+      "severity": "significant",
+      "interrupt_next_response": true,
+      "expected_consequence": "Staðfestur flótti missir nauðsynlega forsendu.",
+      "resolutions": [
+        "reject_idea",
+        "revise_idea",
+        "revise_canon",
+        "intentional",
+        "defer"
+      ]
+    },
+    {
+      "id": "C5",
+      "category": "world_rule",
+      "established_source": {
+        "id": "canon-source-5",
+        "text": "Ekkert bréf kemst yfir lokuðu mörkin."
+      },
+      "user_text": "Venjulegt bréf kemst yfir mörkin án undantekningar.",
+      "expected_assessment": "conflict",
+      "severity": "significant",
+      "interrupt_next_response": true,
+      "expected_consequence": "Atburðurinn brýtur skýra reglu.",
+      "resolutions": [
+        "reject_idea",
+        "revise_idea",
+        "revise_canon",
+        "intentional",
+        "defer"
+      ]
+    },
+    {
+      "id": "C6",
+      "category": "relationship",
+      "established_source": {
+        "id": "canon-source-6",
+        "text": "Systkinin hafa aldrei hist fyrir endurfundinn."
+      },
+      "user_text": "Sameiginleg æskuminning þeirra knýr endurfundinn áfram.",
+      "expected_assessment": "conflict",
+      "severity": "significant",
+      "interrupt_next_response": true,
+      "expected_consequence": "Hvötin krefst fyrri tengsla sem staðfestar upplýsingar útiloka.",
+      "resolutions": [
+        "reject_idea",
+        "revise_idea",
+        "revise_canon",
+        "intentional",
+        "defer"
+      ]
+    },
+    {
+      "id": "I01",
+      "user_text": "Persóna lýgur um sendandann; sannleikur söguheimsins er skráður sérstaklega.",
+      "perspective": "character_belief",
+      "expected_assessment": "intentional",
+      "interrupt_next_response": false,
+      "may_establish_canon": false
+    },
+    {
+      "id": "I02",
+      "user_text": "Lesandinn sér bréfið eftir atburðinn en vitavörðurinn sá það áður.",
+      "perspective": "reader_revelation",
+      "expected_assessment": "intentional",
+      "interrupt_next_response": false,
+      "may_establish_canon": false
+    },
+    {
+      "id": "I03",
+      "user_text": "Sögumaðurinn er óáreiðanlegur og ósamræmið er viljandi.",
+      "perspective": "character_belief",
+      "expected_assessment": "intentional",
+      "interrupt_next_response": false,
+      "may_establish_canon": false
+    },
+    {
+      "id": "I04",
+      "user_text": "Ekki er vitað hvenær vitavörðurinn komst að leyndarmálinu.",
+      "perspective": "character_knowledge",
+      "expected_assessment": "uncertainty",
+      "interrupt_next_response": false,
+      "may_establish_canon": false
+    },
+    {
+      "id": "O01",
+      "user_text": "Skráð koparinnsigli gæti gefið vísbendingu um sendandann.",
+      "perspective": "author_truth",
+      "expected_assessment": "opportunity",
+      "interrupt_next_response": false,
+      "may_establish_canon": false
+    }
+  ]
+}

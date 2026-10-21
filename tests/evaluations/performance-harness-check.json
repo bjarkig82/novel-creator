@@ -1,0 +1,48 @@
+{
+  "environment": {
+    "os": "Windows-11-10.0.26300-SP0",
+    "python": "3.13.13",
+    "processor": "Intel64 Family 6 Model 189 Stepping 1, GenuineIntel",
+    "logical_cpus": 8,
+    "git": "git version 2.53.0.windows.3"
+  },
+  "method": "Fresh subprocess per operation; filesystem-warm runs; interpreter import time excluded. Timeout deadlines include worker startup/imports. Cold means first fixture read, not a guaranteed OS page-cache flush. Save includes committed-history reads, validation, local Git publication and cleanup. Fixture generated in one harness snapshot; each warm save appends one exchange.",
+  "requested_warm_runs": 2,
+  "timeout_seconds": 30.0,
+  "model_latency": "excluded",
+  "fixture": {
+    "sessions": 2,
+    "exchanges": 4,
+    "active_assertions": 8,
+    "json_bytes": 17366,
+    "synthetic": true,
+    "fully_validated": true
+  },
+  "cold_read": {
+    "status": "ok",
+    "seconds": 0.31000019994098693,
+    "observed_count": 15
+  },
+  "read": {
+    "samples_seconds": [
+      0.30713119998108596,
+      0.3030700999079272
+    ],
+    "completed_runs": 2,
+    "failure": null,
+    "p95_seconds": 0.30713119998108596,
+    "target_seconds": 2.0,
+    "passes": true
+  },
+  "save": {
+    "samples_seconds": [
+      1.8432978000491858,
+      2.039606900070794
+    ],
+    "completed_runs": 2,
+    "failure": null,
+    "p95_seconds": 2.039606900070794,
+    "target_seconds": 1.0,
+    "passes": false
+  }
+}

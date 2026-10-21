@@ -154,7 +154,7 @@ _persist_feature_json() {
 
     # Write feature.json — prefer jq for safe JSON, fall back to printf
     if command -v jq >/dev/null 2>&1; then
-        jq -cn --arg fd "$feature_dir_value" '{feature_directory:$fd}' > "$fj"
+        MSYS2_ARG_CONV_EXCL='*' jq -cn --arg fd "$feature_dir_value" '{feature_directory:$fd}' > "$fj"
     else
         printf '{"feature_directory":"%s"}\n' "$(json_escape "$feature_dir_value")" > "$fj"
     fi
