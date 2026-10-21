@@ -36,6 +36,25 @@ The fixture's context helper is test-only. Pending retries use the exact origina
 further writes remain paused because safe cleanup recovery is later T034 work.
 Never manually reset history to clear this pause.
 
+New decisions must cite the current conversation's actual user message;
+historical messages may remain provenance but cannot authorize a new change.
+Malformed committed envelopes and recovery receipts return structured
+unavailable-context errors with the affected path, rather than tracebacks.
+Journal failures retain the last validated prefix and its historical Git
+checkpoint when verifiable; a null `git_head` means no matching valid historical
+snapshot could be confirmed. An unsafe journal never permits further saves.
+Stale-write conflicts include `error.expected_git_head` and
+`error.actual_git_head`, alongside the last confirmed checkpoint and pending ID.
+Held writer locks also report the attempted exchange ID and an independently
+verified committed checkpoint when available. Inspection reads a captured Git
+snapshot without taking over the lock; unborn or unreadable history does not
+produce an invented checkpoint. The existing lock and pending files are retained.
+
+Before dependent implementation, the actual host still needs real automatic
+subsequent turns, fresh-chat recovery and controlled save/display interruption
+evidence. Reading thread summaries or running subprocess fixtures does not
+establish those behaviors. Foundation remediation does not pass this gate.
+
 **T013 decision: BLOCKED. T012 actual Codex host evidence is unverified.** See
 [host-capture evaluation](../tests/evaluations/host-capture.md). No available host
 control can create genuine subsequent turns, a fresh chat or display interruption

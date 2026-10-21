@@ -1,0 +1,35 @@
+{
+  "schema_version": "1.0",
+  "novel_id": "3341aa8e-d207-4028-baae-cfc908b59e9c",
+  "exchange_id": "ad25b18d-8705-49da-8cf5-814ca1a32b50",
+  "sequence": 3,
+  "previous_exchange_id": "19fbf3bb-622d-4423-ac37-c7a8690282e5",
+  "previous_digest": "b2b8fd5b2170ea61d8b6bf07d203335fd4050bc10e6f38b1f1a6d795a746498d",
+  "session_id": null,
+  "expected_git_head": "e3d6c406fbeb876f1c2369d4973a292869d266f5",
+  "recorded_at": "2026-10-21T13:57:54.359748Z",
+  "operation": "conversation",
+  "messages": [
+    {
+      "message_id": "41282749-22ec-44e7-b1b9-a7e4f11df479",
+      "role": "user",
+      "text": "Next"
+    },
+    {
+      "message_id": "172a1272-e468-47d3-815e-f606c3e5b262",
+      "role": "assistant",
+      "text": "Saved your “Next” message and this reply before sending it. Send “Next” once more to complete the two follow-up turns."
+    }
+  ],
+  "input_artifacts": [],
+  "record_versions": [],
+  "continuity_review": {
+    "coverage": "not_applicable",
+    "reviewed_record_refs": [],
+    "unavailable_refs": [],
+    "canon_hold_refs": [],
+    "finding_ids": [],
+    "summary": "Host protocol fixture only; no canon or narrative judgment"
+  },
+  "payload_digest": "7acf056bc39a987752eacda9c8bbbafbcce2b6a7138bae2fb86c1f5c69eda989"
+}

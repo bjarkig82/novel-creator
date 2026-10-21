@@ -118,25 +118,70 @@ def committed_entries(root, commit):
     return entries
 
 
+def _prefix_checkpoint(root, history, commit, entries):
+    """Name a verified journal prefix without labeling a damaged tree confirmed."""
+    if not history:
+        return None
+    latest = history[-1]
+    confirmed = {'git_head': None, 'exchange_id': latest['exchange_id'], 'sequence': latest['sequence']}
+    try:
+        candidate = git(root, 'log', '-1', '--format=%H', commit, '--', bundle_path(latest)).decode().strip()
+        candidate_entries = {path: entry for path, entry in committed_entries(root, candidate).items()
+                             if path.startswith('story/exchanges/')}
+        expected = {bundle_path(item): entries[bundle_path(item)] for item in history}
+        if candidate and candidate_entries == expected:
+            confirmed['git_head'] = candidate
+    except ToolError:
+        # The validated prefix is still known even if its historical snapshot is unavailable.
+        pass
+    return confirmed
+
+
 def read_history(root, commit=None):
     root = Path(root)
     commit = commit or head(root)
     history = []
     entries = committed_entries(root, commit)
     for path in sorted(p for p in entries if p.startswith('story/exchanges/')):
-        if not BUNDLE.fullmatch(path) or entries[path][0] != '100644':
-            raise ToolError(4, 'Invalid committed exchange path or file mode')
         try:
+            if not BUNDLE.fullmatch(path) or entries[path][0] != '100644':
+                raise ToolError(4, 'Invalid committed exchange path or file mode', affected_refs=[path])
             value = records.loads(git(root, 'cat-file', 'blob', entries[path][1]))
+            if not isinstance(value, dict):
+                raise ValueError('Exchange must be an object')
             if value.get('schema_version') != '1.0':
-                raise ToolError(4, 'Unsupported exchange schema')
+                raise ToolError(4, 'Unsupported exchange schema', affected_refs=[path])
             validation.validate_exchange(value, history)
             if bundle_path(value) != path:
                 raise ValueError('Exchange filename mismatch')
-        except (ValueError, TypeError, KeyError) as error:
-            raise ToolError(4, 'Committed exchange context is unreadable') from error
+        except (ToolError, ValueError, TypeError, KeyError) as cause:
+            error = cause if isinstance(cause, ToolError) else ToolError(4, 'Committed exchange context is unreadable')
+            error.affected_refs = error.affected_refs or [path]
+            error.checkpoint = _prefix_checkpoint(root, history, commit, entries)
+            if error is cause:
+                raise
+            raise error from cause
         history.append(value)
     return history
+
+
+def read_receipt(root, path):
+    """Treat malformed local recovery metadata as unavailable, never as success."""
+    relative = path.relative_to(root).as_posix()
+    safe_path(root, relative)
+    try:
+        value = records.loads(path.read_bytes())
+        if (not isinstance(value, dict) or value.get('state') not in ('pending', 'published') or
+            not isinstance(value.get('bundle'), dict) or
+            not isinstance(value.get('branch'), str) or
+            not isinstance(value.get('paths'), list) or
+            not all(isinstance(item, str) for item in value['paths']) or
+            not isinstance(value.get('baseline_index'), str) or
+            type(value.get('cleanup_required')) is not bool):
+            raise ValueError('Invalid recovery receipt')
+    except (ValueError, TypeError) as error:
+        raise ToolError(4, 'Local recovery metadata is unreadable', affected_refs=[relative]) from error
+    return value
 
 
 def fsync_directory(path):
@@ -165,13 +210,26 @@ def atomic_json(path, value):
 
 
 @contextmanager
-def writer_lock(root):
+def writer_lock(root, *, pending=None):
     local = safe_path(root, '.novel-creator/local/write.lock')
     local.parent.mkdir(parents=True, exist_ok=True)
     try:
         local.mkdir()
     except FileExistsError as error:
-        raise ToolError(6, 'Novel writer lock held; inspect recovery before removal') from error
+        confirmed, affected = None, []
+        try:
+            # Readers can inspect an immutable committed snapshot without owning
+            # the writer lock. Capture HEAD once so a competing save cannot mix trees.
+            initial = head(root)
+            if initial is not None:
+                history = read_history(root, initial)
+                confirmed = checkpoint(root, history, initial)
+        except ToolError as unavailable:
+            confirmed, affected = unavailable.checkpoint, unavailable.affected_refs
+        except (OSError, UnicodeError):
+            pass  # No checkpoint can be claimed when inspection itself is unavailable.
+        raise ToolError(6, 'Novel writer lock held; inspect recovery before removal',
+                        checkpoint=confirmed, pending=pending, affected_refs=affected) from error
     try:
         (local / 'owner.json').write_text(json.dumps({'pid': os.getpid()}), encoding='utf-8')
         yield
@@ -261,7 +319,7 @@ def _save(root, bundle, *, fault=None):
     pending_id = bundle['exchange_id']
     published = None
     receipt = safe_path(root, f'.novel-creator/local/{pending_id}.json')
-    with writer_lock(root):
+    with writer_lock(root, pending=pending_id):
         try:
             reference = branch(root)
             initial = head(root)
@@ -272,7 +330,7 @@ def _save(root, bundle, *, fault=None):
                     if old != bundle or records.digest(bundle) != old['payload_digest']:
                         raise ToolError(3, 'Exchange ID was already saved with a different payload')
                     commit = git(root, 'log', '-1', '--format=%H', initial, '--', path).decode().strip()
-                    local_state = records.loads(receipt.read_bytes()) if receipt.exists() else {}
+                    local_state = read_receipt(root, receipt) if receipt.exists() else {}
                     cleanup = bool(local_state) and (local_state.get('state') != 'published' or local_state.get('cleanup_required', True))
                     retry_paths = [path]
                     if bundle['expected_git_head'] is None:
@@ -287,11 +345,12 @@ def _save(root, bundle, *, fault=None):
             # Incomplete/published cleanup and failed saves pause unrelated writes.
             for local in receipt.parent.glob('*.json'):
                 if local != receipt:
-                    state = records.loads(local.read_bytes())
+                    state = read_receipt(root, local)
                     if state.get('cleanup_required') or state.get('state') == 'pending':
                         raise ToolError(3, 'Prior transaction requires recovery before further saves')
             if bundle.get('expected_git_head') != initial:
-                raise ToolError(3, 'Stale expected Git checkpoint')
+                raise ToolError(3, 'Stale expected Git checkpoint',
+                                expected_head=bundle.get('expected_git_head'), actual_head=initial)
             if bundle.get('schema_version') != '1.0':
                 raise ToolError(4, 'Unsupported exchange schema')
             validation.validate_exchange(bundle, history)
@@ -308,7 +367,7 @@ def _save(root, bundle, *, fault=None):
             check_managed(root, initial, paths)
             baseline = index_entries(root, paths)
             if receipt.exists():
-                previous = records.loads(receipt.read_bytes())
+                previous = read_receipt(root, receipt)
                 if previous.get('bundle') != bundle or previous.get('branch') != reference:
                     raise ToolError(3, 'Pending transaction identity or payload changed')
             state = {'state': 'pending', 'bundle': bundle, 'branch': reference,
@@ -373,8 +432,10 @@ def _save(root, bundle, *, fault=None):
                     raise ToolError(3, 'Managed input changed after candidate construction')
             result = git(root, 'update-ref', reference, candidate, initial or '0' * len(candidate), check=False)
             if result.returncode:
-                if head(root) != initial:
-                    raise ToolError(3, 'Git branch advanced before conditional publication')
+                actual = head(root)
+                if actual != initial:
+                    raise ToolError(3, 'Git branch advanced before conditional publication',
+                                    expected_head=initial, actual_head=actual)
                 raise ToolError(5, 'Git conditional publication failed')
             published = candidate
             # The pending receipt already contains candidate and baseline; it is
@@ -394,7 +455,8 @@ def _save(root, bundle, *, fault=None):
             except (OSError, ToolError):
                 return success(bundle, candidate, cleanup=True, warnings=['Saved; managed index recovery required'])
         except ToolError as error:
-            error.checkpoint = confirmed
+            if confirmed is not None:
+                error.checkpoint = confirmed
             error.pending = pending_id
             raise
         except (ValueError, TypeError, KeyError) as error:
@@ -420,10 +482,10 @@ def save(root, bundle, *, fault=None):
                     receipt = safe_path(Path(root), f".novel-creator/local/{old['exchange_id']}.json")
                     if receipt.exists():
                         try:
-                            state = records.loads(receipt.read_bytes())
+                            state = read_receipt(Path(root), receipt)
                             state.update(cleanup_required=True, lock_cleanup_required=True)
                             atomic_json(receipt, state)
-                        except (OSError, ValueError):
+                        except (OSError, ValueError, ToolError):
                             pass
                     return success(old, commit, cleanup=True,
                                    warnings=['Saved; writer lock cleanup requires recovery'])

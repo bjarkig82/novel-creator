@@ -198,3 +198,33 @@ class ExchangeContract(unittest.TestCase):
         changed['decision_ids'] = [decision['id']]
         result = self.validate(seal(dict(data,record_versions=[changed,decision])),[bootstrap,first])
         self.assertEqual(result[item['id']]['status'],'accepted')
+
+    def test_canon_authorization_requires_current_user_message(self):
+        bootstrap = envelope()
+        previous = envelope(previous=bootstrap)
+        previous['messages'][0]['text'] = 'Accept this possibility.'
+        previous = seal(previous)
+        current = envelope(previous=previous)
+        current['messages'][0]['text'] = 'Reject that earlier possibility; accept this new one.'
+        old_source = {'type': 'message', 'exchange_id': previous['exchange_id'],
+                      'message_id': previous['messages'][0]['message_id']}
+        current_source = {'type': 'message', 'exchange_id': current['exchange_id'],
+                          'message_id': current['messages'][0]['message_id']}
+        for source in (old_source, current_source):
+            with self.subTest(source_exchange=source['exchange_id']):
+                item = idea(current)
+                item['status'] = 'accepted'
+                start = 0 if source == old_source else current['messages'][0]['text'].index('accept')
+                # Historical provenance remains valid, but cannot replace current authority.
+                decision = record(current, 'decision', origin='supplied', source_refs=[old_source],
+                                  action='accept', user_message_ref=source, span={'start': start, 'end': start + 6},
+                                  target_refs=[{'id': item['id'], 'revision': 1}], selected_parts=[],
+                                  prior_refs=[], result_refs=[], reason='Select new possibility',
+                                  affected_refs=[], review_required_refs=[])
+                item['decision_ids'] = [decision['id']]
+                value = seal(dict(current, record_versions=[item, decision]))
+                if source == old_source:
+                    with self.assertRaises(ValueError):
+                        self.validate(value, [bootstrap, previous])
+                else:
+                    self.assertEqual(self.validate(value, [bootstrap, previous])[item['id']]['status'], 'accepted')

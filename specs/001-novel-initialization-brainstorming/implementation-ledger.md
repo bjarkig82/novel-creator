@@ -96,3 +96,120 @@ sequence widths beyond six digits need numeric sorting (planned scale is 5,000).
 No hooks file exists; pre/post extension hooks skipped. No commits, merges,
 pushes, global Git changes or manuscript edits performed. Work stops at the
 unverified actual-host gate; all later story/release criteria remain unverified.
+
+## Convergence implementation pass — 2026-10-21
+
+Executing the existing spec/plan/tasks inline with systematic debugging and TDD.
+Requirements checklist: 16/16 checked. No extension hooks file. Existing managed
+cloud checkout is on work with the previously appended tasks.md preserved.
+Python development ignores are present. Installed editable package in ignored
+.venv using existing compatible dependencies; baseline: 41 tests pass.
+
+Preflight interfaces: T068 changes source authorization consumed by every canon
+transition; T074/T075 share committed-history error handling and ToolError; T084
+extends conflict diagnostics without changing publication semantics. These are
+foundation remediations and must preserve production fixture/storage contracts.
+Story tasks T070–T082 retain their original prerequisites. T083 permits immediate
+foundation onboarding; future product instructions remain gated.
+
+Ruling: retain this managed cloud checkout on work and the existing durable
+implementation ledger instead of creating another checkout or using unavailable
+cloud-skill shell helpers — preserves the user's convergence changes and exact
+feature context — cost if wrong: changes require review in this working tree.
+
+T068: complete. The new current-user-message regression failed because historical
+authorization was accepted, then passed after binding decision.user_message_ref
+to the current exchange. Historical source_refs and unchanged prior-proposition
+acceptance remain valid. .venv/bin/python -m unittest discover -v: 42 tests pass.
+
+T074: complete. Non-object committed JSON and malformed local receipt regressions
+observed failure (uncaught AttributeError, wrong exit code or unreported scope),
+then GREEN. Committed input requires an object; recovery receipts require the
+transaction metadata shape before use, including retry and unrelated-save paths.
+Errors name the unavailable path, preserve payload/index/HEAD and use code 4.
+No generic AttributeError catch hides programming errors. Full suite: 45 pass.
+
+T075: complete. Valid-prefix/damaged-successor and CLI regressions observed RED,
+then GREEN for malformed and unsupported successors. read_history attaches the
+validated prefix checkpoint and unavailable path; save preserves this error
+checkpoint instead of overwriting it with null. A historical commit is named
+only if its entire journal tree matches the validated prefix. External prefix
+rewrites with no matching valid snapshot report git_head null rather than
+labeling a damaged commit confirmed. Full suite: 48 tests pass.
+
+T084: complete. Stale-parent diagnostics (including unborn HEAD) and the real
+competing-commit publication race failed their expected/actual-head assertions,
+then passed with optional error.expected_git_head/error.actual_git_head fields.
+The captured expected parent and observed actual head are reported without
+changing CAS publication, pending evidence or unrelated index protection.
+Full suite: 50 tests pass.
+
+T083: complete for the delivered foundation. README, development notes and
+quickstart now identify executable setup/tests/exchange.save, command placeholders,
+cleanup pauses and unverified native-host status. Product journeys remain planned;
+T067 remains unchecked for their eventual verified delivery. CLI help, all 50
+tests, Bash smoke checks and git diff --check passed.
+
+T012/T069 reassessment: still BLOCKED/unverified. Tool discovery found shell and
+thread-summary/status readers but no callable genuine conversation creation/turn
+injection or display-interruption/timing control. No actual-host evidence was
+collected. Existing evaluation and development docs record this limitation.
+T013 is a recorded stop decision, not a passed gate. T070–T082 and original
+story/release tasks remain unchecked; no production stories were implemented.
+
+Independent review requested for current source/tests/docs and foundation task
+changes. No commits, pushes, merges or actual novel/manuscript edits performed.
+
+Final independent review: no actionable defects. Reviewer checked authority,
+malformed-data handling, historical checkpoint safety, idempotency/publication,
+stale-head diagnostics and docs, and independently ran all 50 tests successfully.
+README Windows activation typo corrected; regression acceptance span points to
+the actual acceptance phrase (focused test passed). No new deferred findings.
+Cloud review/verification skill packages became unavailable during execution;
+review used a fresh read-only agent and actual command evidence directly.
+
+Post-execution hooks: skipped, .specify/extensions.yml does not exist.
+Completed convergence tasks: T068, T074, T075, T083, T084. Gate-dependent tasks
+remain unchecked. Implementation is partial, not feature/release completion.
+
+## Second convergence implementation pass — T090
+
+Requirements checklist remains 16/16 checked. No pre-implementation hooks.
+Using the same current feature artifacts, managed work checkout, ignored .venv
+and production contracts; 50-test baseline verified by the preceding converge.
+Preflight: writer_lock fails before _save's error-context handler; safe diagnostic
+reads may capture an immutable committed tree without owning a writer lock.
+No story dependency or actual-host gate is waived.
+
+T090 RED: both new real-Git storage and JSON CLI tests failed all saved/unborn/
+unreadable cases because pending_exchange_id was null. The known saved checkpoint
+was also missing in the saved case. GREEN: writer_lock accepts the attempted ID
+and reads a single captured committed HEAD on contention, retaining valid prefix
+checkpoint/unavailable refs on read failure without taking over the lock.
+Regressions verify owner/local files, receipts, journal, index and HEAD preservation.
+Unborn/damaged genesis contexts retain a null checkpoint. Focused 2/2 pass.
+Development docs explain the behavior. Full-suite and independent review pending.
+
+T090 independent review found one Important regression: a committed unrelated
+non-UTF-8 filename raised UnicodeDecodeError during best-effort lock inspection.
+Fix pass: added POSIX byte-filename storage/CLI cases; both reproduced the
+traceback RED. Treating UnicodeError as unavailable inspection preserved the
+structured code-6 error and pending ID without inventing a checkpoint. The full
+52-test suite then passed, including those cases and installed-fixture checks.
+Bash smoke and git diff --check also passed. No other review findings.
+
+T090: complete and marked [X]. T012/T069/T089 remain unverified; T013 remains
+a blocked gate decision. Original stories and carry-forward tasks remain
+unchecked. Post-implementation hooks skipped: no .specify/extensions.yml.
+No commits, pushes, merges, lock takeovers or manuscript edits performed.
+
+## Integration for local Desktop testing — 2026-10-21
+
+User explicitly requested committing and pushing these changes to main.
+Fetched origin/main; it matches the current base 12fa90b. Fresh pre-push
+verification: all 52 automated tests pass, Bash smoke checks pass and
+git diff --check is clean. Guide links and recorded JSON evidence validate.
+The guide now directs local users to pull main before testing. Include the
+foundation fixes, regression tests, convergence tasks, manual Desktop guide and
+partial live host evidence. Actual-host gate remains BLOCKED; no product-story
+completion or supported-host claim is introduced by integration.

@@ -1,0 +1,22 @@
+{
+  "observed_at_utc": "2026-10-21T13:57:55.579919+00:00",
+  "receipt": {
+    "ok": true,
+    "operation": "exchange.save",
+    "novel_id": "3341aa8e-d207-4028-baae-cfc908b59e9c",
+    "data": {
+      "saved": true,
+      "already_saved": false,
+      "cleanup_required": false
+    },
+    "warnings": [],
+    "checkpoint": {
+      "git_head": "12c217910668353065a3fe252ca419655749babe",
+      "exchange_id": "ad25b18d-8705-49da-8cf5-814ca1a32b50",
+      "sequence": 3
+    }
+  },
+  "text_readback_verified": true,
+  "display_observed": false,
+  "interaction": "ordinary typed follow-up after voice ended"
+}

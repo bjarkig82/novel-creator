@@ -5,15 +5,20 @@ import sys
 
 
 class ToolError(Exception):
-    def __init__(self, code, message, *, affected_refs=None, checkpoint=None, pending=None):
+    def __init__(self, code, message, *, affected_refs=None, checkpoint=None, pending=None,
+                 expected_head=None, actual_head=None):
         super().__init__(message)
         self.code, self.checkpoint, self.pending = code, checkpoint, pending
         self.affected_refs = affected_refs or []
+        self.expected_head, self.actual_head = expected_head, actual_head
 
     def result(self):
-        return {"ok": False, "error": {"code": self.code, "message": str(self),
+        result = {"ok": False, "error": {"code": self.code, "message": str(self),
                 "affected_refs": self.affected_refs, "retryable": self.code in (3, 5, 6)},
                 "last_confirmed_checkpoint": self.checkpoint, "pending_exchange_id": self.pending}
+        if self.expected_head is not None or self.actual_head is not None:
+            result["error"].update(expected_git_head=self.expected_head, actual_git_head=self.actual_head)
+        return result
 
 
 class Parser(argparse.ArgumentParser):

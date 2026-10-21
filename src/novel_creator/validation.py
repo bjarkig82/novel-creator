@@ -167,8 +167,9 @@ def validate_exchange(bundle, history):
                 record_ref(identifier, "decision")
         if record["kind"] == "decision":
             message = source(record["user_message_ref"])
-            if message["role"] != "user":
-                raise ValueError("Decision requires an actual user message")
+            if (message["role"] != "user" or
+                record["user_message_ref"]["exchange_id"] != bundle["exchange_id"]):
+                raise ValueError("Decision requires the current exchange's actual user message")
             span(message["text"], record["span"])
             if record["user_message_ref"].get("range", record["span"]) != record["span"]:
                 raise ValueError("Decision source and accepting span disagree")

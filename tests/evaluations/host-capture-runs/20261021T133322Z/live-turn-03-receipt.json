@@ -1,0 +1,22 @@
+{
+  "observed_at_utc": "2026-10-21T13:58:37.909923+00:00",
+  "receipt": {
+    "ok": true,
+    "operation": "exchange.save",
+    "novel_id": "3341aa8e-d207-4028-baae-cfc908b59e9c",
+    "data": {
+      "saved": true,
+      "already_saved": false,
+      "cleanup_required": false
+    },
+    "warnings": [],
+    "checkpoint": {
+      "git_head": "23f7a1de95966617f4a1f4b049ab21c2aec14e17",
+      "exchange_id": "050ab36d-effd-4c5b-8f95-9ffc89a7dee5",
+      "sequence": 4
+    }
+  },
+  "text_readback_verified": true,
+  "display_observed": false,
+  "interaction": "second ordinary typed follow-up without skill reinvocation"
+}

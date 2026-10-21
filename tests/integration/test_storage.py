@@ -54,6 +54,8 @@ class StorageTests(unittest.TestCase):
                     competitor.append(candidate)
             with self.assertRaises(ToolError) as error: storage.save(root, data, fault=compete)
             self.assertEqual(error.exception.code, 3)
+            self.assertEqual(error.exception.result()['error'].get('expected_git_head'), data['expected_git_head'])
+            self.assertEqual(error.exception.result()['error'].get('actual_git_head'), competitor[0])
             self.assertEqual(git(root, 'rev-parse', 'HEAD'), competitor[0])
             self.assertEqual((root / '.git/index').read_bytes(), index)
             self.assertEqual(storage.read_history(root), [])
@@ -105,6 +107,70 @@ class StorageTests(unittest.TestCase):
             self.assertEqual(error.exception.code, 3)
             (root / '.novel-creator/manifest.json').write_text('{}')
             with self.assertRaises(ToolError): storage.save(root, data)
+
+    def test_stale_checkpoint_diagnostics_include_expected_and_actual_heads(self):
+        for unborn in (False, True):
+            with self.subTest(unborn=unborn), repository(unborn=unborn) as root:
+                actual = storage.head(root)
+                data = envelope(root, expected_git_head='0' * 40)
+                with self.assertRaises(ToolError) as error:
+                    storage.save(root, data)
+                details = error.exception.result()['error']
+                self.assertEqual(error.exception.code, 3)
+                self.assertEqual(details.get('expected_git_head'), '0' * 40)
+                self.assertIn('actual_git_head', details)
+                self.assertEqual(details['actual_git_head'], actual)
+                self.assertEqual(storage.head(root), actual)
+                self.assertFalse((root / storage.bundle_path(data)).exists())
+
+    def test_held_lock_reports_failure_context_without_mutating_owner_or_saved_work(self):
+        for context in ('saved', 'unborn', 'unreadable', 'non_utf8'):
+            if context == 'non_utf8' and os.name == 'nt':
+                continue  # Windows filenames do not expose arbitrary byte names.
+            with self.subTest(context=context), repository(unborn=context == 'unborn') as root:
+                expected = None
+                if context in ('saved', 'non_utf8'):
+                    first = envelope(root)
+                    expected = storage.save(root, first)['checkpoint']
+                    data = envelope(root, previous=first)
+                else:
+                    data = envelope(root)
+                affected = []
+                if context == 'unreadable':
+                    relative = storage.bundle_path(data)
+                    (root / relative).parent.mkdir(parents=True)
+                    (root / relative).write_text('[]')
+                    git(root, 'add', relative)
+                    git(root, 'commit', '-m', 'Unreadable fixture')
+                    affected = [relative]
+                if context == 'non_utf8':
+                    with open(os.fsencode(root) + b'/notes-\xff.txt', 'wb') as stream:
+                        stream.write(b'Unrelated user file')
+                    git(root, 'add', '--all')
+                    git(root, 'commit', '-m', 'Byte filename fixture')
+                    expected = None  # Inspection cannot validate this committed tree.
+                (root / 'notes.txt').write_text('Unrelated staged work')
+                git(root, 'add', 'notes.txt')
+                lock = root / '.novel-creator/local/write.lock'
+                lock.mkdir()
+                (lock / 'owner.json').write_text('{"pid":12345,"note":"existing owner"}')
+                initial = storage.head(root)
+                index = (root / '.git/index').read_bytes()
+                managed = {path.relative_to(root): path.read_bytes() for directory in
+                           (root / 'story', root / '.novel-creator')
+                           for path in directory.rglob('*') if path.is_file()}
+                with self.assertRaises(ToolError) as error:
+                    storage.save(root, data)
+                self.assertEqual(error.exception.code, 6)
+                self.assertEqual(error.exception.pending, data['exchange_id'])
+                self.assertEqual(error.exception.checkpoint, expected)
+                self.assertEqual(error.exception.affected_refs, affected)
+                self.assertEqual(storage.head(root), initial)
+                self.assertEqual((root / '.git/index').read_bytes(), index)
+                self.assertTrue(lock.is_dir())
+                self.assertEqual({path.relative_to(root): path.read_bytes() for directory in
+                                  (root / 'story', root / '.novel-creator')
+                                  for path in directory.rglob('*') if path.is_file()}, managed)
 
     def test_traversal_symlink_and_payload_paths_rejected(self):
         with repository() as root:
@@ -166,6 +232,84 @@ class StorageTests(unittest.TestCase):
             git(root, 'commit', '-m', 'Unsupported record')
             with self.assertRaises(ToolError) as error: storage.read_history(root)
             self.assertEqual(error.exception.code, 4)
+
+    def test_nonobject_committed_json_is_unavailable(self):
+        for raw in ('[]', 'null', '"not an envelope"', '42'):
+            with self.subTest(raw=raw), repository() as root:
+                data = envelope(root)
+                relative = storage.bundle_path(data)
+                path = root / relative
+                path.parent.mkdir(parents=True)
+                path.write_text(raw)
+                git(root, 'add', relative)
+                git(root, 'commit', '-m', 'Malformed fixture')
+                initial = git(root, 'rev-parse', 'HEAD')
+                index = (root / '.git/index').read_bytes()
+                with self.assertRaises(ToolError) as error:
+                    storage.read_history(root)
+                self.assertEqual(error.exception.code, 4)
+                self.assertIn(relative, error.exception.affected_refs)
+                self.assertEqual(git(root, 'rev-parse', 'HEAD'), initial)
+                self.assertEqual((root / '.git/index').read_bytes(), index)
+
+    def test_unreadable_successor_retains_last_verifiable_checkpoint(self):
+        for damage in ('[]', '{', 'unsupported'):
+            with self.subTest(damage=damage), repository() as root:
+                first = envelope(root)
+                saved = storage.save(root, first)
+                second = envelope(root, previous=first)
+                relative = storage.bundle_path(second)
+                raw = json.dumps(seal(dict(second, schema_version='2.0'))) if damage == 'unsupported' else damage
+                (root / relative).write_text(raw)
+                git(root, 'add', relative)
+                git(root, 'commit', '-m', 'Unreadable successor fixture')
+                initial = git(root, 'rev-parse', 'HEAD')
+                index = (root / '.git/index').read_bytes()
+                data = envelope(root, previous=second)
+                for operation in (lambda: storage.read_history(root), lambda: storage.save(root, data)):
+                    with self.assertRaises(ToolError) as error:
+                        operation()
+                    self.assertEqual(error.exception.code, 4)
+                    self.assertEqual(error.exception.checkpoint, saved['checkpoint'])
+                    self.assertIn(relative, error.exception.affected_refs)
+                self.assertEqual(git(root, 'rev-parse', 'HEAD'), initial)
+                self.assertEqual((root / '.git/index').read_bytes(), index)
+                self.assertFalse((root / storage.bundle_path(data)).exists())
+
+    def test_valid_prefix_never_labels_a_damaged_commit_as_a_checkpoint(self):
+        with repository() as root:
+            first = envelope(root)
+            saved = storage.save(root, first)
+            edited = seal(dict(first, recorded_at='2026-10-21T13:00:00Z'))
+            (root / storage.bundle_path(first)).write_text(json.dumps(edited))
+            second = envelope(root, previous=edited)
+            (root / storage.bundle_path(second)).write_text('[]')
+            git(root, 'add', storage.bundle_path(first), storage.bundle_path(second))
+            git(root, 'commit', '-m', 'Altered prefix and damaged successor')
+            with self.assertRaises(ToolError) as error:
+                storage.read_history(root)
+            self.assertEqual(error.exception.checkpoint,
+                             {'git_head': None, 'exchange_id': first['exchange_id'], 'sequence': 1})
+            self.assertNotEqual(error.exception.checkpoint['git_head'], saved['checkpoint']['git_head'])
+
+    def test_malformed_receipts_block_retry_and_further_saves(self):
+        for raw in ('[]', 'null', '{}', '{', '{"state":"pending","bundle":[]}'):
+            with self.subTest(raw=raw), repository() as root:
+                first = envelope(root)
+                saved = storage.save(root, first)
+                relative = f'.novel-creator/local/{first["exchange_id"]}.json'
+                receipt = root / relative
+                receipt.write_text(raw)
+                index = (root / '.git/index').read_bytes()
+                for data in (first, envelope(root, previous=first)):
+                    with self.subTest(retry=data == first), self.assertRaises(ToolError) as error:
+                        storage.save(root, data)
+                    self.assertEqual(error.exception.code, 4)
+                    self.assertIn(relative, error.exception.affected_refs)
+                    self.assertEqual(error.exception.checkpoint, saved['checkpoint'])
+                self.assertEqual(git(root, 'rev-parse', 'HEAD'), saved['checkpoint']['git_head'])
+                self.assertEqual((root / '.git/index').read_bytes(), index)
+                self.assertEqual(receipt.read_text(), raw)
 
     def test_lock_cleanup_error_after_publication_still_returns_saved(self):
         from unittest.mock import patch

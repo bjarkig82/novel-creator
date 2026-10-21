@@ -1,8 +1,11 @@
 # Quickstart and Validation Guide
 
-Status: design-time guide. Except for the existing Spec Kit check below, these
-commands describe the planned implementation interface and are not runnable in
-the current repository. Do not report them as executed acceptance tests.
+Status: the persistence foundation and structural verification commands below
+are implemented. The numbered product journeys remain planned and blocked by
+the actual-host gate and their story implementation tasks. `init`, `session`,
+`context`, `inspect`, `validate` and `recover` currently return explicit unavailable
+errors; `exchange save` is implemented. Do not report planned journeys as executed
+acceptance tests or structural checks as proof of host behavior.
 
 ## Prerequisites and installation verification
 
@@ -12,19 +15,22 @@ Run the release checks on Linux, macOS and Windows before claiming each platform
 The host owns authentication and voice transcription; the tool needs no model key.
 Use disposable directories outside the framework repository for all examples.
 
-From the framework checkout, after implementation:
+For foundation development, run from the framework checkout. These structural
+checks need no model credentials or interactive host:
 
 ```bash
 python -m venv .venv
 # Activate .venv with the current shell's standard activation command.
+python -m pip install -r requirements-lock.txt
 python -m pip install -e '.[test]'
 python -m novel_creator --help
-python -m unittest discover -s tests -v
+python -m unittest discover -v
 ```
 
 Windows may use `py -3` to create the environment. Use the active environment's
 `python` for subsequent commands. Pin dependency resolution in release evidence.
-No install or product test has been performed by this planning workflow.
+These commands verify the implemented foundation. Product journeys, human
+evaluations and claimed-host support require their separate evidence.
 
 Existing development-tool smoke check (already available):
 
@@ -32,7 +38,16 @@ Existing development-tool smoke check (already available):
 bash tests/speckit-smoke.sh
 ```
 
-## 1. First vertical slice and host capability gate
+Before attempting product initialization, follow the disposable installed-fixture
+procedure in [host-capture.md](../../tests/evaluations/host-capture.md). The minimal
+fixture uses production persistence without implementing the stories. The actual
+host gate remains BLOCKED: synthetic turns and subprocess context readers cannot
+pass automatic-turn, genuine fresh-chat or display-interruption checks.
+
+## 1. Planned first vertical slice and host capability gate
+
+The following product commands become available only after the actual-host gate
+passes and their story tasks are implemented.
 
 Prepare a UTF-8 `brief.json` in a disposable scratch directory using the project
 schema: title can be temporary, concept and all creative preferences can be
@@ -150,7 +165,9 @@ explicitly and leave canon unchanged. No automatic incompatible migrations.
 
 ## Planning completion versus release completion
 
-This guide defines future verification. A completed plan does not establish host
+This guide separates current foundation checks from future product verification.
+A completed plan does not establish host
 capture, language quality, performance, accessibility or novice outcomes. Record
-their actual results during implementation and release review. Next planning
-command: `$speckit-tasks`.
+their actual results during implementation and release review. Continue with
+`$speckit-implement` for available foundation work; dependent story work must wait
+for the actual-host gate. Do not treat this guide as release evidence.

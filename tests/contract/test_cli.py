@@ -55,6 +55,119 @@ class CliContract(unittest.TestCase):
                 self.assertFalse(json.loads(result.stdout)['ok'])
                 self.assertNotIn('Traceback', result.stderr)
 
+    def test_malformed_stored_data_returns_one_unavailable_json_error(self):
+        import tempfile
+        from novel_creator import storage
+        from tests.helpers import repository, envelope, git
+        for area in ('committed', 'receipt'):
+            for raw in ('[]', 'null', '{'):
+                with self.subTest(area=area, raw=raw), repository() as root, tempfile.TemporaryDirectory() as folder:
+                    first = envelope(root)
+                    storage.save(root, first)
+                    data = envelope(root, previous=first)
+                    if area == 'committed':
+                        relative = storage.bundle_path(data)
+                        (root / relative).write_text(raw)
+                        git(root, 'add', relative)
+                        git(root, 'commit', '-m', 'Malformed fixture')
+                    else:
+                        relative = f'.novel-creator/local/{first["exchange_id"]}.json'
+                        (root / relative).write_text(raw)
+                    initial = git(root, 'rev-parse', 'HEAD')
+                    payload = Path(folder) / 'turn.json'
+                    payload.write_text(json.dumps(data))
+                    result = self.invoke('exchange', 'save', '--novel', str(root), '--input', str(payload), '--json')
+                    self.assertEqual(result.returncode, 4, result.stderr)
+                    error = json.loads(result.stdout)
+                    self.assertFalse(error['ok'])
+                    self.assertIn(relative, error['error']['affected_refs'])
+                    self.assertNotIn('Traceback', result.stderr)
+                    self.assertEqual(git(root, 'rev-parse', 'HEAD'), initial)
+
+    def test_unavailable_journal_error_discloses_last_valid_checkpoint(self):
+        import tempfile
+        from novel_creator import storage
+        from tests.helpers import repository, envelope, seal, git
+        with repository() as root, tempfile.TemporaryDirectory() as folder:
+            first = envelope(root)
+            saved = storage.save(root, first)
+            broken = envelope(root, previous=first)
+            relative = storage.bundle_path(broken)
+            (root / relative).write_text(json.dumps(seal(dict(broken, schema_version='2.0'))))
+            git(root, 'add', relative)
+            git(root, 'commit', '-m', 'Unsupported successor fixture')
+            data = envelope(root, previous=broken)
+            payload = Path(folder) / 'turn.json'
+            payload.write_text(json.dumps(data))
+            result = self.invoke('exchange', 'save', '--novel', str(root), '--input', str(payload), '--json')
+            self.assertEqual(result.returncode, 4, result.stderr)
+            error = json.loads(result.stdout)
+            self.assertEqual(error['last_confirmed_checkpoint'], saved['checkpoint'])
+            self.assertEqual(error['pending_exchange_id'], data['exchange_id'])
+            self.assertIn(relative, error['error']['affected_refs'])
+            self.assertNotIn('Traceback', result.stderr)
+
+    def test_stale_write_json_includes_expected_and_actual_heads(self):
+        import tempfile
+        from tests.helpers import repository, envelope, git
+        with repository() as root, tempfile.TemporaryDirectory() as folder:
+            actual = git(root, 'rev-parse', 'HEAD')
+            data = envelope(root, expected_git_head='0' * 40)
+            payload = Path(folder) / 'turn.json'
+            payload.write_text(json.dumps(data))
+            result = self.invoke('exchange', 'save', '--novel', str(root), '--input', str(payload), '--json')
+            self.assertEqual(result.returncode, 3, result.stderr)
+            error = json.loads(result.stdout)
+            self.assertEqual(error['error'].get('expected_git_head'), '0' * 40)
+            self.assertEqual(error['error'].get('actual_git_head'), actual)
+            self.assertEqual(error['last_confirmed_checkpoint']['git_head'], actual)
+            self.assertEqual(error['pending_exchange_id'], data['exchange_id'])
+            self.assertEqual(git(root, 'rev-parse', 'HEAD'), actual)
+
+    def test_held_lock_json_discloses_pending_id_and_only_verifiable_checkpoint(self):
+        import os
+        import tempfile
+        from novel_creator import storage
+        from tests.helpers import repository, envelope, git
+        for context in ('saved', 'unborn', 'unreadable', 'non_utf8'):
+            if context == 'non_utf8' and os.name == 'nt':
+                continue  # Windows filenames do not expose arbitrary byte names.
+            with self.subTest(context=context), repository(unborn=context == 'unborn') as root, tempfile.TemporaryDirectory() as folder:
+                expected = None
+                first = envelope(root)
+                if context in ('saved', 'non_utf8'):
+                    expected = storage.save(root, first)['checkpoint']
+                    data = envelope(root, previous=first)
+                else:
+                    data = first
+                if context == 'unreadable':
+                    path = root / storage.bundle_path(first)
+                    path.parent.mkdir(parents=True)
+                    path.write_text('[]')
+                    git(root, 'add', storage.bundle_path(first))
+                    git(root, 'commit', '-m', 'Unreadable fixture')
+                if context == 'non_utf8':
+                    with open(os.fsencode(root) + b'/notes-\xff.txt', 'wb') as stream:
+                        stream.write(b'Unrelated user file')
+                    git(root, 'add', '--all')
+                    git(root, 'commit', '-m', 'Byte filename fixture')
+                    expected = None
+                lock = root / '.novel-creator/local/write.lock'
+                lock.mkdir()
+                initial = storage.head(root)
+                payload = Path(folder) / 'turn.json'
+                payload.write_text(json.dumps(data))
+                result = self.invoke('exchange', 'save', '--novel', str(root), '--input', str(payload), '--json')
+                self.assertEqual(result.returncode, 6, result.stderr)
+                error = json.loads(result.stdout)
+                self.assertFalse(error['ok'])
+                self.assertTrue(error['error']['retryable'])
+                self.assertEqual(error['pending_exchange_id'], data['exchange_id'])
+                self.assertEqual(error['last_confirmed_checkpoint'], expected)
+                self.assertNotIn('Traceback', result.stderr)
+                self.assertTrue(lock.is_dir())
+                self.assertEqual(storage.head(root), initial)
+
     def test_published_save_with_lock_cleanup_failure_is_cli_success(self):
         from contextlib import redirect_stdout, redirect_stderr
         import io

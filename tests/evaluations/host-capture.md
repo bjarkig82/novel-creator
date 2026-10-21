@@ -69,6 +69,14 @@ macOS, physical power-loss durability and performance targets remain unverified.
 
 ## Actual-host execution procedure to unblock
 
+Convergence implementation reassessment (2026-10-21): **still BLOCKED**. The
+current session provides shell/subprocess tools and thread-status readers, but
+no callable facility to create/drive genuine fresh host conversations, inject
+real subsequent user turns or interrupt and measure actual response display.
+No actual-host messages, timings or host/model/version receipts were collected
+by this reassessment. T012 and T069 remain unchecked; T013 remains a stop decision.
+Foundation fixes and passing structural tests do not waive the gate.
+
 1. Record the real host distribution/version, model/version, OS/filesystem,
    Python/Git/validator versions, fixture installation manifest and starting Git
    checkpoint. Open the fixture in that host and explicitly start the protocol.
@@ -91,3 +99,16 @@ macOS, physical power-loss durability and performance targets remain unverified.
 7. Review every row against actual artifacts. If any row fails/is unavailable,
    keep the gate blocked and revisit adapter planning. Only a complete actual
    pass permits T014+ implementation; it does not establish later story quality.
+
+## Live experiment attempt — 2026-10-21 13:35 UTC
+
+A disposable installed fixture and partial current-chat capture were prepared;
+see [20261021T133322Z run evidence](host-capture-runs/20261021T133322Z/README.md).
+Codex CLI 0.163.0 was discovered, but a real native launch failed with a
+read-only app-server state directory before any model response. One current
+user utterance/prepared reply was saved and read back exactly; identical retry
+returned the original checkpoint. Display observation, further automatic turns,
+fresh-chat recovery, controlled interruption and visible failure handling remain
+unverified. Earlier unavailable-environment notes above describe their original
+assessment; this run establishes only the limited observations listed here.
+The host gate remains BLOCKED and all related task markers remain unchecked.

@@ -1,0 +1,28 @@
+{
+  "started_at_utc": "20261021T133322Z",
+  "host": "Codex CLI",
+  "host_version": "0.163.0",
+  "model": "unverified until a real run reports its model",
+  "os": "Linux-6.18.55-x86_64-with-glibc2.41",
+  "python": "3.12.14",
+  "git": "git version 2.52.0",
+  "jsonschema": "4.26.0",
+  "fixture_root": "/workspace/host-capture-spike-5321347ef6",
+  "bootstrap_receipt": {
+    "ok": true,
+    "operation": "exchange.save",
+    "novel_id": "3341aa8e-d207-4028-baae-cfc908b59e9c",
+    "data": {
+      "saved": true,
+      "already_saved": false,
+      "cleanup_required": false
+    },
+    "warnings": [],
+    "checkpoint": {
+      "git_head": "42d7dcf0fb27a80e424fa7fc0f8c51331bdc28b9",
+      "exchange_id": "13076235-b6de-48b2-b4ee-24323e816d0d",
+      "sequence": 1
+    }
+  },
+  "status": "preflight; actual host gate not passed"
+}

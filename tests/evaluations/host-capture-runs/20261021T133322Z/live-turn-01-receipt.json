@@ -1,0 +1,16 @@
+{
+  "ok": true,
+  "operation": "exchange.save",
+  "novel_id": "3341aa8e-d207-4028-baae-cfc908b59e9c",
+  "data": {
+    "saved": true,
+    "already_saved": false,
+    "cleanup_required": false
+  },
+  "warnings": [],
+  "checkpoint": {
+    "git_head": "e3d6c406fbeb876f1c2369d4973a292869d266f5",
+    "exchange_id": "19fbf3bb-622d-4423-ac37-c7a8690282e5",
+    "sequence": 2
+  }
+}

@@ -4,11 +4,46 @@ A home for developing an app that helps writers plan and create novels.
 
 ## Project status
 
-Repository initialized. The application framework and implementation have not been selected yet.
+The Python/Git exchange-persistence foundation is implemented, with versioned
+JSON schemas, source/authorization validation, atomic local saves and a disposable
+installed host-spike fixture. Saves preserve unrelated staged work and manuscript
+files; the tool does not push automatically.
+
+Novel initialization, brainstorming, session management, production context and
+inspection, and safe recovery are not implemented. Their CLI entries return an
+explicit unavailable error. Actual Codex capture remains **unverified** and blocks
+dependent story implementation; no host, bilingual workflow or feature release
+is claimed supported. See the [host evaluation](tests/evaluations/host-capture.md).
 
 ## Development
 
-Application setup and run instructions will be added when the app is scaffolded.
+For the manual host test and the remaining delivery milestones, see
+[Testing and completing the current feature](docs/testing-and-completion-guide.md).
+
+Requires Python >=3.11 and Git >=2.39. From this checkout:
+
+```bash
+python -m venv .venv
+. .venv/bin/activate
+python -m pip install -r requirements-lock.txt
+python -m pip install -e '.[test]'
+python -m novel_creator --help
+python -m unittest discover -v
+bash tests/speckit-smoke.sh
+```
+
+On Windows, activate `.venv\Scripts\Activate.ps1`. Bash smoke checks require
+Bash, `jq` and `rg`. Tests use disposable repositories and local test identities;
+no model credentials are required. The available persistence command is
+`exchange save --novel PATH --input FILE --json`, using a complete exchange
+envelope and a prepared independent repository. For a reproducible disposable
+installation, follow the [host-spike fixture procedure](tests/evaluations/host-capture.md#reproducible-structural-fixture).
+
+Saving failures disclose the last verifiable checkpoint and pending exchange.
+Published saves needing index cleanup remain saved, but further writes pause;
+`recover` is not yet implemented. Preserve evidence and do not reset history to
+clear a pause. See [development setup and limitations](docs/development.md) and
+the [validation guide](specs/001-novel-initialization-brainstorming/quickstart.md).
 
 ## Project tooling
 

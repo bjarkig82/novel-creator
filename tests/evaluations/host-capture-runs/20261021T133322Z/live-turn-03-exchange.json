@@ -1,0 +1,35 @@
+{
+  "schema_version": "1.0",
+  "novel_id": "3341aa8e-d207-4028-baae-cfc908b59e9c",
+  "exchange_id": "050ab36d-effd-4c5b-8f95-9ffc89a7dee5",
+  "sequence": 4,
+  "previous_exchange_id": "ad25b18d-8705-49da-8cf5-814ca1a32b50",
+  "previous_digest": "7acf056bc39a987752eacda9c8bbbafbcce2b6a7138bae2fb86c1f5c69eda989",
+  "session_id": null,
+  "expected_git_head": "12c217910668353065a3fe252ca419655749babe",
+  "recorded_at": "2026-10-21T13:58:36.725565Z",
+  "operation": "conversation",
+  "messages": [
+    {
+      "message_id": "d434346a-6183-44b7-bb37-fc7e82cdf6e8",
+      "role": "user",
+      "text": "Next"
+    },
+    {
+      "message_id": "606d9caa-2174-4abd-9b4e-e09e57d026a4",
+      "role": "assistant",
+      "text": "Saved. Both follow-up turns were recorded automatically before their replies. The host gate remains blocked until fresh-chat recovery, interruption, and visible save-failure handling are verified."
+    }
+  ],
+  "input_artifacts": [],
+  "record_versions": [],
+  "continuity_review": {
+    "coverage": "not_applicable",
+    "reviewed_record_refs": [],
+    "unavailable_refs": [],
+    "canon_hold_refs": [],
+    "finding_ids": [],
+    "summary": "Host protocol fixture only; no canon or narrative judgment"
+  },
+  "payload_digest": "c5a475980cbef90de1a81871385c0b8c5c83d9e0ac985b9fb4484c4b0bacb4e8"
+}
