@@ -8,6 +8,13 @@
 
 **Input**: User description: "Initialize an independent novel, brainstorm across sessions, automatically capture ideas and accepted canon, and guard continuity while preserving human creative authority and platform independence."
 
+## Clarifications
+
+### Session 2026-10-21
+
+- Q: When should brainstorming conversations and captured story information be saved automatically? → A: Save every user message and agent response, including captured ideas and decisions, before continuing.
+- Q: If relevant saved canon cannot be read, should the agent pause changes to canon until that information is restored? → A: Allow exploration; block affected canon changes until the relevant records are readable.
+
 ## User Scenarios & Testing *(mandatory)*
 
 ### User Story 1 - Start a Novel from Any Starting Point (Priority: P1)
@@ -55,7 +62,7 @@ As a creative director, I can resume an existing session or start a focused one 
 
 **Acceptance Scenarios**:
 
-1. **Given** an exchange containing character ideas, alternatives, and an unanswered question, **When** it is successfully saved, **Then** those items are captured with status and origin without a note-taking request.
+1. **Given** an exchange containing character ideas, alternatives, and an unanswered question, **When** the agent responds, **Then** the user message, agent response, and captured items with status and origin are saved automatically before continuing, without a note-taking or save request.
 2. **Given** multiple saved sessions, **When** one is resumed after ending the original interaction, **Then** its focus, relevant canon, decisions, and unresolved questions are available without asking the user to repeat recorded information.
 3. **Given** a new topic-focused session, **When** the user asks how a character relates to an event or plot thread, **Then** recorded connections are explained with sources and new interpretations are labeled proposals.
 4. **Given** an incorrect capture, **When** the user corrects it, **Then** the correction and its origin are retained without erasing decision history.
@@ -120,7 +127,7 @@ As a creative director, I can develop an English or Icelandic novel and retain u
 - Partial acceptance of a compound proposal applies only to clearly selected elements; unclear targets remain unaccepted pending clarification.
 - Hypothetical scenes, mutually exclusive alternatives, character beliefs, unknown timing, and withheld revelations must not be merged into objective truth.
 - Canon revisions must identify directly affected recorded information without silently rewriting unrelated facts. Unrecorded dependencies cannot be guaranteed detectable.
-- Missing, damaged, or unsupported records must be identified as unavailable; the agent must not claim a complete continuity check when relevant context is unreadable.
+- Missing, damaged, or unsupported records must be identified as unavailable; the agent must not claim a complete continuity check when relevant context is unreadable. Exploration may continue as proposals, but affected canon changes must remain paused until the relevant records are readable.
 - Summaries of long sessions must retain source references and cannot override authoritative facts or hide unresolved contradictions.
 
 ## Requirements *(mandatory)*
@@ -140,7 +147,7 @@ As a creative director, I can develop an English or Icelandic novel and retain u
 #### Sessions, capture, and creative authority
 
 - **FR-008**: Users MUST be able to identify, list, start, resume, and close multiple topic-focused sessions per novel. Fresh interactions MUST recover relevant saved canon, decisions, ideas, and unresolved questions (Story 3).
-- **FR-009**: By completion of every successfully saved exchange, the system MUST retain its conversation and automatically capture relevant ideas, character information, plot developments, world details, relationships, events, alternatives, questions, and creative decisions with source references (Story 3).
+- **FR-009**: After every exchange, the system MUST automatically save the user message, agent response, and captured story information before continuing, without requiring a save request or session closure. Captures MUST include relevant ideas, character information, plot developments, world details, relationships, events, alternatives, questions, and creative decisions with source references. Saving failures MUST follow FR-014 (Story 3).
 - **FR-010**: Captured items MUST distinguish proposed, accepted, rejected, and unresolved states. Conversations, extracted ideas, acceptance decisions, and current canon MUST remain distinguishable; lack of acceptance MUST NOT imply canon (Stories 3, 4).
 - **FR-011**: Clear user acceptance of an identifiable idea MUST establish the corresponding canon automatically and record its accepting statement and session without another approval, subject to FR-013 and FR-017. Praise alone, silence, speculation, quoted dialogue, and ambiguous references MUST NOT establish objective facts (Story 4).
 - **FR-012**: Users MUST be able to correct captures and explicitly revise or reverse facts. The system MUST retain prior and current states, the revision's origin, and references to directly affected recorded elements needing review. Superseded facts MUST NOT appear as current (Stories 3, 4).
@@ -150,7 +157,7 @@ As a creative director, I can develop an English or Icelandic novel and retain u
 #### Continuity and connections
 
 - **FR-015**: The Continuity Guardian MUST evaluate new ideas against relevant available canon and knowledge during brainstorming. Significant contradictions make a recorded event or rule impossible, invalidate an accepted plot dependency, require unavailable character knowledge, or directly conflict with explicit established motivations, relationships, or backstory (Story 5).
-- **FR-016**: On detecting a significant contradiction, the next response MUST interrupt further development of the conflicting idea, identify established information and sources, explain likely consequences, and offer resolutions. Uncertainty and missing information MUST be disclosed instead of asserted as proven contradictions (Story 5).
+- **FR-016**: On detecting a significant contradiction, the next response MUST interrupt further development of the conflicting idea, identify established information and sources, explain likely consequences, and offer resolutions. Uncertainty and missing information MUST be disclosed instead of asserted as proven contradictions. If relevant saved canon is unreadable, exploration MAY continue as proposals, but affected canon changes MUST remain paused until the relevant records are readable (Story 5).
 - **FR-017**: Users MUST be able to reject or revise the idea, deliberately revise canon, explain an intentional technique, or defer the conflict. Conflicting development MUST remain paused until the user's direction permits it. Deferred ideas MAY remain unresolved alternatives but MUST NOT silently establish canon. An unambiguous explicit canon revision already authorizes that revision without redundant approval, except at the FR-013 boundary (Stories 4, 5).
 - **FR-018**: Checks MUST distinguish author truth, character knowledge and beliefs, and reader revelations at relevant story points, accounting for recorded deception, unreliable narration, mystery, and intentional ambiguity (Stories 5, 6).
 - **FR-019**: Recorded connections MUST be explainable with their sources. Creative opportunities MAY be suggested but MUST remain proposals, be non-blocking, and respect requests to reduce suggestions (Stories 2, 3, 5).
@@ -189,7 +196,7 @@ As a creative director, I can develop an English or Icelandic novel and retain u
 - **SC-006**: For five deliberate canon revisions, current and previous facts, decision origins, and all directly linked affected elements remain inspectable; no approved manuscript text changes (Story 4).
 - **SC-007**: Mode switches and topic redirections take effect in the next response in every acceptance example. At least 4 of 5 novice evaluators rate guidance at least 4 out of 5 for usefulness and creative control (Story 2).
 - **SC-008**: Without the original agent or dashboard, an independent reader or consumer can recover every designated entity, relationship, event ordering, knowledge perspective, and decision origin in a representative saved novel without restructuring records or interpreting conversation prose (Story 6).
-- **SC-009**: Interruption, unavailable-context, failed-save, duplicate-processing, and overlapping-edit exercises each preserve the last confirmed authoritative state and disclose incomplete work; none reports unsaved work or incomplete continuity review as successfully completed (Story 3; Edge Cases).
+- **SC-009**: Interruption, unavailable-context, failed-save, duplicate-processing, and overlapping-edit exercises each preserve the last confirmed authoritative state and disclose incomplete work; none reports unsaved work or incomplete continuity review as successfully completed. In the unavailable-context exercise, proposals may be explored, but no affected canon change is applied until the relevant records are readable (Story 3; Edge Cases).
 
 ## Assumptions
 
