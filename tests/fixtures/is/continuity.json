@@ -156,7 +156,7 @@
     },
     {
       "id": "O01",
-      "user_text": "Skráð koparinnsigli gæti gefið vísbendingu um sendandann.",
+      "user_text": "Skráð látúnsinnsigli gæti gefið vísbendingu um sendandann.",
       "perspective": "author_truth",
       "expected_assessment": "opportunity",
       "interrupt_next_response": false,

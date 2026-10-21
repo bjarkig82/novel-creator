@@ -597,3 +597,21 @@ failures/errors. Git Bash smoke and whitespace checks pass. Full commands, logs
 and remaining release boundaries are recorded in
 ../../tests/evaluations/release-readiness.md. No original task is newly marked
 complete from this partial coverage, and no extension hooks are registered.
+
+## Post-push bilingual continuation — 2026-10-21
+
+The user authorized committing and pushing the pending implementation to main,
+then continued work. Commit 50c035b was pushed and its full SHA matched the remote.
+Subsequent local work adds eight paired language-pitfall cases for T055/T130 and
+fixture-integrity contracts in tests/contract/test_language_fixtures.py. Corrected
+two brass/copper translation mismatches in Icelandic A07/O01, including A07's
+Unicode source range. The new corpus covers setup/guidance/capture/acceptance/
+continuity, false friends, mixed language, diacritics, partial selection, quoted
+dialogue and negation. Six fixture/portability contracts pass on each of Windows
+and Linux/WSL2; git diff --check passes for the continuation.
+
+These are authored inputs and structural checks plus a limited agent review,
+not actual host judgments or human bilingual approval. T055/T060/T130 and the
+other real-host/novice gates remain unchecked. See tests/evaluations/language-results.md
+for input links, commands/results and evidence limits. No production code,
+dependency, schema, checklist marker or acceptance threshold changed.

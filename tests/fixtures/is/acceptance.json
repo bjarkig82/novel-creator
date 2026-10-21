@@ -82,10 +82,10 @@
     },
     {
       "id": "A07",
-      "user_text": "Veljum koparinnsiglið.",
+      "user_text": "Veljum látúnsinnsiglið.",
       "source_span": {
         "start": 0,
-        "end": 22
+        "end": 23
       },
       "expected_action": "accept",
       "selected_propositions": [

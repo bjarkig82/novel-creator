@@ -1,0 +1,186 @@
+{
+  "language": "is",
+  "status": "Authored evaluation inputs; human review and actual product-host outcomes unverified",
+  "cases": [
+    {
+      "id": "L01",
+      "stage": "capture",
+      "challenges": [
+        "false_friend",
+        "diacritics"
+      ],
+      "user_text": "Eventúellt sendi Þóra bréfið.",
+      "source_span": {
+        "start": 0,
+        "end": 29
+      },
+      "source_quote": "Eventúellt sendi Þóra bréfið.",
+      "expected_action": "retain_proposal",
+      "selected_propositions": [],
+      "expected_values": {
+        "sender": "possible",
+        "canon_change": false
+      },
+      "review_note": "Eventúellt means possibly; English eventually must not turn this speculation into certainty."
+    },
+    {
+      "id": "L02",
+      "stage": "acceptance",
+      "challenges": [
+        "false_friend",
+        "diacritics"
+      ],
+      "user_text": "Þóra er gift. Staðfestum það sem staðreynd.",
+      "source_span": {
+        "start": 0,
+        "end": 43
+      },
+      "source_quote": "Þóra er gift. Staðfestum það sem staðreynd.",
+      "expected_action": "accept",
+      "selected_propositions": [
+        "thora_married"
+      ],
+      "expected_values": {
+        "marital_status": "married"
+      },
+      "review_note": "Icelandic gift describes being married; it does not mean an English present."
+    },
+    {
+      "id": "L03",
+      "stage": "continuity",
+      "challenges": [
+        "false_friend",
+        "negation"
+      ],
+      "user_text": "Vélin notar gas, ekki bensín. Samræmist það reglunni?",
+      "source_span": {
+        "start": 0,
+        "end": 53
+      },
+      "source_quote": "Vélin notar gas, ekki bensín. Samræmist það reglunni?",
+      "expected_action": "flag_conflict",
+      "selected_propositions": [],
+      "expected_values": {
+        "category": "world_rule",
+        "interrupt_next_response": true,
+        "canon_change": false
+      },
+      "review_note": "Icelandic gas denotes gaseous fuel here, not the American English shorthand for gasoline.",
+      "established_source": {
+        "id": "engine-rule",
+        "text": "Vélin gengur eingöngu fyrir bensíni."
+      }
+    },
+    {
+      "id": "L04",
+      "stage": "acceptance",
+      "challenges": [
+        "mixed_language",
+        "diacritics",
+        "partial_selection"
+      ],
+      "user_text": "Höldum Þóru sem sendanda, but leave the murder undecided.",
+      "source_span": {
+        "start": 0,
+        "end": 24
+      },
+      "source_quote": "Höldum Þóru sem sendanda",
+      "expected_action": "accept",
+      "selected_propositions": [
+        "thora_sender"
+      ],
+      "expected_values": {
+        "murderer": "unresolved"
+      },
+      "review_note": "Select only the sender proposition; switching language does not extend acceptance."
+    },
+    {
+      "id": "L05",
+      "stage": "setup",
+      "challenges": [
+        "mixed_language",
+        "diacritics"
+      ],
+      "user_text": "Handritið verður á íslensku; reply in English. Ég veit ekki enn hver tegundin verður.",
+      "source_span": {
+        "start": 0,
+        "end": 85
+      },
+      "source_quote": "Handritið verður á íslensku; reply in English. Ég veit ekki enn hver tegundin verður.",
+      "expected_action": "update_preferences",
+      "selected_propositions": [],
+      "expected_values": {
+        "manuscript_language": "is",
+        "interaction_language": "en",
+        "genre": "unknown",
+        "canon_change": false
+      },
+      "review_note": "An interaction-language request must not replace the manuscript language or invent the skipped genre."
+    },
+    {
+      "id": "L06",
+      "stage": "guidance",
+      "challenges": [
+        "mixed_language",
+        "diacritics"
+      ],
+      "user_text": "Færri tillögur, please. Beinum sjónum að æsku Ægis.",
+      "source_span": {
+        "start": 0,
+        "end": 51
+      },
+      "source_quote": "Færri tillögur, please. Beinum sjónum að æsku Ægis.",
+      "expected_action": "redirect",
+      "selected_propositions": [],
+      "expected_values": {
+        "suggestions": "fewer",
+        "topic": "aegir_childhood",
+        "canon_change": false
+      },
+      "review_note": "Honor reduced suggestions and the topic change in the next response; preserve the inflected name."
+    },
+    {
+      "id": "L07",
+      "stage": "capture",
+      "challenges": [
+        "false_friend",
+        "diacritics",
+        "quoted_dialogue"
+      ],
+      "user_text": "Persónan segir: „Ég er gift.“ Þetta er aðeins möguleg lygi.",
+      "source_span": {
+        "start": 0,
+        "end": 59
+      },
+      "source_quote": "Persónan segir: „Ég er gift.“ Þetta er aðeins möguleg lygi.",
+      "expected_action": "retain_proposal",
+      "selected_propositions": [],
+      "expected_values": {
+        "marital_status": "unestablished",
+        "canon_change": false
+      },
+      "review_note": "A possible line of dialogue does not establish author truth or a confirmed character belief."
+    },
+    {
+      "id": "L08",
+      "stage": "acceptance",
+      "challenges": [
+        "diacritics",
+        "negation"
+      ],
+      "user_text": "Ekki staðfesta að Þóra sé sendandinn.",
+      "source_span": {
+        "start": 0,
+        "end": 37
+      },
+      "source_quote": "Ekki staðfesta að Þóra sé sendandinn.",
+      "expected_action": "retain_proposal",
+      "selected_propositions": [],
+      "expected_values": {
+        "sender": "proposed",
+        "canon_change": false
+      },
+      "review_note": "The explicit negation forbids promotion without automatically rejecting the idea."
+    }
+  ]
+}

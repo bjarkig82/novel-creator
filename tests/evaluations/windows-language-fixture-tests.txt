@@ -1,0 +1,11 @@
+test_acceptance_pairs_retain_outcomes_and_valid_source_spans (tests.contract.test_language_fixtures.LanguageFixtureContract.test_acceptance_pairs_retain_outcomes_and_valid_source_spans) ... ok
+test_continuity_pairs_retain_categories_and_intervention_boundaries (tests.contract.test_language_fixtures.LanguageFixtureContract.test_continuity_pairs_retain_categories_and_intervention_boundaries) ... ok
+test_pitfall_pairs_cover_each_workflow_and_exact_quoted_source (tests.contract.test_language_fixtures.LanguageFixtureContract.test_pitfall_pairs_cover_each_workflow_and_exact_quoted_source) ... ok
+test_additional_manuscript_language_preserves_text_without_claimed_resources (tests.contract.test_portability.PortabilityContract.test_additional_manuscript_language_preserves_text_without_claimed_resources) ... ok
+test_duplicate_unicode_names_remain_distinct_after_rename (tests.contract.test_portability.PortabilityContract.test_duplicate_unicode_names_remain_distinct_after_rename) ... ok
+test_unknown_schema_cannot_be_silently_coerced (tests.contract.test_portability.PortabilityContract.test_unknown_schema_cannot_be_silently_coerced) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.040s
+
+OK

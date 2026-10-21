@@ -1,0 +1,186 @@
+{
+  "language": "en",
+  "status": "Authored evaluation inputs; human review and actual product-host outcomes unverified",
+  "cases": [
+    {
+      "id": "L01",
+      "stage": "capture",
+      "challenges": [
+        "false_friend",
+        "diacritics"
+      ],
+      "user_text": "Possibly Þóra sent the letter.",
+      "source_span": {
+        "start": 0,
+        "end": 30
+      },
+      "source_quote": "Possibly Þóra sent the letter.",
+      "expected_action": "retain_proposal",
+      "selected_propositions": [],
+      "expected_values": {
+        "sender": "possible",
+        "canon_change": false
+      },
+      "review_note": "Eventúellt means possibly; English eventually must not turn this speculation into certainty."
+    },
+    {
+      "id": "L02",
+      "stage": "acceptance",
+      "challenges": [
+        "false_friend",
+        "diacritics"
+      ],
+      "user_text": "Þóra is married. Establish that as a fact.",
+      "source_span": {
+        "start": 0,
+        "end": 42
+      },
+      "source_quote": "Þóra is married. Establish that as a fact.",
+      "expected_action": "accept",
+      "selected_propositions": [
+        "thora_married"
+      ],
+      "expected_values": {
+        "marital_status": "married"
+      },
+      "review_note": "Icelandic gift describes being married; it does not mean an English present."
+    },
+    {
+      "id": "L03",
+      "stage": "continuity",
+      "challenges": [
+        "false_friend",
+        "negation"
+      ],
+      "user_text": "The engine uses gaseous fuel, not petrol. Does that fit the rule?",
+      "source_span": {
+        "start": 0,
+        "end": 65
+      },
+      "source_quote": "The engine uses gaseous fuel, not petrol. Does that fit the rule?",
+      "expected_action": "flag_conflict",
+      "selected_propositions": [],
+      "expected_values": {
+        "category": "world_rule",
+        "interrupt_next_response": true,
+        "canon_change": false
+      },
+      "review_note": "Icelandic gas denotes gaseous fuel here, not the American English shorthand for gasoline.",
+      "established_source": {
+        "id": "engine-rule",
+        "text": "The engine runs exclusively on petrol."
+      }
+    },
+    {
+      "id": "L04",
+      "stage": "acceptance",
+      "challenges": [
+        "mixed_language",
+        "diacritics",
+        "partial_selection"
+      ],
+      "user_text": "Keep Þóra as sender, en morðið er enn óákveðið.",
+      "source_span": {
+        "start": 0,
+        "end": 19
+      },
+      "source_quote": "Keep Þóra as sender",
+      "expected_action": "accept",
+      "selected_propositions": [
+        "thora_sender"
+      ],
+      "expected_values": {
+        "murderer": "unresolved"
+      },
+      "review_note": "Select only the sender proposition; switching language does not extend acceptance."
+    },
+    {
+      "id": "L05",
+      "stage": "setup",
+      "challenges": [
+        "mixed_language",
+        "diacritics"
+      ],
+      "user_text": "Keep the manuscript in Icelandic; svaraðu á ensku. I do not know the genre yet.",
+      "source_span": {
+        "start": 0,
+        "end": 79
+      },
+      "source_quote": "Keep the manuscript in Icelandic; svaraðu á ensku. I do not know the genre yet.",
+      "expected_action": "update_preferences",
+      "selected_propositions": [],
+      "expected_values": {
+        "manuscript_language": "is",
+        "interaction_language": "en",
+        "genre": "unknown",
+        "canon_change": false
+      },
+      "review_note": "An interaction-language request must not replace the manuscript language or invent the skipped genre."
+    },
+    {
+      "id": "L06",
+      "stage": "guidance",
+      "challenges": [
+        "mixed_language",
+        "diacritics"
+      ],
+      "user_text": "Fewer suggestions, please. Beinum sjónum að æsku Ægis.",
+      "source_span": {
+        "start": 0,
+        "end": 54
+      },
+      "source_quote": "Fewer suggestions, please. Beinum sjónum að æsku Ægis.",
+      "expected_action": "redirect",
+      "selected_propositions": [],
+      "expected_values": {
+        "suggestions": "fewer",
+        "topic": "aegir_childhood",
+        "canon_change": false
+      },
+      "review_note": "Honor reduced suggestions and the topic change in the next response; preserve the inflected name."
+    },
+    {
+      "id": "L07",
+      "stage": "capture",
+      "challenges": [
+        "false_friend",
+        "diacritics",
+        "quoted_dialogue"
+      ],
+      "user_text": "The character says, “I am married.” This is only a possible lie.",
+      "source_span": {
+        "start": 0,
+        "end": 64
+      },
+      "source_quote": "The character says, “I am married.” This is only a possible lie.",
+      "expected_action": "retain_proposal",
+      "selected_propositions": [],
+      "expected_values": {
+        "marital_status": "unestablished",
+        "canon_change": false
+      },
+      "review_note": "A possible line of dialogue does not establish author truth or a confirmed character belief."
+    },
+    {
+      "id": "L08",
+      "stage": "acceptance",
+      "challenges": [
+        "diacritics",
+        "negation"
+      ],
+      "user_text": "Do not establish that Þóra is the sender.",
+      "source_span": {
+        "start": 0,
+        "end": 41
+      },
+      "source_quote": "Do not establish that Þóra is the sender.",
+      "expected_action": "retain_proposal",
+      "selected_propositions": [],
+      "expected_values": {
+        "sender": "proposed",
+        "canon_change": false
+      },
+      "review_note": "The explicit negation forbids promotion without automatically rejecting the idea."
+    }
+  ]
+}

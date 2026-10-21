@@ -120,3 +120,13 @@ focused attempt is excluded from product results. See
 [full Windows log](windows-guidance-continuation-tests.txt).
 `git diff --check` passed. No production source, dependency, schema, checklist
 marker, benchmark target, commit, push or provider operation changed in this pass.
+
+## Post-push language-fixture continuation — 2026-10-21
+
+The pending implementation/evidence was committed and pushed to main as 50c035b
+under explicit user authorization. Later local work adds eight paired language
+pitfall inputs and fixture-integrity contracts, and corrects two Icelandic
+brass/copper translation mismatches. Six focused fixture/portability tests pass
+on each of Windows and Linux/WSL2. No new production change, full-suite rerun,
+performance result, human evaluation or actual product-host semantic outcome is
+claimed. See [language results](language-results.md). Release gates remain open.
