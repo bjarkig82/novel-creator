@@ -1,0 +1,167 @@
+name: Package release
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        type: choice
+        options: [candidate, publish]
+        required: true
+      candidate_run:
+        description: Successful candidate run ID (publish only)
+        type: string
+      candidate_attempt:
+        description: Candidate run attempt (publish only)
+        type: string
+      artifact_id:
+        description: Immutable candidate artifact ID (publish only)
+        type: string
+      source_commit:
+        description: Full candidate source SHA (publish only)
+        type: string
+      host_evidence:
+        description: JSON binding actual Windows/Linux guide and host evidence to the candidate
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: package-release-${{ inputs.mode }}
+  cancel-in-progress: false
+
+jobs:
+  candidate:
+    if: inputs.mode == 'candidate'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    outputs:
+      artifact_id: ${{ steps.upload.outputs.artifact-id }}
+    steps:
+      - uses: actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
+        with:
+          python-version: '3.13'
+      - run: python -m pip install build twine
+      - run: python -m build --outdir candidate
+      - run: python -m twine check candidate/*
+      - run: python tests/package_release.py manifest candidate
+      - id: upload
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: candidate-${{ github.run_id }}-${{ github.run_attempt }}
+          path: candidate/
+          if-no-files-found: error
+          retention-days: 30
+
+  candidate-checks:
+    needs: candidate
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [windows-latest, ubuntu-latest]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 45
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
+        with:
+          python-version: '3.13'
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333
+        with:
+          artifact-ids: ${{ needs.candidate.outputs.artifact_id }}
+          path: candidate
+      - run: python tests/package_release.py verify candidate
+      - run: python -m pip install -e .
+      - run: python -m unittest discover -q
+      - run: python tests/verify_wheel.py candidate/*.whl
+      - run: python tests/verify_package_install.py --wheel candidate/*.whl > candidate-check.json
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: candidate-check-${{ matrix.os }}-${{ github.run_id }}-${{ github.run_attempt }}
+          path: candidate-check.json
+          if-no-files-found: error
+
+  publish:
+    if: inputs.mode == 'publish'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    environment: pypi
+    permissions:
+      contents: read
+      actions: read
+      id-token: write
+    env:
+      CANDIDATE_RUN: ${{ inputs.candidate_run }}
+      CANDIDATE_ATTEMPT: ${{ inputs.candidate_attempt }}
+      CANDIDATE_ARTIFACT: ${{ inputs.artifact_id }}
+      CANDIDATE_COMMIT: ${{ inputs.source_commit }}
+      HOST_EVIDENCE: ${{ inputs.host_evidence }}
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a
+        with:
+          ref: ${{ inputs.source_commit }}
+          persist-credentials: false
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
+        with:
+          python-version: '3.13'
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333
+        with:
+          artifact-ids: ${{ inputs.artifact_id }}
+          run-id: ${{ inputs.candidate_run }}
+          github-token: ${{ github.token }}
+          path: candidate
+      - run: python tests/package_release.py verify-remote candidate
+      - name: Stage only verified distribution files
+        run: |
+          python -c "import json,pathlib,shutil; root=pathlib.Path('candidate'); out=pathlib.Path('publish'); out.mkdir(); data=json.loads((root/'manifest.json').read_text()); [shutil.copyfile(root/name,out/name) for name in data['files']]"
+      - uses: pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557
+        with:
+          packages-dir: publish/
+
+  public-checks:
+    if: inputs.mode == 'publish'
+    needs: publish
+    permissions:
+      contents: read
+      actions: read
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [windows-latest, ubuntu-latest]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 20
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a
+        with:
+          ref: ${{ inputs.source_commit }}
+          persist-credentials: false
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
+        with:
+          python-version: '3.13'
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333
+        with:
+          artifact-ids: ${{ inputs.artifact_id }}
+          run-id: ${{ inputs.candidate_run }}
+          github-token: ${{ github.token }}
+          path: candidate
+      - name: Check named production install and selected archive hash
+        run: |
+          package=$(python -c "import json; d=json.load(open('candidate/manifest.json')); print(d['distribution']+'=='+d['version'])")
+          python tests/verify_package_install.py --package "$package" --manifest candidate/manifest.json > public-check.json
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: public-check-${{ matrix.os }}-${{ github.run_id }}
+          path: public-check.json
+          if-no-files-found: error
