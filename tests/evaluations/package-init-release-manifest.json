@@ -1,31 +1,31 @@
 {
-  "status": "remote candidate verified on Windows/Linux; unpublished",
+  "status": "final candidate, guides and Windows host verified; release authorization pending",
   "distribution": "novel-creator",
   "version": "0.1.0",
-  "version_provisional": true,
+  "version_provisional": false,
   "baseline_commit": "2a15eccd04b59cc66006ecd738ad53a30e6e02f5",
   "uncommitted_implementation": false,
-  "candidate_run": "40882235905",
+  "candidate_run": "40904366247",
   "candidate_attempt": "1",
-  "artifact_id": "12901057415",
+  "artifact_id": "12911245684",
   "license_decision": "intentionally unlicensed by maintainer",
   "files": {
-    "novel_creator-0.1.0-py3-none-any.whl": "ff1a617f55d863ccc173c416d3c0f12c75876b029056f112361f34cc911b678b",
-    "novel_creator-0.1.0.tar.gz": "cd740503228a1a8feed9d9807f6b5e01b0d840100d9dda2c194f2bf153d214e2"
+    "novel_creator-0.1.0-py3-none-any.whl": "cc8645556f74190dee9ac7527c3e66c0bc71574913b5bbae5ddff7516b8817a8",
+    "novel_creator-0.1.0.tar.gz": "8ee9116231b69dd3b3143e0d46b96f595a7b7125addee0c1e57e0660f284dc8f"
   },
   "current_source_sha256": {
     "src/novel_creator/cli.py": "0d036ab5213ee0f342a6beeebe1a7cfa155daf9e966fd513767928f082e0a5d1",
     "src/novel_creator/__init__.py": "277031de0bb8a6cf825d6f25829addaefcdee170a24613786fe6cdc561c2738a",
     "tests/verify_package_install.py": "d8407e7999e280aa384de81a4548c39ffed4619815d867a553964cd59b861ec3",
-    ".github/workflows/package-release.yml": "747be3a12569006dd49ebab273547640fffc8da9378d9d8fabf20d950f24a467",
+    ".github/workflows/package-release.yml": "ab184751f27a0f925205798cdca87c3c1e8cebc1ae94fbb8f3301c05cf5aa7f8",
     ".gitattributes": "e85d37d89a4f5344a03a6c81ccabd0c5c2d64762cb565d5e2226b712f4cfabf5",
-    "pyproject.toml": "1ca32b6e2421c9b40645ddc4353efa257c1c14cbaea4c51f495f8d80de30e528",
+    "pyproject.toml": "48fa544393b9b528f7136bd7d9f019b86c9b1fdaaa7b335c47426cfb71eb7581",
     "src/novel_creator/install.py": "c3276d5b575c9cc7f66190fa7ac5ab3b6c0e72f09ce14fdd556f2fc227ee0469",
-    "workflows/getting-started.md": "b6bf0208e1fa86b3cc2b3ac21f2fa405be9ea04c9412fc6bce7f959e8a281fff",
-    "tests/package_release.py": "e4394d9b477ca9d5e9b4af10e2f0d2eeda23902b9211a4eec825118f80d17ee1"
+    "workflows/getting-started.md": "d61901b60a59447dc6805dcb874899d83ecc23f9cba2ed58860b0fe48d180ff7",
+    "tests/package_release.py": "b87e17dd59e34f1ffe72facba01a51bb88093fc00737209e80c284679862c31a"
   },
   "public_name_control_verified": false,
-  "host_walkthrough_verified": false,
+  "host_walkthrough_verified": true,
   "public_install_verified": false,
   "previous_local_files": {
     "novel_creator-0.1.0-py3-none-any.whl": "03d4701e30124af11cab53eb5f58d82a45e33fa672d491af9b0ac12e2ede1fdf",
@@ -48,11 +48,11 @@
     "novel_creator-0.1.0.tar.gz": "66e865562c7d3bcb3c82217ed124d866928388ef8a013b51b307072f580f136e"
   },
   "repository": "bjarkig82/novel-creator",
-  "source_commit": "1d6d6632c81ca8402ff60ca05a7ec832a0dea802",
-  "artifact_name": "candidate-40882235905-1",
-  "artifact_archive_sha256": "5d2dace52a0e6c333fff379c682dcfd3772807e0310c835d403c34420c38519e",
-  "candidate_url": "https://github.com/bjarkig82/novel-creator/actions/runs/40882235905",
-  "artifact_expires_at": "2026-11-28T13:29:56Z",
+  "source_commit": "0f287cdcc2fc22334f437906ae13e90dba11f0f8",
+  "artifact_name": "candidate-40904366247-1",
+  "artifact_archive_sha256": "d8013b1d62a5e10d547d3df7ab9432a2bd71b79b657a20b77ac19511ed239679",
+  "candidate_url": "https://github.com/bjarkig82/novel-creator/actions/runs/40904366247",
+  "artifact_expires_at": "2026-11-28T15:43:50Z",
   "pypi_account_ready": true,
   "repository_visibility": "public",
   "superseded_candidate": {
@@ -71,20 +71,19 @@
     "sdist_clean_install": "passed",
     "windows": "passed",
     "linux": "passed",
-    "actual_codex_host": "unverified",
+    "actual_codex_host": "passed; Windows setup, exact first save/display, inspection and fresh-context resume",
     "windows_guide_command_slice": "passed",
     "windows_source_tests": {
-      "total": 208,
-      "passed": 208,
+      "total": 209,
+      "passed": 209,
       "skipped": 0
     },
     "linux_source_tests": {
-      "total": 208,
-      "passed": 205,
+      "total": 209,
+      "passed": 206,
       "skipped": 3
     },
-    "windows_result_artifact_id": "12901132705",
-    "linux_result_artifact_id": "12900872945"
+    "both_platform_six_troubleshooting": "passed; permission failure injected at installed CLI boundary"
   },
   "candidate_conclusion": "success",
   "pypi_account_username": "bjarkig82",
@@ -109,5 +108,27 @@
     "environment": "pypi",
     "verified": true,
     "reserves_name": false
+  },
+  "candidate_history": [
+    {
+      "run": "40882235905",
+      "attempt": "1",
+      "artifact_id": "12901057415",
+      "source_commit": "1d6d6632c81ca8402ff60ca05a7ec832a0dea802",
+      "files": {
+        "novel_creator-0.1.0-py3-none-any.whl": "ff1a617f55d863ccc173c416d3c0f12c75876b029056f112361f34cc911b678b",
+        "novel_creator-0.1.0.tar.gz": "cd740503228a1a8feed9d9807f6b5e01b0d840100d9dda2c194f2bf153d214e2"
+      },
+      "reason_superseded": "Final release metadata, owner-approved host scope and Windows missing-Git diagnostic"
+    }
+  ],
+  "release_tag": "v0.1.0",
+  "host_scope": "owner-approved Windows Codex Desktop plus Windows/Linux Bash/package CLI; Linux Codex unverified",
+  "source_sha256": {
+    "README.md": "26853e51e7a06a20b37ce3c1b58f6fe614c6f5171717176690cdcb57d1529ef8",
+    "pyproject.toml": "48fa544393b9b528f7136bd7d9f019b86c9b1fdaaa7b335c47426cfb71eb7581",
+    "src/novel_creator/storage.py": "1b7e1fff05e940f66512d7060c353efd3daf693ce329b99499567896f767c8e5",
+    "workflows/getting-started.md": "d61901b60a59447dc6805dcb874899d83ecc23f9cba2ed58860b0fe48d180ff7",
+    "adapters/codex/AGENTS.production.md": "0cbc0398ace46b98806caae63b12a01d7967ecb37bec5f3abb1e16bc064a2484"
   }
 }

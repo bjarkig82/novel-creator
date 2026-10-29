@@ -1,6 +1,6 @@
 # Windows guide verification
 
-Date: 2026-10-29. Status: partial; candidate-bound shell walkthrough and actual Codex continuation remain separate checks.
+Date: 2026-10-29. Current shell result: pass against final candidate run 40904366247/attempt 1, artifact 12911245684, source 0f287cdcc2fc22334f437906ae13e90dba11f0f8. Default initialization, inspection, options and all six troubleshooting categories pass. Actual Codex setup/save/exact display, inspection and fresh-context resume pass. See [final verification](package-init-release-final.md). Earlier checks below retain their original scope.
 
 The literal installation block first failed at `py -3 -m venv` because this Python-equipped Windows environment has no `py` launcher. [Initial output](package-init-guide-windows-initial.txt) retains that failure. The guide was corrected to use `python -m venv`, check its version and allow a full interpreter path.
 

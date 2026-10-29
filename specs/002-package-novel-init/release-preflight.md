@@ -1,6 +1,8 @@
 # Release preflight
 
-Date: 2026-10-29. Candidate package name: novel-creator. Local version begins at 0.1.0; implementation version is provisional until public name/version checks and release authorization.
+Date: 2026-10-29. Current candidate is novel-creator 0.1.0, immutable run 40904366247/attempt 1, artifact 12911245684, source 0f287cdcc2fc22334f437906ae13e90dba11f0f8. Both platform candidates and shell guides pass; Windows Codex setup/save/exact display, inspection and fresh-context resume pass. The owner amended Linux verification to CLI; Linux Codex remains unverified. Public repository/tag/documentation URLs and authenticated pending PyPI publisher/protected GitHub environment are configured. Pending registration does not reserve the name. Publication and production named installs have not occurred and remain separately gated. See [final verification](../../tests/evaluations/package-init-release-final.md).
+
+Earlier preflight states below are historical; current evidence above supersedes their missing-account/configuration/candidate descriptions.
 
 - Local pyproject.toml declares novel-creator and the existing console entry. This does not establish ownership on PyPI.
 - No LICENSE file found. The maintainer explicitly chose “keep it unlicensed for now” during implementation. Preserve that choice: no license file/expression or open-source-license claim is added. Licensing selection is resolved as intentionally unlicensed, not an outstanding question.

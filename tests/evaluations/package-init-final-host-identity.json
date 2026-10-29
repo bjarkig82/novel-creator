@@ -1,0 +1,9 @@
+{
+  "verified": true,
+  "runtime": "C:\\Users\\BjarkiGunnarsson\\Documents\\Codex\\2026-10-29\\novel-init-release-runtime-win\\Scripts\\python.exe",
+  "product_module": "C:\\Users\\BjarkiGunnarsson\\Documents\\Codex\\2026-10-29\\novel-init-release-runtime-win\\Lib\\site-packages\\novel_creator\\__init__.py",
+  "wheel_sha256": "cc8645556f74190dee9ac7527c3e66c0bc71574913b5bbae5ddff7516b8817a8",
+  "installed_files": 32,
+  "pinned_resources": 28,
+  "agents_exact": true
+}

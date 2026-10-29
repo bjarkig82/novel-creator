@@ -41,11 +41,15 @@ def verify(python, console, workspace):
 
     empty = root / 'empty-home'
     empty.mkdir()
+    identity_target = root / 'MissingIdentity'
+    run(['git', 'init', '-b', 'main', identity_target])
+    run(['git', '-C', identity_target, 'config', 'user.name', ''])
+    run(['git', '-C', identity_target, 'config', 'user.email', ''])
     missing = json.loads(run([console, 'init', 'MissingIdentity', '--json'], code=5,
                             override={'HOME': str(empty), 'USERPROFILE': str(empty),
                                       'XDG_CONFIG_HOME': str(empty / 'config')}))
     assert not missing['ok'] and 'identity' in missing['error']['message'].lower()
-    assert not (root / 'MissingIdentity').exists()
+    assert not (identity_target / '.novel-creator').exists()
     cases.append({'category': 'Git identity missing', 'diagnostic': missing['error']['message'], 'passed': True})
 
     occupied = root / 'Occupied'
