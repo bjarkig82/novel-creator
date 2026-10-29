@@ -1,0 +1,749 @@
+publish	Set up job	﻿2026-10-29T16:27:32.1810220Z Current runner version: '2.338.0'
+publish	Set up job	2026-10-29T16:27:32.1836028Z ##[group]Runner Image Provisioner
+publish	Set up job	2026-10-29T16:27:32.1836883Z Hosted Compute Agent
+publish	Set up job	2026-10-29T16:27:32.1837452Z Version: 20261021.618
+publish	Set up job	2026-10-29T16:27:32.1838001Z Commit: 21505ad2541d5be6135ed84fc33697146cf75b8e
+publish	Set up job	2026-10-29T16:27:32.1838676Z Build Date: 2026-10-21T00:45:21Z
+publish	Set up job	2026-10-29T16:27:32.1839333Z Worker ID: {fe5e391c-660a-478d-b697-244d6c2b0975}
+publish	Set up job	2026-10-29T16:27:32.1839972Z Region: eastus3
+publish	Set up job	2026-10-29T16:27:32.1840547Z Cloud: Azure
+publish	Set up job	2026-10-29T16:27:32.1841048Z ##[endgroup]
+publish	Set up job	2026-10-29T16:27:32.1842905Z ##[group]Operating System
+publish	Set up job	2026-10-29T16:27:32.1843513Z Ubuntu
+publish	Set up job	2026-10-29T16:27:32.1843963Z 26.04.1
+publish	Set up job	2026-10-29T16:27:32.1844503Z LTS
+publish	Set up job	2026-10-29T16:27:32.1844957Z ##[endgroup]
+publish	Set up job	2026-10-29T16:27:32.1845467Z ##[group]Runner Image
+publish	Set up job	2026-10-29T16:27:32.1846025Z Image: ubuntu-26.04
+publish	Set up job	2026-10-29T16:27:32.1846520Z Version: 20261025.179.1
+publish	Set up job	2026-10-29T16:27:32.1847510Z Included Software: https://github.com/actions/runner-images/blob/ubuntu26/20261025.179/images/ubuntu/Ubuntu2604-Readme.md
+publish	Set up job	2026-10-29T16:27:32.1849509Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu26%2F20261025.179
+publish	Set up job	2026-10-29T16:27:32.1850394Z ##[endgroup]
+publish	Set up job	2026-10-29T16:27:32.1851780Z ##[group]GITHUB_TOKEN Permissions
+publish	Set up job	2026-10-29T16:27:32.1853724Z Actions: read
+publish	Set up job	2026-10-29T16:27:32.1854255Z Contents: read
+publish	Set up job	2026-10-29T16:27:32.1854842Z Metadata: read
+publish	Set up job	2026-10-29T16:27:32.1855330Z ##[endgroup]
+publish	Set up job	2026-10-29T16:27:32.1857718Z Secret source: Actions
+publish	Set up job	2026-10-29T16:27:32.1858623Z Cache mode: write
+publish	Set up job	2026-10-29T16:27:32.1859257Z Prepare workflow directory
+publish	Set up job	2026-10-29T16:27:32.2568309Z Prepare all required actions
+publish	Set up job	2026-10-29T16:27:32.2644556Z Getting action download info
+publish	Set up job	2026-10-29T16:27:32.4857701Z Download action repository 'actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a' (SHA:f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a)
+publish	Set up job	2026-10-29T16:27:32.6128027Z Download action repository 'actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0' (SHA:6d4fd22b20465ccc0f7354476588e8df7c9ca0e0)
+publish	Set up job	2026-10-29T16:27:32.8793696Z Download action repository 'actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333' (SHA:9000827ccba6bdab643e8b6fd33ac0654aef8333)
+publish	Set up job	2026-10-29T16:27:33.1057618Z Download action repository 'pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557' (SHA:2442bad8f54b06a326f3030ef5e6a7a674118557)
+publish	Set up job	2026-10-29T16:27:33.4116035Z Getting action download info
+publish	Set up job	2026-10-29T16:27:33.5005611Z Download action repository 'actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405' (SHA:a309ff8b426b58ec0e2a45f0f869d46889d02405)
+publish	Set up job	2026-10-29T16:27:33.6042007Z Complete job name: publish
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	﻿2026-10-29T16:27:33.6741729Z ##[group]Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:33.6742736Z with:
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:33.6743177Z   ref: 0f287cdcc2fc22334f437906ae13e90dba11f0f8
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:33.6743718Z   persist-credentials: false
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:33.6744194Z   repository: bjarkig82/novel-creator
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:33.6748006Z   token: ***
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:33.6748401Z   ssh-strict: true
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:33.6748777Z   ssh-user: git
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:33.6749141Z   clean: true
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:33.6749534Z   sparse-checkout-cone-mode: true
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:33.6749997Z   fetch-depth: 1
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:33.6750391Z   fetch-tags: false
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:33.6750792Z   show-progress: true
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:33.6751324Z   lfs: false
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:33.6751701Z   submodules: false
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:33.6752101Z   set-safe-directory: true
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:33.6752555Z   allow-unsafe-pr-checkout: false
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:33.6753255Z env:
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:33.6753626Z   CANDIDATE_RUN: 40904366247
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:33.6754119Z   CANDIDATE_ATTEMPT: 1
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:33.6754532Z   CANDIDATE_ARTIFACT: 12911245684
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:33.6755081Z   CANDIDATE_COMMIT: 0f287cdcc2fc22334f437906ae13e90dba11f0f8
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:33.6759384Z   HOST_EVIDENCE: {
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	  "candidate_run": "40904366247",
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	  "candidate_attempt": "1",
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	  "artifact_id": "12911245684",
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	  "source_commit": "0f287cdcc2fc22334f437906ae13e90dba11f0f8",
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	  "files": {
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	    "novel_creator-0.1.0-py3-none-any.whl": "cc8645556f74190dee9ac7527c3e66c0bc71574913b5bbae5ddff7516b8817a8",
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	    "novel_creator-0.1.0.tar.gz": "8ee9116231b69dd3b3143e0d46b96f595a7b7125addee0c1e57e0660f284dc8f"
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	  },
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	  "windows_guide": true,
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	  "linux_guide": true,
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	  "windows_host": true,
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	  "linux_cli": true,
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	  "linux_host": false,
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	  "evidence_urls": [
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	    "https://github.com/bjarkig82/novel-creator/blob/b93a91f87ad8d373a1d068d6fa7f15448679b57c/tests/evaluations/package-init-release-final.md",
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	    "https://github.com/bjarkig82/novel-creator/blob/b93a91f87ad8d373a1d068d6fa7f15448679b57c/tests/evaluations/package-init-host-guide.md"
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	  ]
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	}
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:33.6767448Z   GH_TOKEN: ***
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:33.6767838Z ##[endgroup]
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:33.9090937Z Syncing repository: bjarkig82/novel-creator
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:33.9093418Z ##[group]Getting Git version info
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:33.9094272Z Working directory is '/home/runner/work/novel-creator/novel-creator'
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:33.9095423Z [command]/usr/bin/git version
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:33.9117329Z git version 2.56.0
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:33.9137498Z ##[endgroup]
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:33.9149566Z Temporarily overriding HOME='/home/runner/work/_temp/27b05a8d-a772-48f5-a9fa-995ad1f38b10' before making global git config changes
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:33.9153010Z Adding repository directory to the temporary git global config as a safe directory
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:33.9158450Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/novel-creator/novel-creator
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:33.9221534Z Deleting the contents of '/home/runner/work/novel-creator/novel-creator'
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:33.9224703Z ##[group]Determining repository object format
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:33.9226947Z ##[endgroup]
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:33.9229262Z ##[group]Initializing the repository
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:33.9239097Z [command]/usr/bin/git init /home/runner/work/novel-creator/novel-creator
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:33.9328664Z hint: Using 'master' as the name for the initial branch. This default branch name
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:33.9331031Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:33.9332980Z hint: to use in all of your new repositories, which will suppress this warning,
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:33.9334239Z hint: call:
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:33.9335160Z hint:
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:33.9336411Z hint: 	git config --global init.defaultBranch <name>
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:33.9337539Z hint:
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:33.9338927Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:33.9340914Z hint: 'development'. The just-created branch can be renamed via this command:
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:33.9342463Z hint:
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:33.9343530Z hint: 	git branch -m <name>
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:33.9344340Z hint:
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:33.9345086Z hint: Disable this message with "git config set advice.defaultBranchName false"
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:33.9346391Z Initialized empty Git repository in /home/runner/work/novel-creator/novel-creator/.git/
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:33.9349645Z [command]/usr/bin/git remote add origin https://github.com/bjarkig82/novel-creator
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:33.9395681Z ##[endgroup]
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:33.9396605Z ##[group]Disabling automatic garbage collection
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:33.9400247Z [command]/usr/bin/git config --local gc.auto 0
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:33.9429747Z ##[endgroup]
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:33.9430894Z ##[group]Setting up auth
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:33.9431929Z Removing SSH command configuration
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:33.9437426Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:33.9469416Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:33.9835938Z Removing HTTP extra header
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:33.9843513Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:33.9888165Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:34.0105089Z Removing includeIf entries pointing to credentials config files
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:34.0110163Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:34.0139439Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:34.0352043Z [command]/usr/bin/git config --file /home/runner/work/_temp/git-credentials-ff195ba2-0260-4f42-84b9-1137926d97c3.config http.https://github.com/.extraheader AUTHORIZATION: basic ***
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:34.0383095Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/novel-creator/novel-creator/.git.path /home/runner/work/_temp/git-credentials-ff195ba2-0260-4f42-84b9-1137926d97c3.config
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:34.0412420Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/novel-creator/novel-creator/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-ff195ba2-0260-4f42-84b9-1137926d97c3.config
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:34.0443153Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-ff195ba2-0260-4f42-84b9-1137926d97c3.config
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:34.0470873Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-ff195ba2-0260-4f42-84b9-1137926d97c3.config
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:34.0494583Z ##[endgroup]
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:34.0495947Z ##[group]Fetching the repository
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:34.0502636Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin 0f287cdcc2fc22334f437906ae13e90dba11f0f8
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:34.6114783Z From https://github.com/bjarkig82/novel-creator
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:34.6116913Z  * branch            0f287cdcc2fc22334f437906ae13e90dba11f0f8 -> FETCH_HEAD
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:34.6128929Z [command]/usr/bin/git rev-parse --verify --quiet 0f287cdcc2fc22334f437906ae13e90dba11f0f8^{object}
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:34.6152746Z 0f287cdcc2fc22334f437906ae13e90dba11f0f8
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:34.6157152Z ##[endgroup]
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:34.6158652Z ##[group]Determining the checkout info
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:34.6160423Z ##[endgroup]
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:34.6163961Z [command]/usr/bin/git sparse-checkout disable
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:34.6209463Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:34.6233898Z ##[group]Checking out the ref
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:34.6237070Z [command]/usr/bin/git checkout --progress --force 0f287cdcc2fc22334f437906ae13e90dba11f0f8
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:34.6945255Z Note: switching to '0f287cdcc2fc22334f437906ae13e90dba11f0f8'.
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:34.6946418Z 
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:34.6947134Z You are in 'detached HEAD' state. You can look around, make experimental
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:34.6948933Z changes and commit them, and you can discard any commits you make in this
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:34.6951750Z state without impacting any branches by switching back to a branch.
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:34.6953428Z 
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:34.6954402Z If you want to create a new branch to retain commits you create, you may
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:34.6957016Z do so (now or later) by using -c with the switch command. Example:
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:34.6958624Z 
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:34.6959173Z   git switch -c <new-branch-name>
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:34.6960161Z 
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:34.6960643Z Or undo this operation with:
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:34.6961745Z 
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:34.6962268Z   git switch -
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:34.6962975Z 
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:34.6964004Z Turn off this advice by setting config variable advice.detachedHead to false
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:34.6965654Z 
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:34.6966879Z HEAD is now at 0f287cd Name missing Git on Windows and add installed guide diagnostics
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:34.6971791Z ##[endgroup]
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:34.7001684Z [command]/usr/bin/git log -1 --format=%H
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:34.7023160Z 0f287cdcc2fc22334f437906ae13e90dba11f0f8
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:34.7031020Z ##[group]Removing auth
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:34.7032174Z Removing SSH command configuration
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:34.7035121Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:34.7062465Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:34.7275833Z Removing HTTP extra header
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:34.7279305Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:34.7308611Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:34.7517845Z Removing includeIf entries pointing to credentials config files
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:34.7520522Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:34.7548814Z includeif.gitdir:/home/runner/work/novel-creator/novel-creator/.git.path
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:34.7552062Z includeif.gitdir:/home/runner/work/novel-creator/novel-creator/.git/worktrees/*.path
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:34.7554328Z includeif.gitdir:/github/workspace/.git.path
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:34.7555802Z includeif.gitdir:/github/workspace/.git/worktrees/*.path
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:34.7560121Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/novel-creator/novel-creator/.git.path
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:34.7590232Z /home/runner/work/_temp/git-credentials-ff195ba2-0260-4f42-84b9-1137926d97c3.config
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:34.7602955Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/novel-creator/novel-creator/.git.path \/home\/runner\/work\/_temp\/git\-credentials\-ff195ba2\-0260\-4f42\-84b9\-1137926d97c3\.config
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:34.7634886Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/novel-creator/novel-creator/.git/worktrees/*.path
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:34.7653473Z /home/runner/work/_temp/git-credentials-ff195ba2-0260-4f42-84b9-1137926d97c3.config
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:34.7665013Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/novel-creator/novel-creator/.git/worktrees/*.path \/home\/runner\/work\/_temp\/git\-credentials\-ff195ba2\-0260\-4f42\-84b9\-1137926d97c3\.config
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:34.7696186Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git.path
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:34.7714315Z /github/runner_temp/git-credentials-ff195ba2-0260-4f42-84b9-1137926d97c3.config
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:34.7722700Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git.path \/github\/runner_temp\/git\-credentials\-ff195ba2\-0260\-4f42\-84b9\-1137926d97c3\.config
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:34.7755306Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git/worktrees/*.path
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:34.7774276Z /github/runner_temp/git-credentials-ff195ba2-0260-4f42-84b9-1137926d97c3.config
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:34.7782426Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git/worktrees/*.path \/github\/runner_temp\/git\-credentials\-ff195ba2\-0260\-4f42\-84b9\-1137926d97c3\.config
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:34.7812825Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:34.8018827Z Removing credentials config '/home/runner/work/_temp/git-credentials-ff195ba2-0260-4f42-84b9-1137926d97c3.config'
+publish	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:34.8029850Z ##[endgroup]
+publish	Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0	﻿2026-10-29T16:27:34.8339497Z ##[group]Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
+publish	Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0	2026-10-29T16:27:34.8340830Z with:
+publish	Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0	2026-10-29T16:27:34.8341616Z   python-version: 3.13
+publish	Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0	2026-10-29T16:27:34.8342361Z   check-latest: false
+publish	Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0	2026-10-29T16:27:34.8351874Z   token: ***
+publish	Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0	2026-10-29T16:27:34.8353177Z   mirror: https://raw.githubusercontent.com/actions/python-versions/main
+publish	Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0	2026-10-29T16:27:34.8355224Z   update-environment: true
+publish	Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0	2026-10-29T16:27:34.8356449Z   allow-prereleases: false
+publish	Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0	2026-10-29T16:27:34.8357253Z   freethreaded: false
+publish	Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0	2026-10-29T16:27:34.8357987Z env:
+publish	Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0	2026-10-29T16:27:34.8358742Z   CANDIDATE_RUN: 40904366247
+publish	Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0	2026-10-29T16:27:34.8360061Z   CANDIDATE_ATTEMPT: 1
+publish	Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0	2026-10-29T16:27:34.8360852Z   CANDIDATE_ARTIFACT: 12911245684
+publish	Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0	2026-10-29T16:27:34.8362001Z   CANDIDATE_COMMIT: 0f287cdcc2fc22334f437906ae13e90dba11f0f8
+publish	Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0	2026-10-29T16:27:34.8371822Z   HOST_EVIDENCE: {
+publish	Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0	  "candidate_run": "40904366247",
+publish	Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0	  "candidate_attempt": "1",
+publish	Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0	  "artifact_id": "12911245684",
+publish	Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0	  "source_commit": "0f287cdcc2fc22334f437906ae13e90dba11f0f8",
+publish	Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0	  "files": {
+publish	Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0	    "novel_creator-0.1.0-py3-none-any.whl": "cc8645556f74190dee9ac7527c3e66c0bc71574913b5bbae5ddff7516b8817a8",
+publish	Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0	    "novel_creator-0.1.0.tar.gz": "8ee9116231b69dd3b3143e0d46b96f595a7b7125addee0c1e57e0660f284dc8f"
+publish	Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0	  },
+publish	Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0	  "windows_guide": true,
+publish	Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0	  "linux_guide": true,
+publish	Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0	  "windows_host": true,
+publish	Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0	  "linux_cli": true,
+publish	Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0	  "linux_host": false,
+publish	Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0	  "evidence_urls": [
+publish	Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0	    "https://github.com/bjarkig82/novel-creator/blob/b93a91f87ad8d373a1d068d6fa7f15448679b57c/tests/evaluations/package-init-release-final.md",
+publish	Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0	    "https://github.com/bjarkig82/novel-creator/blob/b93a91f87ad8d373a1d068d6fa7f15448679b57c/tests/evaluations/package-init-host-guide.md"
+publish	Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0	  ]
+publish	Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0	}
+publish	Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0	
+publish	Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0	2026-10-29T16:27:34.8389309Z   GH_TOKEN: ***
+publish	Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0	2026-10-29T16:27:34.8390027Z ##[endgroup]
+publish	Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0	2026-10-29T16:27:34.9498298Z ##[group]Installed versions
+publish	Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0	2026-10-29T16:27:34.9587559Z Successfully set up CPython (3.13.17)
+publish	Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0	2026-10-29T16:27:34.9590493Z ##[endgroup]
+publish	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	﻿2026-10-29T16:27:34.9904392Z ##[group]Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333
+publish	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	2026-10-29T16:27:34.9906775Z with:
+publish	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	2026-10-29T16:27:34.9907730Z   artifact-ids: 12911245684
+publish	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	2026-10-29T16:27:34.9908886Z   run-id: 40904366247
+publish	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	2026-10-29T16:27:34.9919426Z   github-token: ***
+publish	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	2026-10-29T16:27:34.9920633Z   path: candidate
+publish	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	2026-10-29T16:27:34.9922004Z   merge-multiple: false
+publish	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	2026-10-29T16:27:34.9923425Z   repository: bjarkig82/novel-creator
+publish	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	2026-10-29T16:27:34.9925175Z   skip-decompress: false
+publish	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	2026-10-29T16:27:34.9927007Z   digest-mismatch: error
+publish	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	2026-10-29T16:27:34.9928121Z env:
+publish	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	2026-10-29T16:27:34.9929216Z   CANDIDATE_RUN: 40904366247
+publish	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	2026-10-29T16:27:34.9930368Z   CANDIDATE_ATTEMPT: 1
+publish	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	2026-10-29T16:27:34.9931592Z   CANDIDATE_ARTIFACT: 12911245684
+publish	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	2026-10-29T16:27:34.9933133Z   CANDIDATE_COMMIT: 0f287cdcc2fc22334f437906ae13e90dba11f0f8
+publish	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	2026-10-29T16:27:34.9946149Z   HOST_EVIDENCE: {
+publish	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	  "candidate_run": "40904366247",
+publish	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	  "candidate_attempt": "1",
+publish	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	  "artifact_id": "12911245684",
+publish	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	  "source_commit": "0f287cdcc2fc22334f437906ae13e90dba11f0f8",
+publish	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	  "files": {
+publish	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	    "novel_creator-0.1.0-py3-none-any.whl": "cc8645556f74190dee9ac7527c3e66c0bc71574913b5bbae5ddff7516b8817a8",
+publish	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	    "novel_creator-0.1.0.tar.gz": "8ee9116231b69dd3b3143e0d46b96f595a7b7125addee0c1e57e0660f284dc8f"
+publish	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	  },
+publish	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	  "windows_guide": true,
+publish	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	  "linux_guide": true,
+publish	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	  "windows_host": true,
+publish	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	  "linux_cli": true,
+publish	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	  "linux_host": false,
+publish	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	  "evidence_urls": [
+publish	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	    "https://github.com/bjarkig82/novel-creator/blob/b93a91f87ad8d373a1d068d6fa7f15448679b57c/tests/evaluations/package-init-release-final.md",
+publish	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	    "https://github.com/bjarkig82/novel-creator/blob/b93a91f87ad8d373a1d068d6fa7f15448679b57c/tests/evaluations/package-init-host-guide.md"
+publish	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	  ]
+publish	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	}
+publish	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	
+publish	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	2026-10-29T16:27:34.9975820Z   GH_TOKEN: ***
+publish	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	2026-10-29T16:27:34.9977269Z   pythonLocation: /opt/hostedtoolcache/Python/3.13.17/x64
+publish	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	2026-10-29T16:27:34.9979558Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.13.17/x64/lib/pkgconfig
+publish	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	2026-10-29T16:27:34.9982619Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.17/x64
+publish	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	2026-10-29T16:27:34.9983999Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.17/x64
+publish	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	2026-10-29T16:27:34.9985201Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.17/x64
+publish	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	2026-10-29T16:27:34.9986592Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.13.17/x64/lib
+publish	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	2026-10-29T16:27:34.9988128Z ##[endgroup]
+publish	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	2026-10-29T16:27:35.2131407Z Downloading artifacts by ID
+publish	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	2026-10-29T16:27:35.2136118Z Fetching artifact list for workflow run 40904366247 in repository bjarkig82/novel-creator
+publish	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	2026-10-29T16:27:35.4717429Z Found 3 artifact(s)
+publish	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	2026-10-29T16:27:35.4722687Z Preparing to download the following artifacts:
+publish	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	2026-10-29T16:27:35.4725723Z - candidate-40904366247-1 (ID: 12911245684, Size: 131395, Expected Digest: sha256:d8013b1d62a5e10d547d3df7ab9432a2bd71b79b657a20b77ac19511ed239679)
+publish	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	2026-10-29T16:27:35.4732338Z Downloading artifact '12911245684' from 'bjarkig82/novel-creator'
+publish	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	2026-10-29T16:27:35.6769760Z Redirecting to blob download url: https://productionresultssa12.blob.core.windows.net/actions-results/fd121744-760d-4819-9de1-277ff64c3100/workflow-job-run-6f87d333-2c56-5316-857f-55a7c12b7052/artifacts/560119b0670f870de868b02971ef22db9137eb389f802d74b3abc0237d8e93b9.zip
+publish	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	2026-10-29T16:27:35.6775638Z Starting download of artifact to: /home/runner/work/novel-creator/novel-creator/candidate
+publish	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	2026-10-29T16:27:35.7733024Z (node:2447) [DEP0005] DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or Buffer.from() methods instead.
+publish	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	2026-10-29T16:27:35.7737097Z (Use `node --trace-deprecation ...` to show where the warning was created)
+publish	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	2026-10-29T16:27:35.8194922Z SHA256 digest of downloaded artifact is d8013b1d62a5e10d547d3df7ab9432a2bd71b79b657a20b77ac19511ed239679
+publish	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	2026-10-29T16:27:35.8197847Z Artifact download completed successfully.
+publish	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	2026-10-29T16:27:35.8199723Z Total of 1 artifact(s) downloaded
+publish	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	2026-10-29T16:27:35.8201610Z Download artifact has finished successfully
+publish	Run python tests/package_release.py verify-remote candidate	﻿2026-10-29T16:27:35.8349593Z ##[group]Run python tests/package_release.py verify-remote candidate
+publish	Run python tests/package_release.py verify-remote candidate	2026-10-29T16:27:35.8351892Z [36;1mpython tests/package_release.py verify-remote candidate[0m
+publish	Run python tests/package_release.py verify-remote candidate	2026-10-29T16:27:35.8423961Z shell: /usr/bin/bash -e {0}
+publish	Run python tests/package_release.py verify-remote candidate	2026-10-29T16:27:35.8425040Z env:
+publish	Run python tests/package_release.py verify-remote candidate	2026-10-29T16:27:35.8425958Z   CANDIDATE_RUN: 40904366247
+publish	Run python tests/package_release.py verify-remote candidate	2026-10-29T16:27:35.8427051Z   CANDIDATE_ATTEMPT: 1
+publish	Run python tests/package_release.py verify-remote candidate	2026-10-29T16:27:35.8428050Z   CANDIDATE_ARTIFACT: 12911245684
+publish	Run python tests/package_release.py verify-remote candidate	2026-10-29T16:27:35.8429388Z   CANDIDATE_COMMIT: 0f287cdcc2fc22334f437906ae13e90dba11f0f8
+publish	Run python tests/package_release.py verify-remote candidate	2026-10-29T16:27:35.8439187Z   HOST_EVIDENCE: {
+publish	Run python tests/package_release.py verify-remote candidate	  "candidate_run": "40904366247",
+publish	Run python tests/package_release.py verify-remote candidate	  "candidate_attempt": "1",
+publish	Run python tests/package_release.py verify-remote candidate	  "artifact_id": "12911245684",
+publish	Run python tests/package_release.py verify-remote candidate	  "source_commit": "0f287cdcc2fc22334f437906ae13e90dba11f0f8",
+publish	Run python tests/package_release.py verify-remote candidate	  "files": {
+publish	Run python tests/package_release.py verify-remote candidate	    "novel_creator-0.1.0-py3-none-any.whl": "cc8645556f74190dee9ac7527c3e66c0bc71574913b5bbae5ddff7516b8817a8",
+publish	Run python tests/package_release.py verify-remote candidate	    "novel_creator-0.1.0.tar.gz": "8ee9116231b69dd3b3143e0d46b96f595a7b7125addee0c1e57e0660f284dc8f"
+publish	Run python tests/package_release.py verify-remote candidate	  },
+publish	Run python tests/package_release.py verify-remote candidate	  "windows_guide": true,
+publish	Run python tests/package_release.py verify-remote candidate	  "linux_guide": true,
+publish	Run python tests/package_release.py verify-remote candidate	  "windows_host": true,
+publish	Run python tests/package_release.py verify-remote candidate	  "linux_cli": true,
+publish	Run python tests/package_release.py verify-remote candidate	  "linux_host": false,
+publish	Run python tests/package_release.py verify-remote candidate	  "evidence_urls": [
+publish	Run python tests/package_release.py verify-remote candidate	    "https://github.com/bjarkig82/novel-creator/blob/b93a91f87ad8d373a1d068d6fa7f15448679b57c/tests/evaluations/package-init-release-final.md",
+publish	Run python tests/package_release.py verify-remote candidate	    "https://github.com/bjarkig82/novel-creator/blob/b93a91f87ad8d373a1d068d6fa7f15448679b57c/tests/evaluations/package-init-host-guide.md"
+publish	Run python tests/package_release.py verify-remote candidate	  ]
+publish	Run python tests/package_release.py verify-remote candidate	}
+publish	Run python tests/package_release.py verify-remote candidate	
+publish	Run python tests/package_release.py verify-remote candidate	2026-10-29T16:27:35.8456821Z   GH_TOKEN: ***
+publish	Run python tests/package_release.py verify-remote candidate	2026-10-29T16:27:35.8457983Z   pythonLocation: /opt/hostedtoolcache/Python/3.13.17/x64
+publish	Run python tests/package_release.py verify-remote candidate	2026-10-29T16:27:35.8459647Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.13.17/x64/lib/pkgconfig
+publish	Run python tests/package_release.py verify-remote candidate	2026-10-29T16:27:35.8461433Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.17/x64
+publish	Run python tests/package_release.py verify-remote candidate	2026-10-29T16:27:35.8462916Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.17/x64
+publish	Run python tests/package_release.py verify-remote candidate	2026-10-29T16:27:35.8464492Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.17/x64
+publish	Run python tests/package_release.py verify-remote candidate	2026-10-29T16:27:35.8466001Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.13.17/x64/lib
+publish	Run python tests/package_release.py verify-remote candidate	2026-10-29T16:27:35.8467307Z ##[endgroup]
+publish	Run python tests/package_release.py verify-remote candidate	2026-10-29T16:27:36.8478111Z {
+publish	Run python tests/package_release.py verify-remote candidate	2026-10-29T16:27:36.8479098Z   "repository": "bjarkig82/novel-creator",
+publish	Run python tests/package_release.py verify-remote candidate	2026-10-29T16:27:36.8480047Z   "run_id": "40904366247",
+publish	Run python tests/package_release.py verify-remote candidate	2026-10-29T16:27:36.8480727Z   "run_attempt": "1",
+publish	Run python tests/package_release.py verify-remote candidate	2026-10-29T16:27:36.8481682Z   "source_commit": "0f287cdcc2fc22334f437906ae13e90dba11f0f8",
+publish	Run python tests/package_release.py verify-remote candidate	2026-10-29T16:27:36.8482492Z   "distribution": "novel-creator",
+publish	Run python tests/package_release.py verify-remote candidate	2026-10-29T16:27:36.8483290Z   "version": "0.1.0",
+publish	Run python tests/package_release.py verify-remote candidate	2026-10-29T16:27:36.8483827Z   "files": {
+publish	Run python tests/package_release.py verify-remote candidate	2026-10-29T16:27:36.8485282Z     "novel_creator-0.1.0-py3-none-any.whl": "cc8645556f74190dee9ac7527c3e66c0bc71574913b5bbae5ddff7516b8817a8",
+publish	Run python tests/package_release.py verify-remote candidate	2026-10-29T16:27:36.8486754Z     "novel_creator-0.1.0.tar.gz": "8ee9116231b69dd3b3143e0d46b96f595a7b7125addee0c1e57e0660f284dc8f"
+publish	Run python tests/package_release.py verify-remote candidate	2026-10-29T16:27:36.8585652Z   }
+publish	Run python tests/package_release.py verify-remote candidate	2026-10-29T16:27:36.8586214Z }
+publish	Stage only verified distribution files	﻿2026-10-29T16:27:36.8631829Z ##[group]Run python -c "import json,pathlib,shutil; root=pathlib.Path('candidate'); out=pathlib.Path('publish'); out.mkdir(); data=json.loads((root/'manifest.json').read_text()); [shutil.copyfile(root/name,out/name) for name in data['files']]"
+publish	Stage only verified distribution files	2026-10-29T16:27:36.8633496Z [36;1mpython -c "import json,pathlib,shutil; root=pathlib.Path('candidate'); out=pathlib.Path('publish'); out.mkdir(); data=json.loads((root/'manifest.json').read_text()); [shutil.copyfile(root/name,out/name) for name in data['files']]"[0m
+publish	Stage only verified distribution files	2026-10-29T16:27:36.8654886Z shell: /usr/bin/bash -e {0}
+publish	Stage only verified distribution files	2026-10-29T16:27:36.8655388Z env:
+publish	Stage only verified distribution files	2026-10-29T16:27:36.8655725Z   CANDIDATE_RUN: 40904366247
+publish	Stage only verified distribution files	2026-10-29T16:27:36.8656108Z   CANDIDATE_ATTEMPT: 1
+publish	Stage only verified distribution files	2026-10-29T16:27:36.8656521Z   CANDIDATE_ARTIFACT: 12911245684
+publish	Stage only verified distribution files	2026-10-29T16:27:36.8656953Z   CANDIDATE_COMMIT: 0f287cdcc2fc22334f437906ae13e90dba11f0f8
+publish	Stage only verified distribution files	2026-10-29T16:27:36.8659863Z   HOST_EVIDENCE: {
+publish	Stage only verified distribution files	  "candidate_run": "40904366247",
+publish	Stage only verified distribution files	  "candidate_attempt": "1",
+publish	Stage only verified distribution files	  "artifact_id": "12911245684",
+publish	Stage only verified distribution files	  "source_commit": "0f287cdcc2fc22334f437906ae13e90dba11f0f8",
+publish	Stage only verified distribution files	  "files": {
+publish	Stage only verified distribution files	    "novel_creator-0.1.0-py3-none-any.whl": "cc8645556f74190dee9ac7527c3e66c0bc71574913b5bbae5ddff7516b8817a8",
+publish	Stage only verified distribution files	    "novel_creator-0.1.0.tar.gz": "8ee9116231b69dd3b3143e0d46b96f595a7b7125addee0c1e57e0660f284dc8f"
+publish	Stage only verified distribution files	  },
+publish	Stage only verified distribution files	  "windows_guide": true,
+publish	Stage only verified distribution files	  "linux_guide": true,
+publish	Stage only verified distribution files	  "windows_host": true,
+publish	Stage only verified distribution files	  "linux_cli": true,
+publish	Stage only verified distribution files	  "linux_host": false,
+publish	Stage only verified distribution files	  "evidence_urls": [
+publish	Stage only verified distribution files	    "https://github.com/bjarkig82/novel-creator/blob/b93a91f87ad8d373a1d068d6fa7f15448679b57c/tests/evaluations/package-init-release-final.md",
+publish	Stage only verified distribution files	    "https://github.com/bjarkig82/novel-creator/blob/b93a91f87ad8d373a1d068d6fa7f15448679b57c/tests/evaluations/package-init-host-guide.md"
+publish	Stage only verified distribution files	  ]
+publish	Stage only verified distribution files	}
+publish	Stage only verified distribution files	
+publish	Stage only verified distribution files	2026-10-29T16:27:36.8665888Z   GH_TOKEN: ***
+publish	Stage only verified distribution files	2026-10-29T16:27:36.8759121Z   pythonLocation: /opt/hostedtoolcache/Python/3.13.17/x64
+publish	Stage only verified distribution files	2026-10-29T16:27:36.8759798Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.13.17/x64/lib/pkgconfig
+publish	Stage only verified distribution files	2026-10-29T16:27:36.8760258Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.17/x64
+publish	Stage only verified distribution files	2026-10-29T16:27:36.8760750Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.17/x64
+publish	Stage only verified distribution files	2026-10-29T16:27:36.8761350Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.17/x64
+publish	Stage only verified distribution files	2026-10-29T16:27:36.8761806Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.13.17/x64/lib
+publish	Stage only verified distribution files	2026-10-29T16:27:36.8762178Z ##[endgroup]
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	﻿2026-10-29T16:27:36.9248473Z ##[group]Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:36.9248993Z with:
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:36.9249251Z   packages-dir: publish/
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:36.9249524Z   user: __token__
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:36.9249845Z   repository_url: https://upload.pypi.org/legacy/
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:36.9250188Z   packages_dir: dist
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:36.9250467Z   verify_metadata: true
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:36.9250725Z   skip_existing: false
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:36.9250986Z   verbose: true
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:36.9251532Z   print_hash: true
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:36.9251784Z   attestations: true
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:36.9252028Z env:
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:36.9252266Z   CANDIDATE_RUN: 40904366247
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:36.9252539Z   CANDIDATE_ATTEMPT: 1
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:36.9252804Z   CANDIDATE_ARTIFACT: 12911245684
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:36.9253163Z   CANDIDATE_COMMIT: 0f287cdcc2fc22334f437906ae13e90dba11f0f8
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:36.9255911Z   HOST_EVIDENCE: {
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	  "candidate_run": "40904366247",
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	  "candidate_attempt": "1",
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	  "artifact_id": "12911245684",
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	  "source_commit": "0f287cdcc2fc22334f437906ae13e90dba11f0f8",
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	  "files": {
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	    "novel_creator-0.1.0-py3-none-any.whl": "cc8645556f74190dee9ac7527c3e66c0bc71574913b5bbae5ddff7516b8817a8",
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	    "novel_creator-0.1.0.tar.gz": "8ee9116231b69dd3b3143e0d46b96f595a7b7125addee0c1e57e0660f284dc8f"
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	  },
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	  "windows_guide": true,
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	  "linux_guide": true,
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	  "windows_host": true,
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	  "linux_cli": true,
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	  "linux_host": false,
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	  "evidence_urls": [
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	    "https://github.com/bjarkig82/novel-creator/blob/b93a91f87ad8d373a1d068d6fa7f15448679b57c/tests/evaluations/package-init-release-final.md",
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	    "https://github.com/bjarkig82/novel-creator/blob/b93a91f87ad8d373a1d068d6fa7f15448679b57c/tests/evaluations/package-init-host-guide.md"
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	  ]
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	}
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:36.9261819Z   GH_TOKEN: ***
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:36.9262156Z   pythonLocation: /opt/hostedtoolcache/Python/3.13.17/x64
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:36.9262629Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.13.17/x64/lib/pkgconfig
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:36.9263087Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.17/x64
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:36.9263515Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.17/x64
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:36.9263941Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.17/x64
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:36.9264357Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.13.17/x64/lib
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:36.9264719Z ##[endgroup]
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:36.9329556Z ##[start-action display=Fail-fast in unsupported environments;id=__pypa_gh-action-pypi-publish.__run]
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:36.9340450Z ##[end-action id=__pypa_gh-action-pypi-publish.__run;outcome=skipped;conclusion=skipped;duration_ms=0]
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:36.9343374Z ##[start-action display=Reset path if needed;id=__pypa_gh-action-pypi-publish.__run_2]
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:36.9371633Z ##[group]Run # Reset path if needed
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:36.9372014Z [36;1m# Reset path if needed[0m
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:36.9372448Z [36;1m# https://github.com/pypa/gh-action-pypi-publish/issues/112[0m
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:36.9372888Z [36;1mif [[ $PATH != *"/usr/bin"* ]]; then[0m
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:36.9373298Z [36;1m  echo "\$PATH=$PATH. Resetting \$PATH for GitHub Actions."[0m
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:36.9373775Z [36;1m  PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"[0m
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:36.9374197Z [36;1m  echo "PATH=$PATH" >>"$GITHUB_ENV"[0m
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:36.9374522Z [36;1m  echo "$PATH" >>"$GITHUB_PATH"[0m
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:36.9374856Z [36;1m  echo "\$PATH reset. \$PATH=$PATH"[0m
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:36.9375160Z [36;1mfi[0m
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:36.9397618Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:36.9398015Z env:
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:36.9398257Z   CANDIDATE_RUN: 40904366247
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:36.9398531Z   CANDIDATE_ATTEMPT: 1
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:36.9398798Z   CANDIDATE_ARTIFACT: 12911245684
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:36.9399149Z   CANDIDATE_COMMIT: 0f287cdcc2fc22334f437906ae13e90dba11f0f8
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:36.9402766Z   HOST_EVIDENCE: {
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	  "candidate_run": "40904366247",
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	  "candidate_attempt": "1",
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	  "artifact_id": "12911245684",
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	  "source_commit": "0f287cdcc2fc22334f437906ae13e90dba11f0f8",
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	  "files": {
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	    "novel_creator-0.1.0-py3-none-any.whl": "cc8645556f74190dee9ac7527c3e66c0bc71574913b5bbae5ddff7516b8817a8",
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	    "novel_creator-0.1.0.tar.gz": "8ee9116231b69dd3b3143e0d46b96f595a7b7125addee0c1e57e0660f284dc8f"
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	  },
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	  "windows_guide": true,
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	  "linux_guide": true,
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	  "windows_host": true,
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	  "linux_cli": true,
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	  "linux_host": false,
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	  "evidence_urls": [
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	    "https://github.com/bjarkig82/novel-creator/blob/b93a91f87ad8d373a1d068d6fa7f15448679b57c/tests/evaluations/package-init-release-final.md",
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	    "https://github.com/bjarkig82/novel-creator/blob/b93a91f87ad8d373a1d068d6fa7f15448679b57c/tests/evaluations/package-init-host-guide.md"
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	  ]
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	}
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:36.9408656Z   GH_TOKEN: ***
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:36.9408987Z   pythonLocation: /opt/hostedtoolcache/Python/3.13.17/x64
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:36.9409459Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.13.17/x64/lib/pkgconfig
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:36.9409920Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.17/x64
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:36.9410339Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.17/x64
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:36.9410758Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.17/x64
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:36.9411364Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.13.17/x64/lib
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:36.9411728Z ##[endgroup]
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:36.9470061Z ##[end-action id=__pypa_gh-action-pypi-publish.__run_2;outcome=success;conclusion=success;duration_ms=12]
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:36.9473080Z ##[start-action display=Discover pre-installed Python;id=__pypa_gh-action-pypi-publish.pre-installed-python]
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:36.9492558Z ##[group]Run # 🔎 Discover pre-installed Python
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:36.9492957Z [36;1m# 🔎 Discover pre-installed Python[0m
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:36.9493422Z [36;1mecho "python-path=$(command -v python3 || :)" | tee -a "${GITHUB_OUTPUT}"[0m
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:36.9512700Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:36.9513080Z env:
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:36.9513321Z   CANDIDATE_RUN: 40904366247
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:36.9513616Z   CANDIDATE_ATTEMPT: 1
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:36.9513882Z   CANDIDATE_ARTIFACT: 12911245684
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:36.9514237Z   CANDIDATE_COMMIT: 0f287cdcc2fc22334f437906ae13e90dba11f0f8
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:36.9516969Z   HOST_EVIDENCE: {
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	  "candidate_run": "40904366247",
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	  "candidate_attempt": "1",
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	  "artifact_id": "12911245684",
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	  "source_commit": "0f287cdcc2fc22334f437906ae13e90dba11f0f8",
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	  "files": {
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	    "novel_creator-0.1.0-py3-none-any.whl": "cc8645556f74190dee9ac7527c3e66c0bc71574913b5bbae5ddff7516b8817a8",
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	    "novel_creator-0.1.0.tar.gz": "8ee9116231b69dd3b3143e0d46b96f595a7b7125addee0c1e57e0660f284dc8f"
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	  },
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	  "windows_guide": true,
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	  "linux_guide": true,
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	  "windows_host": true,
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	  "linux_cli": true,
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	  "linux_host": false,
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	  "evidence_urls": [
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	    "https://github.com/bjarkig82/novel-creator/blob/b93a91f87ad8d373a1d068d6fa7f15448679b57c/tests/evaluations/package-init-release-final.md",
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	    "https://github.com/bjarkig82/novel-creator/blob/b93a91f87ad8d373a1d068d6fa7f15448679b57c/tests/evaluations/package-init-host-guide.md"
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	  ]
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	}
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:36.9522694Z   GH_TOKEN: ***
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:36.9523065Z   pythonLocation: /opt/hostedtoolcache/Python/3.13.17/x64
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:36.9523550Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.13.17/x64/lib/pkgconfig
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:36.9524016Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.17/x64
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:36.9524458Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.17/x64
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:36.9524879Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.17/x64
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:36.9525294Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.13.17/x64/lib
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:36.9525649Z ##[endgroup]
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:36.9588494Z python-path=/opt/hostedtoolcache/Python/3.13.17/x64/bin/python3
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:36.9615480Z ##[end-action id=__pypa_gh-action-pypi-publish.pre-installed-python;outcome=success;conclusion=success;duration_ms=14]
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:36.9620745Z ##[start-action display=Install Python 3;id=__pypa_gh-action-pypi-publish.new-python]
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:36.9627625Z ##[end-action id=__pypa_gh-action-pypi-publish.new-python;outcome=skipped;conclusion=skipped;duration_ms=0]
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:36.9633987Z ##[start-action display=Create Docker container action;id=__pypa_gh-action-pypi-publish.__run_3]
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:36.9673008Z ##[group]Run # Create Docker container action
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:36.9673429Z [36;1m# Create Docker container action[0m
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:36.9674232Z [36;1m/opt/hostedtoolcache/Python/3.13.17/x64/bin/python3 '/home/runner/work/_actions/pypa/gh-action-pypi-publish/2442bad8f54b06a326f3030ef5e6a7a674118557/create-docker-action.py'[0m
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:36.9694571Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:36.9694960Z env:
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:36.9695202Z   CANDIDATE_RUN: 40904366247
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:36.9695479Z   CANDIDATE_ATTEMPT: 1
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:36.9695749Z   CANDIDATE_ARTIFACT: 12911245684
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:36.9696106Z   CANDIDATE_COMMIT: 0f287cdcc2fc22334f437906ae13e90dba11f0f8
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:36.9698843Z   HOST_EVIDENCE: {
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	  "candidate_run": "40904366247",
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	  "candidate_attempt": "1",
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	  "artifact_id": "12911245684",
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	  "source_commit": "0f287cdcc2fc22334f437906ae13e90dba11f0f8",
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	  "files": {
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	    "novel_creator-0.1.0-py3-none-any.whl": "cc8645556f74190dee9ac7527c3e66c0bc71574913b5bbae5ddff7516b8817a8",
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	    "novel_creator-0.1.0.tar.gz": "8ee9116231b69dd3b3143e0d46b96f595a7b7125addee0c1e57e0660f284dc8f"
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	  },
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	  "windows_guide": true,
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	  "linux_guide": true,
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	  "windows_host": true,
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	  "linux_cli": true,
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	  "linux_host": false,
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	  "evidence_urls": [
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	    "https://github.com/bjarkig82/novel-creator/blob/b93a91f87ad8d373a1d068d6fa7f15448679b57c/tests/evaluations/package-init-release-final.md",
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	    "https://github.com/bjarkig82/novel-creator/blob/b93a91f87ad8d373a1d068d6fa7f15448679b57c/tests/evaluations/package-init-host-guide.md"
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	  ]
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	}
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:36.9704582Z   GH_TOKEN: ***
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:36.9704903Z   pythonLocation: /opt/hostedtoolcache/Python/3.13.17/x64
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:36.9705368Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.13.17/x64/lib/pkgconfig
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:36.9705824Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.17/x64
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:36.9706233Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.17/x64
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:36.9706658Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.17/x64
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:36.9707076Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.13.17/x64/lib
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:36.9707461Z   REF: 2442bad8f54b06a326f3030ef5e6a7a674118557
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:36.9707813Z   REPO: pypa/gh-action-pypi-publish
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:36.9708106Z   REPO_ID: 1428266276
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:36.9708354Z ##[endgroup]
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:36.9998232Z ##[end-action id=__pypa_gh-action-pypi-publish.__run_3;outcome=success;conclusion=success;duration_ms=36]
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:37.0001059Z ##[start-action display=Run Docker container;id=__pypa_gh-action-pypi-publish.__self]
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:37.0106995Z ##[group]Run ./.github/.tmp/.generated-actions/run-pypi-publish-in-docker-container
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:37.0107506Z with:
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:37.0107738Z   user: __token__
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:37.0108046Z   repository-url: https://upload.pypi.org/legacy/
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:37.0108398Z   packages-dir: publish/
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:37.0108663Z   verify-metadata: true
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:37.0108923Z   skip-existing: false
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:37.0109184Z   verbose: true
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:37.0109421Z   print-hash: true
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:37.0109666Z   attestations: true
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:37.0109906Z env:
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:37.0110136Z   CANDIDATE_RUN: 40904366247
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:37.0110405Z   CANDIDATE_ATTEMPT: 1
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:37.0110663Z   CANDIDATE_ARTIFACT: 12911245684
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:37.0111011Z   CANDIDATE_COMMIT: 0f287cdcc2fc22334f437906ae13e90dba11f0f8
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:37.0113930Z   HOST_EVIDENCE: {
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	  "candidate_run": "40904366247",
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	  "candidate_attempt": "1",
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	  "artifact_id": "12911245684",
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	  "source_commit": "0f287cdcc2fc22334f437906ae13e90dba11f0f8",
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	  "files": {
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	    "novel_creator-0.1.0-py3-none-any.whl": "cc8645556f74190dee9ac7527c3e66c0bc71574913b5bbae5ddff7516b8817a8",
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	    "novel_creator-0.1.0.tar.gz": "8ee9116231b69dd3b3143e0d46b96f595a7b7125addee0c1e57e0660f284dc8f"
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	  },
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	  "windows_guide": true,
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	  "linux_guide": true,
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	  "windows_host": true,
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	  "linux_cli": true,
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	  "linux_host": false,
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	  "evidence_urls": [
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	    "https://github.com/bjarkig82/novel-creator/blob/b93a91f87ad8d373a1d068d6fa7f15448679b57c/tests/evaluations/package-init-release-final.md",
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	    "https://github.com/bjarkig82/novel-creator/blob/b93a91f87ad8d373a1d068d6fa7f15448679b57c/tests/evaluations/package-init-host-guide.md"
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	  ]
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	}
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:37.0119409Z   GH_TOKEN: ***
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:37.0119720Z   pythonLocation: /opt/hostedtoolcache/Python/3.13.17/x64
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:37.0120181Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.13.17/x64/lib/pkgconfig
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:37.0120640Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.17/x64
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:37.0121055Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.17/x64
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:37.0121565Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.17/x64
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:37.0121980Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.13.17/x64/lib
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:37.0122334Z ##[endgroup]
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:37.0355254Z ##[command]/usr/bin/docker run --name ghcriopypaghactionpypipublish2442bad8f54b06a326f3030ef5e6a7a674118557_e2c7b0 --label b53af1 --workdir /github/workspace --rm -e "CANDIDATE_RUN" -e "CANDIDATE_ATTEMPT" -e "CANDIDATE_ARTIFACT" -e "CANDIDATE_COMMIT" -e "HOST_EVIDENCE" -e "GH_TOKEN" -e "pythonLocation" -e "PKG_CONFIG_PATH" -e "Python_ROOT_DIR" -e "Python2_ROOT_DIR" -e "Python3_ROOT_DIR" -e "LD_LIBRARY_PATH" -e "INPUT_USER" -e "INPUT_PASSWORD" -e "INPUT_REPOSITORY-URL" -e "INPUT_PACKAGES-DIR" -e "INPUT_VERIFY-METADATA" -e "INPUT_SKIP-EXISTING" -e "INPUT_VERBOSE" -e "INPUT_PRINT-HASH" -e "INPUT_ATTESTATIONS" -e "HOME" -e "GITHUB_JOB" -e "GITHUB_REF" -e "GITHUB_SHA" -e "GITHUB_REPOSITORY" -e "GITHUB_REPOSITORY_OWNER" -e "GITHUB_REPOSITORY_OWNER_ID" -e "GITHUB_RUN_ID" -e "GITHUB_RUN_NUMBER" -e "GITHUB_RETENTION_DAYS" -e "GITHUB_RUN_ATTEMPT" -e "GITHUB_ACTOR_ID" -e "GITHUB_ACTOR" -e "GITHUB_WORKFLOW" -e "GITHUB_HEAD_REF" -e "GITHUB_BASE_REF" -e "GITHUB_EVENT_NAME" -e "GITHUB_SERVER_URL" -e "GITHUB_API_URL" -e "GITHUB_GRAPHQL_URL" -e "GITHUB_REF_NAME" -e "GITHUB_REF_PROTECTED" -e "GITHUB_REF_TYPE" -e "GITHUB_WORKFLOW_REF" -e "GITHUB_WORKFLOW_SHA" -e "GITHUB_REPOSITORY_ID" -e "GITHUB_TRIGGERING_ACTOR" -e "GITHUB_WORKSPACE" -e "GITHUB_ACTION" -e "GITHUB_EVENT_PATH" -e "GITHUB_ACTION_REPOSITORY" -e "GITHUB_ACTION_REF" -e "GITHUB_PATH" -e "GITHUB_ENV" -e "GITHUB_STEP_SUMMARY" -e "GITHUB_STATE" -e "GITHUB_OUTPUT" -e "GITHUB_ARTIFACTS" -e "GITHUB_ARTIFACTS_LIST" -e "GITHUB_ACTION_PATH" -e "RUNNER_OS" -e "RUNNER_ARCH" -e "RUNNER_NAME" -e "RUNNER_ENVIRONMENT" -e "RUNNER_TOOL_CACHE" -e "RUNNER_TEMP" -e "RUNNER_WORKSPACE" -e "ACTIONS_RUNTIME_URL" -e "ACTIONS_RUNTIME_TOKEN" -e "ACTIONS_CACHE_URL" -e "ACTIONS_ID_TOKEN_REQUEST_URL" -e "ACTIONS_ID_TOKEN_REQUEST_TOKEN" -e "ACTIONS_RESULTS_URL" -e "ACTIONS_CACHE_MODE" -e "ACTIONS_ORCHESTRATION_ID" -e GITHUB_ACTIONS=true -e CI=true -v "/var/run/docker.sock":"/var/run/docker.sock" -v "/home/runner/work/_temp":"/github/runner_temp" -v "/home/runner/work/_temp/_github_home":"/github/home" -v "/home/runner/work/_temp/_github_workflow":"/github/workflow" -v "/home/runner/work/_temp/_runner_file_commands":"/github/file_commands" -v "/home/runner/work/novel-creator/novel-creator":"/github/workspace" ghcr.io/pypa/gh-action-pypi-publish:2442bad8f54b06a326f3030ef5e6a7a674118557
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:37.1158871Z Unable to find image 'ghcr.io/pypa/gh-action-pypi-publish:2442bad8f54b06a326f3030ef5e6a7a674118557' locally
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:37.3362597Z 2442bad8f54b06a326f3030ef5e6a7a674118557: Pulling from pypa/gh-action-pypi-publish
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:37.5798082Z 485c8d6dcedb: Pulling fs layer
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:37.5799420Z bec94cf691b4: Pulling fs layer
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:37.5800557Z eb3e80b76572: Pulling fs layer
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:37.5801083Z 1972997cb127: Pulling fs layer
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:37.5801938Z 4f4fb700ef54: Pulling fs layer
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:37.5802530Z 202355792dd7: Pulling fs layer
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:37.5802941Z aa0baae4c359: Pulling fs layer
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:37.5803337Z 4f88d207adbb: Pulling fs layer
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:37.5803688Z 48e8b8394f6e: Pulling fs layer
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:37.5803931Z e1f7d490169d: Pulling fs layer
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:37.5804332Z 655d97891a6f: Pulling fs layer
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:37.5804710Z e0b7512f6b1b: Pulling fs layer
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:37.5805102Z 61e6f4c2c691: Pulling fs layer
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:37.5805465Z f7d9041d54c2: Pulling fs layer
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:37.5805757Z 1e8f00e9ea4f: Pulling fs layer
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:37.6193329Z 4f4fb700ef54: Already exists
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:37.8194961Z f7d9041d54c2: Download complete
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:37.8203609Z 202355792dd7: Download complete
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:37.8232950Z 4f88d207adbb: Download complete
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:37.8254365Z bec94cf691b4: Download complete
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:37.8267324Z 48e8b8394f6e: Download complete
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:37.8276875Z 1972997cb127: Download complete
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:37.8283536Z aa0baae4c359: Download complete
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:37.8286333Z 655d97891a6f: Download complete
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:37.8289069Z eb3e80b76572: Download complete
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:37.8293154Z 61e6f4c2c691: Download complete
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:37.8296180Z 1e8f00e9ea4f: Download complete
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:38.0187369Z 485c8d6dcedb: Download complete
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:38.0191536Z e0b7512f6b1b: Download complete
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:38.0198180Z e1f7d490169d: Download complete
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:38.6244446Z bec94cf691b4: Pull complete
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:38.6340894Z 485c8d6dcedb: Pull complete
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:38.9256046Z 4f88d207adbb: Pull complete
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:38.9282336Z 1972997cb127: Pull complete
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:38.9301579Z 655d97891a6f: Pull complete
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:38.9366458Z e1f7d490169d: Pull complete
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:39.4206146Z f7d9041d54c2: Pull complete
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:39.4238717Z 48e8b8394f6e: Pull complete
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:39.4248972Z aa0baae4c359: Pull complete
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:39.4260355Z eb3e80b76572: Pull complete
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:39.4272067Z 61e6f4c2c691: Pull complete
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:39.4280785Z 1e8f00e9ea4f: Pull complete
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:39.4294262Z e0b7512f6b1b: Pull complete
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:39.4454145Z 4f4fb700ef54: Pull complete
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:39.4467770Z 202355792dd7: Pull complete
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:39.4469013Z Digest: sha256:cd0c4c8f4494014a219c4ddfcfe3fc9bee37b88db78c13faf5292e3521bb9fd1
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:39.4470097Z Status: Downloaded newer image for ghcr.io/pypa/gh-action-pypi-publish:2442bad8f54b06a326f3030ef5e6a7a674118557
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:42.2940674Z Checking publish/novel_creator-0.1.0-py3-none-any.whl: [32mPASSED[0m
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:42.3030406Z Checking publish/novel_creator-0.1.0.tar.gz: [32mPASSED[0m
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:42.3396181Z ##[notice]Generating and uploading digital attestations
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:43.1653361Z TUF metadata: /root/.local/share/sigstore-python/tuf/https%3A%2F%2Ftuf-repo-cdn.sigstore.dev
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:43.1654183Z TUF targets cache: /root/.cache/sigstore-python/tuf/https%3A%2F%2Ftuf-repo-cdn.sigstore.dev
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:43.6463988Z Found and verified trusted root
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:43.6468733Z Found and verified signing config
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:43.6483535Z Fulcio client using URL: https://fulcio.sigstore.dev
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:43.6484742Z Generating ephemeral keys...
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:43.6490286Z Requesting ephemeral certificate...
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:43.6490790Z Retrieving signed certificate...
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:43.8775534Z Found <Name(CN=sigstore-intermediate,O=sigstore.dev)> as issuer, verifying if it is a ca
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:43.8777056Z attempting to verify SCT with key ID dd3d306ac6c7113263191e1c99673702a24a5eb8de3cadff878a72802f29ee8e
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:43.8782258Z Successfully verified SCT...
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:43.8785538Z DSSE PAE: b'DSSEv1 28 application/vnd.in-toto+json 261 {"_type":"https://in-toto.io/Statement/v1","subject":[{"name":"novel_creator-0.1.0.tar.gz","digest":{"sha256":"8ee9116231b69dd3b3143e0d46b96f595a7b7125addee0c1e57e0660f284dc8f"}}],"predicateType":"https://docs.pypi.org/attestations/publish/v1","predicate":null}'
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:44.0016147Z proposed: {"apiVersion": "0.0.1", "kind": "dsse", "spec": {"proposedContent": {"envelope": "{\"payload\":\"eyJfdHlwZSI6Imh0dHBzOi8vaW4tdG90by5pby9TdGF0ZW1lbnQvdjEiLCJzdWJqZWN0IjpbeyJuYW1lIjoibm92ZWxfY3JlYXRvci0wLjEuMC50YXIuZ3oiLCJkaWdlc3QiOnsic2hhMjU2IjoiOGVlOTExNjIzMWI2OWRkM2IzMTQzZTBkNDZiOTZmNTk1YTdiNzEyNWFkZGVlMGMxZTU3ZTA2NjBmMjg0ZGM4ZiJ9fV0sInByZWRpY2F0ZVR5cGUiOiJodHRwczovL2RvY3MucHlwaS5vcmcvYXR0ZXN0YXRpb25zL3B1Ymxpc2gvdjEiLCJwcmVkaWNhdGUiOm51bGx9\",\"payloadType\":\"application/vnd.in-toto+json\",\"signatures\":[{\"sig\":\"MEUCIQCmnQVkg0sjgieFePfOVYYNewp1I3oXTsEkke4OHiAAVwIgGp5v+zXEsP30QPN4COX847If/HU024uwh6ZQ3WPZNEY=\"}]}", "verifiers": ["LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUhUVENDQnRLZ0F3SUJBZ0lVUG13Y2NNM1laSllNRUxjVndVN3JlTk94eVdrd0NnWUlLb1pJemowRUF3TXcKTnpFVk1CTUdBMVVFQ2hNTWMybG5jM1J2Y21VdVpHVjJNUjR3SEFZRFZRUURFeFZ6YVdkemRHOXlaUzFwYm5SbApjbTFsWkdsaGRHVXdIaGNOTWpZeE1ESTVNVFl5TnpReldoY05Nall4TURJNU1UWXpOelF6V2pBQU1Ga3dFd1lICktvWkl6ajBDQVFZSUtvWkl6ajBEQVFjRFFnQUVXdWcvaUVsYlB5VU01RDZYTzQyczU1NjM5aCtmKzZmSTBIVWkKV1BOSTdxcGVGSzVmbmsrUUZpeGNLdlFmSGMzaGVFUld1T1JCK3NTUVg3TysrNG9zeHFPQ0JmRXdnZ1h0TUE0RwpBMVVkRHdFQi93UUVBd0lIZ0RBVEJnTlZIU1VFRERBS0JnZ3JCZ0VGQlFjREF6QWZCZ05WSFNNRUdEQVdnQlRmCjArblBWaVFSbHZtbzJPa29WYUxHTGhoa1B6QnVCZ05WSFJFQkFmOEVaREJpaG1Cb2RIUndjem92TDJkcGRHaDEKWWk1amIyMHZZbXBoY210cFp6Z3lMMjV2ZG1Wc0xXTnlaV0YwYjNJdkxtZHBkR2gxWWk5M2IzSnJabXh2ZDNNdgpjR0ZqYTJGblpTMXlaV3hsWVhObExubHRiRUJ5WldaekwyaGxZV1J6TDIxaGFXNHdPUVlLS3dZQkJBR0R2ekFCCkFRUXJhSFIwY0hNNkx5OTBiMnRsYmk1aFkzUnBiMjV6TG1kcGRHaDFZblZ6WlhKamIyNTBaVzUwTG1OdmJUQWYKQmdvckJnRUVBWU8vTUFFQ0JCRjNiM0pyWm14dmQxOWthWE53WVhSamFEQTJCZ29yQmdFRUFZTy9NQUVEQkNnNQpZbUk1WW1ZMU1UazJZV1JoTVdRek1qWmlZMlF5WXpRek4yRTVaamt5TVdWalpqa3lOams1TUIwR0Npc0dBUVFCCmc3OHdBUVFFRDFCaFkydGhaMlVnY21Wc1pXRnpaVEFsQmdvckJnRUVBWU8vTUFFRkJCZGlhbUZ5YTJsbk9ESXYKYm05MlpXd3RZM0psWVhSdmNqQWRCZ29yQmdFRUFZTy9NQUVHQkE5eVpXWnpMMmhsWVdSekwyMWhhVzR3T3dZSwpLd1lCQkFHRHZ6QUJDQVF0REN0b2RIUndjem92TDNSdmEyVnVMbUZqZEdsdmJuTXVaMmwwYUhWaWRYTmxjbU52CmJuUmxiblF1WTI5dE1IQUdDaXNHQVFRQmc3OHdBUWtFWWd4Z2FIUjBjSE02THk5bmFYUm9kV0l1WTI5dEwySnEKWVhKcmFXYzRNaTl1YjNabGJDMWpjbVZoZEc5eUx5NW5hWFJvZFdJdmQyOXlhMlpzYjNkekwzQmhZMnRoWjJVdApjbVZzWldGelpTNTViV3hBY21WbWN5OW9aV0ZrY3k5dFlXbHVNRGdHQ2lzR0FRUUJnNzh3QVFvRUtnd29PV0ppCk9XSm1OVEU1Tm1Ga1lURmtNekkyWW1Oa01tTTBNemRoT1dZNU1qRmxZMlk1TWpZNU9UQWRCZ29yQmdFRUFZTy8KTUFFTEJBOE1EV2RwZEdoMVlpMW9iM04wWldRd09nWUtLd1lCQkFHRHZ6QUJEQVFzRENwb2RIUndjem92TDJkcApkR2gxWWk1amIyMHZZbXBoY210cFp6Z3lMMjV2ZG1Wc0xXTnlaV0YwYjNJd09BWUtLd1lCQkFHRHZ6QUJEUVFxCkRDZzVZbUk1WW1ZMU1UazJZV1JoTVdRek1qWmlZMlF5WXpRek4yRTVaamt5TVdWalpqa3lOams1TUI4R0Npc0cKQVFRQmc3OHdBUTRFRVF3UGNtVm1jeTlvWldGa2N5OXRZV2x1TUJvR0Npc0dBUVFCZzc4d0FROEVEQXdLTVRReQpPREkyTmpJM05qQXNCZ29yQmdFRUFZTy9NQUVRQkI0TUhHaDBkSEJ6T2k4dloybDBhSFZpTG1OdmJTOWlhbUZ5CmEybG5PREl3RndZS0t3WUJCQUdEdnpBQkVRUUpEQWMyTnpRMk1qTXpNSEFHQ2lzR0FRUUJnNzh3QVJJRVlneGcKYUhSMGNITTZMeTluYVhSb2RXSXVZMjl0TDJKcVlYSnJhV2M0TWk5dWIzWmxiQzFqY21WaGRHOXlMeTVuYVhSbwpkV0l2ZDI5eWEyWnNiM2R6TDNCaFkydGhaMlV0Y21Wc1pXRnpaUzU1Yld4QWNtVm1jeTlvWldGa2N5OXRZV2x1Ck1EZ0dDaXNHQVFRQmc3OHdBUk1FS2d3b09XSmlPV0ptTlRFNU5tRmtZVEZrTXpJMlltTmtNbU0wTXpkaE9XWTUKTWpGbFkyWTVNalk1T1RBaEJnb3JCZ0VFQVlPL01BRVVCQk1NRVhkdmNtdG1iRzkzWDJScGMzQmhkR05vTUY0RwpDaXNHQVFRQmc3OHdBUlVFVUF4T2FIUjBjSE02THk5bmFYUm9kV0l1WTI5dEwySnFZWEpyYVdjNE1pOXViM1psCmJDMWpjbVZoZEc5eUwyRmpkR2x2Ym5NdmNuVnVjeTgwTURreE1UWTVPREUxTlM5aGRIUmxiWEIwY3k4eE1CWUcKQ2lzR0FRUUJnNzh3QVJZRUNBd0djSFZpYkdsak1CUUdDaXNHQVFRQmc3OHdBUmNFQmd3RWNIbHdhVEJRQmdvcgpCZ0VFQVlPL01BRVlCRUlNUUhKbGNHODZZbXBoY210cFp6Z3lRRFkzTkRZeU16TXZibTkyWld3dFkzSmxZWFJ2CmNrQXhOREk0TWpZMk1qYzJPbVZ1ZG1seWIyNXRaVzUwT25CNWNHa3dnWW9HQ2lzR0FRUUIxbmtDQkFJRWZBUjYKQUhnQWRnRGRQVEJxeHNjUk1tTVpIaHlaWnpjQ29rcGV1TjQ4cmYrSGluS0FMeW51amdBQUFhR0lmUjgvQUFBRQpBd0JITUVVQ0lRQ3ZCMUs3UDJSTHoraitQSTRKOFNneDA2cW81SHUySGtmdnJLY0E0TFg5eEFJZ2ZjSGN0QXFhCmVZaU0wM3dweTFtUGEzVUNvSEREclRQM3ozek4xZkp5QlVzd0NnWUlLb1pJemowRUF3TURhUUF3WmdJeEFLbGYKbTE2V1EwUjVOckpKZy9XQmhQbU00OTdoUUNCYnkxekl3VGoyMHl2UForRERQMFJnUGtkOEU0YmozbEE2eGdJeApBTVVuVy9xc1F0dk10TTBCajN6VmF5VTdhaVRvSURtQzFBOTI0YVh0d1BjRTdCNkh1QjlqcTl5SWxVbkFSZTNxCk1RPT0KLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo="]}, "signatures": null, "envelopeHash": null, "payloadHash": null}}
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:53.0904422Z integrated: {'108e9186e8c5677a34e45851072a8bf096e429060b61e8a1f74ef13f4554b7ff03f9ccadd22a2a32': {'body': 'eyJhcGlWZXJzaW9uIjoiMC4wLjEiLCJraW5kIjoiZHNzZSIsInNwZWMiOnsiZW52ZWxvcGVIYXNoIjp7ImFsZ29yaXRobSI6InNoYTI1NiIsInZhbHVlIjoiZGQzZTI0NzBlZjA2ZjRkMzM2NmE0NzQ5OTJkYjg0YmZkYzE2ZGY3MzFjZTkxN2U5ODg4NDQ4ZjQzZTQyZDdiMSJ9LCJwYXlsb2FkSGFzaCI6eyJhbGdvcml0aG0iOiJzaGEyNTYiLCJ2YWx1ZSI6IjIzYTgzNWFiMmIzYTRkMDcxYzNhNzdhNGViNjYwMmM1ZWRlZWQwNzkzY2VjMmYyZWI5NDA5YzEwMDNhNWY3NTQifSwic2lnbmF0dXJlcyI6W3sic2lnbmF0dXJlIjoiTUVVQ0lRQ21uUVZrZzBzamdpZUZlUGZPVllZTmV3cDFJM29YVHNFa2tlNE9IaUFBVndJZ0dwNXYrelhFc1AzMFFQTjRDT1g4NDdJZi9IVTAyNHV3aDZaUTNXUFpORVk9IiwidmVyaWZpZXIiOiJMUzB0TFMxQ1JVZEpUaUJEUlZKVVNVWkpRMEZVUlMwdExTMHRDazFKU1VoVVZFTkRRblJMWjBGM1NVSkJaMGxWVUcxM1kyTk5NMWxhU2xsTlJVeGpWbmRWTjNKbFRrOTRlVmRyZDBObldVbExiMXBKZW1vd1JVRjNUWGNLVG5wRlZrMUNUVWRCTVZWRlEyaE5UV015Ykc1ak0xSjJZMjFWZFZwSFZqSk5ValIzU0VGWlJGWlJVVVJGZUZaNllWZGtlbVJIT1hsYVV6RndZbTVTYkFwamJURnNXa2RzYUdSSFZYZElhR05PVFdwWmVFMUVTVFZOVkZsNVRucFJlbGRvWTA1TmFsbDRUVVJKTlUxVVdYcE9lbEY2VjJwQlFVMUdhM2RGZDFsSUNrdHZXa2w2YWpCRFFWRlpTVXR2V2tsNmFqQkVRVkZqUkZGblFVVlhkV2N2YVVWc1lsQjVWVTAxUkRaWVR6UXljelUxTmpNNWFDdG1LelptU1RCSVZXa0tWMUJPU1RkeGNHVkdTelZtYm1zclVVWnBlR05MZGxGbVNHTXphR1ZGVWxkMVQxSkNLM05UVVZnM1R5c3JORzl6ZUhGUFEwSm1SWGRuWjFoMFRVRTBSd3BCTVZWa1JIZEZRaTkzVVVWQmQwbElaMFJCVkVKblRsWklVMVZGUkVSQlMwSm5aM0pDWjBWR1FsRmpSRUY2UVdaQ1owNVdTRk5OUlVkRVFWZG5RbFJtQ2pBcmJsQldhVkZTYkhadGJ6SlBhMjlXWVV4SFRHaG9hMUI2UW5WQ1owNVdTRkpGUWtGbU9FVmFSRUpwYUcxQ2IyUklVbmRqZW05MlRESmtjR1JIYURFS1dXazFhbUl5TUhaWmJYQm9ZMjEwY0ZwNlozbE1NalYyWkcxV2MweFhUbmxhVjBZd1lqTkpka3h0WkhCa1IyZ3hXV2s1TTJJelNuSmFiWGgyWkROTmRncGpSMFpxWVRKR2JscFRNWGxhVjNoc1dWaE9iRXh1YkhSaVJVSjVXbGRhZWt3eWFHeFpWMUo2VERJeGFHRlhOSGRQVVZsTFMzZFpRa0pCUjBSMmVrRkNDa0ZSVVhKaFNGSXdZMGhOTmt4NU9UQmlNblJzWW1rMWFGa3pVbkJpTWpWNlRHMWtjR1JIYURGWmJsWjZXbGhLYW1JeU5UQmFWelV3VEcxT2RtSlVRV1lLUW1kdmNrSm5SVVZCV1U4dlRVRkZRMEpDUmpOaU0wcHlXbTE0ZG1ReE9XdGhXRTUzV1ZoU2FtRkVRVEpDWjI5eVFtZEZSVUZaVHk5TlFVVkVRa05uTlFwWmJVazFXVzFaTVUxVWF6SlpWMUpvVFZkUmVrMXFXbWxaTWxGNVdYcFJlazR5UlRWYWFtdDVUVmRXYWxwcWEzbE9hbXMxVFVJd1IwTnBjMGRCVVZGQ0NtYzNPSGRCVVZGRlJERkNhRmt5ZEdoYU1sVm5ZMjFXYzFwWFJucGFWRUZzUW1kdmNrSm5SVVZCV1U4dlRVRkZSa0pDWkdsaGJVWjVZVEpzYms5RVNYWUtZbTA1TWxwWGQzUlpNMHBzV1ZoU2RtTnFRV1JDWjI5eVFtZEZSVUZaVHk5TlFVVkhRa0U1ZVZwWFducE1NbWhzV1ZkU2Vrd3lNV2hoVnpSM1QzZFpTd3BMZDFsQ1FrRkhSSFo2UVVKRFFWRjBSRU4wYjJSSVVuZGplbTkyVEROU2RtRXlWblZNYlVacVpFZHNkbUp1VFhWYU1td3dZVWhXYVdSWVRteGpiVTUyQ21KdVVteGlibEYxV1RJNWRFMUlRVWREYVhOSFFWRlJRbWMzT0hkQlVXdEZXV2Q0WjJGSVVqQmpTRTAyVEhrNWJtRllVbTlrVjBsMVdUSTVkRXd5U25FS1dWaEtjbUZYWXpSTmFUbDFZak5hYkdKRE1XcGpiVlpvWkVjNWVVeDVOVzVoV0ZKdlpGZEpkbVF5T1hsaE1scHpZak5rZWt3elFtaFpNblJvV2pKVmRBcGpiVlp6V2xkR2VscFROVFZpVjNoQlkyMVdiV041T1c5YVYwWnJZM2s1ZEZsWGJIVk5SR2RIUTJselIwRlJVVUpuTnpoM1FWRnZSVXRuZDI5UFYwcHBDazlYU20xT1ZFVTFUbTFHYTFsVVJtdE5la2t5V1cxT2EwMXRUVEJOZW1Sb1QxZFpOVTFxUm14Wk1sazFUV3BaTlU5VVFXUkNaMjl5UW1kRlJVRlpUeThLVFVGRlRFSkJPRTFFVjJSd1pFZG9NVmxwTVc5aU0wNHdXbGRSZDA5bldVdExkMWxDUWtGSFJIWjZRVUpFUVZGelJFTndiMlJJVW5kamVtOTJUREprY0Fwa1IyZ3hXV2sxYW1JeU1IWlpiWEJvWTIxMGNGcDZaM2xNTWpWMlpHMVdjMHhYVG5sYVYwWXdZak5KZDA5QldVdExkMWxDUWtGSFJIWjZRVUpFVVZGeENrUkRaelZaYlVrMVdXMVpNVTFVYXpKWlYxSm9UVmRSZWsxcVdtbFpNbEY1V1hwUmVrNHlSVFZhYW10NVRWZFdhbHBxYTNsT2FtczFUVUk0UjBOcGMwY0tRVkZSUW1jM09IZEJVVFJGUlZGM1VHTnRWbTFqZVRsdldsZEdhMk41T1hSWlYyeDFUVUp2UjBOcGMwZEJVVkZDWnpjNGQwRlJPRVZFUVhkTFRWUlJlUXBQUkVreVRtcEpNMDVxUVhOQ1oyOXlRbWRGUlVGWlR5OU5RVVZSUWtJMFRVaEhhREJrU0VKNlQyazRkbG95YkRCaFNGWnBURzFPZG1KVE9XbGhiVVo1Q21FeWJHNVBSRWwzUm5kWlMwdDNXVUpDUVVkRWRucEJRa1ZSVVVwRVFXTXlUbnBSTWsxcVRYcE5TRUZIUTJselIwRlJVVUpuTnpoM1FWSkpSVmxuZUdjS1lVaFNNR05JVFRaTWVUbHVZVmhTYjJSWFNYVlpNamwwVERKS2NWbFlTbkpoVjJNMFRXazVkV0l6V214aVF6RnFZMjFXYUdSSE9YbE1lVFZ1WVZoU2J3cGtWMGwyWkRJNWVXRXlXbk5pTTJSNlRETkNhRmt5ZEdoYU1sVjBZMjFXYzFwWFJucGFVelUxWWxkNFFXTnRWbTFqZVRsdldsZEdhMk41T1hSWlYyeDFDazFFWjBkRGFYTkhRVkZSUW1jM09IZEJVazFGUzJkM2IwOVhTbWxQVjBwdFRsUkZOVTV0Um10WlZFWnJUWHBKTWxsdFRtdE5iVTB3VFhwa2FFOVhXVFVLVFdwR2JGa3lXVFZOYWxrMVQxUkJhRUpuYjNKQ1owVkZRVmxQTDAxQlJWVkNRazFOUlZoa2RtTnRkRzFpUnpreldESlNjR016UW1oa1IwNXZUVVkwUndwRGFYTkhRVkZSUW1jM09IZEJVbFZGVlVGNFQyRklVakJqU0UwMlRIazVibUZZVW05a1YwbDFXVEk1ZEV3eVNuRlpXRXB5WVZkak5FMXBPWFZpTTFwc0NtSkRNV3BqYlZab1pFYzVlVXd5Um1wa1IyeDJZbTVOZG1OdVZuVmplVGd3VFVScmVFMVVXVFZQUkVVeFRsTTVhR1JJVW14aVdFSXdZM2s0ZUUxQ1dVY0tRMmx6UjBGUlVVSm5OemgzUVZKWlJVTkJkMGRqU0ZacFlrZHNhazFDVVVkRGFYTkhRVkZSUW1jM09IZEJVbU5GUW1kM1JXTkliSGRoVkVKUlFtZHZjZ3BDWjBWRlFWbFBMMDFCUlZsQ1JVbE5VVWhLYkdOSE9EWlpiWEJvWTIxMGNGcDZaM2xSUkZrelRrUlplVTE2VFhaaWJUa3lXbGQzZEZrelNteFpXRkoyQ21OclFYaE9SRWswVFdwWk1rMXFZekpQYlZaMVpHMXNlV0l5TlhSYVZ6VXdUMjVDTldOSGEzZG5XVzlIUTJselIwRlJVVUl4Ym10RFFrRkpSV1pCVWpZS1FVaG5RV1JuUkdSUVZFSnhlSE5qVWsxdFRWcElhSGxhV25walEyOXJjR1YxVGpRNGNtWXJTR2x1UzBGTWVXNTFhbWRCUVVGaFIwbG1Vamd2UVVGQlJRcEJkMEpJVFVWVlEwbFJRM1pDTVVzM1VESlNUSG9yYWl0UVNUUktPRk5uZURBMmNXODFTSFV5U0d0bWRuSkxZMEUwVEZnNWVFRkpaMlpqU0dOMFFYRmhDbVZaYVUwd00zZHdlVEZ0VUdFelZVTnZTRVJFY2xSUU0zb3plazR4WmtwNVFsVnpkME5uV1VsTGIxcEplbW93UlVGM1RVUmhVVUYzV21kSmVFRkxiR1lLYlRFMlYxRXdValZPY2twS1p5OVhRbWhRYlUwME9UZG9VVU5DWW5reGVrbDNWR295TUhsMlVGb3JSRVJRTUZKblVHdGtPRVUwWW1vemJFRTJlR2RKZUFwQlRWVnVWeTl4YzFGMGRrMTBUVEJDYWpONlZtRjVWVGRoYVZSdlNVUnRRekZCT1RJMFlWaDBkMUJqUlRkQ05raDFRamxxY1RsNVNXeFZia0ZTWlROeENrMVJQVDBLTFMwdExTMUZUa1FnUTBWU1ZFbEdTVU5CVkVVdExTMHRMUW89In1dfX0=', 'integratedTime': 1793291266, 'logID': 'c0d23d6ad406973f9559f3ba2d1ca01f84147d8ffc5b8445c224f98b9591801d', 'logIndex': 3571553493, 'verification': {'inclusionProof': {'checkpoint': 'rekor.sigstore.dev - 1193050959916656506\n3449650651\nxhhOYsS83RRvLuP6UJ3SliCpZSUHqIJb2VCMOsSsC+Q=\n\n— rekor.sigstore.dev wNI9ajBGAiEAuC76QtNk6shbazsfx8K0jRAGQLVQHA0SKL45oLuhr9cCIQCBWugypL7btmIBfybSU4jm1tG+v8FBsZ4+RTO5rOtRHQ==\n', 'hashes': ['41ead465cf8e4ebca0a18698c0b55d6b4b419e9b42338064d9b5bc9e6dbc8cbc', '9e3b88913701204792ea0ef61965b80253a1d20533c003a06e298758f68865f9', '6f93b1dc2cbdce232f7bd59d44499cf36a5e69add40335493f967a76155bf57b', '4b928982988bee1dcad7852f610acff801272890dab96f08ef6b0dab32983323', '10a478ac56e6808b0c3e5f8a6507cb097a46758413fe512fb8bdb3e553cad14c', '3a0259abc499d0c21adf0f11c9de2486086613247d3ef6d9c80289acb909fd57', '0458867f5520bc5e5293c227e8f2b0a5bb845309b0c78e55765c8136c0d381f6', '92fee2fa7002206d46b56eeb3b1dabc063e6a9b50f02a72ebe87ed08c8c4e08e', '584c9c60783939c5c40b0021d12c09034cb88275d94a50264aaeec76d33af25a', '97f40a353bc5fbb54f3099b305c26490d4cfe076f508535b372d98d57352faff', '15a9b25b1e15a5f08c2ab7480b66b8ee4354c02bdeedd2bb2b9b4a2dad64edbb', '8f50c9688f761b3f2ac14e5e6f14e165dbf34e4b46e42a8e9313d85f49a005b9', '4dc24ab9a2f12ef3f70bc9cfcac42cd1dc6f216f739ff8e66510352db0158604', 'd49aed2f598a6707513d635c780875d21bf6560a87bd0fafc96e957a6c4a1e18', 'a12fad52a24b4771f116eb0836e9c2aed2f6ea1282269ba3780a1acad628ced5', '476b65598d14dd790159c0b832708a8bd5b3373091016187ed55094928aaeaa1', '17286a1766aa6018b7e1ddf56c0abe07f4241f9724c0f64b422f710c58467797', 'e8bf8a356f678706b10f6ea794c3eb2465a33eea3d9541a15f526683fe77a58a', '8c3c1ca69baea093a5052ffab168f89c26c66607eb80ecd35e0a1d95772d8e7f', '8277d570d2f2eeb7d667db265b91d46483bcf60ade6d2d2b9c83fade375c0ed7', '6674015b3652387fa90902ea2e8278f24bc6238455d2ffd3e7948a610ce69c92', '910cffe0d0fb2dd85f0109fe89d36c3be6450b7dac7e46119618d61795beb0f7', 'cc67dea162a6ad995730ebf28b74761836c6a66235b24256ff02d35c20a0174a', 'd436832b3ac234d061992758e6f163cfe369026c6661f60480109d3cbacc3f50', 'c47fc30ac78b1ebf5e2a8613f2ab0e4592bbcd5744198587b95b6c56b0fde706'], 'logIndex': 3449649231, 'rootHash': 'c6184e62c4bcdd146f2ee3fa509dd29620a9652507a8825bd9508c3ac4ac0be4', 'treeSize': 3449650651}, 'signedEntryTimestamp': 'MEUCIEPvBgY3qori3ud8WmKxickv/lQsQDkAaCQ/4rSE0DzqAiEA7ekX75tktDWanNU/qT4g9Lg5GAl4q/jF4KL5jSqWLoI='}}}
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:53.1158666Z Transparency log entry created with index: 3571553493
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:53.1160319Z DSSE PAE: b'DSSEv1 28 application/vnd.in-toto+json 271 {"_type":"https://in-toto.io/Statement/v1","subject":[{"name":"novel_creator-0.1.0-py3-none-any.whl","digest":{"sha256":"cc8645556f74190dee9ac7527c3e66c0bc71574913b5bbae5ddff7516b8817a8"}}],"predicateType":"https://docs.pypi.org/attestations/publish/v1","predicate":null}'
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:53.1269124Z proposed: {"apiVersion": "0.0.1", "kind": "dsse", "spec": {"proposedContent": {"envelope": "{\"payload\":\"eyJfdHlwZSI6Imh0dHBzOi8vaW4tdG90by5pby9TdGF0ZW1lbnQvdjEiLCJzdWJqZWN0IjpbeyJuYW1lIjoibm92ZWxfY3JlYXRvci0wLjEuMC1weTMtbm9uZS1hbnkud2hsIiwiZGlnZXN0Ijp7InNoYTI1NiI6ImNjODY0NTU1NmY3NDE5MGRlZTlhYzc1MjdjM2U2NmMwYmM3MTU3NDkxM2I1YmJhZTVkZGZmNzUxNmI4ODE3YTgifX1dLCJwcmVkaWNhdGVUeXBlIjoiaHR0cHM6Ly9kb2NzLnB5cGkub3JnL2F0dGVzdGF0aW9ucy9wdWJsaXNoL3YxIiwicHJlZGljYXRlIjpudWxsfQ==\",\"payloadType\":\"application/vnd.in-toto+json\",\"signatures\":[{\"sig\":\"MEUCIGc1ooxcWVjiwz40X/iHuFr9kJXp7e2CYfwwh4IFELeQAiEAxOEWQz+aG4+8g9QtSCXV7VvkkrtU6BP5t2dRtoWCpnA=\"}]}", "verifiers": ["LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUhUVENDQnRLZ0F3SUJBZ0lVUG13Y2NNM1laSllNRUxjVndVN3JlTk94eVdrd0NnWUlLb1pJemowRUF3TXcKTnpFVk1CTUdBMVVFQ2hNTWMybG5jM1J2Y21VdVpHVjJNUjR3SEFZRFZRUURFeFZ6YVdkemRHOXlaUzFwYm5SbApjbTFsWkdsaGRHVXdIaGNOTWpZeE1ESTVNVFl5TnpReldoY05Nall4TURJNU1UWXpOelF6V2pBQU1Ga3dFd1lICktvWkl6ajBDQVFZSUtvWkl6ajBEQVFjRFFnQUVXdWcvaUVsYlB5VU01RDZYTzQyczU1NjM5aCtmKzZmSTBIVWkKV1BOSTdxcGVGSzVmbmsrUUZpeGNLdlFmSGMzaGVFUld1T1JCK3NTUVg3TysrNG9zeHFPQ0JmRXdnZ1h0TUE0RwpBMVVkRHdFQi93UUVBd0lIZ0RBVEJnTlZIU1VFRERBS0JnZ3JCZ0VGQlFjREF6QWZCZ05WSFNNRUdEQVdnQlRmCjArblBWaVFSbHZtbzJPa29WYUxHTGhoa1B6QnVCZ05WSFJFQkFmOEVaREJpaG1Cb2RIUndjem92TDJkcGRHaDEKWWk1amIyMHZZbXBoY210cFp6Z3lMMjV2ZG1Wc0xXTnlaV0YwYjNJdkxtZHBkR2gxWWk5M2IzSnJabXh2ZDNNdgpjR0ZqYTJGblpTMXlaV3hsWVhObExubHRiRUJ5WldaekwyaGxZV1J6TDIxaGFXNHdPUVlLS3dZQkJBR0R2ekFCCkFRUXJhSFIwY0hNNkx5OTBiMnRsYmk1aFkzUnBiMjV6TG1kcGRHaDFZblZ6WlhKamIyNTBaVzUwTG1OdmJUQWYKQmdvckJnRUVBWU8vTUFFQ0JCRjNiM0pyWm14dmQxOWthWE53WVhSamFEQTJCZ29yQmdFRUFZTy9NQUVEQkNnNQpZbUk1WW1ZMU1UazJZV1JoTVdRek1qWmlZMlF5WXpRek4yRTVaamt5TVdWalpqa3lOams1TUIwR0Npc0dBUVFCCmc3OHdBUVFFRDFCaFkydGhaMlVnY21Wc1pXRnpaVEFsQmdvckJnRUVBWU8vTUFFRkJCZGlhbUZ5YTJsbk9ESXYKYm05MlpXd3RZM0psWVhSdmNqQWRCZ29yQmdFRUFZTy9NQUVHQkE5eVpXWnpMMmhsWVdSekwyMWhhVzR3T3dZSwpLd1lCQkFHRHZ6QUJDQVF0REN0b2RIUndjem92TDNSdmEyVnVMbUZqZEdsdmJuTXVaMmwwYUhWaWRYTmxjbU52CmJuUmxiblF1WTI5dE1IQUdDaXNHQVFRQmc3OHdBUWtFWWd4Z2FIUjBjSE02THk5bmFYUm9kV0l1WTI5dEwySnEKWVhKcmFXYzRNaTl1YjNabGJDMWpjbVZoZEc5eUx5NW5hWFJvZFdJdmQyOXlhMlpzYjNkekwzQmhZMnRoWjJVdApjbVZzWldGelpTNTViV3hBY21WbWN5OW9aV0ZrY3k5dFlXbHVNRGdHQ2lzR0FRUUJnNzh3QVFvRUtnd29PV0ppCk9XSm1OVEU1Tm1Ga1lURmtNekkyWW1Oa01tTTBNemRoT1dZNU1qRmxZMlk1TWpZNU9UQWRCZ29yQmdFRUFZTy8KTUFFTEJBOE1EV2RwZEdoMVlpMW9iM04wWldRd09nWUtLd1lCQkFHRHZ6QUJEQVFzRENwb2RIUndjem92TDJkcApkR2gxWWk1amIyMHZZbXBoY210cFp6Z3lMMjV2ZG1Wc0xXTnlaV0YwYjNJd09BWUtLd1lCQkFHRHZ6QUJEUVFxCkRDZzVZbUk1WW1ZMU1UazJZV1JoTVdRek1qWmlZMlF5WXpRek4yRTVaamt5TVdWalpqa3lOams1TUI4R0Npc0cKQVFRQmc3OHdBUTRFRVF3UGNtVm1jeTlvWldGa2N5OXRZV2x1TUJvR0Npc0dBUVFCZzc4d0FROEVEQXdLTVRReQpPREkyTmpJM05qQXNCZ29yQmdFRUFZTy9NQUVRQkI0TUhHaDBkSEJ6T2k4dloybDBhSFZpTG1OdmJTOWlhbUZ5CmEybG5PREl3RndZS0t3WUJCQUdEdnpBQkVRUUpEQWMyTnpRMk1qTXpNSEFHQ2lzR0FRUUJnNzh3QVJJRVlneGcKYUhSMGNITTZMeTluYVhSb2RXSXVZMjl0TDJKcVlYSnJhV2M0TWk5dWIzWmxiQzFqY21WaGRHOXlMeTVuYVhSbwpkV0l2ZDI5eWEyWnNiM2R6TDNCaFkydGhaMlV0Y21Wc1pXRnpaUzU1Yld4QWNtVm1jeTlvWldGa2N5OXRZV2x1Ck1EZ0dDaXNHQVFRQmc3OHdBUk1FS2d3b09XSmlPV0ptTlRFNU5tRmtZVEZrTXpJMlltTmtNbU0wTXpkaE9XWTUKTWpGbFkyWTVNalk1T1RBaEJnb3JCZ0VFQVlPL01BRVVCQk1NRVhkdmNtdG1iRzkzWDJScGMzQmhkR05vTUY0RwpDaXNHQVFRQmc3OHdBUlVFVUF4T2FIUjBjSE02THk5bmFYUm9kV0l1WTI5dEwySnFZWEpyYVdjNE1pOXViM1psCmJDMWpjbVZoZEc5eUwyRmpkR2x2Ym5NdmNuVnVjeTgwTURreE1UWTVPREUxTlM5aGRIUmxiWEIwY3k4eE1CWUcKQ2lzR0FRUUJnNzh3QVJZRUNBd0djSFZpYkdsak1CUUdDaXNHQVFRQmc3OHdBUmNFQmd3RWNIbHdhVEJRQmdvcgpCZ0VFQVlPL01BRVlCRUlNUUhKbGNHODZZbXBoY210cFp6Z3lRRFkzTkRZeU16TXZibTkyWld3dFkzSmxZWFJ2CmNrQXhOREk0TWpZMk1qYzJPbVZ1ZG1seWIyNXRaVzUwT25CNWNHa3dnWW9HQ2lzR0FRUUIxbmtDQkFJRWZBUjYKQUhnQWRnRGRQVEJxeHNjUk1tTVpIaHlaWnpjQ29rcGV1TjQ4cmYrSGluS0FMeW51amdBQUFhR0lmUjgvQUFBRQpBd0JITUVVQ0lRQ3ZCMUs3UDJSTHoraitQSTRKOFNneDA2cW81SHUySGtmdnJLY0E0TFg5eEFJZ2ZjSGN0QXFhCmVZaU0wM3dweTFtUGEzVUNvSEREclRQM3ozek4xZkp5QlVzd0NnWUlLb1pJemowRUF3TURhUUF3WmdJeEFLbGYKbTE2V1EwUjVOckpKZy9XQmhQbU00OTdoUUNCYnkxekl3VGoyMHl2UForRERQMFJnUGtkOEU0YmozbEE2eGdJeApBTVVuVy9xc1F0dk10TTBCajN6VmF5VTdhaVRvSURtQzFBOTI0YVh0d1BjRTdCNkh1QjlqcTl5SWxVbkFSZTNxCk1RPT0KLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo="]}, "signatures": null, "envelopeHash": null, "payloadHash": null}}
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:56.2133190Z integrated: {'108e9186e8c5677acd01a5506f4d92018c8cc3dc013faf398a2486831005d6da31840ca4ec40ee46': {'body': 'eyJhcGlWZXJzaW9uIjoiMC4wLjEiLCJraW5kIjoiZHNzZSIsInNwZWMiOnsiZW52ZWxvcGVIYXNoIjp7ImFsZ29yaXRobSI6InNoYTI1NiIsInZhbHVlIjoiZDdmNGQ2ZGM4ZDFlNGI2ZWNiZGM1OGMyZTM0YmUxNmUzZWZlZmFmYmU5YWFkMGEyMGZhOWRhM2YxNTFiNzVhZCJ9LCJwYXlsb2FkSGFzaCI6eyJhbGdvcml0aG0iOiJzaGEyNTYiLCJ2YWx1ZSI6ImMzYzRjYzZkM2FjZTJjM2FjMDE3OTY0OTBlNmE3ZmI1N2I5Njg3ZGE1YWQ5ODdhN2EzYjEyYWEwOTU0MDQ2ZTIifSwic2lnbmF0dXJlcyI6W3sic2lnbmF0dXJlIjoiTUVVQ0lHYzFvb3hjV1ZqaXd6NDBYL2lIdUZyOWtKWHA3ZTJDWWZ3d2g0SUZFTGVRQWlFQXhPRVdReithRzQrOGc5UXRTQ1hWN1Z2a2tydFU2QlA1dDJkUnRvV0NwbkE9IiwidmVyaWZpZXIiOiJMUzB0TFMxQ1JVZEpUaUJEUlZKVVNVWkpRMEZVUlMwdExTMHRDazFKU1VoVVZFTkRRblJMWjBGM1NVSkJaMGxWVUcxM1kyTk5NMWxhU2xsTlJVeGpWbmRWTjNKbFRrOTRlVmRyZDBObldVbExiMXBKZW1vd1JVRjNUWGNLVG5wRlZrMUNUVWRCTVZWRlEyaE5UV015Ykc1ak0xSjJZMjFWZFZwSFZqSk5ValIzU0VGWlJGWlJVVVJGZUZaNllWZGtlbVJIT1hsYVV6RndZbTVTYkFwamJURnNXa2RzYUdSSFZYZElhR05PVFdwWmVFMUVTVFZOVkZsNVRucFJlbGRvWTA1TmFsbDRUVVJKTlUxVVdYcE9lbEY2VjJwQlFVMUdhM2RGZDFsSUNrdHZXa2w2YWpCRFFWRlpTVXR2V2tsNmFqQkVRVkZqUkZGblFVVlhkV2N2YVVWc1lsQjVWVTAxUkRaWVR6UXljelUxTmpNNWFDdG1LelptU1RCSVZXa0tWMUJPU1RkeGNHVkdTelZtYm1zclVVWnBlR05MZGxGbVNHTXphR1ZGVWxkMVQxSkNLM05UVVZnM1R5c3JORzl6ZUhGUFEwSm1SWGRuWjFoMFRVRTBSd3BCTVZWa1JIZEZRaTkzVVVWQmQwbElaMFJCVkVKblRsWklVMVZGUkVSQlMwSm5aM0pDWjBWR1FsRmpSRUY2UVdaQ1owNVdTRk5OUlVkRVFWZG5RbFJtQ2pBcmJsQldhVkZTYkhadGJ6SlBhMjlXWVV4SFRHaG9hMUI2UW5WQ1owNVdTRkpGUWtGbU9FVmFSRUpwYUcxQ2IyUklVbmRqZW05MlRESmtjR1JIYURFS1dXazFhbUl5TUhaWmJYQm9ZMjEwY0ZwNlozbE1NalYyWkcxV2MweFhUbmxhVjBZd1lqTkpka3h0WkhCa1IyZ3hXV2s1TTJJelNuSmFiWGgyWkROTmRncGpSMFpxWVRKR2JscFRNWGxhVjNoc1dWaE9iRXh1YkhSaVJVSjVXbGRhZWt3eWFHeFpWMUo2VERJeGFHRlhOSGRQVVZsTFMzZFpRa0pCUjBSMmVrRkNDa0ZSVVhKaFNGSXdZMGhOTmt4NU9UQmlNblJzWW1rMWFGa3pVbkJpTWpWNlRHMWtjR1JIYURGWmJsWjZXbGhLYW1JeU5UQmFWelV3VEcxT2RtSlVRV1lLUW1kdmNrSm5SVVZCV1U4dlRVRkZRMEpDUmpOaU0wcHlXbTE0ZG1ReE9XdGhXRTUzV1ZoU2FtRkVRVEpDWjI5eVFtZEZSVUZaVHk5TlFVVkVRa05uTlFwWmJVazFXVzFaTVUxVWF6SlpWMUpvVFZkUmVrMXFXbWxaTWxGNVdYcFJlazR5UlRWYWFtdDVUVmRXYWxwcWEzbE9hbXMxVFVJd1IwTnBjMGRCVVZGQ0NtYzNPSGRCVVZGRlJERkNhRmt5ZEdoYU1sVm5ZMjFXYzFwWFJucGFWRUZzUW1kdmNrSm5SVVZCV1U4dlRVRkZSa0pDWkdsaGJVWjVZVEpzYms5RVNYWUtZbTA1TWxwWGQzUlpNMHBzV1ZoU2RtTnFRV1JDWjI5eVFtZEZSVUZaVHk5TlFVVkhRa0U1ZVZwWFducE1NbWhzV1ZkU2Vrd3lNV2hoVnpSM1QzZFpTd3BMZDFsQ1FrRkhSSFo2UVVKRFFWRjBSRU4wYjJSSVVuZGplbTkyVEROU2RtRXlWblZNYlVacVpFZHNkbUp1VFhWYU1td3dZVWhXYVdSWVRteGpiVTUyQ21KdVVteGlibEYxV1RJNWRFMUlRVWREYVhOSFFWRlJRbWMzT0hkQlVXdEZXV2Q0WjJGSVVqQmpTRTAyVEhrNWJtRllVbTlrVjBsMVdUSTVkRXd5U25FS1dWaEtjbUZYWXpSTmFUbDFZak5hYkdKRE1XcGpiVlpvWkVjNWVVeDVOVzVoV0ZKdlpGZEpkbVF5T1hsaE1scHpZak5rZWt3elFtaFpNblJvV2pKVmRBcGpiVlp6V2xkR2VscFROVFZpVjNoQlkyMVdiV041T1c5YVYwWnJZM2s1ZEZsWGJIVk5SR2RIUTJselIwRlJVVUpuTnpoM1FWRnZSVXRuZDI5UFYwcHBDazlYU20xT1ZFVTFUbTFHYTFsVVJtdE5la2t5V1cxT2EwMXRUVEJOZW1Sb1QxZFpOVTFxUm14Wk1sazFUV3BaTlU5VVFXUkNaMjl5UW1kRlJVRlpUeThLVFVGRlRFSkJPRTFFVjJSd1pFZG9NVmxwTVc5aU0wNHdXbGRSZDA5bldVdExkMWxDUWtGSFJIWjZRVUpFUVZGelJFTndiMlJJVW5kamVtOTJUREprY0Fwa1IyZ3hXV2sxYW1JeU1IWlpiWEJvWTIxMGNGcDZaM2xNTWpWMlpHMVdjMHhYVG5sYVYwWXdZak5KZDA5QldVdExkMWxDUWtGSFJIWjZRVUpFVVZGeENrUkRaelZaYlVrMVdXMVpNVTFVYXpKWlYxSm9UVmRSZWsxcVdtbFpNbEY1V1hwUmVrNHlSVFZhYW10NVRWZFdhbHBxYTNsT2FtczFUVUk0UjBOcGMwY0tRVkZSUW1jM09IZEJVVFJGUlZGM1VHTnRWbTFqZVRsdldsZEdhMk41T1hSWlYyeDFUVUp2UjBOcGMwZEJVVkZDWnpjNGQwRlJPRVZFUVhkTFRWUlJlUXBQUkVreVRtcEpNMDVxUVhOQ1oyOXlRbWRGUlVGWlR5OU5RVVZSUWtJMFRVaEhhREJrU0VKNlQyazRkbG95YkRCaFNGWnBURzFPZG1KVE9XbGhiVVo1Q21FeWJHNVBSRWwzUm5kWlMwdDNXVUpDUVVkRWRucEJRa1ZSVVVwRVFXTXlUbnBSTWsxcVRYcE5TRUZIUTJselIwRlJVVUpuTnpoM1FWSkpSVmxuZUdjS1lVaFNNR05JVFRaTWVUbHVZVmhTYjJSWFNYVlpNamwwVERKS2NWbFlTbkpoVjJNMFRXazVkV0l6V214aVF6RnFZMjFXYUdSSE9YbE1lVFZ1WVZoU2J3cGtWMGwyWkRJNWVXRXlXbk5pTTJSNlRETkNhRmt5ZEdoYU1sVjBZMjFXYzFwWFJucGFVelUxWWxkNFFXTnRWbTFqZVRsdldsZEdhMk41T1hSWlYyeDFDazFFWjBkRGFYTkhRVkZSUW1jM09IZEJVazFGUzJkM2IwOVhTbWxQVjBwdFRsUkZOVTV0Um10WlZFWnJUWHBKTWxsdFRtdE5iVTB3VFhwa2FFOVhXVFVLVFdwR2JGa3lXVFZOYWxrMVQxUkJhRUpuYjNKQ1owVkZRVmxQTDAxQlJWVkNRazFOUlZoa2RtTnRkRzFpUnpreldESlNjR016UW1oa1IwNXZUVVkwUndwRGFYTkhRVkZSUW1jM09IZEJVbFZGVlVGNFQyRklVakJqU0UwMlRIazVibUZZVW05a1YwbDFXVEk1ZEV3eVNuRlpXRXB5WVZkak5FMXBPWFZpTTFwc0NtSkRNV3BqYlZab1pFYzVlVXd5Um1wa1IyeDJZbTVOZG1OdVZuVmplVGd3VFVScmVFMVVXVFZQUkVVeFRsTTVhR1JJVW14aVdFSXdZM2s0ZUUxQ1dVY0tRMmx6UjBGUlVVSm5OemgzUVZKWlJVTkJkMGRqU0ZacFlrZHNhazFDVVVkRGFYTkhRVkZSUW1jM09IZEJVbU5GUW1kM1JXTkliSGRoVkVKUlFtZHZjZ3BDWjBWRlFWbFBMMDFCUlZsQ1JVbE5VVWhLYkdOSE9EWlpiWEJvWTIxMGNGcDZaM2xSUkZrelRrUlplVTE2VFhaaWJUa3lXbGQzZEZrelNteFpXRkoyQ21OclFYaE9SRWswVFdwWk1rMXFZekpQYlZaMVpHMXNlV0l5TlhSYVZ6VXdUMjVDTldOSGEzZG5XVzlIUTJselIwRlJVVUl4Ym10RFFrRkpSV1pCVWpZS1FVaG5RV1JuUkdSUVZFSnhlSE5qVWsxdFRWcElhSGxhV25walEyOXJjR1YxVGpRNGNtWXJTR2x1UzBGTWVXNTFhbWRCUVVGaFIwbG1Vamd2UVVGQlJRcEJkMEpJVFVWVlEwbFJRM1pDTVVzM1VESlNUSG9yYWl0UVNUUktPRk5uZURBMmNXODFTSFV5U0d0bWRuSkxZMEUwVEZnNWVFRkpaMlpqU0dOMFFYRmhDbVZaYVUwd00zZHdlVEZ0VUdFelZVTnZTRVJFY2xSUU0zb3plazR4WmtwNVFsVnpkME5uV1VsTGIxcEplbW93UlVGM1RVUmhVVUYzV21kSmVFRkxiR1lLYlRFMlYxRXdValZPY2twS1p5OVhRbWhRYlUwME9UZG9VVU5DWW5reGVrbDNWR295TUhsMlVGb3JSRVJRTUZKblVHdGtPRVUwWW1vemJFRTJlR2RKZUFwQlRWVnVWeTl4YzFGMGRrMTBUVEJDYWpONlZtRjVWVGRoYVZSdlNVUnRRekZCT1RJMFlWaDBkMUJqUlRkQ05raDFRamxxY1RsNVNXeFZia0ZTWlROeENrMVJQVDBLTFMwdExTMUZUa1FnUTBWU1ZFbEdTVU5CVkVVdExTMHRMUW89In1dfX0=', 'integratedTime': 1793291273, 'logID': 'c0d23d6ad406973f9559f3ba2d1ca01f84147d8ffc5b8445c224f98b9591801d', 'logIndex': 3571555658, 'verification': {'inclusionProof': {'checkpoint': 'rekor.sigstore.dev - 1193050959916656506\n3449652189\nEjlKhBM24qCgszy880TnEgWvVKFhp4BY1XmN4FbEmlM=\n\n— rekor.sigstore.dev wNI9ajBFAiAD3Tj7iCqhklwivcTtEjh9tbYhZKHA/ECjCykBetWbawIhALSgL8YVS4bP6h3eFpJvWmV2Xmm/AHGTGRF7SM+zvdpb\n', 'hashes': ['edec727aa121385a05586fa0d4dc0e8187a0b7cd40991c5f9011b4c996bfe7c3', '274d248defa2169cbabc0e0d35e0004f14ec9ffb38b375627557fd604fa33a4d', '70e9cfd7f65232a6f07a645a5cbbdb77cdad99c0b5acf02836439d80dfc260d0', '1579e283ebca11dc10f0a25a1a83c3ca856069659c269a13ffc393e0236404ef', 'f95da2a4dd93ca4ed95e613938c7870a81d9519a81c0e86802f888814ad032e5', '5cc27b9d506cba464b655a5b9d40c750733b232d4dfc438427b10cb52633fefc', 'd77657ab80bb07c055a148921c9a37c32eb67196cdcf3f4c12d195536837b43c', 'cb58f48e2559911a9482db51ddcdf4c6105c505978859c9c1771410a4acf0bcb', 'a69a566ccd08b90191855ebcb5947fdfd4c2d1ac7b865919d7db6de048540bf1', '3090759b27001dbda8bfafdc9801c0f78b33b5d57e4c9cb41734a6ddea2b87d7', '49d6bbcd82b258b357955628d2116858b7d1e589a733ee92e257576b7da23c92', '476b65598d14dd790159c0b832708a8bd5b3373091016187ed55094928aaeaa1', '17286a1766aa6018b7e1ddf56c0abe07f4241f9724c0f64b422f710c58467797', 'e8bf8a356f678706b10f6ea794c3eb2465a33eea3d9541a15f526683fe77a58a', '8c3c1ca69baea093a5052ffab168f89c26c66607eb80ecd35e0a1d95772d8e7f', '8277d570d2f2eeb7d667db265b91d46483bcf60ade6d2d2b9c83fade375c0ed7', '6674015b3652387fa90902ea2e8278f24bc6238455d2ffd3e7948a610ce69c92', '910cffe0d0fb2dd85f0109fe89d36c3be6450b7dac7e46119618d61795beb0f7', 'cc67dea162a6ad995730ebf28b74761836c6a66235b24256ff02d35c20a0174a', 'd436832b3ac234d061992758e6f163cfe369026c6661f60480109d3cbacc3f50', 'c47fc30ac78b1ebf5e2a8613f2ab0e4592bbcd5744198587b95b6c56b0fde706'], 'logIndex': 3449651396, 'rootHash': '12394a841336e2a0a0b33cbcf344e71205af54a161a78058d5798de056c49a53', 'treeSize': 3449652189}, 'signedEntryTimestamp': 'MEUCIAzvB+jCv4SlFHn8/Vw1GxnDIeD9uEwJ8u5Hw3Cz4oYXAiEAkPdlOloj+zHAc5Fs/0iIpcSmqZenMX5ReffyPqxtIQA='}}}
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:56.2379202Z Transparency log entry created with index: 3571555658
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:56.3367491Z Showing hash values of files to be uploaded:
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:56.3368420Z /github/workspace/publish/novel_creator-0.1.0.tar.gz.publish.attestation
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:56.3369032Z 
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:56.3369424Z SHA256: 9d95fb41a58928a005e87a8e0c340a89182106f2e2042c78e7aabf4e1dbb4117
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:56.3370165Z MD5: 20c6156141e97c8603e85d7c8b231eb6
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:56.3371323Z BLAKE2-256: 63aa413feb30fae95c7a53404739d3306f3fe7e4a2b35d08bb9342644d75d30c
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:56.3371848Z 
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:56.3372344Z /github/workspace/publish/novel_creator-0.1.0-py3-none-any.whl.publish.attestation
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:56.3373036Z 
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:56.3373510Z SHA256: 6bed3594d135bb284b999ad47fe79e6aeb6029aa7ad9079e5c8042e5c501bb23
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:56.3374294Z MD5: 3c1c2b0d49d465d2df31e461bda947e3
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:56.3375002Z BLAKE2-256: d916ecda596c6ee1e3328b5dbff32e7aa84bdfdc1b1eafa78439e6c5c49345a8
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:56.3375722Z 
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:56.3376176Z /github/workspace/publish/novel_creator-0.1.0-py3-none-any.whl
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:56.3376943Z 
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:56.3377508Z SHA256: cc8645556f74190dee9ac7527c3e66c0bc71574913b5bbae5ddff7516b8817a8
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:56.3378350Z MD5: 7fddcefc39e1c988d9a0644a768ca3a3
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:56.3379050Z BLAKE2-256: b94f7ceb05ea4ca48354a0c005acce99a1706de1530a589e4fe7a7da9f46d964
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:56.3379575Z 
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:56.3379833Z /github/workspace/publish/novel_creator-0.1.0.tar.gz
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:56.3380191Z 
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:56.3380511Z SHA256: 8ee9116231b69dd3b3143e0d46b96f595a7b7125addee0c1e57e0660f284dc8f
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:56.3381324Z MD5: c43750519983e252970dd7e2c4b0635e
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:56.3381897Z BLAKE2-256: 2f4a12a24957c3e0f1d2585f754e1e507419e794cafd9126ff6667e99f70fb22
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:56.3382688Z 
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:56.9685641Z Uploading distributions to https://upload.pypi.org/legacy/
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:56.9727278Z [34mINFO    [0m publish/novel_creator-0.1.0-py3-none-any.whl (69.1 KB)                 
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:56.9819810Z [34mINFO    [0m publish/novel_creator-0.1.0.tar.gz (62.4 KB)                           
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:56.9824486Z [34mINFO    [0m username set by command options                                        
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:56.9828696Z [34mINFO    [0m password set by command options                                        
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:56.9838369Z [34mINFO    [0m username: __token__                                                    
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:56.9842527Z [34mINFO    [0m password: <hidden>                                                     
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:56.9844144Z Uploading novel_creator-0.1.0-py3-none-any.whl
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:58.4685499Z [34mINFO    [0m Response from https://upload.pypi.org/legacy/:                         
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:58.4687133Z          200 OK                                                                 
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:58.4696166Z [34mINFO    [0m <html>                                                                 
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:58.4697101Z           <head>                                                                
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:58.4697973Z            <title>200 OK</title>                                                
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:58.4698836Z           </head>                                                               
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:58.4699590Z           <body>                                                                
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:58.4700367Z            <h1>200 OK</h1>                                                      
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:58.4701306Z            <br/><br/>                                                           
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:58.4701994Z                                                                                 
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:58.4702718Z                                                                                 
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:58.4703413Z                                                                                 
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:58.4704131Z           </body>                                                               
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:58.4704862Z          </html>                                                                
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:58.4705584Z Uploading novel_creator-0.1.0.tar.gz
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:59.6324657Z [34mINFO    [0m Response from https://upload.pypi.org/legacy/:                         
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:59.6325293Z          200 OK                                                                 
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:59.6332380Z [34mINFO    [0m <html>                                                                 
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:59.6333213Z           <head>                                                                
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:59.6334000Z            <title>200 OK</title>                                                
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:59.6334789Z           </head>                                                               
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:59.6335352Z           <body>                                                                
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:59.6335970Z            <h1>200 OK</h1>                                                      
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:59.6336652Z            <br/><br/>                                                           
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:59.6337295Z                                                                                 
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:59.6337821Z                                                                                 
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:59.6338500Z                                                                                 
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:59.6339185Z           </body>                                                               
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:59.6339644Z          </html>                                                                
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:59.6340203Z 
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:59.6340371Z [32mView at:[0m
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:59.6340693Z https://pypi.org/project/novel-creator/0.1.0/
+publish	Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	2026-10-29T16:27:59.7504222Z ##[end-action id=__pypa_gh-action-pypi-publish.__self;outcome=success;conclusion=success;duration_ms=22750]
+publish	Post Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557	﻿2026-10-29T16:27:59.7650074Z Post job cleanup.
+publish	Post Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0	﻿2026-10-29T16:27:59.7698444Z Post job cleanup.
+publish	Post Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	﻿2026-10-29T16:27:59.8951576Z Post job cleanup.
+publish	Post Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:59.9856629Z [command]/usr/bin/git version
+publish	Post Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:59.9881932Z git version 2.56.0
+publish	Post Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:59.9942501Z Temporarily overriding HOME='/home/runner/work/_temp/b0da3f1a-e765-4be0-8595-dad070f77374' before making global git config changes
+publish	Post Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:59.9952204Z Adding repository directory to the temporary git global config as a safe directory
+publish	Post Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:27:59.9989968Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/novel-creator/novel-creator
+publish	Post Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:00.0032428Z Removing SSH command configuration
+publish	Post Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:00.0033352Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+publish	Post Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:00.0035680Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+publish	Post Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:00.0307926Z Removing HTTP extra header
+publish	Post Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:00.0308885Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+publish	Post Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:00.0343558Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+publish	Post Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:00.0593180Z Removing includeIf entries pointing to credentials config files
+publish	Post Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:00.0593921Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+publish	Post Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:00.0638347Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+publish	Complete job	﻿2026-10-29T16:28:00.1000479Z Cleaning up orphan processes

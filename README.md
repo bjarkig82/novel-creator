@@ -6,9 +6,18 @@ A home for developing an app that helps writers plan and create novels.
 
 Follow the [writer's getting-started guide](https://github.com/bjarkig82/novel-creator/blob/v0.1.0/workflows/getting-started.md) for
 installation, `novel-creator init 'My Novel'`, opening the novel in Codex,
-your first saved conversation, inspection and returning later. The release instructions target
-`novel-creator==0.1.0` on PyPI. Confirm that release is available before installing
-by name; prepublication verification uses an explicitly identified candidate wheel. The developer/older POC instructions below remain reference material.
+your first saved conversation, inspection and returning later.
+[Novel Creator 0.1.0 is published on PyPI](https://pypi.org/project/novel-creator/0.1.0/):
+
+```text
+python -m pip install novel-creator==0.1.0
+novel-creator init "My Novel"
+```
+
+The guide covers the Python/Git prerequisites and an isolated virtual environment.
+Windows PowerShell and Linux Bash production installs are verified, together with
+Windows Codex Desktop setup/save/inspection/resume. Linux Codex integration remains
+unverified. The developer/older POC instructions below remain reference material.
 
 ## Project status
 

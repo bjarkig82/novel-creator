@@ -1,5 +1,7 @@
 # Linux immutable-candidate checks
 
+Final result, 2026-10-29: source 0f287cdcc2fc22334f437906ae13e90dba11f0f8, run 40904366247/attempt 1, artifact 12911245684. [Linux job 123555495091](https://github.com/bjarkig82/novel-creator/actions/runs/40904366247/job/123555495091) completed 209 source tests, 206 passed and three Windows-only skips; exact wheel/resource/pinned save/reopen and clean dependency/install checks passed. Wheel SHA-256 cc8645556f74190dee9ac7527c3e66c0bc71574913b5bbae5ddff7516b8817a8. [Report](package-init-release-ci-linux/candidate-check.json), [log](package-init-release-ci-linux-job.txt), [production install](package-init-public-linux.md). Linux Codex remains explicitly unverified under the owner's amendment. Earlier candidate results below are superseded.
+
 Date: 2026-10-29. Repository: bjarkig82/novel-creator. Source 1d6d6632c81ca8402ff60ca05a7ec832a0dea802; run 40882235905, attempt 1; artifact 12901057415. Wheel SHA-256 ff1a617f55d863ccc173c416d3c0f12c75876b029056f112361f34cc911b678b. These are candidate checks, not a public installation or actual Codex host walkthrough.
 
 [Linux job](https://github.com/bjarkig82/novel-creator/actions/runs/40882235905/job/123477386766) passed on native GitHub-hosted Ubuntu 26.04.1, CPython 3.13.17 and Git 2.56.0; this is distinct from earlier WSL evidence. All 208 source tests completed in 41.093s, with three Windows-only skips. Exact-source wheel resources and pinned save/reopen checks passed. The source-test editable install is separate from clean wheel installation.

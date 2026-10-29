@@ -1,0 +1,268 @@
+public-checks (ubuntu-latest)	Set up job	﻿2026-10-29T16:28:04.6672163Z Current runner version: '2.338.0'
+public-checks (ubuntu-latest)	Set up job	2026-10-29T16:28:04.6694026Z ##[group]Runner Image Provisioner
+public-checks (ubuntu-latest)	Set up job	2026-10-29T16:28:04.6694712Z Hosted Compute Agent
+public-checks (ubuntu-latest)	Set up job	2026-10-29T16:28:04.6695146Z Version: 20261021.618
+public-checks (ubuntu-latest)	Set up job	2026-10-29T16:28:04.6695552Z Commit: 21505ad2541d5be6135ed84fc33697146cf75b8e
+public-checks (ubuntu-latest)	Set up job	2026-10-29T16:28:04.6695992Z Build Date: 2026-10-21T00:45:21Z
+public-checks (ubuntu-latest)	Set up job	2026-10-29T16:28:04.6696503Z Worker ID: {c2ba494a-8c93-4d84-a1b2-81b193026c9d}
+public-checks (ubuntu-latest)	Set up job	2026-10-29T16:28:04.6696959Z Region: centralus
+public-checks (ubuntu-latest)	Set up job	2026-10-29T16:28:04.6697338Z Cloud: Azure
+public-checks (ubuntu-latest)	Set up job	2026-10-29T16:28:04.6697697Z ##[endgroup]
+public-checks (ubuntu-latest)	Set up job	2026-10-29T16:28:04.6698542Z ##[group]Operating System
+public-checks (ubuntu-latest)	Set up job	2026-10-29T16:28:04.6699037Z Ubuntu
+public-checks (ubuntu-latest)	Set up job	2026-10-29T16:28:04.6699367Z 26.04.1
+public-checks (ubuntu-latest)	Set up job	2026-10-29T16:28:04.6699711Z LTS
+public-checks (ubuntu-latest)	Set up job	2026-10-29T16:28:04.6700051Z ##[endgroup]
+public-checks (ubuntu-latest)	Set up job	2026-10-29T16:28:04.6700401Z ##[group]Runner Image
+public-checks (ubuntu-latest)	Set up job	2026-10-29T16:28:04.6700839Z Image: ubuntu-26.04
+public-checks (ubuntu-latest)	Set up job	2026-10-29T16:28:04.6701405Z Version: 20261025.179.1
+public-checks (ubuntu-latest)	Set up job	2026-10-29T16:28:04.6702152Z Included Software: https://github.com/actions/runner-images/blob/ubuntu26/20261025.179/images/ubuntu/Ubuntu2604-Readme.md
+public-checks (ubuntu-latest)	Set up job	2026-10-29T16:28:04.6703380Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu26%2F20261025.179
+public-checks (ubuntu-latest)	Set up job	2026-10-29T16:28:04.6704064Z ##[endgroup]
+public-checks (ubuntu-latest)	Set up job	2026-10-29T16:28:04.6704831Z ##[group]GITHUB_TOKEN Permissions
+public-checks (ubuntu-latest)	Set up job	2026-10-29T16:28:04.6706748Z Actions: read
+public-checks (ubuntu-latest)	Set up job	2026-10-29T16:28:04.6707116Z Contents: read
+public-checks (ubuntu-latest)	Set up job	2026-10-29T16:28:04.6707545Z Metadata: read
+public-checks (ubuntu-latest)	Set up job	2026-10-29T16:28:04.6707915Z ##[endgroup]
+public-checks (ubuntu-latest)	Set up job	2026-10-29T16:28:04.6709450Z Secret source: Actions
+public-checks (ubuntu-latest)	Set up job	2026-10-29T16:28:04.6710096Z Cache mode: write
+public-checks (ubuntu-latest)	Set up job	2026-10-29T16:28:04.6710585Z Prepare workflow directory
+public-checks (ubuntu-latest)	Set up job	2026-10-29T16:28:04.7033046Z Prepare all required actions
+public-checks (ubuntu-latest)	Set up job	2026-10-29T16:28:04.7081721Z Getting action download info
+public-checks (ubuntu-latest)	Set up job	2026-10-29T16:28:04.9752164Z Download action repository 'actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a' (SHA:f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a)
+public-checks (ubuntu-latest)	Set up job	2026-10-29T16:28:05.0844669Z Download action repository 'actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0' (SHA:6d4fd22b20465ccc0f7354476588e8df7c9ca0e0)
+public-checks (ubuntu-latest)	Set up job	2026-10-29T16:28:05.5336518Z Download action repository 'actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333' (SHA:9000827ccba6bdab643e8b6fd33ac0654aef8333)
+public-checks (ubuntu-latest)	Set up job	2026-10-29T16:28:05.9230833Z Download action repository 'actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9' (SHA:cf430e030ddbb5b0abf93d22962f4752f3646cd9)
+public-checks (ubuntu-latest)	Set up job	2026-10-29T16:28:06.0962989Z Complete job name: public-checks (ubuntu-latest)
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	﻿2026-10-29T16:28:06.1793785Z ##[group]Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:06.1794853Z with:
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:06.1795413Z   ref: 0f287cdcc2fc22334f437906ae13e90dba11f0f8
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:06.1796146Z   persist-credentials: false
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:06.1796782Z   repository: bjarkig82/novel-creator
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:06.1802596Z   token: ***
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:06.1803123Z   ssh-strict: true
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:06.1803662Z   ssh-user: git
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:06.1804185Z   clean: true
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:06.1804724Z   sparse-checkout-cone-mode: true
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:06.1805408Z   fetch-depth: 1
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:06.1805913Z   fetch-tags: false
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:06.1806435Z   show-progress: true
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:06.1806961Z   lfs: false
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:06.1807475Z   submodules: false
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:06.1808012Z   set-safe-directory: true
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:06.1808619Z   allow-unsafe-pr-checkout: false
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:06.1809426Z ##[endgroup]
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:06.4299840Z Syncing repository: bjarkig82/novel-creator
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:06.4302575Z ##[group]Getting Git version info
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:06.4303514Z Working directory is '/home/runner/work/novel-creator/novel-creator'
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:06.4304806Z [command]/usr/bin/git version
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:06.4316644Z git version 2.56.0
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:06.4334918Z ##[endgroup]
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:06.4342803Z Temporarily overriding HOME='/home/runner/work/_temp/db236a36-99e3-4821-806d-a4177781142e' before making global git config changes
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:06.4345334Z Adding repository directory to the temporary git global config as a safe directory
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:06.4347957Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/novel-creator/novel-creator
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:06.4562852Z Deleting the contents of '/home/runner/work/novel-creator/novel-creator'
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:06.4564908Z ##[group]Determining repository object format
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:06.4566141Z ##[endgroup]
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:06.4567241Z ##[group]Initializing the repository
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:06.4568679Z [command]/usr/bin/git init /home/runner/work/novel-creator/novel-creator
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:06.4686747Z hint: Using 'master' as the name for the initial branch. This default branch name
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:06.4689251Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:06.4691667Z hint: to use in all of your new repositories, which will suppress this warning,
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:06.4693313Z hint: call:
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:06.4694233Z hint:
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:06.4695352Z hint: 	git config --global init.defaultBranch <name>
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:06.4696708Z hint:
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:06.4697913Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:06.4699813Z hint: 'development'. The just-created branch can be renamed via this command:
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:06.4701458Z hint:
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:06.4702770Z hint: 	git branch -m <name>
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:06.4703742Z hint:
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:06.4704961Z hint: Disable this message with "git config set advice.defaultBranchName false"
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:06.4708890Z Initialized empty Git repository in /home/runner/work/novel-creator/novel-creator/.git/
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:06.4721706Z [command]/usr/bin/git remote add origin https://github.com/bjarkig82/novel-creator
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:06.4781988Z ##[endgroup]
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:06.4783570Z ##[group]Disabling automatic garbage collection
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:06.4784955Z [command]/usr/bin/git config --local gc.auto 0
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:06.4828859Z ##[endgroup]
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:06.4830734Z ##[group]Setting up auth
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:06.4831898Z Removing SSH command configuration
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:06.4833599Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:06.4878732Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:06.5328786Z Removing HTTP extra header
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:06.5333518Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:06.5369358Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:06.5617799Z Removing includeIf entries pointing to credentials config files
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:06.5621524Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:06.5656414Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:06.5954737Z [command]/usr/bin/git config --file /home/runner/work/_temp/git-credentials-886604ac-404b-4a9e-92d5-cadc4cfc6d78.config http.https://github.com/.extraheader AUTHORIZATION: basic ***
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:06.6002066Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/novel-creator/novel-creator/.git.path /home/runner/work/_temp/git-credentials-886604ac-404b-4a9e-92d5-cadc4cfc6d78.config
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:06.6040819Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/novel-creator/novel-creator/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-886604ac-404b-4a9e-92d5-cadc4cfc6d78.config
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:06.6118915Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-886604ac-404b-4a9e-92d5-cadc4cfc6d78.config
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:06.6156788Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-886604ac-404b-4a9e-92d5-cadc4cfc6d78.config
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:06.6193693Z ##[endgroup]
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:06.6195141Z ##[group]Fetching the repository
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:06.6207873Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin 0f287cdcc2fc22334f437906ae13e90dba11f0f8
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:07.5662555Z From https://github.com/bjarkig82/novel-creator
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:07.5663732Z  * branch            0f287cdcc2fc22334f437906ae13e90dba11f0f8 -> FETCH_HEAD
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:07.5669856Z [command]/usr/bin/git rev-parse --verify --quiet 0f287cdcc2fc22334f437906ae13e90dba11f0f8^{object}
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:07.5696850Z 0f287cdcc2fc22334f437906ae13e90dba11f0f8
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:07.5701529Z ##[endgroup]
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:07.5702161Z ##[group]Determining the checkout info
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:07.5702741Z ##[endgroup]
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:07.5706119Z [command]/usr/bin/git sparse-checkout disable
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:07.5768737Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:07.5803151Z ##[group]Checking out the ref
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:07.5806820Z [command]/usr/bin/git checkout --progress --force 0f287cdcc2fc22334f437906ae13e90dba11f0f8
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:07.6505811Z Note: switching to '0f287cdcc2fc22334f437906ae13e90dba11f0f8'.
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:07.6506278Z 
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:07.6506638Z You are in 'detached HEAD' state. You can look around, make experimental
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:07.6507309Z changes and commit them, and you can discard any commits you make in this
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:07.6507916Z state without impacting any branches by switching back to a branch.
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:07.6508265Z 
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:07.6508556Z If you want to create a new branch to retain commits you create, you may
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:07.6509171Z do so (now or later) by using -c with the switch command. Example:
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:07.6509553Z 
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:07.6509776Z   git switch -c <new-branch-name>
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:07.6510032Z 
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:07.6512190Z Or undo this operation with:
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:07.6512528Z 
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:07.6512728Z   git switch -
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:07.6512976Z 
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:07.6513353Z Turn off this advice by setting config variable advice.detachedHead to false
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:07.6513806Z 
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:07.6514231Z HEAD is now at 0f287cd Name missing Git on Windows and add installed guide diagnostics
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:07.6521884Z ##[endgroup]
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:07.6569495Z [command]/usr/bin/git log -1 --format=%H
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:07.6596630Z 0f287cdcc2fc22334f437906ae13e90dba11f0f8
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:07.6605380Z ##[group]Removing auth
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:07.6605934Z Removing SSH command configuration
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:07.6608832Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:07.6640706Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:07.6883853Z Removing HTTP extra header
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:07.6885953Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:07.6919432Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:07.7157485Z Removing includeIf entries pointing to credentials config files
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:07.7159994Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:07.7185722Z includeif.gitdir:/home/runner/work/novel-creator/novel-creator/.git.path
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:07.7186498Z includeif.gitdir:/home/runner/work/novel-creator/novel-creator/.git/worktrees/*.path
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:07.7187097Z includeif.gitdir:/github/workspace/.git.path
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:07.7188138Z includeif.gitdir:/github/workspace/.git/worktrees/*.path
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:07.7198653Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/novel-creator/novel-creator/.git.path
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:07.7225247Z /home/runner/work/_temp/git-credentials-886604ac-404b-4a9e-92d5-cadc4cfc6d78.config
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:07.7304049Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/novel-creator/novel-creator/.git.path \/home\/runner\/work\/_temp\/git\-credentials\-886604ac\-404b\-4a9e\-92d5\-cadc4cfc6d78\.config
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:07.7306463Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/novel-creator/novel-creator/.git/worktrees/*.path
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:07.7307381Z /home/runner/work/_temp/git-credentials-886604ac-404b-4a9e-92d5-cadc4cfc6d78.config
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:07.7325438Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/novel-creator/novel-creator/.git/worktrees/*.path \/home\/runner\/work\/_temp\/git\-credentials\-886604ac\-404b\-4a9e\-92d5\-cadc4cfc6d78\.config
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:07.7361123Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git.path
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:07.7390134Z /github/runner_temp/git-credentials-886604ac-404b-4a9e-92d5-cadc4cfc6d78.config
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:07.7396826Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git.path \/github\/runner_temp\/git\-credentials\-886604ac\-404b\-4a9e\-92d5\-cadc4cfc6d78\.config
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:07.7432804Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git/worktrees/*.path
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:07.7458494Z /github/runner_temp/git-credentials-886604ac-404b-4a9e-92d5-cadc4cfc6d78.config
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:07.7465635Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git/worktrees/*.path \/github\/runner_temp\/git\-credentials\-886604ac\-404b\-4a9e\-92d5\-cadc4cfc6d78\.config
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:07.7501903Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:07.7764185Z Removing credentials config '/home/runner/work/_temp/git-credentials-886604ac-404b-4a9e-92d5-cadc4cfc6d78.config'
+public-checks (ubuntu-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:07.7765871Z ##[endgroup]
+public-checks (ubuntu-latest)	Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0	﻿2026-10-29T16:28:07.7988229Z ##[group]Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
+public-checks (ubuntu-latest)	Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0	2026-10-29T16:28:07.7988613Z with:
+public-checks (ubuntu-latest)	Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0	2026-10-29T16:28:07.7988845Z   python-version: 3.13
+public-checks (ubuntu-latest)	Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0	2026-10-29T16:28:07.7989081Z   check-latest: false
+public-checks (ubuntu-latest)	Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0	2026-10-29T16:28:07.7991006Z   token: ***
+public-checks (ubuntu-latest)	Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0	2026-10-29T16:28:07.7991458Z   mirror: https://raw.githubusercontent.com/actions/python-versions/main
+public-checks (ubuntu-latest)	Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0	2026-10-29T16:28:07.7991884Z   update-environment: true
+public-checks (ubuntu-latest)	Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0	2026-10-29T16:28:07.7992137Z   allow-prereleases: false
+public-checks (ubuntu-latest)	Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0	2026-10-29T16:28:07.7992540Z   freethreaded: false
+public-checks (ubuntu-latest)	Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0	2026-10-29T16:28:07.7992779Z ##[endgroup]
+public-checks (ubuntu-latest)	Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0	2026-10-29T16:28:07.8849571Z ##[group]Installed versions
+public-checks (ubuntu-latest)	Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0	2026-10-29T16:28:07.8929327Z Successfully set up CPython (3.13.17)
+public-checks (ubuntu-latest)	Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0	2026-10-29T16:28:07.8930255Z ##[endgroup]
+public-checks (ubuntu-latest)	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	﻿2026-10-29T16:28:07.9132367Z ##[group]Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333
+public-checks (ubuntu-latest)	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	2026-10-29T16:28:07.9133121Z with:
+public-checks (ubuntu-latest)	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	2026-10-29T16:28:07.9133448Z   artifact-ids: 12911245684
+public-checks (ubuntu-latest)	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	2026-10-29T16:28:07.9133811Z   run-id: 40904366247
+public-checks (ubuntu-latest)	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	2026-10-29T16:28:07.9136953Z   github-token: ***
+public-checks (ubuntu-latest)	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	2026-10-29T16:28:07.9137293Z   path: candidate
+public-checks (ubuntu-latest)	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	2026-10-29T16:28:07.9137641Z   merge-multiple: false
+public-checks (ubuntu-latest)	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	2026-10-29T16:28:07.9138005Z   repository: bjarkig82/novel-creator
+public-checks (ubuntu-latest)	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	2026-10-29T16:28:07.9138395Z   skip-decompress: false
+public-checks (ubuntu-latest)	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	2026-10-29T16:28:07.9138747Z   digest-mismatch: error
+public-checks (ubuntu-latest)	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	2026-10-29T16:28:07.9139083Z env:
+public-checks (ubuntu-latest)	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	2026-10-29T16:28:07.9139420Z   pythonLocation: /opt/hostedtoolcache/Python/3.13.17/x64
+public-checks (ubuntu-latest)	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	2026-10-29T16:28:07.9140020Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.13.17/x64/lib/pkgconfig
+public-checks (ubuntu-latest)	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	2026-10-29T16:28:07.9140695Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.17/x64
+public-checks (ubuntu-latest)	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	2026-10-29T16:28:07.9141470Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.17/x64
+public-checks (ubuntu-latest)	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	2026-10-29T16:28:07.9142266Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.17/x64
+public-checks (ubuntu-latest)	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	2026-10-29T16:28:07.9142675Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.13.17/x64/lib
+public-checks (ubuntu-latest)	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	2026-10-29T16:28:07.9143002Z ##[endgroup]
+public-checks (ubuntu-latest)	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	2026-10-29T16:28:08.0206469Z Downloading artifacts by ID
+public-checks (ubuntu-latest)	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	2026-10-29T16:28:08.0209155Z Fetching artifact list for workflow run 40904366247 in repository bjarkig82/novel-creator
+public-checks (ubuntu-latest)	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	2026-10-29T16:28:08.3468085Z Found 3 artifact(s)
+public-checks (ubuntu-latest)	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	2026-10-29T16:28:08.3470345Z Preparing to download the following artifacts:
+public-checks (ubuntu-latest)	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	2026-10-29T16:28:08.3471703Z - candidate-40904366247-1 (ID: 12911245684, Size: 131395, Expected Digest: sha256:d8013b1d62a5e10d547d3df7ab9432a2bd71b79b657a20b77ac19511ed239679)
+public-checks (ubuntu-latest)	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	2026-10-29T16:28:08.3479290Z Downloading artifact '12911245684' from 'bjarkig82/novel-creator'
+public-checks (ubuntu-latest)	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	2026-10-29T16:28:08.5951774Z Redirecting to blob download url: https://productionresultssa12.blob.core.windows.net/actions-results/fd121744-760d-4819-9de1-277ff64c3100/workflow-job-run-6f87d333-2c56-5316-857f-55a7c12b7052/artifacts/560119b0670f870de868b02971ef22db9137eb389f802d74b3abc0237d8e93b9.zip
+public-checks (ubuntu-latest)	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	2026-10-29T16:28:08.5953388Z Starting download of artifact to: /home/runner/work/novel-creator/novel-creator/candidate
+public-checks (ubuntu-latest)	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	2026-10-29T16:28:08.7858866Z (node:2262) [DEP0005] DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or Buffer.from() methods instead.
+public-checks (ubuntu-latest)	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	2026-10-29T16:28:08.7860207Z (Use `node --trace-deprecation ...` to show where the warning was created)
+public-checks (ubuntu-latest)	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	2026-10-29T16:28:08.8944941Z SHA256 digest of downloaded artifact is d8013b1d62a5e10d547d3df7ab9432a2bd71b79b657a20b77ac19511ed239679
+public-checks (ubuntu-latest)	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	2026-10-29T16:28:08.8945749Z Artifact download completed successfully.
+public-checks (ubuntu-latest)	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	2026-10-29T16:28:08.8946054Z Total of 1 artifact(s) downloaded
+public-checks (ubuntu-latest)	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	2026-10-29T16:28:08.8949002Z Download artifact has finished successfully
+public-checks (ubuntu-latest)	Check named production install and selected archive hash	﻿2026-10-29T16:28:08.9079955Z ##[group]Run package=$(python -c "import json; d=json.load(open('candidate/manifest.json')); print(d['distribution']+'=='+d['version'])")
+public-checks (ubuntu-latest)	Check named production install and selected archive hash	2026-10-29T16:28:08.9080609Z [36;1mpackage=$(python -c "import json; d=json.load(open('candidate/manifest.json')); print(d['distribution']+'=='+d['version'])")[0m
+public-checks (ubuntu-latest)	Check named production install and selected archive hash	2026-10-29T16:28:08.9081099Z [36;1mpython tests/verify_package_install.py --package "$package" --manifest candidate/manifest.json > public-check.json[0m
+public-checks (ubuntu-latest)	Check named production install and selected archive hash	2026-10-29T16:28:08.9123613Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+public-checks (ubuntu-latest)	Check named production install and selected archive hash	2026-10-29T16:28:08.9123865Z env:
+public-checks (ubuntu-latest)	Check named production install and selected archive hash	2026-10-29T16:28:08.9124041Z   pythonLocation: /opt/hostedtoolcache/Python/3.13.17/x64
+public-checks (ubuntu-latest)	Check named production install and selected archive hash	2026-10-29T16:28:08.9124305Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.13.17/x64/lib/pkgconfig
+public-checks (ubuntu-latest)	Check named production install and selected archive hash	2026-10-29T16:28:08.9124554Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.17/x64
+public-checks (ubuntu-latest)	Check named production install and selected archive hash	2026-10-29T16:28:08.9124783Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.17/x64
+public-checks (ubuntu-latest)	Check named production install and selected archive hash	2026-10-29T16:28:08.9125007Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.17/x64
+public-checks (ubuntu-latest)	Check named production install and selected archive hash	2026-10-29T16:28:08.9125295Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.13.17/x64/lib
+public-checks (ubuntu-latest)	Check named production install and selected archive hash	2026-10-29T16:28:08.9125488Z ##[endgroup]
+public-checks (ubuntu-latest)	Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9	﻿2026-10-29T16:28:14.8445697Z ##[group]Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+public-checks (ubuntu-latest)	Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9	2026-10-29T16:28:14.8445984Z with:
+public-checks (ubuntu-latest)	Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9	2026-10-29T16:28:14.8446135Z   name: public-check-ubuntu-latest-40911698155
+public-checks (ubuntu-latest)	Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9	2026-10-29T16:28:14.8446322Z   path: public-check.json
+public-checks (ubuntu-latest)	Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9	2026-10-29T16:28:14.8446470Z   if-no-files-found: error
+public-checks (ubuntu-latest)	Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9	2026-10-29T16:28:14.8446647Z   compression-level: 6
+public-checks (ubuntu-latest)	Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9	2026-10-29T16:28:14.8446817Z   overwrite: false
+public-checks (ubuntu-latest)	Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9	2026-10-29T16:28:14.8446949Z   include-hidden-files: false
+public-checks (ubuntu-latest)	Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9	2026-10-29T16:28:14.8447095Z   archive: true
+public-checks (ubuntu-latest)	Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9	2026-10-29T16:28:14.8447219Z env:
+public-checks (ubuntu-latest)	Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9	2026-10-29T16:28:14.8447378Z   pythonLocation: /opt/hostedtoolcache/Python/3.13.17/x64
+public-checks (ubuntu-latest)	Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9	2026-10-29T16:28:14.8447631Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.13.17/x64/lib/pkgconfig
+public-checks (ubuntu-latest)	Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9	2026-10-29T16:28:14.8447875Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.17/x64
+public-checks (ubuntu-latest)	Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9	2026-10-29T16:28:14.8448102Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.17/x64
+public-checks (ubuntu-latest)	Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9	2026-10-29T16:28:14.8448323Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.17/x64
+public-checks (ubuntu-latest)	Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9	2026-10-29T16:28:14.8448771Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.13.17/x64/lib
+public-checks (ubuntu-latest)	Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9	2026-10-29T16:28:14.8449024Z ##[endgroup]
+public-checks (ubuntu-latest)	Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9	2026-10-29T16:28:14.9562012Z With the provided path, there will be 1 file uploaded
+public-checks (ubuntu-latest)	Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9	2026-10-29T16:28:14.9562687Z Artifact name is valid!
+public-checks (ubuntu-latest)	Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9	2026-10-29T16:28:14.9562951Z Root directory input is valid!
+public-checks (ubuntu-latest)	Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9	2026-10-29T16:28:15.2260581Z Uploading artifact: public-check-ubuntu-latest-40911698155.zip
+public-checks (ubuntu-latest)	Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9	2026-10-29T16:28:15.2289350Z Beginning upload of artifact content to blob storage
+public-checks (ubuntu-latest)	Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9	2026-10-29T16:28:15.4054160Z Uploaded bytes 861
+public-checks (ubuntu-latest)	Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9	2026-10-29T16:28:15.4474226Z Finished uploading artifact content to blob storage!
+public-checks (ubuntu-latest)	Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9	2026-10-29T16:28:15.4475104Z SHA256 digest of uploaded artifact is e4d3ae486616a06afba3c87ebd539c8efceace67a91eb76a31ae223eece2da7f
+public-checks (ubuntu-latest)	Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9	2026-10-29T16:28:15.4475754Z Finalizing artifact upload
+public-checks (ubuntu-latest)	Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9	2026-10-29T16:28:15.9547191Z Artifact public-check-ubuntu-latest-40911698155 successfully finalized. Artifact ID 12913392882
+public-checks (ubuntu-latest)	Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9	2026-10-29T16:28:15.9548020Z Artifact public-check-ubuntu-latest-40911698155 has been successfully uploaded! Final size is 861 bytes. Artifact ID is 12913392882
+public-checks (ubuntu-latest)	Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9	2026-10-29T16:28:15.9551070Z Artifact download URL: https://github.com/bjarkig82/novel-creator/actions/runs/40911698155/artifacts/12913392882
+public-checks (ubuntu-latest)	Post Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0	﻿2026-10-29T16:28:15.9724228Z Post job cleanup.
+public-checks (ubuntu-latest)	Post Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	﻿2026-10-29T16:28:16.0756148Z Post job cleanup.
+public-checks (ubuntu-latest)	Post Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:16.1433062Z [command]/usr/bin/git version
+public-checks (ubuntu-latest)	Post Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:16.1486927Z git version 2.56.0
+public-checks (ubuntu-latest)	Post Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:16.1532186Z Temporarily overriding HOME='/home/runner/work/_temp/9159742b-9195-427e-8017-fa1091420e27' before making global git config changes
+public-checks (ubuntu-latest)	Post Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:16.1532929Z Adding repository directory to the temporary git global config as a safe directory
+public-checks (ubuntu-latest)	Post Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:16.1533559Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/novel-creator/novel-creator
+public-checks (ubuntu-latest)	Post Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:16.1562646Z Removing SSH command configuration
+public-checks (ubuntu-latest)	Post Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:16.1569870Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+public-checks (ubuntu-latest)	Post Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:16.1613125Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+public-checks (ubuntu-latest)	Post Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:16.1928386Z Removing HTTP extra header
+public-checks (ubuntu-latest)	Post Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:16.1929049Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+public-checks (ubuntu-latest)	Post Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:16.1970337Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+public-checks (ubuntu-latest)	Post Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:16.2221664Z Removing includeIf entries pointing to credentials config files
+public-checks (ubuntu-latest)	Post Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:16.2227572Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+public-checks (ubuntu-latest)	Post Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:16.2263121Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+public-checks (ubuntu-latest)	Complete job	﻿2026-10-29T16:28:16.2650969Z Cleaning up orphan processes

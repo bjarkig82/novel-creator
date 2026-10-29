@@ -1,8 +1,43 @@
 # Package initialization readiness
 
-Date: 2026-10-29. **Final candidate verified on Windows and Linux; public release remains incomplete.**
+Date: 2026-10-29. **Novel Creator 0.1.0 is published and verified; all 48 tasks are complete under the owner-amended host scope.**
 
-Current source is `0f287cdcc2fc22334f437906ae13e90dba11f0f8`, [run 40904366247](https://github.com/bjarkig82/novel-creator/actions/runs/40904366247), attempt 1, artifact 12911245684. Windows passed 209 tests; Linux passed 206 with three Windows-only skips. Both literal shell guides and all six troubleshooting categories passed. The owner amended this release to Windows Codex plus Linux CLI; Linux Codex integration remains explicitly unverified. Actual final-candidate Windows setup/save/exact-display, inspection and fresh-context resume all pass. 39/48 tasks are complete. Publication requires separate release approval. See the [final verification record](package-init-release-final.md) and [manifest](package-init-release-manifest.json).
+Released source is `0f287cdcc2fc22334f437906ae13e90dba11f0f8`, [candidate run 40904366247](https://github.com/bjarkig82/novel-creator/actions/runs/40904366247), attempt 1, artifact 12911245684. Windows passed 209 tests; Linux passed 206 with three Windows-only skips. Both literal shell guides and all six troubleshooting categories passed. Actual final-candidate Windows Codex setup/save/exact-display, inspection and fresh-context resume pass. The maintainer explicitly authorized publication and protected deployment approval; [publication run 40911698155](https://github.com/bjarkig82/novel-creator/actions/runs/40911698155) succeeded, including both clean production named installs and actual pip-selected archive/hash checks. [PyPI release](https://pypi.org/project/novel-creator/0.1.0/), [final verification](package-init-release-final.md), [manifest](package-init-release-manifest.json), [Windows public evidence](package-init-public-windows.md), [Linux public evidence](package-init-public-linux.md).
+
+Linux Codex integration remains explicitly unverified under the owner's Windows Codex plus Linux CLI amendment. Human/novice usability and literary quality are not claimed. Licensing remains intentionally unlicensed. Windows Codex evaluation used explicit novel/interpreter paths and scoped normal-access recovery after the sandbox hard-link restriction; those limits are preserved in [host evidence](package-init-host-guide.md).
+
+## Final requirement reconciliation
+
+| Requirement | Confirmed evidence and scope |
+| --- | --- |
+| FR-001 | Production 0.1.0 by-name installs on Windows and Linux, dependencies isolated, actual selected wheel and both public file hashes equal the approved candidate. Public documentation URLs resolve to immutable release source. |
+| FR-002, FR-003 | Both production matrices pass name-only initialization, default child destination, spaces and explicit destination. |
+| FR-004 | Independent repositories and pinned resources validated by candidate wheel/save/reopen and both public matrices; actual Windows setup/resume uses the installed runtime outside the checkout. |
+| FR-005, FR-006 | Default/explicit title and en/is/Unicode settings, request provenance and unknown creative choices pass both production matrices; setup/resume preserve unknown choices and empty canon. |
+| FR-007 | Installed initialization succeeds without AI credentials, questions or provider calls; conversational setup is a distinct saved exchange. |
+| FR-008 | Help/defaults/options coverage and source contracts pass; five invalid-input cases, including explicitly empty destination, fail safely in both production matrices. |
+| FR-009 | Ready/resource and pinned validation checks pass; actual setup/recovery display occurs only after confirmed save and receipt. |
+| FR-010 | Recognized-novel identity/settings/history preservation and replacement-settings refusal pass regression/installed checks; historical guide fallback preserves the old bundle. |
+| FR-011 | Occupied/nested/alias safety and unrelated-file/history preservation pass source/installed regressions; both shell troubleshooting routes preserve occupied destinations. No global Git identity is invented or remote push performed by the product. |
+| FR-012 | Missing prerequisites/identity/permission and interrupted initialization pass both six-category checks; actual Windows unchanged-payload recoveries preserve checkpoint, input/artifact and exchange identity. Permission failure injection is explicitly labeled. |
+| FR-013 | Legacy explicit-path/brief provenance and refusal/recovery tests pass in final source suites and installed wheel checks. |
+| FR-014 | Literal PowerShell/Bash guides pass outside the checkout with normal venv/pip prerequisites; production acquisition is independently confirmed by both public jobs. |
+| FR-015 | README/help/completion routes and exact guide hash pass candidate/public checks; Windows actual setup/first-save demonstrates the documented entry workflow. Older-novel fallback is separately verified. |
+| FR-016 | Both shell guides, no-story-idea Windows setup, separate optional examples, defaults and quoting pass; no creative answer is invented. |
+| FR-017 | Actual installed Windows context/project/session/question inspection and fresh-context resume preserve the guided session and unknown creative state. |
+| FR-018 | All six troubleshooting categories pass on both platforms, with diagnostic fixture limits disclosed; guide support limits/linked quickstarts and recovery references are reconciled. |
+| SC-001 | Both production by-name installations and name-only initialization pass; Windows Codex entry is actual host evidence, Linux is CLI evidence under the explicit amendment. |
+| SC-002 | Candidate/public settings matrices preserve supplied title/language/Unicode and documented defaults; all unspecified creative fields remain unknown. |
+| SC-003 | Existing/occupied/nested/alias/invalid regressions and production refusals pass without modifying prior data; historical-novel before/after evidence is retained. |
+| SC-004 | Installed interruption/retry matrix and actual Windows recoveries confirm original IDs/payload and one committed exchange; readiness/cleanup failure guards pass. |
+| SC-005 | Both CLI guide paths and actual Windows installed setup pass under the amended platform scope. |
+| SC-006 | Existing explicit-path/brief compatibility, provenance/refusal/recovery cases pass final regression and wheel verification. |
+| SC-007 | Both shell guides and Windows actual first-save/inspection/fresh-context resume pass; Linux host is explicitly excluded by owner amendment and remains unverified. |
+| SC-008 | README/help/completion discovery, optional examples and six troubleshooting categories pass; immutable guide identity matches both actual production installs. |
+
+Constitutional boundaries: I/XI are met by the incremental CLI/package slice and documented conventional Python/Git architecture; II/VI/VIII by independent portable repositories, pinned modular resources and separation from providers/dashboard; III/IV/V by exact sourced input, unknown choices, no automatic canon and guided session continuity; VII by preserved English/Icelandic settings and Unicode; IX by final source, installed, host and actual-public evidence with explicit limits. Principle X introduces no dashboard acceptance obligation for this CLI-only feature; no responsive/accessibility UI claim is inferred. No source/parser/schema pass is treated as literary, semantic or human approval. Retired latency/novice gates were not revived.
+
+## Historical checkpoints
 
 The following earlier account/candidate/local-only descriptions are retained as historical evidence and are superseded by the current record above.
 The maintainer authorized commit/push/workflow availability and candidate execution. Corrected source `1d6d6632c81ca8402ff60ca05a7ec832a0dea802` passed [candidate run 40882235905](https://github.com/bjarkig82/novel-creator/actions/runs/40882235905), attempt 1, artifact 12901057415. Windows: 208 tests passed; Linux: 208 total with three Windows-only skips. Both wheel identity/pinned save/reopen and clean dependency/install matrices passed. Separate source-archive rebuild/clean install and the corrected Windows guide command slice passed. [Candidate record](package-init-candidate.md).

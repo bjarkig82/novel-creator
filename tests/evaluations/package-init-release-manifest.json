@@ -1,5 +1,5 @@
 {
-  "status": "final candidate, guides and Windows host verified; release authorization pending",
+  "status": "published and verified on Windows and Linux; all 48 tasks complete under owner-amended host scope",
   "distribution": "novel-creator",
   "version": "0.1.0",
   "version_provisional": false,
@@ -24,9 +24,9 @@
     "workflows/getting-started.md": "d61901b60a59447dc6805dcb874899d83ecc23f9cba2ed58860b0fe48d180ff7",
     "tests/package_release.py": "b87e17dd59e34f1ffe72facba01a51bb88093fc00737209e80c284679862c31a"
   },
-  "public_name_control_verified": false,
+  "public_name_control_verified": true,
   "host_walkthrough_verified": true,
-  "public_install_verified": false,
+  "public_install_verified": true,
   "previous_local_files": {
     "novel_creator-0.1.0-py3-none-any.whl": "03d4701e30124af11cab53eb5f58d82a45e33fa672d491af9b0ac12e2ede1fdf",
     "novel_creator-0.1.0.tar.gz": "51fc0a57d04253b44dbe10e04cc4d2307e0235d51a017373d37b37f9e1f2a7ef"
@@ -87,7 +87,7 @@
   },
   "candidate_conclusion": "success",
   "pypi_account_username": "bjarkig82",
-  "pypi_account_evidence": "maintainer reported account creation",
+  "pypi_account_evidence": "authenticated pending publisher setup followed by explicitly authorized successful first-project trusted publication",
   "pypi_authenticated_access_verified": true,
   "pypi_trusted_publisher_configured": true,
   "github_pypi_environment_configured": true,
@@ -99,7 +99,7 @@
     "prevent_self_review": false,
     "verified": true
   },
-  "pypi_publisher_status": "pending publisher registered and visibly verified; no release published",
+  "pypi_publisher_status": "first-project publication succeeded; production 0.1.0 and exact artifact hashes verified",
   "pypi_pending_publisher": {
     "project": "novel-creator",
     "owner": "bjarkig82",
@@ -107,7 +107,8 @@
     "workflow": "package-release.yml",
     "environment": "pypi",
     "verified": true,
-    "reserves_name": false
+    "reserves_name": false,
+    "resolution": "successful first-project creation through configured trusted publisher"
   },
   "candidate_history": [
     {
@@ -130,5 +131,58 @@
     "src/novel_creator/storage.py": "1b7e1fff05e940f66512d7060c353efd3daf693ce329b99499567896f767c8e5",
     "workflows/getting-started.md": "d61901b60a59447dc6805dcb874899d83ecc23f9cba2ed58860b0fe48d180ff7",
     "adapters/codex/AGENTS.production.md": "0cbc0398ace46b98806caae63b12a01d7967ecb37bec5f3abb1e16bc064a2484"
+  },
+  "publication": {
+    "public_check_artifacts": {
+      "linux": "12913392882",
+      "windows": "12915140203"
+    },
+    "publish_job": "123581087207",
+    "checked_out_source_commit": "0f287cdcc2fc22334f437906ae13e90dba11f0f8",
+    "url": "https://github.com/bjarkig82/novel-creator/actions/runs/40911698155",
+    "public_platforms": {
+      "windows": {
+        "passed": true,
+        "artifact_encoding": "cp1252",
+        "report_sha256": "3dbf9f509e6438319a60b93f5d4857123a576ce17c85e8e83d8f80ed3907d08d",
+        "installed_product": {
+          "name": "novel-creator",
+          "version": "0.1.0",
+          "filename": "novel_creator-0.1.0-py3-none-any.whl",
+          "sha256": "cc8645556f74190dee9ac7527c3e66c0bc71574913b5bbae5ddff7516b8817a8",
+          "url": "https://files.pythonhosted.org/packages/b9/4f/7ceb05ea4ca48354a0c005acce99a1706de1530a589e4fe7a7da9f46d964/novel_creator-0.1.0-py3-none-any.whl"
+        },
+        "declared_dependencies_resolved": true,
+        "dependency_inheritance": false,
+        "defaults_options_provenance_and_five_refusals": true
+      },
+      "linux": {
+        "passed": true,
+        "artifact_encoding": "utf-8",
+        "report_sha256": "1d4c1bfca3f3bc74d8f01efc0cf4f32de31bb332cd3ed300410a34589c30097d",
+        "installed_product": {
+          "name": "novel-creator",
+          "version": "0.1.0",
+          "filename": "novel_creator-0.1.0-py3-none-any.whl",
+          "sha256": "cc8645556f74190dee9ac7527c3e66c0bc71574913b5bbae5ddff7516b8817a8",
+          "url": "https://files.pythonhosted.org/packages/b9/4f/7ceb05ea4ca48354a0c005acce99a1706de1530a589e4fe7a7da9f46d964/novel_creator-0.1.0-py3-none-any.whl"
+        },
+        "declared_dependencies_resolved": true,
+        "dependency_inheritance": false,
+        "defaults_options_provenance_and_five_refusals": true
+      }
+    },
+    "environment_id": "25700067917",
+    "conclusion": "success",
+    "project_url": "https://pypi.org/project/novel-creator/0.1.0/",
+    "run_attempt": "1",
+    "explicit_release_authorization": true,
+    "stored_bytes_without_rebuild": true,
+    "run_id": "40911698155",
+    "linux_job": "123581592338",
+    "deployment_id": "7418034661",
+    "workflow_ref": "main",
+    "windows_job": "123581592361",
+    "workflow_head_sha": "9bb9bf5196ada1d326bcd2c437a9f921ecf92699"
   }
 }

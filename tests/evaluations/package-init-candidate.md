@@ -1,6 +1,6 @@
 # Remote candidate verification
 
-Date: 2026-10-29. Distribution/version: novel-creator 0.1.0, provisional pending name control and release metadata. Candidate execution is authorized; publication is not authorized by that decision. The maintainer now reports PyPI account bjarkig82; pending trusted publishing is configured, the source repository is now public, and final name control/public release remain unverified.
+Date: 2026-10-29. Final distribution/version: novel-creator 0.1.0, published and verified under separate explicit release authorization. Final source 0f287cdcc2fc22334f437906ae13e90dba11f0f8 passed run 40904366247/attempt 1, artifact 12911245684. Wheel SHA-256 cc8645556f74190dee9ac7527c3e66c0bc71574913b5bbae5ddff7516b8817a8; source archive SHA-256 8ee9116231b69dd3b3143e0d46b96f595a7b7125addee0c1e57e0660f284dc8f. Both candidate platforms, literal guides, Windows Codex host and authorized publication/public-install checks pass. [Final verification](package-init-release-final.md), [manifest](package-init-release-manifest.json). Earlier candidates below are retained as superseded evidence.
 
 ## Superseded first candidate
 
