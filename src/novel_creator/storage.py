@@ -89,8 +89,11 @@ def git(root, *args, env=None, input=None, check=True):
     environment.update({'GIT_TERMINAL_PROMPT': '0', 'GIT_CONFIG_NOSYSTEM': '1'})
     if env:
         environment.update(env)
-    result = subprocess.run(['git', '-C', str(root), *args], env=environment,
-                            input=input, capture_output=True)
+    try:
+        result = subprocess.run(['git', '-C', str(root), *args], env=environment,
+                                input=input, capture_output=True)
+    except FileNotFoundError as error:
+        raise ToolError(5, 'Git executable is unavailable; install Git >=2.39 and check PATH') from error
     if check and result.returncode:
         # Avoid leaking story contents or config via Git diagnostics.
         raise ToolError(5, 'Local Git operation failed')

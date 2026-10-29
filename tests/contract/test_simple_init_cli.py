@@ -9,6 +9,16 @@ from novel_creator.cli import main
 
 
 class SimpleInitCLI(unittest.TestCase):
+    def test_missing_git_without_error_filename_names_the_prerequisite(self):
+        from novel_creator import storage
+        from novel_creator.cli import ToolError
+        with patch('novel_creator.storage.subprocess.run', side_effect=FileNotFoundError(2, 'Not found')):
+            with self.assertRaises(ToolError) as failed:
+                storage.git(Path.cwd(), '--version')
+        self.assertEqual(failed.exception.code, 5)
+        self.assertIn('Git', str(failed.exception))
+        self.assertIn('PATH', str(failed.exception))
+
     def test_explicit_empty_destination_never_falls_back_to_name(self):
         with patch('novel_creator.install.initialize', return_value={'ok': True}) as initialize:
             code, out, _ = self.call('init', 'Uncreated Novel', '--path', '', '--json')
