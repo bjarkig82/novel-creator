@@ -1,0 +1,50 @@
+"""Full-guard experiment: all metadata remains before full-byte hashes."""
+import hashlib,inspect,json,statistics,sys,time
+from pathlib import Path
+sys.path.insert(0,str(Path.cwd()))
+from novel_creator import records,storage
+from novel_creator.context import read
+from tests.helpers import repository,git
+from tests.performance import benchmark_records as benchmark
+source=inspect.getsource(storage.check_managed)
+start=source.index('        payload = ')
+end=source.index('        if any(current != oid',start)
+replacement='''        def hash_chunk(chunk):
+            payload = ''.join(json.dumps(path, ensure_ascii=False) + '\\n' for path, _ in chunk).encode()
+            values = git(root, 'hash-object', '--no-filters', '--stdin-paths', input=payload,
+                         env={'GIT_WORK_TREE': str(root)}).decode().splitlines()
+            if len(values) != len(chunk):
+                raise ToolError(5, 'Managed file hashing returned an incomplete result')
+            return values
+        size = max(1, (len(managed) + _workers - 1) // _workers)
+        # The complete original metadata loop precedes process submission.
+        with ThreadPoolExecutor(max_workers=_workers) as executor:
+            futures = [executor.submit(hash_chunk, managed[offset:offset + size])
+                       for offset in range(0, len(managed), size)]
+            hashes = [oid for future in futures for oid in future.result()]
+'''
+source=source[:start]+replacement+source[end:]
+source=source.replace('def check_managed(root, commit, paths, *, entries=None):','def parallel_hash_guard(root, commit, paths, *, entries=None, _workers=2):',1)
+namespace=dict(storage.__dict__);exec(compile(source,'<parallel-hash-experiment>','exec'),namespace)
+parallel=namespace['parallel_hash_guard']
+with benchmark.benchmark_key(True),repository() as root:
+    novel_id=records.loads((root/'.novel-creator/manifest.json').read_bytes())['novel_id']
+    history,fixture=benchmark.generate(novel_id)
+    for exchange in history:
+        target=root/storage.bundle_path(exchange);target.parent.mkdir(parents=True,exist_ok=True);target.write_bytes(benchmark.serialized(exchange))
+    git(root,'add','--','story/exchanges');git(root,'commit','-m','Disposable parallel content hashing fixture');git(root,'repack','-ad')
+    del history,exchange
+    read(root);fixture['fully_validated']=True
+    frozen=hashlib.sha256(Path(storage.__file__).read_bytes()).hexdigest()
+    print(json.dumps({'fixture':fixture,'source_sha256':frozen,'experiment_sha256':hashlib.sha256(source.encode()).hexdigest(),'method':'Balanced complete guard timings, four samples/configuration, all metadata before hashing, same complete root-bound byte checks; no source change, not p95'}),flush=True)
+    commit=storage.head(root);entries=storage.committed_entries(root,commit)
+    samples={0:[],2:[],4:[]}
+    for workers in [0,2,4,4,2,0]*2:
+        start=time.perf_counter()
+        result=parallel(root,commit,[],entries=entries,_workers=workers) if workers else storage.check_managed(root,commit,[],entries=entries)
+        seconds=time.perf_counter()-start
+        assert result==entries
+        samples[workers].append(seconds)
+        print(json.dumps({'hash_workers':workers,'guard_seconds':seconds}),flush=True)
+    print(json.dumps({'medians':{str(k):statistics.median(v) for k,v in samples.items()}}),flush=True)
+    assert frozen==hashlib.sha256(Path(storage.__file__).read_bytes()).hexdigest()

@@ -1,0 +1,10 @@
+{"fixture": {"sessions": 100, "exchanges": 5000, "active_assertions": 10000, "json_bytes": 26215716, "synthetic": true, "fully_validated": true}, "source_sha256": "57ba0d7f4dbb3c3ac68a70a74559236c36dadfad07713550f7970369f739a59b", "method": "Alternating complete saves; same full reader, complete first guard in worker, unchanged second guard; not p95"}
+{"overlap": false, "seconds": 3.932579299900681, "sequence": 5001}
+{"overlap": true, "seconds": 3.191796200000681, "sequence": 5002}
+{"overlap": true, "seconds": 2.612206400022842, "sequence": 5003}
+{"overlap": false, "seconds": 3.137304099975154, "sequence": 5004}
+{"overlap": false, "seconds": 3.3074543999973685, "sequence": 5005}
+{"overlap": true, "seconds": 2.7930777000728995, "sequence": 5006}
+{"overlap": true, "seconds": 2.814860300044529, "sequence": 5007}
+{"overlap": false, "seconds": 3.218548500095494, "sequence": 5008}
+{"save_medians": {"False": 3.2630014500464313, "True": 2.8039690000587143}}

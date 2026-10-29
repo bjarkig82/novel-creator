@@ -1,0 +1,137 @@
+import hashlib,json,math,re
+from pathlib import Path
+base=Path('tests/evaluations')
+def load(n):return json.loads((base/n).read_text(encoding='utf-8'))
+def write(p,s):p.write_text(s,encoding='utf-8',newline='\n')
+b=load('windows-native-bundle-mode-default-30-20261022.json')
+v=load('windows-native-bundle-mode-benchmark-verification-20261022.json')
+assert v['unchanged']
+for p,sha in v['before'].items():assert hashlib.sha256(Path(p).read_bytes()).hexdigest()==sha,p
+counts={}
+for platform in ['windows','linux']:
+ c=load(f'{platform}-native-bundle-mode-verification-20261022.json')
+ assert c['unchanged'] and c['before']==v['before']
+ assert (c['commands'][0]['exit'] if platform=='windows' else c['exit'])==0
+ log=(base/f'{platform}-native-bundle-mode-full-tests-20261022.txt').read_text(encoding='utf-8')
+ m=re.search(r'Ran 150 tests in ([0-9.]+)s',log);assert m
+ ok=re.search(r'\nOK(?: \(skipped=(\d+)\))?\s*$',log);assert ok
+ counts[platform]={'seconds':float(m[1]),'skipped':int(ok[1] or 0)}
+assert counts['linux']['skipped']==0
+assert b['fixture']['sessions']==100 and b['fixture']['exchanges']==5000 and b['fixture']['active_assertions']==10000
+assert b['fixture']['json_bytes']>=25*1024*1024 and b['fixture']['fully_validated']
+assert b['cold_read']['status']=='ok'
+for k in ['read','save']:
+ assert b[k]['completed_runs']==30 and b[k]['failure'] is None
+ assert b[k]['p95_seconds']==sorted(b[k]['samples_seconds'])[math.ceil(30*.95)-1]
+assert not b['save']['passes'],'Reassess T149 completion if save passes'
+rows=[json.loads(x) for x in (base/'windows-native-bundle-mode-production-comparison-20261022.txt').read_text(encoding='utf-8').splitlines() if x.startswith('{')]
+assert len(rows)==10 and rows[0]['source_sha256']==v['before']['src/novel_creator/storage.py'] and rows[-1]['source_unchanged']
+for r in rows[1:-1]:
+ assert r['git_calls']==27 and not r['cleanup_required'] and r['complete_hash_files']==2*r['sequence']
+ assert r['native_leaf_queries']==(2*(r['sequence']-1) if r['native'] else 0)
+med=rows[-1]['medians'];gain=(1-med['1']/med['0'])*100
+cold=b['cold_read']['seconds'];rd=b['read']['p95_seconds'];sv=b['save']['p95_seconds']
+safety="""Windows ordinary canonical bundle leaves use fresh GetFileAttributesW queries.
+Only NORMAL alone or nonzero combinations of ARCHIVE/READONLY/HIDDEN/SYSTEM
+classify regular files directly. Invalid, unknown, special, directory, reparse,
+unavailable and exceptional results use the original lstat. Parents, other
+managed paths, small bootstrap/write paths and non-Windows behavior retain
+original checks. Only the API callable is cached; filesystem metadata is fresh.
+Both complete live-index/path/type/byte guards, metadata-before-hash ordering,
+root binding, full historical blob/digest/schema/authority/hold validation,
+private candidate verification, worker joins under the lock, original error
+ordering, fresh branch/CAS, receipts and recovery remain. No check is skipped.
+"""
+summary=f"""Windows: 150 tests in {counts['windows']['seconds']:.3f}s, {150-counts['windows']['skipped']} passed,
+{counts['windows']['skipped']} explicit real-symlink privilege skips, exit 0.
+Linux/WSL: all 150 tests pass in {counts['linux']['seconds']:.3f}s, zero skips,
+exit 0. Six source/test/harness/helper fingerprints match before and after
+both suites and the benchmark.
+
+Ordinary Windows PowerShell fixture: first read {cold:.9f}s; read p95
+{rd:.9f}s ({'PASS' if b['read']['passes'] else 'UNMET'}, target 2s); validation/local-save p95
+{sv:.9f}s (UNMET, target 1s). All 30 reads and 30 saves succeed without operation
+errors or timeouts. Benchmark exit 1 records unmet performance thresholds.
+No explicit Git packing or maintenance was requested. Linux performance was
+not remeasured for this source; previous Linux timings remain historical.
+"""
+report=f"""# Native Windows bundle metadata production verification — 2026-10-22
+
+T149 remains open. Novice evaluations remain deferred and unverified.
+Storage SHA-256: `{v['before']['src/novel_creator/storage.py']}`.
+
+{safety}
+{summary}
+The fully validated synthetic fixture contains 100 sessions, 5,000 exchanges,
+10,000 active assertions and {b['fixture']['json_bytes']:,} UTF-8 JSON bytes.
+Fresh worker per operation; import time and payload preparation excluded;
+full committed-history validation, local publication and cleanup included.
+Cache uses a temporary private key outside the novel. First read is fixture-cold,
+not a guaranteed OS-cache flush. Suites ran concurrently; benchmark and matched
+comparison ran separately after suite completion. Other machine activity is
+uncontrolled; historical p95 differences do not isolate this change's effect.
+{b['environment']['os']}; Python {b['environment']['python']}; {b['environment']['git']}.
+Git: `{b['environment']['git_executable']}`. Hardware remains the recorded Lenovo
+22AWS00800, Intel Core Ultra 7 268V, 8 logical CPUs, 33,847,832,576 RAM bytes, NTFS C:.
+PYTHONUTF8=1, PYTHONPATH=src, PYTHONDONTWRITEBYTECODE=1.
+
+Matched final-source comparison: eight successful complete saves, fresh workers,
+ABBA/ABBA, four per native policy on/off, identical ordinary fixture and retained
+public payload preparation. Control median {med['0']:.9f}s; native median
+{med['1']:.9f}s ({gain:.2f}% lower). All 27 Git calls and six complete root-bound
+hash partitions are retained per save. Every native leaf query is counted anew.
+These variable samples are diagnostic, not p95 or portable speedup evidence.
+
+Seven new regressions cover all accepted attribute combinations, conservative
+fallback and original exceptions, typed optional API failures, fresh leaf-only
+queries, Unicode and real extended Windows paths, both Git object formats,
+same-stat byte tampering, live-index tampering, pending receipts, exact retries
+publishing once, bootstrap/public-read boundaries. Initial red: seven tests,
+125 missing-feature errors, 4.469s. Final focused: nine tests, 25.960s, exit 0.
+Read-only production review found no actionable issue. Existing Windows physical
+symlink cases remain explicit privilege skips; they are not reported as passes.
+No novice, host, bilingual semantic, durability or release approval is inferred.
+No provider call, commit or push was performed.
+
+[Windows suite](windows-native-bundle-mode-full-tests-20261022.txt),
+[Linux suite](linux-native-bundle-mode-full-tests-20261022.txt),
+[30-run result](windows-native-bundle-mode-default-30-20261022.json),
+[progress](windows-native-bundle-mode-default-progress-20261022.txt),
+[matched samples](windows-native-bundle-mode-production-comparison-20261022.txt),
+[hardware](windows-history-read-hardware-20261022.json),
+[source and artifact hashes](windows-native-bundle-mode-production-evidence-manifest-20261022.json).
+"""
+stages=[json.loads(x) for x in (base/'windows-native-bundle-mode-production-stages-20261022.jsonl').read_text(encoding='utf-8').splitlines() if x.startswith('{')]
+assert len(stages)==5 and stages[0]['source_sha256']==v['before']['src/novel_creator/storage.py']
+report+='\nFinal-source stage diagnostic: two lightly traced saves between two untraced controls; thread timings overlap and are not additive. These are not p95 samples.\n\n'
+for row in stages[1:]:
+ if not row['traced']:report+=f"Untraced save {row['sequence']}: {row['seconds']:.9f}s.\n\n"
+ else:
+  history=next(e for e in row['events'] if e['stage']=='_read_snapshot')
+  guards=sorted([e for e in row['events'] if e['stage']=='check_managed'],key=lambda e:e['start'])
+  report+=f"Traced save {row['sequence']}: {row['seconds']:.9f}s; history {history['seconds']:.9f}s; first guard {guards[0]['seconds']:.9f}s; final guard {guards[1]['seconds']:.9f}s; first-guard/history overlap {row['first_guard_history_overlap_seconds']:.9f}s.\n\n"
+report+='[Stage events and per-thread path counters](windows-native-bundle-mode-production-stages-20261022.jsonl).\n'
+write(base/'windows-native-bundle-mode-production-20261022.md',report)
+entry='\n\n### T149 native Windows bundle metadata — full verification\n\n'+summary+'\n'+safety+'\nSee `tests/evaluations/windows-native-bundle-mode-production-20261022.md`. T149 remains unchecked; novice evaluations remain deferred/unverified.\n'
+for name in ['tasks.md','implementation-ledger.md']:
+ with (Path('specs/001-novel-initialization-brainstorming')/name).open('a',encoding='utf-8') as f:f.write(entry)
+for name in ['performance.md','platform-results.md','release-readiness.md']:
+ p=base/name;text=p.read_text(encoding='utf-8')
+ text='\n'.join(line for line in text.split('\n') if not line.startswith('Native bundle metadata production verification is now pending;'))
+ if name=='performance.md':
+  line=next(x for x in text.splitlines() if '](windows-balanced-save-default-30-20261022.json)' in x)
+  text=text.replace(line,line+f'\n| [Windows, native bundle metadata/cache, ordinary PowerShell fixture](windows-native-bundle-mode-default-30-20261022.json) | {cold:.3f} | {rd:.3f} | {sv:.3f} | UNMET |',1)
+  text=text.replace('The current balanced-save source passes all 143 Linux tests,','The current native-bundle-metadata source passes all 150 Linux tests,').replace('[balanced-save report](windows-balanced-save-20261022.md) records current-source','[native metadata report](windows-native-bundle-mode-production-20261022.md) records current-source')
+ first,rest=text.split('\n',1)
+ write(p,first+'\n\nLatest native bundle metadata verification — 2026-10-22\n\n'+summary+'\n[Source-specific evidence](windows-native-bundle-mode-production-20261022.md). T149 remains open; novice evaluations remain deferred/unverified.\n\nFollowing evidence records earlier source-specific checkpoints.\n'+rest)
+p=Path('docs/development.md')
+text=p.read_text(encoding='utf-8').replace('[latest verification](../tests/evaluations/windows-balanced-save-20261022.md)','[latest verification](../tests/evaluations/windows-native-bundle-mode-production-20261022.md)').replace('The balanced-save source passes all 143 Linux tests. Its Linux performance','The native-bundle-metadata source passes all 150 Linux tests. Its Linux performance').replace('Both full suites cover 143 tests. See [current source and\nmeasurements](../tests/evaluations/windows-balanced-save-20261022.md).','Both full suites cover 150 tests. See [current source and\nmeasurements](../tests/evaluations/windows-native-bundle-mode-production-20261022.md).')
+write(p,text)
+with p.open('a',encoding='utf-8') as f:f.write('\n\n## Native Windows bundle metadata\n\n'+safety+'\n'+summary+'\n[Latest source verification](../tests/evaluations/windows-native-bundle-mode-production-20261022.md).\n')
+artifacts=set(base.glob('*native-bundle-mode-production*-20261022.*'))|set(base.glob('*native-bundle-mode*verification-20261022.json'))|set(base.glob('*native-bundle-mode-full-tests-20261022.txt'))|set(base.glob('*native_bundle_mode*source-20261022.txt'))
+artifacts.update(base/n for n in ['windows-native-bundle-mode-default-30-20261022.json','windows-native-bundle-mode-default-progress-20261022.txt','windows-history-read-hardware-20261022.json'])
+mp=base/'windows-native-bundle-mode-production-evidence-manifest-20261022.json';artifacts.discard(mp)
+m={'source':v['before'],'artifacts':{p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(artifacts)}}
+write(mp,json.dumps(m,indent=2)+'\n')
+for n,h in m['artifacts'].items():assert hashlib.sha256((base/n).read_bytes()).hexdigest()==h,n
+print(json.dumps({'tests':counts,'read_p95':rd,'save_p95':sv,'matched_gain_percent':gain,'artifacts_verified':len(artifacts)}))

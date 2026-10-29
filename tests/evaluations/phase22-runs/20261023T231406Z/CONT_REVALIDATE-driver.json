@@ -1,0 +1,10 @@
+{
+  "case_id": "CONT_REVALIDATE",
+  "task": "T170",
+  "submitted": true,
+  "require_commentary_review": true,
+  "inputs": {
+    "en": "Case CONT_REVALIDATE. I supplied the wrong session ID. Resume our actual saved Continuity review session 7b956f0b-12a9-4a91-9568-f76844ea690e. Withdraw the unidentified childhood-event canon request. Re-read the relevant saved context and run production validation before clearing any hold caused by the missing-session lookup. Once that context is available and validated, mark that unavailable-context issue resolved. Preserve the separate deferred relationship issue and every unrelated unresolved finding. Summarize the verified context and pause.",
+    "is": "Tilvik CONT_REVALIDATE. Ég gaf rangt lotuauðkenni. Höldum áfram með raunverulegu vistuðu samfelluyfirferðina okkar, lotu bd14ac9f-4b8f-4f9c-9f1f-eb34e8ec8f7f. Drögum til baka beiðnina um staðfestingu óauðkennda æskuatburðarins. Lestu viðeigandi vistað samhengi aftur og keyrðu sannprófun framleiðsluverkfærisins áður en bið vegna misheppnaðrar lotuleitar er aflétt. Þegar það samhengi er tiltækt og sannreynt skal merkja álitamálið um ótiltækt samhengi leyst. Varðveittu aðskilið frestað tengslaálitamál og öll önnur óleyst álitamál. Taktu saman sannreynt samhengi og staldraðu við."
+  }
+}

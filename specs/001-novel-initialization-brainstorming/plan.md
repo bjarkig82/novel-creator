@@ -6,6 +6,16 @@
 
 ## Summary
 
+**Current delivery: single-user POC, authorized 2026-10-23.** The owner excludes
+novice testers and will test after delivery. Automated checks and labeled agent
+evaluations qualify this POC; manual/native-host trials and subjective literary
+review are not prerequisites. Historical evaluation tasks remain unverified where
+not executed, rather than being marked as passing. The owner withdrew all
+latency targets on 2026-10-28; timings are informational and optimization is
+deferred until after functional delivery. Historical misses remain evidence.
+No storage or creative-authority bypass is
+introduced. Current POC work is tracked in tasks.md Phase 21.
+
 Deliver an independent Git-backed novel workspace with conversational setup,
 guided/freeform brainstorming, persistent sessions, automatic per-exchange capture,
 explicit canon acceptance/revision, and continuity intervention. Support English
@@ -27,15 +37,20 @@ with a private index and publish via an atomic expected-parent ref update.
 Caches and summaries are explicitly derived; no database.
 **Testing**: unittest, temporary real Git repositories, JSON Schema validation,
 fault injection and subprocess contract tests; actual Codex bilingual scenarios
-and five novice evaluators for the human success criteria.
+where available. Novice evaluators are out of scope; owner/manual testing follows
+POC delivery and is not required to start using it.
 **Target Platform**: Linux and Windows with Python and Git; capability
 verification for each supported Codex host/version before claiming support.
 macOS support and verification are deferred from the current release by the
 user's scope decision on 2026-10-21.
 **Project Type**: Installable local tooling and native agent skills.
-**Performance Goals**: Deterministic read p95 <=2s and validation/local save p95
-<=1s, 30 warm runs on a documented laptop and representative dataset; host model
-latency excluded, cold-read time reported independently.
+**Performance Policy**: No read, save or other latency acceptance targets
+(owner decision, 2026-10-28). Existing 30-run scale measurements remain
+informational; report cold-read time and host-model exclusions explicitly.
+Optimization is deferred until after functional delivery. Keep operation
+success, complete samples, timeout/error disclosure and every storage safeguard.
+Operational worker deadlines bound hung tests; they are not responsiveness goals.
+Do not relabel historical misses as passes against their original targets.
 **Constraints**: No approved manuscript edits, no inferred approval, no automatic
 push, no shared mandatory database/server, no novel dependence on framework path
 or dashboard. Single director; reject stale/conflicting writes. See storage
@@ -145,8 +160,10 @@ Routine checkpoint defaults/triggers are specified in data-model.md and FR-013.
    history with deterministic transition validation and impact references.
 4. Add continuity responsibilities, perspective/timing distinctions, conflict
    dispositions and unreadable-context holds; measure agent judgments separately.
-5. Complete Icelandic parity, portability consumer tests, fault/overlap exercises,
-   scale measurements and novice evaluation. Stories 1–5 are the core loop;
+5. Verify English/Icelandic automated examples, portability consumer tests,
+   fault/overlap exercises and documented scale measurements. Subjective parity
+   and owner testing follow POC delivery; novice evaluation is out of scope.
+   Stories 1–5 are the core loop;
    Story 6 remains mandatory for release.
 
 Each slice adds tests for its observable invariants and onboarding instructions.

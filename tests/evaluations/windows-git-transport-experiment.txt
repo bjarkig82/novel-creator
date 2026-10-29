@@ -1,0 +1,13 @@
+{"fixture": {"sessions": 100, "exchanges": 5000, "active_assertions": 10000, "json_bytes": 26215716, "synthetic": true, "fully_validated": false}}
+{"variant": "pipes", "sample": 1, "seconds": 3.589087100001052, "observed_count": 5001}
+{"variant": "stderr_devnull", "sample": 1, "seconds": 3.780265299952589, "observed_count": 5002}
+{"variant": "file_output", "sample": 1, "seconds": 7.047443299903534, "observed_count": 5003}
+{"variant": "files", "sample": 1, "seconds": 3.45727050001733, "observed_count": 5004}
+{"variant": "stderr_devnull", "sample": 2, "seconds": 3.643388199969195, "observed_count": 5005}
+{"variant": "file_output", "sample": 2, "seconds": 5.806711799930781, "observed_count": 5006}
+{"variant": "files", "sample": 2, "seconds": 3.8840262000449, "observed_count": 5007}
+{"variant": "pipes", "sample": 2, "seconds": 4.814258500002325, "observed_count": 5008}
+{"variant": "file_output", "sample": 3, "seconds": 3.337502400041558, "observed_count": 5009}
+{"variant": "files", "sample": 3, "seconds": 3.961772100068629, "observed_count": 5010}
+{"variant": "pipes", "sample": 3, "seconds": 3.8670015999814495, "observed_count": 5011}
+{"variant": "stderr_devnull", "sample": 3, "seconds": 3.9464216000633314, "observed_count": 5012}

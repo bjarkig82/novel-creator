@@ -1,0 +1,38 @@
+{"fixture": {"sessions": 100, "exchanges": 5000, "active_assertions": 10000, "json_bytes": 26215716, "synthetic": true, "fully_validated": true}, "source_sha256": {"before": "f1d19709666eba8678ba496c0ec7418c723e4211d0e96a4b819549b2aa809e90", "after": "593b46960df2316ea058f03840bb8ac011a716e3c3dd516c8297d0fc91265322"}, "method": "Alternating same-process diagnostics, not release p95"}
+{"operation": "full-file-guard", "optimized": false, "seconds": 0.8866785001009703}
+{"operation": "full-file-guard", "optimized": true, "seconds": 0.48840889998245984}
+{"operation": "full-file-guard", "optimized": true, "seconds": 0.480022499919869}
+{"operation": "full-file-guard", "optimized": false, "seconds": 0.999925300013274}
+{"operation": "full-file-guard", "optimized": false, "seconds": 0.637921700021252}
+{"operation": "full-file-guard", "optimized": true, "seconds": 0.576027600094676}
+{"operation": "full-file-guard", "optimized": true, "seconds": 0.5875600000144914}
+{"operation": "full-file-guard", "optimized": false, "seconds": 0.5992968999780715}
+{"operation": "full-file-guard", "medians": {"False": 0.7623001000611112, "True": 0.5322182500385679}}
+{"operation": "save", "optimized": false, "seconds": 3.5391872000182047}
+{"operation": "save", "optimized": true, "seconds": 3.353062800015323}
+{"operation": "save", "optimized": true, "seconds": 3.9444834999740124}
+{"operation": "save", "optimized": false, "seconds": 4.202489700051956}
+{"operation": "save", "optimized": false, "seconds": 4.437362399999984}
+{"operation": "save", "optimized": true, "seconds": 3.438825499964878}
+{"operation": "save", "optimized": true, "seconds": 3.8540324999485165}
+{"operation": "save", "optimized": false, "seconds": 4.427495899959467}
+{"operation": "save", "medians": {"False": 4.314992800005712, "True": 3.6464289999566972}}
+{"layout_comparison": "Identical committed snapshot in separate disposable repositories", "initial_sequence": 5008, "maintenance": "packed clone only: git repack -ad before timers"}
+{"operation": "read", "packed": false, "seconds": 2.1366910999640822, "observed_count": 15101}
+{"operation": "read", "packed": true, "seconds": 1.996261499938555, "observed_count": 15101}
+{"operation": "read", "packed": true, "seconds": 1.5143507999600843, "observed_count": 15101}
+{"operation": "read", "packed": false, "seconds": 2.390215199906379, "observed_count": 15101}
+{"operation": "read", "packed": false, "seconds": 2.6905951000517234, "observed_count": 15101}
+{"operation": "read", "packed": true, "seconds": 1.3802715999772772, "observed_count": 15101}
+{"operation": "read", "packed": true, "seconds": 1.555283399997279, "observed_count": 15101}
+{"operation": "read", "packed": false, "seconds": 1.8533119999337941, "observed_count": 15101}
+{"operation": "read", "layout_medians": {"False": 2.2634531499352306, "True": 1.5348170999786817}}
+{"operation": "save", "packed": false, "seconds": 3.850623199949041, "observed_count": 5009}
+{"operation": "save", "packed": true, "seconds": 3.363142800051719, "observed_count": 5009}
+{"operation": "save", "packed": true, "seconds": 4.351292399922386, "observed_count": 5010}
+{"operation": "save", "packed": false, "seconds": 4.372304100077599, "observed_count": 5010}
+{"operation": "save", "packed": false, "seconds": 3.533153699943796, "observed_count": 5011}
+{"operation": "save", "packed": true, "seconds": 3.385394599987194, "observed_count": 5011}
+{"operation": "save", "packed": true, "seconds": 4.418281099991873, "observed_count": 5012}
+{"operation": "save", "packed": false, "seconds": 3.704810200026259, "observed_count": 5012}
+{"operation": "save", "layout_medians": {"False": 3.77771669998765, "True": 3.86834349995479}}

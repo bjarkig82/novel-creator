@@ -1,0 +1,69 @@
+{
+  "ok": true,
+  "scope": "Public delegated persistence/display/source checks only",
+  "case_filter": [
+    "CONT_DEFERRED"
+  ],
+  "language_filter": null,
+  "all_submitted_cases_checked": false,
+  "semantic_assessment": "Separate agent judgments required; no human/native result inferred",
+  "cases": [
+    {
+      "case_id": "CONT_DEFERRED",
+      "language": "en",
+      "thread_id": "01a16af9-f289-73c1-8151-55f50ace05d9",
+      "turn_id": "01a18211-08c8-7ac1-bf42-7f55fc5bfb32",
+      "exchange_id": "a39bdcd6-a609-4b1c-911d-b8d37fa9fe5e",
+      "checkpoint": {
+        "git_head": "f24bfd588f7de0c0a5f7a1c05573f1998ba2d965",
+        "exchange_id": "a39bdcd6-a609-4b1c-911d-b8d37fa9fe5e",
+        "sequence": 15
+      },
+      "exact_input_saved": true,
+      "exact_response_saved_and_displayed": true,
+      "save_precedes_display": true,
+      "source_type": "delegated",
+      "native_user_input": false,
+      "novice_evidence": false,
+      "installed_bundle_verified": true,
+      "installed_bundle_matches_current_source": true,
+      "commentary_agent_reviewed": true,
+      "record_kinds": [
+        "story_element",
+        "idea",
+        "idea",
+        "session"
+      ],
+      "response": "Continuity review resumed in open mode (7b956f0b r4).\n\nThe shared-childhood issue remains deferred and significant (69b768af r2). A real shared childhood history still conflicts with the saved fact that Freyja and Sigrún had never met before their reunion. Deferral has not accepted either alternative or removed the promotion hold.\n\nThe affected scope remains:\n\n- Shared-childhood proposal 42cd4d30 r2.\n- Proposed shared-memory event 6d6e2baf r2.\n- Established never-met relationship 20ec7fd0 r1.\n- Reunion event 7e466350 r1.\n\nI have left the finding, its disposition and affected references unchanged; the current revisions above identify that same held scope.\n\nSeparately, A small brass glint could draw attention in the tunnel while its source stays unidentified. This remains a proposal (c1671e5f r1; brief exploration 8415e40e r1). The tunnel itself remains proposed (feeb5525 r1); no reflection, light source, observer or connection has been established. This exploration does not resolve or weaken the relationship hold.\n\nExisting canon, protected directions and open questions are unchanged. Paused here."
+    },
+    {
+      "case_id": "CONT_DEFERRED",
+      "language": "is",
+      "thread_id": "01a16afa-1197-7650-8189-9365687429ee",
+      "turn_id": "01a18211-15e6-7b52-9048-b212d14cebd4",
+      "exchange_id": "02aa0279-5de5-41d4-9670-4c9fec6c0662",
+      "checkpoint": {
+        "git_head": "16df15db223f931fd8181ed7753bb2531a217008",
+        "exchange_id": "02aa0279-5de5-41d4-9670-4c9fec6c0662",
+        "sequence": 15
+      },
+      "exact_input_saved": true,
+      "exact_response_saved_and_displayed": true,
+      "save_precedes_display": true,
+      "source_type": "delegated",
+      "native_user_input": false,
+      "novice_evidence": false,
+      "installed_bundle_verified": true,
+      "installed_bundle_matches_current_source": true,
+      "commentary_agent_reviewed": true,
+      "record_kinds": [
+        "story_element",
+        "assertion",
+        "idea",
+        "session"
+      ],
+      "response": "Frestaða tengslaálitamálið stendur óútkljáð (93c85a29 v2). Raunveruleg sameiginleg æskuminning Freyju og Sigrúnar stangast enn á við staðfestu heimildina um að þær hafi aldrei hist fyrir endurfundi þeirra (60e3081b v1; 134717c6 v1). Frestun staðfestir hvorki æskuminninguna né hafnar henni.\n\nHald á staðfestingu nær áfram til æskuminningartillögunnar, tengds atburðar og fullyrðingar, ásamt viðkomandi heimildum um fyrri kynni. Nákvæmt skráð umfang: cd8104e3 v1; b6279ad2 v1; 247e8a85 v1; 60e3081b v1; 134717c6 v1. Það losnar ekki við að við skoðum annað efni. Óskráðar afleiðingar er ekki hægt að tryggja að finnist.\n\nAðskilið: látúnsspeglun gæti sést í göngunum (da64b265 v1). Þetta er óstaðfest tillaga; göngin eru sjálf enn tillaga (9b4ec66f v1). Ekkert er ákveðið um orsök, tíma eða merkingu speglunarinnar og hún útkljáir ekki tengslaálitamálið.\n\nÉg staldra við."
+    }
+  ],
+  "failures": []
+}

@@ -1,0 +1,8 @@
+/* Diagnostic only: owner-thread inclusive/exclusive native timers. */
+#ifndef T172_PROFILE_H
+#define T172_PROFILE_H
+enum t172_kind { T172_LOOKUP, T172_SERIALIZE, T172_OBJECT_WRITE,
+                 T172_DEFLATE, T172_FSYNC, T172_KINDS };
+uint64_t t172_profile_begin(enum t172_kind kind);
+void t172_profile_end(enum t172_kind kind, uint64_t start);
+#endif

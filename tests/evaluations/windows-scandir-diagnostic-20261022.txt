@@ -1,0 +1,59 @@
+{"fixture": {"sessions": 100, "exchanges": 5000, "active_assertions": 10000, "json_bytes": 26215716, "synthetic": true, "fully_validated": true}, "source_sha256": "593b46960df2316ea058f03840bb8ac011a716e3c3dd516c8297d0fc91265322"}
+{"operation": "guard", "scan": false, "seconds": 1.2783023999072611}
+{"operation": "guard", "scan": true, "seconds": 0.9530041000107303}
+{"operation": "guard", "scan": true, "seconds": 0.7392776000779122}
+{"operation": "guard", "scan": false, "seconds": 0.9939741999842227}
+{"operation": "guard", "scan": false, "seconds": 0.682455400004983}
+{"operation": "guard", "scan": true, "seconds": 0.80665400007274}
+{"operation": "guard", "scan": true, "seconds": 0.5281818000366911}
+{"operation": "guard", "scan": false, "seconds": 0.5954565000720322}
+{"operation": "guard", "median": {"False": 0.8382147999946028, "True": 0.7729658000753261}}
+{"operation": "save", "scan": false, "seconds": 3.2512339999666438}
+{"operation": "save", "scan": true, "seconds": 4.044977499986999}
+{"operation": "save", "scan": true, "seconds": 3.6220969000132754}
+{"operation": "save", "scan": false, "seconds": 4.309813000028953}
+{"operation": "save", "scan": false, "seconds": 3.7822553999722004}
+{"operation": "save", "scan": true, "seconds": 3.8901211000047624}
+{"operation": "save", "scan": true, "seconds": 8.420099799986929}
+{"operation": "save", "scan": false, "seconds": 10.25656040001195}
+{"operation": "save", "median": {"False": 4.046034200000577, "True": 3.9675492999958806}}
+         1759191 function calls (1758767 primitive calls) in 10.230 seconds
+
+   Ordered by: cumulative time
+   List reduced from 384 to 32 due to restriction <32>
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+       64    0.000    0.000   11.837    0.185 C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\threading.py:1059(join)
+       64    0.006    0.000   11.833    0.185 {method 'join' of '_thread._ThreadHandle' objects}
+        1    0.000    0.000   10.230   10.230 C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\performance\benchmark_records.py:87(worker)
+        1    0.048    0.048    7.733    7.733 C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py:581(save)
+        1    0.007    0.007    7.684    7.684 C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py:433(_save)
+       29    0.002    0.000    7.279    0.251 C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py:28(git)
+       29    0.001    0.000    7.267    0.251 C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\subprocess.py:512(run)
+       29    0.000    0.000    6.948    0.240 C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\subprocess.py:1178(communicate)
+       29    0.001    0.000    6.932    0.239 C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\subprocess.py:1623(_communicate)
+    64/29    0.000    0.000    6.922    0.239 C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\threading.py:1001(_bootstrap)
+    64/29    0.127    0.002    6.921    0.239 C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\threading.py:1028(_bootstrap_inner)
+    64/29    0.001    0.000    6.861    0.237 C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\threading.py:984(run)
+    58/29    0.001    0.000    6.856    0.236 C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\subprocess.py:1614(_readerthread)
+        2    0.138    0.069    5.846    2.923 C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py:215(read_snapshot)
+  174/151    0.002    0.000    5.690    0.038 {method 'close' of '_io.BufferedReader' objects}
+        6    0.000    0.000    4.900    0.817 C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\subprocess.py:1619(_writerthread)
+        6    0.000    0.000    4.899    0.817 C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\subprocess.py:1153(_stdin_write)
+       13    4.899    0.377    4.899    0.377 {method 'write' of '_io.BufferedWriter' objects}
+    10018    0.023    0.000    3.684    0.000 C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py:169(_batch_blobs)
+        2    0.044    0.022    2.661    1.330 C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py:346(check_managed)
+        1    0.011    0.011    2.416    2.416 C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py:211(read_history)
+    73/44    1.878    0.026    1.166    0.026 {method 'read' of '_io.BufferedReader' objects}
+    10028    0.029    0.000    0.973    0.000 C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\json\__init__.py:304(loads)
+    10028    0.040    0.000    0.877    0.000 C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\json\decoder.py:340(decode)
+    10028    0.800    0.000    0.801    0.000 C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\json\decoder.py:351(raw_decode)
+    10036    0.109    0.000    0.756    0.000 C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py:67(safe_path)
+        4    0.027    0.007    0.499    0.125 C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py:124(committed_entries)
+        4    0.000    0.000    0.348    0.087 C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py:41(head)
+       29    0.001    0.000    0.318    0.011 C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\subprocess.py:817(__init__)
+       29    0.001    0.000    0.311    0.011 C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\subprocess.py:1452(_execute_child)
+       29    0.305    0.011    0.305    0.011 {built-in method _winapi.CreateProcess}
+        4    0.000    0.000    0.283    0.071 C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py:342(index_entries)
+
+

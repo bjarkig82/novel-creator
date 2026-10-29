@@ -1,0 +1,12 @@
+{
+  "storage_sha256": "9b9092130ff0ee2768ba739cdb9ae28613010ed82b4a9eeb70bb9b342b080ffc",
+  "medians": {
+    "0": 5.669104200031143,
+    "1": 4.856166299956385
+  },
+  "artifacts": {
+    "windows-balanced-save-readers-20261022.txt": "fcc28364a3bf957da5686460a87f422989b1a631e1fb794563cba17166548317",
+    "windows-balanced-save-readers-source-20261022.txt": "51b77252e7614414a7c3277a01107be933e0769c99ba28efc95057aa0b457301",
+    "windows-balanced-save-readers-20261022.md": "7044573bb35bf945ce400a3b602747204da63eec99ddeaeaab6c255a10b3ead2"
+  }
+}

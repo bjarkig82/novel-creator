@@ -1,0 +1,14 @@
+[
+  {
+    "id": "msg_0e5a6ecfd8ccda83016ae1cf2959348191acfb7f0ec6418945",
+    "text": "Ég sæki vistað samhengi og undirbý yfirferðina til vistunar.",
+    "classification": "administrative",
+    "reason": "Reviewed operational context and save/retry status only; no creative result before save."
+  },
+  {
+    "id": "msg_0e5a6ecfd8ccda83016ae1cf63bab8819187f256a73ecd637a",
+    "text": "Vistunin er í bið eftir skráakerfisvillu. Ég endurtek hana með óbreyttu auðkenni og óbreyttum gögnum.",
+    "classification": "administrative",
+    "reason": "Reviewed operational context and save/retry status only; no creative result before save."
+  }
+]

@@ -1,0 +1,7 @@
+12:14:20.195770 compat/win32/fscache.c:538fscache: enable
+12:14:20.196770 compat/win32/fscache.c:538fscache: enable
+12:14:20.197771 compat/win32/fscache.c:581fscache: disable
+12:14:20.199771 compat/win32/fscache.c:306fscache: error(2) '.git/refs/remotes'
+12:14:20.199771 compat/win32/fscache.c:306fscache: error(2) '.git/refs/remotes/HEAD'
+12:14:20.203778 compat/win32/fscache.c:561fscache_disable: lstat 26, opendir 4, total requests/misses 30/8
+12:14:20.203778 compat/win32/fscache.c:581fscache: disable

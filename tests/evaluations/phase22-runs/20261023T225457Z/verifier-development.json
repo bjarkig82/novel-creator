@@ -1,0 +1,24 @@
+{
+  "scope": "Evidence verifier only; no production source change",
+  "red": {
+    "command": ".venv/Scripts/python.exe -B -m unittest tests.unit.test_evaluation_observation",
+    "result": "ModuleNotFoundError: tests.evaluations.verify_phase22; exit 1 before implementation"
+  },
+  "green": {
+    "tests": 4,
+    "result": "OK",
+    "coverage": [
+      "exact Unicode and trailing whitespace",
+      "changed current input or displayed reply",
+      "missing/late/failed/wrong/truncated save",
+      "changed source provenance",
+      "incomplete public turn",
+      "duplicate final response",
+      "reasoning exclusion"
+    ]
+  },
+  "files": {
+    "tests/unit/test_evaluation_observation.py": "1d3e20457617104349059ae7f2252b51c73676368452f9f7bdc992c78391fafc",
+    "tests/evaluations/verify_phase22.py": "bb9e86570aee8028ec2cfbc76224db804e2be06dc5b9b5dbd7a0509aee8e02a1"
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "ok": true,
+  "scope": "Public delegated persistence/display/source checks only",
+  "case_filter": [
+    "CONT_UNAVAILABLE"
+  ],
+  "language_filter": null,
+  "all_submitted_cases_checked": false,
+  "semantic_assessment": "Separate agent judgments required; no human/native result inferred",
+  "cases": [
+    {
+      "case_id": "CONT_UNAVAILABLE",
+      "language": "en",
+      "thread_id": "01a16af9-f289-73c1-8151-55f50ace05d9",
+      "turn_id": "01a18213-74a1-7062-b63c-af05645527d5",
+      "exchange_id": "d63a8f2d-7679-4002-bab1-3b078b5fb993",
+      "checkpoint": {
+        "git_head": "1ba0ed159b344c69085af8e367c88860122cc9d2",
+        "exchange_id": "d63a8f2d-7679-4002-bab1-3b078b5fb993",
+        "sequence": 16
+      },
+      "exact_input_saved": true,
+      "exact_response_saved_and_displayed": true,
+      "save_precedes_display": true,
+      "source_type": "delegated",
+      "native_user_input": false,
+      "novice_evidence": false,
+      "installed_bundle_verified": true,
+      "installed_bundle_matches_current_source": true,
+      "commentary_agent_reviewed": true,
+      "record_kinds": [],
+      "response": "Session 00000000-0000-4000-8000-000000000169 is unavailable. The installed context command returned “Requested session unavailable” (error 4).\n\nI cannot identify which childhood event was selected there, so I have left that canon decision unmade. I have not substituted a selection from another session or resumed a different session.\n\nThe separate brass-reflection idea remains proposed (c1671e5f r1); it is not established. No creative record or session has been changed.\n\nRequested-context coverage is incomplete. Canon promotion is held while that context and the intended scope remain unavailable. Paused here."
+    },
+    {
+      "case_id": "CONT_UNAVAILABLE",
+      "language": "is",
+      "thread_id": "01a16afa-1197-7650-8189-9365687429ee",
+      "turn_id": "01a18213-7dc1-7fd0-930f-79f715c9bb57",
+      "exchange_id": "e946d762-e919-4907-a0dc-c7f10e34639b",
+      "checkpoint": {
+        "git_head": "0c0a5b4f7f2fa4d9c44a6edf055b692bd7c1321c",
+        "exchange_id": "e946d762-e919-4907-a0dc-c7f10e34639b",
+        "sequence": 16
+      },
+      "exact_input_saved": true,
+      "exact_response_saved_and_displayed": true,
+      "save_precedes_display": true,
+      "source_type": "delegated",
+      "native_user_input": false,
+      "novice_evidence": false,
+      "installed_bundle_verified": true,
+      "installed_bundle_matches_current_source": true,
+      "commentary_agent_reviewed": true,
+      "record_kinds": [
+        "question"
+      ],
+      "response": "Ég get ekki lesið samhengi lotu 00000000-0000-4000-8000-000000000169; umbeðin lota er ekki tiltæk samkvæmt samhengislestrinum. Því get ég hvorki sagt hvaða æskuatburður var valinn þar né staðfest hann. Ákvörðunin stendur ótekin og ég álykta ekkert um valið út frá annarri lotu.\n\nAðskilda hugmyndin um látúnsspeglun er áfram óstaðfest tillaga (da64b265 v1). Hún er ekki heimild um valið í umbeðinni lotu.\n\nÉg staldra við."
+    }
+  ],
+  "failures": []
+}

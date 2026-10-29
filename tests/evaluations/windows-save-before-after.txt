@@ -1,0 +1,11 @@
+{"fixture": {"sessions": 100, "exchanges": 5000, "active_assertions": 10000, "json_bytes": 26215716, "synthetic": true, "fully_validated": false}, "method": "Alternating implementations in one process; diagnostic samples, not a release benchmark"}
+{"implementation": "before", "sample": 1, "seconds": 3.70511570002418, "observed_count": 5001}
+{"implementation": "after", "sample": 1, "seconds": 2.993750700028613, "observed_count": 5002}
+{"implementation": "after", "sample": 2, "seconds": 3.1731413000961766, "observed_count": 5003}
+{"implementation": "before", "sample": 2, "seconds": 3.3627890000352636, "observed_count": 5004}
+{"implementation": "before", "sample": 3, "seconds": 3.801386100007221, "observed_count": 5005}
+{"implementation": "after", "sample": 3, "seconds": 3.341903100023046, "observed_count": 5006}
+{"implementation": "after", "sample": 4, "seconds": 3.4948419000720605, "observed_count": 5007}
+{"implementation": "before", "sample": 4, "seconds": 4.273838600027375, "observed_count": 5008}
+{"implementation": "before", "sample": 5, "seconds": 3.521102999919094, "observed_count": 5009}
+{"implementation": "after", "sample": 5, "seconds": 2.945956000010483, "observed_count": 5010}

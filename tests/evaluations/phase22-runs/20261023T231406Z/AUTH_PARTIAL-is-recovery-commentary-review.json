@@ -1,0 +1,14 @@
+[
+  {
+    "id": "msg_077138367b8a5910016ae1c86f3cfc8191acd9836a94074183",
+    "text": "I’ll verify the original public input against the preserved files and inspect the pending recovery state before making any change.",
+    "classification": "administrative",
+    "reason": "Operational comparisons, diagnosis correction and recovery status only; no story content."
+  },
+  {
+    "id": "msg_077138367b8a5910016ae1c898f8888191b0e071a2e5147947",
+    "text": "The code-point and UTF-8 comparisons match exactly. My earlier mismatch diagnosis was wrong. The pinned installation and pending payload checks passed, and production recovery reports no held writer lock. I’ll retry the same pending exchange.",
+    "classification": "administrative",
+    "reason": "Operational comparisons, diagnosis correction and recovery status only; no story content."
+  }
+]

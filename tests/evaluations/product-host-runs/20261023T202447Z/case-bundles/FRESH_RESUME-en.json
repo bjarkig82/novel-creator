@@ -1,0 +1,305 @@
+{
+  "schema_version": "1.0",
+  "novel_id": "adfafe79-ad44-4097-8fc2-305095c3e4ec",
+  "exchange_id": "7c441d6a-ff46-45da-ad97-d8fee35cc1b7",
+  "sequence": 18,
+  "previous_exchange_id": "07e34fe4-c829-4200-98ef-f683a9b81094",
+  "previous_digest": "b1b9044ce8ab695a0430602494c6581287983453448e283b5e9513a3ec6f6ceb",
+  "session_id": "5c6111bf-1bc4-4679-8354-b673e96a06f0",
+  "expected_git_head": "4a377444fc12b4f703e6ad03019b1d35a6a0e33a",
+  "recorded_at": "2026-10-23T21:28:58.275610Z",
+  "operation": "conversation",
+  "messages": [
+    {
+      "message_id": "7c023d32-e3d3-47e0-bbf1-af2a5a53a0fc",
+      "role": "user",
+      "text": "This is one of the user's two explicitly authorized fresh resumption tasks for a disposable delegated evaluation. Work only with the existing disposable novel at C:/Users/BjarkiGunnarsson/Documents/Codex/2026-10-23/novel-host-eval-en-20261023095949/work/delegated-novel-01. Do not create another novel, edit framework sources, install or upgrade anything, read other tasks/transcripts or message other tasks. No provider APIs, hidden reasoning capture, real novel changes, manuscript edits, dependency changes or global settings.\n\nUse C:/Users/BjarkiGunnarsson/source/repos/Personal/novel-creator/.venv/Scripts/python.exe as the configured interpreter with framework PYTHONPATH removed; use only the novel-local .novel-creator/run.py launcher and pinned installed modules/workflows. Read installed entry.md, resume.md, brainstorm.md, authority.md and continuity.md. Expected source parent thread: 01a167df-036b-7c71-b306-9d7021046c01.\n\nFirst read CODEX_THREAD_ID from your environment. Get this actual current task/turn using codex_app read_thread with turnLimit 1, includeOutputs true, maxOutputCharsPerItem 20000. Programmatically export only the complete selected public functionCallOutput input and thread/turn IDs, excluding reasoning. Do not retype, trim or reconstruct its text from this instruction or a preview. Run installed input capture with actual thread/turn IDs, source delegated, expected parent, evaluation-only and json. Preserve returned artifact unchanged. This is delegated automated evidence, native_user_input false and novice_evidence false; it cannot authorize real novels or satisfy human/native gates.\n\nUnder .novel-creator/local/evidence/fresh-resumption/YOUR_ACTUAL_THREAD_ID/ preserve capture snapshot and result. Before any mutation run installed context --novel PATH --json and session list --novel PATH --json; save each complete parsed JSON output as before-context.json and before-sessions.json in that evidence directory. Stop honestly if unavailable or ambiguous. Do not consult manual story notes, earlier task messages, framework test fixtures or expected answers. Recover the latest saved session entirely from committed installed context. The prior response display is unconfirmed; do not infer an actual interruption, human acceptance or that it was unseen.\n\nRequested product action: Resume the latest saved session and summarize its established decisions, unaccepted possibilities, open questions and any unresolved continuity findings. Preserve its saved mode and stable session ID, respect checkpoint pauses, and do not start new creative exploration or ask me to retell recorded information. Respond in English. No new creative fact or decision is supplied by this administrative request.\n\nPrepare exactly one new conversation using records.new_exchange, the exact current captured text and artifact, an honest continuity review, and the summary as the exact assistant response. Retain all prior creative records; at most revise the selected session to record this resumption without changing its mode. Digest and save through the installed production CLI before final display. On sandbox-denied hardlinks a scoped normal-filesystem retry with unchanged prepared payload is allowed; never bypass locks or safeguards. Preserve payload, save result and a small resumption report with actual IDs/checkpoint in the evidence directory; print the actual successful save JSON so ordering can be independently checked. If save fails stop and retain evidence. Final response must be exactly the successfully saved assistant message, with no administrative suffix, memory citation or added newline."
+    },
+    {
+      "message_id": "c6d87a69-124d-453a-90c5-3182d92efb40",
+      "role": "assistant",
+      "text": "Resumed “The keeper's mistaken belief about the sender” in guided mode, with the same open session, `5c6111bf-1bc4-4679-8354-b673e96a06f0`.\n\nEstablished decisions:\n\n- The keeper sent the letter himself. He wrongly believes someone else sent it; that misunderstanding is intentional. Its cause and when the reader learns the truth remain undecided.\n- A new storm occurs at the lighthouse. Its timing, details and connection to the letter remain open.\n- The lighthouse emits a blue light. The warning bell was not accepted with it.\n\nUnaccepted possibilities remain available:\n\n- The keeper receives a letter addressed to someone who died. This premise is still recorded as proposed.\n- The letter could be an apology, or the dead person's name could help it reach someone else.\n- A forbidden childhood drawer, with an early scene foreshadowing a later discovery inside it. Neither the drawer nor its contents is established.\n- A life-risking retrieval, with boredom or repairing harm as possible motives. Neither motive is selected; the earlier response questioned whether boredom alone supports that sacrifice.\n- A shipwreck and a warning bell. The original combined light-and-bell proposal remains preserved with only the blue light selected.\n- The dialogue “I killed him.” Its speaker, referent, truth and timing remain unknown; it establishes no killing.\n\nOpen questions remain the desired feeling for the reader, why the letter matters to the keeper, whether to develop the childhood drawer and what he feels near it, and who speaks the dialogue and whom “him” means.\n\nThere are no recorded open or deferred continuity findings. The sender finding was resolved through intentional character misunderstanding, preserving the difference between author truth and character belief. The earlier objective-discovery wording is superseded. This review covers the available saved records; it does not establish complete literary consistency.\n\nYour preferences remain an adult quiet mystery, a gentle but unsettling tone, plain language, one viewpoint, and one possibility at a time. The title remains “Untitled novel”; the original concept, subgenre and complexity remain unspecified in project settings.\n\nThis is a derived summary of checkpoint 17, exchange `07e34fe4-c829-4200-98ef-f683a9b81094`, Git `4a377444fc12b4f703e6ad03019b1d35a6a0e33a`. Record references use unique ID prefixes: session `5c6111bf` r15; project `adfafe79` r4; sender `f172b29a` r1; belief `f492c797` r1; storm `e1dc5be0` r2 and location `118ccc29` r1; light `1bdb1bd5` r1; finding `28e945d8` r2. The prior saved reply is available, with its display unconfirmed; no interruption or acceptance is inferred.\n\nThe checkpoint after every exchange remains in effect. I'll pause here for your direction."
+    }
+  ],
+  "input_artifacts": [
+    {
+      "artifact_id": "69e9feae-72d7-4a09-8dc5-0987b94030bd",
+      "original_text": "{\"kind\":\"host_input\",\"source_type\":\"delegated\",\"thread_id\":\"01a16aa5-4c4c-7a52-89d0-26df804faaf0\",\"turn_id\":\"01a16aa6-adcd-7ef2-a612-96f3d70444ba\",\"event_id\":\"fco_01a16aa6-adce-7592-82be-6929cd26e414\",\"event_type\":\"functionCallOutput\",\"source_thread_id\":\"01a167df-036b-7c71-b306-9d7021046c01\",\"native_user_input\":false,\"novice_evidence\":false,\"evaluation_only\":true,\"text\":\"This is one of the user's two explicitly authorized fresh resumption tasks for a disposable delegated evaluation. Work only with the existing disposable novel at C:/Users/BjarkiGunnarsson/Documents/Codex/2026-10-23/novel-host-eval-en-20261023095949/work/delegated-novel-01. Do not create another novel, edit framework sources, install or upgrade anything, read other tasks/transcripts or message other tasks. No provider APIs, hidden reasoning capture, real novel changes, manuscript edits, dependency changes or global settings.\\n\\nUse C:/Users/BjarkiGunnarsson/source/repos/Personal/novel-creator/.venv/Scripts/python.exe as the configured interpreter with framework PYTHONPATH removed; use only the novel-local .novel-creator/run.py launcher and pinned installed modules/workflows. Read installed entry.md, resume.md, brainstorm.md, authority.md and continuity.md. Expected source parent thread: 01a167df-036b-7c71-b306-9d7021046c01.\\n\\nFirst read CODEX_THREAD_ID from your environment. Get this actual current task/turn using codex_app read_thread with turnLimit 1, includeOutputs true, maxOutputCharsPerItem 20000. Programmatically export only the complete selected public functionCallOutput input and thread/turn IDs, excluding reasoning. Do not retype, trim or reconstruct its text from this instruction or a preview. Run installed input capture with actual thread/turn IDs, source delegated, expected parent, evaluation-only and json. Preserve returned artifact unchanged. This is delegated automated evidence, native_user_input false and novice_evidence false; it cannot authorize real novels or satisfy human/native gates.\\n\\nUnder .novel-creator/local/evidence/fresh-resumption/YOUR_ACTUAL_THREAD_ID/ preserve capture snapshot and result. Before any mutation run installed context --novel PATH --json and session list --novel PATH --json; save each complete parsed JSON output as before-context.json and before-sessions.json in that evidence directory. Stop honestly if unavailable or ambiguous. Do not consult manual story notes, earlier task messages, framework test fixtures or expected answers. Recover the latest saved session entirely from committed installed context. The prior response display is unconfirmed; do not infer an actual interruption, human acceptance or that it was unseen.\\n\\nRequested product action: Resume the latest saved session and summarize its established decisions, unaccepted possibilities, open questions and any unresolved continuity findings. Preserve its saved mode and stable session ID, respect checkpoint pauses, and do not start new creative exploration or ask me to retell recorded information. Respond in English. No new creative fact or decision is supplied by this administrative request.\\n\\nPrepare exactly one new conversation using records.new_exchange, the exact current captured text and artifact, an honest continuity review, and the summary as the exact assistant response. Retain all prior creative records; at most revise the selected session to record this resumption without changing its mode. Digest and save through the installed production CLI before final display. On sandbox-denied hardlinks a scoped normal-filesystem retry with unchanged prepared payload is allowed; never bypass locks or safeguards. Preserve payload, save result and a small resumption report with actual IDs/checkpoint in the evidence directory; print the actual successful save JSON so ordering can be independently checked. If save fails stop and retain evidence. Final response must be exactly the successfully saved assistant message, with no administrative suffix, memory citation or added newline.\",\"public_event\":{\"type\":\"functionCallOutput\",\"id\":\"fco_01a16aa6-adce-7592-82be-6929cd26e414\",\"namespace\":\"codex_app\",\"name\":\"create_thread\",\"output\":{\"text\":\"<codex_delegation>\\n  <source_thread_id>01a167df-036b-7c71-b306-9d7021046c01</source_thread_id>\\n  <input>This is one of the user's two explicitly authorized fresh resumption tasks for a disposable delegated evaluation. Work only with the existing disposable novel at C:/Users/BjarkiGunnarsson/Documents/Codex/2026-10-23/novel-host-eval-en-20261023095949/work/delegated-novel-01. Do not create another novel, edit framework sources, install or upgrade anything, read other tasks/transcripts or message other tasks. No provider APIs, hidden reasoning capture, real novel changes, manuscript edits, dependency changes or global settings.\\n\\nUse C:/Users/BjarkiGunnarsson/source/repos/Personal/novel-creator/.venv/Scripts/python.exe as the configured interpreter with framework PYTHONPATH removed; use only the novel-local .novel-creator/run.py launcher and pinned installed modules/workflows. Read installed entry.md, resume.md, brainstorm.md, authority.md and continuity.md. Expected source parent thread: 01a167df-036b-7c71-b306-9d7021046c01.\\n\\nFirst read CODEX_THREAD_ID from your environment. Get this actual current task/turn using codex_app read_thread with turnLimit 1, includeOutputs true, maxOutputCharsPerItem 20000. Programmatically export only the complete selected public functionCallOutput input and thread/turn IDs, excluding reasoning. Do not retype, trim or reconstruct its text from this instruction or a preview. Run installed input capture with actual thread/turn IDs, source delegated, expected parent, evaluation-only and json. Preserve returned artifact unchanged. This is delegated automated evidence, native_user_input false and novice_evidence false; it cannot authorize real novels or satisfy human/native gates.\\n\\nUnder .novel-creator/local/evidence/fresh-resumption/YOUR_ACTUAL_THREAD_ID/ preserve capture snapshot and result. Before any mutation run installed context --novel PATH --json and session list --novel PATH --json; save each complete parsed JSON output as before-context.json and before-sessions.json in that evidence directory. Stop honestly if unavailable or ambiguous. Do not consult manual story notes, earlier task messages, framework test fixtures or expected answers. Recover the latest saved session entirely from committed installed context. The prior response display is unconfirmed; do not infer an actual interruption, human acceptance or that it was unseen.\\n\\nRequested product action: Resume the latest saved session and summarize its established decisions, unaccepted possibilities, open questions and any unresolved continuity findings. Preserve its saved mode and stable session ID, respect checkpoint pauses, and do not start new creative exploration or ask me to retell recorded information. Respond in English. No new creative fact or decision is supplied by this administrative request.\\n\\nPrepare exactly one new conversation using records.new_exchange, the exact current captured text and artifact, an honest continuity review, and the summary as the exact assistant response. Retain all prior creative records; at most revise the selected session to record this resumption without changing its mode. Digest and save through the installed production CLI before final display. On sandbox-denied hardlinks a scoped normal-filesystem retry with unchanged prepared payload is allowed; never bypass locks or safeguards. Preserve payload, save result and a small resumption report with actual IDs/checkpoint in the evidence directory; print the actual successful save JSON so ordering can be independently checked. If save fails stop and retain evidence. Final response must be exactly the successfully saved assistant message, with no administrative suffix, memory citation or added newline.</input>\\n</codex_delegation>\",\"truncated\":false}}}",
+      "parsed_value": {
+        "kind": "host_input",
+        "source_type": "delegated",
+        "thread_id": "01a16aa5-4c4c-7a52-89d0-26df804faaf0",
+        "turn_id": "01a16aa6-adcd-7ef2-a612-96f3d70444ba",
+        "event_id": "fco_01a16aa6-adce-7592-82be-6929cd26e414",
+        "event_type": "functionCallOutput",
+        "source_thread_id": "01a167df-036b-7c71-b306-9d7021046c01",
+        "native_user_input": false,
+        "novice_evidence": false,
+        "evaluation_only": true,
+        "text": "This is one of the user's two explicitly authorized fresh resumption tasks for a disposable delegated evaluation. Work only with the existing disposable novel at C:/Users/BjarkiGunnarsson/Documents/Codex/2026-10-23/novel-host-eval-en-20261023095949/work/delegated-novel-01. Do not create another novel, edit framework sources, install or upgrade anything, read other tasks/transcripts or message other tasks. No provider APIs, hidden reasoning capture, real novel changes, manuscript edits, dependency changes or global settings.\n\nUse C:/Users/BjarkiGunnarsson/source/repos/Personal/novel-creator/.venv/Scripts/python.exe as the configured interpreter with framework PYTHONPATH removed; use only the novel-local .novel-creator/run.py launcher and pinned installed modules/workflows. Read installed entry.md, resume.md, brainstorm.md, authority.md and continuity.md. Expected source parent thread: 01a167df-036b-7c71-b306-9d7021046c01.\n\nFirst read CODEX_THREAD_ID from your environment. Get this actual current task/turn using codex_app read_thread with turnLimit 1, includeOutputs true, maxOutputCharsPerItem 20000. Programmatically export only the complete selected public functionCallOutput input and thread/turn IDs, excluding reasoning. Do not retype, trim or reconstruct its text from this instruction or a preview. Run installed input capture with actual thread/turn IDs, source delegated, expected parent, evaluation-only and json. Preserve returned artifact unchanged. This is delegated automated evidence, native_user_input false and novice_evidence false; it cannot authorize real novels or satisfy human/native gates.\n\nUnder .novel-creator/local/evidence/fresh-resumption/YOUR_ACTUAL_THREAD_ID/ preserve capture snapshot and result. Before any mutation run installed context --novel PATH --json and session list --novel PATH --json; save each complete parsed JSON output as before-context.json and before-sessions.json in that evidence directory. Stop honestly if unavailable or ambiguous. Do not consult manual story notes, earlier task messages, framework test fixtures or expected answers. Recover the latest saved session entirely from committed installed context. The prior response display is unconfirmed; do not infer an actual interruption, human acceptance or that it was unseen.\n\nRequested product action: Resume the latest saved session and summarize its established decisions, unaccepted possibilities, open questions and any unresolved continuity findings. Preserve its saved mode and stable session ID, respect checkpoint pauses, and do not start new creative exploration or ask me to retell recorded information. Respond in English. No new creative fact or decision is supplied by this administrative request.\n\nPrepare exactly one new conversation using records.new_exchange, the exact current captured text and artifact, an honest continuity review, and the summary as the exact assistant response. Retain all prior creative records; at most revise the selected session to record this resumption without changing its mode. Digest and save through the installed production CLI before final display. On sandbox-denied hardlinks a scoped normal-filesystem retry with unchanged prepared payload is allowed; never bypass locks or safeguards. Preserve payload, save result and a small resumption report with actual IDs/checkpoint in the evidence directory; print the actual successful save JSON so ordering can be independently checked. If save fails stop and retain evidence. Final response must be exactly the successfully saved assistant message, with no administrative suffix, memory citation or added newline.",
+        "public_event": {
+          "type": "functionCallOutput",
+          "id": "fco_01a16aa6-adce-7592-82be-6929cd26e414",
+          "namespace": "codex_app",
+          "name": "create_thread",
+          "output": {
+            "text": "<codex_delegation>\n  <source_thread_id>01a167df-036b-7c71-b306-9d7021046c01</source_thread_id>\n  <input>This is one of the user's two explicitly authorized fresh resumption tasks for a disposable delegated evaluation. Work only with the existing disposable novel at C:/Users/BjarkiGunnarsson/Documents/Codex/2026-10-23/novel-host-eval-en-20261023095949/work/delegated-novel-01. Do not create another novel, edit framework sources, install or upgrade anything, read other tasks/transcripts or message other tasks. No provider APIs, hidden reasoning capture, real novel changes, manuscript edits, dependency changes or global settings.\n\nUse C:/Users/BjarkiGunnarsson/source/repos/Personal/novel-creator/.venv/Scripts/python.exe as the configured interpreter with framework PYTHONPATH removed; use only the novel-local .novel-creator/run.py launcher and pinned installed modules/workflows. Read installed entry.md, resume.md, brainstorm.md, authority.md and continuity.md. Expected source parent thread: 01a167df-036b-7c71-b306-9d7021046c01.\n\nFirst read CODEX_THREAD_ID from your environment. Get this actual current task/turn using codex_app read_thread with turnLimit 1, includeOutputs true, maxOutputCharsPerItem 20000. Programmatically export only the complete selected public functionCallOutput input and thread/turn IDs, excluding reasoning. Do not retype, trim or reconstruct its text from this instruction or a preview. Run installed input capture with actual thread/turn IDs, source delegated, expected parent, evaluation-only and json. Preserve returned artifact unchanged. This is delegated automated evidence, native_user_input false and novice_evidence false; it cannot authorize real novels or satisfy human/native gates.\n\nUnder .novel-creator/local/evidence/fresh-resumption/YOUR_ACTUAL_THREAD_ID/ preserve capture snapshot and result. Before any mutation run installed context --novel PATH --json and session list --novel PATH --json; save each complete parsed JSON output as before-context.json and before-sessions.json in that evidence directory. Stop honestly if unavailable or ambiguous. Do not consult manual story notes, earlier task messages, framework test fixtures or expected answers. Recover the latest saved session entirely from committed installed context. The prior response display is unconfirmed; do not infer an actual interruption, human acceptance or that it was unseen.\n\nRequested product action: Resume the latest saved session and summarize its established decisions, unaccepted possibilities, open questions and any unresolved continuity findings. Preserve its saved mode and stable session ID, respect checkpoint pauses, and do not start new creative exploration or ask me to retell recorded information. Respond in English. No new creative fact or decision is supplied by this administrative request.\n\nPrepare exactly one new conversation using records.new_exchange, the exact current captured text and artifact, an honest continuity review, and the summary as the exact assistant response. Retain all prior creative records; at most revise the selected session to record this resumption without changing its mode. Digest and save through the installed production CLI before final display. On sandbox-denied hardlinks a scoped normal-filesystem retry with unchanged prepared payload is allowed; never bypass locks or safeguards. Preserve payload, save result and a small resumption report with actual IDs/checkpoint in the evidence directory; print the actual successful save JSON so ordering can be independently checked. If save fails stop and retain evidence. Final response must be exactly the successfully saved assistant message, with no administrative suffix, memory citation or added newline.</input>\n</codex_delegation>",
+            "truncated": false
+          }
+        }
+      },
+      "digest": "8c8d60445b07e2109d3ab6035af2807795cb3c7417f25fb3533e38f1b31c428d"
+    }
+  ],
+  "record_versions": [
+    {
+      "id": "5c6111bf-1bc4-4679-8354-b673e96a06f0",
+      "kind": "session",
+      "revision": 16,
+      "previous_revision": 15,
+      "created_exchange_id": "9896c9bc-f75e-4d6a-a647-b0566945556c",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "7c441d6a-ff46-45da-ad97-d8fee35cc1b7",
+          "message_id": "7c023d32-e3d3-47e0-bbf1-af2a5a53a0fc"
+        }
+      ],
+      "topic": "The keeper's mistaken belief about the sender",
+      "mode": "guided",
+      "state": "open",
+      "started_exchange_id": "9896c9bc-f75e-4d6a-a647-b0566945556c",
+      "last_exchange_id": "7c441d6a-ff46-45da-ad97-d8fee35cc1b7",
+      "related_record_ids": [
+        "38b18f31-c7ae-4760-a384-3fa08f0a1ec6",
+        "3cba38aa-8ee9-4854-bb47-45a5b8ced813",
+        "a6c49204-ce89-40f0-a54a-41844154a6b7",
+        "1606e3ed-dbab-4fa6-82d8-971f7dfe6ad0",
+        "464a598d-0dfd-49f2-87a6-271c94550f03",
+        "20799974-2bd1-427b-a102-7e85b5fa477c",
+        "fd528242-9507-4420-a4a7-57ea3712e72d",
+        "dcd993b3-5a8b-4898-8540-12c49374b38d",
+        "408313cd-3e4b-4d22-9e28-80600c0f97d1",
+        "897ed57a-291b-4d48-af85-939feeaaf924",
+        "bb4999c5-634d-43e4-b2a7-37f3ab5ad2dd",
+        "a992a5c7-ec3b-4918-b08e-77908bc2d614",
+        "ccc9d5ae-8a26-4c24-929d-4bba90963755",
+        "d49c27a0-e7b7-414c-bb39-5711599c215d",
+        "9fb4a720-5cf2-48ae-b65c-e0cd5fad17f0",
+        "f172b29a-f555-42a4-8539-ffc7b5a00849",
+        "a6044c6f-a41c-4ba9-ae7c-2927b6bf8928",
+        "e1dc5be0-fcd1-43da-8697-fed4d694e0e6",
+        "3959f543-138b-492e-a47b-ec2c0db70892",
+        "2951b497-1f28-48a9-9189-83d96483644a",
+        "70455499-77c8-4f9a-a2a0-ad4d3832738b",
+        "e21697b4-80bf-4abc-9255-632234771841",
+        "118ccc29-7c28-4463-b909-659b91f17bf1",
+        "412516ed-599d-42cc-b52a-db7837404479",
+        "4a7ccfbb-97a3-4ad7-a6f6-da42a796e0df",
+        "7ff05091-02d2-4e73-8812-95f76fa69968",
+        "b20ac4e8-8e7b-495b-b276-b63ec0ff5309",
+        "f3290145-15c5-498e-a06d-3f46d61f636f",
+        "1bdb1bd5-ba93-4ba1-b050-851f2af75257",
+        "d77721ac-23f0-4c90-8509-c247e22f69c6",
+        "64d90715-e4a7-4aad-adf1-2a1684122756",
+        "b4af8497-8504-4533-8292-8db3a7ec2aad",
+        "d31d9f27-8172-4893-ab2e-46d0c7f208d6",
+        "410cc3f0-8dd6-47e1-87be-5c156656efe6",
+        "0d5b62ec-ebcf-49d9-a919-64c688449e92",
+        "28e945d8-8d06-4266-80a7-a9975dfce813",
+        "4319309a-949a-4545-a450-6aaf92c80ac9",
+        "f492c797-957d-48c6-a20e-a7050796091a",
+        "bf607043-4804-422e-87a6-9d7c4df8b64f",
+        "37c41720-3022-46f9-8b32-bb814e134db8"
+      ],
+      "unresolved_question_ids": [
+        "38b18f31-c7ae-4760-a384-3fa08f0a1ec6",
+        "1606e3ed-dbab-4fa6-82d8-971f7dfe6ad0",
+        "408313cd-3e4b-4d22-9e28-80600c0f97d1",
+        "bb4999c5-634d-43e4-b2a7-37f3ab5ad2dd",
+        "b4af8497-8504-4533-8292-8db3a7ec2aad",
+        "d31d9f27-8172-4893-ab2e-46d0c7f208d6"
+      ],
+      "derived_context_ref": null
+    }
+  ],
+  "continuity_review": {
+    "coverage": "complete",
+    "reviewed_record_refs": [
+      {
+        "id": "adfafe79-ad44-4097-8fc2-305095c3e4ec",
+        "revision": 4
+      },
+      {
+        "id": "5c6111bf-1bc4-4679-8354-b673e96a06f0",
+        "revision": 15
+      },
+      {
+        "id": "38b18f31-c7ae-4760-a384-3fa08f0a1ec6",
+        "revision": 1
+      },
+      {
+        "id": "3cba38aa-8ee9-4854-bb47-45a5b8ced813",
+        "revision": 1
+      },
+      {
+        "id": "a6c49204-ce89-40f0-a54a-41844154a6b7",
+        "revision": 2
+      },
+      {
+        "id": "1606e3ed-dbab-4fa6-82d8-971f7dfe6ad0",
+        "revision": 1
+      },
+      {
+        "id": "464a598d-0dfd-49f2-87a6-271c94550f03",
+        "revision": 2
+      },
+      {
+        "id": "20799974-2bd1-427b-a102-7e85b5fa477c",
+        "revision": 1
+      },
+      {
+        "id": "fd528242-9507-4420-a4a7-57ea3712e72d",
+        "revision": 1
+      },
+      {
+        "id": "dcd993b3-5a8b-4898-8540-12c49374b38d",
+        "revision": 1
+      },
+      {
+        "id": "408313cd-3e4b-4d22-9e28-80600c0f97d1",
+        "revision": 1
+      },
+      {
+        "id": "897ed57a-291b-4d48-af85-939feeaaf924",
+        "revision": 1
+      },
+      {
+        "id": "bb4999c5-634d-43e4-b2a7-37f3ab5ad2dd",
+        "revision": 1
+      },
+      {
+        "id": "a992a5c7-ec3b-4918-b08e-77908bc2d614",
+        "revision": 1
+      },
+      {
+        "id": "ccc9d5ae-8a26-4c24-929d-4bba90963755",
+        "revision": 1
+      },
+      {
+        "id": "d49c27a0-e7b7-414c-bb39-5711599c215d",
+        "revision": 1
+      },
+      {
+        "id": "9fb4a720-5cf2-48ae-b65c-e0cd5fad17f0",
+        "revision": 1
+      },
+      {
+        "id": "f172b29a-f555-42a4-8539-ffc7b5a00849",
+        "revision": 1
+      },
+      {
+        "id": "a6044c6f-a41c-4ba9-ae7c-2927b6bf8928",
+        "revision": 1
+      },
+      {
+        "id": "e1dc5be0-fcd1-43da-8697-fed4d694e0e6",
+        "revision": 2
+      },
+      {
+        "id": "3959f543-138b-492e-a47b-ec2c0db70892",
+        "revision": 2
+      },
+      {
+        "id": "2951b497-1f28-48a9-9189-83d96483644a",
+        "revision": 1
+      },
+      {
+        "id": "70455499-77c8-4f9a-a2a0-ad4d3832738b",
+        "revision": 1
+      },
+      {
+        "id": "e21697b4-80bf-4abc-9255-632234771841",
+        "revision": 1
+      },
+      {
+        "id": "118ccc29-7c28-4463-b909-659b91f17bf1",
+        "revision": 1
+      },
+      {
+        "id": "412516ed-599d-42cc-b52a-db7837404479",
+        "revision": 1
+      },
+      {
+        "id": "4a7ccfbb-97a3-4ad7-a6f6-da42a796e0df",
+        "revision": 2
+      },
+      {
+        "id": "7ff05091-02d2-4e73-8812-95f76fa69968",
+        "revision": 1
+      },
+      {
+        "id": "b20ac4e8-8e7b-495b-b276-b63ec0ff5309",
+        "revision": 1
+      },
+      {
+        "id": "f3290145-15c5-498e-a06d-3f46d61f636f",
+        "revision": 1
+      },
+      {
+        "id": "1bdb1bd5-ba93-4ba1-b050-851f2af75257",
+        "revision": 1
+      },
+      {
+        "id": "d77721ac-23f0-4c90-8509-c247e22f69c6",
+        "revision": 1
+      },
+      {
+        "id": "64d90715-e4a7-4aad-adf1-2a1684122756",
+        "revision": 1
+      },
+      {
+        "id": "b4af8497-8504-4533-8292-8db3a7ec2aad",
+        "revision": 1
+      },
+      {
+        "id": "d31d9f27-8172-4893-ab2e-46d0c7f208d6",
+        "revision": 1
+      },
+      {
+        "id": "410cc3f0-8dd6-47e1-87be-5c156656efe6",
+        "revision": 2
+      },
+      {
+        "id": "0d5b62ec-ebcf-49d9-a919-64c688449e92",
+        "revision": 2
+      },
+      {
+        "id": "28e945d8-8d06-4266-80a7-a9975dfce813",
+        "revision": 2
+      },
+      {
+        "id": "4319309a-949a-4545-a450-6aaf92c80ac9",
+        "revision": 2
+      },
+      {
+        "id": "f492c797-957d-48c6-a20e-a7050796091a",
+        "revision": 1
+      },
+      {
+        "id": "bf607043-4804-422e-87a6-9d7c4df8b64f",
+        "revision": 1
+      },
+      {
+        "id": "37c41720-3022-46f9-8b32-bb814e134db8",
+        "revision": 1
+      }
+    ],
+    "unavailable_refs": [],
+    "canon_hold_refs": [],
+    "finding_ids": [],
+    "summary": "Resumption summary only, reviewing available committed records and their sources for motivation/backstory, chronology, character belief versus author truth, plot dependencies, world rules and relationships. No new creative facts or decisions. Intentional misunderstanding finding remains intentional; superseded objective-discovery wording remains superseded. Unknown cause, chronology and reader revelation remain unknown; proposals and open questions retain their statuses. No open/deferred findings recorded. Coverage is of saved records, not a complete literary consistency verdict. Previous response display unconfirmed. Session identity, mode, topic, start and open state retained. Every-exchange checkpoint pause retained."
+  },
+  "payload_digest": "78b6eb525fdb167595e77c3350aa1a65ae339139461455d361f5e5f146f90b82"
+}

@@ -1,0 +1,16 @@
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\verify_wheel.py", line 162, in <module>
+    print(json.dumps(verify(arguments.wheel), ensure_ascii=False, indent=2))
+                     ~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\verify_wheel.py", line 96, in verify
+    initialized = json.loads(run([console, 'init', '--path', root, '--brief-file', brief_file, '--json'],
+                             ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                                 cwd=scratch, env=env))
+                                 ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\verify_wheel.py", line 24, in run
+    raise RuntimeError(f'{args!r}: exit {result.returncode}\n{result.stdout}\n{result.stderr}')
+RuntimeError: [WindowsPath('C:/Users/BjarkiGunnarsson/source/repos/Personal/novel-creator/.tools/final-qualification-temp/novel-wheel-ek_0tlul/environment/Scripts/novel-creator.exe'), 'init', '--path', WindowsPath('C:/Users/BjarkiGunnarsson/source/repos/Personal/novel-creator/.tools/final-qualification-temp/novel-wheel-ek_0tlul/unknown'), '--brief-file', WindowsPath('C:/Users/BjarkiGunnarsson/source/repos/Personal/novel-creator/.tools/final-qualification-temp/novel-wheel-ek_0tlul/unknown.json'), '--json']: exit 3
+{"ok": false, "error": {"code": 3, "message": "Novel must be outside the framework and every other Git repository", "affected_refs": [], "retryable": true}, "last_confirmed_checkpoint": null, "pending_exchange_id": null}
+
+Novel must be outside the framework and every other Git repository
+

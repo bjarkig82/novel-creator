@@ -1,0 +1,14 @@
+[
+  {
+    "id": "msg_077138367b8a5910016adbea6ca7a08191bcc1c4af6043ef9e",
+    "text": "I’ll preserve the original evaluation and prepare the separate regression workspace using the current installed workflow.",
+    "classification": "administrative",
+    "reason": "Operational installation/capture/retry update only; it discloses no story content, capture result or continuity judgment."
+  },
+  {
+    "id": "msg_077138367b8a5910016adbea914d5c8191a87d68d6b7d9b7dd",
+    "text": "I’m using the new installation’s novel-init workflow. Its bootstrap save is pending after a filesystem error; I’ll retry the unchanged payload with normal filesystem access.",
+    "classification": "failure_disclosure",
+    "reason": "Operational installation/capture/retry update only; it discloses no story content, capture result or continuity judgment."
+  }
+]

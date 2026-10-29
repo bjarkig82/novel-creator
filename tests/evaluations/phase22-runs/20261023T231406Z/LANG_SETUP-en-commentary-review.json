@@ -1,0 +1,14 @@
+[
+  {
+    "id": "msg_03411d8f27e999d1016ae1d2bb822081918c8d284d148502e7",
+    "text": "I’ll create the separate disposable workspace, read its installed workflows, and save this turn before displaying the response.",
+    "classification": "administrative",
+    "reason": "Reviewed installation, capture and save preparation only; no creative results before save."
+  },
+  {
+    "id": "msg_03411d8f27e999d1016ae1d2ef8d608191b2a3490764074d2c",
+    "text": "The new installation and input capture are ready. I’m preparing the exchange for saving.",
+    "classification": "administrative",
+    "reason": "Reviewed installation, capture and save preparation only; no creative results before save."
+  }
+]

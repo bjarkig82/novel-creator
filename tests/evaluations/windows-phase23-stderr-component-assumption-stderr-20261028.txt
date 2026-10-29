@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\evaluations\phase23-stderr-pipe-20261028.py", line 174, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\evaluations\phase23-stderr-pipe-20261028.py", line 147, in main
+    component(candidate)
+    ~~~~~~~~~^^^^^^^^^^^
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\evaluations\phase23-stderr-pipe-20261028.py", line 96, in component
+    assert counts['readers'] == (8 if selected else 16)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

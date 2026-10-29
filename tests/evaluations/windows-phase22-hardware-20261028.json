@@ -1,0 +1,16 @@
+{
+  "computer": {
+    "Manufacturer": "LENOVO",
+    "Model": "22AWS00800",
+    "TotalPhysicalMemory": 33847832576
+  },
+  "processor": {
+    "Name": "Intel(R) Core(TM) Ultra 7 268V",
+    "NumberOfLogicalProcessors": 8
+  },
+  "volume": {
+    "DriveLetter": "C",
+    "FileSystem": "NTFS"
+  },
+  "powershell": "7.6.5"
+}

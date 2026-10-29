@@ -1,0 +1,359 @@
+{
+  "schema_version": "1.0",
+  "novel_id": "8a282cc3-d70b-428f-81d8-a2b43716e95e",
+  "exchange_id": "49ab0fda-40cd-4521-8744-64af31134614",
+  "sequence": 2,
+  "previous_exchange_id": "8ecead6b-25a4-405b-9b4b-68c8b0b26119",
+  "previous_digest": "a34257ced3ac384d5a1798f74d44d545993e5e41c635584481e02bb0a2bac163",
+  "session_id": null,
+  "expected_git_head": "97536d35559978dc10768a2f6e1105edc08c69b7",
+  "recorded_at": "2026-10-28T10:48:14.805135Z",
+  "operation": "conversation",
+  "messages": [
+    {
+      "message_id": "1811d233-021e-418a-bc6b-745a42638726",
+      "role": "user",
+      "text": "Case LANG_SETUP. Administrative setup: use a NEW independent disposable novel at C:/Users/BjarkiGunnarsson/Documents/Codex/2026-10-23/novel-phase22-is-20261023/language-pitfalls-novel, outside all other repositories, initialized through the production framework CLI with manuscript language is and all other creative preferences unknown. Preserve the previous evaluation novel. Configure only local evaluation Git identity. Then use only this new novel's pinned installed launcher/workflows, the existing exact public-current-input delegated capture procedure, normal save-before-display and CASE evidence files; no framework edits, APIs or global changes. The following are actual director instructions, not quoted evaluation expectations. Establish this engine rule as author truth: Vélin gengur eingöngu fyrir bensíni.\n\nHandritið verður á íslensku; reply in English. Ég veit ekki enn hver tegundin verður.\n\nPause after your response."
+    },
+    {
+      "message_id": "a937384e-c612-433d-bdcd-bc9ff5c19f04",
+      "role": "assistant",
+      "text": "The manuscript language is Icelandic, and I’ll reply in English. Genre remains undecided.\n\nEstablished author truth: “Vélin gengur eingöngu fyrir bensíni.” The engine runs exclusively on petrol (gasoline).\n\nI’ll pause here."
+    }
+  ],
+  "input_artifacts": [
+    {
+      "artifact_id": "4ccb54b0-9a1d-45b5-8dd0-b35ea5c2218e",
+      "original_text": "{\"kind\":\"host_input\",\"source_type\":\"delegated\",\"thread_id\":\"01a16afa-1197-7650-8189-9365687429ee\",\"turn_id\":\"01a1821e-d0fc-7971-b031-2659684926db\",\"event_id\":\"fco_01a1821e-d0fc-7971-b031-266e10a208d0\",\"event_type\":\"functionCallOutput\",\"source_thread_id\":\"01a16af6-0d9b-7173-a5f5-c8775f37df18\",\"native_user_input\":false,\"novice_evidence\":false,\"evaluation_only\":true,\"text\":\"Case LANG_SETUP. Administrative setup: use a NEW independent disposable novel at C:/Users/BjarkiGunnarsson/Documents/Codex/2026-10-23/novel-phase22-is-20261023/language-pitfalls-novel, outside all other repositories, initialized through the production framework CLI with manuscript language is and all other creative preferences unknown. Preserve the previous evaluation novel. Configure only local evaluation Git identity. Then use only this new novel's pinned installed launcher/workflows, the existing exact public-current-input delegated capture procedure, normal save-before-display and CASE evidence files; no framework edits, APIs or global changes. The following are actual director instructions, not quoted evaluation expectations. Establish this engine rule as author truth: Vélin gengur eingöngu fyrir bensíni.\\n\\nHandritið verður á íslensku; reply in English. Ég veit ekki enn hver tegundin verður.\\n\\nPause after your response.\",\"public_event\":{\"type\":\"functionCallOutput\",\"id\":\"fco_01a1821e-d0fc-7971-b031-266e10a208d0\",\"namespace\":\"codex_app\",\"name\":\"send_message_to_thread\",\"output\":{\"text\":\"<codex_delegation>\\n  <source_thread_id>01a16af6-0d9b-7173-a5f5-c8775f37df18</source_thread_id>\\n  <input>Case LANG_SETUP. Administrative setup: use a NEW independent disposable novel at C:/Users/BjarkiGunnarsson/Documents/Codex/2026-10-23/novel-phase22-is-20261023/language-pitfalls-novel, outside all other repositories, initialized through the production framework CLI with manuscript language is and all other creative preferences unknown. Preserve the previous evaluation novel. Configure only local evaluation Git identity. Then use only this new novel's pinned installed launcher/workflows, the existing exact public-current-input delegated capture procedure, normal save-before-display and CASE evidence files; no framework edits, APIs or global changes. The following are actual director instructions, not quoted evaluation expectations. Establish this engine rule as author truth: Vélin gengur eingöngu fyrir bensíni.\\n\\nHandritið verður á íslensku; reply in English. Ég veit ekki enn hver tegundin verður.\\n\\nPause after your response.</input>\\n</codex_delegation>\",\"truncated\":false}}}",
+      "parsed_value": {
+        "kind": "host_input",
+        "source_type": "delegated",
+        "thread_id": "01a16afa-1197-7650-8189-9365687429ee",
+        "turn_id": "01a1821e-d0fc-7971-b031-2659684926db",
+        "event_id": "fco_01a1821e-d0fc-7971-b031-266e10a208d0",
+        "event_type": "functionCallOutput",
+        "source_thread_id": "01a16af6-0d9b-7173-a5f5-c8775f37df18",
+        "native_user_input": false,
+        "novice_evidence": false,
+        "evaluation_only": true,
+        "text": "Case LANG_SETUP. Administrative setup: use a NEW independent disposable novel at C:/Users/BjarkiGunnarsson/Documents/Codex/2026-10-23/novel-phase22-is-20261023/language-pitfalls-novel, outside all other repositories, initialized through the production framework CLI with manuscript language is and all other creative preferences unknown. Preserve the previous evaluation novel. Configure only local evaluation Git identity. Then use only this new novel's pinned installed launcher/workflows, the existing exact public-current-input delegated capture procedure, normal save-before-display and CASE evidence files; no framework edits, APIs or global changes. The following are actual director instructions, not quoted evaluation expectations. Establish this engine rule as author truth: Vélin gengur eingöngu fyrir bensíni.\n\nHandritið verður á íslensku; reply in English. Ég veit ekki enn hver tegundin verður.\n\nPause after your response.",
+        "public_event": {
+          "type": "functionCallOutput",
+          "id": "fco_01a1821e-d0fc-7971-b031-266e10a208d0",
+          "namespace": "codex_app",
+          "name": "send_message_to_thread",
+          "output": {
+            "text": "<codex_delegation>\n  <source_thread_id>01a16af6-0d9b-7173-a5f5-c8775f37df18</source_thread_id>\n  <input>Case LANG_SETUP. Administrative setup: use a NEW independent disposable novel at C:/Users/BjarkiGunnarsson/Documents/Codex/2026-10-23/novel-phase22-is-20261023/language-pitfalls-novel, outside all other repositories, initialized through the production framework CLI with manuscript language is and all other creative preferences unknown. Preserve the previous evaluation novel. Configure only local evaluation Git identity. Then use only this new novel's pinned installed launcher/workflows, the existing exact public-current-input delegated capture procedure, normal save-before-display and CASE evidence files; no framework edits, APIs or global changes. The following are actual director instructions, not quoted evaluation expectations. Establish this engine rule as author truth: Vélin gengur eingöngu fyrir bensíni.\n\nHandritið verður á íslensku; reply in English. Ég veit ekki enn hver tegundin verður.\n\nPause after your response.</input>\n</codex_delegation>",
+            "truncated": false
+          }
+        }
+      },
+      "digest": "c0874332f0976fedce1baf417a99e4017a4cf3d8f9b811d0a38c1c589a98cebb"
+    }
+  ],
+  "record_versions": [
+    {
+      "id": "8a282cc3-d70b-428f-81d8-a2b43716e95e",
+      "kind": "novel_project",
+      "revision": 2,
+      "previous_revision": 1,
+      "created_exchange_id": "8ecead6b-25a4-405b-9b4b-68c8b0b26119",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "49ab0fda-40cd-4521-8744-64af31134614",
+          "message_id": "1811d233-021e-418a-bc6b-745a42638726",
+          "range": {
+            "start": 852,
+            "end": 868
+          }
+        }
+      ],
+      "origin": "supplied",
+      "title": {
+        "state": "default",
+        "original_text": "Untitled novel",
+        "interpretation": null,
+        "origin": "system_default",
+        "source_refs": []
+      },
+      "original_concept": {
+        "state": "unknown",
+        "original_text": null,
+        "interpretation": null,
+        "origin": "system_default",
+        "source_refs": []
+      },
+      "creative_brief": {
+        "genre": {
+          "state": "unknown",
+          "original_text": null,
+          "interpretation": null,
+          "origin": "system_default",
+          "source_refs": []
+        },
+        "subgenres": {
+          "state": "unknown",
+          "original_text": null,
+          "interpretation": null,
+          "origin": "system_default",
+          "source_refs": []
+        },
+        "audience": {
+          "state": "unknown",
+          "original_text": null,
+          "interpretation": null,
+          "origin": "system_default",
+          "source_refs": []
+        },
+        "tone": {
+          "state": "unknown",
+          "original_text": null,
+          "interpretation": null,
+          "origin": "system_default",
+          "source_refs": []
+        },
+        "style": {
+          "state": "unknown",
+          "original_text": null,
+          "interpretation": null,
+          "origin": "system_default",
+          "source_refs": []
+        },
+        "perspective": {
+          "state": "unknown",
+          "original_text": null,
+          "interpretation": null,
+          "origin": "system_default",
+          "source_refs": []
+        },
+        "complexity": {
+          "state": "unknown",
+          "original_text": null,
+          "interpretation": null,
+          "origin": "system_default",
+          "source_refs": []
+        }
+      },
+      "manuscript_language": "is",
+      "workflow_preferences": {
+        "reply_language": {
+          "state": "supplied",
+          "original_text": "reply in English",
+          "interpretation": null,
+          "origin": "supplied",
+          "source_refs": [
+            {
+              "type": "message",
+              "exchange_id": "49ab0fda-40cd-4521-8744-64af31134614",
+              "message_id": "1811d233-021e-418a-bc6b-745a42638726",
+              "range": {
+                "start": 852,
+                "end": 868
+              }
+            }
+          ]
+        }
+      },
+      "review_preferences": {
+        "routine_checkpoint": "on_request"
+      },
+      "creative_directions": []
+    },
+    {
+      "id": "6891aa0a-adde-49ea-bdfe-9358b42623a4",
+      "kind": "story_element",
+      "revision": 1,
+      "previous_revision": null,
+      "created_exchange_id": "49ab0fda-40cd-4521-8744-64af31134614",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "49ab0fda-40cd-4521-8744-64af31134614",
+          "message_id": "1811d233-021e-418a-bc6b-745a42638726",
+          "range": {
+            "start": 785,
+            "end": 821
+          }
+        }
+      ],
+      "element_type": "plot_thread",
+      "display_name": "Eldsneytisregla vélarinnar",
+      "aliases": [
+        "Vélin"
+      ],
+      "status": "accepted",
+      "assertion_ids": [
+        "993422dc-055a-4308-a9be-5d7f6d140265"
+      ],
+      "relationship_ids": [],
+      "dependency_refs": [],
+      "time_ref": null,
+      "decision_ids": [
+        "db8a3681-580e-4368-92a0-180ac45535b6"
+      ]
+    },
+    {
+      "id": "993422dc-055a-4308-a9be-5d7f6d140265",
+      "kind": "assertion",
+      "revision": 1,
+      "previous_revision": null,
+      "created_exchange_id": "49ab0fda-40cd-4521-8744-64af31134614",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "49ab0fda-40cd-4521-8744-64af31134614",
+          "message_id": "1811d233-021e-418a-bc6b-745a42638726",
+          "range": {
+            "start": 785,
+            "end": 821
+          }
+        }
+      ],
+      "subject_element_id": "6891aa0a-adde-49ea-bdfe-9358b42623a4",
+      "predicate": "gengur eingöngu fyrir",
+      "value": "bensíni",
+      "perspective": "author_truth",
+      "holder_id": null,
+      "reader_audience": null,
+      "time_ref": {
+        "chronology": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        },
+        "narrative": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        }
+      },
+      "truth_state": "affirmed",
+      "status": "accepted",
+      "decision_ids": [
+        "db8a3681-580e-4368-92a0-180ac45535b6"
+      ],
+      "supersedes": null
+    },
+    {
+      "id": "53dee14c-9db4-4496-bf43-45482adba52d",
+      "kind": "idea",
+      "revision": 1,
+      "previous_revision": null,
+      "created_exchange_id": "49ab0fda-40cd-4521-8744-64af31134614",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "49ab0fda-40cd-4521-8744-64af31134614",
+          "message_id": "1811d233-021e-418a-bc6b-745a42638726",
+          "range": {
+            "start": 785,
+            "end": 821
+          }
+        }
+      ],
+      "statement": "Vélin gengur eingöngu fyrir bensíni.",
+      "status": "accepted",
+      "related_element_ids": [
+        "6891aa0a-adde-49ea-bdfe-9358b42623a4"
+      ],
+      "alternative_group_id": null,
+      "selected_parts": [],
+      "decision_ids": [
+        "db8a3681-580e-4368-92a0-180ac45535b6"
+      ],
+      "resulting_assertion_ids": [
+        "993422dc-055a-4308-a9be-5d7f6d140265"
+      ]
+    },
+    {
+      "id": "db8a3681-580e-4368-92a0-180ac45535b6",
+      "kind": "decision",
+      "revision": 1,
+      "previous_revision": null,
+      "created_exchange_id": "49ab0fda-40cd-4521-8744-64af31134614",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "49ab0fda-40cd-4521-8744-64af31134614",
+          "message_id": "1811d233-021e-418a-bc6b-745a42638726",
+          "range": {
+            "start": 741,
+            "end": 821
+          }
+        }
+      ],
+      "action": "accept",
+      "user_message_ref": {
+        "type": "message",
+        "exchange_id": "49ab0fda-40cd-4521-8744-64af31134614",
+        "message_id": "1811d233-021e-418a-bc6b-745a42638726",
+        "range": {
+          "start": 741,
+          "end": 821
+        }
+      },
+      "span": {
+        "start": 741,
+        "end": 821
+      },
+      "target_refs": [
+        {
+          "id": "6891aa0a-adde-49ea-bdfe-9358b42623a4",
+          "revision": 1
+        },
+        {
+          "id": "993422dc-055a-4308-a9be-5d7f6d140265",
+          "revision": 1
+        },
+        {
+          "id": "53dee14c-9db4-4496-bf43-45482adba52d",
+          "revision": 1
+        }
+      ],
+      "selected_parts": [],
+      "prior_refs": [],
+      "result_refs": [
+        {
+          "id": "6891aa0a-adde-49ea-bdfe-9358b42623a4",
+          "revision": 1
+        },
+        {
+          "id": "993422dc-055a-4308-a9be-5d7f6d140265",
+          "revision": 1
+        },
+        {
+          "id": "53dee14c-9db4-4496-bf43-45482adba52d",
+          "revision": 1
+        }
+      ],
+      "reason": "Establish this engine rule as author truth: Vélin gengur eingöngu fyrir bensíni.",
+      "affected_refs": [],
+      "review_required_refs": []
+    }
+  ],
+  "continuity_review": {
+    "coverage": "complete",
+    "reviewed_record_refs": [
+      {
+        "id": "8a282cc3-d70b-428f-81d8-a2b43716e95e",
+        "revision": 1
+      }
+    ],
+    "unavailable_refs": [],
+    "canon_hold_refs": [],
+    "finding_ids": [],
+    "summary": "New independent novel; no prior narrative facts. Explicit engine rule captured as author truth. Manuscript Icelandic; explicit English reply preference preserved separately; genre remains unknown."
+  },
+  "payload_digest": "4794680eecc16608653e9d8cad77fbf4dab15379820d9a08cf584756f5c7b1f4"
+}

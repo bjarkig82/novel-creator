@@ -1,0 +1,10 @@
+{
+  "case_id": "CAPTURE1",
+  "task": "T168",
+  "inputs": {
+    "en": "Case CAPTURE1. Start a new guided session called People. I have seven story possibilities: Rúna is the lighthouse keeper and sender of the letter; Ari, her brother, is the victim; Edda, her sister, is the investigator; Rúna knows the sailor Bjarni; Rúna collects sea glass; Edda distrusts bells; Bjarni may owe Edda money. I accept Rúna as the keeper and sender. I decide that Ari is her brother and the victim. Make Edda her sister and the investigator. Establish that Rúna knows Bjarni. Keep the final three as proposals. Two questions remain open: Why did Rúna send the letter? What does Edda want from Bjarni? I am not choosing answers yet. Keep suggestions brief.",
+    "is": "Tilvik CAPTURE1. Byrjum nýja leiðsagða lotu sem heitir Fólk. Ég er með sjö möguleika fyrir söguna: Rúna er vitavörðurinn og sendandi bréfsins; Ari, bróðir hennar, er fórnarlambið; Edda, systir hennar, er rannsakandinn; Rúna þekkir sjómanninn Bjarna; Rúna safnar sjógleri; Edda vantreystir bjöllum; Bjarni skuldar Eddu hugsanlega peninga. Ég samþykki Rúnu sem vitavörð og sendanda. Ég ákveð að Ari sé bróðir hennar og fórnarlambið. Gerum Eddu að systur hennar og rannsakandanum. Staðfestum að Rúna þekki Bjarna. Síðustu þrír eru áfram tillögur. Tvær spurningar eru opnar: Hvers vegna sendi Rúna bréfið? Hvað vill Edda frá Bjarna? Ég vel engin svör ennþá. Hafðu tillögur stuttar."
+  },
+  "submitted": true,
+  "require_commentary_review": true
+}

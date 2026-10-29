@@ -1,0 +1,20 @@
+{"layout": "ordinary", "fixture": {"sessions": 100, "exchanges": 5000, "active_assertions": 10000, "json_bytes": 26215716, "synthetic": true, "fully_validated": true}, "source_sha256": "a4cc5cba1ffd7f3885610ed98b8e0b965b16d3ed14ead91e73e8b58c7cab88d3", "method": "Eight fresh complete saves ABBA/ABBA; identical fresh queries and all six hash partitions counted. Direct Git. Diagnostic, not p95."}
+{"hold_gil": 0, "seconds": 2.1127431000350043, "native_queries": 10000, "hashed_files": 10002, "sequence": 5001}
+{"hold_gil": 1, "seconds": 2.1129978999961168, "native_queries": 10002, "hashed_files": 10004, "sequence": 5002}
+{"hold_gil": 1, "seconds": 2.011894099996425, "native_queries": 10004, "hashed_files": 10006, "sequence": 5003}
+{"hold_gil": 0, "seconds": 1.8883289999794215, "native_queries": 10006, "hashed_files": 10008, "sequence": 5004}
+{"hold_gil": 0, "seconds": 1.927403899957426, "native_queries": 10008, "hashed_files": 10010, "sequence": 5005}
+{"hold_gil": 1, "seconds": 2.0267656999640167, "native_queries": 10010, "hashed_files": 10012, "sequence": 5006}
+{"hold_gil": 1, "seconds": 2.0251280999509618, "native_queries": 10012, "hashed_files": 10014, "sequence": 5007}
+{"hold_gil": 0, "seconds": 1.9302948999684304, "native_queries": 10014, "hashed_files": 10016, "sequence": 5008}
+{"layout": "ordinary", "medians": {"0": 1.9288493999629281, "1": 2.0259468999574892}}
+{"layout": "packed", "fixture": {"sessions": 100, "exchanges": 5000, "active_assertions": 10000, "json_bytes": 26215716, "synthetic": true, "fully_validated": true}, "source_sha256": "a4cc5cba1ffd7f3885610ed98b8e0b965b16d3ed14ead91e73e8b58c7cab88d3", "method": "Eight fresh complete saves ABBA/ABBA; identical fresh queries and all six hash partitions counted. Direct Git. Diagnostic, not p95."}
+{"hold_gil": 0, "seconds": 1.8559346999973059, "native_queries": 10000, "hashed_files": 10002, "sequence": 5001}
+{"hold_gil": 1, "seconds": 1.6120741999475285, "native_queries": 10002, "hashed_files": 10004, "sequence": 5002}
+{"hold_gil": 1, "seconds": 1.6332535999827087, "native_queries": 10004, "hashed_files": 10006, "sequence": 5003}
+{"hold_gil": 0, "seconds": 1.8340042000636458, "native_queries": 10006, "hashed_files": 10008, "sequence": 5004}
+{"hold_gil": 0, "seconds": 1.7786116999341175, "native_queries": 10008, "hashed_files": 10010, "sequence": 5005}
+{"hold_gil": 1, "seconds": 1.6347754000453278, "native_queries": 10010, "hashed_files": 10012, "sequence": 5006}
+{"hold_gil": 1, "seconds": 1.6560009999666363, "native_queries": 10012, "hashed_files": 10014, "sequence": 5007}
+{"hold_gil": 0, "seconds": 1.8409938999684528, "native_queries": 10014, "hashed_files": 10016, "sequence": 5008}
+{"layout": "packed", "medians": {"0": 1.8374990500160493, "1": 1.6340145000140183}}

@@ -1,0 +1,66 @@
+test_equivalent_corrupt_history_is_rejected_without_certifying_it (__main__.HistoryBlobIntegrity.test_equivalent_corrupt_history_is_rejected_without_certifying_it) ... 
+  test_equivalent_corrupt_history_is_rejected_without_certifying_it (__main__.HistoryBlobIntegrity.test_equivalent_corrupt_history_is_rejected_without_certifying_it) (object_format='sha1', policy='disabled') ... FAIL
+  test_equivalent_corrupt_history_is_rejected_without_certifying_it (__main__.HistoryBlobIntegrity.test_equivalent_corrupt_history_is_rejected_without_certifying_it) (object_format='sha1', policy='missing') ... FAIL
+  test_equivalent_corrupt_history_is_rejected_without_certifying_it (__main__.HistoryBlobIntegrity.test_equivalent_corrupt_history_is_rejected_without_certifying_it) (object_format='sha1', policy='invalid') ... FAIL
+  test_equivalent_corrupt_history_is_rejected_without_certifying_it (__main__.HistoryBlobIntegrity.test_equivalent_corrupt_history_is_rejected_without_certifying_it) (object_format='sha256', policy='disabled') ... FAIL
+  test_equivalent_corrupt_history_is_rejected_without_certifying_it (__main__.HistoryBlobIntegrity.test_equivalent_corrupt_history_is_rejected_without_certifying_it) (object_format='sha256', policy='missing') ... FAIL
+  test_equivalent_corrupt_history_is_rejected_without_certifying_it (__main__.HistoryBlobIntegrity.test_equivalent_corrupt_history_is_rejected_without_certifying_it) (object_format='sha256', policy='invalid') ... FAIL
+
+======================================================================
+FAIL: test_equivalent_corrupt_history_is_rejected_without_certifying_it (__main__.HistoryBlobIntegrity.test_equivalent_corrupt_history_is_rejected_without_certifying_it) (object_format='sha1', policy='disabled')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\evaluations\history-blob-integrity-regression-source-20261023.txt", line 46, in test_equivalent_corrupt_history_is_rejected_without_certifying_it
+    with self.assertRaises(ToolError) as error:
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+AssertionError: ToolError not raised
+
+======================================================================
+FAIL: test_equivalent_corrupt_history_is_rejected_without_certifying_it (__main__.HistoryBlobIntegrity.test_equivalent_corrupt_history_is_rejected_without_certifying_it) (object_format='sha1', policy='missing')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\evaluations\history-blob-integrity-regression-source-20261023.txt", line 46, in test_equivalent_corrupt_history_is_rejected_without_certifying_it
+    with self.assertRaises(ToolError) as error:
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+AssertionError: ToolError not raised
+
+======================================================================
+FAIL: test_equivalent_corrupt_history_is_rejected_without_certifying_it (__main__.HistoryBlobIntegrity.test_equivalent_corrupt_history_is_rejected_without_certifying_it) (object_format='sha1', policy='invalid')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\evaluations\history-blob-integrity-regression-source-20261023.txt", line 46, in test_equivalent_corrupt_history_is_rejected_without_certifying_it
+    with self.assertRaises(ToolError) as error:
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+AssertionError: ToolError not raised
+
+======================================================================
+FAIL: test_equivalent_corrupt_history_is_rejected_without_certifying_it (__main__.HistoryBlobIntegrity.test_equivalent_corrupt_history_is_rejected_without_certifying_it) (object_format='sha256', policy='disabled')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\evaluations\history-blob-integrity-regression-source-20261023.txt", line 46, in test_equivalent_corrupt_history_is_rejected_without_certifying_it
+    with self.assertRaises(ToolError) as error:
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+AssertionError: ToolError not raised
+
+======================================================================
+FAIL: test_equivalent_corrupt_history_is_rejected_without_certifying_it (__main__.HistoryBlobIntegrity.test_equivalent_corrupt_history_is_rejected_without_certifying_it) (object_format='sha256', policy='missing')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\evaluations\history-blob-integrity-regression-source-20261023.txt", line 46, in test_equivalent_corrupt_history_is_rejected_without_certifying_it
+    with self.assertRaises(ToolError) as error:
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+AssertionError: ToolError not raised
+
+======================================================================
+FAIL: test_equivalent_corrupt_history_is_rejected_without_certifying_it (__main__.HistoryBlobIntegrity.test_equivalent_corrupt_history_is_rejected_without_certifying_it) (object_format='sha256', policy='invalid')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\evaluations\history-blob-integrity-regression-source-20261023.txt", line 46, in test_equivalent_corrupt_history_is_rejected_without_certifying_it
+    with self.assertRaises(ToolError) as error:
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+AssertionError: ToolError not raised
+
+----------------------------------------------------------------------
+Ran 1 test in 6.959s
+
+FAILED (failures=6)

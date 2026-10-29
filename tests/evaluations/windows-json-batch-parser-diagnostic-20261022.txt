@@ -1,0 +1,12 @@
+{"fixture": {"sessions": 100, "exchanges": 5000, "active_assertions": 10000, "json_bytes": 26215716, "synthetic": true, "fully_validated": true}, "source_sha256": "69ff00ee3e3a864a458f8c26074e241932911f58c654551afb1b22285eba3035", "raw_digest": "cec69e9d8145b479b220de2071d0f45fbc7386e2a73b9e37ad8f8b22b21dfb1e", "method": "ABBA parser-only comparison, 4 samples per variant, batching assembly INCLUDED, GC unchanged; not save or p95", "note": "This experiment does not implement authenticated cache or error-prefix semantics"}
+{"combined": false, "seconds": 0.25393169990275055, "exchanges": 5000}
+{"combined": true, "seconds": 0.1995821000309661, "exchanges": 5000}
+{"combined": true, "seconds": 0.20417789998464286, "exchanges": 5000}
+{"combined": false, "seconds": 0.17967760004103184, "exchanges": 5000}
+{"combined": false, "seconds": 0.1999856000766158, "exchanges": 5000}
+{"combined": true, "seconds": 0.21111209993250668, "exchanges": 5000}
+{"combined": true, "seconds": 0.19265129999257624, "exchanges": 5000}
+{"combined": false, "seconds": 0.19315299997106194, "exchanges": 5000}
+{"medians": {"False": 0.19656930002383888, "True": 0.20188000000780448}}
+{"combined": false, "python_retained_bytes": 82543361, "python_peak_bytes": 82550179, "measurement": "separate untimed allocation profile; collection before profile only"}
+{"combined": true, "python_retained_bytes": 66739628, "python_peak_bytes": 92943602, "measurement": "separate untimed allocation profile; collection before profile only"}

@@ -1,0 +1,47 @@
+"""Full-guard experiment: all metadata remains before full-byte hashes."""
+import hashlib,inspect,json,statistics,sys,time
+from pathlib import Path
+sys.path.insert(0,str(Path.cwd()))
+from novel_creator import records,storage
+from novel_creator.context import read
+from tests.helpers import repository,git
+from tests.performance import benchmark_records as benchmark
+source=inspect.getsource(storage.check_managed)
+start=source.index('        payload = ')
+end=source.index('        if any(current != oid',start)
+replacement='''        def hash_chunk(chunk):
+            payload = ''.join(json.dumps(path, ensure_ascii=False) + '\\n' for path, _ in chunk).encode()
+            values = git(root, 'hash-object', '--no-filters', '--stdin-paths', input=payload,
+                         env={'GIT_WORK_TREE': str(root)}).decode().splitlines()
+            if len(values) != len(chunk):
+                raise ToolError(5, 'Managed file hashing returned an incomplete result')
+            return values
+        size = max(1, (len(managed) + _workers - 1) // _workers)
+        # The complete original metadata loop precedes process submission.
+        with ThreadPoolExecutor(max_workers=_workers) as executor:
+            futures = [executor.submit(hash_chunk, managed[offset:offset + size])
+                       for offset in range(0, len(managed), size)]
+            hashes = [oid for future in futures for oid in future.result()]
+'''
+source=source[:start]+replacement+source[end:]
+source=source.replace('def check_managed(root, commit, paths, *, entries=None):','def parallel_hash_guard(root, commit, paths, *, entries=None, _workers=2):',1)
+namespace=dict(storage.__dict__);exec(compile(source,'<parallel-hash-experiment>','exec'),namespace)
+parallel=namespace['parallel_hash_guard']
+with benchmark.benchmark_key(True):
+    for size in (64,256,1024):
+        with repository() as root:
+            novel_id=records.loads((root/'.novel-creator/manifest.json').read_bytes())['novel_id']
+            history,fixture=benchmark.generate(novel_id,exchanges=size,sessions=min(size-1,100),assertions=size*2,minimum_bytes=0)
+            for exchange in history:
+                target=root/storage.bundle_path(exchange);target.parent.mkdir(parents=True,exist_ok=True);target.write_bytes(benchmark.serialized(exchange))
+            git(root,'add','story/exchanges');git(root,'commit','-m','Disposable hash threshold fixture');git(root,'repack','-ad')
+            del history,exchange
+            read(root);fixture['fully_validated']=True
+            commit=storage.head(root);entries=storage.committed_entries(root,commit)
+            samples={0:[],4:[]}
+            for workers in [0,4,4,0]*2:
+                started=time.perf_counter()
+                result=parallel(root,commit,[],entries=entries,_workers=workers) if workers else storage.check_managed(root,commit,[],entries=entries)
+                assert result==entries
+                samples[workers].append(time.perf_counter()-started)
+            print(json.dumps({'fixture':fixture,'guard_medians':{str(k):statistics.median(v) for k,v in samples.items()},'samples':samples,'scope':'four balanced guard-only samples/configuration, not p95 or full saves'}),flush=True)

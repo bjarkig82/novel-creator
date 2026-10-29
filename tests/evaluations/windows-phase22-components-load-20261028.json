@@ -1,0 +1,13 @@
+{
+  "utc": "2026-10-28T14:13:38.7722698Z",
+  "processor": {
+    "Name": "Intel(R) Core(TM) Ultra 7 268V",
+    "LoadPercentage": 100,
+    "CurrentClockSpeed": 2200,
+    "MaxClockSpeed": 2200
+  },
+  "memory": {
+    "FreePhysicalMemory": 2941332,
+    "TotalVisibleMemorySize": 33054524
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "case_id": "N04",
+  "source_type": "delegated",
+  "novice_evidence": false,
+  "inputs": {
+    "en": "The character says, \"I killed him.\"",
+    "is": "Persónan segir: „Ég drap hann.“"
+  }
+}

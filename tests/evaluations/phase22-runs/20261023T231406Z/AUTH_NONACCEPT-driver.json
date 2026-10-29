@@ -1,0 +1,15 @@
+{
+  "case_id": "AUTH_NONACCEPT",
+  "task": "T169",
+  "submitted": true,
+  "require_commentary_review": true,
+  "inputs": {
+    "en": "Case AUTH_NONACCEPT. Here are twelve separate exploratory notes, each about its own possibility. Keep their contexts distinct in your response.\n\n1. For the possibility that Bjarni owns a red coat, my reaction is: Interesting.\n2. Maybe Edda found the map.\n3. What if Ari has a daughter?\n4. A character says, \"I killed him.\" The speaker and victim are not yet identified.\n5. For the possibilities of a brown dock or a black dock: I like the possibilities.\n6. No, reject the proposal that Bjarni hid the map.\n7. Could the boat have a leak?\n8. For two alternative entrances to the hidden room, a floor hatch or a wall door, my answer is: Yes.\n9. About a possible tidal mechanism: That might work someday.\n10. Suppose the island had a floating bridge.\n11. For our weather choices: Let's keep both alternatives open.\n12. I am quoting a possible diary note: \"Edda stole the seal.\"\n\nUse the configured checkpoint and pause after your response.",
+    "is": "Tilvik AUTH_NONACCEPT. Hér eru tólf aðskildar könnunarnótur, hver um sinn möguleika. Haltu samhengi þeirra aðskildu í svarinu.\n\n1. Um möguleikann að Bjarni eigi rauðan frakka eru viðbrögð mín: Áhugavert.\n2. Kannski fann Edda kortið.\n3. Hvað ef Ari á dóttur?\n4. Persóna segir: „Ég drap hann.“ Hvorki mælandinn né fórnarlambið hafa verið auðkennd.\n5. Um möguleikana á brúnni bryggju eða svartri bryggju: Mér líkar þessir möguleikar.\n6. Nei, höfnum tillögunni að Bjarni hafi falið kortið.\n7. Gæti báturinn lekið?\n8. Fyrir tvo mögulega innganga í leyniherbergið, gólfhlera eða veggdyr, er svar mitt: Já.\n9. Um mögulegan flóðbúnað: Þetta gæti gengið einhvern daginn.\n10. Segjum að flotbrú lægi að eyjunni.\n11. Um veðurvalkostina okkar: Höldum báðum valkostum opnum.\n12. Ég vitna í mögulega dagbókarfærslu: „Edda stal innsiglinu.“\n\nNotaðu stilltan yfirferðarpunkt og staldraðu við eftir svarið."
+  },
+  "notes": "Twelve actual non-acceptance examples per language, with distinct supplied contexts; these are new observed examples rather than claims to execute original fixture N05 silence. Expected judgments remain with evaluator.",
+  "submitted_languages": [
+    "en",
+    "is"
+  ]
+}

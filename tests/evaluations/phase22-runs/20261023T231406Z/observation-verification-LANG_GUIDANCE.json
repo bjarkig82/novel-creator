@@ -1,0 +1,69 @@
+{
+  "ok": true,
+  "scope": "Public delegated persistence/display/source checks only",
+  "case_filter": [
+    "LANG_GUIDANCE"
+  ],
+  "language_filter": null,
+  "all_submitted_cases_checked": false,
+  "semantic_assessment": "Separate agent judgments required; no human/native result inferred",
+  "cases": [
+    {
+      "case_id": "LANG_GUIDANCE",
+      "language": "en",
+      "thread_id": "01a16af9-f289-73c1-8151-55f50ace05d9",
+      "turn_id": "01a18220-e86d-7453-8e6a-5d9955480a88",
+      "exchange_id": "4146312e-8b9a-4739-bab5-55407e45623a",
+      "checkpoint": {
+        "git_head": "95ffe5a5e534560af07d38f62ce83f517a56b079",
+        "exchange_id": "4146312e-8b9a-4739-bab5-55407e45623a",
+        "sequence": 3
+      },
+      "exact_input_saved": true,
+      "exact_response_saved_and_displayed": true,
+      "save_precedes_display": true,
+      "source_type": "delegated",
+      "native_user_input": false,
+      "novice_evidence": false,
+      "installed_bundle_verified": true,
+      "installed_bundle_matches_current_source": true,
+      "commentary_agent_reviewed": true,
+      "record_kinds": [
+        "novel_project",
+        "session",
+        "story_element",
+        "question"
+      ],
+      "response": "We’ll focus on Ægir’s childhood, with fewer suggestions.\n\nWhat is one childhood experience that shaped Ægir?"
+    },
+    {
+      "case_id": "LANG_GUIDANCE",
+      "language": "is",
+      "thread_id": "01a16afa-1197-7650-8189-9365687429ee",
+      "turn_id": "01a18220-f7e0-71d2-82cc-183a32c5f485",
+      "exchange_id": "de615514-949a-4a42-b03d-a5da69e45b89",
+      "checkpoint": {
+        "git_head": "ad55ace37f6bca5bc98bfdb59bd23f7d0aba3601",
+        "exchange_id": "de615514-949a-4a42-b03d-a5da69e45b89",
+        "sequence": 3
+      },
+      "exact_input_saved": true,
+      "exact_response_saved_and_displayed": true,
+      "save_precedes_display": true,
+      "source_type": "delegated",
+      "native_user_input": false,
+      "novice_evidence": false,
+      "installed_bundle_verified": true,
+      "installed_bundle_matches_current_source": true,
+      "commentary_agent_reviewed": true,
+      "record_kinds": [
+        "novel_project",
+        "story_element",
+        "question",
+        "session"
+      ],
+      "response": "Ég svara á íslensku og held tillögum í lágmarki.\n\nVið getum byrjað á einni upplifun og látið aðra þætti æskunnar vera opna.\n\nHvaða eina upplifun úr æsku Ægis viltu kanna fyrst?"
+    }
+  ],
+  "failures": []
+}

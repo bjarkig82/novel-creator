@@ -1,0 +1,10 @@
+{
+  "case_id": "CAPTURE3",
+  "task": "T168",
+  "inputs": {
+    "en": "Case CAPTURE3. Start a third guided session called Island. Six further possibilities: the island has no bridge; the letter bears a brass seal; Rúna has sworn to protect Edda; a tunnel might link the lighthouse and harbour; the tide might expose old steps; a hidden room might contain a map. I accept that the island has no bridge. I choose the brass seal. Establish Rúna's protective oath as a fact. Keep the tunnel, steps and hidden room as proposals. One question remains open: What opens the hidden room? Do not answer it or invent other facts.",
+    "is": "Tilvik CAPTURE3. Byrjum þriðju lotuna, leiðsagða lotu sem heitir Eyjan. Sex möguleikar til viðbótar: engin brú er á eyjuna; bréfið ber látúnsinnsigli; Rúna hefur svarið að vernda Eddu; göng gætu tengt vitann og höfnina; fjara gæti afhjúpað gamlar tröppur; leynilegt herbergi gæti geymt kort. Ég samþykki að engin brú sé á eyjuna. Ég vel látúnsinnsiglið. Staðfestum verndareið Rúnu sem staðreynd. Göngin, tröppurnar og leyniherbergið eru áfram tillögur. Ein spurning er opin: Hvað opnar leyniherbergið? Ekki svara henni eða búa til fleiri staðreyndir."
+  },
+  "submitted": true,
+  "require_commentary_review": true
+}

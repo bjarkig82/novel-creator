@@ -1,0 +1,53 @@
+"""Explore one Git query for checked-out ref and OID; no product edits."""
+import hashlib,json,re,statistics,sys,time
+from pathlib import Path
+sys.path.insert(0,str(Path.cwd()))
+from novel_creator import storage
+from novel_creator.cli import ToolError
+from tests.helpers import repository,git
+
+def combined(root):
+    result=storage.git(root,'for-each-ref','--format=%(HEAD)%00%(refname)%00%(objectname)','refs/heads/',check=False)
+    if not result.returncode:
+        selected=[line.split(b'\0') for line in result.stdout.splitlines() if line.startswith(b'*\0')]
+        if len(selected)==1 and len(selected[0])==3:
+            _,reference,oid=selected[0]
+            if reference.startswith(b'refs/heads/') and re.fullmatch(rb'(?:[0-9a-f]{40}|[0-9a-f]{64})',oid):
+                return reference.decode(),oid.decode('ascii')
+    return storage.branch(root),storage.head(root)
+
+def observed(call):
+    try:return {'value':call()}
+    except ToolError as e:return {'tool_error':e.code}
+
+for format in ('sha1','sha256'):
+    with repository(object_format=format) as root:
+        oid=storage.head(root)
+        def compare(name):
+            old=observed(lambda:(storage.branch(root),storage.head(root)))
+            new=observed(lambda:combined(root))
+            print(json.dumps({'object_format':format,'case':name,'old':old,'combined':new,'equal':old==new}),flush=True)
+            assert old==new,(name,old,new)
+        compare('normal')
+        git(root,'branch','same-commit');compare('another branch at same commit')
+        git(root,'pack-refs','--all');compare('packed refs')
+        git(root,'checkout','--detach',oid);compare('detached HEAD')
+        git(root,'symbolic-ref','HEAD','refs/heads/main')
+        git(root,'symbolic-ref','refs/heads/alias','refs/heads/main')
+        git(root,'symbolic-ref','HEAD','refs/heads/alias');compare('symbolic branch alias')
+        git(root,'tag','fixture-tag',oid)
+        git(root,'symbolic-ref','refs/heads/tag-alias','refs/tags/fixture-tag')
+        git(root,'symbolic-ref','HEAD','refs/heads/tag-alias');compare('branch alias to tag')
+        git(root,'symbolic-ref','HEAD','refs/heads/unborn');compare('unborn branch with other refs')
+        reference='refs/heads/Þóra,percent%00;name'
+        git(root,'update-ref',reference,oid);git(root,'symbolic-ref','HEAD',reference);compare('Unicode and delimiter-like branch name')
+        git(root,'symbolic-ref','HEAD','refs/heads/main')
+        samples={False:[],True:[]}
+        for optimized in [False,True,True,False]*4:
+            started=time.perf_counter()
+            actual=combined(root) if optimized else (storage.branch(root),storage.head(root))
+            elapsed=time.perf_counter()-started
+            assert actual==('refs/heads/main',oid)
+            samples[optimized].append(elapsed)
+        print(json.dumps({'object_format':format,'query_medians':{str(k):statistics.median(v) for k,v in samples.items()},'samples':samples}),flush=True)
+print(json.dumps({'storage_sha256':hashlib.sha256(Path(storage.__file__).read_bytes()).hexdigest(),'scope':'Query compatibility and small-query medians only; no save/p95 claim'}))

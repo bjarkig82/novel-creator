@@ -1,0 +1,1935 @@
+{
+  "schema_version": "1.0",
+  "novel_id": "cb66f60c-4b08-4aea-9616-a2fc168a09eb",
+  "exchange_id": "8581fdd2-2b30-43d5-9cff-9a702319e29d",
+  "sequence": 3,
+  "previous_exchange_id": "35427a40-8dd1-4a2b-97de-05095d3f7599",
+  "previous_digest": "aaea7a78d034e63f91d1b579cb2ca6376c3f9ac130c4de1a6623b85a1f6b616e",
+  "session_id": "ea395271-4b89-4e17-969c-dc3651d06087",
+  "expected_git_head": "9a175545c6a94e1362e415acd58acbd159a85f1c",
+  "recorded_at": "2026-10-23T23:18:14.174877Z",
+  "operation": "conversation",
+  "messages": [
+    {
+      "message_id": "d4250dfa-e7c0-453d-a2d6-4808c6e338b3",
+      "role": "user",
+      "text": "Case CAPTURE1. Start a new guided session called People. I have seven story possibilities: Rúna is the lighthouse keeper and sender of the letter; Ari, her brother, is the victim; Edda, her sister, is the investigator; Rúna knows the sailor Bjarni; Rúna collects sea glass; Edda distrusts bells; Bjarni may owe Edda money. I accept Rúna as the keeper and sender. I decide that Ari is her brother and the victim. Make Edda her sister and the investigator. Establish that Rúna knows Bjarni. Keep the final three as proposals. Two questions remain open: Why did Rúna send the letter? What does Edda want from Bjarni? I am not choosing answers yet. Keep suggestions brief."
+    },
+    {
+      "message_id": "0eea2fb2-4732-4ac4-946d-eafd38fe99fd",
+      "role": "assistant",
+      "text": "People is now a guided session. I’ll keep suggestions brief.\n\nEstablished: Rúna is the lighthouse keeper and letter sender; Ari is her brother and the victim; Edda is her sister and the investigator; Rúna knows Bjarni.\n\nStill proposed: Rúna collects sea glass; Edda distrusts bells; Bjarni may owe Edda money. Bjarni’s description as a sailor also remains unconfirmed.\n\nOpen and unanswered: Why did Rúna send the letter? What does Edda want from Bjarni?"
+    }
+  ],
+  "input_artifacts": [
+    {
+      "artifact_id": "1f8bcd8a-8a74-4aec-b1d8-dd9855823646",
+      "original_text": "{\"kind\":\"host_input\",\"source_type\":\"delegated\",\"thread_id\":\"01a16af9-f289-73c1-8151-55f50ace05d9\",\"turn_id\":\"01a16b0e-72d6-7c71-800a-fa07d3394c59\",\"event_id\":\"fco_01a16b0e-72d7-7883-be46-bad5a126a999\",\"event_type\":\"functionCallOutput\",\"source_thread_id\":\"01a16af6-0d9b-7173-a5f5-c8775f37df18\",\"native_user_input\":false,\"novice_evidence\":false,\"evaluation_only\":true,\"text\":\"Case CAPTURE1. Start a new guided session called People. I have seven story possibilities: Rúna is the lighthouse keeper and sender of the letter; Ari, her brother, is the victim; Edda, her sister, is the investigator; Rúna knows the sailor Bjarni; Rúna collects sea glass; Edda distrusts bells; Bjarni may owe Edda money. I accept Rúna as the keeper and sender. I decide that Ari is her brother and the victim. Make Edda her sister and the investigator. Establish that Rúna knows Bjarni. Keep the final three as proposals. Two questions remain open: Why did Rúna send the letter? What does Edda want from Bjarni? I am not choosing answers yet. Keep suggestions brief.\",\"public_event\":{\"type\":\"functionCallOutput\",\"id\":\"fco_01a16b0e-72d7-7883-be46-bad5a126a999\",\"namespace\":\"codex_app\",\"name\":\"send_message_to_thread\",\"output\":{\"text\":\"<codex_delegation>\\n  <source_thread_id>01a16af6-0d9b-7173-a5f5-c8775f37df18</source_thread_id>\\n  <input>Case CAPTURE1. Start a new guided session called People. I have seven story possibilities: Rúna is the lighthouse keeper and sender of the letter; Ari, her brother, is the victim; Edda, her sister, is the investigator; Rúna knows the sailor Bjarni; Rúna collects sea glass; Edda distrusts bells; Bjarni may owe Edda money. I accept Rúna as the keeper and sender. I decide that Ari is her brother and the victim. Make Edda her sister and the investigator. Establish that Rúna knows Bjarni. Keep the final three as proposals. Two questions remain open: Why did Rúna send the letter? What does Edda want from Bjarni? I am not choosing answers yet. Keep suggestions brief.</input>\\n</codex_delegation>\",\"truncated\":false}}}",
+      "parsed_value": {
+        "kind": "host_input",
+        "source_type": "delegated",
+        "thread_id": "01a16af9-f289-73c1-8151-55f50ace05d9",
+        "turn_id": "01a16b0e-72d6-7c71-800a-fa07d3394c59",
+        "event_id": "fco_01a16b0e-72d7-7883-be46-bad5a126a999",
+        "event_type": "functionCallOutput",
+        "source_thread_id": "01a16af6-0d9b-7173-a5f5-c8775f37df18",
+        "native_user_input": false,
+        "novice_evidence": false,
+        "evaluation_only": true,
+        "text": "Case CAPTURE1. Start a new guided session called People. I have seven story possibilities: Rúna is the lighthouse keeper and sender of the letter; Ari, her brother, is the victim; Edda, her sister, is the investigator; Rúna knows the sailor Bjarni; Rúna collects sea glass; Edda distrusts bells; Bjarni may owe Edda money. I accept Rúna as the keeper and sender. I decide that Ari is her brother and the victim. Make Edda her sister and the investigator. Establish that Rúna knows Bjarni. Keep the final three as proposals. Two questions remain open: Why did Rúna send the letter? What does Edda want from Bjarni? I am not choosing answers yet. Keep suggestions brief.",
+        "public_event": {
+          "type": "functionCallOutput",
+          "id": "fco_01a16b0e-72d7-7883-be46-bad5a126a999",
+          "namespace": "codex_app",
+          "name": "send_message_to_thread",
+          "output": {
+            "text": "<codex_delegation>\n  <source_thread_id>01a16af6-0d9b-7173-a5f5-c8775f37df18</source_thread_id>\n  <input>Case CAPTURE1. Start a new guided session called People. I have seven story possibilities: Rúna is the lighthouse keeper and sender of the letter; Ari, her brother, is the victim; Edda, her sister, is the investigator; Rúna knows the sailor Bjarni; Rúna collects sea glass; Edda distrusts bells; Bjarni may owe Edda money. I accept Rúna as the keeper and sender. I decide that Ari is her brother and the victim. Make Edda her sister and the investigator. Establish that Rúna knows Bjarni. Keep the final three as proposals. Two questions remain open: Why did Rúna send the letter? What does Edda want from Bjarni? I am not choosing answers yet. Keep suggestions brief.</input>\n</codex_delegation>",
+            "truncated": false
+          }
+        }
+      },
+      "digest": "27a45b9862eb65aa3b13ce6cc52a80f5d128702754b2161801262d5714c9e51f"
+    }
+  ],
+  "record_versions": [
+    {
+      "id": "ea395271-4b89-4e17-969c-dc3651d06087",
+      "kind": "session",
+      "revision": 1,
+      "previous_revision": null,
+      "created_exchange_id": "8581fdd2-2b30-43d5-9cff-9a702319e29d",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "8581fdd2-2b30-43d5-9cff-9a702319e29d",
+          "message_id": "d4250dfa-e7c0-453d-a2d6-4808c6e338b3",
+          "range": {
+            "start": 15,
+            "end": 56
+          }
+        }
+      ],
+      "topic": "People",
+      "mode": "guided",
+      "state": "open",
+      "started_exchange_id": "8581fdd2-2b30-43d5-9cff-9a702319e29d",
+      "last_exchange_id": "8581fdd2-2b30-43d5-9cff-9a702319e29d",
+      "related_record_ids": [
+        "ba58b0dd-8d4e-402a-a41e-4adbabd0bcf0",
+        "5299dee6-4976-454a-b3bd-f85936be0fc3",
+        "83c818af-8c1a-4871-beca-eb354753ab30",
+        "fe4f5d2f-3ecc-48db-918a-3bb260cee80f",
+        "3a173fe0-b9d9-41dd-bd07-6b797c7c3390",
+        "b2bba552-bebf-4cae-b835-e01708b8d516",
+        "b857a602-16dc-46af-963e-ed2e5aa98d71",
+        "11fcc852-4938-4808-85d1-d80cbc08b8ef",
+        "24a9e934-c113-4281-bbfd-59e1db9d03ce",
+        "d06311e5-cfc4-4b4d-a178-6f79a94662b4",
+        "0636c698-a7f7-4957-ac90-2cc56a68bdfa",
+        "89643a23-bc5b-47e7-805d-69baf02f51e4",
+        "8b1386f6-8ae2-41f4-8942-2606a807b749",
+        "92657929-a1d8-4db7-81bc-3e5b83516e12",
+        "12fdedbe-1fd7-43c7-9899-d854c00ebf7f",
+        "8981fd4e-44ff-4115-90f1-f82945a99d77",
+        "0fafb781-6fe4-4f55-9665-8201f692081d",
+        "e4198cbf-dbfc-4068-a487-81dc21c73380",
+        "73dd4a06-7253-4090-9577-d1710bf513e7",
+        "d5adf09d-3773-4d70-828b-5cee7def7194",
+        "c1edb38c-e177-4154-add4-13ebf95c7207",
+        "83602256-af39-470b-b0ec-fea90eb751c4",
+        "5ecad072-009b-438c-8e65-034fe992d3a9",
+        "b0134264-50de-4438-9ea4-7b7fea14021a",
+        "b7cefc5a-1d40-4935-9766-6c8396ce3a61",
+        "fd14cc8d-4c2a-442f-850e-6d54640155e5",
+        "2d56748a-3757-4a06-839d-00bc5f806905",
+        "29cb6e9b-bc94-4ecb-a5a4-0402ef64680f",
+        "e4a49295-ef40-47d5-8ac9-8c148fc68977",
+        "b9b83c3b-0ece-4923-92e3-5dd2e514036b",
+        "a48aa0fb-4da0-4e09-8b8a-53ed6da688a4",
+        "2a41e2d9-fff0-40e7-9e41-b9152e0f5184",
+        "eacc5318-7df6-412a-a413-1fd2a072b7f3",
+        "f1e737c0-6ce3-4c00-99c8-3495f3ce70c4",
+        "55b62a7f-4dd9-4153-8019-cf8f66057626"
+      ],
+      "unresolved_question_ids": [
+        "f1e737c0-6ce3-4c00-99c8-3495f3ce70c4",
+        "55b62a7f-4dd9-4153-8019-cf8f66057626"
+      ],
+      "derived_context_ref": null
+    },
+    {
+      "id": "cb66f60c-4b08-4aea-9616-a2fc168a09eb",
+      "kind": "novel_project",
+      "revision": 2,
+      "previous_revision": 1,
+      "created_exchange_id": "de550f25-07c5-4c64-a656-4301fb685c6e",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "8581fdd2-2b30-43d5-9cff-9a702319e29d",
+          "message_id": "d4250dfa-e7c0-453d-a2d6-4808c6e338b3",
+          "range": {
+            "start": 645,
+            "end": 668
+          }
+        }
+      ],
+      "origin": "supplied",
+      "title": {
+        "state": "default",
+        "original_text": "Untitled novel",
+        "interpretation": null,
+        "origin": "system_default",
+        "source_refs": []
+      },
+      "original_concept": {
+        "state": "unknown",
+        "original_text": null,
+        "interpretation": null,
+        "origin": "system_default",
+        "source_refs": []
+      },
+      "creative_brief": {
+        "genre": {
+          "state": "unknown",
+          "original_text": null,
+          "interpretation": null,
+          "origin": "system_default",
+          "source_refs": []
+        },
+        "subgenres": {
+          "state": "unknown",
+          "original_text": null,
+          "interpretation": null,
+          "origin": "system_default",
+          "source_refs": []
+        },
+        "audience": {
+          "state": "unknown",
+          "original_text": null,
+          "interpretation": null,
+          "origin": "system_default",
+          "source_refs": []
+        },
+        "tone": {
+          "state": "unknown",
+          "original_text": null,
+          "interpretation": null,
+          "origin": "system_default",
+          "source_refs": []
+        },
+        "style": {
+          "state": "unknown",
+          "original_text": null,
+          "interpretation": null,
+          "origin": "system_default",
+          "source_refs": []
+        },
+        "perspective": {
+          "state": "unknown",
+          "original_text": null,
+          "interpretation": null,
+          "origin": "system_default",
+          "source_refs": []
+        },
+        "complexity": {
+          "state": "unknown",
+          "original_text": null,
+          "interpretation": null,
+          "origin": "system_default",
+          "source_refs": []
+        }
+      },
+      "manuscript_language": "en",
+      "workflow_preferences": {
+        "suggestion_frequency": {
+          "state": "supplied",
+          "original_text": "Keep suggestions brief.",
+          "interpretation": null,
+          "origin": "supplied",
+          "source_refs": [
+            {
+              "type": "message",
+              "exchange_id": "8581fdd2-2b30-43d5-9cff-9a702319e29d",
+              "message_id": "d4250dfa-e7c0-453d-a2d6-4808c6e338b3",
+              "range": {
+                "start": 645,
+                "end": 668
+              }
+            }
+          ]
+        }
+      },
+      "review_preferences": {
+        "routine_checkpoint": "on_request"
+      },
+      "creative_directions": []
+    },
+    {
+      "id": "ba58b0dd-8d4e-402a-a41e-4adbabd0bcf0",
+      "kind": "story_element",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "8581fdd2-2b30-43d5-9cff-9a702319e29d",
+          "message_id": "d4250dfa-e7c0-453d-a2d6-4808c6e338b3",
+          "range": {
+            "start": 91,
+            "end": 145
+          }
+        }
+      ],
+      "created_exchange_id": "8581fdd2-2b30-43d5-9cff-9a702319e29d",
+      "origin": "supplied",
+      "element_type": "character",
+      "display_name": "Rúna",
+      "aliases": [],
+      "status": "accepted",
+      "assertion_ids": [
+        "3a173fe0-b9d9-41dd-bd07-6b797c7c3390",
+        "11fcc852-4938-4808-85d1-d80cbc08b8ef",
+        "fd14cc8d-4c2a-442f-850e-6d54640155e5"
+      ],
+      "relationship_ids": [
+        "0636c698-a7f7-4957-ac90-2cc56a68bdfa",
+        "0fafb781-6fe4-4f55-9665-8201f692081d",
+        "5ecad072-009b-438c-8e65-034fe992d3a9"
+      ],
+      "dependency_refs": [],
+      "time_ref": null,
+      "decision_ids": [
+        "b857a602-16dc-46af-963e-ed2e5aa98d71",
+        "d06311e5-cfc4-4b4d-a178-6f79a94662b4",
+        "8b1386f6-8ae2-41f4-8942-2606a807b749",
+        "73dd4a06-7253-4090-9577-d1710bf513e7",
+        "b7cefc5a-1d40-4935-9766-6c8396ce3a61"
+      ]
+    },
+    {
+      "id": "5299dee6-4976-454a-b3bd-f85936be0fc3",
+      "kind": "story_element",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "8581fdd2-2b30-43d5-9cff-9a702319e29d",
+          "message_id": "d4250dfa-e7c0-453d-a2d6-4808c6e338b3",
+          "range": {
+            "start": 147,
+            "end": 178
+          }
+        }
+      ],
+      "created_exchange_id": "8581fdd2-2b30-43d5-9cff-9a702319e29d",
+      "origin": "supplied",
+      "element_type": "character",
+      "display_name": "Ari",
+      "aliases": [],
+      "status": "accepted",
+      "assertion_ids": [
+        "92657929-a1d8-4db7-81bc-3e5b83516e12"
+      ],
+      "relationship_ids": [
+        "0636c698-a7f7-4957-ac90-2cc56a68bdfa"
+      ],
+      "dependency_refs": [],
+      "time_ref": null,
+      "decision_ids": [
+        "8b1386f6-8ae2-41f4-8942-2606a807b749",
+        "8981fd4e-44ff-4115-90f1-f82945a99d77"
+      ]
+    },
+    {
+      "id": "83c818af-8c1a-4871-beca-eb354753ab30",
+      "kind": "story_element",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "8581fdd2-2b30-43d5-9cff-9a702319e29d",
+          "message_id": "d4250dfa-e7c0-453d-a2d6-4808c6e338b3",
+          "range": {
+            "start": 180,
+            "end": 217
+          }
+        }
+      ],
+      "created_exchange_id": "8581fdd2-2b30-43d5-9cff-9a702319e29d",
+      "origin": "supplied",
+      "element_type": "character",
+      "display_name": "Edda",
+      "aliases": [],
+      "status": "accepted",
+      "assertion_ids": [
+        "d5adf09d-3773-4d70-828b-5cee7def7194",
+        "29cb6e9b-bc94-4ecb-a5a4-0402ef64680f"
+      ],
+      "relationship_ids": [
+        "0fafb781-6fe4-4f55-9665-8201f692081d",
+        "2a41e2d9-fff0-40e7-9e41-b9152e0f5184"
+      ],
+      "dependency_refs": [],
+      "time_ref": null,
+      "decision_ids": [
+        "73dd4a06-7253-4090-9577-d1710bf513e7",
+        "83602256-af39-470b-b0ec-fea90eb751c4"
+      ]
+    },
+    {
+      "id": "fe4f5d2f-3ecc-48db-918a-3bb260cee80f",
+      "kind": "story_element",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "8581fdd2-2b30-43d5-9cff-9a702319e29d",
+          "message_id": "d4250dfa-e7c0-453d-a2d6-4808c6e338b3",
+          "range": {
+            "start": 219,
+            "end": 247
+          }
+        }
+      ],
+      "created_exchange_id": "8581fdd2-2b30-43d5-9cff-9a702319e29d",
+      "origin": "supplied",
+      "element_type": "character",
+      "display_name": "Bjarni",
+      "aliases": [],
+      "status": "accepted",
+      "assertion_ids": [
+        "b9b83c3b-0ece-4923-92e3-5dd2e514036b"
+      ],
+      "relationship_ids": [
+        "5ecad072-009b-438c-8e65-034fe992d3a9",
+        "2a41e2d9-fff0-40e7-9e41-b9152e0f5184"
+      ],
+      "dependency_refs": [],
+      "time_ref": null,
+      "decision_ids": [
+        "b7cefc5a-1d40-4935-9766-6c8396ce3a61"
+      ]
+    },
+    {
+      "id": "3a173fe0-b9d9-41dd-bd07-6b797c7c3390",
+      "kind": "assertion",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "8581fdd2-2b30-43d5-9cff-9a702319e29d",
+          "message_id": "d4250dfa-e7c0-453d-a2d6-4808c6e338b3",
+          "range": {
+            "start": 91,
+            "end": 145
+          }
+        }
+      ],
+      "created_exchange_id": "8581fdd2-2b30-43d5-9cff-9a702319e29d",
+      "origin": "supplied",
+      "subject_element_id": "ba58b0dd-8d4e-402a-a41e-4adbabd0bcf0",
+      "predicate": "role",
+      "value": "lighthouse keeper",
+      "perspective": "author_truth",
+      "holder_id": null,
+      "reader_audience": null,
+      "time_ref": {
+        "chronology": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        },
+        "narrative": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        }
+      },
+      "truth_state": "affirmed",
+      "status": "accepted",
+      "decision_ids": [
+        "b857a602-16dc-46af-963e-ed2e5aa98d71"
+      ],
+      "supersedes": null
+    },
+    {
+      "id": "b2bba552-bebf-4cae-b835-e01708b8d516",
+      "kind": "idea",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "8581fdd2-2b30-43d5-9cff-9a702319e29d",
+          "message_id": "d4250dfa-e7c0-453d-a2d6-4808c6e338b3",
+          "range": {
+            "start": 91,
+            "end": 145
+          }
+        }
+      ],
+      "created_exchange_id": "8581fdd2-2b30-43d5-9cff-9a702319e29d",
+      "origin": "supplied",
+      "statement": "Rúna is the lighthouse keeper.",
+      "status": "accepted",
+      "related_element_ids": [
+        "ba58b0dd-8d4e-402a-a41e-4adbabd0bcf0"
+      ],
+      "alternative_group_id": null,
+      "selected_parts": [
+        "Rúna is the lighthouse keeper."
+      ],
+      "decision_ids": [
+        "b857a602-16dc-46af-963e-ed2e5aa98d71"
+      ],
+      "resulting_assertion_ids": [
+        "3a173fe0-b9d9-41dd-bd07-6b797c7c3390"
+      ]
+    },
+    {
+      "id": "b857a602-16dc-46af-963e-ed2e5aa98d71",
+      "kind": "decision",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "8581fdd2-2b30-43d5-9cff-9a702319e29d",
+          "message_id": "d4250dfa-e7c0-453d-a2d6-4808c6e338b3",
+          "range": {
+            "start": 323,
+            "end": 362
+          }
+        }
+      ],
+      "created_exchange_id": "8581fdd2-2b30-43d5-9cff-9a702319e29d",
+      "origin": "supplied",
+      "action": "accept",
+      "user_message_ref": {
+        "type": "message",
+        "exchange_id": "8581fdd2-2b30-43d5-9cff-9a702319e29d",
+        "message_id": "d4250dfa-e7c0-453d-a2d6-4808c6e338b3",
+        "range": {
+          "start": 323,
+          "end": 362
+        }
+      },
+      "span": {
+        "start": 323,
+        "end": 362
+      },
+      "target_refs": [
+        {
+          "id": "b2bba552-bebf-4cae-b835-e01708b8d516",
+          "revision": 1
+        },
+        {
+          "id": "3a173fe0-b9d9-41dd-bd07-6b797c7c3390",
+          "revision": 1
+        },
+        {
+          "id": "ba58b0dd-8d4e-402a-a41e-4adbabd0bcf0",
+          "revision": 1
+        }
+      ],
+      "selected_parts": [
+        "Rúna is the lighthouse keeper."
+      ],
+      "prior_refs": [],
+      "result_refs": [
+        {
+          "id": "b2bba552-bebf-4cae-b835-e01708b8d516",
+          "revision": 1
+        },
+        {
+          "id": "3a173fe0-b9d9-41dd-bd07-6b797c7c3390",
+          "revision": 1
+        },
+        {
+          "id": "ba58b0dd-8d4e-402a-a41e-4adbabd0bcf0",
+          "revision": 1
+        }
+      ],
+      "reason": "Explicit current simulated director selection of this proposition.",
+      "affected_refs": [
+        {
+          "id": "b2bba552-bebf-4cae-b835-e01708b8d516",
+          "revision": 1
+        },
+        {
+          "id": "3a173fe0-b9d9-41dd-bd07-6b797c7c3390",
+          "revision": 1
+        },
+        {
+          "id": "ba58b0dd-8d4e-402a-a41e-4adbabd0bcf0",
+          "revision": 1
+        }
+      ],
+      "review_required_refs": []
+    },
+    {
+      "id": "11fcc852-4938-4808-85d1-d80cbc08b8ef",
+      "kind": "assertion",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "8581fdd2-2b30-43d5-9cff-9a702319e29d",
+          "message_id": "d4250dfa-e7c0-453d-a2d6-4808c6e338b3",
+          "range": {
+            "start": 91,
+            "end": 145
+          }
+        }
+      ],
+      "created_exchange_id": "8581fdd2-2b30-43d5-9cff-9a702319e29d",
+      "origin": "supplied",
+      "subject_element_id": "ba58b0dd-8d4e-402a-a41e-4adbabd0bcf0",
+      "predicate": "sent",
+      "value": "the letter",
+      "perspective": "author_truth",
+      "holder_id": null,
+      "reader_audience": null,
+      "time_ref": {
+        "chronology": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        },
+        "narrative": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        }
+      },
+      "truth_state": "affirmed",
+      "status": "accepted",
+      "decision_ids": [
+        "d06311e5-cfc4-4b4d-a178-6f79a94662b4"
+      ],
+      "supersedes": null
+    },
+    {
+      "id": "24a9e934-c113-4281-bbfd-59e1db9d03ce",
+      "kind": "idea",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "8581fdd2-2b30-43d5-9cff-9a702319e29d",
+          "message_id": "d4250dfa-e7c0-453d-a2d6-4808c6e338b3",
+          "range": {
+            "start": 91,
+            "end": 145
+          }
+        }
+      ],
+      "created_exchange_id": "8581fdd2-2b30-43d5-9cff-9a702319e29d",
+      "origin": "supplied",
+      "statement": "Rúna sent the letter.",
+      "status": "accepted",
+      "related_element_ids": [
+        "ba58b0dd-8d4e-402a-a41e-4adbabd0bcf0"
+      ],
+      "alternative_group_id": null,
+      "selected_parts": [
+        "Rúna sent the letter."
+      ],
+      "decision_ids": [
+        "d06311e5-cfc4-4b4d-a178-6f79a94662b4"
+      ],
+      "resulting_assertion_ids": [
+        "11fcc852-4938-4808-85d1-d80cbc08b8ef"
+      ]
+    },
+    {
+      "id": "d06311e5-cfc4-4b4d-a178-6f79a94662b4",
+      "kind": "decision",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "8581fdd2-2b30-43d5-9cff-9a702319e29d",
+          "message_id": "d4250dfa-e7c0-453d-a2d6-4808c6e338b3",
+          "range": {
+            "start": 323,
+            "end": 362
+          }
+        }
+      ],
+      "created_exchange_id": "8581fdd2-2b30-43d5-9cff-9a702319e29d",
+      "origin": "supplied",
+      "action": "accept",
+      "user_message_ref": {
+        "type": "message",
+        "exchange_id": "8581fdd2-2b30-43d5-9cff-9a702319e29d",
+        "message_id": "d4250dfa-e7c0-453d-a2d6-4808c6e338b3",
+        "range": {
+          "start": 323,
+          "end": 362
+        }
+      },
+      "span": {
+        "start": 323,
+        "end": 362
+      },
+      "target_refs": [
+        {
+          "id": "24a9e934-c113-4281-bbfd-59e1db9d03ce",
+          "revision": 1
+        },
+        {
+          "id": "11fcc852-4938-4808-85d1-d80cbc08b8ef",
+          "revision": 1
+        },
+        {
+          "id": "ba58b0dd-8d4e-402a-a41e-4adbabd0bcf0",
+          "revision": 1
+        }
+      ],
+      "selected_parts": [
+        "Rúna sent the letter."
+      ],
+      "prior_refs": [],
+      "result_refs": [
+        {
+          "id": "24a9e934-c113-4281-bbfd-59e1db9d03ce",
+          "revision": 1
+        },
+        {
+          "id": "11fcc852-4938-4808-85d1-d80cbc08b8ef",
+          "revision": 1
+        },
+        {
+          "id": "ba58b0dd-8d4e-402a-a41e-4adbabd0bcf0",
+          "revision": 1
+        }
+      ],
+      "reason": "Explicit current simulated director selection of this proposition.",
+      "affected_refs": [
+        {
+          "id": "24a9e934-c113-4281-bbfd-59e1db9d03ce",
+          "revision": 1
+        },
+        {
+          "id": "11fcc852-4938-4808-85d1-d80cbc08b8ef",
+          "revision": 1
+        },
+        {
+          "id": "ba58b0dd-8d4e-402a-a41e-4adbabd0bcf0",
+          "revision": 1
+        }
+      ],
+      "review_required_refs": []
+    },
+    {
+      "id": "0636c698-a7f7-4957-ac90-2cc56a68bdfa",
+      "kind": "relationship",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "8581fdd2-2b30-43d5-9cff-9a702319e29d",
+          "message_id": "d4250dfa-e7c0-453d-a2d6-4808c6e338b3",
+          "range": {
+            "start": 147,
+            "end": 178
+          }
+        }
+      ],
+      "created_exchange_id": "8581fdd2-2b30-43d5-9cff-9a702319e29d",
+      "origin": "supplied",
+      "from_element_id": "5299dee6-4976-454a-b3bd-f85936be0fc3",
+      "to_element_id": "ba58b0dd-8d4e-402a-a41e-4adbabd0bcf0",
+      "meaning": "brother of",
+      "perspective": "author_truth",
+      "holder_id": null,
+      "reader_audience": null,
+      "time_ref": {
+        "chronology": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        },
+        "narrative": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        }
+      },
+      "status": "accepted",
+      "decision_ids": [
+        "8b1386f6-8ae2-41f4-8942-2606a807b749"
+      ]
+    },
+    {
+      "id": "89643a23-bc5b-47e7-805d-69baf02f51e4",
+      "kind": "idea",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "8581fdd2-2b30-43d5-9cff-9a702319e29d",
+          "message_id": "d4250dfa-e7c0-453d-a2d6-4808c6e338b3",
+          "range": {
+            "start": 147,
+            "end": 178
+          }
+        }
+      ],
+      "created_exchange_id": "8581fdd2-2b30-43d5-9cff-9a702319e29d",
+      "origin": "supplied",
+      "statement": "Ari is Rúna’s brother.",
+      "status": "accepted",
+      "related_element_ids": [
+        "5299dee6-4976-454a-b3bd-f85936be0fc3",
+        "ba58b0dd-8d4e-402a-a41e-4adbabd0bcf0"
+      ],
+      "alternative_group_id": null,
+      "selected_parts": [
+        "Ari is Rúna’s brother."
+      ],
+      "decision_ids": [
+        "8b1386f6-8ae2-41f4-8942-2606a807b749"
+      ],
+      "resulting_assertion_ids": []
+    },
+    {
+      "id": "8b1386f6-8ae2-41f4-8942-2606a807b749",
+      "kind": "decision",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "8581fdd2-2b30-43d5-9cff-9a702319e29d",
+          "message_id": "d4250dfa-e7c0-453d-a2d6-4808c6e338b3",
+          "range": {
+            "start": 363,
+            "end": 411
+          }
+        }
+      ],
+      "created_exchange_id": "8581fdd2-2b30-43d5-9cff-9a702319e29d",
+      "origin": "supplied",
+      "action": "accept",
+      "user_message_ref": {
+        "type": "message",
+        "exchange_id": "8581fdd2-2b30-43d5-9cff-9a702319e29d",
+        "message_id": "d4250dfa-e7c0-453d-a2d6-4808c6e338b3",
+        "range": {
+          "start": 363,
+          "end": 411
+        }
+      },
+      "span": {
+        "start": 363,
+        "end": 411
+      },
+      "target_refs": [
+        {
+          "id": "89643a23-bc5b-47e7-805d-69baf02f51e4",
+          "revision": 1
+        },
+        {
+          "id": "0636c698-a7f7-4957-ac90-2cc56a68bdfa",
+          "revision": 1
+        },
+        {
+          "id": "5299dee6-4976-454a-b3bd-f85936be0fc3",
+          "revision": 1
+        },
+        {
+          "id": "ba58b0dd-8d4e-402a-a41e-4adbabd0bcf0",
+          "revision": 1
+        }
+      ],
+      "selected_parts": [
+        "Ari is Rúna’s brother."
+      ],
+      "prior_refs": [],
+      "result_refs": [
+        {
+          "id": "89643a23-bc5b-47e7-805d-69baf02f51e4",
+          "revision": 1
+        },
+        {
+          "id": "0636c698-a7f7-4957-ac90-2cc56a68bdfa",
+          "revision": 1
+        },
+        {
+          "id": "5299dee6-4976-454a-b3bd-f85936be0fc3",
+          "revision": 1
+        },
+        {
+          "id": "ba58b0dd-8d4e-402a-a41e-4adbabd0bcf0",
+          "revision": 1
+        }
+      ],
+      "reason": "Explicit current simulated director selection of this proposition.",
+      "affected_refs": [
+        {
+          "id": "89643a23-bc5b-47e7-805d-69baf02f51e4",
+          "revision": 1
+        },
+        {
+          "id": "0636c698-a7f7-4957-ac90-2cc56a68bdfa",
+          "revision": 1
+        },
+        {
+          "id": "5299dee6-4976-454a-b3bd-f85936be0fc3",
+          "revision": 1
+        },
+        {
+          "id": "ba58b0dd-8d4e-402a-a41e-4adbabd0bcf0",
+          "revision": 1
+        }
+      ],
+      "review_required_refs": []
+    },
+    {
+      "id": "92657929-a1d8-4db7-81bc-3e5b83516e12",
+      "kind": "assertion",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "8581fdd2-2b30-43d5-9cff-9a702319e29d",
+          "message_id": "d4250dfa-e7c0-453d-a2d6-4808c6e338b3",
+          "range": {
+            "start": 147,
+            "end": 178
+          }
+        }
+      ],
+      "created_exchange_id": "8581fdd2-2b30-43d5-9cff-9a702319e29d",
+      "origin": "supplied",
+      "subject_element_id": "5299dee6-4976-454a-b3bd-f85936be0fc3",
+      "predicate": "role",
+      "value": "victim",
+      "perspective": "author_truth",
+      "holder_id": null,
+      "reader_audience": null,
+      "time_ref": {
+        "chronology": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        },
+        "narrative": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        }
+      },
+      "truth_state": "affirmed",
+      "status": "accepted",
+      "decision_ids": [
+        "8981fd4e-44ff-4115-90f1-f82945a99d77"
+      ],
+      "supersedes": null
+    },
+    {
+      "id": "12fdedbe-1fd7-43c7-9899-d854c00ebf7f",
+      "kind": "idea",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "8581fdd2-2b30-43d5-9cff-9a702319e29d",
+          "message_id": "d4250dfa-e7c0-453d-a2d6-4808c6e338b3",
+          "range": {
+            "start": 147,
+            "end": 178
+          }
+        }
+      ],
+      "created_exchange_id": "8581fdd2-2b30-43d5-9cff-9a702319e29d",
+      "origin": "supplied",
+      "statement": "Ari is the victim.",
+      "status": "accepted",
+      "related_element_ids": [
+        "5299dee6-4976-454a-b3bd-f85936be0fc3"
+      ],
+      "alternative_group_id": null,
+      "selected_parts": [
+        "Ari is the victim."
+      ],
+      "decision_ids": [
+        "8981fd4e-44ff-4115-90f1-f82945a99d77"
+      ],
+      "resulting_assertion_ids": [
+        "92657929-a1d8-4db7-81bc-3e5b83516e12"
+      ]
+    },
+    {
+      "id": "8981fd4e-44ff-4115-90f1-f82945a99d77",
+      "kind": "decision",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "8581fdd2-2b30-43d5-9cff-9a702319e29d",
+          "message_id": "d4250dfa-e7c0-453d-a2d6-4808c6e338b3",
+          "range": {
+            "start": 363,
+            "end": 411
+          }
+        }
+      ],
+      "created_exchange_id": "8581fdd2-2b30-43d5-9cff-9a702319e29d",
+      "origin": "supplied",
+      "action": "accept",
+      "user_message_ref": {
+        "type": "message",
+        "exchange_id": "8581fdd2-2b30-43d5-9cff-9a702319e29d",
+        "message_id": "d4250dfa-e7c0-453d-a2d6-4808c6e338b3",
+        "range": {
+          "start": 363,
+          "end": 411
+        }
+      },
+      "span": {
+        "start": 363,
+        "end": 411
+      },
+      "target_refs": [
+        {
+          "id": "12fdedbe-1fd7-43c7-9899-d854c00ebf7f",
+          "revision": 1
+        },
+        {
+          "id": "92657929-a1d8-4db7-81bc-3e5b83516e12",
+          "revision": 1
+        },
+        {
+          "id": "5299dee6-4976-454a-b3bd-f85936be0fc3",
+          "revision": 1
+        }
+      ],
+      "selected_parts": [
+        "Ari is the victim."
+      ],
+      "prior_refs": [],
+      "result_refs": [
+        {
+          "id": "12fdedbe-1fd7-43c7-9899-d854c00ebf7f",
+          "revision": 1
+        },
+        {
+          "id": "92657929-a1d8-4db7-81bc-3e5b83516e12",
+          "revision": 1
+        },
+        {
+          "id": "5299dee6-4976-454a-b3bd-f85936be0fc3",
+          "revision": 1
+        }
+      ],
+      "reason": "Explicit current simulated director selection of this proposition.",
+      "affected_refs": [
+        {
+          "id": "12fdedbe-1fd7-43c7-9899-d854c00ebf7f",
+          "revision": 1
+        },
+        {
+          "id": "92657929-a1d8-4db7-81bc-3e5b83516e12",
+          "revision": 1
+        },
+        {
+          "id": "5299dee6-4976-454a-b3bd-f85936be0fc3",
+          "revision": 1
+        }
+      ],
+      "review_required_refs": []
+    },
+    {
+      "id": "0fafb781-6fe4-4f55-9665-8201f692081d",
+      "kind": "relationship",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "8581fdd2-2b30-43d5-9cff-9a702319e29d",
+          "message_id": "d4250dfa-e7c0-453d-a2d6-4808c6e338b3",
+          "range": {
+            "start": 180,
+            "end": 217
+          }
+        }
+      ],
+      "created_exchange_id": "8581fdd2-2b30-43d5-9cff-9a702319e29d",
+      "origin": "supplied",
+      "from_element_id": "83c818af-8c1a-4871-beca-eb354753ab30",
+      "to_element_id": "ba58b0dd-8d4e-402a-a41e-4adbabd0bcf0",
+      "meaning": "sister of",
+      "perspective": "author_truth",
+      "holder_id": null,
+      "reader_audience": null,
+      "time_ref": {
+        "chronology": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        },
+        "narrative": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        }
+      },
+      "status": "accepted",
+      "decision_ids": [
+        "73dd4a06-7253-4090-9577-d1710bf513e7"
+      ]
+    },
+    {
+      "id": "e4198cbf-dbfc-4068-a487-81dc21c73380",
+      "kind": "idea",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "8581fdd2-2b30-43d5-9cff-9a702319e29d",
+          "message_id": "d4250dfa-e7c0-453d-a2d6-4808c6e338b3",
+          "range": {
+            "start": 180,
+            "end": 217
+          }
+        }
+      ],
+      "created_exchange_id": "8581fdd2-2b30-43d5-9cff-9a702319e29d",
+      "origin": "supplied",
+      "statement": "Edda is Rúna’s sister.",
+      "status": "accepted",
+      "related_element_ids": [
+        "83c818af-8c1a-4871-beca-eb354753ab30",
+        "ba58b0dd-8d4e-402a-a41e-4adbabd0bcf0"
+      ],
+      "alternative_group_id": null,
+      "selected_parts": [
+        "Edda is Rúna’s sister."
+      ],
+      "decision_ids": [
+        "73dd4a06-7253-4090-9577-d1710bf513e7"
+      ],
+      "resulting_assertion_ids": []
+    },
+    {
+      "id": "73dd4a06-7253-4090-9577-d1710bf513e7",
+      "kind": "decision",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "8581fdd2-2b30-43d5-9cff-9a702319e29d",
+          "message_id": "d4250dfa-e7c0-453d-a2d6-4808c6e338b3",
+          "range": {
+            "start": 412,
+            "end": 454
+          }
+        }
+      ],
+      "created_exchange_id": "8581fdd2-2b30-43d5-9cff-9a702319e29d",
+      "origin": "supplied",
+      "action": "accept",
+      "user_message_ref": {
+        "type": "message",
+        "exchange_id": "8581fdd2-2b30-43d5-9cff-9a702319e29d",
+        "message_id": "d4250dfa-e7c0-453d-a2d6-4808c6e338b3",
+        "range": {
+          "start": 412,
+          "end": 454
+        }
+      },
+      "span": {
+        "start": 412,
+        "end": 454
+      },
+      "target_refs": [
+        {
+          "id": "e4198cbf-dbfc-4068-a487-81dc21c73380",
+          "revision": 1
+        },
+        {
+          "id": "0fafb781-6fe4-4f55-9665-8201f692081d",
+          "revision": 1
+        },
+        {
+          "id": "83c818af-8c1a-4871-beca-eb354753ab30",
+          "revision": 1
+        },
+        {
+          "id": "ba58b0dd-8d4e-402a-a41e-4adbabd0bcf0",
+          "revision": 1
+        }
+      ],
+      "selected_parts": [
+        "Edda is Rúna’s sister."
+      ],
+      "prior_refs": [],
+      "result_refs": [
+        {
+          "id": "e4198cbf-dbfc-4068-a487-81dc21c73380",
+          "revision": 1
+        },
+        {
+          "id": "0fafb781-6fe4-4f55-9665-8201f692081d",
+          "revision": 1
+        },
+        {
+          "id": "83c818af-8c1a-4871-beca-eb354753ab30",
+          "revision": 1
+        },
+        {
+          "id": "ba58b0dd-8d4e-402a-a41e-4adbabd0bcf0",
+          "revision": 1
+        }
+      ],
+      "reason": "Explicit current simulated director selection of this proposition.",
+      "affected_refs": [
+        {
+          "id": "e4198cbf-dbfc-4068-a487-81dc21c73380",
+          "revision": 1
+        },
+        {
+          "id": "0fafb781-6fe4-4f55-9665-8201f692081d",
+          "revision": 1
+        },
+        {
+          "id": "83c818af-8c1a-4871-beca-eb354753ab30",
+          "revision": 1
+        },
+        {
+          "id": "ba58b0dd-8d4e-402a-a41e-4adbabd0bcf0",
+          "revision": 1
+        }
+      ],
+      "review_required_refs": []
+    },
+    {
+      "id": "d5adf09d-3773-4d70-828b-5cee7def7194",
+      "kind": "assertion",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "8581fdd2-2b30-43d5-9cff-9a702319e29d",
+          "message_id": "d4250dfa-e7c0-453d-a2d6-4808c6e338b3",
+          "range": {
+            "start": 180,
+            "end": 217
+          }
+        }
+      ],
+      "created_exchange_id": "8581fdd2-2b30-43d5-9cff-9a702319e29d",
+      "origin": "supplied",
+      "subject_element_id": "83c818af-8c1a-4871-beca-eb354753ab30",
+      "predicate": "role",
+      "value": "investigator",
+      "perspective": "author_truth",
+      "holder_id": null,
+      "reader_audience": null,
+      "time_ref": {
+        "chronology": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        },
+        "narrative": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        }
+      },
+      "truth_state": "affirmed",
+      "status": "accepted",
+      "decision_ids": [
+        "83602256-af39-470b-b0ec-fea90eb751c4"
+      ],
+      "supersedes": null
+    },
+    {
+      "id": "c1edb38c-e177-4154-add4-13ebf95c7207",
+      "kind": "idea",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "8581fdd2-2b30-43d5-9cff-9a702319e29d",
+          "message_id": "d4250dfa-e7c0-453d-a2d6-4808c6e338b3",
+          "range": {
+            "start": 180,
+            "end": 217
+          }
+        }
+      ],
+      "created_exchange_id": "8581fdd2-2b30-43d5-9cff-9a702319e29d",
+      "origin": "supplied",
+      "statement": "Edda is the investigator.",
+      "status": "accepted",
+      "related_element_ids": [
+        "83c818af-8c1a-4871-beca-eb354753ab30"
+      ],
+      "alternative_group_id": null,
+      "selected_parts": [
+        "Edda is the investigator."
+      ],
+      "decision_ids": [
+        "83602256-af39-470b-b0ec-fea90eb751c4"
+      ],
+      "resulting_assertion_ids": [
+        "d5adf09d-3773-4d70-828b-5cee7def7194"
+      ]
+    },
+    {
+      "id": "83602256-af39-470b-b0ec-fea90eb751c4",
+      "kind": "decision",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "8581fdd2-2b30-43d5-9cff-9a702319e29d",
+          "message_id": "d4250dfa-e7c0-453d-a2d6-4808c6e338b3",
+          "range": {
+            "start": 412,
+            "end": 454
+          }
+        }
+      ],
+      "created_exchange_id": "8581fdd2-2b30-43d5-9cff-9a702319e29d",
+      "origin": "supplied",
+      "action": "accept",
+      "user_message_ref": {
+        "type": "message",
+        "exchange_id": "8581fdd2-2b30-43d5-9cff-9a702319e29d",
+        "message_id": "d4250dfa-e7c0-453d-a2d6-4808c6e338b3",
+        "range": {
+          "start": 412,
+          "end": 454
+        }
+      },
+      "span": {
+        "start": 412,
+        "end": 454
+      },
+      "target_refs": [
+        {
+          "id": "c1edb38c-e177-4154-add4-13ebf95c7207",
+          "revision": 1
+        },
+        {
+          "id": "d5adf09d-3773-4d70-828b-5cee7def7194",
+          "revision": 1
+        },
+        {
+          "id": "83c818af-8c1a-4871-beca-eb354753ab30",
+          "revision": 1
+        }
+      ],
+      "selected_parts": [
+        "Edda is the investigator."
+      ],
+      "prior_refs": [],
+      "result_refs": [
+        {
+          "id": "c1edb38c-e177-4154-add4-13ebf95c7207",
+          "revision": 1
+        },
+        {
+          "id": "d5adf09d-3773-4d70-828b-5cee7def7194",
+          "revision": 1
+        },
+        {
+          "id": "83c818af-8c1a-4871-beca-eb354753ab30",
+          "revision": 1
+        }
+      ],
+      "reason": "Explicit current simulated director selection of this proposition.",
+      "affected_refs": [
+        {
+          "id": "c1edb38c-e177-4154-add4-13ebf95c7207",
+          "revision": 1
+        },
+        {
+          "id": "d5adf09d-3773-4d70-828b-5cee7def7194",
+          "revision": 1
+        },
+        {
+          "id": "83c818af-8c1a-4871-beca-eb354753ab30",
+          "revision": 1
+        }
+      ],
+      "review_required_refs": []
+    },
+    {
+      "id": "5ecad072-009b-438c-8e65-034fe992d3a9",
+      "kind": "relationship",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "8581fdd2-2b30-43d5-9cff-9a702319e29d",
+          "message_id": "d4250dfa-e7c0-453d-a2d6-4808c6e338b3",
+          "range": {
+            "start": 219,
+            "end": 247
+          }
+        }
+      ],
+      "created_exchange_id": "8581fdd2-2b30-43d5-9cff-9a702319e29d",
+      "origin": "supplied",
+      "from_element_id": "ba58b0dd-8d4e-402a-a41e-4adbabd0bcf0",
+      "to_element_id": "fe4f5d2f-3ecc-48db-918a-3bb260cee80f",
+      "meaning": "knows",
+      "perspective": "author_truth",
+      "holder_id": null,
+      "reader_audience": null,
+      "time_ref": {
+        "chronology": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        },
+        "narrative": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        }
+      },
+      "status": "accepted",
+      "decision_ids": [
+        "b7cefc5a-1d40-4935-9766-6c8396ce3a61"
+      ]
+    },
+    {
+      "id": "b0134264-50de-4438-9ea4-7b7fea14021a",
+      "kind": "idea",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "8581fdd2-2b30-43d5-9cff-9a702319e29d",
+          "message_id": "d4250dfa-e7c0-453d-a2d6-4808c6e338b3",
+          "range": {
+            "start": 219,
+            "end": 247
+          }
+        }
+      ],
+      "created_exchange_id": "8581fdd2-2b30-43d5-9cff-9a702319e29d",
+      "origin": "supplied",
+      "statement": "Rúna knows Bjarni.",
+      "status": "accepted",
+      "related_element_ids": [
+        "ba58b0dd-8d4e-402a-a41e-4adbabd0bcf0",
+        "fe4f5d2f-3ecc-48db-918a-3bb260cee80f"
+      ],
+      "alternative_group_id": null,
+      "selected_parts": [
+        "Rúna knows Bjarni."
+      ],
+      "decision_ids": [
+        "b7cefc5a-1d40-4935-9766-6c8396ce3a61"
+      ],
+      "resulting_assertion_ids": []
+    },
+    {
+      "id": "b7cefc5a-1d40-4935-9766-6c8396ce3a61",
+      "kind": "decision",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "8581fdd2-2b30-43d5-9cff-9a702319e29d",
+          "message_id": "d4250dfa-e7c0-453d-a2d6-4808c6e338b3",
+          "range": {
+            "start": 455,
+            "end": 488
+          }
+        }
+      ],
+      "created_exchange_id": "8581fdd2-2b30-43d5-9cff-9a702319e29d",
+      "origin": "supplied",
+      "action": "accept",
+      "user_message_ref": {
+        "type": "message",
+        "exchange_id": "8581fdd2-2b30-43d5-9cff-9a702319e29d",
+        "message_id": "d4250dfa-e7c0-453d-a2d6-4808c6e338b3",
+        "range": {
+          "start": 455,
+          "end": 488
+        }
+      },
+      "span": {
+        "start": 455,
+        "end": 488
+      },
+      "target_refs": [
+        {
+          "id": "b0134264-50de-4438-9ea4-7b7fea14021a",
+          "revision": 1
+        },
+        {
+          "id": "5ecad072-009b-438c-8e65-034fe992d3a9",
+          "revision": 1
+        },
+        {
+          "id": "ba58b0dd-8d4e-402a-a41e-4adbabd0bcf0",
+          "revision": 1
+        },
+        {
+          "id": "fe4f5d2f-3ecc-48db-918a-3bb260cee80f",
+          "revision": 1
+        }
+      ],
+      "selected_parts": [
+        "Rúna knows Bjarni."
+      ],
+      "prior_refs": [],
+      "result_refs": [
+        {
+          "id": "b0134264-50de-4438-9ea4-7b7fea14021a",
+          "revision": 1
+        },
+        {
+          "id": "5ecad072-009b-438c-8e65-034fe992d3a9",
+          "revision": 1
+        },
+        {
+          "id": "ba58b0dd-8d4e-402a-a41e-4adbabd0bcf0",
+          "revision": 1
+        },
+        {
+          "id": "fe4f5d2f-3ecc-48db-918a-3bb260cee80f",
+          "revision": 1
+        }
+      ],
+      "reason": "Explicit current simulated director selection of this proposition.",
+      "affected_refs": [
+        {
+          "id": "b0134264-50de-4438-9ea4-7b7fea14021a",
+          "revision": 1
+        },
+        {
+          "id": "5ecad072-009b-438c-8e65-034fe992d3a9",
+          "revision": 1
+        },
+        {
+          "id": "ba58b0dd-8d4e-402a-a41e-4adbabd0bcf0",
+          "revision": 1
+        },
+        {
+          "id": "fe4f5d2f-3ecc-48db-918a-3bb260cee80f",
+          "revision": 1
+        }
+      ],
+      "review_required_refs": []
+    },
+    {
+      "id": "fd14cc8d-4c2a-442f-850e-6d54640155e5",
+      "kind": "assertion",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "8581fdd2-2b30-43d5-9cff-9a702319e29d",
+          "message_id": "d4250dfa-e7c0-453d-a2d6-4808c6e338b3",
+          "range": {
+            "start": 249,
+            "end": 272
+          }
+        }
+      ],
+      "created_exchange_id": "8581fdd2-2b30-43d5-9cff-9a702319e29d",
+      "origin": "supplied",
+      "subject_element_id": "ba58b0dd-8d4e-402a-a41e-4adbabd0bcf0",
+      "predicate": "collects",
+      "value": "sea glass",
+      "perspective": "author_truth",
+      "holder_id": null,
+      "reader_audience": null,
+      "time_ref": {
+        "chronology": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        },
+        "narrative": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        }
+      },
+      "truth_state": "affirmed",
+      "status": "proposed",
+      "decision_ids": [],
+      "supersedes": null
+    },
+    {
+      "id": "2d56748a-3757-4a06-839d-00bc5f806905",
+      "kind": "idea",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "8581fdd2-2b30-43d5-9cff-9a702319e29d",
+          "message_id": "d4250dfa-e7c0-453d-a2d6-4808c6e338b3",
+          "range": {
+            "start": 249,
+            "end": 272
+          }
+        }
+      ],
+      "created_exchange_id": "8581fdd2-2b30-43d5-9cff-9a702319e29d",
+      "origin": "supplied",
+      "statement": "Rúna collects sea glass.",
+      "status": "proposed",
+      "related_element_ids": [
+        "ba58b0dd-8d4e-402a-a41e-4adbabd0bcf0"
+      ],
+      "alternative_group_id": null,
+      "selected_parts": [],
+      "decision_ids": [],
+      "resulting_assertion_ids": [
+        "fd14cc8d-4c2a-442f-850e-6d54640155e5"
+      ]
+    },
+    {
+      "id": "29cb6e9b-bc94-4ecb-a5a4-0402ef64680f",
+      "kind": "assertion",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "8581fdd2-2b30-43d5-9cff-9a702319e29d",
+          "message_id": "d4250dfa-e7c0-453d-a2d6-4808c6e338b3",
+          "range": {
+            "start": 274,
+            "end": 294
+          }
+        }
+      ],
+      "created_exchange_id": "8581fdd2-2b30-43d5-9cff-9a702319e29d",
+      "origin": "supplied",
+      "subject_element_id": "83c818af-8c1a-4871-beca-eb354753ab30",
+      "predicate": "distrusts",
+      "value": "bells",
+      "perspective": "author_truth",
+      "holder_id": null,
+      "reader_audience": null,
+      "time_ref": {
+        "chronology": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        },
+        "narrative": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        }
+      },
+      "truth_state": "affirmed",
+      "status": "proposed",
+      "decision_ids": [],
+      "supersedes": null
+    },
+    {
+      "id": "e4a49295-ef40-47d5-8ac9-8c148fc68977",
+      "kind": "idea",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "8581fdd2-2b30-43d5-9cff-9a702319e29d",
+          "message_id": "d4250dfa-e7c0-453d-a2d6-4808c6e338b3",
+          "range": {
+            "start": 274,
+            "end": 294
+          }
+        }
+      ],
+      "created_exchange_id": "8581fdd2-2b30-43d5-9cff-9a702319e29d",
+      "origin": "supplied",
+      "statement": "Edda distrusts bells.",
+      "status": "proposed",
+      "related_element_ids": [
+        "83c818af-8c1a-4871-beca-eb354753ab30"
+      ],
+      "alternative_group_id": null,
+      "selected_parts": [],
+      "decision_ids": [],
+      "resulting_assertion_ids": [
+        "29cb6e9b-bc94-4ecb-a5a4-0402ef64680f"
+      ]
+    },
+    {
+      "id": "b9b83c3b-0ece-4923-92e3-5dd2e514036b",
+      "kind": "assertion",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "8581fdd2-2b30-43d5-9cff-9a702319e29d",
+          "message_id": "d4250dfa-e7c0-453d-a2d6-4808c6e338b3",
+          "range": {
+            "start": 219,
+            "end": 247
+          }
+        }
+      ],
+      "created_exchange_id": "8581fdd2-2b30-43d5-9cff-9a702319e29d",
+      "origin": "supplied",
+      "subject_element_id": "fe4f5d2f-3ecc-48db-918a-3bb260cee80f",
+      "predicate": "occupation",
+      "value": "sailor",
+      "perspective": "author_truth",
+      "holder_id": null,
+      "reader_audience": null,
+      "time_ref": {
+        "chronology": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        },
+        "narrative": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        }
+      },
+      "truth_state": "affirmed",
+      "status": "proposed",
+      "decision_ids": [],
+      "supersedes": null
+    },
+    {
+      "id": "a48aa0fb-4da0-4e09-8b8a-53ed6da688a4",
+      "kind": "idea",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "8581fdd2-2b30-43d5-9cff-9a702319e29d",
+          "message_id": "d4250dfa-e7c0-453d-a2d6-4808c6e338b3",
+          "range": {
+            "start": 219,
+            "end": 247
+          }
+        }
+      ],
+      "created_exchange_id": "8581fdd2-2b30-43d5-9cff-9a702319e29d",
+      "origin": "supplied",
+      "statement": "Bjarni is a sailor.",
+      "status": "proposed",
+      "related_element_ids": [
+        "fe4f5d2f-3ecc-48db-918a-3bb260cee80f"
+      ],
+      "alternative_group_id": null,
+      "selected_parts": [],
+      "decision_ids": [],
+      "resulting_assertion_ids": [
+        "b9b83c3b-0ece-4923-92e3-5dd2e514036b"
+      ]
+    },
+    {
+      "id": "2a41e2d9-fff0-40e7-9e41-b9152e0f5184",
+      "kind": "relationship",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "8581fdd2-2b30-43d5-9cff-9a702319e29d",
+          "message_id": "d4250dfa-e7c0-453d-a2d6-4808c6e338b3",
+          "range": {
+            "start": 296,
+            "end": 321
+          }
+        }
+      ],
+      "created_exchange_id": "8581fdd2-2b30-43d5-9cff-9a702319e29d",
+      "origin": "supplied",
+      "from_element_id": "fe4f5d2f-3ecc-48db-918a-3bb260cee80f",
+      "to_element_id": "83c818af-8c1a-4871-beca-eb354753ab30",
+      "meaning": "may owe money to",
+      "perspective": "author_truth",
+      "holder_id": null,
+      "reader_audience": null,
+      "time_ref": {
+        "chronology": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        },
+        "narrative": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        }
+      },
+      "status": "proposed",
+      "decision_ids": []
+    },
+    {
+      "id": "eacc5318-7df6-412a-a413-1fd2a072b7f3",
+      "kind": "idea",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "8581fdd2-2b30-43d5-9cff-9a702319e29d",
+          "message_id": "d4250dfa-e7c0-453d-a2d6-4808c6e338b3",
+          "range": {
+            "start": 296,
+            "end": 321
+          }
+        }
+      ],
+      "created_exchange_id": "8581fdd2-2b30-43d5-9cff-9a702319e29d",
+      "origin": "supplied",
+      "statement": "Bjarni may owe Edda money.",
+      "status": "proposed",
+      "related_element_ids": [
+        "fe4f5d2f-3ecc-48db-918a-3bb260cee80f",
+        "83c818af-8c1a-4871-beca-eb354753ab30"
+      ],
+      "alternative_group_id": null,
+      "selected_parts": [],
+      "decision_ids": [],
+      "resulting_assertion_ids": []
+    },
+    {
+      "id": "f1e737c0-6ce3-4c00-99c8-3495f3ce70c4",
+      "kind": "question",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "8581fdd2-2b30-43d5-9cff-9a702319e29d",
+          "message_id": "d4250dfa-e7c0-453d-a2d6-4808c6e338b3",
+          "range": {
+            "start": 551,
+            "end": 580
+          }
+        }
+      ],
+      "created_exchange_id": "8581fdd2-2b30-43d5-9cff-9a702319e29d",
+      "origin": "supplied",
+      "text": "Why did Rúna send the letter?",
+      "related_refs": [
+        {
+          "id": "ba58b0dd-8d4e-402a-a41e-4adbabd0bcf0",
+          "revision": 1
+        }
+      ],
+      "alternative_ids": [],
+      "state": "open",
+      "resolution_decision_id": null
+    },
+    {
+      "id": "55b62a7f-4dd9-4153-8019-cf8f66057626",
+      "kind": "question",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "8581fdd2-2b30-43d5-9cff-9a702319e29d",
+          "message_id": "d4250dfa-e7c0-453d-a2d6-4808c6e338b3",
+          "range": {
+            "start": 581,
+            "end": 613
+          }
+        }
+      ],
+      "created_exchange_id": "8581fdd2-2b30-43d5-9cff-9a702319e29d",
+      "origin": "supplied",
+      "text": "What does Edda want from Bjarni?",
+      "related_refs": [
+        {
+          "id": "83c818af-8c1a-4871-beca-eb354753ab30",
+          "revision": 1
+        },
+        {
+          "id": "fe4f5d2f-3ecc-48db-918a-3bb260cee80f",
+          "revision": 1
+        }
+      ],
+      "alternative_ids": [],
+      "state": "open",
+      "resolution_decision_id": null
+    }
+  ],
+  "continuity_review": {
+    "coverage": "complete",
+    "reviewed_record_refs": [
+      {
+        "id": "cb66f60c-4b08-4aea-9616-a2fc168a09eb",
+        "revision": 1
+      }
+    ],
+    "unavailable_refs": [],
+    "canon_hold_refs": [],
+    "finding_ids": [],
+    "summary": "Prior committed context contains no story canon or conflict holds. Reviewed the newly selected roles and relationships together; no conflict identified. Chronology and revelation timing remain unknown; motives and the two supplied questions remain unanswered."
+  },
+  "payload_digest": "e116908e2482897fb04ee4313660448644e1c0b461fdcc4481461ac0d74e6ad7"
+}

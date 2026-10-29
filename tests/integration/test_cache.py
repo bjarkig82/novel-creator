@@ -8,9 +8,10 @@ import tempfile
 import unittest
 from unittest.mock import patch
 
-from novel_creator import records, storage
+from novel_creator import records, storage, validation_cache
 from novel_creator.cli import ToolError
 from tests.helpers import envelope, idea, repository, seal, git
+from tests.integration.test_candidate import corrupt_loose_blob
 
 
 class ValidationCacheTests(unittest.TestCase):
@@ -23,6 +24,44 @@ class ValidationCacheTests(unittest.TestCase):
         configured = patch.dict(os.environ, {'NOVEL_CREATOR_VALIDATION_KEY_FILE': str(self.key)})
         configured.start()
         self.addCleanup(configured.stop)
+
+    def test_equivalent_corrupt_history_is_rejected_without_certifying_it(self):
+        for object_format in ('sha1', 'sha256'):
+            with repository(object_format=object_format) as root:
+                first = envelope(root)
+                first_saved = storage.save(root, first)
+                second = envelope(root, previous=first)
+                storage.save(root, second)
+                head = storage.head(root)
+                index = (root / '.git/index').read_bytes()
+                entries = storage.committed_entries(root, head)
+                path = storage.bundle_path(second)
+                oid = entries[path][1]
+                proof = root / '.novel-creator/local/cache/validation.json'
+                original_proof = proof.read_bytes()
+                self.assertTrue(validation_cache.trusted(root, head, entries))
+                equivalent = json.dumps(second, ensure_ascii=False, separators=(',', ':')).encode('utf-8')
+                with corrupt_loose_blob(root, oid, equivalent):
+                    for policy in ('disabled', 'missing', 'invalid', 'certified'):
+                        with self.subTest(object_format=object_format, policy=policy):
+                            proof.write_bytes(original_proof)
+                            if policy == 'missing':
+                                proof.unlink()
+                            elif policy == 'invalid':
+                                proof.write_bytes(b'{"invalid":true}')
+                            before = proof.read_bytes() if proof.exists() else None
+                            environment = {validation_cache.KEY_ENV: ''} if policy == 'disabled' else {}
+                            with patch.dict(os.environ, environment):
+                                with self.assertRaises(ToolError) as error:
+                                    storage.read_snapshot(root)
+                            self.assertEqual(error.exception.code, 4)
+                            self.assertEqual(error.exception.affected_refs, [path])
+                            self.assertEqual(error.exception.checkpoint, first_saved['checkpoint'])
+                            self.assertEqual(storage.head(root), head)
+                            self.assertEqual((root / '.git/index').read_bytes(), index)
+                            self.assertEqual(proof.read_bytes() if proof.exists() else None, before)
+                proof.write_bytes(original_proof)
+                self.assertEqual(storage.read_history(root), [first, second])
 
     def test_novel_supplied_key_is_never_a_validation_authority(self):
         with repository() as root:

@@ -1,0 +1,23 @@
+{
+  "thread": {
+    "id": "01a167df-036b-7c71-b306-9d7021046c01"
+  },
+  "turns": [
+    {
+      "id": "01a16a64-fd74-76e1-98f9-25fe754bd02e",
+      "status": "inProgress",
+      "items": [
+        {
+          "type": "userMessage",
+          "id": "01a16a65-07ba-7191-b54f-77b9f8d1bab3",
+          "content": [
+            {
+              "type": "text",
+              "text": "Add explicitly labeled delegated-input support, keep the native-input and novice requirements, and continue until you need another decision from me.\n"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

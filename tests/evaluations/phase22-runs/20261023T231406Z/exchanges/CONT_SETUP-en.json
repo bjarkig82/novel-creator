@@ -1,0 +1,2256 @@
+{
+  "schema_version": "1.0",
+  "novel_id": "cb66f60c-4b08-4aea-9616-a2fc168a09eb",
+  "exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+  "sequence": 12,
+  "previous_exchange_id": "88b2e32e-458b-475a-8ab1-96cec246ba69",
+  "previous_digest": "70f6886e8be5f3b4f2b8e360fcef75d7b689cba30edb7027d6f7563449f372cb",
+  "session_id": "7b956f0b-12a9-4a91-9568-f76844ea690e",
+  "expected_git_head": "a1de66c5a234fbdbdfc11cebe1aaab210cd461be",
+  "recorded_at": "2026-10-28T10:18:24.716026Z",
+  "operation": "conversation",
+  "messages": [
+    {
+      "message_id": "6a634120-a28f-48cb-9bfa-156c295a6e7b",
+      "role": "user",
+      "text": "Case CONT_SETUP. Keep Edda’s protected innocence and withdraw my conflicting murderer request. Begin a Continuity review session in open mode; use on-request checkpoints. Establish these additional facts: Rúna arrives at the harbour after midnight; Rúna learns the rescue code only after the ship sinks; the planned escape requires the only usable boat; no letter can cross the sealed boundary; Freyja and Sigrún have never met before their reunion. Preserve Rúna’s established oath to protect Edda. These are author truths. Pause without inventing consequences."
+    },
+    {
+      "message_id": "b7cfc8fa-463a-4076-ac19-c78af04eecac",
+      "role": "assistant",
+      "text": "Continuity review is now a separate open-ended session (7b956f0b r1). Routine checkpoints are on request (cb66f60c r5).\n\nEdda’s protected innocence remains in force. Your conflicting murderer request is withdrawn (f0f4d12b r2; withdrawal decision 455a9689 r1); its significant conflict is closed as a rejected idea (36c107d0 r2), and the associated clarification is resolved (e82c4150 r2; decision 481b0e24 r1). Earlier versions remain inspectable.\n\nEstablished as author truths:\n\n- Rúna arrives at the harbour after midnight (c37ada40 r1; assertion 4355d4e9 r1).\n- Rúna learns the rescue code only after the ship sinks (b379a543 r1; learning assertion e7860735 r1; character-knowledge states 82dc2970 r1 before sinking and da98ac0d r1 after sinking).\n- The planned escape requires the only usable boat (39813baf r1; requirement 0accdfbe r1; boat scope b6de28b4 r1).\n- No letter can cross the sealed boundary (2f049d07 r1; rule d148a2a0 r1).\n- Freyja and Sigrún have never met before their reunion (a4aa58cb r1; relationship 20ec7fd0 r1).\n\nRúna’s established oath to protect Edda is preserved (249f979b r1). Exact dates and other unprovided timing remain unknown. The word “reunion” is retained as your event label without inventing an earlier meeting. No consequences or answers have been added. Paused here."
+    }
+  ],
+  "input_artifacts": [
+    {
+      "artifact_id": "cc4f5740-f768-4e1b-986b-310a08d5174a",
+      "original_text": "{\"kind\":\"host_input\",\"source_type\":\"delegated\",\"thread_id\":\"01a16af9-f289-73c1-8151-55f50ace05d9\",\"turn_id\":\"01a18202-fdbd-7430-9844-cb56797b7b24\",\"event_id\":\"fco_01a18202-fdbe-7773-bb17-a61ae1bf4e72\",\"event_type\":\"functionCallOutput\",\"source_thread_id\":\"01a16af6-0d9b-7173-a5f5-c8775f37df18\",\"native_user_input\":false,\"novice_evidence\":false,\"evaluation_only\":true,\"text\":\"Case CONT_SETUP. Keep Edda’s protected innocence and withdraw my conflicting murderer request. Begin a Continuity review session in open mode; use on-request checkpoints. Establish these additional facts: Rúna arrives at the harbour after midnight; Rúna learns the rescue code only after the ship sinks; the planned escape requires the only usable boat; no letter can cross the sealed boundary; Freyja and Sigrún have never met before their reunion. Preserve Rúna’s established oath to protect Edda. These are author truths. Pause without inventing consequences.\",\"public_event\":{\"type\":\"functionCallOutput\",\"id\":\"fco_01a18202-fdbe-7773-bb17-a61ae1bf4e72\",\"namespace\":\"codex_app\",\"name\":\"send_message_to_thread\",\"output\":{\"text\":\"<codex_delegation>\\n  <source_thread_id>01a16af6-0d9b-7173-a5f5-c8775f37df18</source_thread_id>\\n  <input>Case CONT_SETUP. Keep Edda’s protected innocence and withdraw my conflicting murderer request. Begin a Continuity review session in open mode; use on-request checkpoints. Establish these additional facts: Rúna arrives at the harbour after midnight; Rúna learns the rescue code only after the ship sinks; the planned escape requires the only usable boat; no letter can cross the sealed boundary; Freyja and Sigrún have never met before their reunion. Preserve Rúna’s established oath to protect Edda. These are author truths. Pause without inventing consequences.</input>\\n</codex_delegation>\",\"truncated\":false}}}",
+      "parsed_value": {
+        "kind": "host_input",
+        "source_type": "delegated",
+        "thread_id": "01a16af9-f289-73c1-8151-55f50ace05d9",
+        "turn_id": "01a18202-fdbd-7430-9844-cb56797b7b24",
+        "event_id": "fco_01a18202-fdbe-7773-bb17-a61ae1bf4e72",
+        "event_type": "functionCallOutput",
+        "source_thread_id": "01a16af6-0d9b-7173-a5f5-c8775f37df18",
+        "native_user_input": false,
+        "novice_evidence": false,
+        "evaluation_only": true,
+        "text": "Case CONT_SETUP. Keep Edda’s protected innocence and withdraw my conflicting murderer request. Begin a Continuity review session in open mode; use on-request checkpoints. Establish these additional facts: Rúna arrives at the harbour after midnight; Rúna learns the rescue code only after the ship sinks; the planned escape requires the only usable boat; no letter can cross the sealed boundary; Freyja and Sigrún have never met before their reunion. Preserve Rúna’s established oath to protect Edda. These are author truths. Pause without inventing consequences.",
+        "public_event": {
+          "type": "functionCallOutput",
+          "id": "fco_01a18202-fdbe-7773-bb17-a61ae1bf4e72",
+          "namespace": "codex_app",
+          "name": "send_message_to_thread",
+          "output": {
+            "text": "<codex_delegation>\n  <source_thread_id>01a16af6-0d9b-7173-a5f5-c8775f37df18</source_thread_id>\n  <input>Case CONT_SETUP. Keep Edda’s protected innocence and withdraw my conflicting murderer request. Begin a Continuity review session in open mode; use on-request checkpoints. Establish these additional facts: Rúna arrives at the harbour after midnight; Rúna learns the rescue code only after the ship sinks; the planned escape requires the only usable boat; no letter can cross the sealed boundary; Freyja and Sigrún have never met before their reunion. Preserve Rúna’s established oath to protect Edda. These are author truths. Pause without inventing consequences.</input>\n</codex_delegation>",
+            "truncated": false
+          }
+        }
+      },
+      "digest": "1323bdaabb26c840086b8d53096e8874e79a4a9a6545a6380f424e5e4767454e"
+    }
+  ],
+  "record_versions": [
+    {
+      "id": "36c107d0-448e-4ec8-8acf-0bbd1a80e624",
+      "kind": "finding",
+      "revision": 2,
+      "previous_revision": 1,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "88b2e32e-458b-475a-8ab1-96cec246ba69",
+          "message_id": "26d5c3bc-5758-4235-9062-303285e00443",
+          "range": {
+            "start": 36,
+            "end": 67
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "88b2e32e-458b-475a-8ab1-96cec246ba69",
+          "message_id": "26d5c3bc-5758-4235-9062-303285e00443",
+          "range": {
+            "start": 68,
+            "end": 117
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "e8153db8-c478-484a-ada7-468d732944f5",
+          "message_id": "c4e20dc4-f782-4c06-b7be-eddf85aecf6d",
+          "range": {
+            "start": 478,
+            "end": 518
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+          "message_id": "6a634120-a28f-48cb-9bfa-156c295a6e7b",
+          "range": {
+            "start": 17,
+            "end": 94
+          }
+        }
+      ],
+      "created_exchange_id": "88b2e32e-458b-475a-8ab1-96cec246ba69",
+      "origin": "supplied",
+      "category": "world_rule",
+      "assessment": "conflict",
+      "severity": "significant",
+      "affected_refs": [
+        {
+          "id": "f0f4d12b-e666-4d1c-9f86-271a75ea134c",
+          "revision": 1
+        },
+        {
+          "id": "a20b0b76-e180-44db-85ce-e5158bb4d186",
+          "revision": 1
+        },
+        {
+          "id": "83c818af-8c1a-4871-beca-eb354753ab30",
+          "revision": 1
+        },
+        {
+          "id": "97157e2f-9e6b-406f-b4ea-c5abba4acd22",
+          "revision": 1
+        },
+        {
+          "id": "cb66f60c-4b08-4aea-9616-a2fc168a09eb",
+          "revision": 4
+        }
+      ],
+      "explanation": "Establishing Edda as the murderer of the same murder contradicts the protected direction that Edda must remain innocent, which the current input explicitly retains.",
+      "consequences": [
+        "Cannot promote the murderer proposition while the innocence direction remains in force.",
+        "Preserve established innocence and the protected direction pending clarification."
+      ],
+      "resolution_options": [
+        "Reject or revise the murderer proposal while preserving the innocence direction.",
+        "Explicitly revise the protected direction after clarifying the conflicting instructions.",
+        "Leave the proposed change unresolved without canon promotion."
+      ],
+      "disposition": "rejected_idea",
+      "decision_ids": [
+        "455a9689-b8eb-42fe-9c72-03063d226753"
+      ],
+      "narrative_explanation": null
+    },
+    {
+      "id": "f0f4d12b-e666-4d1c-9f86-271a75ea134c",
+      "kind": "idea",
+      "revision": 2,
+      "previous_revision": 1,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "88b2e32e-458b-475a-8ab1-96cec246ba69",
+          "message_id": "26d5c3bc-5758-4235-9062-303285e00443",
+          "range": {
+            "start": 36,
+            "end": 67
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+          "message_id": "6a634120-a28f-48cb-9bfa-156c295a6e7b",
+          "range": {
+            "start": 17,
+            "end": 94
+          }
+        }
+      ],
+      "created_exchange_id": "88b2e32e-458b-475a-8ab1-96cec246ba69",
+      "origin": "supplied",
+      "statement": "Edda is the murderer.",
+      "status": "rejected",
+      "related_element_ids": [
+        "83c818af-8c1a-4871-beca-eb354753ab30"
+      ],
+      "alternative_group_id": null,
+      "selected_parts": [],
+      "decision_ids": [
+        "455a9689-b8eb-42fe-9c72-03063d226753"
+      ],
+      "resulting_assertion_ids": [
+        "a20b0b76-e180-44db-85ce-e5158bb4d186"
+      ]
+    },
+    {
+      "id": "a20b0b76-e180-44db-85ce-e5158bb4d186",
+      "kind": "assertion",
+      "revision": 2,
+      "previous_revision": 1,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "88b2e32e-458b-475a-8ab1-96cec246ba69",
+          "message_id": "26d5c3bc-5758-4235-9062-303285e00443",
+          "range": {
+            "start": 36,
+            "end": 67
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+          "message_id": "6a634120-a28f-48cb-9bfa-156c295a6e7b",
+          "range": {
+            "start": 17,
+            "end": 94
+          }
+        }
+      ],
+      "created_exchange_id": "88b2e32e-458b-475a-8ab1-96cec246ba69",
+      "origin": "supplied",
+      "subject_element_id": "83c818af-8c1a-4871-beca-eb354753ab30",
+      "predicate": "is_murderer",
+      "value": true,
+      "perspective": "author_truth",
+      "holder_id": null,
+      "reader_audience": null,
+      "time_ref": {
+        "chronology": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        },
+        "narrative": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        }
+      },
+      "truth_state": "unknown",
+      "status": "rejected",
+      "decision_ids": [
+        "455a9689-b8eb-42fe-9c72-03063d226753"
+      ],
+      "supersedes": null
+    },
+    {
+      "id": "455a9689-b8eb-42fe-9c72-03063d226753",
+      "kind": "decision",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+          "message_id": "6a634120-a28f-48cb-9bfa-156c295a6e7b",
+          "range": {
+            "start": 17,
+            "end": 94
+          }
+        }
+      ],
+      "created_exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+      "origin": "supplied",
+      "action": "reject",
+      "user_message_ref": {
+        "type": "message",
+        "exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+        "message_id": "6a634120-a28f-48cb-9bfa-156c295a6e7b",
+        "range": {
+          "start": 17,
+          "end": 94
+        }
+      },
+      "span": {
+        "start": 17,
+        "end": 94
+      },
+      "target_refs": [
+        {
+          "id": "36c107d0-448e-4ec8-8acf-0bbd1a80e624",
+          "revision": 1
+        },
+        {
+          "id": "f0f4d12b-e666-4d1c-9f86-271a75ea134c",
+          "revision": 1
+        },
+        {
+          "id": "a20b0b76-e180-44db-85ce-e5158bb4d186",
+          "revision": 1
+        }
+      ],
+      "selected_parts": [
+        "Edda is the murderer."
+      ],
+      "prior_refs": [
+        {
+          "id": "36c107d0-448e-4ec8-8acf-0bbd1a80e624",
+          "revision": 1
+        },
+        {
+          "id": "f0f4d12b-e666-4d1c-9f86-271a75ea134c",
+          "revision": 1
+        },
+        {
+          "id": "a20b0b76-e180-44db-85ce-e5158bb4d186",
+          "revision": 1
+        }
+      ],
+      "result_refs": [
+        {
+          "id": "36c107d0-448e-4ec8-8acf-0bbd1a80e624",
+          "revision": 2
+        },
+        {
+          "id": "f0f4d12b-e666-4d1c-9f86-271a75ea134c",
+          "revision": 2
+        },
+        {
+          "id": "a20b0b76-e180-44db-85ce-e5158bb4d186",
+          "revision": 2
+        }
+      ],
+      "reason": "Withdraw the conflicting murderer request while retaining Edda’s protected innocence.",
+      "affected_refs": [
+        {
+          "id": "36c107d0-448e-4ec8-8acf-0bbd1a80e624",
+          "revision": 2
+        },
+        {
+          "id": "f0f4d12b-e666-4d1c-9f86-271a75ea134c",
+          "revision": 2
+        },
+        {
+          "id": "a20b0b76-e180-44db-85ce-e5158bb4d186",
+          "revision": 2
+        }
+      ],
+      "review_required_refs": []
+    },
+    {
+      "id": "e82c4150-a3f3-41c6-8bea-8139ab892e51",
+      "kind": "question",
+      "revision": 2,
+      "previous_revision": 1,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "88b2e32e-458b-475a-8ab1-96cec246ba69",
+          "message_id": "24af3db1-8ae1-4221-933e-12938530e7e6",
+          "range": {
+            "start": 655,
+            "end": 758
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+          "message_id": "6a634120-a28f-48cb-9bfa-156c295a6e7b",
+          "range": {
+            "start": 17,
+            "end": 94
+          }
+        }
+      ],
+      "created_exchange_id": "88b2e32e-458b-475a-8ab1-96cec246ba69",
+      "origin": "supplied",
+      "text": "How should I reconcile establishing Edda as the murderer with keeping her protected innocence in force?",
+      "related_refs": [
+        {
+          "id": "36c107d0-448e-4ec8-8acf-0bbd1a80e624",
+          "revision": 1
+        },
+        {
+          "id": "f0f4d12b-e666-4d1c-9f86-271a75ea134c",
+          "revision": 1
+        },
+        {
+          "id": "97157e2f-9e6b-406f-b4ea-c5abba4acd22",
+          "revision": 1
+        },
+        {
+          "id": "cb66f60c-4b08-4aea-9616-a2fc168a09eb",
+          "revision": 4
+        }
+      ],
+      "alternative_ids": [],
+      "state": "resolved",
+      "resolution_decision_id": "481b0e24-125e-49bd-a932-2d5694ee5d7b"
+    },
+    {
+      "id": "481b0e24-125e-49bd-a932-2d5694ee5d7b",
+      "kind": "decision",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+          "message_id": "6a634120-a28f-48cb-9bfa-156c295a6e7b",
+          "range": {
+            "start": 17,
+            "end": 94
+          }
+        }
+      ],
+      "created_exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+      "origin": "supplied",
+      "action": "resolve",
+      "user_message_ref": {
+        "type": "message",
+        "exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+        "message_id": "6a634120-a28f-48cb-9bfa-156c295a6e7b",
+        "range": {
+          "start": 17,
+          "end": 94
+        }
+      },
+      "span": {
+        "start": 17,
+        "end": 94
+      },
+      "target_refs": [
+        {
+          "id": "e82c4150-a3f3-41c6-8bea-8139ab892e51",
+          "revision": 1
+        }
+      ],
+      "selected_parts": [],
+      "prior_refs": [
+        {
+          "id": "e82c4150-a3f3-41c6-8bea-8139ab892e51",
+          "revision": 1
+        }
+      ],
+      "result_refs": [
+        {
+          "id": "e82c4150-a3f3-41c6-8bea-8139ab892e51",
+          "revision": 2
+        }
+      ],
+      "reason": "The current instruction resolves the earlier conflicting directions by keeping innocence and withdrawing the murderer request.",
+      "affected_refs": [
+        {
+          "id": "e82c4150-a3f3-41c6-8bea-8139ab892e51",
+          "revision": 2
+        }
+      ],
+      "review_required_refs": []
+    },
+    {
+      "id": "cb66f60c-4b08-4aea-9616-a2fc168a09eb",
+      "kind": "novel_project",
+      "revision": 5,
+      "previous_revision": 4,
+      "created_exchange_id": "de550f25-07c5-4c64-a656-4301fb685c6e",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+          "message_id": "6a634120-a28f-48cb-9bfa-156c295a6e7b",
+          "range": {
+            "start": 143,
+            "end": 170
+          }
+        }
+      ],
+      "origin": "supplied",
+      "title": {
+        "state": "default",
+        "original_text": "Untitled novel",
+        "interpretation": null,
+        "origin": "system_default",
+        "source_refs": []
+      },
+      "original_concept": {
+        "state": "unknown",
+        "original_text": null,
+        "interpretation": null,
+        "origin": "system_default",
+        "source_refs": []
+      },
+      "creative_brief": {
+        "genre": {
+          "state": "unknown",
+          "original_text": null,
+          "interpretation": null,
+          "origin": "system_default",
+          "source_refs": []
+        },
+        "subgenres": {
+          "state": "unknown",
+          "original_text": null,
+          "interpretation": null,
+          "origin": "system_default",
+          "source_refs": []
+        },
+        "audience": {
+          "state": "unknown",
+          "original_text": null,
+          "interpretation": null,
+          "origin": "system_default",
+          "source_refs": []
+        },
+        "tone": {
+          "state": "unknown",
+          "original_text": null,
+          "interpretation": null,
+          "origin": "system_default",
+          "source_refs": []
+        },
+        "style": {
+          "state": "unknown",
+          "original_text": null,
+          "interpretation": null,
+          "origin": "system_default",
+          "source_refs": []
+        },
+        "perspective": {
+          "state": "unknown",
+          "original_text": null,
+          "interpretation": null,
+          "origin": "system_default",
+          "source_refs": []
+        },
+        "complexity": {
+          "state": "unknown",
+          "original_text": null,
+          "interpretation": null,
+          "origin": "system_default",
+          "source_refs": []
+        }
+      },
+      "manuscript_language": "en",
+      "workflow_preferences": {
+        "suggestion_frequency": {
+          "state": "supplied",
+          "original_text": "Keep suggestions brief.",
+          "interpretation": null,
+          "origin": "supplied",
+          "source_refs": [
+            {
+              "type": "message",
+              "exchange_id": "8581fdd2-2b30-43d5-9cff-9a702319e29d",
+              "message_id": "d4250dfa-e7c0-453d-a2d6-4808c6e338b3",
+              "range": {
+                "start": 645,
+                "end": 668
+              }
+            }
+          ]
+        }
+      },
+      "review_preferences": {
+        "routine_checkpoint": "on_request"
+      },
+      "creative_directions": [
+        {
+          "text": "Edda must remain innocent of the murder.",
+          "source_refs": [
+            {
+              "type": "message",
+              "exchange_id": "e8153db8-c478-484a-ada7-468d732944f5",
+              "message_id": "c4e20dc4-f782-4c06-b7be-eddf85aecf6d",
+              "range": {
+                "start": 478,
+                "end": 518
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7b956f0b-12a9-4a91-9568-f76844ea690e",
+      "kind": "session",
+      "revision": 1,
+      "previous_revision": null,
+      "created_exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+          "message_id": "6a634120-a28f-48cb-9bfa-156c295a6e7b",
+          "range": {
+            "start": 95,
+            "end": 141
+          }
+        }
+      ],
+      "topic": "Continuity review",
+      "mode": "open",
+      "state": "open",
+      "started_exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+      "last_exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+      "related_record_ids": [
+        "36c107d0-448e-4ec8-8acf-0bbd1a80e624",
+        "f0f4d12b-e666-4d1c-9f86-271a75ea134c",
+        "a20b0b76-e180-44db-85ce-e5158bb4d186",
+        "455a9689-b8eb-42fe-9c72-03063d226753",
+        "e82c4150-a3f3-41c6-8bea-8139ab892e51",
+        "481b0e24-125e-49bd-a932-2d5694ee5d7b",
+        "2497fdcb-e3bd-4af7-b1a9-9452719b43ba",
+        "8b2e30d5-9ccf-4f6f-a2ae-f97e76f3ec0b",
+        "4355d4e9-a670-4136-accf-7ee9e44d7c9a",
+        "c37ada40-5047-46bb-8d91-45b1e363517b",
+        "12c209e1-49a3-4b8d-bbca-845729395f9b",
+        "bfcbbdff-35cc-425c-8670-c722ff6b4bca",
+        "9428530a-3d9a-4705-8b93-30a534bb99b3",
+        "e7860735-5143-462d-8358-727436f2376f",
+        "da98ac0d-9394-437b-a84e-b58340400e68",
+        "82dc2970-0fc0-44fb-a904-242c882e0eb5",
+        "b379a543-162e-428d-b7a1-e95b331d4937",
+        "a264da48-d66f-41c8-a418-be835131c5f3",
+        "ccc7f13e-7414-4828-8baa-ccaa54c66545",
+        "1cc55999-9d0c-44d0-b5a5-16d59789838c",
+        "0accdfbe-bd95-4d34-83e6-ef2b71154d92",
+        "b6de28b4-5b48-422c-97a0-327241b7e417",
+        "39813baf-380a-41fe-82d7-28371fbf1526",
+        "47964b12-7a25-4ea5-9296-b273bc670b0f",
+        "b8dce011-5cbb-41ad-976d-7d739db40ced",
+        "d148a2a0-f588-48a5-853b-7864fa9ee505",
+        "2f049d07-42ed-45ed-82f6-c2898f2d1635",
+        "e10e3e70-64e2-4458-90ae-0ad638c6e6f0",
+        "7e466350-3fdf-421d-9961-0dfc47665cb5",
+        "20ec7fd0-c681-4ec1-aeb4-bbbac37b43e2",
+        "a4aa58cb-28d1-42c9-9daf-9a206c8ece8e",
+        "a5480c17-770d-422a-acdc-f5833c13bfe7",
+        "ba58b0dd-8d4e-402a-a41e-4adbabd0bcf0",
+        "83c818af-8c1a-4871-beca-eb354753ab30",
+        "9cf4bd1e-668a-404d-b52b-fcc36442d35a",
+        "5f9d9c2d-c08e-4ccc-8ace-20b7e6bd161c"
+      ],
+      "unresolved_question_ids": [],
+      "derived_context_ref": null
+    },
+    {
+      "id": "2497fdcb-e3bd-4af7-b1a9-9452719b43ba",
+      "kind": "story_element",
+      "revision": 2,
+      "previous_revision": 1,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "0c0dd85d-7244-4ed4-91b4-652a854d2edf",
+          "message_id": "98d455a4-1267-4a37-a2ad-4319793eefc4",
+          "range": {
+            "start": 175,
+            "end": 221
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+          "message_id": "6a634120-a28f-48cb-9bfa-156c295a6e7b",
+          "range": {
+            "start": 205,
+            "end": 247
+          }
+        }
+      ],
+      "created_exchange_id": "0c0dd85d-7244-4ed4-91b4-652a854d2edf",
+      "origin": "supplied",
+      "element_type": "location",
+      "display_name": "Harbour",
+      "aliases": [],
+      "status": "accepted",
+      "assertion_ids": [],
+      "relationship_ids": [],
+      "dependency_refs": [],
+      "time_ref": null,
+      "decision_ids": [
+        "12c209e1-49a3-4b8d-bbca-845729395f9b"
+      ]
+    },
+    {
+      "id": "8b2e30d5-9ccf-4f6f-a2ae-f97e76f3ec0b",
+      "kind": "story_element",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+          "message_id": "6a634120-a28f-48cb-9bfa-156c295a6e7b",
+          "range": {
+            "start": 205,
+            "end": 247
+          }
+        }
+      ],
+      "created_exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+      "origin": "supplied",
+      "element_type": "event",
+      "display_name": "Rúna harbour arrival",
+      "aliases": [],
+      "status": "accepted",
+      "assertion_ids": [
+        "4355d4e9-a670-4136-accf-7ee9e44d7c9a"
+      ],
+      "relationship_ids": [],
+      "dependency_refs": [
+        {
+          "id": "ba58b0dd-8d4e-402a-a41e-4adbabd0bcf0",
+          "revision": 1
+        },
+        {
+          "id": "2497fdcb-e3bd-4af7-b1a9-9452719b43ba",
+          "revision": 2
+        }
+      ],
+      "time_ref": {
+        "chronology": {
+          "precision": "partial",
+          "event_anchor": null,
+          "start": "after midnight",
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        },
+        "narrative": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        }
+      },
+      "decision_ids": [
+        "12c209e1-49a3-4b8d-bbca-845729395f9b"
+      ]
+    },
+    {
+      "id": "4355d4e9-a670-4136-accf-7ee9e44d7c9a",
+      "kind": "assertion",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+          "message_id": "6a634120-a28f-48cb-9bfa-156c295a6e7b",
+          "range": {
+            "start": 205,
+            "end": 247
+          }
+        }
+      ],
+      "created_exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+      "origin": "supplied",
+      "subject_element_id": "ba58b0dd-8d4e-402a-a41e-4adbabd0bcf0",
+      "predicate": "arrives_at",
+      "value": {
+        "id": "2497fdcb-e3bd-4af7-b1a9-9452719b43ba",
+        "revision": 2
+      },
+      "perspective": "author_truth",
+      "holder_id": null,
+      "reader_audience": null,
+      "time_ref": {
+        "chronology": {
+          "precision": "partial",
+          "event_anchor": null,
+          "start": "after midnight",
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        },
+        "narrative": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        }
+      },
+      "truth_state": "affirmed",
+      "status": "accepted",
+      "decision_ids": [
+        "12c209e1-49a3-4b8d-bbca-845729395f9b"
+      ],
+      "supersedes": null
+    },
+    {
+      "id": "c37ada40-5047-46bb-8d91-45b1e363517b",
+      "kind": "idea",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+          "message_id": "6a634120-a28f-48cb-9bfa-156c295a6e7b",
+          "range": {
+            "start": 205,
+            "end": 247
+          }
+        }
+      ],
+      "created_exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+      "origin": "supplied",
+      "statement": "Rúna arrives at the harbour after midnight.",
+      "status": "accepted",
+      "related_element_ids": [
+        "ba58b0dd-8d4e-402a-a41e-4adbabd0bcf0",
+        "2497fdcb-e3bd-4af7-b1a9-9452719b43ba",
+        "8b2e30d5-9ccf-4f6f-a2ae-f97e76f3ec0b"
+      ],
+      "alternative_group_id": null,
+      "selected_parts": [
+        "Rúna arrives at the harbour after midnight."
+      ],
+      "decision_ids": [
+        "12c209e1-49a3-4b8d-bbca-845729395f9b"
+      ],
+      "resulting_assertion_ids": [
+        "4355d4e9-a670-4136-accf-7ee9e44d7c9a"
+      ]
+    },
+    {
+      "id": "12c209e1-49a3-4b8d-bbca-845729395f9b",
+      "kind": "decision",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+          "message_id": "6a634120-a28f-48cb-9bfa-156c295a6e7b",
+          "range": {
+            "start": 205,
+            "end": 247
+          }
+        }
+      ],
+      "created_exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+      "origin": "supplied",
+      "action": "revise",
+      "user_message_ref": {
+        "type": "message",
+        "exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+        "message_id": "6a634120-a28f-48cb-9bfa-156c295a6e7b",
+        "range": {
+          "start": 205,
+          "end": 247
+        }
+      },
+      "span": {
+        "start": 205,
+        "end": 247
+      },
+      "target_refs": [
+        {
+          "id": "2497fdcb-e3bd-4af7-b1a9-9452719b43ba",
+          "revision": 1
+        }
+      ],
+      "selected_parts": [
+        "Rúna arrives at the harbour after midnight."
+      ],
+      "prior_refs": [
+        {
+          "id": "2497fdcb-e3bd-4af7-b1a9-9452719b43ba",
+          "revision": 1
+        }
+      ],
+      "result_refs": [
+        {
+          "id": "2497fdcb-e3bd-4af7-b1a9-9452719b43ba",
+          "revision": 2
+        },
+        {
+          "id": "8b2e30d5-9ccf-4f6f-a2ae-f97e76f3ec0b",
+          "revision": 1
+        },
+        {
+          "id": "4355d4e9-a670-4136-accf-7ee9e44d7c9a",
+          "revision": 1
+        },
+        {
+          "id": "c37ada40-5047-46bb-8d91-45b1e363517b",
+          "revision": 1
+        }
+      ],
+      "reason": "Explicit current author-truth instruction, retaining unknown exact dates and unprovided causes.",
+      "affected_refs": [
+        {
+          "id": "2497fdcb-e3bd-4af7-b1a9-9452719b43ba",
+          "revision": 2
+        },
+        {
+          "id": "8b2e30d5-9ccf-4f6f-a2ae-f97e76f3ec0b",
+          "revision": 1
+        },
+        {
+          "id": "4355d4e9-a670-4136-accf-7ee9e44d7c9a",
+          "revision": 1
+        },
+        {
+          "id": "c37ada40-5047-46bb-8d91-45b1e363517b",
+          "revision": 1
+        }
+      ],
+      "review_required_refs": []
+    },
+    {
+      "id": "bfcbbdff-35cc-425c-8670-c722ff6b4bca",
+      "kind": "story_element",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+          "message_id": "6a634120-a28f-48cb-9bfa-156c295a6e7b",
+          "range": {
+            "start": 249,
+            "end": 302
+          }
+        }
+      ],
+      "created_exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+      "origin": "supplied",
+      "element_type": "event",
+      "display_name": "Ship sinking",
+      "aliases": [],
+      "status": "accepted",
+      "assertion_ids": [],
+      "relationship_ids": [],
+      "dependency_refs": [],
+      "time_ref": {
+        "chronology": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        },
+        "narrative": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        }
+      },
+      "decision_ids": [
+        "a264da48-d66f-41c8-a418-be835131c5f3"
+      ]
+    },
+    {
+      "id": "9428530a-3d9a-4705-8b93-30a534bb99b3",
+      "kind": "story_element",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+          "message_id": "6a634120-a28f-48cb-9bfa-156c295a6e7b",
+          "range": {
+            "start": 249,
+            "end": 302
+          }
+        }
+      ],
+      "created_exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+      "origin": "supplied",
+      "element_type": "event",
+      "display_name": "Rúna learns rescue code",
+      "aliases": [],
+      "status": "accepted",
+      "assertion_ids": [
+        "e7860735-5143-462d-8358-727436f2376f",
+        "da98ac0d-9394-437b-a84e-b58340400e68",
+        "82dc2970-0fc0-44fb-a904-242c882e0eb5"
+      ],
+      "relationship_ids": [],
+      "dependency_refs": [
+        {
+          "id": "ba58b0dd-8d4e-402a-a41e-4adbabd0bcf0",
+          "revision": 1
+        },
+        {
+          "id": "bfcbbdff-35cc-425c-8670-c722ff6b4bca",
+          "revision": 1
+        }
+      ],
+      "time_ref": {
+        "chronology": {
+          "precision": "partial",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": [
+            {
+              "id": "bfcbbdff-35cc-425c-8670-c722ff6b4bca",
+              "revision": 1
+            }
+          ]
+        },
+        "narrative": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        }
+      },
+      "decision_ids": [
+        "a264da48-d66f-41c8-a418-be835131c5f3"
+      ]
+    },
+    {
+      "id": "e7860735-5143-462d-8358-727436f2376f",
+      "kind": "assertion",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+          "message_id": "6a634120-a28f-48cb-9bfa-156c295a6e7b",
+          "range": {
+            "start": 249,
+            "end": 302
+          }
+        }
+      ],
+      "created_exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+      "origin": "supplied",
+      "subject_element_id": "ba58b0dd-8d4e-402a-a41e-4adbabd0bcf0",
+      "predicate": "learns",
+      "value": "rescue code only after the ship sinks",
+      "perspective": "author_truth",
+      "holder_id": null,
+      "reader_audience": null,
+      "time_ref": {
+        "chronology": {
+          "precision": "partial",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": [
+            {
+              "id": "bfcbbdff-35cc-425c-8670-c722ff6b4bca",
+              "revision": 1
+            }
+          ]
+        },
+        "narrative": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        }
+      },
+      "truth_state": "affirmed",
+      "status": "accepted",
+      "decision_ids": [
+        "a264da48-d66f-41c8-a418-be835131c5f3"
+      ],
+      "supersedes": null
+    },
+    {
+      "id": "da98ac0d-9394-437b-a84e-b58340400e68",
+      "kind": "assertion",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+          "message_id": "6a634120-a28f-48cb-9bfa-156c295a6e7b",
+          "range": {
+            "start": 249,
+            "end": 302
+          }
+        }
+      ],
+      "created_exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+      "origin": "supplied",
+      "subject_element_id": "ba58b0dd-8d4e-402a-a41e-4adbabd0bcf0",
+      "predicate": "knows",
+      "value": "rescue code",
+      "perspective": "character_knowledge",
+      "holder_id": "ba58b0dd-8d4e-402a-a41e-4adbabd0bcf0",
+      "reader_audience": null,
+      "time_ref": {
+        "chronology": {
+          "precision": "partial",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": [
+            {
+              "id": "bfcbbdff-35cc-425c-8670-c722ff6b4bca",
+              "revision": 1
+            }
+          ]
+        },
+        "narrative": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        }
+      },
+      "truth_state": "affirmed",
+      "status": "accepted",
+      "decision_ids": [
+        "a264da48-d66f-41c8-a418-be835131c5f3"
+      ],
+      "supersedes": null
+    },
+    {
+      "id": "82dc2970-0fc0-44fb-a904-242c882e0eb5",
+      "kind": "assertion",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+          "message_id": "6a634120-a28f-48cb-9bfa-156c295a6e7b",
+          "range": {
+            "start": 249,
+            "end": 302
+          }
+        }
+      ],
+      "created_exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+      "origin": "supplied",
+      "subject_element_id": "ba58b0dd-8d4e-402a-a41e-4adbabd0bcf0",
+      "predicate": "knows",
+      "value": "rescue code",
+      "perspective": "character_knowledge",
+      "holder_id": "ba58b0dd-8d4e-402a-a41e-4adbabd0bcf0",
+      "reader_audience": null,
+      "time_ref": {
+        "chronology": {
+          "precision": "partial",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [
+            {
+              "id": "bfcbbdff-35cc-425c-8670-c722ff6b4bca",
+              "revision": 1
+            }
+          ],
+          "after_refs": []
+        },
+        "narrative": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        }
+      },
+      "truth_state": "denied",
+      "status": "accepted",
+      "decision_ids": [
+        "a264da48-d66f-41c8-a418-be835131c5f3"
+      ],
+      "supersedes": null
+    },
+    {
+      "id": "b379a543-162e-428d-b7a1-e95b331d4937",
+      "kind": "idea",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+          "message_id": "6a634120-a28f-48cb-9bfa-156c295a6e7b",
+          "range": {
+            "start": 249,
+            "end": 302
+          }
+        }
+      ],
+      "created_exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+      "origin": "supplied",
+      "statement": "Rúna learns the rescue code only after the ship sinks.",
+      "status": "accepted",
+      "related_element_ids": [
+        "ba58b0dd-8d4e-402a-a41e-4adbabd0bcf0",
+        "bfcbbdff-35cc-425c-8670-c722ff6b4bca",
+        "9428530a-3d9a-4705-8b93-30a534bb99b3"
+      ],
+      "alternative_group_id": null,
+      "selected_parts": [
+        "Rúna learns the rescue code only after the ship sinks."
+      ],
+      "decision_ids": [
+        "a264da48-d66f-41c8-a418-be835131c5f3"
+      ],
+      "resulting_assertion_ids": [
+        "e7860735-5143-462d-8358-727436f2376f",
+        "da98ac0d-9394-437b-a84e-b58340400e68",
+        "82dc2970-0fc0-44fb-a904-242c882e0eb5"
+      ]
+    },
+    {
+      "id": "a264da48-d66f-41c8-a418-be835131c5f3",
+      "kind": "decision",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+          "message_id": "6a634120-a28f-48cb-9bfa-156c295a6e7b",
+          "range": {
+            "start": 249,
+            "end": 302
+          }
+        }
+      ],
+      "created_exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+      "origin": "supplied",
+      "action": "accept",
+      "user_message_ref": {
+        "type": "message",
+        "exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+        "message_id": "6a634120-a28f-48cb-9bfa-156c295a6e7b",
+        "range": {
+          "start": 249,
+          "end": 302
+        }
+      },
+      "span": {
+        "start": 249,
+        "end": 302
+      },
+      "target_refs": [
+        {
+          "id": "bfcbbdff-35cc-425c-8670-c722ff6b4bca",
+          "revision": 1
+        },
+        {
+          "id": "9428530a-3d9a-4705-8b93-30a534bb99b3",
+          "revision": 1
+        },
+        {
+          "id": "e7860735-5143-462d-8358-727436f2376f",
+          "revision": 1
+        },
+        {
+          "id": "da98ac0d-9394-437b-a84e-b58340400e68",
+          "revision": 1
+        },
+        {
+          "id": "82dc2970-0fc0-44fb-a904-242c882e0eb5",
+          "revision": 1
+        },
+        {
+          "id": "b379a543-162e-428d-b7a1-e95b331d4937",
+          "revision": 1
+        }
+      ],
+      "selected_parts": [
+        "Rúna learns the rescue code only after the ship sinks."
+      ],
+      "prior_refs": [],
+      "result_refs": [
+        {
+          "id": "bfcbbdff-35cc-425c-8670-c722ff6b4bca",
+          "revision": 1
+        },
+        {
+          "id": "9428530a-3d9a-4705-8b93-30a534bb99b3",
+          "revision": 1
+        },
+        {
+          "id": "e7860735-5143-462d-8358-727436f2376f",
+          "revision": 1
+        },
+        {
+          "id": "da98ac0d-9394-437b-a84e-b58340400e68",
+          "revision": 1
+        },
+        {
+          "id": "82dc2970-0fc0-44fb-a904-242c882e0eb5",
+          "revision": 1
+        },
+        {
+          "id": "b379a543-162e-428d-b7a1-e95b331d4937",
+          "revision": 1
+        }
+      ],
+      "reason": "Explicit current author-truth instruction, retaining unknown exact dates and unprovided causes.",
+      "affected_refs": [
+        {
+          "id": "bfcbbdff-35cc-425c-8670-c722ff6b4bca",
+          "revision": 1
+        },
+        {
+          "id": "9428530a-3d9a-4705-8b93-30a534bb99b3",
+          "revision": 1
+        },
+        {
+          "id": "e7860735-5143-462d-8358-727436f2376f",
+          "revision": 1
+        },
+        {
+          "id": "da98ac0d-9394-437b-a84e-b58340400e68",
+          "revision": 1
+        },
+        {
+          "id": "82dc2970-0fc0-44fb-a904-242c882e0eb5",
+          "revision": 1
+        },
+        {
+          "id": "b379a543-162e-428d-b7a1-e95b331d4937",
+          "revision": 1
+        }
+      ],
+      "review_required_refs": []
+    },
+    {
+      "id": "ccc7f13e-7414-4828-8baa-ccaa54c66545",
+      "kind": "story_element",
+      "revision": 2,
+      "previous_revision": 1,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "26fac46a-e141-40ad-a03e-8c679c474d3a",
+          "message_id": "8431c0f7-6ede-45a2-83c8-927d28dcbaec",
+          "range": {
+            "start": 509,
+            "end": 536
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+          "message_id": "6a634120-a28f-48cb-9bfa-156c295a6e7b",
+          "range": {
+            "start": 304,
+            "end": 352
+          }
+        }
+      ],
+      "created_exchange_id": "26fac46a-e141-40ad-a03e-8c679c474d3a",
+      "origin": "supplied",
+      "element_type": "location",
+      "display_name": "Only usable boat",
+      "aliases": [],
+      "status": "accepted",
+      "assertion_ids": [
+        "b6de28b4-5b48-422c-97a0-327241b7e417"
+      ],
+      "relationship_ids": [],
+      "dependency_refs": [],
+      "time_ref": null,
+      "decision_ids": [
+        "47964b12-7a25-4ea5-9296-b273bc670b0f"
+      ]
+    },
+    {
+      "id": "1cc55999-9d0c-44d0-b5a5-16d59789838c",
+      "kind": "story_element",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+          "message_id": "6a634120-a28f-48cb-9bfa-156c295a6e7b",
+          "range": {
+            "start": 304,
+            "end": 352
+          }
+        }
+      ],
+      "created_exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+      "origin": "supplied",
+      "element_type": "plot_thread",
+      "display_name": "Planned escape",
+      "aliases": [],
+      "status": "accepted",
+      "assertion_ids": [
+        "0accdfbe-bd95-4d34-83e6-ef2b71154d92"
+      ],
+      "relationship_ids": [],
+      "dependency_refs": [
+        {
+          "id": "ccc7f13e-7414-4828-8baa-ccaa54c66545",
+          "revision": 2
+        }
+      ],
+      "time_ref": null,
+      "decision_ids": [
+        "47964b12-7a25-4ea5-9296-b273bc670b0f"
+      ]
+    },
+    {
+      "id": "0accdfbe-bd95-4d34-83e6-ef2b71154d92",
+      "kind": "assertion",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+          "message_id": "6a634120-a28f-48cb-9bfa-156c295a6e7b",
+          "range": {
+            "start": 304,
+            "end": 352
+          }
+        }
+      ],
+      "created_exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+      "origin": "supplied",
+      "subject_element_id": "1cc55999-9d0c-44d0-b5a5-16d59789838c",
+      "predicate": "requires",
+      "value": {
+        "id": "ccc7f13e-7414-4828-8baa-ccaa54c66545",
+        "revision": 2
+      },
+      "perspective": "author_truth",
+      "holder_id": null,
+      "reader_audience": null,
+      "time_ref": {
+        "chronology": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        },
+        "narrative": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        }
+      },
+      "truth_state": "affirmed",
+      "status": "accepted",
+      "decision_ids": [
+        "47964b12-7a25-4ea5-9296-b273bc670b0f"
+      ],
+      "supersedes": null
+    },
+    {
+      "id": "b6de28b4-5b48-422c-97a0-327241b7e417",
+      "kind": "assertion",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+          "message_id": "6a634120-a28f-48cb-9bfa-156c295a6e7b",
+          "range": {
+            "start": 304,
+            "end": 352
+          }
+        }
+      ],
+      "created_exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+      "origin": "supplied",
+      "subject_element_id": "ccc7f13e-7414-4828-8baa-ccaa54c66545",
+      "predicate": "usable_boat_scope",
+      "value": "only usable boat",
+      "perspective": "author_truth",
+      "holder_id": null,
+      "reader_audience": null,
+      "time_ref": {
+        "chronology": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        },
+        "narrative": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        }
+      },
+      "truth_state": "affirmed",
+      "status": "accepted",
+      "decision_ids": [
+        "47964b12-7a25-4ea5-9296-b273bc670b0f"
+      ],
+      "supersedes": null
+    },
+    {
+      "id": "39813baf-380a-41fe-82d7-28371fbf1526",
+      "kind": "idea",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+          "message_id": "6a634120-a28f-48cb-9bfa-156c295a6e7b",
+          "range": {
+            "start": 304,
+            "end": 352
+          }
+        }
+      ],
+      "created_exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+      "origin": "supplied",
+      "statement": "The planned escape requires the only usable boat.",
+      "status": "accepted",
+      "related_element_ids": [
+        "1cc55999-9d0c-44d0-b5a5-16d59789838c",
+        "ccc7f13e-7414-4828-8baa-ccaa54c66545"
+      ],
+      "alternative_group_id": null,
+      "selected_parts": [
+        "The planned escape requires the only usable boat."
+      ],
+      "decision_ids": [
+        "47964b12-7a25-4ea5-9296-b273bc670b0f"
+      ],
+      "resulting_assertion_ids": [
+        "0accdfbe-bd95-4d34-83e6-ef2b71154d92",
+        "b6de28b4-5b48-422c-97a0-327241b7e417"
+      ]
+    },
+    {
+      "id": "47964b12-7a25-4ea5-9296-b273bc670b0f",
+      "kind": "decision",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+          "message_id": "6a634120-a28f-48cb-9bfa-156c295a6e7b",
+          "range": {
+            "start": 304,
+            "end": 352
+          }
+        }
+      ],
+      "created_exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+      "origin": "supplied",
+      "action": "revise",
+      "user_message_ref": {
+        "type": "message",
+        "exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+        "message_id": "6a634120-a28f-48cb-9bfa-156c295a6e7b",
+        "range": {
+          "start": 304,
+          "end": 352
+        }
+      },
+      "span": {
+        "start": 304,
+        "end": 352
+      },
+      "target_refs": [
+        {
+          "id": "ccc7f13e-7414-4828-8baa-ccaa54c66545",
+          "revision": 1
+        }
+      ],
+      "selected_parts": [
+        "The planned escape requires the only usable boat."
+      ],
+      "prior_refs": [
+        {
+          "id": "ccc7f13e-7414-4828-8baa-ccaa54c66545",
+          "revision": 1
+        }
+      ],
+      "result_refs": [
+        {
+          "id": "ccc7f13e-7414-4828-8baa-ccaa54c66545",
+          "revision": 2
+        },
+        {
+          "id": "1cc55999-9d0c-44d0-b5a5-16d59789838c",
+          "revision": 1
+        },
+        {
+          "id": "0accdfbe-bd95-4d34-83e6-ef2b71154d92",
+          "revision": 1
+        },
+        {
+          "id": "b6de28b4-5b48-422c-97a0-327241b7e417",
+          "revision": 1
+        },
+        {
+          "id": "39813baf-380a-41fe-82d7-28371fbf1526",
+          "revision": 1
+        }
+      ],
+      "reason": "Explicit current author-truth instruction, retaining unknown exact dates and unprovided causes.",
+      "affected_refs": [
+        {
+          "id": "ccc7f13e-7414-4828-8baa-ccaa54c66545",
+          "revision": 2
+        },
+        {
+          "id": "1cc55999-9d0c-44d0-b5a5-16d59789838c",
+          "revision": 1
+        },
+        {
+          "id": "0accdfbe-bd95-4d34-83e6-ef2b71154d92",
+          "revision": 1
+        },
+        {
+          "id": "b6de28b4-5b48-422c-97a0-327241b7e417",
+          "revision": 1
+        },
+        {
+          "id": "39813baf-380a-41fe-82d7-28371fbf1526",
+          "revision": 1
+        }
+      ],
+      "review_required_refs": []
+    },
+    {
+      "id": "b8dce011-5cbb-41ad-976d-7d739db40ced",
+      "kind": "story_element",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+          "message_id": "6a634120-a28f-48cb-9bfa-156c295a6e7b",
+          "range": {
+            "start": 354,
+            "end": 393
+          }
+        }
+      ],
+      "created_exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+      "origin": "supplied",
+      "element_type": "location",
+      "display_name": "Sealed boundary",
+      "aliases": [],
+      "status": "accepted",
+      "assertion_ids": [
+        "d148a2a0-f588-48a5-853b-7864fa9ee505"
+      ],
+      "relationship_ids": [],
+      "dependency_refs": [],
+      "time_ref": null,
+      "decision_ids": [
+        "e10e3e70-64e2-4458-90ae-0ad638c6e6f0"
+      ]
+    },
+    {
+      "id": "d148a2a0-f588-48a5-853b-7864fa9ee505",
+      "kind": "assertion",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+          "message_id": "6a634120-a28f-48cb-9bfa-156c295a6e7b",
+          "range": {
+            "start": 354,
+            "end": 393
+          }
+        }
+      ],
+      "created_exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+      "origin": "supplied",
+      "subject_element_id": "b8dce011-5cbb-41ad-976d-7d739db40ced",
+      "predicate": "letters_can_cross",
+      "value": false,
+      "perspective": "author_truth",
+      "holder_id": null,
+      "reader_audience": null,
+      "time_ref": {
+        "chronology": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        },
+        "narrative": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        }
+      },
+      "truth_state": "affirmed",
+      "status": "accepted",
+      "decision_ids": [
+        "e10e3e70-64e2-4458-90ae-0ad638c6e6f0"
+      ],
+      "supersedes": null
+    },
+    {
+      "id": "2f049d07-42ed-45ed-82f6-c2898f2d1635",
+      "kind": "idea",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+          "message_id": "6a634120-a28f-48cb-9bfa-156c295a6e7b",
+          "range": {
+            "start": 354,
+            "end": 393
+          }
+        }
+      ],
+      "created_exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+      "origin": "supplied",
+      "statement": "No letter can cross the sealed boundary.",
+      "status": "accepted",
+      "related_element_ids": [
+        "b8dce011-5cbb-41ad-976d-7d739db40ced"
+      ],
+      "alternative_group_id": null,
+      "selected_parts": [
+        "No letter can cross the sealed boundary."
+      ],
+      "decision_ids": [
+        "e10e3e70-64e2-4458-90ae-0ad638c6e6f0"
+      ],
+      "resulting_assertion_ids": [
+        "d148a2a0-f588-48a5-853b-7864fa9ee505"
+      ]
+    },
+    {
+      "id": "e10e3e70-64e2-4458-90ae-0ad638c6e6f0",
+      "kind": "decision",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+          "message_id": "6a634120-a28f-48cb-9bfa-156c295a6e7b",
+          "range": {
+            "start": 354,
+            "end": 393
+          }
+        }
+      ],
+      "created_exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+      "origin": "supplied",
+      "action": "accept",
+      "user_message_ref": {
+        "type": "message",
+        "exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+        "message_id": "6a634120-a28f-48cb-9bfa-156c295a6e7b",
+        "range": {
+          "start": 354,
+          "end": 393
+        }
+      },
+      "span": {
+        "start": 354,
+        "end": 393
+      },
+      "target_refs": [
+        {
+          "id": "b8dce011-5cbb-41ad-976d-7d739db40ced",
+          "revision": 1
+        },
+        {
+          "id": "d148a2a0-f588-48a5-853b-7864fa9ee505",
+          "revision": 1
+        },
+        {
+          "id": "2f049d07-42ed-45ed-82f6-c2898f2d1635",
+          "revision": 1
+        }
+      ],
+      "selected_parts": [
+        "No letter can cross the sealed boundary."
+      ],
+      "prior_refs": [],
+      "result_refs": [
+        {
+          "id": "b8dce011-5cbb-41ad-976d-7d739db40ced",
+          "revision": 1
+        },
+        {
+          "id": "d148a2a0-f588-48a5-853b-7864fa9ee505",
+          "revision": 1
+        },
+        {
+          "id": "2f049d07-42ed-45ed-82f6-c2898f2d1635",
+          "revision": 1
+        }
+      ],
+      "reason": "Explicit current author-truth instruction, retaining unknown exact dates and unprovided causes.",
+      "affected_refs": [
+        {
+          "id": "b8dce011-5cbb-41ad-976d-7d739db40ced",
+          "revision": 1
+        },
+        {
+          "id": "d148a2a0-f588-48a5-853b-7864fa9ee505",
+          "revision": 1
+        },
+        {
+          "id": "2f049d07-42ed-45ed-82f6-c2898f2d1635",
+          "revision": 1
+        }
+      ],
+      "review_required_refs": []
+    },
+    {
+      "id": "7e466350-3fdf-421d-9961-0dfc47665cb5",
+      "kind": "story_element",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+          "message_id": "6a634120-a28f-48cb-9bfa-156c295a6e7b",
+          "range": {
+            "start": 395,
+            "end": 449
+          }
+        }
+      ],
+      "created_exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+      "origin": "supplied",
+      "element_type": "event",
+      "display_name": "Freyja and Sigrún reunion",
+      "aliases": [],
+      "status": "accepted",
+      "assertion_ids": [],
+      "relationship_ids": [],
+      "dependency_refs": [
+        {
+          "id": "9cf4bd1e-668a-404d-b52b-fcc36442d35a",
+          "revision": 1
+        },
+        {
+          "id": "5f9d9c2d-c08e-4ccc-8ace-20b7e6bd161c",
+          "revision": 1
+        }
+      ],
+      "time_ref": {
+        "chronology": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        },
+        "narrative": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        }
+      },
+      "decision_ids": [
+        "a5480c17-770d-422a-acdc-f5833c13bfe7"
+      ]
+    },
+    {
+      "id": "20ec7fd0-c681-4ec1-aeb4-bbbac37b43e2",
+      "kind": "relationship",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+          "message_id": "6a634120-a28f-48cb-9bfa-156c295a6e7b",
+          "range": {
+            "start": 395,
+            "end": 449
+          }
+        }
+      ],
+      "created_exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+      "origin": "supplied",
+      "from_element_id": "9cf4bd1e-668a-404d-b52b-fcc36442d35a",
+      "to_element_id": "5f9d9c2d-c08e-4ccc-8ace-20b7e6bd161c",
+      "meaning": "have never met before their reunion",
+      "perspective": "author_truth",
+      "holder_id": null,
+      "reader_audience": null,
+      "time_ref": {
+        "chronology": {
+          "precision": "partial",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [
+            {
+              "id": "7e466350-3fdf-421d-9961-0dfc47665cb5",
+              "revision": 1
+            }
+          ],
+          "after_refs": []
+        },
+        "narrative": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        }
+      },
+      "status": "accepted",
+      "decision_ids": [
+        "a5480c17-770d-422a-acdc-f5833c13bfe7"
+      ]
+    },
+    {
+      "id": "a4aa58cb-28d1-42c9-9daf-9a206c8ece8e",
+      "kind": "idea",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+          "message_id": "6a634120-a28f-48cb-9bfa-156c295a6e7b",
+          "range": {
+            "start": 395,
+            "end": 449
+          }
+        }
+      ],
+      "created_exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+      "origin": "supplied",
+      "statement": "Freyja and Sigrún have never met before their reunion.",
+      "status": "accepted",
+      "related_element_ids": [
+        "9cf4bd1e-668a-404d-b52b-fcc36442d35a",
+        "5f9d9c2d-c08e-4ccc-8ace-20b7e6bd161c",
+        "7e466350-3fdf-421d-9961-0dfc47665cb5"
+      ],
+      "alternative_group_id": null,
+      "selected_parts": [
+        "Freyja and Sigrún have never met before their reunion."
+      ],
+      "decision_ids": [
+        "a5480c17-770d-422a-acdc-f5833c13bfe7"
+      ],
+      "resulting_assertion_ids": []
+    },
+    {
+      "id": "a5480c17-770d-422a-acdc-f5833c13bfe7",
+      "kind": "decision",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+          "message_id": "6a634120-a28f-48cb-9bfa-156c295a6e7b",
+          "range": {
+            "start": 395,
+            "end": 449
+          }
+        }
+      ],
+      "created_exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+      "origin": "supplied",
+      "action": "accept",
+      "user_message_ref": {
+        "type": "message",
+        "exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+        "message_id": "6a634120-a28f-48cb-9bfa-156c295a6e7b",
+        "range": {
+          "start": 395,
+          "end": 449
+        }
+      },
+      "span": {
+        "start": 395,
+        "end": 449
+      },
+      "target_refs": [
+        {
+          "id": "7e466350-3fdf-421d-9961-0dfc47665cb5",
+          "revision": 1
+        },
+        {
+          "id": "20ec7fd0-c681-4ec1-aeb4-bbbac37b43e2",
+          "revision": 1
+        },
+        {
+          "id": "a4aa58cb-28d1-42c9-9daf-9a206c8ece8e",
+          "revision": 1
+        }
+      ],
+      "selected_parts": [
+        "Freyja and Sigrún have never met before their reunion."
+      ],
+      "prior_refs": [],
+      "result_refs": [
+        {
+          "id": "7e466350-3fdf-421d-9961-0dfc47665cb5",
+          "revision": 1
+        },
+        {
+          "id": "20ec7fd0-c681-4ec1-aeb4-bbbac37b43e2",
+          "revision": 1
+        },
+        {
+          "id": "a4aa58cb-28d1-42c9-9daf-9a206c8ece8e",
+          "revision": 1
+        }
+      ],
+      "reason": "Explicit current author-truth instruction, retaining unknown exact dates and unprovided causes.",
+      "affected_refs": [
+        {
+          "id": "7e466350-3fdf-421d-9961-0dfc47665cb5",
+          "revision": 1
+        },
+        {
+          "id": "20ec7fd0-c681-4ec1-aeb4-bbbac37b43e2",
+          "revision": 1
+        },
+        {
+          "id": "a4aa58cb-28d1-42c9-9daf-9a206c8ece8e",
+          "revision": 1
+        }
+      ],
+      "review_required_refs": []
+    }
+  ],
+  "continuity_review": {
+    "coverage": "complete",
+    "reviewed_record_refs": [
+      {
+        "id": "ba58b0dd-8d4e-402a-a41e-4adbabd0bcf0",
+        "revision": 1
+      },
+      {
+        "id": "5299dee6-4976-454a-b3bd-f85936be0fc3",
+        "revision": 1
+      },
+      {
+        "id": "83c818af-8c1a-4871-beca-eb354753ab30",
+        "revision": 1
+      },
+      {
+        "id": "fe4f5d2f-3ecc-48db-918a-3bb260cee80f",
+        "revision": 2
+      },
+      {
+        "id": "3a173fe0-b9d9-41dd-bd07-6b797c7c3390",
+        "revision": 1
+      },
+      {
+        "id": "b2bba552-bebf-4cae-b835-e01708b8d516",
+        "revision": 1
+      },
+      {
+        "id": "0636c698-a7f7-4957-ac90-2cc56a68bdfa",
+        "revision": 1
+      },
+      {
+        "id": "89643a23-bc5b-47e7-805d-69baf02f51e4",
+        "revision": 1
+      },
+      {
+        "id": "0fafb781-6fe4-4f55-9665-8201f692081d",
+        "revision": 1
+      },
+      {
+        "id": "e4198cbf-dbfc-4068-a487-81dc21c73380",
+        "revision": 1
+      },
+      {
+        "id": "5ecad072-009b-438c-8e65-034fe992d3a9",
+        "revision": 1
+      },
+      {
+        "id": "b0134264-50de-4438-9ea4-7b7fea14021a",
+        "revision": 1
+      },
+      {
+        "id": "9132e8e4-53d6-46cc-bcf2-4a3d1d8c543d",
+        "revision": 1
+      },
+      {
+        "id": "aeb371cf-d132-4ef1-8268-25136577aa15",
+        "revision": 2
+      },
+      {
+        "id": "6e43feba-be95-4219-bdee-734b58b049d4",
+        "revision": 2
+      },
+      {
+        "id": "a03667be-bc38-4303-bac4-dee40f97b84f",
+        "revision": 1
+      },
+      {
+        "id": "2d32b3f7-e9b6-44e6-a298-fcd139036721",
+        "revision": 1
+      },
+      {
+        "id": "e9bb208a-9c02-4f2f-9b19-e60379ac0bba",
+        "revision": 2
+      },
+      {
+        "id": "6a6267eb-2724-44d9-8d94-13811e1b0da2",
+        "revision": 2
+      },
+      {
+        "id": "f39dce7b-0a80-4c61-86f0-db07bbcec4ef",
+        "revision": 1
+      },
+      {
+        "id": "35e60556-5757-44be-9402-91bdbaf3596a",
+        "revision": 1
+      },
+      {
+        "id": "c70819f0-73c7-46b0-9dcd-8fbdbc0713ba",
+        "revision": 1
+      },
+      {
+        "id": "1e4f66c1-05e2-41f5-aba2-290339dcc3a5",
+        "revision": 1
+      },
+      {
+        "id": "8913530c-0c5d-4a5f-a795-db0ceeca8d40",
+        "revision": 1
+      },
+      {
+        "id": "3a2d51c7-eb33-4443-95b9-86cdfa542100",
+        "revision": 1
+      },
+      {
+        "id": "249f979b-d59a-4815-b1ed-1dc386393711",
+        "revision": 1
+      },
+      {
+        "id": "5d69e81a-becd-438a-97f3-5368dc22f78b",
+        "revision": 1
+      },
+      {
+        "id": "94551fd9-2bdd-4435-aae3-fae189089a8f",
+        "revision": 1
+      },
+      {
+        "id": "bd51f70d-7f05-4875-a9fb-119c26e7f4b1",
+        "revision": 1
+      },
+      {
+        "id": "40374e80-9595-4da3-9a21-899186c00ac7",
+        "revision": 1
+      },
+      {
+        "id": "5f9d9c2d-c08e-4ccc-8ace-20b7e6bd161c",
+        "revision": 1
+      },
+      {
+        "id": "4a2d70a3-0aa7-4d87-8c72-df8a733715a1",
+        "revision": 1
+      },
+      {
+        "id": "1bf3143e-c3d6-41b8-a176-e86454d4529d",
+        "revision": 1
+      },
+      {
+        "id": "9cf4bd1e-668a-404d-b52b-fcc36442d35a",
+        "revision": 1
+      },
+      {
+        "id": "1106d257-9ac0-43ed-ba9e-d3d106c69603",
+        "revision": 1
+      },
+      {
+        "id": "93d9cbfa-475b-4127-8e4b-31ed4c793219",
+        "revision": 1
+      },
+      {
+        "id": "1486b2fe-43a0-41b9-82b8-42b2906574ec",
+        "revision": 1
+      },
+      {
+        "id": "6f666732-02be-4777-b277-f54c92a7edbd",
+        "revision": 1
+      },
+      {
+        "id": "8065ddb2-ef78-4d7a-bd3b-6f298eb8e814",
+        "revision": 1
+      },
+      {
+        "id": "02cb9854-b2ca-4a76-a5fd-7b9d2a1dfa4a",
+        "revision": 1
+      },
+      {
+        "id": "97157e2f-9e6b-406f-b4ea-c5abba4acd22",
+        "revision": 1
+      },
+      {
+        "id": "72d9ac2b-628d-4f20-bd2d-23b9e935aa2d",
+        "revision": 1
+      },
+      {
+        "id": "36c107d0-448e-4ec8-8acf-0bbd1a80e624",
+        "revision": 1
+      },
+      {
+        "id": "e82c4150-a3f3-41c6-8bea-8139ab892e51",
+        "revision": 1
+      },
+      {
+        "id": "ccc7f13e-7414-4828-8baa-ccaa54c66545",
+        "revision": 1
+      },
+      {
+        "id": "2497fdcb-e3bd-4af7-b1a9-9452719b43ba",
+        "revision": 1
+      }
+    ],
+    "unavailable_refs": [],
+    "canon_hold_refs": [],
+    "finding_ids": [
+      "36c107d0-448e-4ec8-8acf-0bbd1a80e624"
+    ],
+    "summary": "The current user withdraws the conflicting murderer request and preserves protected innocence; the sourced finding disposition and clarification resolution release only that prior hold. Reviewed the additional author truths against available canon. Unknown midnight-date relationships and boundary-crossing history are not inferred. Rescue-code knowledge is distinguished before and after the ship sinking; boat dependency and meeting chronology are recorded without invented consequences. Existing oath remains unchanged."
+  },
+  "payload_digest": "4e4ecc49c81956e519a01e8be5a07e6fcc226efe9a45799430095664c77d0ac7"
+}

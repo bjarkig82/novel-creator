@@ -1,0 +1,49 @@
+"""Fresh native ordinary-bundle metadata: production complete-save comparison."""
+import argparse,hashlib,itertools,json,os,stat,statistics,subprocess,sys,time
+from pathlib import Path
+from unittest.mock import patch
+sys.path.insert(0,str(Path.cwd()))
+from novel_creator import records,storage
+from novel_creator.context import read
+from tests.helpers import repository,git
+from tests.performance import benchmark_records as benchmark
+p=argparse.ArgumentParser();p.add_argument('--root',type=Path);p.add_argument('--native',type=int,default=0);args=p.parse_args()
+if args.root:
+    prior=storage.read_history(args.root)
+    exchange=records.new_exchange(prior[0]['novel_id'],previous=prior[-1],expected_head=storage.head(args.root),messages=[{'message_id':benchmark.uid(),'role':'user','text':'Continue the benchmark.'},{'message_id':benchmark.uid(),'role':'assistant','text':'Benchmark continuation.'}])
+    exchange['payload_digest']=records.digest(exchange)
+    original_git,attributes=storage.git,storage._windows_file_attributes()
+    assert attributes is not None
+    commands=[];native_calls=[];hash_counts=[]
+    def counted_attributes(path):native_calls.append(path);return attributes(path)
+    def counted_git(root,*a,**kw):
+        commands.append(a[0])
+        if a[0]=='hash-object' and '--stdin-paths' in a:
+            assert kw['env']=={'GIT_WORK_TREE':str(root)}
+            hash_counts.append(kw['input'].count(b'\n'))
+        return original_git(root,*a,**kw)
+    with patch.object(storage,'_SAVE_HISTORY_WORKERS',4 if args.native else 2),patch.object(storage,'_windows_file_attributes',return_value=counted_attributes),patch.object(storage,'git',counted_git):
+        start=time.perf_counter();result=storage.save(args.root,exchange);elapsed=time.perf_counter()-start
+    assert result['ok'] and not result['data']['cleanup_required']
+    assert len(commands)==(29 if args.native else 27) and len(hash_counts)==6,(commands,hash_counts)
+    assert sum(hash_counts)==2*(len(prior)+1),hash_counts
+    assert len(native_calls)==2*len(prior),len(native_calls)
+    print(json.dumps({'native':args.native,'seconds':elapsed,'sequence':result['checkpoint']['sequence'],'cleanup_required':result['data']['cleanup_required'],'git_calls':len(commands),'complete_hash_files':sum(hash_counts),'native_leaf_queries':len(native_calls)}))
+    raise SystemExit(0)
+source=hashlib.sha256(Path(storage.__file__).read_bytes()).hexdigest()
+with benchmark.benchmark_key(True),repository(prefix='novel native saves Þóra-') as root:
+    novel=records.loads((root/'.novel-creator/manifest.json').read_bytes())['novel_id']
+    history,fixture=benchmark.generate(novel)
+    for exchange in history:
+        path=root/storage.bundle_path(exchange);path.parent.mkdir(parents=True,exist_ok=True);path.write_bytes(benchmark.serialized(exchange))
+    git(root,'add','story/exchanges');git(root,'commit','-m','Native ordinary bundle mode complete-save comparison')
+    del history,exchange
+    read(root);fixture['fully_validated']=True
+    print(json.dumps({'fixture':fixture,'source_sha256':source,'method':'Eight fresh-worker complete saves, ABBA/ABBA, four per two/four save-history readers with native file checks unchanged. Ordinary layout, optional external private cache key, original public payload preparation retained. All native queries and six complete root-bound hash partitions counted. Diagnostic, not p95 or release compliance.'}),flush=True)
+    samples={0:[],1:[]}
+    for native in [0,1,1,0]*2:
+        result=subprocess.run([sys.executable,'-B',__file__,'--root',str(root),'--native',str(native)],capture_output=True,text=True,encoding='utf-8',timeout=45)
+        if result.returncode:raise RuntimeError(result.stderr[-3000:])
+        row=json.loads(result.stdout);samples[native].append(row['seconds']);print(json.dumps(row),flush=True)
+    assert source==hashlib.sha256(Path(storage.__file__).read_bytes()).hexdigest()
+    print(json.dumps({'medians':{str(k):statistics.median(v) for k,v in samples.items()},'source_unchanged':True}),flush=True)

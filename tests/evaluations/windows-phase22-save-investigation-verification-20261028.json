@@ -1,0 +1,75 @@
+{
+  "diagnostic_comparisons": {
+    "balance-normal": {
+      "(4, 2, False)": {
+        "samples": [
+          3.146295899990946,
+          3.2473769998177886,
+          2.8095043001230806,
+          2.9592883998993784
+        ],
+        "median": 3.0527921499451622
+      },
+      "(1, 2, False)": {
+        "samples": [
+          4.182804200099781,
+          4.47721130005084,
+          4.498441099887714,
+          3.3493655000347644
+        ],
+        "median": 4.3300077500753105
+      },
+      "(4, 1, False)": {
+        "samples": [
+          3.63043210003525,
+          3.5567879998125136,
+          2.891899300040677,
+          2.808582100085914
+        ],
+        "median": 3.2243436499265954
+      }
+    },
+    "schedule": {
+      "(4, 2, False)": {
+        "samples": [
+          3.024490399984643,
+          3.150370800169185,
+          2.8308603998739272,
+          3.2961242999881506
+        ],
+        "median": 3.087430600076914
+      },
+      "(4, 2, True)": {
+        "samples": [
+          3.848334199981764,
+          3.230687400093302,
+          3.388029200024903,
+          3.043330099899322
+        ],
+        "median": 3.3093583000591025
+      }
+    }
+  },
+  "unchanged_30_run_qualification": {
+    "read": {
+      "p95_seconds": 1.028736700071022,
+      "target_seconds": 2.0,
+      "passes": true
+    },
+    "save": {
+      "p95_seconds": 3.067419500090182,
+      "target_seconds": 1.0,
+      "passes": false
+    }
+  },
+  "T172_complete": false,
+  "T173_prerequisite_satisfied": false,
+  "artifact_sha256": {
+    "windows-phase22-save-balance-normal-20261028.jsonl": "0d313776035169e3a583862c37ee59578898e1e2db35aa6d1bd04b6119ba9adb",
+    "windows-phase22-save-schedule-20261028.jsonl": "bb7f144eab9eadb645935f32c5470e1ed9f9aec1f6745f2c0003cd94c4dff8e2",
+    "windows-phase22-ordinary-30-20261028.json": "9cbb30162b8f3dcc1a0ad15f60e381220c44fbbc6c9f5068971c8c429e166f40",
+    "verify-phase22-save-investigation-20261028.py": "962dc7c29a359152830dc7b6350edbd2c1a1546f8c1d1746bc54b2f85eddd840",
+    "phase22-save-balance-20261028.py": "2f5ae45b758a4e88dd08cdf8bd5d25771597d478bc63757a74e1d31bea0c943d"
+  },
+  "scope": "Evidence arithmetic and unchanged production/harness identity; not new runtime tests or release approval"
+}

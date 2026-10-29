@@ -1,0 +1,57 @@
+"""Experiment only: retain all live checks; avoid canonical bundle Path parsing."""
+import hashlib, importlib.util, json, statistics, sys, time
+from pathlib import Path
+sys.path.insert(0,str(Path.cwd()))
+from novel_creator import storage, records
+from novel_creator.context import read
+from tests.helpers import repository, git
+from tests.performance import benchmark_records as benchmark
+scratch=Path(__file__).parent
+source=Path(storage.__file__).read_text(encoding='utf-8')
+start=source.index('    path = PurePosixPath(relative)',source.index('def safe_path'))
+end=source.index('    if setup:',start)
+candidate=source[:start]+'''    bundle = BUNDLE.fullmatch(relative)
+    if bundle:
+        parts = relative.split('/')
+    else:
+        path = PurePosixPath(relative)
+        if (not relative or path.is_absolute() or '..' in path.parts or '\\\\' in relative or
+            str(path) != relative or any(c in relative for c in ('\\x00', '\\n', '\\r'))):
+            raise ToolError(2, 'Invalid managed path')
+        parts = path.parts
+    allowed = (bundle or relative.startswith('.novel-creator/local/') or
+               relative == '.novel-creator/manifest.json')
+'''+source[end:]
+candidate=candidate.replace('def safe_path(root, relative,', 'def _checked_path(root, relative,',1).replace('    parts = path.parts\n    for index, part in enumerate(parts):','    for index, part in enumerate(parts):',1).replace('    return Path(current)\n','    return current\n\n\ndef safe_path(root, relative, **kwargs):\n    return Path(_checked_path(root, relative, **kwargs))\n',1).replace('            safe_path(root, path, setup=True, _regular_leaf=True, _directories=directories)','            _checked_path(root, path, setup=True, _regular_leaf=True, _directories=directories)',1)
+target=scratch/'candidate_path_storage.py'
+target.write_text(candidate,encoding='utf-8',newline='\n')
+spec=importlib.util.spec_from_file_location('novel_creator.path_candidate',target)
+optimized=importlib.util.module_from_spec(spec); spec.loader.exec_module(optimized)
+with benchmark.benchmark_key(True),repository() as root:
+    novel_id=records.loads((root/'.novel-creator/manifest.json').read_bytes())['novel_id']
+    history,fixture=benchmark.generate(novel_id)
+    for exchange in history:
+        path=root/storage.bundle_path(exchange); path.parent.mkdir(parents=True,exist_ok=True)
+        path.write_bytes(benchmark.serialized(exchange))
+    git(root,'add','--','story/exchanges'); git(root,'commit','-m','Disposable path diagnostic fixture')
+    git(root,'repack','-ad'); del history,exchange
+    read(root); fixture['fully_validated']=True
+    print(json.dumps({'fixture':fixture,'source_sha256':hashlib.sha256(Path(storage.__file__).read_bytes()).hexdigest(),'candidate_sha256':hashlib.sha256(target.read_bytes()).hexdigest(),'method':'ABBA full guards and saves; 4 samples each; diagnostic only, not p95'}),flush=True)
+    entries=storage.committed_entries(root,storage.head(root)); commit=storage.head(root)
+    for operation in ('guard','save'):
+        samples={False:[],True:[]}
+        for selected in [False,True,True,False]*2:
+            module=optimized if selected else storage
+            if operation=='save':
+                prior=storage.read_history(root)
+                exchange=records.new_exchange(novel_id,previous=prior[-1],expected_head=storage.head(root),messages=[{'message_id':benchmark.uid(),'role':'user','text':'Continue.'},{'message_id':benchmark.uid(),'role':'assistant','text':'Continuation.'}])
+                exchange['payload_digest']=records.digest(exchange)
+                del prior
+            started=time.perf_counter()
+            if operation=='guard': module.check_managed(root,commit,[],entries=entries)
+            else:
+                result=module.save(root,exchange)
+                assert not result['data']['cleanup_required']
+            seconds=time.perf_counter()-started; samples[selected].append(seconds)
+            print(json.dumps({'operation':operation,'optimized':selected,'seconds':seconds}),flush=True)
+        print(json.dumps({'operation':operation,'medians':{str(k):statistics.median(v) for k,v in samples.items()}}),flush=True)

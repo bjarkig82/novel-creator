@@ -1,0 +1,81 @@
+{
+  "ok": true,
+  "scope": "Public delegated persistence/display/source checks only",
+  "case_filter": [
+    "LANG_CAPTURE"
+  ],
+  "language_filter": null,
+  "all_submitted_cases_checked": false,
+  "semantic_assessment": "Separate agent judgments required; no human/native result inferred",
+  "cases": [
+    {
+      "case_id": "LANG_CAPTURE",
+      "language": "en",
+      "thread_id": "01a16af9-f289-73c1-8151-55f50ace05d9",
+      "turn_id": "01a18223-d08e-7db2-bec6-2947b7b7d9f2",
+      "exchange_id": "cd8b9ee7-19e0-4e76-a4da-1a474809fc33",
+      "checkpoint": {
+        "git_head": "7c9db9defc0b3a5dc0eab40c4f86fce9a623d559",
+        "exchange_id": "cd8b9ee7-19e0-4e76-a4da-1a474809fc33",
+        "sequence": 4
+      },
+      "exact_input_saved": true,
+      "exact_response_saved_and_displayed": true,
+      "save_precedes_display": true,
+      "source_type": "delegated",
+      "native_user_input": false,
+      "novice_evidence": false,
+      "installed_bundle_verified": true,
+      "installed_bundle_matches_current_source": true,
+      "commentary_agent_reviewed": true,
+      "record_kinds": [
+        "story_element",
+        "assertion",
+        "idea",
+        "decision",
+        "idea",
+        "assertion",
+        "story_element",
+        "idea",
+        "session"
+      ],
+      "response": "Established author truth: Þóra is married (010a1c3d r1; decision f250ede0 r1).\n\nÞóra sending the letter remains an unaccepted possibility (a3e1a84d r1); I have not established her as the sender.\n\n“I am married” is captured only as possible dialogue or a possible lie (c05518bd r1). It does not establish a speaker’s marital status, identify the speaker, or overturn Þóra’s marriage fact. Ægir’s earlier childhood question remains open.\n\nPaused here."
+    },
+    {
+      "case_id": "LANG_CAPTURE",
+      "language": "is",
+      "thread_id": "01a16afa-1197-7650-8189-9365687429ee",
+      "turn_id": "01a18223-db94-7202-bd68-7612e69d99f7",
+      "exchange_id": "a5b50d12-fd7f-4e43-961f-b87b82202b7d",
+      "checkpoint": {
+        "git_head": "dc0423dae5cf4e323399215243196d1dff6536b8",
+        "exchange_id": "a5b50d12-fd7f-4e43-961f-b87b82202b7d",
+        "sequence": 4
+      },
+      "exact_input_saved": true,
+      "exact_response_saved_and_displayed": true,
+      "save_precedes_display": true,
+      "source_type": "delegated",
+      "native_user_input": false,
+      "novice_evidence": false,
+      "installed_bundle_verified": true,
+      "installed_bundle_matches_current_source": true,
+      "commentary_agent_reviewed": true,
+      "record_kinds": [
+        "story_element",
+        "assertion",
+        "idea",
+        "decision",
+        "story_element",
+        "assertion",
+        "idea",
+        "story_element",
+        "assertion",
+        "idea",
+        "session"
+      ],
+      "response": "Staðfest: Þóra er gift.\n\nAð Þóra hafi sent bréfið er aðeins tillaga — „eventúellt“ staðfestir það ekki. Hún er ekki staðfest sem sendandinn.\n\nTilvitnunin „Ég er gift.“ er varðveitt sem möguleg persónuorð og lygi, ekki ný staðreynd eða afturköllun á hjúskaparstöðu Þóru.\n\nÉg staldra við."
+    }
+  ],
+  "failures": []
+}

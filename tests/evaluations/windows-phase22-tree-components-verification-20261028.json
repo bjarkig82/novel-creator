@@ -1,0 +1,129 @@
+{
+  "fresh_cache_tree_update_seconds": {
+    "samples": [
+      0.356933,
+      0.288444,
+      0.274909,
+      0.473938
+    ],
+    "median": 0.3226885,
+    "minimum": 0.274909,
+    "maximum": 0.473938
+  },
+  "existing_cache_tree_update_seconds": {
+    "samples": [
+      0.262662,
+      0.464009,
+      0.318274,
+      0.313936,
+      0.298504,
+      0.360011,
+      0.375508,
+      0.390936
+    ],
+    "median": 0.3391425,
+    "minimum": 0.262662,
+    "maximum": 0.464009
+  },
+  "native_batch_check_wall_seconds": {
+    "samples": [
+      4.255469699855894,
+      2.490817300044,
+      2.117913299938664,
+      2.6039790001232177
+    ],
+    "median": 2.547398150083609,
+    "minimum": 2.117913299938664,
+    "maximum": 4.255469699855894
+  },
+  "python_loose_access_seconds": {
+    "samples": [
+      2.289205400040373,
+      1.2882292999420315,
+      0.4536860000807792,
+      0.6463659999426454,
+      2.106318200007081,
+      1.1713104001246393,
+      0.9765945998951793,
+      2.189153900137171,
+      1.7310810999479145,
+      1.1547468998469412,
+      1.4074121001176536,
+      0.6879229999613017,
+      0.6062417000066489,
+      0.3991954999510199,
+      0.3551609998103231,
+      0.24757299991324544
+    ],
+    "median": 1.0656707498710603,
+    "minimum": 0.24757299991324544,
+    "maximum": 2.289205400040373
+  },
+  "verified_tree_hash_and_zlib1_seconds": {
+    "samples": [
+      0.10619169985875487,
+      0.0666714000981301,
+      0.06384039996191859,
+      0.04704959993250668,
+      0.06355939991772175,
+      0.08044310007244349,
+      0.07769470009952784,
+      0.09356559999287128,
+      0.05250939982943237,
+      0.03255929984152317,
+      0.03912770003080368,
+      0.024150499841198325,
+      0.012847599806264043,
+      0.010465399827808142,
+      0.009963999968022108,
+      0.012668499955907464
+    ],
+    "median": 0.049779499880969524,
+    "minimum": 0.009963999968022108,
+    "maximum": 0.10619169985875487
+  },
+  "scratch_fsync_seconds": {
+    "samples": [
+      0.03635079995729029,
+      0.0019439999014139175,
+      0.0021720000077039003,
+      0.0017649000510573387,
+      0.021878800122067332,
+      0.0020320999901741743,
+      0.00212309998460114,
+      0.0660821998026222,
+      0.006308899959549308,
+      0.0022193000186234713,
+      0.004424199927598238,
+      0.009670499945059419,
+      0.0021991999819874763,
+      0.00211709993891418,
+      0.0022442000918090343,
+      0.0018616002053022385
+    ],
+    "median": 0.002209250000305474,
+    "minimum": 0.0017649000510573387,
+    "maximum": 0.0660821998026222
+  },
+  "four_actual_saves_completed": true,
+  "source_unchanged": true,
+  "scope": "Actual fresh/existing native tree-region timings plus independent component probes. Do not add/subtract probe times to claim an exact decomposition, a speedup or p95 qualification.",
+  "artifact_sha256": {
+    "windows-phase22-tree-components-20261028.jsonl": "928bddd6dc57dc14186df8fa472cc9675abf7c852c1575c893e3bc2f1d427674",
+    "verify-phase22-tree-components-20261028.py": "437d0fbee64e437c25ec7484e355c3fb68b8dd0d3ee3b3b6a2c5611a6eb164d0",
+    "phase22-tree-components-20261028.py": "c1bfcb94b57a4f531fbc7a92fe228edf82d7338021184d5cb634b834fca213ed",
+    "windows-phase22-components-load-20261028.json": "47459edb11249da242d8a359102bdc89c80502f77390df4f745f1d0c850fcd3c",
+    "windows-phase22-components-1-fresh-20261028.txt": "fa4b34ddb2c48e763e02b2bb4faba56affad2efd31318c45f0b4540b99245e69",
+    "windows-phase22-components-1-existing-1-20261028.txt": "baf7c6c0fb5fa8d3db3d0d2b02b9ffdf328eb42233cf8cd4ec51153a2f1fe73e",
+    "windows-phase22-components-1-existing-2-20261028.txt": "3f098e60522babeec89f5731947f6653760da3d6254b21262a65e73bc6bc88d2",
+    "windows-phase22-components-2-fresh-20261028.txt": "ada408224d8dfc65a37509c54cc95658308efbbd283852f986c47632a8567333",
+    "windows-phase22-components-2-existing-1-20261028.txt": "3017bfe534795834c22e6f77c0985c566104c5e13beecbcc6e0127cb885d1eaa",
+    "windows-phase22-components-2-existing-2-20261028.txt": "54155337d62ca703e0412a5b53148b89258aff3dd87ee6f951edc4e1ebdae625",
+    "windows-phase22-components-3-fresh-20261028.txt": "7b5bb1a86be090909f9f7ce9423d895138bb8c36670d20923402cb9e6dc1c490",
+    "windows-phase22-components-3-existing-1-20261028.txt": "eccbef8253bf1e0c0c568dcd62244273b2b7f03c71131f06c318edb5ff8d6f8b",
+    "windows-phase22-components-3-existing-2-20261028.txt": "14260616ba5ae738a9198c9c8aa518a2613f75ccdb7a1f02a1d7d7599f7cefc0",
+    "windows-phase22-components-4-fresh-20261028.txt": "867e5c817200f81eb58789ab37e25c99481aa9d2d456d8090a4b50b4a2630e3c",
+    "windows-phase22-components-4-existing-1-20261028.txt": "f0fe9c5e339ca7fb5ec85042cf072f2c0778dca9f534418ffb4c4bce788ed577",
+    "windows-phase22-components-4-existing-2-20261028.txt": "378c81a01311e0cc0542771030da2f0299ce8d12b415485760601e2047740809"
+  }
+}

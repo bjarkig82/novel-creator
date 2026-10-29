@@ -1,0 +1,14 @@
+[
+  {
+    "id": "msg_03411d8f27e999d1016ae1d4bf6214819191db3b6e3c6afd48",
+    "text": "I’ll compare the current input with the saved rule, prepare the response, and save it before display.",
+    "classification": "administrative",
+    "reason": "Reviewed operational rule comparison, preparation and save status only; no creative judgment before confirmed save."
+  },
+  {
+    "id": "msg_03411d8f27e999d1016ae1d5054f44819181ae1735568a6246",
+    "text": "The exchange is prepared. I’m saving it, then checking the persisted response and writing the report.",
+    "classification": "administrative",
+    "reason": "Reviewed operational rule comparison, preparation and save status only; no creative judgment before confirmed save."
+  }
+]

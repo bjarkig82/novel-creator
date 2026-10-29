@@ -1,0 +1,947 @@
+{
+  "schema_version": "1.0",
+  "novel_id": "711ac5fd-eb25-4a33-89ca-fc62260cb0a2",
+  "exchange_id": "6f2dca64-0adc-402c-b595-e83184f2179f",
+  "sequence": 17,
+  "previous_exchange_id": "e946d762-e919-4907-a0dc-c7f10e34639b",
+  "previous_digest": "4b10bbd110d1724e542bf6752346aad7b0c6ac2231166871e072eb1b378decc9",
+  "session_id": "bd14ac9f-4b8f-4f9c-9f1f-eb34e8ec8f7f",
+  "expected_git_head": "0c0a5b4f7f2fa4d9c44a6edf055b692bd7c1321c",
+  "recorded_at": "2026-10-28T10:40:51.013443Z",
+  "operation": "conversation",
+  "messages": [
+    {
+      "message_id": "81ddb75d-a8a8-4fed-93d4-cb99cf0c94e7",
+      "role": "user",
+      "text": "Tilvik CONT_REVALIDATE. Ég gaf rangt lotuauðkenni. Höldum áfram með raunverulegu vistuðu samfelluyfirferðina okkar, lotu bd14ac9f-4b8f-4f9c-9f1f-eb34e8ec8f7f. Drögum til baka beiðnina um staðfestingu óauðkennda æskuatburðarins. Lestu viðeigandi vistað samhengi aftur og keyrðu sannprófun framleiðsluverkfærisins áður en bið vegna misheppnaðrar lotuleitar er aflétt. Þegar það samhengi er tiltækt og sannreynt skal merkja álitamálið um ótiltækt samhengi leyst. Varðveittu aðskilið frestað tengslaálitamál og öll önnur óleyst álitamál. Taktu saman sannreynt samhengi og staldraðu við."
+    },
+    {
+      "message_id": "1200026a-6b28-4fa8-9fc3-06b5de7af20b",
+      "role": "assistant",
+      "text": "Rétt Samfella-lota er tiltæk og hefur verið endurlesin (bd14ac9f v5; frjáls hamur). Framleiðsluverkfærið staðfesti formgildi vistaðrar keðju og tilvísana: valid=true, 16 færslur fyrir þessa vistun. Það staðfestir ekki sjálfkrafa fullkomið bókmenntalegt samræmi.\n\nBeiðnin um óauðkennda æskuatburðinn er afturkölluð og spurningin leyst (760a6de3 v2; ákvörðun a33ad64e v1). Bið vegna rangrar lotuleitar er aflétt eftir endurlestur og sannprófun; enginn æskuatburður hefur verið staðfestur. Fyrri villu- og ótiltækisgögn eru varðveitt.\n\nÓleyst álitamál sem halda sér:\n- Sameiginleg æska Freyju og Sigrúnar er enn frestuð (93c85a29 v2). Umfangið er óbreytt: cd8104e3 v1, b6279ad2 v1, 247e8a85 v1, 60e3081b v1 og 134717c6 v1.\n- Flotbrúarálitamálið er enn opið og brúarleysið stendur (f1fcc75e v1; 69059156 v1).\n- Tímasetning vitneskju Freyju er enn óþekkt (0b71babb v1; f82120a5 v1). Innsiglistengingin er enn ráðgefandi möguleiki (1ee64885 v1).\nÓtiltækisbið og frestað tengslaálitamál eru aðskilin; síðara álitamálið er ekki leyst með þessari sannprófun.\n\nStaðfestar ákvarðanir í endurlesnu samhengi:\n- Rúna er vitavörður (e19f2739 v1).\n- Bjarni sendi bréfið (500cb7e7 v2).\n- Ari er bróðir Rúnu (f351ee38 v1).\n- Sigrún er fórnarlambið (1a1d9bcc v2).\n- Edda er systir Rúnu (a594b87b v1).\n- Freyja er rannsakandinn (90ddf826 v2).\n- Rúna þekkir Bjarna (515f2c3b v1).\n- ljósið bilaði nóttina sem bréfið kom (82eba284 v1).\n- bréfið kom síðdegis (8954dff5 v2).\n- sagan gerist að hausti (646ced87 v2).\n- blátt ljós gæti sést (60c1be74 v2).\n- engin brú er á eyjuna (c33e9f0b v1).\n- bréfið ber látúnsinnsigli (36444d2f v1).\n- Rúna hefur svarið að vernda Eddu (811ce9aa v1).\n- Rúna kemur til hafnar eftir miðnætti (a01c0753 v1).\n- Rúna lærði björgunarkóðann áður en skipið sökk (a5010930 v2).\n- fyrirhugaður flótti krefst eina nothæfa bátsins (cdf3af43 v1).\n- ekkert bréf getur farið yfir innsigluðu mörkin (09ba833b v1).\n- Freyja og Sigrún hafa aldrei hist fyrir endurfundi þeirra (62ab0f6e v1).\nVerndað sakleysi Eddu stendur (711ac5fd v5).\n\nÓstaðfestar tillögur og óútkljáðir valkostir:\n- Rúna safnar rekaviði (29fd0678 v2).\n- Edda vantreystir bjöllum (45553df8 v1).\n- Bjarni skuldar Eddu hugsanlega peninga (8a81444f v1).\n- stormur gæti falið merki (27765347 v1).\n- Stormur (da566d49 v3).\n- Heiðskírt veður (3ee9968a v1).\n- skipbrot gæti orðið (37d7b9b9 v1).\n- viðvörunarbjalla gæti hljómað (e37f88d3 v1).\n- göng gætu tengt vitann og höfnina (9b4ec66f v1).\n- fjara gæti afhjúpað gamlar tröppur (ffbf3c57 v1).\n- leynilegt herbergi gæti geymt kort (54443716 v1).\n- Edda gæti rakið bréfið um göngin að leyniherberginu (a14330f1 v1).\n- Rúna er morðinginn (e6deaac1 v1).\n- Bjarni gæti átt rauðan frakka (0bae9007 v1).\n- Edda gæti hafa fundið kortið (59e59791 v1).\n- Ari gæti átt dóttur (12368f8d v1).\n- Möguleg persónuorð: „Ég drap hann.“ Mælandi og fórnarlamb óauðkennd (5f135481 v1).\n- Brún bryggja (f65265b4 v1).\n- Svört bryggja (2306571e v1).\n- Báturinn gæti lekið (44703877 v1).\n- Gólfhleri sem inngangur í leyniherbergið (bf1352af v1).\n- Veggdyr sem inngangur í leyniherbergið (1dd11de7 v1).\n- Mögulegur flóðbúnaður; gæti gengið einhvern daginn (b0d516a0 v1).\n- Segjum að flotbrú lægi að eyjunni (a5a37507 v1).\n- Tilvitnun í mögulega dagbókarfærslu: „Edda stal innsiglinu.“ (aefc91c6 v1).\n- Rúna bjargar fólki í höfninni klukkan eitt eftir miðnætti, eftir komuna (872262c3 v2).\n- Rúna notar björgunarkóðann til að koma í veg fyrir að þetta skip sökkvi (a65f2d80 v1).\n- Öðrum ónothæfum báti er eytt; eini nothæfi flóttabáturinn helst heill (eb8b34e9 v2).\n- Óáreiðanlegt vitni segir ranglega að bréf hafi farið yfir innsigluðu mörkin (e2e8e629 v2).\n- Raunveruleg sameiginleg æskuminning Freyju og Sigrúnar hvetur fyrstu endurfundi þeirra (cd8104e3 v2).\n- Aðskilið gæti skráð látúnsinnsigli gefið vísbendingu um sendandann (8fc8b19d v1).\n- Óvíst er hvenær Freyja lærði leyndarmál leyniherbergisins (e66724ac v1).\n- Lesandinn gæti séð bréfið eftir afhendingu þótt Rúna hafi séð það fyrr (83f63405 v1).\n- Rúna gæti logið að hún, en ekki Bjarni, hafi sent það; þetta eru aðeins möguleg persónuorð (1b6e088d v1).\n- Látúnsspeglun gæti sést í göngunum (da64b265 v1).\nBjarni sem sjómaður er óstaðfest skráning (1ccc30a9 v1). Fyrri höfnunum er ekki snúið við.\n\nOpnar spurningar sem standa:\n- Hvers vegna sendi Rúna bréfið? (f2def862 v1).\n- Hvað vill Edda frá Bjarna? (a65358cf v1).\n- Hver finnur bréfið? (5d72fc12 v1).\n- Hvenær kemur Bjarni aftur? (8ed04638 v1).\n- Hvað opnar leyniherbergið? (7d3570e2 v1).\n- Hvað ef Ari á dóttur? (da79f6a2 v1).\n- Gæti báturinn lekið? (8f56ec6e v1).\n- Á „Já“ við gólfhlerann, veggdyrnar eða að halda báðum inngöngum til skoðunar? (20822d29 v1).\n- Hvenær lærði Freyja leyndarmál leyniherbergisins? (9c73d1de v1).\nSpurningin um sendingu Rúnu byggir á eldri forsendu og bíður endurskoðunar; hún hefur ekki fengið tilbúið svar.\nYfirlitið er afleitt af heimildafærslunum. Sannprófaður fyrri vistunarpunktur: 0c0a5b4f7f2fa4d9c44a6edf055b692bd7c1321c, röð 16. Þessi færsla: 6f2dca64-0adc-402c-b595-e83184f2179f, röð 17.\nÉg staldra við."
+    }
+  ],
+  "input_artifacts": [
+    {
+      "artifact_id": "5a77c19d-24b6-4dfb-adcc-d2ce6d2355a2",
+      "original_text": "{\"kind\":\"host_input\",\"source_type\":\"delegated\",\"thread_id\":\"01a16afa-1197-7650-8189-9365687429ee\",\"turn_id\":\"01a18217-b74e-7462-b1cf-ffd6610fa8c2\",\"event_id\":\"fco_01a18217-b750-7680-a8f6-abd1e2f018c3\",\"event_type\":\"functionCallOutput\",\"source_thread_id\":\"01a16af6-0d9b-7173-a5f5-c8775f37df18\",\"native_user_input\":false,\"novice_evidence\":false,\"evaluation_only\":true,\"text\":\"Tilvik CONT_REVALIDATE. Ég gaf rangt lotuauðkenni. Höldum áfram með raunverulegu vistuðu samfelluyfirferðina okkar, lotu bd14ac9f-4b8f-4f9c-9f1f-eb34e8ec8f7f. Drögum til baka beiðnina um staðfestingu óauðkennda æskuatburðarins. Lestu viðeigandi vistað samhengi aftur og keyrðu sannprófun framleiðsluverkfærisins áður en bið vegna misheppnaðrar lotuleitar er aflétt. Þegar það samhengi er tiltækt og sannreynt skal merkja álitamálið um ótiltækt samhengi leyst. Varðveittu aðskilið frestað tengslaálitamál og öll önnur óleyst álitamál. Taktu saman sannreynt samhengi og staldraðu við.\",\"public_event\":{\"type\":\"functionCallOutput\",\"id\":\"fco_01a18217-b750-7680-a8f6-abd1e2f018c3\",\"namespace\":\"codex_app\",\"name\":\"send_message_to_thread\",\"output\":{\"text\":\"<codex_delegation>\\n  <source_thread_id>01a16af6-0d9b-7173-a5f5-c8775f37df18</source_thread_id>\\n  <input>Tilvik CONT_REVALIDATE. Ég gaf rangt lotuauðkenni. Höldum áfram með raunverulegu vistuðu samfelluyfirferðina okkar, lotu bd14ac9f-4b8f-4f9c-9f1f-eb34e8ec8f7f. Drögum til baka beiðnina um staðfestingu óauðkennda æskuatburðarins. Lestu viðeigandi vistað samhengi aftur og keyrðu sannprófun framleiðsluverkfærisins áður en bið vegna misheppnaðrar lotuleitar er aflétt. Þegar það samhengi er tiltækt og sannreynt skal merkja álitamálið um ótiltækt samhengi leyst. Varðveittu aðskilið frestað tengslaálitamál og öll önnur óleyst álitamál. Taktu saman sannreynt samhengi og staldraðu við.</input>\\n</codex_delegation>\",\"truncated\":false}}}",
+      "parsed_value": {
+        "kind": "host_input",
+        "source_type": "delegated",
+        "thread_id": "01a16afa-1197-7650-8189-9365687429ee",
+        "turn_id": "01a18217-b74e-7462-b1cf-ffd6610fa8c2",
+        "event_id": "fco_01a18217-b750-7680-a8f6-abd1e2f018c3",
+        "event_type": "functionCallOutput",
+        "source_thread_id": "01a16af6-0d9b-7173-a5f5-c8775f37df18",
+        "native_user_input": false,
+        "novice_evidence": false,
+        "evaluation_only": true,
+        "text": "Tilvik CONT_REVALIDATE. Ég gaf rangt lotuauðkenni. Höldum áfram með raunverulegu vistuðu samfelluyfirferðina okkar, lotu bd14ac9f-4b8f-4f9c-9f1f-eb34e8ec8f7f. Drögum til baka beiðnina um staðfestingu óauðkennda æskuatburðarins. Lestu viðeigandi vistað samhengi aftur og keyrðu sannprófun framleiðsluverkfærisins áður en bið vegna misheppnaðrar lotuleitar er aflétt. Þegar það samhengi er tiltækt og sannreynt skal merkja álitamálið um ótiltækt samhengi leyst. Varðveittu aðskilið frestað tengslaálitamál og öll önnur óleyst álitamál. Taktu saman sannreynt samhengi og staldraðu við.",
+        "public_event": {
+          "type": "functionCallOutput",
+          "id": "fco_01a18217-b750-7680-a8f6-abd1e2f018c3",
+          "namespace": "codex_app",
+          "name": "send_message_to_thread",
+          "output": {
+            "text": "<codex_delegation>\n  <source_thread_id>01a16af6-0d9b-7173-a5f5-c8775f37df18</source_thread_id>\n  <input>Tilvik CONT_REVALIDATE. Ég gaf rangt lotuauðkenni. Höldum áfram með raunverulegu vistuðu samfelluyfirferðina okkar, lotu bd14ac9f-4b8f-4f9c-9f1f-eb34e8ec8f7f. Drögum til baka beiðnina um staðfestingu óauðkennda æskuatburðarins. Lestu viðeigandi vistað samhengi aftur og keyrðu sannprófun framleiðsluverkfærisins áður en bið vegna misheppnaðrar lotuleitar er aflétt. Þegar það samhengi er tiltækt og sannreynt skal merkja álitamálið um ótiltækt samhengi leyst. Varðveittu aðskilið frestað tengslaálitamál og öll önnur óleyst álitamál. Taktu saman sannreynt samhengi og staldraðu við.</input>\n</codex_delegation>",
+            "truncated": false
+          }
+        }
+      },
+      "digest": "1676310a583c363eeec68fc133aa673c170bdecd361f08a71ad360eaba587b96"
+    }
+  ],
+  "record_versions": [
+    {
+      "id": "760a6de3-0fbe-4898-bc2c-f4b4ebb5187e",
+      "kind": "question",
+      "revision": 2,
+      "previous_revision": 1,
+      "created_exchange_id": "e946d762-e919-4907-a0dc-c7f10e34639b",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "e946d762-e919-4907-a0dc-c7f10e34639b",
+          "message_id": "13f88b2e-e5ac-431a-926d-b3d9e7a2ea1c",
+          "range": {
+            "start": 85,
+            "end": 172
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "6f2dca64-0adc-402c-b595-e83184f2179f",
+          "message_id": "81ddb75d-a8a8-4fed-93d4-cb99cf0c94e7",
+          "range": {
+            "start": 159,
+            "end": 227
+          }
+        }
+      ],
+      "text": "Hvaða æskuatburður var valinn í lotu 00000000-0000-4000-8000-000000000169?",
+      "related_refs": [],
+      "alternative_ids": [],
+      "state": "resolved",
+      "resolution_decision_id": "a33ad64e-f155-4c40-af7d-15128c4adacd"
+    },
+    {
+      "id": "a33ad64e-f155-4c40-af7d-15128c4adacd",
+      "kind": "decision",
+      "revision": 1,
+      "previous_revision": null,
+      "created_exchange_id": "6f2dca64-0adc-402c-b595-e83184f2179f",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "6f2dca64-0adc-402c-b595-e83184f2179f",
+          "message_id": "81ddb75d-a8a8-4fed-93d4-cb99cf0c94e7",
+          "range": {
+            "start": 159,
+            "end": 227
+          }
+        }
+      ],
+      "action": "resolve",
+      "user_message_ref": {
+        "type": "message",
+        "exchange_id": "6f2dca64-0adc-402c-b595-e83184f2179f",
+        "message_id": "81ddb75d-a8a8-4fed-93d4-cb99cf0c94e7",
+        "range": {
+          "start": 159,
+          "end": 227
+        }
+      },
+      "span": {
+        "start": 159,
+        "end": 227
+      },
+      "target_refs": [
+        {
+          "id": "760a6de3-0fbe-4898-bc2c-f4b4ebb5187e",
+          "revision": 1
+        }
+      ],
+      "selected_parts": [],
+      "prior_refs": [
+        {
+          "id": "760a6de3-0fbe-4898-bc2c-f4b4ebb5187e",
+          "revision": 1
+        }
+      ],
+      "result_refs": [
+        {
+          "id": "760a6de3-0fbe-4898-bc2c-f4b4ebb5187e",
+          "revision": 2
+        }
+      ],
+      "reason": "Beiðni dregin til baka; rétt samhengi endurlesið og framleiðsluvalidate valid=true áður en bið er aflétt. Enginn æskuatburður valinn eða staðfestur.",
+      "affected_refs": [],
+      "review_required_refs": []
+    },
+    {
+      "id": "bd14ac9f-4b8f-4f9c-9f1f-eb34e8ec8f7f",
+      "kind": "session",
+      "revision": 5,
+      "previous_revision": 4,
+      "created_exchange_id": "8608face-e906-413c-aeeb-502affe55cb3",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "6f2dca64-0adc-402c-b595-e83184f2179f",
+          "message_id": "81ddb75d-a8a8-4fed-93d4-cb99cf0c94e7",
+          "range": {
+            "start": 51,
+            "end": 158
+          }
+        }
+      ],
+      "topic": "Samfella",
+      "mode": "open",
+      "state": "open",
+      "started_exchange_id": "8608face-e906-413c-aeeb-502affe55cb3",
+      "last_exchange_id": "6f2dca64-0adc-402c-b595-e83184f2179f",
+      "related_record_ids": [
+        "558ee882-eeef-4654-bf22-b83acda83f24",
+        "4f256968-185e-48bb-8209-4933e3e70230",
+        "f05c97e2-9647-47c2-b18f-f1d7aad90e06",
+        "17d426bd-a8df-48bd-883b-62a6590b42d8",
+        "c36f71a0-2ecd-444a-a038-cca37a23812d",
+        "e79c6511-1406-4732-9948-72e0763f702d",
+        "b6bf10d8-dd6c-4414-b4a3-4f2a9b2db75b",
+        "7999a76d-00eb-4e1b-81ca-e0074e492fa9",
+        "a01c0753-7a94-46f6-974a-9aeb416e631b",
+        "a4f179f6-8b3d-4fe5-9fbf-fcacdd84c57f",
+        "cd7a9ab8-611c-4185-bb78-f2dcb1407fe3",
+        "e066972a-ded5-41f3-890e-86e478102813",
+        "79c29f4a-049c-4f80-99d4-feb50914813c",
+        "fab8d0b4-8490-40ff-947d-7d9d18a86b68",
+        "a5010930-b834-49f9-b122-6a6678a73e83",
+        "265f35ea-5dd5-463a-b083-00a8bca7df73",
+        "4ec27039-9f65-447b-a740-e5b20737d9ba",
+        "3f86204e-5886-46ef-b0cb-0849f04b8ff8",
+        "e4195696-47c0-4598-9633-477fa84617c0",
+        "0992b08f-79ff-449f-9d1f-4972833a5846",
+        "cdf3af43-8fca-4268-af32-1d7b31026923",
+        "ae6f1848-5501-4d0d-9ba2-81f0d8c034a6",
+        "91666f59-5a86-4f99-9669-eed33ab08f92",
+        "9888f02a-1968-48e3-9945-ced2a2953c8d",
+        "3206e87d-d058-48dc-b691-4cf20a3679d9",
+        "09ba833b-db90-49bb-94e9-05c8c50ec334",
+        "d5626dfc-dd52-4435-b38c-499842d68d8f",
+        "c9f32ba4-188f-4ee1-9ee2-d5d42b1ff1d4",
+        "60e3081b-187d-4b2b-b52a-1df93ab5e31c",
+        "134717c6-0cc8-4249-981b-b5c18e517d08",
+        "62ab0f6e-3d21-4482-9d60-ac5beb49ba38",
+        "92e21458-5351-4ebf-ad5d-54059b87def5",
+        "d31dba8f-bdf2-4744-9c47-1359510d9d03",
+        "94cc12aa-9dea-4032-a58e-9e6b216f631d",
+        "b344c49b-220e-45ce-bf91-48a1836c4406",
+        "1d2bf975-171c-48a6-b03b-b1eeb984a32f",
+        "f5138be7-8137-4360-8129-97933c28b53a",
+        "8e045fd6-3b53-404d-bcb5-669527854e2f",
+        "6cd104ac-5256-47e5-8cc2-454e88700f8b",
+        "872262c3-acb0-4d10-bb8d-256dd69bc7f1",
+        "f8d47499-791b-4f19-a4ed-18bdd844c2ab",
+        "553cc2f0-4dfb-4e9e-a9c0-8f66ccfbbbfb",
+        "0a95e2e3-a6c3-426b-9212-60b27751ce4a",
+        "a65f2d80-43bf-4103-b5ee-3bac40281900",
+        "045b572d-fcf6-4521-b2a6-ce88f794094f",
+        "bc9c3db4-018c-4500-ab72-16519ca705d5",
+        "6a61ab8a-d512-49ad-ba33-bd130bb6f534",
+        "eb8b34e9-ec78-47c5-bf60-da24da54d123",
+        "0892fa17-5e1c-4c59-84e5-4d6de2f8f4df",
+        "2c0f86dd-155d-4b5b-ae1d-5207dfee9e2b",
+        "f2c29259-c5b0-4b9c-a272-1bbefd82645a",
+        "e2e8e629-c584-48ab-acc3-8c2c9958a583",
+        "24217ee6-14c5-4590-bf90-cdfc550e7234",
+        "b6279ad2-0eaf-4f5a-b7fa-d67643574285",
+        "247e8a85-44dd-46cb-ac9c-761b72a68484",
+        "b63ec5c5-6585-488a-bbc1-396428f3d71d",
+        "cd8104e3-07fc-416a-bfa9-076888134348",
+        "93c85a29-4d91-4c23-b682-7677c95fbf79",
+        "97f50591-87d2-484b-ae0b-59aa0c6d8814",
+        "0d4af3ab-6e46-401c-a291-e30986fb3ec4",
+        "ae03d21f-d3df-4a21-9202-9fb67c7ba9bc",
+        "52a35a1a-07e1-4d3e-8f10-1b33f85e3bcc",
+        "68339a4d-6d96-4031-8dcc-ff5a525438bf",
+        "d242638a-56f3-4128-979f-2627aaad7122",
+        "21ab8021-4331-4394-b326-49a05b80269f",
+        "0ccbdb45-6160-4fe3-ab0a-f32a00edbe58",
+        "c6ae569e-30d2-44a9-8a59-d0758070216b",
+        "106da5e3-4aa2-4d01-bb23-9ba969520c2f",
+        "8fc8b19d-8341-4d0d-bc96-6ed7d8582a54",
+        "1ee64885-d273-4246-803b-2cee08578ebd",
+        "f82120a5-bfc1-429b-b18d-b6b1ec361432",
+        "e66724ac-fa91-41b1-836c-e6561825b148",
+        "9c73d1de-b23a-441a-adf5-1a1982f94a73",
+        "0b71babb-3320-4478-ab98-7133afebc58e",
+        "3b4b97a9-fab1-4d97-977a-fa034c273153",
+        "332aa033-a9ad-47b3-a9ee-483705902adb",
+        "83f63405-90bb-42f2-a4c5-be2acad2e507",
+        "a6ad138e-daef-4299-b69f-f83e4ed13956",
+        "5dfee8b2-3a35-4246-b34f-267c8272a79d",
+        "7fcb60be-22d4-47a4-a859-232f5a5c4e00",
+        "1b6e088d-9099-487c-80b8-23c0454d5f0d",
+        "1c2137be-a225-4d69-b5bb-48a6d87776ce",
+        "9b77eb0d-21bb-4a2e-8144-afe98eacedaf",
+        "7b879cba-a9e9-4125-afb9-e8cff00fc9eb",
+        "da64b265-a3b2-4858-b32f-baab17486ff7",
+        "760a6de3-0fbe-4898-bc2c-f4b4ebb5187e",
+        "a33ad64e-f155-4c40-af7d-15128c4adacd"
+      ],
+      "unresolved_question_ids": [
+        "9c73d1de-b23a-441a-adf5-1a1982f94a73"
+      ],
+      "derived_context_ref": null
+    }
+  ],
+  "continuity_review": {
+    "coverage": "incomplete",
+    "reviewed_record_refs": [
+      {
+        "id": "711ac5fd-eb25-4a33-89ca-fc62260cb0a2",
+        "revision": 5
+      },
+      {
+        "id": "230b68ca-fa8b-45d3-8e31-de9d44027b6b",
+        "revision": 2
+      },
+      {
+        "id": "8d4abc77-ebc9-40ed-a753-65b5c161419b",
+        "revision": 2
+      },
+      {
+        "id": "3086ba61-669d-4800-b65a-9c7253334c91",
+        "revision": 2
+      },
+      {
+        "id": "4937b5e5-d88f-46ea-904e-f5b3f86ca30d",
+        "revision": 2
+      },
+      {
+        "id": "c8123df5-8424-40be-9c44-0256033457c5",
+        "revision": 1
+      },
+      {
+        "id": "7329912f-a403-4c50-958d-19ae373249e3",
+        "revision": 2
+      },
+      {
+        "id": "e19f2739-2527-4846-bb3b-1d240f0abf78",
+        "revision": 1
+      },
+      {
+        "id": "500cb7e7-4b11-4b6c-adbf-efc84d0f8ba0",
+        "revision": 2
+      },
+      {
+        "id": "792fbf4b-2835-4324-b4f7-8f99f784818d",
+        "revision": 1
+      },
+      {
+        "id": "46838eca-aced-4d1a-ac7d-8e180f31a0a0",
+        "revision": 1
+      },
+      {
+        "id": "d85445c0-a59a-48be-891d-62f6b3069651",
+        "revision": 2
+      },
+      {
+        "id": "f351ee38-3956-47ee-aa75-73b05234d57e",
+        "revision": 1
+      },
+      {
+        "id": "1a1d9bcc-8c1a-467e-ad5b-1dd3d37c8637",
+        "revision": 2
+      },
+      {
+        "id": "5a01d331-f41c-4304-928e-992847f870a7",
+        "revision": 1
+      },
+      {
+        "id": "27211402-c351-44c5-ba24-f68a936310d4",
+        "revision": 1
+      },
+      {
+        "id": "0d70cc7f-690e-4c72-98e4-788893c2d277",
+        "revision": 2
+      },
+      {
+        "id": "a594b87b-3178-4b67-a2b6-262f00cfcddc",
+        "revision": 1
+      },
+      {
+        "id": "90ddf826-91ec-4b56-8976-3dfb1e0a922c",
+        "revision": 2
+      },
+      {
+        "id": "c86ca859-8d22-4199-a988-a96d1c8edc6e",
+        "revision": 1
+      },
+      {
+        "id": "4710621c-1174-46f1-9ee0-926a995db608",
+        "revision": 1
+      },
+      {
+        "id": "515f2c3b-3bf9-4134-9b49-d95d5fce74b3",
+        "revision": 1
+      },
+      {
+        "id": "987d8385-a921-48cb-8482-ac5a79d25eda",
+        "revision": 1
+      },
+      {
+        "id": "1ccc30a9-a91b-482e-8af4-b02a8d2c1a97",
+        "revision": 1
+      },
+      {
+        "id": "bba91255-fc0d-422c-a491-7366a6df704e",
+        "revision": 2
+      },
+      {
+        "id": "29fd0678-1801-490d-916a-0dedd529434e",
+        "revision": 2
+      },
+      {
+        "id": "bf6a5ed8-e726-457e-95fd-1214bdd6faaa",
+        "revision": 1
+      },
+      {
+        "id": "80ebbf87-f2b6-4856-b9a2-1e99e64fde3a",
+        "revision": 1
+      },
+      {
+        "id": "f2def862-942a-4821-9d61-c0a26c2097de",
+        "revision": 1
+      },
+      {
+        "id": "a65358cf-d245-4ec6-9d4f-f81d2241cd59",
+        "revision": 1
+      },
+      {
+        "id": "d0c71de1-f1cc-44dd-bc6f-f10a9ee49d31",
+        "revision": 1
+      },
+      {
+        "id": "f98be7cf-b9e5-4ac8-b43e-230997f7d655",
+        "revision": 1
+      },
+      {
+        "id": "82eba284-22cc-4742-97df-4a2153d4f937",
+        "revision": 1
+      },
+      {
+        "id": "2047d58e-565b-428a-8626-6cfd46c7403c",
+        "revision": 1
+      },
+      {
+        "id": "4a1c2ec9-6efd-4269-a413-ec2838e2bcac",
+        "revision": 1
+      },
+      {
+        "id": "85612da9-7c6c-4185-8191-83e0325eee2a",
+        "revision": 2
+      },
+      {
+        "id": "8954dff5-7de8-47af-b033-365f7e3fe060",
+        "revision": 2
+      },
+      {
+        "id": "17c4de0d-c4bd-46f5-ab1f-1893db0e5ebc",
+        "revision": 1
+      },
+      {
+        "id": "81a06bea-6106-4acf-a8bd-0ee974ad2a29",
+        "revision": 1
+      },
+      {
+        "id": "756e32ca-3cfe-4b3a-9701-6af2aba49f93",
+        "revision": 2
+      },
+      {
+        "id": "646ced87-a708-4061-91df-3cfdc5a3e6b3",
+        "revision": 2
+      },
+      {
+        "id": "c030d800-4f31-4afd-b073-a3adf7961b05",
+        "revision": 1
+      },
+      {
+        "id": "7970f44c-3f47-49a7-8757-74b20a489b1e",
+        "revision": 2
+      },
+      {
+        "id": "60c1be74-63ec-4454-bed0-c6695d073414",
+        "revision": 2
+      },
+      {
+        "id": "8ed04638-c72b-4756-a528-f877afadf788",
+        "revision": 1
+      },
+      {
+        "id": "86ed5418-0570-496d-92ce-7090e6b9dde1",
+        "revision": 1
+      },
+      {
+        "id": "69059156-f3a0-4d96-820c-b342bbedc157",
+        "revision": 1
+      },
+      {
+        "id": "c33e9f0b-9220-4478-bac9-45b3a1cdcaad",
+        "revision": 1
+      },
+      {
+        "id": "656637ea-5007-40c0-9ac6-f9486c1bbfed",
+        "revision": 1
+      },
+      {
+        "id": "cfc45be6-0360-4549-9e99-171f6296e14c",
+        "revision": 1
+      },
+      {
+        "id": "e49f9a76-ac1d-4b6c-8a86-ae3eec006fa8",
+        "revision": 1
+      },
+      {
+        "id": "36444d2f-130a-4d73-824b-6c6e124f1a22",
+        "revision": 1
+      },
+      {
+        "id": "577ab9b9-643f-4d13-b6de-efd8c5e20c9a",
+        "revision": 1
+      },
+      {
+        "id": "ae958945-4549-49de-af7e-dd3fc760fc8b",
+        "revision": 1
+      },
+      {
+        "id": "d9215850-dcc4-4cb1-b999-e838039e2371",
+        "revision": 1
+      },
+      {
+        "id": "811ce9aa-ab20-4f4c-aa50-14ad476962cb",
+        "revision": 1
+      },
+      {
+        "id": "b57469ef-35bd-4efd-b433-41dd3b90a01b",
+        "revision": 1
+      },
+      {
+        "id": "7c424081-bf04-46ab-bf49-79b9a14b85ad",
+        "revision": 1
+      },
+      {
+        "id": "e79c6511-1406-4732-9948-72e0763f702d",
+        "revision": 2
+      },
+      {
+        "id": "3372ceb1-74ad-4e21-be1e-50ee4a2e8251",
+        "revision": 1
+      },
+      {
+        "id": "7984d4ed-acda-4940-b567-971592bb0507",
+        "revision": 1
+      },
+      {
+        "id": "79d3b1cf-2f9b-4497-92ed-8a1f63b090cc",
+        "revision": 1
+      },
+      {
+        "id": "7d30691d-6e7d-4c85-8bd2-61fc993a5440",
+        "revision": 1
+      },
+      {
+        "id": "ed991523-8d1a-4be6-a53b-7d704d195854",
+        "revision": 1
+      },
+      {
+        "id": "00fc1f94-7b76-4cfe-bab4-55eb9ac545be",
+        "revision": 1
+      },
+      {
+        "id": "81a44c03-3029-49bf-a82f-41481255d083",
+        "revision": 2
+      },
+      {
+        "id": "c8c55438-b9dc-4534-aed4-515d6d7e7193",
+        "revision": 1
+      },
+      {
+        "id": "a160b2aa-261a-4f08-b910-f846d4307617",
+        "revision": 1
+      },
+      {
+        "id": "da79f6a2-6b80-44d8-b67d-9d0bb7731c5f",
+        "revision": 1
+      },
+      {
+        "id": "c2a328d6-9474-4b20-81e2-f57327efa071",
+        "revision": 1
+      },
+      {
+        "id": "a5a37507-baff-4ad3-87c0-5a405dae0262",
+        "revision": 1
+      },
+      {
+        "id": "f1fcc75e-8c7d-44a7-aed2-d68e860db715",
+        "revision": 1
+      },
+      {
+        "id": "46964f35-84c1-4456-bf09-6c1d3b74fb20",
+        "revision": 1
+      },
+      {
+        "id": "99c51fea-b976-497a-b8c3-5d3b5aacffea",
+        "revision": 1
+      },
+      {
+        "id": "d2555a08-17a6-4f2b-bd07-cc4c3b37f619",
+        "revision": 1
+      },
+      {
+        "id": "cc940f23-5d36-46aa-8542-2de56ae91078",
+        "revision": 1
+      },
+      {
+        "id": "f1581433-3922-4247-befa-a4647976ec71",
+        "revision": 1
+      },
+      {
+        "id": "f0c9c761-3fdb-4db7-ba28-dac6587cf553",
+        "revision": 1
+      },
+      {
+        "id": "4fbb9867-6a9f-4441-9725-6f01d568a9c2",
+        "revision": 1
+      },
+      {
+        "id": "558ee882-eeef-4654-bf22-b83acda83f24",
+        "revision": 2
+      },
+      {
+        "id": "4f256968-185e-48bb-8209-4933e3e70230",
+        "revision": 2
+      },
+      {
+        "id": "f05c97e2-9647-47c2-b18f-f1d7aad90e06",
+        "revision": 2
+      },
+      {
+        "id": "17d426bd-a8df-48bd-883b-62a6590b42d8",
+        "revision": 2
+      },
+      {
+        "id": "c36f71a0-2ecd-444a-a038-cca37a23812d",
+        "revision": 1
+      },
+      {
+        "id": "b6bf10d8-dd6c-4414-b4a3-4f2a9b2db75b",
+        "revision": 1
+      },
+      {
+        "id": "7999a76d-00eb-4e1b-81ca-e0074e492fa9",
+        "revision": 1
+      },
+      {
+        "id": "a01c0753-7a94-46f6-974a-9aeb416e631b",
+        "revision": 1
+      },
+      {
+        "id": "a4f179f6-8b3d-4fe5-9fbf-fcacdd84c57f",
+        "revision": 1
+      },
+      {
+        "id": "cd7a9ab8-611c-4185-bb78-f2dcb1407fe3",
+        "revision": 1
+      },
+      {
+        "id": "e066972a-ded5-41f3-890e-86e478102813",
+        "revision": 2
+      },
+      {
+        "id": "79c29f4a-049c-4f80-99d4-feb50914813c",
+        "revision": 2
+      },
+      {
+        "id": "fab8d0b4-8490-40ff-947d-7d9d18a86b68",
+        "revision": 2
+      },
+      {
+        "id": "a5010930-b834-49f9-b122-6a6678a73e83",
+        "revision": 2
+      },
+      {
+        "id": "265f35ea-5dd5-463a-b083-00a8bca7df73",
+        "revision": 1
+      },
+      {
+        "id": "4ec27039-9f65-447b-a740-e5b20737d9ba",
+        "revision": 1
+      },
+      {
+        "id": "3f86204e-5886-46ef-b0cb-0849f04b8ff8",
+        "revision": 1
+      },
+      {
+        "id": "e4195696-47c0-4598-9633-477fa84617c0",
+        "revision": 1
+      },
+      {
+        "id": "0992b08f-79ff-449f-9d1f-4972833a5846",
+        "revision": 1
+      },
+      {
+        "id": "cdf3af43-8fca-4268-af32-1d7b31026923",
+        "revision": 1
+      },
+      {
+        "id": "ae6f1848-5501-4d0d-9ba2-81f0d8c034a6",
+        "revision": 1
+      },
+      {
+        "id": "91666f59-5a86-4f99-9669-eed33ab08f92",
+        "revision": 1
+      },
+      {
+        "id": "9888f02a-1968-48e3-9945-ced2a2953c8d",
+        "revision": 1
+      },
+      {
+        "id": "3206e87d-d058-48dc-b691-4cf20a3679d9",
+        "revision": 1
+      },
+      {
+        "id": "09ba833b-db90-49bb-94e9-05c8c50ec334",
+        "revision": 1
+      },
+      {
+        "id": "d5626dfc-dd52-4435-b38c-499842d68d8f",
+        "revision": 1
+      },
+      {
+        "id": "c9f32ba4-188f-4ee1-9ee2-d5d42b1ff1d4",
+        "revision": 1
+      },
+      {
+        "id": "60e3081b-187d-4b2b-b52a-1df93ab5e31c",
+        "revision": 1
+      },
+      {
+        "id": "134717c6-0cc8-4249-981b-b5c18e517d08",
+        "revision": 1
+      },
+      {
+        "id": "62ab0f6e-3d21-4482-9d60-ac5beb49ba38",
+        "revision": 1
+      },
+      {
+        "id": "92e21458-5351-4ebf-ad5d-54059b87def5",
+        "revision": 1
+      },
+      {
+        "id": "bd14ac9f-4b8f-4f9c-9f1f-eb34e8ec8f7f",
+        "revision": 4
+      },
+      {
+        "id": "d31dba8f-bdf2-4744-9c47-1359510d9d03",
+        "revision": 2
+      },
+      {
+        "id": "94cc12aa-9dea-4032-a58e-9e6b216f631d",
+        "revision": 2
+      },
+      {
+        "id": "b344c49b-220e-45ce-bf91-48a1836c4406",
+        "revision": 2
+      },
+      {
+        "id": "1d2bf975-171c-48a6-b03b-b1eeb984a32f",
+        "revision": 2
+      },
+      {
+        "id": "f5138be7-8137-4360-8129-97933c28b53a",
+        "revision": 2
+      },
+      {
+        "id": "8e045fd6-3b53-404d-bcb5-669527854e2f",
+        "revision": 2
+      },
+      {
+        "id": "6cd104ac-5256-47e5-8cc2-454e88700f8b",
+        "revision": 2
+      },
+      {
+        "id": "872262c3-acb0-4d10-bb8d-256dd69bc7f1",
+        "revision": 2
+      },
+      {
+        "id": "f8d47499-791b-4f19-a4ed-18bdd844c2ab",
+        "revision": 2
+      },
+      {
+        "id": "553cc2f0-4dfb-4e9e-a9c0-8f66ccfbbbfb",
+        "revision": 1
+      },
+      {
+        "id": "0a95e2e3-a6c3-426b-9212-60b27751ce4a",
+        "revision": 1
+      },
+      {
+        "id": "a65f2d80-43bf-4103-b5ee-3bac40281900",
+        "revision": 1
+      },
+      {
+        "id": "045b572d-fcf6-4521-b2a6-ce88f794094f",
+        "revision": 2
+      },
+      {
+        "id": "bc9c3db4-018c-4500-ab72-16519ca705d5",
+        "revision": 2
+      },
+      {
+        "id": "6a61ab8a-d512-49ad-ba33-bd130bb6f534",
+        "revision": 2
+      },
+      {
+        "id": "eb8b34e9-ec78-47c5-bf60-da24da54d123",
+        "revision": 2
+      },
+      {
+        "id": "0892fa17-5e1c-4c59-84e5-4d6de2f8f4df",
+        "revision": 2
+      },
+      {
+        "id": "2c0f86dd-155d-4b5b-ae1d-5207dfee9e2b",
+        "revision": 2
+      },
+      {
+        "id": "f2c29259-c5b0-4b9c-a272-1bbefd82645a",
+        "revision": 2
+      },
+      {
+        "id": "e2e8e629-c584-48ab-acc3-8c2c9958a583",
+        "revision": 2
+      },
+      {
+        "id": "24217ee6-14c5-4590-bf90-cdfc550e7234",
+        "revision": 2
+      },
+      {
+        "id": "b6279ad2-0eaf-4f5a-b7fa-d67643574285",
+        "revision": 1
+      },
+      {
+        "id": "247e8a85-44dd-46cb-ac9c-761b72a68484",
+        "revision": 1
+      },
+      {
+        "id": "b63ec5c5-6585-488a-bbc1-396428f3d71d",
+        "revision": 1
+      },
+      {
+        "id": "cd8104e3-07fc-416a-bfa9-076888134348",
+        "revision": 2
+      },
+      {
+        "id": "93c85a29-4d91-4c23-b682-7677c95fbf79",
+        "revision": 2
+      },
+      {
+        "id": "97f50591-87d2-484b-ae0b-59aa0c6d8814",
+        "revision": 1
+      },
+      {
+        "id": "0d4af3ab-6e46-401c-a291-e30986fb3ec4",
+        "revision": 1
+      },
+      {
+        "id": "ae03d21f-d3df-4a21-9202-9fb67c7ba9bc",
+        "revision": 1
+      },
+      {
+        "id": "52a35a1a-07e1-4d3e-8f10-1b33f85e3bcc",
+        "revision": 1
+      },
+      {
+        "id": "68339a4d-6d96-4031-8dcc-ff5a525438bf",
+        "revision": 1
+      },
+      {
+        "id": "d242638a-56f3-4128-979f-2627aaad7122",
+        "revision": 1
+      },
+      {
+        "id": "21ab8021-4331-4394-b326-49a05b80269f",
+        "revision": 1
+      },
+      {
+        "id": "0ccbdb45-6160-4fe3-ab0a-f32a00edbe58",
+        "revision": 1
+      },
+      {
+        "id": "c6ae569e-30d2-44a9-8a59-d0758070216b",
+        "revision": 1
+      },
+      {
+        "id": "106da5e3-4aa2-4d01-bb23-9ba969520c2f",
+        "revision": 1
+      },
+      {
+        "id": "8fc8b19d-8341-4d0d-bc96-6ed7d8582a54",
+        "revision": 1
+      },
+      {
+        "id": "1ee64885-d273-4246-803b-2cee08578ebd",
+        "revision": 1
+      },
+      {
+        "id": "f82120a5-bfc1-429b-b18d-b6b1ec361432",
+        "revision": 1
+      },
+      {
+        "id": "e66724ac-fa91-41b1-836c-e6561825b148",
+        "revision": 1
+      },
+      {
+        "id": "9c73d1de-b23a-441a-adf5-1a1982f94a73",
+        "revision": 1
+      },
+      {
+        "id": "0b71babb-3320-4478-ab98-7133afebc58e",
+        "revision": 1
+      },
+      {
+        "id": "3b4b97a9-fab1-4d97-977a-fa034c273153",
+        "revision": 1
+      },
+      {
+        "id": "332aa033-a9ad-47b3-a9ee-483705902adb",
+        "revision": 1
+      },
+      {
+        "id": "83f63405-90bb-42f2-a4c5-be2acad2e507",
+        "revision": 1
+      },
+      {
+        "id": "a6ad138e-daef-4299-b69f-f83e4ed13956",
+        "revision": 1
+      },
+      {
+        "id": "5dfee8b2-3a35-4246-b34f-267c8272a79d",
+        "revision": 1
+      },
+      {
+        "id": "7fcb60be-22d4-47a4-a859-232f5a5c4e00",
+        "revision": 1
+      },
+      {
+        "id": "1b6e088d-9099-487c-80b8-23c0454d5f0d",
+        "revision": 1
+      },
+      {
+        "id": "1c2137be-a225-4d69-b5bb-48a6d87776ce",
+        "revision": 1
+      },
+      {
+        "id": "9b77eb0d-21bb-4a2e-8144-afe98eacedaf",
+        "revision": 1
+      },
+      {
+        "id": "7b879cba-a9e9-4125-afb9-e8cff00fc9eb",
+        "revision": 1
+      },
+      {
+        "id": "da64b265-a3b2-4858-b32f-baab17486ff7",
+        "revision": 1
+      }
+    ],
+    "unavailable_refs": [],
+    "canon_hold_refs": [
+      "c2a328d6-9474-4b20-81e2-f57327efa071",
+      "a5a37507-baff-4ad3-87c0-5a405dae0262",
+      "69059156-f3a0-4d96-820c-b342bbedc157",
+      "cd8104e3-07fc-416a-bfa9-076888134348",
+      "b6279ad2-0eaf-4f5a-b7fa-d67643574285",
+      "247e8a85-44dd-46cb-ac9c-761b72a68484",
+      "60e3081b-187d-4b2b-b52a-1df93ab5e31c",
+      "134717c6-0cc8-4249-981b-b5c18e517d08"
+    ],
+    "finding_ids": [
+      "f1fcc75e-8c7d-44a7-aed2-d68e860db715",
+      "f05c97e2-9647-47c2-b18f-f1d7aad90e06",
+      "f5138be7-8137-4360-8129-97933c28b53a",
+      "f8d47499-791b-4f19-a4ed-18bdd844c2ab",
+      "045b572d-fcf6-4521-b2a6-ce88f794094f",
+      "0892fa17-5e1c-4c59-84e5-4d6de2f8f4df",
+      "24217ee6-14c5-4590-bf90-cdfc550e7234",
+      "93c85a29-4d91-4c23-b682-7677c95fbf79",
+      "1ee64885-d273-4246-803b-2cee08578ebd",
+      "0b71babb-3320-4478-ab98-7133afebc58e"
+    ],
+    "summary": "Rétt Samfella-lota tiltæk og endurlesin. Framleiðsluvalidate skilaði valid=true á sama staðfestum forvera áður en ótiltækisbið er aflétt. Röng beiðni afturkölluð og tengd opin spurning leyst án staðfestingar æskuatburðar. Wildcard ótiltækisumfang tekið úr nýrri yfirferð; frestað æskutengslaálitamál og opið flotbrúarálitamál halda nákvæmum fyrri sviðum. Öll önnur óleyst ráðgefandi atriði og spurningar varðveitt."
+  },
+  "payload_digest": "59c0729ba19f003655b22042e64c88657c6c21aec8504991b74a0a762b540670"
+}

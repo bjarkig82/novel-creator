@@ -1,0 +1,545 @@
+{
+  "schema_version": "1.0",
+  "novel_id": "711ac5fd-eb25-4a33-89ca-fc62260cb0a2",
+  "exchange_id": "db2bf4d1-2c82-4a83-a8a8-cb8ebf0e9229",
+  "sequence": 6,
+  "previous_exchange_id": "38fb5b68-545e-4692-9d9b-0d0e0377a62d",
+  "previous_digest": "927275342048ea668464177741b3cd40da41e35820914cadefe127bbf0688cf5",
+  "session_id": "501375af-c06c-40ed-8d39-eb69416cb790",
+  "expected_git_head": "07ad1ee9980d168695fa3cf791c60970718c3f84",
+  "recorded_at": "2026-10-23T23:28:08.716964Z",
+  "operation": "conversation",
+  "messages": [
+    {
+      "message_id": "3c7156a0-d046-45e9-85ef-bae505b98eeb",
+      "role": "user",
+      "text": "Tilvik CORRECTION. Förum aftur í Fólk og höldum leiðsagða hamnum. Leiðrétting á fyrri ósamþykktri skráningu: Rúna safnar rekaviði, ekki sjógleri. Þetta er leiðrétting á tillögunni, ekki samþykki. Varðveittu fyrra rangt orðalag svo hægt sé að skoða það. Einn mögulegur söguþráður til viðbótar: Edda gæti rakið bréfið um göngin að leyniherberginu. Sá þráður er áfram tillaga og á ekki að þróast frekar núna. Allar fimm fyrri ósvaraðar spurningar eru áfram opnar. Gefðu yfirlit við yfirferðarpunkt um skráðar tillögur, staðfestar ákvarðanir og opnar spurningar með útgáfum heimildafærslna og vistunarpunkti; staldraðu svo við."
+    },
+    {
+      "message_id": "4b9b6d4a-ea83-4cde-a892-9017916ca1b9",
+      "role": "assistant",
+      "text": "Fólk er aftur virk lota í leiðsögðum ham.\n\nLeiðrétt tillaga: Rúna safnar rekaviði, ekki sjógleri (29fd0678 v2; fullyrðing bba91255 v2). Þetta er ekki samþykki. Fyrra orðalag helst í v1 sömu færslna; leiðrétting 7d30691d v1.\n\nStaðfestar ákvarðanir:\n- Rúna er vitavörður; Rúna er sendandi bréfsins (ákvörðun 792fbf4b v1).\n- Ari er bróðir Rúnu; Ari er fórnarlambið (ákvörðun 5a01d331 v1).\n- Edda er systir Rúnu; Edda er rannsakandinn (ákvörðun c86ca859 v1).\n- Rúna þekkir Bjarna (ákvörðun 987d8385 v1).\n- ljósið bilaði nóttina sem bréfið kom (ákvörðun 2047d58e v1).\n- bréfið kom fyrir dögun (ákvörðun 17c4de0d v1).\n- sagan gerist að vetri (ákvörðun c030d800 v1).\n- engin brú er á eyjuna (ákvörðun 656637ea v1).\n- bréfið ber látúnsinnsigli (ákvörðun 577ab9b9 v1).\n- Rúna hefur svarið að vernda Eddu (ákvörðun b57469ef v1).\n\nSkráðar tillögur og óútkljáðir valkostir:\n- Rúna safnar rekaviði (29fd0678 v2).\n- Edda vantreystir bjöllum (45553df8 v1).\n- Bjarni skuldar Eddu hugsanlega peninga (8a81444f v1).\n- stormur gæti falið merki (27765347 v1).\n- Stormur (da566d49 v1).\n- Heiðskírt veður (3ee9968a v1).\n- skipbrot gæti orðið (37d7b9b9 v1).\n- blátt ljós gæti sést (60c1be74 v1).\n- viðvörunarbjalla gæti hljómað (e37f88d3 v1).\n- göng gætu tengt vitann og höfnina (9b4ec66f v1).\n- fjara gæti afhjúpað gamlar tröppur (ffbf3c57 v1).\n- leynilegt herbergi gæti geymt kort (54443716 v1).\n- Edda gæti rakið bréfið um göngin að leyniherberginu (a14330f1 v1).\n- Bjarni sem sjómaður er einnig óstaðfest skráning (1ccc30a9 v1).\n\nAllar fimm spurningarnar eru áfram opnar, án svara:\n- Hvers vegna sendi Rúna bréfið? (f2def862 v1).\n- Hvað vill Edda frá Bjarna? (a65358cf v1).\n- Hver finnur bréfið? (5d72fc12 v1).\n- Hvenær kemur Bjarni aftur? (8ed04638 v1).\n- Hvað opnar leyniherbergið? (7d3570e2 v1).\n\nHeimildastaða fyrri færslna: vistunarpunktur 07ad1ee9980d168695fa3cf791c60970718c3f84, röð 5. Leiðréttingin og nýi þráðurinn tilheyra þessari færslu db2bf4d1-2c82-4a83-a8a8-cb8ebf0e9229, röð 6; lota 501375af v2.\nYfirlitið er afleitt af þessum heimildafærslum. Ég staldra við án frekari þróunar."
+    }
+  ],
+  "input_artifacts": [
+    {
+      "artifact_id": "5e490314-277f-4c9f-864b-11585bd38faa",
+      "original_text": "{\"kind\":\"host_input\",\"source_type\":\"delegated\",\"thread_id\":\"01a16afa-1197-7650-8189-9365687429ee\",\"turn_id\":\"01a16b16-e6fd-7022-8939-37fa4e220e4f\",\"event_id\":\"fco_01a16b16-e6fd-7022-8939-3804b74305af\",\"event_type\":\"functionCallOutput\",\"source_thread_id\":\"01a16af6-0d9b-7173-a5f5-c8775f37df18\",\"native_user_input\":false,\"novice_evidence\":false,\"evaluation_only\":true,\"text\":\"Tilvik CORRECTION. Förum aftur í Fólk og höldum leiðsagða hamnum. Leiðrétting á fyrri ósamþykktri skráningu: Rúna safnar rekaviði, ekki sjógleri. Þetta er leiðrétting á tillögunni, ekki samþykki. Varðveittu fyrra rangt orðalag svo hægt sé að skoða það. Einn mögulegur söguþráður til viðbótar: Edda gæti rakið bréfið um göngin að leyniherberginu. Sá þráður er áfram tillaga og á ekki að þróast frekar núna. Allar fimm fyrri ósvaraðar spurningar eru áfram opnar. Gefðu yfirlit við yfirferðarpunkt um skráðar tillögur, staðfestar ákvarðanir og opnar spurningar með útgáfum heimildafærslna og vistunarpunkti; staldraðu svo við.\",\"public_event\":{\"type\":\"functionCallOutput\",\"id\":\"fco_01a16b16-e6fd-7022-8939-3804b74305af\",\"namespace\":\"codex_app\",\"name\":\"send_message_to_thread\",\"output\":{\"text\":\"<codex_delegation>\\n  <source_thread_id>01a16af6-0d9b-7173-a5f5-c8775f37df18</source_thread_id>\\n  <input>Tilvik CORRECTION. Förum aftur í Fólk og höldum leiðsagða hamnum. Leiðrétting á fyrri ósamþykktri skráningu: Rúna safnar rekaviði, ekki sjógleri. Þetta er leiðrétting á tillögunni, ekki samþykki. Varðveittu fyrra rangt orðalag svo hægt sé að skoða það. Einn mögulegur söguþráður til viðbótar: Edda gæti rakið bréfið um göngin að leyniherberginu. Sá þráður er áfram tillaga og á ekki að þróast frekar núna. Allar fimm fyrri ósvaraðar spurningar eru áfram opnar. Gefðu yfirlit við yfirferðarpunkt um skráðar tillögur, staðfestar ákvarðanir og opnar spurningar með útgáfum heimildafærslna og vistunarpunkti; staldraðu svo við.</input>\\n</codex_delegation>\",\"truncated\":false}}}",
+      "parsed_value": {
+        "kind": "host_input",
+        "source_type": "delegated",
+        "thread_id": "01a16afa-1197-7650-8189-9365687429ee",
+        "turn_id": "01a16b16-e6fd-7022-8939-37fa4e220e4f",
+        "event_id": "fco_01a16b16-e6fd-7022-8939-3804b74305af",
+        "event_type": "functionCallOutput",
+        "source_thread_id": "01a16af6-0d9b-7173-a5f5-c8775f37df18",
+        "native_user_input": false,
+        "novice_evidence": false,
+        "evaluation_only": true,
+        "text": "Tilvik CORRECTION. Förum aftur í Fólk og höldum leiðsagða hamnum. Leiðrétting á fyrri ósamþykktri skráningu: Rúna safnar rekaviði, ekki sjógleri. Þetta er leiðrétting á tillögunni, ekki samþykki. Varðveittu fyrra rangt orðalag svo hægt sé að skoða það. Einn mögulegur söguþráður til viðbótar: Edda gæti rakið bréfið um göngin að leyniherberginu. Sá þráður er áfram tillaga og á ekki að þróast frekar núna. Allar fimm fyrri ósvaraðar spurningar eru áfram opnar. Gefðu yfirlit við yfirferðarpunkt um skráðar tillögur, staðfestar ákvarðanir og opnar spurningar með útgáfum heimildafærslna og vistunarpunkti; staldraðu svo við.",
+        "public_event": {
+          "type": "functionCallOutput",
+          "id": "fco_01a16b16-e6fd-7022-8939-3804b74305af",
+          "namespace": "codex_app",
+          "name": "send_message_to_thread",
+          "output": {
+            "text": "<codex_delegation>\n  <source_thread_id>01a16af6-0d9b-7173-a5f5-c8775f37df18</source_thread_id>\n  <input>Tilvik CORRECTION. Förum aftur í Fólk og höldum leiðsagða hamnum. Leiðrétting á fyrri ósamþykktri skráningu: Rúna safnar rekaviði, ekki sjógleri. Þetta er leiðrétting á tillögunni, ekki samþykki. Varðveittu fyrra rangt orðalag svo hægt sé að skoða það. Einn mögulegur söguþráður til viðbótar: Edda gæti rakið bréfið um göngin að leyniherberginu. Sá þráður er áfram tillaga og á ekki að þróast frekar núna. Allar fimm fyrri ósvaraðar spurningar eru áfram opnar. Gefðu yfirlit við yfirferðarpunkt um skráðar tillögur, staðfestar ákvarðanir og opnar spurningar með útgáfum heimildafærslna og vistunarpunkti; staldraðu svo við.</input>\n</codex_delegation>",
+            "truncated": false
+          }
+        }
+      },
+      "digest": "3a930b4a541349b21c3e35ec2c89ca78be998fd130f5648005ce277be8dfc22d"
+    }
+  ],
+  "record_versions": [
+    {
+      "id": "7d30691d-6e7d-4c85-8bd2-61fc993a5440",
+      "kind": "decision",
+      "revision": 1,
+      "previous_revision": null,
+      "created_exchange_id": "db2bf4d1-2c82-4a83-a8a8-cb8ebf0e9229",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "db2bf4d1-2c82-4a83-a8a8-cb8ebf0e9229",
+          "message_id": "3c7156a0-d046-45e9-85ef-bae505b98eeb",
+          "range": {
+            "start": 109,
+            "end": 145
+          }
+        }
+      ],
+      "action": "correct",
+      "user_message_ref": {
+        "type": "message",
+        "exchange_id": "db2bf4d1-2c82-4a83-a8a8-cb8ebf0e9229",
+        "message_id": "3c7156a0-d046-45e9-85ef-bae505b98eeb",
+        "range": {
+          "start": 109,
+          "end": 145
+        }
+      },
+      "span": {
+        "start": 109,
+        "end": 145
+      },
+      "target_refs": [
+        {
+          "id": "29fd0678-1801-490d-916a-0dedd529434e",
+          "revision": 1
+        },
+        {
+          "id": "bba91255-fc0d-422c-a491-7366a6df704e",
+          "revision": 1
+        }
+      ],
+      "selected_parts": [],
+      "prior_refs": [
+        {
+          "id": "29fd0678-1801-490d-916a-0dedd529434e",
+          "revision": 1
+        },
+        {
+          "id": "bba91255-fc0d-422c-a491-7366a6df704e",
+          "revision": 1
+        }
+      ],
+      "result_refs": [
+        {
+          "id": "29fd0678-1801-490d-916a-0dedd529434e",
+          "revision": 2
+        },
+        {
+          "id": "bba91255-fc0d-422c-a491-7366a6df704e",
+          "revision": 2
+        }
+      ],
+      "reason": "Leiðrétting á ósamþykktri tillögu; rekaviður í stað sjóglers. Ekki samþykki.",
+      "affected_refs": [],
+      "review_required_refs": []
+    },
+    {
+      "id": "29fd0678-1801-490d-916a-0dedd529434e",
+      "kind": "idea",
+      "revision": 2,
+      "previous_revision": 1,
+      "created_exchange_id": "2f8666f6-9e21-4a15-af6b-cfeff1904bd6",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "2f8666f6-9e21-4a15-af6b-cfeff1904bd6",
+          "message_id": "c46b3942-0b17-41f2-b97b-21bb6b05ae14",
+          "range": {
+            "start": 250,
+            "end": 270
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "db2bf4d1-2c82-4a83-a8a8-cb8ebf0e9229",
+          "message_id": "3c7156a0-d046-45e9-85ef-bae505b98eeb",
+          "range": {
+            "start": 109,
+            "end": 145
+          }
+        }
+      ],
+      "statement": "Rúna safnar rekaviði",
+      "status": "proposed",
+      "related_element_ids": [
+        "230b68ca-fa8b-45d3-8e31-de9d44027b6b"
+      ],
+      "alternative_group_id": null,
+      "selected_parts": [],
+      "decision_ids": [
+        "7d30691d-6e7d-4c85-8bd2-61fc993a5440"
+      ],
+      "resulting_assertion_ids": [
+        "bba91255-fc0d-422c-a491-7366a6df704e"
+      ]
+    },
+    {
+      "id": "bba91255-fc0d-422c-a491-7366a6df704e",
+      "kind": "assertion",
+      "revision": 2,
+      "previous_revision": 1,
+      "created_exchange_id": "2f8666f6-9e21-4a15-af6b-cfeff1904bd6",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "2f8666f6-9e21-4a15-af6b-cfeff1904bd6",
+          "message_id": "c46b3942-0b17-41f2-b97b-21bb6b05ae14",
+          "range": {
+            "start": 250,
+            "end": 270
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "db2bf4d1-2c82-4a83-a8a8-cb8ebf0e9229",
+          "message_id": "3c7156a0-d046-45e9-85ef-bae505b98eeb",
+          "range": {
+            "start": 109,
+            "end": 145
+          }
+        }
+      ],
+      "subject_element_id": "230b68ca-fa8b-45d3-8e31-de9d44027b6b",
+      "predicate": "safnar",
+      "value": "rekaviði",
+      "perspective": "author_truth",
+      "holder_id": null,
+      "reader_audience": null,
+      "time_ref": {
+        "chronology": {
+          "start": null,
+          "end": null,
+          "precision": "unknown",
+          "event_anchor": null,
+          "before_refs": [],
+          "after_refs": []
+        },
+        "narrative": {
+          "start": null,
+          "end": null,
+          "precision": "unknown",
+          "event_anchor": null,
+          "before_refs": [],
+          "after_refs": []
+        }
+      },
+      "truth_state": "affirmed",
+      "status": "proposed",
+      "decision_ids": [
+        "7d30691d-6e7d-4c85-8bd2-61fc993a5440"
+      ],
+      "supersedes": {
+        "id": "bba91255-fc0d-422c-a491-7366a6df704e",
+        "revision": 1
+      }
+    },
+    {
+      "id": "ed991523-8d1a-4be6-a53b-7d704d195854",
+      "kind": "story_element",
+      "revision": 1,
+      "previous_revision": null,
+      "created_exchange_id": "db2bf4d1-2c82-4a83-a8a8-cb8ebf0e9229",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "db2bf4d1-2c82-4a83-a8a8-cb8ebf0e9229",
+          "message_id": "3c7156a0-d046-45e9-85ef-bae505b98eeb",
+          "range": {
+            "start": 293,
+            "end": 345
+          }
+        }
+      ],
+      "element_type": "plot_thread",
+      "display_name": "Edda rekur bréfið um göngin að leyniherberginu",
+      "aliases": [],
+      "status": "proposed",
+      "assertion_ids": [],
+      "relationship_ids": [],
+      "dependency_refs": [
+        {
+          "id": "3086ba61-669d-4800-b65a-9c7253334c91",
+          "revision": 1
+        },
+        {
+          "id": "cfc45be6-0360-4549-9e99-171f6296e14c",
+          "revision": 1
+        },
+        {
+          "id": "7c424081-bf04-46ab-bf49-79b9a14b85ad",
+          "revision": 1
+        },
+        {
+          "id": "7984d4ed-acda-4940-b567-971592bb0507",
+          "revision": 1
+        }
+      ],
+      "time_ref": null,
+      "decision_ids": []
+    },
+    {
+      "id": "a14330f1-d2c6-41b8-863a-d20241250f24",
+      "kind": "idea",
+      "revision": 1,
+      "previous_revision": null,
+      "created_exchange_id": "db2bf4d1-2c82-4a83-a8a8-cb8ebf0e9229",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "db2bf4d1-2c82-4a83-a8a8-cb8ebf0e9229",
+          "message_id": "3c7156a0-d046-45e9-85ef-bae505b98eeb",
+          "range": {
+            "start": 293,
+            "end": 345
+          }
+        }
+      ],
+      "statement": "Edda gæti rakið bréfið um göngin að leyniherberginu.",
+      "status": "proposed",
+      "related_element_ids": [
+        "ed991523-8d1a-4be6-a53b-7d704d195854",
+        "3086ba61-669d-4800-b65a-9c7253334c91",
+        "cfc45be6-0360-4549-9e99-171f6296e14c",
+        "7c424081-bf04-46ab-bf49-79b9a14b85ad",
+        "7984d4ed-acda-4940-b567-971592bb0507"
+      ],
+      "alternative_group_id": null,
+      "selected_parts": [],
+      "decision_ids": [],
+      "resulting_assertion_ids": []
+    },
+    {
+      "id": "501375af-c06c-40ed-8d39-eb69416cb790",
+      "kind": "session",
+      "revision": 2,
+      "previous_revision": 1,
+      "created_exchange_id": "2f8666f6-9e21-4a15-af6b-cfeff1904bd6",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "db2bf4d1-2c82-4a83-a8a8-cb8ebf0e9229",
+          "message_id": "3c7156a0-d046-45e9-85ef-bae505b98eeb",
+          "range": {
+            "start": 19,
+            "end": 65
+          }
+        }
+      ],
+      "topic": "Fólk",
+      "mode": "guided",
+      "state": "open",
+      "started_exchange_id": "2f8666f6-9e21-4a15-af6b-cfeff1904bd6",
+      "last_exchange_id": "db2bf4d1-2c82-4a83-a8a8-cb8ebf0e9229",
+      "related_record_ids": [
+        "230b68ca-fa8b-45d3-8e31-de9d44027b6b",
+        "8d4abc77-ebc9-40ed-a753-65b5c161419b",
+        "3086ba61-669d-4800-b65a-9c7253334c91",
+        "4937b5e5-d88f-46ea-904e-f5b3f86ca30d",
+        "c8123df5-8424-40be-9c44-0256033457c5",
+        "7329912f-a403-4c50-958d-19ae373249e3",
+        "e19f2739-2527-4846-bb3b-1d240f0abf78",
+        "500cb7e7-4b11-4b6c-adbf-efc84d0f8ba0",
+        "792fbf4b-2835-4324-b4f7-8f99f784818d",
+        "46838eca-aced-4d1a-ac7d-8e180f31a0a0",
+        "d85445c0-a59a-48be-891d-62f6b3069651",
+        "f351ee38-3956-47ee-aa75-73b05234d57e",
+        "1a1d9bcc-8c1a-467e-ad5b-1dd3d37c8637",
+        "5a01d331-f41c-4304-928e-992847f870a7",
+        "27211402-c351-44c5-ba24-f68a936310d4",
+        "0d70cc7f-690e-4c72-98e4-788893c2d277",
+        "a594b87b-3178-4b67-a2b6-262f00cfcddc",
+        "90ddf826-91ec-4b56-8976-3dfb1e0a922c",
+        "c86ca859-8d22-4199-a988-a96d1c8edc6e",
+        "4710621c-1174-46f1-9ee0-926a995db608",
+        "515f2c3b-3bf9-4134-9b49-d95d5fce74b3",
+        "987d8385-a921-48cb-8482-ac5a79d25eda",
+        "1ccc30a9-a91b-482e-8af4-b02a8d2c1a97",
+        "bba91255-fc0d-422c-a491-7366a6df704e",
+        "29fd0678-1801-490d-916a-0dedd529434e",
+        "bf6a5ed8-e726-457e-95fd-1214bdd6faaa",
+        "45553df8-86d7-4049-9611-f68851d1c81c",
+        "80ebbf87-f2b6-4856-b9a2-1e99e64fde3a",
+        "8a81444f-107a-4b68-acc9-d1092f720425",
+        "f2def862-942a-4821-9d61-c0a26c2097de",
+        "a65358cf-d245-4ec6-9d4f-f81d2241cd59",
+        "ed991523-8d1a-4be6-a53b-7d704d195854",
+        "a14330f1-d2c6-41b8-863a-d20241250f24",
+        "7d30691d-6e7d-4c85-8bd2-61fc993a5440"
+      ],
+      "unresolved_question_ids": [
+        "f2def862-942a-4821-9d61-c0a26c2097de",
+        "a65358cf-d245-4ec6-9d4f-f81d2241cd59"
+      ],
+      "derived_context_ref": null
+    }
+  ],
+  "continuity_review": {
+    "coverage": "complete",
+    "reviewed_record_refs": [
+      {
+        "id": "230b68ca-fa8b-45d3-8e31-de9d44027b6b",
+        "revision": 1
+      },
+      {
+        "id": "8d4abc77-ebc9-40ed-a753-65b5c161419b",
+        "revision": 1
+      },
+      {
+        "id": "3086ba61-669d-4800-b65a-9c7253334c91",
+        "revision": 1
+      },
+      {
+        "id": "4937b5e5-d88f-46ea-904e-f5b3f86ca30d",
+        "revision": 1
+      },
+      {
+        "id": "c8123df5-8424-40be-9c44-0256033457c5",
+        "revision": 1
+      },
+      {
+        "id": "7329912f-a403-4c50-958d-19ae373249e3",
+        "revision": 1
+      },
+      {
+        "id": "e19f2739-2527-4846-bb3b-1d240f0abf78",
+        "revision": 1
+      },
+      {
+        "id": "500cb7e7-4b11-4b6c-adbf-efc84d0f8ba0",
+        "revision": 1
+      },
+      {
+        "id": "46838eca-aced-4d1a-ac7d-8e180f31a0a0",
+        "revision": 1
+      },
+      {
+        "id": "d85445c0-a59a-48be-891d-62f6b3069651",
+        "revision": 1
+      },
+      {
+        "id": "f351ee38-3956-47ee-aa75-73b05234d57e",
+        "revision": 1
+      },
+      {
+        "id": "1a1d9bcc-8c1a-467e-ad5b-1dd3d37c8637",
+        "revision": 1
+      },
+      {
+        "id": "27211402-c351-44c5-ba24-f68a936310d4",
+        "revision": 1
+      },
+      {
+        "id": "0d70cc7f-690e-4c72-98e4-788893c2d277",
+        "revision": 1
+      },
+      {
+        "id": "a594b87b-3178-4b67-a2b6-262f00cfcddc",
+        "revision": 1
+      },
+      {
+        "id": "90ddf826-91ec-4b56-8976-3dfb1e0a922c",
+        "revision": 1
+      },
+      {
+        "id": "4710621c-1174-46f1-9ee0-926a995db608",
+        "revision": 1
+      },
+      {
+        "id": "515f2c3b-3bf9-4134-9b49-d95d5fce74b3",
+        "revision": 1
+      },
+      {
+        "id": "d0c71de1-f1cc-44dd-bc6f-f10a9ee49d31",
+        "revision": 1
+      },
+      {
+        "id": "f98be7cf-b9e5-4ac8-b43e-230997f7d655",
+        "revision": 1
+      },
+      {
+        "id": "82eba284-22cc-4742-97df-4a2153d4f937",
+        "revision": 1
+      },
+      {
+        "id": "4a1c2ec9-6efd-4269-a413-ec2838e2bcac",
+        "revision": 1
+      },
+      {
+        "id": "85612da9-7c6c-4185-8191-83e0325eee2a",
+        "revision": 1
+      },
+      {
+        "id": "8954dff5-7de8-47af-b033-365f7e3fe060",
+        "revision": 1
+      },
+      {
+        "id": "81a06bea-6106-4acf-a8bd-0ee974ad2a29",
+        "revision": 1
+      },
+      {
+        "id": "756e32ca-3cfe-4b3a-9701-6af2aba49f93",
+        "revision": 1
+      },
+      {
+        "id": "646ced87-a708-4061-91df-3cfdc5a3e6b3",
+        "revision": 1
+      },
+      {
+        "id": "86ed5418-0570-496d-92ce-7090e6b9dde1",
+        "revision": 1
+      },
+      {
+        "id": "69059156-f3a0-4d96-820c-b342bbedc157",
+        "revision": 1
+      },
+      {
+        "id": "c33e9f0b-9220-4478-bac9-45b3a1cdcaad",
+        "revision": 1
+      },
+      {
+        "id": "cfc45be6-0360-4549-9e99-171f6296e14c",
+        "revision": 1
+      },
+      {
+        "id": "e49f9a76-ac1d-4b6c-8a86-ae3eec006fa8",
+        "revision": 1
+      },
+      {
+        "id": "36444d2f-130a-4d73-824b-6c6e124f1a22",
+        "revision": 1
+      },
+      {
+        "id": "ae958945-4549-49de-af7e-dd3fc760fc8b",
+        "revision": 1
+      },
+      {
+        "id": "d9215850-dcc4-4cb1-b999-e838039e2371",
+        "revision": 1
+      },
+      {
+        "id": "811ce9aa-ab20-4f4c-aa50-14ad476962cb",
+        "revision": 1
+      },
+      {
+        "id": "29fd0678-1801-490d-916a-0dedd529434e",
+        "revision": 2
+      },
+      {
+        "id": "bba91255-fc0d-422c-a491-7366a6df704e",
+        "revision": 2
+      },
+      {
+        "id": "ed991523-8d1a-4be6-a53b-7d704d195854",
+        "revision": 1
+      },
+      {
+        "id": "a14330f1-d2c6-41b8-863a-d20241250f24",
+        "revision": 1
+      },
+      {
+        "id": "7c424081-bf04-46ab-bf49-79b9a14b85ad",
+        "revision": 1
+      },
+      {
+        "id": "7984d4ed-acda-4940-b567-971592bb0507",
+        "revision": 1
+      }
+    ],
+    "unavailable_refs": [],
+    "canon_hold_refs": [],
+    "finding_ids": [],
+    "summary": "Leiðrétting á ósamþykktri söfnunartillögu breytir engri staðfestri staðreynd. Nýr þráður byggir á óstaðfestum göngum og herbergi og helst tillaga; engin vitneskja Eddu, tímasetning eða svör ályktuð. Fimm fyrri spurningar áfram opnar."
+  },
+  "payload_digest": "800a93eafed5203272b967c64bc80eb52726caec4da61b72de94c2118d399898"
+}

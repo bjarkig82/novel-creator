@@ -1,0 +1,277 @@
+test_branch_head_query_preserves_git_reference_states (tests.integration.test_storage.StorageTests.test_branch_head_query_preserves_git_reference_states) ... 
+  test_branch_head_query_preserves_git_reference_states (tests.integration.test_storage.StorageTests.test_branch_head_query_preserves_git_reference_states) (case='normal', object_format='sha1') ... ERROR
+  test_branch_head_query_preserves_git_reference_states (tests.integration.test_storage.StorageTests.test_branch_head_query_preserves_git_reference_states) (case='another branch at same OID', object_format='sha1') ... ERROR
+  test_branch_head_query_preserves_git_reference_states (tests.integration.test_storage.StorageTests.test_branch_head_query_preserves_git_reference_states) (case='packed refs', object_format='sha1') ... ERROR
+  test_branch_head_query_preserves_git_reference_states (tests.integration.test_storage.StorageTests.test_branch_head_query_preserves_git_reference_states) (case='detached', object_format='sha1') ... ERROR
+  test_branch_head_query_preserves_git_reference_states (tests.integration.test_storage.StorageTests.test_branch_head_query_preserves_git_reference_states) (case='unborn', object_format='sha1') ... ERROR
+  test_branch_head_query_preserves_git_reference_states (tests.integration.test_storage.StorageTests.test_branch_head_query_preserves_git_reference_states) (case='Unicode and delimiter-like branch name', object_format='sha1') ... ERROR
+  test_branch_head_query_preserves_git_reference_states (tests.integration.test_storage.StorageTests.test_branch_head_query_preserves_git_reference_states) (case='recursive symbolic branch', object_format='sha1') ... ERROR
+  test_branch_head_query_preserves_git_reference_states (tests.integration.test_storage.StorageTests.test_branch_head_query_preserves_git_reference_states) (case='symbolic branch resolving outside local heads', object_format='sha1') ... ERROR
+  test_branch_head_query_preserves_git_reference_states (tests.integration.test_storage.StorageTests.test_branch_head_query_preserves_git_reference_states) (case='normal', object_format='sha256') ... ERROR
+  test_branch_head_query_preserves_git_reference_states (tests.integration.test_storage.StorageTests.test_branch_head_query_preserves_git_reference_states) (case='another branch at same OID', object_format='sha256') ... ERROR
+  test_branch_head_query_preserves_git_reference_states (tests.integration.test_storage.StorageTests.test_branch_head_query_preserves_git_reference_states) (case='packed refs', object_format='sha256') ... ERROR
+  test_branch_head_query_preserves_git_reference_states (tests.integration.test_storage.StorageTests.test_branch_head_query_preserves_git_reference_states) (case='detached', object_format='sha256') ... ERROR
+  test_branch_head_query_preserves_git_reference_states (tests.integration.test_storage.StorageTests.test_branch_head_query_preserves_git_reference_states) (case='unborn', object_format='sha256') ... ERROR
+  test_branch_head_query_preserves_git_reference_states (tests.integration.test_storage.StorageTests.test_branch_head_query_preserves_git_reference_states) (case='Unicode and delimiter-like branch name', object_format='sha256') ... ERROR
+  test_branch_head_query_preserves_git_reference_states (tests.integration.test_storage.StorageTests.test_branch_head_query_preserves_git_reference_states) (case='recursive symbolic branch', object_format='sha256') ... ERROR
+  test_branch_head_query_preserves_git_reference_states (tests.integration.test_storage.StorageTests.test_branch_head_query_preserves_git_reference_states) (case='symbolic branch resolving outside local heads', object_format='sha256') ... ERROR
+test_branch_head_query_falls_back_for_failed_or_malformed_results (tests.integration.test_storage.StorageTests.test_branch_head_query_falls_back_for_failed_or_malformed_results) ... 
+  test_branch_head_query_falls_back_for_failed_or_malformed_results (tests.integration.test_storage.StorageTests.test_branch_head_query_falls_back_for_failed_or_malformed_results) (status=1, output=b'*\x00refs/heads/other\x0068398cea05f1f0524bc862e1b18e8363da3f0f84\n') ... ERROR
+  test_branch_head_query_falls_back_for_failed_or_malformed_results (tests.integration.test_storage.StorageTests.test_branch_head_query_falls_back_for_failed_or_malformed_results) (status=0, output=b'') ... ERROR
+  test_branch_head_query_falls_back_for_failed_or_malformed_results (tests.integration.test_storage.StorageTests.test_branch_head_query_falls_back_for_failed_or_malformed_results) (status=0, output=b'*\x00refs/heads/other\n') ... ERROR
+  test_branch_head_query_falls_back_for_failed_or_malformed_results (tests.integration.test_storage.StorageTests.test_branch_head_query_falls_back_for_failed_or_malformed_results) (status=0, output=b'*\x00refs/heads/other\x0068398cea05f1f0524bc862e1b18e8363da3f0f84\n*\x00refs/heads/main\x0068398cea05f1f0524bc862e1b18e8363da3f0f84\n') ... ERROR
+  test_branch_head_query_falls_back_for_failed_or_malformed_results (tests.integration.test_storage.StorageTests.test_branch_head_query_falls_back_for_failed_or_malformed_results) (status=0, output=b'*\x00refs/remotes/other\x0068398cea05f1f0524bc862e1b18e8363da3f0f84\n') ... ERROR
+  test_branch_head_query_falls_back_for_failed_or_malformed_results (tests.integration.test_storage.StorageTests.test_branch_head_query_falls_back_for_failed_or_malformed_results) (status=0, output=b'*\x00refs/heads/other\x00zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz\n') ... ERROR
+  test_branch_head_query_falls_back_for_failed_or_malformed_results (tests.integration.test_storage.StorageTests.test_branch_head_query_falls_back_for_failed_or_malformed_results) (status=0, output=b'*\x00refs/heads/other\x00abc\n') ... ERROR
+
+======================================================================
+ERROR: test_branch_head_query_preserves_git_reference_states (tests.integration.test_storage.StorageTests.test_branch_head_query_preserves_git_reference_states) (case='normal', object_format='sha1')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 30, in compare
+    self.assertEqual(storage._branch_head(root), expected)
+                     ^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'novel_creator.storage' has no attribute '_branch_head'
+
+======================================================================
+ERROR: test_branch_head_query_preserves_git_reference_states (tests.integration.test_storage.StorageTests.test_branch_head_query_preserves_git_reference_states) (case='another branch at same OID', object_format='sha1')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 30, in compare
+    self.assertEqual(storage._branch_head(root), expected)
+                     ^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'novel_creator.storage' has no attribute '_branch_head'
+
+======================================================================
+ERROR: test_branch_head_query_preserves_git_reference_states (tests.integration.test_storage.StorageTests.test_branch_head_query_preserves_git_reference_states) (case='packed refs', object_format='sha1')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 30, in compare
+    self.assertEqual(storage._branch_head(root), expected)
+                     ^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'novel_creator.storage' has no attribute '_branch_head'
+
+======================================================================
+ERROR: test_branch_head_query_preserves_git_reference_states (tests.integration.test_storage.StorageTests.test_branch_head_query_preserves_git_reference_states) (case='detached', object_format='sha1')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 24, in compare
+    expected = storage.branch(root), storage.head(root)
+               ~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 51, in branch
+    raise ToolError(3, 'A checked-out local branch is required')
+novel_creator.cli.ToolError: A checked-out local branch is required
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 27, in compare
+    storage._branch_head(root)
+    ^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'novel_creator.storage' has no attribute '_branch_head'
+
+======================================================================
+ERROR: test_branch_head_query_preserves_git_reference_states (tests.integration.test_storage.StorageTests.test_branch_head_query_preserves_git_reference_states) (case='unborn', object_format='sha1')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 30, in compare
+    self.assertEqual(storage._branch_head(root), expected)
+                     ^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'novel_creator.storage' has no attribute '_branch_head'
+
+======================================================================
+ERROR: test_branch_head_query_preserves_git_reference_states (tests.integration.test_storage.StorageTests.test_branch_head_query_preserves_git_reference_states) (case='Unicode and delimiter-like branch name', object_format='sha1')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 30, in compare
+    self.assertEqual(storage._branch_head(root), expected)
+                     ^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'novel_creator.storage' has no attribute '_branch_head'
+
+======================================================================
+ERROR: test_branch_head_query_preserves_git_reference_states (tests.integration.test_storage.StorageTests.test_branch_head_query_preserves_git_reference_states) (case='recursive symbolic branch', object_format='sha1')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 30, in compare
+    self.assertEqual(storage._branch_head(root), expected)
+                     ^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'novel_creator.storage' has no attribute '_branch_head'
+
+======================================================================
+ERROR: test_branch_head_query_preserves_git_reference_states (tests.integration.test_storage.StorageTests.test_branch_head_query_preserves_git_reference_states) (case='symbolic branch resolving outside local heads', object_format='sha1')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 24, in compare
+    expected = storage.branch(root), storage.head(root)
+               ~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 51, in branch
+    raise ToolError(3, 'A checked-out local branch is required')
+novel_creator.cli.ToolError: A checked-out local branch is required
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 27, in compare
+    storage._branch_head(root)
+    ^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'novel_creator.storage' has no attribute '_branch_head'
+
+======================================================================
+ERROR: test_branch_head_query_preserves_git_reference_states (tests.integration.test_storage.StorageTests.test_branch_head_query_preserves_git_reference_states) (case='normal', object_format='sha256')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 30, in compare
+    self.assertEqual(storage._branch_head(root), expected)
+                     ^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'novel_creator.storage' has no attribute '_branch_head'
+
+======================================================================
+ERROR: test_branch_head_query_preserves_git_reference_states (tests.integration.test_storage.StorageTests.test_branch_head_query_preserves_git_reference_states) (case='another branch at same OID', object_format='sha256')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 30, in compare
+    self.assertEqual(storage._branch_head(root), expected)
+                     ^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'novel_creator.storage' has no attribute '_branch_head'
+
+======================================================================
+ERROR: test_branch_head_query_preserves_git_reference_states (tests.integration.test_storage.StorageTests.test_branch_head_query_preserves_git_reference_states) (case='packed refs', object_format='sha256')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 30, in compare
+    self.assertEqual(storage._branch_head(root), expected)
+                     ^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'novel_creator.storage' has no attribute '_branch_head'
+
+======================================================================
+ERROR: test_branch_head_query_preserves_git_reference_states (tests.integration.test_storage.StorageTests.test_branch_head_query_preserves_git_reference_states) (case='detached', object_format='sha256')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 24, in compare
+    expected = storage.branch(root), storage.head(root)
+               ~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 51, in branch
+    raise ToolError(3, 'A checked-out local branch is required')
+novel_creator.cli.ToolError: A checked-out local branch is required
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 27, in compare
+    storage._branch_head(root)
+    ^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'novel_creator.storage' has no attribute '_branch_head'
+
+======================================================================
+ERROR: test_branch_head_query_preserves_git_reference_states (tests.integration.test_storage.StorageTests.test_branch_head_query_preserves_git_reference_states) (case='unborn', object_format='sha256')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 30, in compare
+    self.assertEqual(storage._branch_head(root), expected)
+                     ^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'novel_creator.storage' has no attribute '_branch_head'
+
+======================================================================
+ERROR: test_branch_head_query_preserves_git_reference_states (tests.integration.test_storage.StorageTests.test_branch_head_query_preserves_git_reference_states) (case='Unicode and delimiter-like branch name', object_format='sha256')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 30, in compare
+    self.assertEqual(storage._branch_head(root), expected)
+                     ^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'novel_creator.storage' has no attribute '_branch_head'
+
+======================================================================
+ERROR: test_branch_head_query_preserves_git_reference_states (tests.integration.test_storage.StorageTests.test_branch_head_query_preserves_git_reference_states) (case='recursive symbolic branch', object_format='sha256')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 30, in compare
+    self.assertEqual(storage._branch_head(root), expected)
+                     ^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'novel_creator.storage' has no attribute '_branch_head'
+
+======================================================================
+ERROR: test_branch_head_query_preserves_git_reference_states (tests.integration.test_storage.StorageTests.test_branch_head_query_preserves_git_reference_states) (case='symbolic branch resolving outside local heads', object_format='sha256')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 24, in compare
+    expected = storage.branch(root), storage.head(root)
+               ~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 51, in branch
+    raise ToolError(3, 'A checked-out local branch is required')
+novel_creator.cli.ToolError: A checked-out local branch is required
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 27, in compare
+    storage._branch_head(root)
+    ^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'novel_creator.storage' has no attribute '_branch_head'
+
+======================================================================
+ERROR: test_branch_head_query_falls_back_for_failed_or_malformed_results (tests.integration.test_storage.StorageTests.test_branch_head_query_falls_back_for_failed_or_malformed_results) (status=1, output=b'*\x00refs/heads/other\x0068398cea05f1f0524bc862e1b18e8363da3f0f84\n')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 71, in test_branch_head_query_falls_back_for_failed_or_malformed_results
+    self.assertEqual(storage._branch_head(root), expected)
+                     ^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'novel_creator.storage' has no attribute '_branch_head'
+
+======================================================================
+ERROR: test_branch_head_query_falls_back_for_failed_or_malformed_results (tests.integration.test_storage.StorageTests.test_branch_head_query_falls_back_for_failed_or_malformed_results) (status=0, output=b'')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 71, in test_branch_head_query_falls_back_for_failed_or_malformed_results
+    self.assertEqual(storage._branch_head(root), expected)
+                     ^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'novel_creator.storage' has no attribute '_branch_head'
+
+======================================================================
+ERROR: test_branch_head_query_falls_back_for_failed_or_malformed_results (tests.integration.test_storage.StorageTests.test_branch_head_query_falls_back_for_failed_or_malformed_results) (status=0, output=b'*\x00refs/heads/other\n')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 71, in test_branch_head_query_falls_back_for_failed_or_malformed_results
+    self.assertEqual(storage._branch_head(root), expected)
+                     ^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'novel_creator.storage' has no attribute '_branch_head'
+
+======================================================================
+ERROR: test_branch_head_query_falls_back_for_failed_or_malformed_results (tests.integration.test_storage.StorageTests.test_branch_head_query_falls_back_for_failed_or_malformed_results) (status=0, output=b'*\x00refs/heads/other\x0068398cea05f1f0524bc862e1b18e8363da3f0f84\n*\x00refs/heads/main\x0068398cea05f1f0524bc862e1b18e8363da3f0f84\n')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 71, in test_branch_head_query_falls_back_for_failed_or_malformed_results
+    self.assertEqual(storage._branch_head(root), expected)
+                     ^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'novel_creator.storage' has no attribute '_branch_head'
+
+======================================================================
+ERROR: test_branch_head_query_falls_back_for_failed_or_malformed_results (tests.integration.test_storage.StorageTests.test_branch_head_query_falls_back_for_failed_or_malformed_results) (status=0, output=b'*\x00refs/remotes/other\x0068398cea05f1f0524bc862e1b18e8363da3f0f84\n')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 71, in test_branch_head_query_falls_back_for_failed_or_malformed_results
+    self.assertEqual(storage._branch_head(root), expected)
+                     ^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'novel_creator.storage' has no attribute '_branch_head'
+
+======================================================================
+ERROR: test_branch_head_query_falls_back_for_failed_or_malformed_results (tests.integration.test_storage.StorageTests.test_branch_head_query_falls_back_for_failed_or_malformed_results) (status=0, output=b'*\x00refs/heads/other\x00zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz\n')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 71, in test_branch_head_query_falls_back_for_failed_or_malformed_results
+    self.assertEqual(storage._branch_head(root), expected)
+                     ^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'novel_creator.storage' has no attribute '_branch_head'
+
+======================================================================
+ERROR: test_branch_head_query_falls_back_for_failed_or_malformed_results (tests.integration.test_storage.StorageTests.test_branch_head_query_falls_back_for_failed_or_malformed_results) (status=0, output=b'*\x00refs/heads/other\x00abc\n')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 71, in test_branch_head_query_falls_back_for_failed_or_malformed_results
+    self.assertEqual(storage._branch_head(root), expected)
+                     ^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'novel_creator.storage' has no attribute '_branch_head'
+
+----------------------------------------------------------------------
+Ran 2 tests in 4.702s
+
+FAILED (errors=23)

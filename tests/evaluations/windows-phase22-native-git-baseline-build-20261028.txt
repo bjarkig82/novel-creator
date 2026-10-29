@@ -1,0 +1,209 @@
+**********************************************************************
+** Visual Studio 2026 Developer Command Prompt v18.10.0
+** Copyright (c) 2026 Microsoft Corporation
+**********************************************************************
+[vcvarsall.bat] Environment initialized for: 'x64'
+-- The C compiler identification is MSVC 19.51.36257.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: C:/Program Files/Microsoft Visual Studio/18/Professional/VC/Tools/MSVC/14.51.36231/bin/Hostx64/x64/cl.exe - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Looking for sys/types.h
+-- Looking for sys/types.h - found
+-- Looking for stdint.h
+-- Looking for stdint.h - found
+-- Looking for stddef.h
+-- Looking for stddef.h - found
+-- Check size of off64_t
+-- Check size of off64_t - failed
+-- Looking for fseeko
+-- Looking for fseeko - not found
+-- Looking for unistd.h
+-- Looking for unistd.h - not found
+-- Renaming
+--     C:/Users/BjarkiGunnarsson/source/repos/Personal/novel-creator/.tools/t172-git-native-20261028/deps/zlib-1.3.1/zconf.h
+-- to 'zconf.h.included' because this file is included with zlib
+-- but CMake generates it automatically in the build directory.
+-- Configuring done (7.2s)
+-- Generating done (0.2s)
+-- Build files have been written to: C:/Users/BjarkiGunnarsson/source/repos/Personal/novel-creator/.tools/t172-git-native-20261028/zlib-build
+[  2%] Building C object CMakeFiles/zlib.dir/adler32.c.obj
+adler32.c
+[  5%] Building C object CMakeFiles/zlib.dir/compress.c.obj
+compress.c
+[  8%] Building C object CMakeFiles/zlib.dir/crc32.c.obj
+crc32.c
+[ 10%] Building C object CMakeFiles/zlib.dir/deflate.c.obj
+deflate.c
+[ 13%] Building C object CMakeFiles/zlib.dir/gzclose.c.obj
+gzclose.c
+[ 16%] Building C object CMakeFiles/zlib.dir/gzlib.c.obj
+gzlib.c
+[ 18%] Building C object CMakeFiles/zlib.dir/gzread.c.obj
+gzread.c
+[ 21%] Building C object CMakeFiles/zlib.dir/gzwrite.c.obj
+gzwrite.c
+[ 24%] Building C object CMakeFiles/zlib.dir/inflate.c.obj
+inflate.c
+[ 27%] Building C object CMakeFiles/zlib.dir/infback.c.obj
+infback.c
+[ 29%] Building C object CMakeFiles/zlib.dir/inftrees.c.obj
+inftrees.c
+[ 32%] Building C object CMakeFiles/zlib.dir/inffast.c.obj
+inffast.c
+[ 35%] Building C object CMakeFiles/zlib.dir/trees.c.obj
+trees.c
+[ 37%] Building C object CMakeFiles/zlib.dir/uncompr.c.obj
+uncompr.c
+[ 40%] Building C object CMakeFiles/zlib.dir/zutil.c.obj
+zutil.c
+[ 43%] Building RC object CMakeFiles/zlib.dir/win32/zlib1.rc.res
+Microsoft (R) Windows (R) Resource Compiler Version 10.0.10011.16384
+
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+
+[ 45%] Linking C shared library zlib.dll
+[ 45%] Built target zlib
+[ 48%] Building C object CMakeFiles/zlibstatic.dir/adler32.c.obj
+adler32.c
+[ 51%] Building C object CMakeFiles/zlibstatic.dir/compress.c.obj
+compress.c
+[ 54%] Building C object CMakeFiles/zlibstatic.dir/crc32.c.obj
+crc32.c
+[ 56%] Building C object CMakeFiles/zlibstatic.dir/deflate.c.obj
+deflate.c
+[ 59%] Building C object CMakeFiles/zlibstatic.dir/gzclose.c.obj
+gzclose.c
+[ 62%] Building C object CMakeFiles/zlibstatic.dir/gzlib.c.obj
+gzlib.c
+[ 64%] Building C object CMakeFiles/zlibstatic.dir/gzread.c.obj
+gzread.c
+[ 67%] Building C object CMakeFiles/zlibstatic.dir/gzwrite.c.obj
+gzwrite.c
+[ 70%] Building C object CMakeFiles/zlibstatic.dir/inflate.c.obj
+inflate.c
+[ 72%] Building C object CMakeFiles/zlibstatic.dir/infback.c.obj
+infback.c
+[ 75%] Building C object CMakeFiles/zlibstatic.dir/inftrees.c.obj
+inftrees.c
+[ 78%] Building C object CMakeFiles/zlibstatic.dir/inffast.c.obj
+inffast.c
+[ 81%] Building C object CMakeFiles/zlibstatic.dir/trees.c.obj
+trees.c
+[ 83%] Building C object CMakeFiles/zlibstatic.dir/uncompr.c.obj
+uncompr.c
+[ 86%] Building C object CMakeFiles/zlibstatic.dir/zutil.c.obj
+zutil.c
+[ 89%] Linking C static library zlibstatic.lib
+[ 89%] Built target zlibstatic
+[ 91%] Building C object CMakeFiles/example.dir/test/example.c.obj
+example.c
+[ 94%] Linking C executable example.exe
+[ 94%] Built target example
+[ 97%] Building C object CMakeFiles/minigzip.dir/test/minigzip.c.obj
+minigzip.c
+[100%] Linking C executable minigzip.exe
+[100%] Built target minigzip
+Install the project...
+-- Install configuration: "Release"
+-- Installing: C:/Users/BjarkiGunnarsson/source/repos/Personal/novel-creator/.tools/t172-git-native-20261028/zlib-install/lib/zlib.lib
+-- Installing: C:/Users/BjarkiGunnarsson/source/repos/Personal/novel-creator/.tools/t172-git-native-20261028/zlib-install/bin/zlib.dll
+-- Installing: C:/Users/BjarkiGunnarsson/source/repos/Personal/novel-creator/.tools/t172-git-native-20261028/zlib-install/lib/zlibstatic.lib
+-- Installing: C:/Users/BjarkiGunnarsson/source/repos/Personal/novel-creator/.tools/t172-git-native-20261028/zlib-install/include/zconf.h
+-- Installing: C:/Users/BjarkiGunnarsson/source/repos/Personal/novel-creator/.tools/t172-git-native-20261028/zlib-install/include/zlib.h
+-- Installing: C:/Users/BjarkiGunnarsson/source/repos/Personal/novel-creator/.tools/t172-git-native-20261028/zlib-install/share/man/man3/zlib.3
+-- Installing: C:/Users/BjarkiGunnarsson/source/repos/Personal/novel-creator/.tools/t172-git-native-20261028/zlib-install/share/pkgconfig/zlib.pc
+settting CMAKE_EXPORT_COMPILE_COMMANDS: TRUE
+Generating Git version
+-- The C compiler identification is MSVC 19.51.36257.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: C:/Program Files/Microsoft Visual Studio/18/Professional/VC/Tools/MSVC/14.51.36231/bin/Hostx64/x64/cl.exe - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Found ZLIB: C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\.tools\t172-git-native-20261028\zlib-install\lib\zlibstatic.lib (found version "1.3.1")
+-- Could NOT find PkgConfig (missing: PKG_CONFIG_EXECUTABLE) 
+-- msgfmt not used under NO_GETTEXT
+-- Looking for libgen.h
+-- Looking for libgen.h - not found
+-- Looking for sys/sysinfo.h
+-- Looking for sys/sysinfo.h - not found
+-- Performing Test HAVE_ALLOCA_H
+-- Performing Test HAVE_ALLOCA_H - Failed
+-- Looking for strings.h
+-- Looking for strings.h - not found
+-- Looking for sys/select.h
+-- Looking for sys/select.h - not found
+-- Looking for sys/poll.h
+-- Looking for sys/poll.h - not found
+-- Looking for poll.h
+-- Looking for poll.h - not found
+-- Looking for inttypes.h
+-- Looking for inttypes.h - found
+-- Looking for paths.h
+-- Looking for paths.h - not found
+-- Looking for strcasestr
+-- Looking for strcasestr - not found
+-- Looking for memmem
+-- Looking for memmem - not found
+-- Looking for strlcpy
+-- Looking for strlcpy - not found
+-- Looking for strtoimax
+-- Looking for strtoimax - found
+-- Looking for strtoumax
+-- Looking for strtoumax - found
+-- Looking for strtoull
+-- Looking for strtoull - found
+-- Looking for setenv
+-- Looking for setenv - not found
+-- Looking for mkdtemp
+-- Looking for mkdtemp - not found
+-- Looking for poll
+-- Looking for poll - not found
+-- Looking for pread
+-- Looking for pread - not found
+-- Looking for getdelim
+-- Looking for getdelim - not found
+-- Looking for clock_gettime
+-- Looking for clock_gettime - not found
+-- Looking for CLOCK_MONOTONIC
+-- Looking for CLOCK_MONOTONIC - not found
+-- Performing Test STRUCT_STAT_HAS_ST_BLOCKS
+-- Performing Test STRUCT_STAT_HAS_ST_BLOCKS - Failed
+-- Performing Test SNPRINTF_OK
+-- Performing Test SNPRINTF_OK - Success
+-- Performing Test FREAD_READS_DIRECTORIES_NO
+-- Performing Test FREAD_READS_DIRECTORIES_NO - Success
+-- Performing Test HAVE_REGEX
+-- Performing Test HAVE_REGEX - Failed
+-- Performing Test HAVE_BSD_SYSCTL
+-- Performing Test HAVE_BSD_SYSCTL - Failed
+-- Performing Test HAVE_NEW_ICONV
+-- Performing Test HAVE_NEW_ICONV - Failed
+-- Performing Test ICONV_DOESNOT_OMIT_BOM
+-- Performing Test ICONV_DOESNOT_OMIT_BOM - Failed
+CMake Warning at CMakeLists.txt:639 (message):
+  git-http-push and git-http-fetch will not be built
+
+
+Generating command-list.h
+-uThe system cannot find the file specified.
+
+Generating config-list.h
+Generating hook-list.h
+CMake Warning (policy) at CMakeLists.txt:842 (add_custom_command):
+  Keyword OUTPUT requires a value, but none was given.
+
+  Policy CMP0175 is not set: add_custom_command() rejects invalid arguments.
+  Run "cmake --help-policy CMP0175" for policy details.  Use the cmake_policy
+  command to set the policy and suppress this warning.
+This warning is for project developers.  Use -Wno-author or -Wno-policy to
+suppress it.
+
+CMake Error at CMakeLists.txt:842 (add_custom_command):
+  add_custom_command Wrong syntax.  A TARGET or OUTPUT must be specified.
+
+
+-- Configuring incomplete, errors occurred!

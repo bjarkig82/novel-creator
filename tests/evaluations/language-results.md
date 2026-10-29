@@ -1,5 +1,18 @@
 # English/Icelandic evidence
 
+The subsequent [labeled delegated runs](product-host-runs/20261023T202447Z/README.md)
+observe actual English/Icelandic opening, combined-preference, mode/topic and
+suggestion changes, constructive guidance, a false-friend possibility, selected
+acceptances, partial-selection negation and quoted-dialogue responses,
+with exact saved/displayed text, retained source labels and preserved supplied
+language/unknowns. This is scoped agent-assessed automated evidence, not a
+native-user capability pass, complete bilingual parity or fluent human review.
+
+The [2026-10-23 authorized English/Icelandic task probes](product-host-runs/20261023T095949Z/README.md)
+both stopped before novel installation: creation and follow-up inputs were
+delegation events with no native userMessage. These intended-language task
+configurations establish no bilingual semantic parity or creative outcome.
+
 Structural tests preserve English and Icelandic titles, Þ/þ/Ð/ð and exact source
 text, explicit unknowns and language tags including is-IS. Context selects en.md
 or is.md using the configured primary tag without changing the manuscript setting.
@@ -9,7 +22,8 @@ Paired authored acceptance and continuity fixtures share IDs, selected propositi
 expectations and revision cases. They include speculation, negative acceptance,
 quoted dialogue, ambiguous references, partial selection and intentional narrative
 techniques. Their translations and literary judgments have not received human
-semantic review or actual product host execution. These are prepared test inputs,
+semantic review; only the selected cases linked above have actual delegated
+product-host observations. The remaining cases are prepared test inputs,
 not proof of bilingual parity. T055/T059/T060 and T120 remain incomplete where
 meaning, false-friend coverage or actual host evidence is required.
 
@@ -48,3 +62,7 @@ execution against this checkout. No dependencies were installed or updated.
 Installed source and resources operate without importing the framework's product
 modules in an isolated interpreter. This establishes local portability of the
 tested paths, not Linux/macOS or spoken-output support.
+
+## T171 completed delegated scope — 2026-10-28
+
+All eight authored language-pitfall inputs (L01–L08) per language are embedded verbatim in four actual saved director turns per independent new novel. Source ranges preserve exact Unicode; the L04 acceptance decision covers only the sender clause. Eventúellt stays possible, gift is marital status, gas differs from petrol, negation and quoted possible lies do not promote canon, and the unrelated sender selection can proceed beside a held engine conflict. L05 intentionally requests English interaction and Icelandic manuscript language in both variants; the Icelandic guidance turn explicitly restores Icelandic interaction for subsequent paired cases. Genre remains unknown, reduced suggestions and Ægir redirection take effect next response, and the earlier question remains open. Setup/guidance/capture/authority/revision/continuity observations are shared with T168–T170. See phase22-runs/20261023T231406Z/language-verification.json, its reproducible verify_language.py, and phase22-resumption-20261028.md. Host is Codex desktop on Windows/NTFS; model/version unavailable. All inputs are delegated evaluation-only, with no native/human/subjective parity claim.

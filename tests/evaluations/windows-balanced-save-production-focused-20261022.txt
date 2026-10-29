@@ -1,0 +1,13 @@
+test_balanced_save_selects_bounded_readers_and_keeps_small_bootstrap_retry_serial (tests.integration.test_storage.StorageTests.test_balanced_save_selects_bounded_readers_and_keeps_small_bootstrap_retry_serial) ... ok
+test_balanced_save_preserves_damaged_prefix_over_nested_worker_failures (tests.integration.test_storage.StorageTests.test_balanced_save_preserves_damaged_prefix_over_nested_worker_failures) ... ok
+test_balanced_first_guard_failures_join_before_unlock_without_pending_work (tests.integration.test_storage.StorageTests.test_balanced_first_guard_failures_join_before_unlock_without_pending_work) ... ok
+test_balanced_first_guard_hashes_real_root_after_metadata_despite_same_stat_decoy (tests.integration.test_storage.StorageTests.test_balanced_first_guard_hashes_real_root_after_metadata_despite_same_stat_decoy) ... ok
+test_balanced_edit_after_first_guard_is_caught_then_unchanged_retry_publishes_once (tests.integration.test_storage.StorageTests.test_balanced_edit_after_first_guard_is_caught_then_unchanged_retry_publishes_once) ... ok
+test_partitioned_history_preserves_binary_framing_and_nonzero_outputs (tests.integration.test_storage.StorageTests.test_partitioned_history_preserves_binary_framing_and_nonzero_outputs) ... ok
+test_partitioned_history_keeps_small_reads_serial_and_selects_save_policy (tests.integration.test_storage.StorageTests.test_partitioned_history_keeps_small_reads_serial_and_selects_save_policy) ... ok
+test_parallel_final_guard_failures_join_workers_before_releasing_writer (tests.integration.test_storage.StorageTests.test_parallel_final_guard_failures_join_workers_before_releasing_writer) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 85.046s
+
+OK

@@ -1,0 +1,9 @@
+test_candidate_checks_full_tree_parent_and_exact_exchange_for_both_object_formats (tests.integration.test_candidate.CandidateTests.test_candidate_checks_full_tree_parent_and_exact_exchange_for_both_object_formats) ... ok
+test_candidate_rejects_corrupt_blob_with_equivalent_json_for_both_object_formats (tests.integration.test_candidate.CandidateTests.test_candidate_rejects_corrupt_blob_with_equivalent_json_for_both_object_formats) ... ok
+test_candidate_rejects_truncated_or_forged_batch_objects (tests.integration.test_candidate.CandidateTests.test_candidate_rejects_truncated_or_forged_batch_objects) ... ok
+test_save_rejects_corrupt_new_blob_without_publication_then_retries_once (tests.integration.test_candidate.CandidateTests.test_save_rejects_corrupt_new_blob_without_publication_then_retries_once) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 1.337s
+
+OK

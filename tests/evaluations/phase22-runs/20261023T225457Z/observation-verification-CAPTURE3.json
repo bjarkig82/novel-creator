@@ -1,0 +1,28 @@
+{
+  "ok": false,
+  "scope": "Public delegated persistence/display/source checks only",
+  "case_filter": [
+    "CAPTURE3"
+  ],
+  "all_submitted_cases_checked": false,
+  "semantic_assessment": "Separate agent judgments required; no human/native result inferred",
+  "cases": [],
+  "failures": [
+    {
+      "case_id": "CAPTURE3",
+      "language": "en",
+      "thread_id": "01a16af9-f289-73c1-8151-55f50ace05d9",
+      "turn_id": "01a16b07-5499-72f3-af94-0959b0351571",
+      "exchange_id": "c9a9796b-a830-4ed1-a55a-9327cbfef657",
+      "error": "Story commentary precedes its confirmed save"
+    },
+    {
+      "case_id": "CAPTURE3",
+      "language": "is",
+      "thread_id": "01a16afa-1197-7650-8189-9365687429ee",
+      "turn_id": "01a16b07-5b94-75e1-9c7b-c2b304e8f306",
+      "exchange_id": "abf3bed4-d50f-409c-a0d1-01ebb8e05d42",
+      "error": "Story commentary precedes its confirmed save"
+    }
+  ]
+}

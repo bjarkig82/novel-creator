@@ -1,0 +1,27 @@
+{
+  "classification": "diagnostic only; no production change or new p95 compliance",
+  "save_medians": {
+    "0": 3.2451581499772146,
+    "2": 3.005366000055801,
+    "4": 2.4692685999907553
+  },
+  "save_sample_count": 12,
+  "source_sha256": {
+    "src/novel_creator/storage.py": "47c6eac0122d1076a91f21caeb253bf6721678f4e626fc0630ab069557e55304",
+    "src/novel_creator/validation.py": "7e4c75ada3c3eaf3c196066ff657e5e5d9084abdd14a97b6e07c4f5d3b6bf517",
+    "tests/performance/benchmark_records.py": "7f69593cbee6330af1cb67261f662db8d186cc6d00787d3710d002a8430650f2",
+    "tests/integration/test_storage.py": "4395f6deec3bc7dae00c5cb3ec140715d51e784557c689c460a8f119dcf4b711",
+    "tests/helpers.py": "b6ddda217adb87a43d14dcd7be46e3cab76b5aa4023ec41b6e4eb509d8ed9be5"
+  },
+  "evidence_sha256": {
+    "windows-certified-indexes-diagnostic-20261022.txt": "96c9829ee375aeb214273325251a83507856a9d0de1ab7f665fc682e75a0e35b",
+    "windows-certified-indexes-source-20261022.txt": "980911fed4b660fb02f5def33f6b07003a9682d33babf66536968e59da31d397",
+    "windows-parallel-hashes-diagnostic-20261022.txt": "8c498eeb898fb0634386bdf3fe72dae51864b1e2621d55d61f478261236081e5",
+    "windows-parallel-hashes-source-20261022.txt": "f3d8608baff0509a6dd0508288f8679b0f7f9b1ad33f29a0fafc828044d2b6ab",
+    "windows-parallel-hash-saves-diagnostic-20261022.txt": "ca320ac71c20f5dbdaefb359505e8a4f5def9893d5d0d93023067dbf6a4bdc6f",
+    "windows-parallel-hash-saves-source-20261022.txt": "9cd2b3b74f89b265db5e57b02273b9be5bf31ba9022709a4027b5134e4902355",
+    "windows-parallel-hash-candidate-checks-20261022.txt": "3afb3e95271c7102459fce30310c7dee6364162362f35fdb2cb1912ff0210da7",
+    "windows-parallel-hash-candidate-checks-final-20261022.txt": "ac19f62860132e6a26343df396903874799a1cc54f66ec16b8be1e51877ff0aa",
+    "windows-parallel-hash-candidate-checks-source-20261022.txt": "b795df2ecbdce6603d607e10d3979f71953c5a2900ce330aba30e45b8c515a1c"
+  }
+}

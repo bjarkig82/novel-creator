@@ -1,0 +1,34 @@
+{
+  "status": "gate_unavailable",
+  "task_thread_id": "01a16833-e1cf-79d2-bee0-80a6ca973e3c",
+  "current_native_turn_id": "01a16833-e479-74e1-bc15-5535f6b160e6",
+  "native_user_message_count": 0,
+  "observed_current_item_types": [
+    "functionCallOutput",
+    "agentMessage",
+    "commandExecution",
+    "commandExecution",
+    "mcpToolCall"
+  ],
+  "reason": "Native read_thread exposes the delegated task as a functionCallOutput from codex_app.create_thread. The current turn contains no userMessage object, so exactly one complete current userMessage with exactly one text item cannot be selected. The preview and delegation output are not substituted for native user input.",
+  "native_input_evidence_filename": null,
+  "novel_absolute_root": null,
+  "saved_exchange_id": null,
+  "git_checkpoint": null,
+  "configured_language": "en",
+  "prepared_response": "Native capture is ready.",
+  "initialization_performed": false,
+  "conversation_saved": false,
+  "framework_files_modified": false,
+  "host": {
+    "kind": "codex",
+    "host_id": "local",
+    "model": null,
+    "package_version": null
+  },
+  "notes": [
+    "Task workspace was verified outside a Git repository.",
+    "Stopped at the mandatory native input gate before novel initialization or conversation preparation.",
+    "No reasoning or hidden data captured."
+  ]
+}

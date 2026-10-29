@@ -1,0 +1,18 @@
+test_host_input (unittest.loader._FailedTest.test_host_input) ... ERROR
+
+======================================================================
+ERROR: test_host_input (unittest.loader._FailedTest.test_host_input)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_host_input
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\unittest\loader.py", line 137, in loadTestsFromName
+    module = __import__(module_name)
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\unit\test_host_input.py", line 7, in <module>
+    from novel_creator import host_input, records
+ImportError: cannot import name 'host_input' from 'novel_creator' (C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\__init__.py)
+
+
+----------------------------------------------------------------------
+Ran 1 test in 0.001s
+
+FAILED (errors=1)

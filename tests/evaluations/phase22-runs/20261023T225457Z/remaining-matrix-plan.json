@@ -1,0 +1,1415 @@
+{
+  "status": "prepared, unsubmitted; not observed outcomes",
+  "tasks": [
+    "T169",
+    "T170",
+    "T171"
+  ],
+  "source_fixtures": {
+    "tests/fixtures/en/acceptance.json": {
+      "language": "en",
+      "status": "authored expectations; actual host judgment pending",
+      "cases": [
+        {
+          "id": "A01",
+          "user_text": "Accept the keeper as the sender.",
+          "source_span": {
+            "start": 0,
+            "end": 32
+          },
+          "expected_action": "accept",
+          "selected_propositions": [
+            "keeper_sender"
+          ],
+          "requires_repeat_approval": false
+        },
+        {
+          "id": "A02",
+          "user_text": "Let's make the victim the keeper's brother.",
+          "source_span": {
+            "start": 0,
+            "end": 43
+          },
+          "expected_action": "accept",
+          "selected_propositions": [
+            "victim_brother"
+          ],
+          "requires_repeat_approval": false
+        },
+        {
+          "id": "A03",
+          "user_text": "Yes, establish that the lamp failed that night.",
+          "source_span": {
+            "start": 0,
+            "end": 47
+          },
+          "expected_action": "accept",
+          "selected_propositions": [
+            "lamp_failed"
+          ],
+          "requires_repeat_approval": false
+        },
+        {
+          "id": "A04",
+          "user_text": "The island has no bridge. Make that a fact.",
+          "source_span": {
+            "start": 0,
+            "end": 43
+          },
+          "expected_action": "accept",
+          "selected_propositions": [
+            "island_no_bridge"
+          ],
+          "requires_repeat_approval": false
+        },
+        {
+          "id": "A05",
+          "user_text": "Use the winter setting.",
+          "source_span": {
+            "start": 0,
+            "end": 23
+          },
+          "expected_action": "accept",
+          "selected_propositions": [
+            "winter"
+          ],
+          "requires_repeat_approval": false
+        },
+        {
+          "id": "A06",
+          "user_text": "Keep the sister as the investigator.",
+          "source_span": {
+            "start": 0,
+            "end": 36
+          },
+          "expected_action": "accept",
+          "selected_propositions": [
+            "sister_investigator"
+          ],
+          "requires_repeat_approval": false
+        },
+        {
+          "id": "A07",
+          "user_text": "Choose the brass seal.",
+          "source_span": {
+            "start": 0,
+            "end": 22
+          },
+          "expected_action": "accept",
+          "selected_propositions": [
+            "brass_seal"
+          ],
+          "requires_repeat_approval": false
+        },
+        {
+          "id": "A08",
+          "user_text": "The keeper knows the sailor. That is settled.",
+          "source_span": {
+            "start": 0,
+            "end": 45
+          },
+          "expected_action": "accept",
+          "selected_propositions": [
+            "knows_sailor"
+          ],
+          "requires_repeat_approval": false
+        },
+        {
+          "id": "A09",
+          "user_text": "Only the sender part is accepted; leave the murder undecided.",
+          "source_span": {
+            "start": 0,
+            "end": 61
+          },
+          "expected_action": "accept",
+          "selected_propositions": [
+            "keeper_sender"
+          ],
+          "requires_repeat_approval": false
+        },
+        {
+          "id": "A10",
+          "user_text": "Keep the storm, but leave the shipwreck as a possibility.",
+          "source_span": {
+            "start": 0,
+            "end": 57
+          },
+          "expected_action": "accept",
+          "selected_propositions": [
+            "storm"
+          ],
+          "requires_repeat_approval": false
+        },
+        {
+          "id": "A11",
+          "user_text": "I accept the blue light, not the warning bell.",
+          "source_span": {
+            "start": 0,
+            "end": 46
+          },
+          "expected_action": "accept",
+          "selected_propositions": [
+            "blue_light"
+          ],
+          "requires_repeat_approval": false
+        },
+        {
+          "id": "A12",
+          "user_text": "Establish that the letter arrived before dawn.",
+          "source_span": {
+            "start": 0,
+            "end": 46
+          },
+          "expected_action": "accept",
+          "selected_propositions": [
+            "before_dawn"
+          ],
+          "requires_repeat_approval": false
+        },
+        {
+          "id": "N01",
+          "user_text": "Interesting.",
+          "source_span": {
+            "start": 0,
+            "end": 12
+          },
+          "expected_action": "retain_proposal",
+          "selected_propositions": [],
+          "reason": "praise"
+        },
+        {
+          "id": "N02",
+          "user_text": "Maybe the keeper sent it.",
+          "source_span": {
+            "start": 0,
+            "end": 25
+          },
+          "expected_action": "retain_proposal",
+          "selected_propositions": [],
+          "reason": "tentative"
+        },
+        {
+          "id": "N03",
+          "user_text": "What if the victim is a brother?",
+          "source_span": {
+            "start": 0,
+            "end": 32
+          },
+          "expected_action": "retain_proposal",
+          "selected_propositions": [],
+          "reason": "hypothetical"
+        },
+        {
+          "id": "N04",
+          "user_text": "The character says, \"I killed him.\"",
+          "source_span": {
+            "start": 0,
+            "end": 35
+          },
+          "expected_action": "retain_proposal",
+          "selected_propositions": [],
+          "reason": "quoted_dialogue"
+        },
+        {
+          "id": "N05",
+          "user_text": "",
+          "source_span": null,
+          "expected_action": "retain_proposal",
+          "selected_propositions": [],
+          "reason": "silence"
+        },
+        {
+          "id": "N06",
+          "user_text": "I like the possibilities.",
+          "source_span": {
+            "start": 0,
+            "end": 25
+          },
+          "expected_action": "retain_proposal",
+          "selected_propositions": [],
+          "reason": "praise"
+        },
+        {
+          "id": "N07",
+          "user_text": "No, reject the sender idea.",
+          "source_span": {
+            "start": 0,
+            "end": 27
+          },
+          "expected_action": "reject",
+          "selected_propositions": [],
+          "reason": "rejection"
+        },
+        {
+          "id": "N08",
+          "user_text": "Could the lamp have failed?",
+          "source_span": {
+            "start": 0,
+            "end": 27
+          },
+          "expected_action": "retain_proposal",
+          "selected_propositions": [],
+          "reason": "question"
+        },
+        {
+          "id": "N09",
+          "user_text": "Yes.",
+          "source_span": {
+            "start": 0,
+            "end": 4
+          },
+          "expected_action": "clarify",
+          "selected_propositions": [],
+          "reason": "ambiguous_target"
+        },
+        {
+          "id": "N10",
+          "user_text": "That might work someday.",
+          "source_span": {
+            "start": 0,
+            "end": 24
+          },
+          "expected_action": "retain_proposal",
+          "selected_propositions": [],
+          "reason": "tentative"
+        },
+        {
+          "id": "N11",
+          "user_text": "Suppose the island had a bridge.",
+          "source_span": {
+            "start": 0,
+            "end": 32
+          },
+          "expected_action": "retain_proposal",
+          "selected_propositions": [],
+          "reason": "hypothetical"
+        },
+        {
+          "id": "N12",
+          "user_text": "Let's keep both alternatives open.",
+          "source_span": {
+            "start": 0,
+            "end": 34
+          },
+          "expected_action": "retain_proposal",
+          "selected_propositions": [],
+          "reason": "unresolved_alternatives"
+        },
+        {
+          "id": "D01",
+          "user_text": "Make the sister the murderer.",
+          "explicit_direction": "The sister must remain innocent.",
+          "expected_action": "clarify_protected_direction",
+          "selected_propositions": []
+        }
+      ],
+      "revisions": [
+        {
+          "id": "R1",
+          "user_text": "Revise the sender proposition from version 0 to version 1.",
+          "prior_version": 1,
+          "result_version": 2,
+          "expected_action": "revise",
+          "preserve_history": true,
+          "review_direct_dependencies": true,
+          "edit_manuscript": false
+        },
+        {
+          "id": "R2",
+          "user_text": "Revise the sender proposition from version 1 to version 2.",
+          "prior_version": 2,
+          "result_version": 3,
+          "expected_action": "revise",
+          "preserve_history": true,
+          "review_direct_dependencies": true,
+          "edit_manuscript": false
+        },
+        {
+          "id": "R3",
+          "user_text": "Revise the sender proposition from version 2 to version 3.",
+          "prior_version": 3,
+          "result_version": 4,
+          "expected_action": "revise",
+          "preserve_history": true,
+          "review_direct_dependencies": true,
+          "edit_manuscript": false
+        },
+        {
+          "id": "R4",
+          "user_text": "Revise the sender proposition from version 3 to version 4.",
+          "prior_version": 4,
+          "result_version": 5,
+          "expected_action": "revise",
+          "preserve_history": true,
+          "review_direct_dependencies": true,
+          "edit_manuscript": false
+        },
+        {
+          "id": "R5",
+          "user_text": "Revise the sender proposition from version 4 to version 5.",
+          "prior_version": 5,
+          "result_version": 6,
+          "expected_action": "revise",
+          "preserve_history": true,
+          "review_direct_dependencies": true,
+          "edit_manuscript": false
+        }
+      ]
+    },
+    "tests/fixtures/en/continuity.json": {
+      "language": "en",
+      "status": "authored expectations; actual host judgment pending",
+      "cases": [
+        {
+          "id": "C1",
+          "category": "motivation",
+          "established_source": {
+            "id": "canon-source-1",
+            "text": "The keeper has sworn to protect the sister."
+          },
+          "user_text": "Without any changed motive, the keeper deliberately betrays her.",
+          "expected_assessment": "conflict",
+          "severity": "significant",
+          "interrupt_next_response": true,
+          "expected_consequence": "The action conflicts with the established protective motive.",
+          "resolutions": [
+            "reject_idea",
+            "revise_idea",
+            "revise_canon",
+            "intentional",
+            "defer"
+          ]
+        },
+        {
+          "id": "C2",
+          "category": "chronology",
+          "established_source": {
+            "id": "canon-source-2",
+            "text": "The keeper arrives after midnight."
+          },
+          "user_text": "The keeper performs the rescue at ten that evening.",
+          "expected_assessment": "conflict",
+          "severity": "significant",
+          "interrupt_next_response": true,
+          "expected_consequence": "The rescue requires presence before arrival.",
+          "resolutions": [
+            "reject_idea",
+            "revise_idea",
+            "revise_canon",
+            "intentional",
+            "defer"
+          ]
+        },
+        {
+          "id": "C3",
+          "category": "knowledge",
+          "established_source": {
+            "id": "canon-source-3",
+            "text": "The keeper learns the code after the ship sinks."
+          },
+          "user_text": "The keeper uses that code to prevent the sinking.",
+          "expected_assessment": "conflict",
+          "severity": "significant",
+          "interrupt_next_response": true,
+          "expected_consequence": "The action requires knowledge not yet acquired.",
+          "resolutions": [
+            "reject_idea",
+            "revise_idea",
+            "revise_canon",
+            "intentional",
+            "defer"
+          ]
+        },
+        {
+          "id": "C4",
+          "category": "plot_dependency",
+          "established_source": {
+            "id": "canon-source-4",
+            "text": "The escape requires the only boat."
+          },
+          "user_text": "Destroy that boat before the unchanged escape.",
+          "expected_assessment": "conflict",
+          "severity": "significant",
+          "interrupt_next_response": true,
+          "expected_consequence": "The accepted escape loses its prerequisite.",
+          "resolutions": [
+            "reject_idea",
+            "revise_idea",
+            "revise_canon",
+            "intentional",
+            "defer"
+          ]
+        },
+        {
+          "id": "C5",
+          "category": "world_rule",
+          "established_source": {
+            "id": "canon-source-5",
+            "text": "No letter can cross the sealed boundary."
+          },
+          "user_text": "An ordinary unexceptional letter crosses it.",
+          "expected_assessment": "conflict",
+          "severity": "significant",
+          "interrupt_next_response": true,
+          "expected_consequence": "The event contradicts the explicit rule.",
+          "resolutions": [
+            "reject_idea",
+            "revise_idea",
+            "revise_canon",
+            "intentional",
+            "defer"
+          ]
+        },
+        {
+          "id": "C6",
+          "category": "relationship",
+          "established_source": {
+            "id": "canon-source-6",
+            "text": "The siblings have never met before the reunion."
+          },
+          "user_text": "Their shared childhood memory motivates the reunion.",
+          "expected_assessment": "conflict",
+          "severity": "significant",
+          "interrupt_next_response": true,
+          "expected_consequence": "The motivation requires a prior relationship that canon excludes.",
+          "resolutions": [
+            "reject_idea",
+            "revise_idea",
+            "revise_canon",
+            "intentional",
+            "defer"
+          ]
+        },
+        {
+          "id": "I01",
+          "user_text": "A character lies about the sender; author truth is separately recorded.",
+          "perspective": "character_belief",
+          "expected_assessment": "intentional",
+          "interrupt_next_response": false,
+          "may_establish_canon": false
+        },
+        {
+          "id": "I02",
+          "user_text": "The reader sees the letter only after the event, though the keeper saw it before.",
+          "perspective": "reader_revelation",
+          "expected_assessment": "intentional",
+          "interrupt_next_response": false,
+          "may_establish_canon": false
+        },
+        {
+          "id": "I03",
+          "user_text": "The narrator is unreliable and the discrepancy is explicitly intended.",
+          "perspective": "character_belief",
+          "expected_assessment": "intentional",
+          "interrupt_next_response": false,
+          "may_establish_canon": false
+        },
+        {
+          "id": "I04",
+          "user_text": "The time the keeper learned the secret is unknown.",
+          "perspective": "character_knowledge",
+          "expected_assessment": "uncertainty",
+          "interrupt_next_response": false,
+          "may_establish_canon": false
+        },
+        {
+          "id": "O01",
+          "user_text": "A recorded brass seal could foreshadow the sender.",
+          "perspective": "author_truth",
+          "expected_assessment": "opportunity",
+          "interrupt_next_response": false,
+          "may_establish_canon": false
+        }
+      ]
+    },
+    "tests/fixtures/en/language-pitfalls.json": {
+      "language": "en",
+      "status": "Authored evaluation inputs; human review and actual product-host outcomes unverified",
+      "cases": [
+        {
+          "id": "L01",
+          "stage": "capture",
+          "challenges": [
+            "false_friend",
+            "diacritics"
+          ],
+          "user_text": "Possibly Þóra sent the letter.",
+          "source_span": {
+            "start": 0,
+            "end": 30
+          },
+          "source_quote": "Possibly Þóra sent the letter.",
+          "expected_action": "retain_proposal",
+          "selected_propositions": [],
+          "expected_values": {
+            "sender": "possible",
+            "canon_change": false
+          },
+          "review_note": "Eventúellt means possibly; English eventually must not turn this speculation into certainty."
+        },
+        {
+          "id": "L02",
+          "stage": "acceptance",
+          "challenges": [
+            "false_friend",
+            "diacritics"
+          ],
+          "user_text": "Þóra is married. Establish that as a fact.",
+          "source_span": {
+            "start": 0,
+            "end": 42
+          },
+          "source_quote": "Þóra is married. Establish that as a fact.",
+          "expected_action": "accept",
+          "selected_propositions": [
+            "thora_married"
+          ],
+          "expected_values": {
+            "marital_status": "married"
+          },
+          "review_note": "Icelandic gift describes being married; it does not mean an English present."
+        },
+        {
+          "id": "L03",
+          "stage": "continuity",
+          "challenges": [
+            "false_friend",
+            "negation"
+          ],
+          "user_text": "The engine uses gaseous fuel, not petrol. Does that fit the rule?",
+          "source_span": {
+            "start": 0,
+            "end": 65
+          },
+          "source_quote": "The engine uses gaseous fuel, not petrol. Does that fit the rule?",
+          "expected_action": "flag_conflict",
+          "selected_propositions": [],
+          "expected_values": {
+            "category": "world_rule",
+            "interrupt_next_response": true,
+            "canon_change": false
+          },
+          "review_note": "Icelandic gas denotes gaseous fuel here, not the American English shorthand for gasoline.",
+          "established_source": {
+            "id": "engine-rule",
+            "text": "The engine runs exclusively on petrol."
+          }
+        },
+        {
+          "id": "L04",
+          "stage": "acceptance",
+          "challenges": [
+            "mixed_language",
+            "diacritics",
+            "partial_selection"
+          ],
+          "user_text": "Keep Þóra as sender, en morðið er enn óákveðið.",
+          "source_span": {
+            "start": 0,
+            "end": 19
+          },
+          "source_quote": "Keep Þóra as sender",
+          "expected_action": "accept",
+          "selected_propositions": [
+            "thora_sender"
+          ],
+          "expected_values": {
+            "murderer": "unresolved"
+          },
+          "review_note": "Select only the sender proposition; switching language does not extend acceptance."
+        },
+        {
+          "id": "L05",
+          "stage": "setup",
+          "challenges": [
+            "mixed_language",
+            "diacritics"
+          ],
+          "user_text": "Keep the manuscript in Icelandic; svaraðu á ensku. I do not know the genre yet.",
+          "source_span": {
+            "start": 0,
+            "end": 79
+          },
+          "source_quote": "Keep the manuscript in Icelandic; svaraðu á ensku. I do not know the genre yet.",
+          "expected_action": "update_preferences",
+          "selected_propositions": [],
+          "expected_values": {
+            "manuscript_language": "is",
+            "interaction_language": "en",
+            "genre": "unknown",
+            "canon_change": false
+          },
+          "review_note": "An interaction-language request must not replace the manuscript language or invent the skipped genre."
+        },
+        {
+          "id": "L06",
+          "stage": "guidance",
+          "challenges": [
+            "mixed_language",
+            "diacritics"
+          ],
+          "user_text": "Fewer suggestions, please. Beinum sjónum að æsku Ægis.",
+          "source_span": {
+            "start": 0,
+            "end": 54
+          },
+          "source_quote": "Fewer suggestions, please. Beinum sjónum að æsku Ægis.",
+          "expected_action": "redirect",
+          "selected_propositions": [],
+          "expected_values": {
+            "suggestions": "fewer",
+            "topic": "aegir_childhood",
+            "canon_change": false
+          },
+          "review_note": "Honor reduced suggestions and the topic change in the next response; preserve the inflected name."
+        },
+        {
+          "id": "L07",
+          "stage": "capture",
+          "challenges": [
+            "false_friend",
+            "diacritics",
+            "quoted_dialogue"
+          ],
+          "user_text": "The character says, “I am married.” This is only a possible lie.",
+          "source_span": {
+            "start": 0,
+            "end": 64
+          },
+          "source_quote": "The character says, “I am married.” This is only a possible lie.",
+          "expected_action": "retain_proposal",
+          "selected_propositions": [],
+          "expected_values": {
+            "marital_status": "unestablished",
+            "canon_change": false
+          },
+          "review_note": "A possible line of dialogue does not establish author truth or a confirmed character belief."
+        },
+        {
+          "id": "L08",
+          "stage": "acceptance",
+          "challenges": [
+            "diacritics",
+            "negation"
+          ],
+          "user_text": "Do not establish that Þóra is the sender.",
+          "source_span": {
+            "start": 0,
+            "end": 41
+          },
+          "source_quote": "Do not establish that Þóra is the sender.",
+          "expected_action": "retain_proposal",
+          "selected_propositions": [],
+          "expected_values": {
+            "sender": "proposed",
+            "canon_change": false
+          },
+          "review_note": "The explicit negation forbids promotion without automatically rejecting the idea."
+        }
+      ]
+    },
+    "tests/fixtures/is/acceptance.json": {
+      "language": "is",
+      "status": "Paired authored expectations; semantic parity and actual host judgment unverified",
+      "cases": [
+        {
+          "id": "A01",
+          "user_text": "Samþykktu að vitavörðurinn sé sendandinn.",
+          "source_span": {
+            "start": 0,
+            "end": 41
+          },
+          "expected_action": "accept",
+          "selected_propositions": [
+            "keeper_sender"
+          ],
+          "requires_repeat_approval": false
+        },
+        {
+          "id": "A02",
+          "user_text": "Ákveðum að fórnarlambið sé bróðir vitavarðarins.",
+          "source_span": {
+            "start": 0,
+            "end": 48
+          },
+          "expected_action": "accept",
+          "selected_propositions": [
+            "victim_brother"
+          ],
+          "requires_repeat_approval": false
+        },
+        {
+          "id": "A03",
+          "user_text": "Já, staðfestum að ljósið hafi bilað þetta kvöld.",
+          "source_span": {
+            "start": 0,
+            "end": 48
+          },
+          "expected_action": "accept",
+          "selected_propositions": [
+            "lamp_failed"
+          ],
+          "requires_repeat_approval": false
+        },
+        {
+          "id": "A04",
+          "user_text": "Engin brú liggur að eyjunni. Gerum það að staðreynd.",
+          "source_span": {
+            "start": 0,
+            "end": 52
+          },
+          "expected_action": "accept",
+          "selected_propositions": [
+            "island_no_bridge"
+          ],
+          "requires_repeat_approval": false
+        },
+        {
+          "id": "A05",
+          "user_text": "Notum vetrarumhverfið.",
+          "source_span": {
+            "start": 0,
+            "end": 22
+          },
+          "expected_action": "accept",
+          "selected_propositions": [
+            "winter"
+          ],
+          "requires_repeat_approval": false
+        },
+        {
+          "id": "A06",
+          "user_text": "Höldum systurinni sem rannsakanda.",
+          "source_span": {
+            "start": 0,
+            "end": 34
+          },
+          "expected_action": "accept",
+          "selected_propositions": [
+            "sister_investigator"
+          ],
+          "requires_repeat_approval": false
+        },
+        {
+          "id": "A07",
+          "user_text": "Veljum látúnsinnsiglið.",
+          "source_span": {
+            "start": 0,
+            "end": 23
+          },
+          "expected_action": "accept",
+          "selected_propositions": [
+            "brass_seal"
+          ],
+          "requires_repeat_approval": false
+        },
+        {
+          "id": "A08",
+          "user_text": "Vitavörðurinn þekkir sjómanninn. Það er ákveðið.",
+          "source_span": {
+            "start": 0,
+            "end": 48
+          },
+          "expected_action": "accept",
+          "selected_propositions": [
+            "knows_sailor"
+          ],
+          "requires_repeat_approval": false
+        },
+        {
+          "id": "A09",
+          "user_text": "Aðeins sendandahlutinn er samþykktur; morðið er óákveðið.",
+          "source_span": {
+            "start": 0,
+            "end": 57
+          },
+          "expected_action": "accept",
+          "selected_propositions": [
+            "keeper_sender"
+          ],
+          "requires_repeat_approval": false
+        },
+        {
+          "id": "A10",
+          "user_text": "Höldum storminum en látum skipskaðann vera möguleika.",
+          "source_span": {
+            "start": 0,
+            "end": 53
+          },
+          "expected_action": "accept",
+          "selected_propositions": [
+            "storm"
+          ],
+          "requires_repeat_approval": false
+        },
+        {
+          "id": "A11",
+          "user_text": "Ég samþykki bláa ljósið, ekki viðvörunarbjölluna.",
+          "source_span": {
+            "start": 0,
+            "end": 49
+          },
+          "expected_action": "accept",
+          "selected_propositions": [
+            "blue_light"
+          ],
+          "requires_repeat_approval": false
+        },
+        {
+          "id": "A12",
+          "user_text": "Staðfestum að bréfið hafi komið fyrir dögun.",
+          "source_span": {
+            "start": 0,
+            "end": 44
+          },
+          "expected_action": "accept",
+          "selected_propositions": [
+            "before_dawn"
+          ],
+          "requires_repeat_approval": false
+        },
+        {
+          "id": "N01",
+          "user_text": "Áhugavert.",
+          "source_span": {
+            "start": 0,
+            "end": 10
+          },
+          "expected_action": "retain_proposal",
+          "selected_propositions": [],
+          "reason": "praise"
+        },
+        {
+          "id": "N02",
+          "user_text": "Kannski sendi vitavörðurinn það.",
+          "source_span": {
+            "start": 0,
+            "end": 32
+          },
+          "expected_action": "retain_proposal",
+          "selected_propositions": [],
+          "reason": "tentative"
+        },
+        {
+          "id": "N03",
+          "user_text": "Hvað ef fórnarlambið er bróðir?",
+          "source_span": {
+            "start": 0,
+            "end": 31
+          },
+          "expected_action": "retain_proposal",
+          "selected_propositions": [],
+          "reason": "hypothetical"
+        },
+        {
+          "id": "N04",
+          "user_text": "Persónan segir: „Ég drap hann.“",
+          "source_span": {
+            "start": 0,
+            "end": 31
+          },
+          "expected_action": "retain_proposal",
+          "selected_propositions": [],
+          "reason": "quoted_dialogue"
+        },
+        {
+          "id": "N05",
+          "user_text": "",
+          "source_span": null,
+          "expected_action": "retain_proposal",
+          "selected_propositions": [],
+          "reason": "silence"
+        },
+        {
+          "id": "N06",
+          "user_text": "Mér líkar þessir möguleikar.",
+          "source_span": {
+            "start": 0,
+            "end": 28
+          },
+          "expected_action": "retain_proposal",
+          "selected_propositions": [],
+          "reason": "praise"
+        },
+        {
+          "id": "N07",
+          "user_text": "Nei, höfnum sendandahugmyndinni.",
+          "source_span": {
+            "start": 0,
+            "end": 32
+          },
+          "expected_action": "reject",
+          "selected_propositions": [],
+          "reason": "rejection"
+        },
+        {
+          "id": "N08",
+          "user_text": "Gæti ljósið hafa bilað?",
+          "source_span": {
+            "start": 0,
+            "end": 23
+          },
+          "expected_action": "retain_proposal",
+          "selected_propositions": [],
+          "reason": "question"
+        },
+        {
+          "id": "N09",
+          "user_text": "Já.",
+          "source_span": {
+            "start": 0,
+            "end": 3
+          },
+          "expected_action": "clarify",
+          "selected_propositions": [],
+          "reason": "ambiguous_target"
+        },
+        {
+          "id": "N10",
+          "user_text": "Þetta gæti gengið einhvern daginn.",
+          "source_span": {
+            "start": 0,
+            "end": 34
+          },
+          "expected_action": "retain_proposal",
+          "selected_propositions": [],
+          "reason": "tentative"
+        },
+        {
+          "id": "N11",
+          "user_text": "Segjum að brú lægi að eyjunni.",
+          "source_span": {
+            "start": 0,
+            "end": 30
+          },
+          "expected_action": "retain_proposal",
+          "selected_propositions": [],
+          "reason": "hypothetical"
+        },
+        {
+          "id": "N12",
+          "user_text": "Höldum báðum valkostum opnum.",
+          "source_span": {
+            "start": 0,
+            "end": 29
+          },
+          "expected_action": "retain_proposal",
+          "selected_propositions": [],
+          "reason": "unresolved_alternatives"
+        },
+        {
+          "id": "D01",
+          "user_text": "Gerum systurina að morðingjanum.",
+          "explicit_direction": "Systirin verður að vera saklaus.",
+          "expected_action": "clarify_protected_direction",
+          "selected_propositions": []
+        }
+      ],
+      "revisions": [
+        {
+          "id": "R1",
+          "user_text": "Endurskoðum sendandann úr útgáfu 0 í útgáfu 1.",
+          "prior_version": 1,
+          "result_version": 2,
+          "expected_action": "revise",
+          "preserve_history": true,
+          "review_direct_dependencies": true,
+          "edit_manuscript": false
+        },
+        {
+          "id": "R2",
+          "user_text": "Endurskoðum sendandann úr útgáfu 1 í útgáfu 2.",
+          "prior_version": 2,
+          "result_version": 3,
+          "expected_action": "revise",
+          "preserve_history": true,
+          "review_direct_dependencies": true,
+          "edit_manuscript": false
+        },
+        {
+          "id": "R3",
+          "user_text": "Endurskoðum sendandann úr útgáfu 2 í útgáfu 3.",
+          "prior_version": 3,
+          "result_version": 4,
+          "expected_action": "revise",
+          "preserve_history": true,
+          "review_direct_dependencies": true,
+          "edit_manuscript": false
+        },
+        {
+          "id": "R4",
+          "user_text": "Endurskoðum sendandann úr útgáfu 3 í útgáfu 4.",
+          "prior_version": 4,
+          "result_version": 5,
+          "expected_action": "revise",
+          "preserve_history": true,
+          "review_direct_dependencies": true,
+          "edit_manuscript": false
+        },
+        {
+          "id": "R5",
+          "user_text": "Endurskoðum sendandann úr útgáfu 4 í útgáfu 5.",
+          "prior_version": 5,
+          "result_version": 6,
+          "expected_action": "revise",
+          "preserve_history": true,
+          "review_direct_dependencies": true,
+          "edit_manuscript": false
+        }
+      ]
+    },
+    "tests/fixtures/is/continuity.json": {
+      "language": "is",
+      "status": "Paired authored expectations; semantic parity and actual host judgment unverified",
+      "cases": [
+        {
+          "id": "C1",
+          "category": "motivation",
+          "established_source": {
+            "id": "canon-source-1",
+            "text": "Vitavörðurinn hefur svarið að vernda systurina."
+          },
+          "user_text": "Án breyttrar hvatar svíkur vitavörðurinn hana viljandi.",
+          "expected_assessment": "conflict",
+          "severity": "significant",
+          "interrupt_next_response": true,
+          "expected_consequence": "Athöfnin stangast á við staðfesta verndarhvöt.",
+          "resolutions": [
+            "reject_idea",
+            "revise_idea",
+            "revise_canon",
+            "intentional",
+            "defer"
+          ]
+        },
+        {
+          "id": "C2",
+          "category": "chronology",
+          "established_source": {
+            "id": "canon-source-2",
+            "text": "Vitavörðurinn kemur eftir miðnætti."
+          },
+          "user_text": "Vitavörðurinn bjargar þeim klukkan tíu sama kvöld.",
+          "expected_assessment": "conflict",
+          "severity": "significant",
+          "interrupt_next_response": true,
+          "expected_consequence": "Björgunin krefst nærveru fyrir komuna.",
+          "resolutions": [
+            "reject_idea",
+            "revise_idea",
+            "revise_canon",
+            "intentional",
+            "defer"
+          ]
+        },
+        {
+          "id": "C3",
+          "category": "knowledge",
+          "established_source": {
+            "id": "canon-source-3",
+            "text": "Vitavörðurinn lærir kóðann eftir að skipið sekkur."
+          },
+          "user_text": "Vitavörðurinn notar kóðann til að koma í veg fyrir að skipið sökkvi.",
+          "expected_assessment": "conflict",
+          "severity": "significant",
+          "interrupt_next_response": true,
+          "expected_consequence": "Athöfnin krefst vitneskju sem hann hefur ekki öðlast.",
+          "resolutions": [
+            "reject_idea",
+            "revise_idea",
+            "revise_canon",
+            "intentional",
+            "defer"
+          ]
+        },
+        {
+          "id": "C4",
+          "category": "plot_dependency",
+          "established_source": {
+            "id": "canon-source-4",
+            "text": "Flóttinn krefst eina bátsins."
+          },
+          "user_text": "Eyðileggjum bátinn fyrir óbreyttan flóttann.",
+          "expected_assessment": "conflict",
+          "severity": "significant",
+          "interrupt_next_response": true,
+          "expected_consequence": "Staðfestur flótti missir nauðsynlega forsendu.",
+          "resolutions": [
+            "reject_idea",
+            "revise_idea",
+            "revise_canon",
+            "intentional",
+            "defer"
+          ]
+        },
+        {
+          "id": "C5",
+          "category": "world_rule",
+          "established_source": {
+            "id": "canon-source-5",
+            "text": "Ekkert bréf kemst yfir lokuðu mörkin."
+          },
+          "user_text": "Venjulegt bréf kemst yfir mörkin án undantekningar.",
+          "expected_assessment": "conflict",
+          "severity": "significant",
+          "interrupt_next_response": true,
+          "expected_consequence": "Atburðurinn brýtur skýra reglu.",
+          "resolutions": [
+            "reject_idea",
+            "revise_idea",
+            "revise_canon",
+            "intentional",
+            "defer"
+          ]
+        },
+        {
+          "id": "C6",
+          "category": "relationship",
+          "established_source": {
+            "id": "canon-source-6",
+            "text": "Systkinin hafa aldrei hist fyrir endurfundinn."
+          },
+          "user_text": "Sameiginleg æskuminning þeirra knýr endurfundinn áfram.",
+          "expected_assessment": "conflict",
+          "severity": "significant",
+          "interrupt_next_response": true,
+          "expected_consequence": "Hvötin krefst fyrri tengsla sem staðfestar upplýsingar útiloka.",
+          "resolutions": [
+            "reject_idea",
+            "revise_idea",
+            "revise_canon",
+            "intentional",
+            "defer"
+          ]
+        },
+        {
+          "id": "I01",
+          "user_text": "Persóna lýgur um sendandann; sannleikur söguheimsins er skráður sérstaklega.",
+          "perspective": "character_belief",
+          "expected_assessment": "intentional",
+          "interrupt_next_response": false,
+          "may_establish_canon": false
+        },
+        {
+          "id": "I02",
+          "user_text": "Lesandinn sér bréfið eftir atburðinn en vitavörðurinn sá það áður.",
+          "perspective": "reader_revelation",
+          "expected_assessment": "intentional",
+          "interrupt_next_response": false,
+          "may_establish_canon": false
+        },
+        {
+          "id": "I03",
+          "user_text": "Sögumaðurinn er óáreiðanlegur og ósamræmið er viljandi.",
+          "perspective": "character_belief",
+          "expected_assessment": "intentional",
+          "interrupt_next_response": false,
+          "may_establish_canon": false
+        },
+        {
+          "id": "I04",
+          "user_text": "Ekki er vitað hvenær vitavörðurinn komst að leyndarmálinu.",
+          "perspective": "character_knowledge",
+          "expected_assessment": "uncertainty",
+          "interrupt_next_response": false,
+          "may_establish_canon": false
+        },
+        {
+          "id": "O01",
+          "user_text": "Skráð látúnsinnsigli gæti gefið vísbendingu um sendandann.",
+          "perspective": "author_truth",
+          "expected_assessment": "opportunity",
+          "interrupt_next_response": false,
+          "may_establish_canon": false
+        }
+      ]
+    },
+    "tests/fixtures/is/language-pitfalls.json": {
+      "language": "is",
+      "status": "Authored evaluation inputs; human review and actual product-host outcomes unverified",
+      "cases": [
+        {
+          "id": "L01",
+          "stage": "capture",
+          "challenges": [
+            "false_friend",
+            "diacritics"
+          ],
+          "user_text": "Eventúellt sendi Þóra bréfið.",
+          "source_span": {
+            "start": 0,
+            "end": 29
+          },
+          "source_quote": "Eventúellt sendi Þóra bréfið.",
+          "expected_action": "retain_proposal",
+          "selected_propositions": [],
+          "expected_values": {
+            "sender": "possible",
+            "canon_change": false
+          },
+          "review_note": "Eventúellt means possibly; English eventually must not turn this speculation into certainty."
+        },
+        {
+          "id": "L02",
+          "stage": "acceptance",
+          "challenges": [
+            "false_friend",
+            "diacritics"
+          ],
+          "user_text": "Þóra er gift. Staðfestum það sem staðreynd.",
+          "source_span": {
+            "start": 0,
+            "end": 43
+          },
+          "source_quote": "Þóra er gift. Staðfestum það sem staðreynd.",
+          "expected_action": "accept",
+          "selected_propositions": [
+            "thora_married"
+          ],
+          "expected_values": {
+            "marital_status": "married"
+          },
+          "review_note": "Icelandic gift describes being married; it does not mean an English present."
+        },
+        {
+          "id": "L03",
+          "stage": "continuity",
+          "challenges": [
+            "false_friend",
+            "negation"
+          ],
+          "user_text": "Vélin notar gas, ekki bensín. Samræmist það reglunni?",
+          "source_span": {
+            "start": 0,
+            "end": 53
+          },
+          "source_quote": "Vélin notar gas, ekki bensín. Samræmist það reglunni?",
+          "expected_action": "flag_conflict",
+          "selected_propositions": [],
+          "expected_values": {
+            "category": "world_rule",
+            "interrupt_next_response": true,
+            "canon_change": false
+          },
+          "review_note": "Icelandic gas denotes gaseous fuel here, not the American English shorthand for gasoline.",
+          "established_source": {
+            "id": "engine-rule",
+            "text": "Vélin gengur eingöngu fyrir bensíni."
+          }
+        },
+        {
+          "id": "L04",
+          "stage": "acceptance",
+          "challenges": [
+            "mixed_language",
+            "diacritics",
+            "partial_selection"
+          ],
+          "user_text": "Höldum Þóru sem sendanda, but leave the murder undecided.",
+          "source_span": {
+            "start": 0,
+            "end": 24
+          },
+          "source_quote": "Höldum Þóru sem sendanda",
+          "expected_action": "accept",
+          "selected_propositions": [
+            "thora_sender"
+          ],
+          "expected_values": {
+            "murderer": "unresolved"
+          },
+          "review_note": "Select only the sender proposition; switching language does not extend acceptance."
+        },
+        {
+          "id": "L05",
+          "stage": "setup",
+          "challenges": [
+            "mixed_language",
+            "diacritics"
+          ],
+          "user_text": "Handritið verður á íslensku; reply in English. Ég veit ekki enn hver tegundin verður.",
+          "source_span": {
+            "start": 0,
+            "end": 85
+          },
+          "source_quote": "Handritið verður á íslensku; reply in English. Ég veit ekki enn hver tegundin verður.",
+          "expected_action": "update_preferences",
+          "selected_propositions": [],
+          "expected_values": {
+            "manuscript_language": "is",
+            "interaction_language": "en",
+            "genre": "unknown",
+            "canon_change": false
+          },
+          "review_note": "An interaction-language request must not replace the manuscript language or invent the skipped genre."
+        },
+        {
+          "id": "L06",
+          "stage": "guidance",
+          "challenges": [
+            "mixed_language",
+            "diacritics"
+          ],
+          "user_text": "Færri tillögur, please. Beinum sjónum að æsku Ægis.",
+          "source_span": {
+            "start": 0,
+            "end": 51
+          },
+          "source_quote": "Færri tillögur, please. Beinum sjónum að æsku Ægis.",
+          "expected_action": "redirect",
+          "selected_propositions": [],
+          "expected_values": {
+            "suggestions": "fewer",
+            "topic": "aegir_childhood",
+            "canon_change": false
+          },
+          "review_note": "Honor reduced suggestions and the topic change in the next response; preserve the inflected name."
+        },
+        {
+          "id": "L07",
+          "stage": "capture",
+          "challenges": [
+            "false_friend",
+            "diacritics",
+            "quoted_dialogue"
+          ],
+          "user_text": "Persónan segir: „Ég er gift.“ Þetta er aðeins möguleg lygi.",
+          "source_span": {
+            "start": 0,
+            "end": 59
+          },
+          "source_quote": "Persónan segir: „Ég er gift.“ Þetta er aðeins möguleg lygi.",
+          "expected_action": "retain_proposal",
+          "selected_propositions": [],
+          "expected_values": {
+            "marital_status": "unestablished",
+            "canon_change": false
+          },
+          "review_note": "A possible line of dialogue does not establish author truth or a confirmed character belief."
+        },
+        {
+          "id": "L08",
+          "stage": "acceptance",
+          "challenges": [
+            "diacritics",
+            "negation"
+          ],
+          "user_text": "Ekki staðfesta að Þóra sé sendandinn.",
+          "source_span": {
+            "start": 0,
+            "end": 37
+          },
+          "source_quote": "Ekki staðfesta að Þóra sé sendandinn.",
+          "expected_action": "retain_proposal",
+          "selected_propositions": [],
+          "expected_values": {
+            "sender": "proposed",
+            "canon_change": false
+          },
+          "review_note": "The explicit negation forbids promotion without automatically rejecting the idea."
+        }
+      ]
+    }
+  },
+  "isolation": "Use independent disposable novel contexts when prior canon or a prior question would change a case interpretation; never award a fixture expectation from prepared records."
+}

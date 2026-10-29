@@ -1,0 +1,29 @@
+"""External fresh Windows bundle-mode query; no runtime source changes."""
+import ctypes,hashlib,inspect,json,os,stat,statistics,sys,time
+from ctypes import wintypes
+from pathlib import Path
+from unittest.mock import patch
+sys.path.insert(0,str(Path.cwd()))
+from novel_creator import records,storage
+from novel_creator.context import read
+from tests.helpers import repository,git
+from tests.performance import benchmark_records as benchmark
+assert os.name=='nt'
+kernel=ctypes.WinDLL('kernel32',use_last_error=True)
+get_attributes=kernel.GetFileAttributesW
+get_attributes.argtypes=[wintypes.LPCWSTR];get_attributes.restype=wintypes.DWORD
+ordinary=(stat.FILE_ATTRIBUTE_NORMAL|stat.FILE_ATTRIBUTE_ARCHIVE|stat.FILE_ATTRIBUTE_READONLY|stat.FILE_ATTRIBUTE_HIDDEN|stat.FILE_ATTRIBUTE_SYSTEM)
+def bundle_mode(path):
+    attributes=get_attributes(path)
+    # Only fresh ordinary-file metadata is used. Every other attribute/error
+    # goes through the existing lstat path, including reparse points and dirs.
+    if attributes and not attributes & ~ordinary:
+        return stat.S_IFREG
+    return os.lstat(path).st_mode
+source=inspect.getsource(storage._checked_path)
+original_line='            mode = os.lstat(current).st_mode'
+assert original_line in source
+source=source.replace(original_line,'            mode = _bundle_mode(current) if bundle and _regular_leaf and not parent else os.lstat(current).st_mode')
+namespace=dict(storage.__dict__);namespace['_bundle_mode']=bundle_mode
+exec(compile(source,'<fresh-Windows-bundle-mode-experiment>','exec'),namespace)
+candidate=namespace['_checked_path']

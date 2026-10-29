@@ -1,0 +1,10 @@
+test_partitioned_history_preserves_cached_uncached_and_captured_snapshots (tests.integration.test_storage.StorageTests.test_partitioned_history_preserves_cached_uncached_and_captured_snapshots) ... ok
+test_partitioned_history_preserves_binary_framing_and_nonzero_outputs (tests.integration.test_storage.StorageTests.test_partitioned_history_preserves_binary_framing_and_nonzero_outputs) ... ok
+test_partitioned_history_preserves_earlier_damage_and_guard_precedence (tests.integration.test_storage.StorageTests.test_partitioned_history_preserves_earlier_damage_and_guard_precedence) ... ok
+test_partitioned_history_joins_partial_submission_before_single_fallback (tests.integration.test_storage.StorageTests.test_partitioned_history_joins_partial_submission_before_single_fallback) ... ok
+test_partitioned_history_keeps_small_reads_and_save_history_serial (tests.integration.test_storage.StorageTests.test_partitioned_history_keeps_small_reads_and_save_history_serial) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 31.152s
+
+OK

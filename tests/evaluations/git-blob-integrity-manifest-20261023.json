@@ -1,0 +1,69 @@
+{
+  "task": "T161",
+  "results": {
+    "windows": {
+      "tests": 158,
+      "passed": 156,
+      "skipped": 2,
+      "seconds": 32783.725,
+      "wheel_sha256": "a8be8f63cd77ef958e0e4307a686eae1f78c4360017a869ad6237efda22488e6",
+      "wheel_verified_source_files": 25
+    },
+    "linux": {
+      "tests": 158,
+      "passed": 155,
+      "skipped": 3,
+      "seconds": 753.914,
+      "wheel_sha256": "a8be8f63cd77ef958e0e4307a686eae1f78c4360017a869ad6237efda22488e6",
+      "wheel_verified_source_files": 25
+    }
+  },
+  "source_sha256": {
+    "src/novel_creator/storage.py": "40c7c1ef61af98e9c1e04292d2befc963bd48bbd45196ce8cbf91576f3ee771b",
+    "tests/integration/test_candidate.py": "cfceb90e269f8a9c9758372e9c42c738a3ec9ad2fee472f0aa84b7adefc02e8d",
+    "tests/integration/test_cache.py": "b7d58c6e277d53a6e9c467dee27c12aa248cd768f24e6417ccf0f28ee135a218"
+  },
+  "semantic_host_or_human_evidence": false,
+  "performance_remeasured": false,
+  "remaining_tasks": [
+    "T151",
+    "T152",
+    "T153",
+    "T154",
+    "T155",
+    "T156",
+    "T157",
+    "T158"
+  ],
+  "files": {
+    "src/novel_creator/__init__.py": "277031de0bb8a6cf825d6f25829addaefcdee170a24613786fe6cdc561c2738a",
+    "src/novel_creator/__main__.py": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+    "src/novel_creator/cli.py": "4b1d4c73aefc0f983a82ba51ac30625e5f6101a17878aa99e2dec6f13aef1eb6",
+    "src/novel_creator/context.py": "ce1a7819457b7dd700cf5478fed1746337d80efd38825c4d69c90d77711a1e54",
+    "src/novel_creator/install.py": "fe55d057d08361d52eb3c46f2ee006bef1f8c14c3c52ab8bbc25e6738cc69b79",
+    "src/novel_creator/records.py": "a13dc0ba0b94e32a010571f48ee34d304e1c79fa11bffcce2733583ba81bac1e",
+    "src/novel_creator/storage.py": "40c7c1ef61af98e9c1e04292d2befc963bd48bbd45196ce8cbf91576f3ee771b",
+    "src/novel_creator/validation.py": "7e4c75ada3c3eaf3c196066ff657e5e5d9084abdd14a97b6e07c4f5d3b6bf517",
+    "src/novel_creator/validation_cache.py": "db43c3c1e480122a27f39d14a890fbbfa9f8c20eac426e323c613422e9a7fd55",
+    "tests/evaluations/candidate-blob-hash-focused-20261023.txt": "54a2b6ac1e3536a12629747c0866d4400e70f1dda11f2264539f8dbfd7ae72de",
+    "tests/evaluations/candidate-blob-hash-red-20261023.txt": "b6186c1d21d5002833c41d8be1ae98e909adc97c781b9fd8ad0b3691cf2c3d63",
+    "tests/evaluations/candidate-blob-hash-wheel-build-20261023.txt": "898f499ccd261ba961905fc92e6ca531ea9e80074199b6b1ba0abeea0e58a85b",
+    "tests/evaluations/git-blob-integrity-20261023.md": "2431dd8be9eb4e71670cdb677ace6d8e2d2f4f3903cdaa215ff41f0cf1e53bab",
+    "tests/evaluations/git-blob-integrity-focused-20261023.txt": "dc61ffdadb1ded6bec2beda31055fec45cbaa5fffa622c6664dfbb8054e15a87",
+    "tests/evaluations/git-blob-integrity-wheel-build-20261023.txt": "71e339fc0a137f724bdd408e7f3a90bbdc1fdb08e45219e6710b1b59351c1c4c",
+    "tests/evaluations/history-blob-integrity-integrated-red-20261023.txt": "b6e16246b4ae2ace932b4f91abe4c9d47cf4cafd91fb3e3c1c0fd864e3181ae7",
+    "tests/evaluations/history-blob-integrity-red-20261023.txt": "f66b00cbce8c2b24d020dcef482d432c22e620eb1abe56ae0948eaf0f5f0534e",
+    "tests/evaluations/history-blob-integrity-regression-source-20261023.txt": "86b06577db20d91d52e7b14edc152ad15cb00ad6e1eb027b2c9b979625f59093",
+    "tests/evaluations/linux-candidate-blob-hash-focused-20261023.txt": "d91dd89d7af340b91f21df46650e1231f243e8d87ae9c1978b52dff62f168c02",
+    "tests/evaluations/linux-candidate-blob-hash-full-tests-20261023.txt": "0834d0e23f0b1c3908efb2989632c276c2014e5fb40684a0b1662a2f8a2eaa2e",
+    "tests/evaluations/linux-git-blob-integrity-focused-20261023.txt": "a42c8f4ee5e4350961129aa1351d2448de86945208cdeee2b2991cdafbc6ed6a",
+    "tests/evaluations/linux-git-blob-integrity-full-tests-20261023.txt": "b8ab20d70cb538cde5840f8f18356186d7a59180b928839b24a7f08818ee2053",
+    "tests/evaluations/linux-git-blob-integrity-wheel-20261023.json": "38d677dc2ccf1bb565909f09466ab072c10da0f9d214fd5933dbad70afcb5ac2",
+    "tests/evaluations/verify-git-blob-integrity-evidence-20261023.py": "9f89aae2fd7f50dfb2ff5abb406df6c92a9e6e1e111e95ef795259a74c4201c4",
+    "tests/evaluations/windows-candidate-blob-hash-full-tests-20261023.txt": "5147617b8cd3b8c72451e6c2fa87db622c1ed6118c3d0459fdfaf58044332d4f",
+    "tests/evaluations/windows-git-blob-integrity-full-tests-20261023.txt": "eadf5cb0a938e3f18be99adf2d9c37086df1502f30fc7bff471df699dd6cd29f",
+    "tests/evaluations/windows-git-blob-integrity-wheel-20261023.json": "c48bce3e332d673c278179d40a162b78961bfe094a3a236e5286831e71dbca2f",
+    "tests/integration/test_cache.py": "b7d58c6e277d53a6e9c467dee27c12aa248cd768f24e6417ccf0f28ee135a218",
+    "tests/integration/test_candidate.py": "cfceb90e269f8a9c9758372e9c42c738a3ec9ad2fee472f0aa84b7adefc02e8d"
+  }
+}

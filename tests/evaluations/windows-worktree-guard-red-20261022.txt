@@ -1,0 +1,26 @@
+test_second_guard_rejects_tampering_under_changed_worktree_config_and_index_prefix (tests.integration.test_storage.StorageTests.test_second_guard_rejects_tampering_under_changed_worktree_config_and_index_prefix) ... 
+  test_second_guard_rejects_tampering_under_changed_worktree_config_and_index_prefix (tests.integration.test_storage.StorageTests.test_second_guard_rejects_tampering_under_changed_worktree_config_and_index_prefix) (object_format='sha1') ... FAIL
+  test_second_guard_rejects_tampering_under_changed_worktree_config_and_index_prefix (tests.integration.test_storage.StorageTests.test_second_guard_rejects_tampering_under_changed_worktree_config_and_index_prefix) (object_format='sha256') ... FAIL
+
+======================================================================
+FAIL: test_second_guard_rejects_tampering_under_changed_worktree_config_and_index_prefix (tests.integration.test_storage.StorageTests.test_second_guard_rejects_tampering_under_changed_worktree_config_and_index_prefix) (object_format='sha1')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 46, in test_second_guard_rejects_tampering_under_changed_worktree_config_and_index_prefix
+    with self.assertRaises(ToolError) as error:
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+AssertionError: ToolError not raised
+
+======================================================================
+FAIL: test_second_guard_rejects_tampering_under_changed_worktree_config_and_index_prefix (tests.integration.test_storage.StorageTests.test_second_guard_rejects_tampering_under_changed_worktree_config_and_index_prefix) (object_format='sha256')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 46, in test_second_guard_rejects_tampering_under_changed_worktree_config_and_index_prefix
+    with self.assertRaises(ToolError) as error:
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+AssertionError: ToolError not raised
+
+----------------------------------------------------------------------
+Ran 1 test in 6.352s
+
+FAILED (failures=2)

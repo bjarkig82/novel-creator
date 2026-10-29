@@ -1,0 +1,31 @@
+test_independent_pinned_install_and_recognized_continuation (tests.integration.test_install.InstallationTests.test_independent_pinned_install_and_recognized_continuation) ... Exception in thread Thread-263 (_readerthread):
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\threading.py", line 1044, in _bootstrap_inner
+    self.run()
+    ~~~~~~~~^^
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\threading.py", line 995, in run
+    self._target(*self._args, **self._kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\subprocess.py", line 1615, in _readerthread
+    buffer.append(fh.read())
+                  ~~~~~~~^^
+  File "<frozen codecs>", line 325, in decode
+UnicodeDecodeError: 'utf-8' codec can't decode byte 0xde in position 782: invalid continuation byte
+ERROR
+
+======================================================================
+ERROR: test_independent_pinned_install_and_recognized_continuation (tests.integration.test_install.InstallationTests.test_independent_pinned_install_and_recognized_continuation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_install.py", line 48, in test_independent_pinned_install_and_recognized_continuation
+    self.assertEqual(json.loads(output.stdout)['novel_id'], result['novel_id'])
+                     ~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\json\__init__.py", line 345, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+                    f'not {s.__class__.__name__}')
+TypeError: the JSON object must be str, bytes or bytearray, not NoneType
+
+----------------------------------------------------------------------
+Ran 1 test in 7.871s
+
+FAILED (errors=1)

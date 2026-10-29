@@ -1,0 +1,383 @@
+{
+  "schema_version": "1.0",
+  "novel_id": "42754ded-2ba3-42d4-98b4-3e30663c4e76",
+  "exchange_id": "9ded8930-92ba-4ab6-8e42-4d71833ed365",
+  "sequence": 2,
+  "previous_exchange_id": "2aa7a7ea-93a7-4406-9e56-100e3923bbc6",
+  "previous_digest": "5f266eeaecce07d1552b5901b7dcfb778fd5e8799cab1366ae64d77c3c3504f3",
+  "session_id": null,
+  "expected_git_head": "73b7a62975f7d884fba48f0e58fc63472678ffae",
+  "recorded_at": "2026-10-28T10:48:20.695050Z",
+  "operation": "conversation",
+  "messages": [
+    {
+      "message_id": "e362f85e-1738-4d4d-bdfe-87ea5cc7d855",
+      "role": "user",
+      "text": "Case LANG_SETUP. Administrative setup: use a NEW independent disposable novel at C:/Users/BjarkiGunnarsson/Documents/Codex/2026-10-23/novel-phase22-en-20261023/language-pitfalls-novel, outside all other repositories, initialized through the production framework CLI with manuscript language en and all other creative preferences unknown. Preserve the previous evaluation novel. Configure only local evaluation Git identity. Then use only this new novel's pinned installed launcher/workflows, the existing exact public-current-input delegated capture procedure, normal save-before-display and CASE evidence files; no framework edits, APIs or global changes. The following are actual director instructions, not quoted evaluation expectations. Establish this engine rule as author truth: The engine runs exclusively on petrol.\n\nKeep the manuscript in Icelandic; svaraðu á ensku. I do not know the genre yet.\n\nPause after your response."
+    },
+    {
+      "message_id": "e759c990-510f-437b-861d-d917c4d6b271",
+      "role": "assistant",
+      "text": "The manuscript language is Icelandic; I’ll respond in English. Genre remains unknown (42754ded r2).\n\nEstablished author truth: The engine runs exclusively on petrol (2d9d1a12 r1; decision 2e9fcc93 r1).\n\nPaused here."
+    }
+  ],
+  "input_artifacts": [
+    {
+      "artifact_id": "d7517ecd-1673-4445-9c7c-c0fc178115d7",
+      "original_text": "{\"kind\":\"host_input\",\"source_type\":\"delegated\",\"thread_id\":\"01a16af9-f289-73c1-8151-55f50ace05d9\",\"turn_id\":\"01a1821e-c740-7890-af0f-0827f53d7c83\",\"event_id\":\"fco_01a1821e-c741-7930-866a-4d6780a5c8d2\",\"event_type\":\"functionCallOutput\",\"source_thread_id\":\"01a16af6-0d9b-7173-a5f5-c8775f37df18\",\"native_user_input\":false,\"novice_evidence\":false,\"evaluation_only\":true,\"text\":\"Case LANG_SETUP. Administrative setup: use a NEW independent disposable novel at C:/Users/BjarkiGunnarsson/Documents/Codex/2026-10-23/novel-phase22-en-20261023/language-pitfalls-novel, outside all other repositories, initialized through the production framework CLI with manuscript language en and all other creative preferences unknown. Preserve the previous evaluation novel. Configure only local evaluation Git identity. Then use only this new novel's pinned installed launcher/workflows, the existing exact public-current-input delegated capture procedure, normal save-before-display and CASE evidence files; no framework edits, APIs or global changes. The following are actual director instructions, not quoted evaluation expectations. Establish this engine rule as author truth: The engine runs exclusively on petrol.\\n\\nKeep the manuscript in Icelandic; svaraðu á ensku. I do not know the genre yet.\\n\\nPause after your response.\",\"public_event\":{\"type\":\"functionCallOutput\",\"id\":\"fco_01a1821e-c741-7930-866a-4d6780a5c8d2\",\"namespace\":\"codex_app\",\"name\":\"send_message_to_thread\",\"output\":{\"text\":\"<codex_delegation>\\n  <source_thread_id>01a16af6-0d9b-7173-a5f5-c8775f37df18</source_thread_id>\\n  <input>Case LANG_SETUP. Administrative setup: use a NEW independent disposable novel at C:/Users/BjarkiGunnarsson/Documents/Codex/2026-10-23/novel-phase22-en-20261023/language-pitfalls-novel, outside all other repositories, initialized through the production framework CLI with manuscript language en and all other creative preferences unknown. Preserve the previous evaluation novel. Configure only local evaluation Git identity. Then use only this new novel's pinned installed launcher/workflows, the existing exact public-current-input delegated capture procedure, normal save-before-display and CASE evidence files; no framework edits, APIs or global changes. The following are actual director instructions, not quoted evaluation expectations. Establish this engine rule as author truth: The engine runs exclusively on petrol.\\n\\nKeep the manuscript in Icelandic; svaraðu á ensku. I do not know the genre yet.\\n\\nPause after your response.</input>\\n</codex_delegation>\",\"truncated\":false}}}",
+      "parsed_value": {
+        "kind": "host_input",
+        "source_type": "delegated",
+        "thread_id": "01a16af9-f289-73c1-8151-55f50ace05d9",
+        "turn_id": "01a1821e-c740-7890-af0f-0827f53d7c83",
+        "event_id": "fco_01a1821e-c741-7930-866a-4d6780a5c8d2",
+        "event_type": "functionCallOutput",
+        "source_thread_id": "01a16af6-0d9b-7173-a5f5-c8775f37df18",
+        "native_user_input": false,
+        "novice_evidence": false,
+        "evaluation_only": true,
+        "text": "Case LANG_SETUP. Administrative setup: use a NEW independent disposable novel at C:/Users/BjarkiGunnarsson/Documents/Codex/2026-10-23/novel-phase22-en-20261023/language-pitfalls-novel, outside all other repositories, initialized through the production framework CLI with manuscript language en and all other creative preferences unknown. Preserve the previous evaluation novel. Configure only local evaluation Git identity. Then use only this new novel's pinned installed launcher/workflows, the existing exact public-current-input delegated capture procedure, normal save-before-display and CASE evidence files; no framework edits, APIs or global changes. The following are actual director instructions, not quoted evaluation expectations. Establish this engine rule as author truth: The engine runs exclusively on petrol.\n\nKeep the manuscript in Icelandic; svaraðu á ensku. I do not know the genre yet.\n\nPause after your response.",
+        "public_event": {
+          "type": "functionCallOutput",
+          "id": "fco_01a1821e-c741-7930-866a-4d6780a5c8d2",
+          "namespace": "codex_app",
+          "name": "send_message_to_thread",
+          "output": {
+            "text": "<codex_delegation>\n  <source_thread_id>01a16af6-0d9b-7173-a5f5-c8775f37df18</source_thread_id>\n  <input>Case LANG_SETUP. Administrative setup: use a NEW independent disposable novel at C:/Users/BjarkiGunnarsson/Documents/Codex/2026-10-23/novel-phase22-en-20261023/language-pitfalls-novel, outside all other repositories, initialized through the production framework CLI with manuscript language en and all other creative preferences unknown. Preserve the previous evaluation novel. Configure only local evaluation Git identity. Then use only this new novel's pinned installed launcher/workflows, the existing exact public-current-input delegated capture procedure, normal save-before-display and CASE evidence files; no framework edits, APIs or global changes. The following are actual director instructions, not quoted evaluation expectations. Establish this engine rule as author truth: The engine runs exclusively on petrol.\n\nKeep the manuscript in Icelandic; svaraðu á ensku. I do not know the genre yet.\n\nPause after your response.</input>\n</codex_delegation>",
+            "truncated": false
+          }
+        }
+      },
+      "digest": "2ccc353905881258d29e35b57fddd3a1943c42ee30dfc58458f12e5c8f409151"
+    }
+  ],
+  "record_versions": [
+    {
+      "id": "42754ded-2ba3-42d4-98b4-3e30663c4e76",
+      "kind": "novel_project",
+      "revision": 2,
+      "previous_revision": 1,
+      "created_exchange_id": "2aa7a7ea-93a7-4406-9e56-100e3923bbc6",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "9ded8930-92ba-4ab6-8e42-4d71833ed365",
+          "message_id": "e362f85e-1738-4d4d-bdfe-87ea5cc7d855",
+          "range": {
+            "start": 825,
+            "end": 875
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "9ded8930-92ba-4ab6-8e42-4d71833ed365",
+          "message_id": "e362f85e-1738-4d4d-bdfe-87ea5cc7d855",
+          "range": {
+            "start": 876,
+            "end": 904
+          }
+        }
+      ],
+      "origin": "supplied",
+      "title": {
+        "state": "default",
+        "original_text": "Untitled novel",
+        "interpretation": null,
+        "origin": "system_default",
+        "source_refs": []
+      },
+      "original_concept": {
+        "state": "unknown",
+        "original_text": null,
+        "interpretation": null,
+        "origin": "system_default",
+        "source_refs": []
+      },
+      "creative_brief": {
+        "genre": {
+          "state": "unknown",
+          "original_text": null,
+          "interpretation": null,
+          "origin": "system_default",
+          "source_refs": []
+        },
+        "subgenres": {
+          "state": "unknown",
+          "original_text": null,
+          "interpretation": null,
+          "origin": "system_default",
+          "source_refs": []
+        },
+        "audience": {
+          "state": "unknown",
+          "original_text": null,
+          "interpretation": null,
+          "origin": "system_default",
+          "source_refs": []
+        },
+        "tone": {
+          "state": "unknown",
+          "original_text": null,
+          "interpretation": null,
+          "origin": "system_default",
+          "source_refs": []
+        },
+        "style": {
+          "state": "unknown",
+          "original_text": null,
+          "interpretation": null,
+          "origin": "system_default",
+          "source_refs": []
+        },
+        "perspective": {
+          "state": "unknown",
+          "original_text": null,
+          "interpretation": null,
+          "origin": "system_default",
+          "source_refs": []
+        },
+        "complexity": {
+          "state": "unknown",
+          "original_text": null,
+          "interpretation": null,
+          "origin": "system_default",
+          "source_refs": []
+        }
+      },
+      "manuscript_language": "is",
+      "workflow_preferences": {
+        "interaction_language": {
+          "state": "supplied",
+          "original_text": "svaraðu á ensku",
+          "interpretation": "Respond in English.",
+          "origin": "supplied",
+          "source_refs": [
+            {
+              "type": "message",
+              "exchange_id": "9ded8930-92ba-4ab6-8e42-4d71833ed365",
+              "message_id": "e362f85e-1738-4d4d-bdfe-87ea5cc7d855",
+              "range": {
+                "start": 859,
+                "end": 874
+              }
+            }
+          ]
+        }
+      },
+      "review_preferences": {
+        "routine_checkpoint": "on_request"
+      },
+      "creative_directions": []
+    },
+    {
+      "id": "535a64d5-f560-4c5c-9bde-cf235f3b42e3",
+      "kind": "story_element",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "9ded8930-92ba-4ab6-8e42-4d71833ed365",
+          "message_id": "e362f85e-1738-4d4d-bdfe-87ea5cc7d855",
+          "range": {
+            "start": 785,
+            "end": 823
+          }
+        }
+      ],
+      "created_exchange_id": "9ded8930-92ba-4ab6-8e42-4d71833ed365",
+      "origin": "supplied",
+      "element_type": "plot_thread",
+      "display_name": "Engine",
+      "aliases": [],
+      "status": "accepted",
+      "assertion_ids": [
+        "2d9d1a12-afd9-4ed4-baa3-4851f12cfd29"
+      ],
+      "relationship_ids": [],
+      "dependency_refs": [],
+      "time_ref": null,
+      "decision_ids": [
+        "2e9fcc93-84cd-4378-8782-e001519d973c"
+      ]
+    },
+    {
+      "id": "2d9d1a12-afd9-4ed4-baa3-4851f12cfd29",
+      "kind": "assertion",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "9ded8930-92ba-4ab6-8e42-4d71833ed365",
+          "message_id": "e362f85e-1738-4d4d-bdfe-87ea5cc7d855",
+          "range": {
+            "start": 785,
+            "end": 823
+          }
+        }
+      ],
+      "created_exchange_id": "9ded8930-92ba-4ab6-8e42-4d71833ed365",
+      "origin": "supplied",
+      "subject_element_id": "535a64d5-f560-4c5c-9bde-cf235f3b42e3",
+      "predicate": "fuel_rule",
+      "value": "runs exclusively on petrol",
+      "perspective": "author_truth",
+      "holder_id": null,
+      "reader_audience": null,
+      "time_ref": {
+        "chronology": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        },
+        "narrative": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        }
+      },
+      "truth_state": "affirmed",
+      "status": "accepted",
+      "decision_ids": [
+        "2e9fcc93-84cd-4378-8782-e001519d973c"
+      ],
+      "supersedes": null
+    },
+    {
+      "id": "2ca3565a-e1fa-48f0-a7c1-a4dbb550d1f7",
+      "kind": "idea",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "9ded8930-92ba-4ab6-8e42-4d71833ed365",
+          "message_id": "e362f85e-1738-4d4d-bdfe-87ea5cc7d855",
+          "range": {
+            "start": 785,
+            "end": 823
+          }
+        }
+      ],
+      "created_exchange_id": "9ded8930-92ba-4ab6-8e42-4d71833ed365",
+      "origin": "supplied",
+      "statement": "The engine runs exclusively on petrol.",
+      "status": "accepted",
+      "related_element_ids": [
+        "535a64d5-f560-4c5c-9bde-cf235f3b42e3"
+      ],
+      "alternative_group_id": null,
+      "selected_parts": [
+        "The engine runs exclusively on petrol."
+      ],
+      "decision_ids": [
+        "2e9fcc93-84cd-4378-8782-e001519d973c"
+      ],
+      "resulting_assertion_ids": [
+        "2d9d1a12-afd9-4ed4-baa3-4851f12cfd29"
+      ]
+    },
+    {
+      "id": "2e9fcc93-84cd-4378-8782-e001519d973c",
+      "kind": "decision",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "9ded8930-92ba-4ab6-8e42-4d71833ed365",
+          "message_id": "e362f85e-1738-4d4d-bdfe-87ea5cc7d855",
+          "range": {
+            "start": 741,
+            "end": 823
+          }
+        }
+      ],
+      "created_exchange_id": "9ded8930-92ba-4ab6-8e42-4d71833ed365",
+      "origin": "supplied",
+      "action": "accept",
+      "user_message_ref": {
+        "type": "message",
+        "exchange_id": "9ded8930-92ba-4ab6-8e42-4d71833ed365",
+        "message_id": "e362f85e-1738-4d4d-bdfe-87ea5cc7d855",
+        "range": {
+          "start": 741,
+          "end": 823
+        }
+      },
+      "span": {
+        "start": 741,
+        "end": 823
+      },
+      "target_refs": [
+        {
+          "id": "535a64d5-f560-4c5c-9bde-cf235f3b42e3",
+          "revision": 1
+        },
+        {
+          "id": "2d9d1a12-afd9-4ed4-baa3-4851f12cfd29",
+          "revision": 1
+        },
+        {
+          "id": "2ca3565a-e1fa-48f0-a7c1-a4dbb550d1f7",
+          "revision": 1
+        }
+      ],
+      "selected_parts": [
+        "The engine runs exclusively on petrol."
+      ],
+      "prior_refs": [],
+      "result_refs": [
+        {
+          "id": "535a64d5-f560-4c5c-9bde-cf235f3b42e3",
+          "revision": 1
+        },
+        {
+          "id": "2d9d1a12-afd9-4ed4-baa3-4851f12cfd29",
+          "revision": 1
+        },
+        {
+          "id": "2ca3565a-e1fa-48f0-a7c1-a4dbb550d1f7",
+          "revision": 1
+        }
+      ],
+      "reason": "Explicit current director instruction establishes the engine rule as author truth. Administrative installation instructions do not create story facts.",
+      "affected_refs": [
+        {
+          "id": "535a64d5-f560-4c5c-9bde-cf235f3b42e3",
+          "revision": 1
+        },
+        {
+          "id": "2d9d1a12-afd9-4ed4-baa3-4851f12cfd29",
+          "revision": 1
+        },
+        {
+          "id": "2ca3565a-e1fa-48f0-a7c1-a4dbb550d1f7",
+          "revision": 1
+        }
+      ],
+      "review_required_refs": []
+    }
+  ],
+  "continuity_review": {
+    "coverage": "complete",
+    "reviewed_record_refs": [
+      {
+        "id": "42754ded-2ba3-42d4-98b4-3e30663c4e76",
+        "revision": 1
+      }
+    ],
+    "unavailable_refs": [],
+    "canon_hold_refs": [],
+    "finding_ids": [],
+    "summary": "The independent novel has no earlier story canon. The current director explicitly changes manuscript language to Icelandic while requesting English interaction, leaves genre unknown and establishes the petrol-only engine rule. No preferences or story facts are imported from earlier evaluation novels."
+  },
+  "payload_digest": "f89131316ec0266dbfe9af421a36f79986f432ee1ef7b58396069ee0fd72393b"
+}

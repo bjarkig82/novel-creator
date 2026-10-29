@@ -1,0 +1,26 @@
+{"fixture": {"sessions": 100, "exchanges": 5000, "active_assertions": 10000, "json_bytes": 26215716, "synthetic": true, "fully_validated": true}}
+{"operation": "batch_blobs", "buffered": false, "sample": 1, "seconds": 0.5809352000942454, "sha256": "f526f11eb2d535c6db33fe752a10dc258180d0e9be909ad7c56adc87c34b209f"}
+{"operation": "batch_blobs", "buffered": true, "sample": 2, "seconds": 0.6023963999468833, "sha256": "f526f11eb2d535c6db33fe752a10dc258180d0e9be909ad7c56adc87c34b209f"}
+{"operation": "batch_blobs", "buffered": true, "sample": 3, "seconds": 0.5882054000394419, "sha256": "f526f11eb2d535c6db33fe752a10dc258180d0e9be909ad7c56adc87c34b209f"}
+{"operation": "batch_blobs", "buffered": false, "sample": 4, "seconds": 0.5918010000605136, "sha256": "f526f11eb2d535c6db33fe752a10dc258180d0e9be909ad7c56adc87c34b209f"}
+{"operation": "batch_blobs", "buffered": false, "sample": 5, "seconds": 0.6040744000347331, "sha256": "f526f11eb2d535c6db33fe752a10dc258180d0e9be909ad7c56adc87c34b209f"}
+{"operation": "batch_blobs", "buffered": true, "sample": 6, "seconds": 0.5924447000725195, "sha256": "f526f11eb2d535c6db33fe752a10dc258180d0e9be909ad7c56adc87c34b209f"}
+{"operation": "batch_blobs", "buffered": true, "sample": 7, "seconds": 0.6093822000548244, "sha256": "f526f11eb2d535c6db33fe752a10dc258180d0e9be909ad7c56adc87c34b209f"}
+{"operation": "batch_blobs", "buffered": false, "sample": 8, "seconds": 0.5726987000089139, "sha256": "f526f11eb2d535c6db33fe752a10dc258180d0e9be909ad7c56adc87c34b209f"}
+{"operation": "batch_blobs", "buffered": false, "sample": 9, "seconds": 0.568879299913533, "sha256": "f526f11eb2d535c6db33fe752a10dc258180d0e9be909ad7c56adc87c34b209f"}
+{"operation": "batch_blobs", "buffered": true, "sample": 10, "seconds": 0.583568700007163, "sha256": "f526f11eb2d535c6db33fe752a10dc258180d0e9be909ad7c56adc87c34b209f"}
+{"operation": "batch_blobs", "buffered": true, "sample": 11, "seconds": 0.5815459999721497, "sha256": "f526f11eb2d535c6db33fe752a10dc258180d0e9be909ad7c56adc87c34b209f"}
+{"operation": "batch_blobs", "buffered": false, "sample": 12, "seconds": 0.6237168000079691, "sha256": "f526f11eb2d535c6db33fe752a10dc258180d0e9be909ad7c56adc87c34b209f"}
+{"operation": "batch_blobs", "buffered": false, "sample": 13, "seconds": 0.5832588999764994, "sha256": "f526f11eb2d535c6db33fe752a10dc258180d0e9be909ad7c56adc87c34b209f"}
+{"operation": "batch_blobs", "buffered": true, "sample": 14, "seconds": 0.6320924999890849, "sha256": "f526f11eb2d535c6db33fe752a10dc258180d0e9be909ad7c56adc87c34b209f"}
+{"operation": "batch_blobs", "buffered": true, "sample": 15, "seconds": 0.812214299920015, "sha256": "f526f11eb2d535c6db33fe752a10dc258180d0e9be909ad7c56adc87c34b209f"}
+{"operation": "batch_blobs", "buffered": false, "sample": 16, "seconds": 0.576529199955985, "sha256": "f526f11eb2d535c6db33fe752a10dc258180d0e9be909ad7c56adc87c34b209f"}
+{"medians": {"False": 0.5820970500353724, "True": 0.5974205500097014}}
+{"operation": "save", "buffered": false, "sample": 1, "seconds": 2.9677341000642627, "observed_count": 5001}
+{"operation": "save", "buffered": true, "sample": 2, "seconds": 3.3329286999069154, "observed_count": 5002}
+{"operation": "save", "buffered": true, "sample": 3, "seconds": 3.672823999891989, "observed_count": 5003}
+{"operation": "save", "buffered": false, "sample": 4, "seconds": 3.4129886000882834, "observed_count": 5004}
+{"operation": "save", "buffered": false, "sample": 5, "seconds": 3.316099400050007, "observed_count": 5005}
+{"operation": "save", "buffered": true, "sample": 6, "seconds": 4.385361999971792, "observed_count": 5006}
+{"operation": "save", "buffered": true, "sample": 7, "seconds": 3.9940356999868527, "observed_count": 5007}
+{"operation": "save", "buffered": false, "sample": 8, "seconds": 3.3555337000871077, "observed_count": 5008}

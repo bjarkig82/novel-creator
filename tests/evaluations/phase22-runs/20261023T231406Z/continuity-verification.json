@@ -1,0 +1,2296 @@
+{
+  "ok": true,
+  "source_type": "delegated",
+  "native_user_input": false,
+  "novice_evidence": false,
+  "meaning_assessment": "Scoped parent-agent judgments of these actual replies; no human literary qualification",
+  "results": [
+    {
+      "language": "en",
+      "six_categories": [
+        {
+          "category": "motivation",
+          "original": {
+            "id": "336c0a14-2e41-4c96-9c37-c4e3747f836a",
+            "kind": "finding",
+            "revision": 1,
+            "previous_revision": null,
+            "source_refs": [
+              {
+                "type": "message",
+                "exchange_id": "2b515dae-bb19-4e96-8a2f-2550ae7a6980",
+                "message_id": "94f1548f-3c89-48f1-8ad0-016f6d0c8df4",
+                "range": {
+                  "start": 91,
+                  "end": 150
+                }
+              },
+              {
+                "type": "message",
+                "exchange_id": "0c0dd85d-7244-4ed4-91b4-652a854d2edf",
+                "message_id": "98d455a4-1267-4a37-a2ad-4319793eefc4",
+                "range": {
+                  "start": 143,
+                  "end": 173
+                }
+              }
+            ],
+            "created_exchange_id": "2b515dae-bb19-4e96-8a2f-2550ae7a6980",
+            "origin": "interpreted",
+            "category": "motivation",
+            "assessment": "conflict",
+            "severity": "significant",
+            "affected_refs": [
+              {
+                "id": "ca37ee5a-4d3c-49cc-ab84-1c70bfadff6b",
+                "revision": 1
+              },
+              {
+                "id": "e7ebe0ce-980f-44c9-bf1a-8eae7e0d4df9",
+                "revision": 1
+              },
+              {
+                "id": "249f979b-d59a-4815-b1ed-1dc386393711",
+                "revision": 1
+              }
+            ],
+            "explanation": "Deliberate betrayal without a changed motive or supplied explanation directly opposes Rúna’s established protective oath. An oath is not physical compulsion, but the proposal requires conscious motivation or relationship handling.",
+            "consequences": [
+              "The protective commitment and the unexplained deliberate betrayal cannot be treated as a coherent unchanged motivation without clarification.",
+              "Do not promote the betrayal or silently remove the oath."
+            ],
+            "resolution_options": [
+              "Reject or revise this proposal.",
+              "Explicitly revise the affected canon, subject to protected directions.",
+              "Provide an intentional narrative explanation and clarify how the affected facts relate.",
+              "Defer resolution and retain the affected promotion hold."
+            ],
+            "disposition": "open",
+            "decision_ids": [],
+            "narrative_explanation": null
+          },
+          "disposition": {
+            "id": "336c0a14-2e41-4c96-9c37-c4e3747f836a",
+            "kind": "finding",
+            "revision": 2,
+            "previous_revision": 1,
+            "source_refs": [
+              {
+                "type": "message",
+                "exchange_id": "2b515dae-bb19-4e96-8a2f-2550ae7a6980",
+                "message_id": "94f1548f-3c89-48f1-8ad0-016f6d0c8df4",
+                "range": {
+                  "start": 91,
+                  "end": 150
+                }
+              },
+              {
+                "type": "message",
+                "exchange_id": "0c0dd85d-7244-4ed4-91b4-652a854d2edf",
+                "message_id": "98d455a4-1267-4a37-a2ad-4319793eefc4",
+                "range": {
+                  "start": 143,
+                  "end": 173
+                }
+              },
+              {
+                "type": "message",
+                "exchange_id": "a24f43cb-db0a-42b6-af10-147502f98ae0",
+                "message_id": "a0bddc6e-48be-40c5-bee0-1cf3d6a395c6",
+                "range": {
+                  "start": 65,
+                  "end": 89
+                }
+              }
+            ],
+            "created_exchange_id": "2b515dae-bb19-4e96-8a2f-2550ae7a6980",
+            "origin": "supplied",
+            "category": "motivation",
+            "assessment": "conflict",
+            "severity": "significant",
+            "affected_refs": [
+              {
+                "id": "ca37ee5a-4d3c-49cc-ab84-1c70bfadff6b",
+                "revision": 1
+              },
+              {
+                "id": "e7ebe0ce-980f-44c9-bf1a-8eae7e0d4df9",
+                "revision": 1
+              },
+              {
+                "id": "249f979b-d59a-4815-b1ed-1dc386393711",
+                "revision": 1
+              }
+            ],
+            "explanation": "Deliberate betrayal without a changed motive or supplied explanation directly opposes Rúna’s established protective oath. An oath is not physical compulsion, but the proposal requires conscious motivation or relationship handling.",
+            "consequences": [
+              "The protective commitment and the unexplained deliberate betrayal cannot be treated as a coherent unchanged motivation without clarification.",
+              "Do not promote the betrayal or silently remove the oath."
+            ],
+            "resolution_options": [
+              "Reject or revise this proposal.",
+              "Explicitly revise the affected canon, subject to protected directions.",
+              "Provide an intentional narrative explanation and clarify how the affected facts relate.",
+              "Defer resolution and retain the affected promotion hold."
+            ],
+            "disposition": "rejected_idea",
+            "decision_ids": [
+              "6b8f2dc8-8705-4fd6-8793-4c2a58296f81"
+            ],
+            "narrative_explanation": null
+          }
+        },
+        {
+          "category": "chronology",
+          "original": {
+            "id": "42774683-64c0-4b27-9ded-fd1ed3cec0db",
+            "kind": "finding",
+            "revision": 1,
+            "previous_revision": null,
+            "source_refs": [
+              {
+                "type": "message",
+                "exchange_id": "2b515dae-bb19-4e96-8a2f-2550ae7a6980",
+                "message_id": "94f1548f-3c89-48f1-8ad0-016f6d0c8df4",
+                "range": {
+                  "start": 155,
+                  "end": 243
+                }
+              },
+              {
+                "type": "message",
+                "exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+                "message_id": "6a634120-a28f-48cb-9bfa-156c295a6e7b",
+                "range": {
+                  "start": 205,
+                  "end": 247
+                }
+              },
+              {
+                "type": "message",
+                "exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+                "message_id": "6a634120-a28f-48cb-9bfa-156c295a6e7b",
+                "range": {
+                  "start": 205,
+                  "end": 247
+                }
+              }
+            ],
+            "created_exchange_id": "2b515dae-bb19-4e96-8a2f-2550ae7a6980",
+            "origin": "interpreted",
+            "category": "chronology",
+            "assessment": "conflict",
+            "severity": "significant",
+            "affected_refs": [
+              {
+                "id": "69b1fceb-c281-4264-9ef6-394ab5435da5",
+                "revision": 1
+              },
+              {
+                "id": "a59cef3c-52be-4ca8-bed6-ea0f2ad683f3",
+                "revision": 1
+              },
+              {
+                "id": "4355d4e9-a670-4136-accf-7ee9e44d7c9a",
+                "revision": 1
+              },
+              {
+                "id": "8b2e30d5-9ccf-4f6f-a2ae-f97e76f3ec0b",
+                "revision": 1
+              }
+            ],
+            "explanation": "In the explicitly shared timeline, the harbour rescue requires Rúna at the harbour at ten that evening, before her established after-midnight arrival.",
+            "consequences": [
+              "The rescue precedes the saved arrival on which her harbour presence depends.",
+              "A timing or event interpretation must be resolved before promoting the rescue."
+            ],
+            "resolution_options": [
+              "Reject or revise this proposal.",
+              "Explicitly revise the affected canon, subject to protected directions.",
+              "Provide an intentional narrative explanation and clarify how the affected facts relate.",
+              "Defer resolution and retain the affected promotion hold."
+            ],
+            "disposition": "open",
+            "decision_ids": [],
+            "narrative_explanation": null
+          },
+          "disposition": {
+            "id": "42774683-64c0-4b27-9ded-fd1ed3cec0db",
+            "kind": "finding",
+            "revision": 2,
+            "previous_revision": 1,
+            "source_refs": [
+              {
+                "type": "message",
+                "exchange_id": "2b515dae-bb19-4e96-8a2f-2550ae7a6980",
+                "message_id": "94f1548f-3c89-48f1-8ad0-016f6d0c8df4",
+                "range": {
+                  "start": 155,
+                  "end": 243
+                }
+              },
+              {
+                "type": "message",
+                "exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+                "message_id": "6a634120-a28f-48cb-9bfa-156c295a6e7b",
+                "range": {
+                  "start": 205,
+                  "end": 247
+                }
+              },
+              {
+                "type": "message",
+                "exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+                "message_id": "6a634120-a28f-48cb-9bfa-156c295a6e7b",
+                "range": {
+                  "start": 205,
+                  "end": 247
+                }
+              },
+              {
+                "type": "message",
+                "exchange_id": "a24f43cb-db0a-42b6-af10-147502f98ae0",
+                "message_id": "a0bddc6e-48be-40c5-bee0-1cf3d6a395c6",
+                "range": {
+                  "start": 91,
+                  "end": 162
+                }
+              }
+            ],
+            "created_exchange_id": "2b515dae-bb19-4e96-8a2f-2550ae7a6980",
+            "origin": "supplied",
+            "category": "chronology",
+            "assessment": "conflict",
+            "severity": "significant",
+            "affected_refs": [
+              {
+                "id": "69b1fceb-c281-4264-9ef6-394ab5435da5",
+                "revision": 1
+              },
+              {
+                "id": "a59cef3c-52be-4ca8-bed6-ea0f2ad683f3",
+                "revision": 1
+              },
+              {
+                "id": "4355d4e9-a670-4136-accf-7ee9e44d7c9a",
+                "revision": 1
+              },
+              {
+                "id": "8b2e30d5-9ccf-4f6f-a2ae-f97e76f3ec0b",
+                "revision": 1
+              }
+            ],
+            "explanation": "In the explicitly shared timeline, the harbour rescue requires Rúna at the harbour at ten that evening, before her established after-midnight arrival.",
+            "consequences": [
+              "The rescue precedes the saved arrival on which her harbour presence depends.",
+              "A timing or event interpretation must be resolved before promoting the rescue."
+            ],
+            "resolution_options": [
+              "Reject or revise this proposal.",
+              "Explicitly revise the affected canon, subject to protected directions.",
+              "Provide an intentional narrative explanation and clarify how the affected facts relate.",
+              "Defer resolution and retain the affected promotion hold."
+            ],
+            "disposition": "revised_idea",
+            "decision_ids": [
+              "602d93fa-9c78-4432-810d-06a007de66d7"
+            ],
+            "narrative_explanation": null
+          }
+        },
+        {
+          "category": "knowledge",
+          "original": {
+            "id": "d0614c62-ba76-46ed-9f38-2514585ed35a",
+            "kind": "finding",
+            "revision": 1,
+            "previous_revision": null,
+            "source_refs": [
+              {
+                "type": "message",
+                "exchange_id": "2b515dae-bb19-4e96-8a2f-2550ae7a6980",
+                "message_id": "94f1548f-3c89-48f1-8ad0-016f6d0c8df4",
+                "range": {
+                  "start": 248,
+                  "end": 305
+                }
+              },
+              {
+                "type": "message",
+                "exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+                "message_id": "6a634120-a28f-48cb-9bfa-156c295a6e7b",
+                "range": {
+                  "start": 249,
+                  "end": 302
+                }
+              },
+              {
+                "type": "message",
+                "exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+                "message_id": "6a634120-a28f-48cb-9bfa-156c295a6e7b",
+                "range": {
+                  "start": 249,
+                  "end": 302
+                }
+              },
+              {
+                "type": "message",
+                "exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+                "message_id": "6a634120-a28f-48cb-9bfa-156c295a6e7b",
+                "range": {
+                  "start": 249,
+                  "end": 302
+                }
+              }
+            ],
+            "created_exchange_id": "2b515dae-bb19-4e96-8a2f-2550ae7a6980",
+            "origin": "interpreted",
+            "category": "knowledge",
+            "assessment": "conflict",
+            "severity": "significant",
+            "affected_refs": [
+              {
+                "id": "fe6fa08b-35f0-4e26-abf6-9659fe5c61af",
+                "revision": 1
+              },
+              {
+                "id": "ad9dd3f6-9656-406f-ac77-4690c770c08b",
+                "revision": 1
+              },
+              {
+                "id": "e7860735-5143-462d-8358-727436f2376f",
+                "revision": 1
+              },
+              {
+                "id": "82dc2970-0fc0-44fb-a904-242c882e0eb5",
+                "revision": 1
+              },
+              {
+                "id": "da98ac0d-9394-437b-a84e-b58340400e68",
+                "revision": 1
+              }
+            ],
+            "explanation": "Rúna learns the code only after this ship sinks, with no code knowledge before that event. Using it to prevent that same sinking requires unavailable prior knowledge and removes the event preceding her learning.",
+            "consequences": [
+              "The proposed action requires code knowledge before the recorded acquisition.",
+              "Preventing the same sinking also changes the stated learning dependency."
+            ],
+            "resolution_options": [
+              "Reject or revise this proposal.",
+              "Explicitly revise the affected canon, subject to protected directions.",
+              "Provide an intentional narrative explanation and clarify how the affected facts relate.",
+              "Defer resolution and retain the affected promotion hold."
+            ],
+            "disposition": "open",
+            "decision_ids": [],
+            "narrative_explanation": null
+          },
+          "disposition": {
+            "id": "d0614c62-ba76-46ed-9f38-2514585ed35a",
+            "kind": "finding",
+            "revision": 2,
+            "previous_revision": 1,
+            "source_refs": [
+              {
+                "type": "message",
+                "exchange_id": "2b515dae-bb19-4e96-8a2f-2550ae7a6980",
+                "message_id": "94f1548f-3c89-48f1-8ad0-016f6d0c8df4",
+                "range": {
+                  "start": 248,
+                  "end": 305
+                }
+              },
+              {
+                "type": "message",
+                "exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+                "message_id": "6a634120-a28f-48cb-9bfa-156c295a6e7b",
+                "range": {
+                  "start": 249,
+                  "end": 302
+                }
+              },
+              {
+                "type": "message",
+                "exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+                "message_id": "6a634120-a28f-48cb-9bfa-156c295a6e7b",
+                "range": {
+                  "start": 249,
+                  "end": 302
+                }
+              },
+              {
+                "type": "message",
+                "exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+                "message_id": "6a634120-a28f-48cb-9bfa-156c295a6e7b",
+                "range": {
+                  "start": 249,
+                  "end": 302
+                }
+              },
+              {
+                "type": "message",
+                "exchange_id": "a24f43cb-db0a-42b6-af10-147502f98ae0",
+                "message_id": "a0bddc6e-48be-40c5-bee0-1cf3d6a395c6",
+                "range": {
+                  "start": 164,
+                  "end": 274
+                }
+              }
+            ],
+            "created_exchange_id": "2b515dae-bb19-4e96-8a2f-2550ae7a6980",
+            "origin": "supplied",
+            "category": "knowledge",
+            "assessment": "conflict",
+            "severity": "significant",
+            "affected_refs": [
+              {
+                "id": "fe6fa08b-35f0-4e26-abf6-9659fe5c61af",
+                "revision": 1
+              },
+              {
+                "id": "ad9dd3f6-9656-406f-ac77-4690c770c08b",
+                "revision": 1
+              },
+              {
+                "id": "e7860735-5143-462d-8358-727436f2376f",
+                "revision": 1
+              },
+              {
+                "id": "82dc2970-0fc0-44fb-a904-242c882e0eb5",
+                "revision": 1
+              },
+              {
+                "id": "da98ac0d-9394-437b-a84e-b58340400e68",
+                "revision": 1
+              }
+            ],
+            "explanation": "Rúna learns the code only after this ship sinks, with no code knowledge before that event. Using it to prevent that same sinking requires unavailable prior knowledge and removes the event preceding her learning.",
+            "consequences": [
+              "The proposed action requires code knowledge before the recorded acquisition.",
+              "Preventing the same sinking also changes the stated learning dependency."
+            ],
+            "resolution_options": [
+              "Reject or revise this proposal.",
+              "Explicitly revise the affected canon, subject to protected directions.",
+              "Provide an intentional narrative explanation and clarify how the affected facts relate.",
+              "Defer resolution and retain the affected promotion hold."
+            ],
+            "disposition": "revised_canon",
+            "decision_ids": [
+              "b00f3432-61ac-44cd-aaa1-6f85761ec80c"
+            ],
+            "narrative_explanation": null
+          }
+        },
+        {
+          "category": "plot_dependency",
+          "original": {
+            "id": "04d94072-e6f5-437e-950c-24051f04a904",
+            "kind": "finding",
+            "revision": 1,
+            "previous_revision": null,
+            "source_refs": [
+              {
+                "type": "message",
+                "exchange_id": "2b515dae-bb19-4e96-8a2f-2550ae7a6980",
+                "message_id": "94f1548f-3c89-48f1-8ad0-016f6d0c8df4",
+                "range": {
+                  "start": 310,
+                  "end": 385
+                }
+              },
+              {
+                "type": "message",
+                "exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+                "message_id": "6a634120-a28f-48cb-9bfa-156c295a6e7b",
+                "range": {
+                  "start": 304,
+                  "end": 352
+                }
+              },
+              {
+                "type": "message",
+                "exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+                "message_id": "6a634120-a28f-48cb-9bfa-156c295a6e7b",
+                "range": {
+                  "start": 304,
+                  "end": 352
+                }
+              },
+              {
+                "type": "message",
+                "exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+                "message_id": "6a634120-a28f-48cb-9bfa-156c295a6e7b",
+                "range": {
+                  "start": 304,
+                  "end": 352
+                }
+              }
+            ],
+            "created_exchange_id": "2b515dae-bb19-4e96-8a2f-2550ae7a6980",
+            "origin": "interpreted",
+            "category": "plot_dependency",
+            "assessment": "conflict",
+            "severity": "significant",
+            "affected_refs": [
+              {
+                "id": "bfef12dd-42fc-49c6-8b3e-686dedc131bf",
+                "revision": 1
+              },
+              {
+                "id": "ee861f63-8079-47da-89fb-102de1b58ce3",
+                "revision": 1
+              },
+              {
+                "id": "0accdfbe-bd95-4d34-83e6-ef2b71154d92",
+                "revision": 1
+              },
+              {
+                "id": "b6de28b4-5b48-422c-97a0-327241b7e417",
+                "revision": 1
+              },
+              {
+                "id": "1cc55999-9d0c-44d0-b5a5-16d59789838c",
+                "revision": 1
+              }
+            ],
+            "explanation": "The unchanged escape requires the only usable boat. Destroying it beforehand removes an explicit prerequisite for carrying out that escape as planned.",
+            "consequences": [
+              "The planned escape cannot be carried out unchanged with its sole required boat destroyed.",
+              "Destruction itself is a proposal; failure, a changed escape or any replacement is not automatically established."
+            ],
+            "resolution_options": [
+              "Reject or revise this proposal.",
+              "Explicitly revise the affected canon, subject to protected directions.",
+              "Provide an intentional narrative explanation and clarify how the affected facts relate.",
+              "Defer resolution and retain the affected promotion hold."
+            ],
+            "disposition": "open",
+            "decision_ids": [],
+            "narrative_explanation": null
+          },
+          "disposition": {
+            "id": "04d94072-e6f5-437e-950c-24051f04a904",
+            "kind": "finding",
+            "revision": 2,
+            "previous_revision": 1,
+            "source_refs": [
+              {
+                "type": "message",
+                "exchange_id": "2b515dae-bb19-4e96-8a2f-2550ae7a6980",
+                "message_id": "94f1548f-3c89-48f1-8ad0-016f6d0c8df4",
+                "range": {
+                  "start": 310,
+                  "end": 385
+                }
+              },
+              {
+                "type": "message",
+                "exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+                "message_id": "6a634120-a28f-48cb-9bfa-156c295a6e7b",
+                "range": {
+                  "start": 304,
+                  "end": 352
+                }
+              },
+              {
+                "type": "message",
+                "exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+                "message_id": "6a634120-a28f-48cb-9bfa-156c295a6e7b",
+                "range": {
+                  "start": 304,
+                  "end": 352
+                }
+              },
+              {
+                "type": "message",
+                "exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+                "message_id": "6a634120-a28f-48cb-9bfa-156c295a6e7b",
+                "range": {
+                  "start": 304,
+                  "end": 352
+                }
+              },
+              {
+                "type": "message",
+                "exchange_id": "a24f43cb-db0a-42b6-af10-147502f98ae0",
+                "message_id": "a0bddc6e-48be-40c5-bee0-1cf3d6a395c6",
+                "range": {
+                  "start": 276,
+                  "end": 392
+                }
+              }
+            ],
+            "created_exchange_id": "2b515dae-bb19-4e96-8a2f-2550ae7a6980",
+            "origin": "supplied",
+            "category": "plot_dependency",
+            "assessment": "conflict",
+            "severity": "significant",
+            "affected_refs": [
+              {
+                "id": "bfef12dd-42fc-49c6-8b3e-686dedc131bf",
+                "revision": 1
+              },
+              {
+                "id": "ee861f63-8079-47da-89fb-102de1b58ce3",
+                "revision": 1
+              },
+              {
+                "id": "0accdfbe-bd95-4d34-83e6-ef2b71154d92",
+                "revision": 1
+              },
+              {
+                "id": "b6de28b4-5b48-422c-97a0-327241b7e417",
+                "revision": 1
+              },
+              {
+                "id": "1cc55999-9d0c-44d0-b5a5-16d59789838c",
+                "revision": 1
+              }
+            ],
+            "explanation": "The unchanged escape requires the only usable boat. Destroying it beforehand removes an explicit prerequisite for carrying out that escape as planned.",
+            "consequences": [
+              "The planned escape cannot be carried out unchanged with its sole required boat destroyed.",
+              "Destruction itself is a proposal; failure, a changed escape or any replacement is not automatically established."
+            ],
+            "resolution_options": [
+              "Reject or revise this proposal.",
+              "Explicitly revise the affected canon, subject to protected directions.",
+              "Provide an intentional narrative explanation and clarify how the affected facts relate.",
+              "Defer resolution and retain the affected promotion hold."
+            ],
+            "disposition": "revised_idea",
+            "decision_ids": [
+              "06d97456-b26a-4866-847d-684e22cecf8b"
+            ],
+            "narrative_explanation": null
+          }
+        },
+        {
+          "category": "world_rule",
+          "original": {
+            "id": "c8bed026-b7e6-4da6-b1b0-9020357ac34d",
+            "kind": "finding",
+            "revision": 1,
+            "previous_revision": null,
+            "source_refs": [
+              {
+                "type": "message",
+                "exchange_id": "2b515dae-bb19-4e96-8a2f-2550ae7a6980",
+                "message_id": "94f1548f-3c89-48f1-8ad0-016f6d0c8df4",
+                "range": {
+                  "start": 390,
+                  "end": 451
+                }
+              },
+              {
+                "type": "message",
+                "exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+                "message_id": "6a634120-a28f-48cb-9bfa-156c295a6e7b",
+                "range": {
+                  "start": 354,
+                  "end": 393
+                }
+              }
+            ],
+            "created_exchange_id": "2b515dae-bb19-4e96-8a2f-2550ae7a6980",
+            "origin": "interpreted",
+            "category": "world_rule",
+            "assessment": "conflict",
+            "severity": "significant",
+            "affected_refs": [
+              {
+                "id": "d43f629f-24e8-420b-8439-b18e58b708fa",
+                "revision": 1
+              },
+              {
+                "id": "1312e021-4019-487f-ae79-5088de5dd51f",
+                "revision": 1
+              },
+              {
+                "id": "d148a2a0-f588-48a5-853b-7864fa9ee505",
+                "revision": 1
+              }
+            ],
+            "explanation": "An ordinary, unexceptional letter crossing the sealed boundary directly opposes the accepted rule that no letter can cross it.",
+            "consequences": [
+              "The crossing cannot be promoted while that absolute rule remains unchanged and no intentional explanation has been selected."
+            ],
+            "resolution_options": [
+              "Reject or revise this proposal.",
+              "Explicitly revise the affected canon, subject to protected directions.",
+              "Provide an intentional narrative explanation and clarify how the affected facts relate.",
+              "Defer resolution and retain the affected promotion hold."
+            ],
+            "disposition": "open",
+            "decision_ids": [],
+            "narrative_explanation": null
+          },
+          "disposition": {
+            "id": "c8bed026-b7e6-4da6-b1b0-9020357ac34d",
+            "kind": "finding",
+            "revision": 2,
+            "previous_revision": 1,
+            "source_refs": [
+              {
+                "type": "message",
+                "exchange_id": "2b515dae-bb19-4e96-8a2f-2550ae7a6980",
+                "message_id": "94f1548f-3c89-48f1-8ad0-016f6d0c8df4",
+                "range": {
+                  "start": 390,
+                  "end": 451
+                }
+              },
+              {
+                "type": "message",
+                "exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+                "message_id": "6a634120-a28f-48cb-9bfa-156c295a6e7b",
+                "range": {
+                  "start": 354,
+                  "end": 393
+                }
+              },
+              {
+                "type": "message",
+                "exchange_id": "a24f43cb-db0a-42b6-af10-147502f98ae0",
+                "message_id": "a0bddc6e-48be-40c5-bee0-1cf3d6a395c6",
+                "range": {
+                  "start": 394,
+                  "end": 529
+                }
+              }
+            ],
+            "created_exchange_id": "2b515dae-bb19-4e96-8a2f-2550ae7a6980",
+            "origin": "supplied",
+            "category": "world_rule",
+            "assessment": "conflict",
+            "severity": "significant",
+            "affected_refs": [
+              {
+                "id": "d43f629f-24e8-420b-8439-b18e58b708fa",
+                "revision": 1
+              },
+              {
+                "id": "1312e021-4019-487f-ae79-5088de5dd51f",
+                "revision": 1
+              },
+              {
+                "id": "d148a2a0-f588-48a5-853b-7864fa9ee505",
+                "revision": 1
+              }
+            ],
+            "explanation": "An ordinary, unexceptional letter crossing the sealed boundary directly opposes the accepted rule that no letter can cross it.",
+            "consequences": [
+              "The crossing cannot be promoted while that absolute rule remains unchanged and no intentional explanation has been selected."
+            ],
+            "resolution_options": [
+              "Reject or revise this proposal.",
+              "Explicitly revise the affected canon, subject to protected directions.",
+              "Provide an intentional narrative explanation and clarify how the affected facts relate.",
+              "Defer resolution and retain the affected promotion hold."
+            ],
+            "disposition": "intentional",
+            "decision_ids": [
+              "a4acd395-a443-407a-af06-88563cf8e2f6"
+            ],
+            "narrative_explanation": "An unreliable witness falsely accounts for a letter crossing. This is deliberately unreliable testimony, not an event in author truth; the rule that no letter can cross the boundary remains in force."
+          }
+        },
+        {
+          "category": "relationship",
+          "original": {
+            "id": "69b768af-bfe2-494a-bb99-c37c5cb7daf6",
+            "kind": "finding",
+            "revision": 1,
+            "previous_revision": null,
+            "source_refs": [
+              {
+                "type": "message",
+                "exchange_id": "2b515dae-bb19-4e96-8a2f-2550ae7a6980",
+                "message_id": "94f1548f-3c89-48f1-8ad0-016f6d0c8df4",
+                "range": {
+                  "start": 456,
+                  "end": 535
+                }
+              },
+              {
+                "type": "message",
+                "exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+                "message_id": "6a634120-a28f-48cb-9bfa-156c295a6e7b",
+                "range": {
+                  "start": 395,
+                  "end": 449
+                }
+              },
+              {
+                "type": "message",
+                "exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+                "message_id": "6a634120-a28f-48cb-9bfa-156c295a6e7b",
+                "range": {
+                  "start": 395,
+                  "end": 449
+                }
+              }
+            ],
+            "created_exchange_id": "2b515dae-bb19-4e96-8a2f-2550ae7a6980",
+            "origin": "interpreted",
+            "category": "relationship",
+            "assessment": "conflict",
+            "severity": "significant",
+            "affected_refs": [
+              {
+                "id": "42cd4d30-12e8-41e6-8435-d6446b09104d",
+                "revision": 1
+              },
+              {
+                "id": "6d6e2baf-4ef0-4d2e-ab2b-f6177db2dad1",
+                "revision": 1
+              },
+              {
+                "id": "20ec7fd0-c681-4ec1-aeb4-bbbac37b43e2",
+                "revision": 1
+              },
+              {
+                "id": "7e466350-3fdf-421d-9961-0dfc47665cb5",
+                "revision": 1
+              }
+            ],
+            "explanation": "A real shared childhood encounter or shared personal history before their first reunion contradicts the established relationship that Freyja and Sigrún had never met before that reunion. A different meaning of shared has not been supplied.",
+            "consequences": [
+              "Do not invent an earlier meeting or silently reinterpret a real memory as a lie or false memory.",
+              "The relationship history or meaning of the memory must be clarified before promotion."
+            ],
+            "resolution_options": [
+              "Reject or revise this proposal.",
+              "Explicitly revise the affected canon, subject to protected directions.",
+              "Provide an intentional narrative explanation and clarify how the affected facts relate.",
+              "Defer resolution and retain the affected promotion hold."
+            ],
+            "disposition": "open",
+            "decision_ids": [],
+            "narrative_explanation": null
+          },
+          "disposition": {
+            "id": "69b768af-bfe2-494a-bb99-c37c5cb7daf6",
+            "kind": "finding",
+            "revision": 2,
+            "previous_revision": 1,
+            "source_refs": [
+              {
+                "type": "message",
+                "exchange_id": "2b515dae-bb19-4e96-8a2f-2550ae7a6980",
+                "message_id": "94f1548f-3c89-48f1-8ad0-016f6d0c8df4",
+                "range": {
+                  "start": 456,
+                  "end": 535
+                }
+              },
+              {
+                "type": "message",
+                "exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+                "message_id": "6a634120-a28f-48cb-9bfa-156c295a6e7b",
+                "range": {
+                  "start": 395,
+                  "end": 449
+                }
+              },
+              {
+                "type": "message",
+                "exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+                "message_id": "6a634120-a28f-48cb-9bfa-156c295a6e7b",
+                "range": {
+                  "start": 395,
+                  "end": 449
+                }
+              },
+              {
+                "type": "message",
+                "exchange_id": "a24f43cb-db0a-42b6-af10-147502f98ae0",
+                "message_id": "a0bddc6e-48be-40c5-bee0-1cf3d6a395c6",
+                "range": {
+                  "start": 531,
+                  "end": 613
+                }
+              }
+            ],
+            "created_exchange_id": "2b515dae-bb19-4e96-8a2f-2550ae7a6980",
+            "origin": "supplied",
+            "category": "relationship",
+            "assessment": "conflict",
+            "severity": "significant",
+            "affected_refs": [
+              {
+                "id": "42cd4d30-12e8-41e6-8435-d6446b09104d",
+                "revision": 1
+              },
+              {
+                "id": "6d6e2baf-4ef0-4d2e-ab2b-f6177db2dad1",
+                "revision": 1
+              },
+              {
+                "id": "20ec7fd0-c681-4ec1-aeb4-bbbac37b43e2",
+                "revision": 1
+              },
+              {
+                "id": "7e466350-3fdf-421d-9961-0dfc47665cb5",
+                "revision": 1
+              }
+            ],
+            "explanation": "A real shared childhood encounter or shared personal history before their first reunion contradicts the established relationship that Freyja and Sigrún had never met before that reunion. A different meaning of shared has not been supplied.",
+            "consequences": [
+              "Do not invent an earlier meeting or silently reinterpret a real memory as a lie or false memory.",
+              "The relationship history or meaning of the memory must be clarified before promotion."
+            ],
+            "resolution_options": [
+              "Reject or revise this proposal.",
+              "Explicitly revise the affected canon, subject to protected directions.",
+              "Provide an intentional narrative explanation and clarify how the affected facts relate.",
+              "Defer resolution and retain the affected promotion hold."
+            ],
+            "disposition": "deferred",
+            "decision_ids": [
+              "f7b15a21-66b0-474e-87c5-d9226beba605"
+            ],
+            "narrative_explanation": null
+          }
+        }
+      ],
+      "advisory_opportunities": [
+        {
+          "id": "cefb035a-922d-4968-9c3e-b9bf7f5b0b89",
+          "kind": "finding",
+          "revision": 1,
+          "previous_revision": null,
+          "source_refs": [
+            {
+              "type": "message",
+              "exchange_id": "a24f43cb-db0a-42b6-af10-147502f98ae0",
+              "message_id": "a0bddc6e-48be-40c5-bee0-1cf3d6a395c6",
+              "range": {
+                "start": 626,
+                "end": 686
+              }
+            },
+            {
+              "type": "message",
+              "exchange_id": "0c0dd85d-7244-4ed4-91b4-652a854d2edf",
+              "message_id": "98d455a4-1267-4a37-a2ad-4319793eefc4",
+              "range": {
+                "start": 112,
+                "end": 141
+              }
+            },
+            {
+              "type": "message",
+              "exchange_id": "e8153db8-c478-484a-ada7-468d732944f5",
+              "message_id": "c4e20dc4-f782-4c06-b7be-eddf85aecf6d",
+              "range": {
+                "start": 142,
+                "end": 183
+              }
+            }
+          ],
+          "created_exchange_id": "a24f43cb-db0a-42b6-af10-147502f98ae0",
+          "origin": "interpreted",
+          "category": "plot_dependency",
+          "assessment": "opportunity",
+          "severity": "advisory",
+          "affected_refs": [
+            {
+              "id": "ef0b727a-8642-4060-b495-cbdd9f1f1198",
+              "revision": 1
+            },
+            {
+              "id": "8913530c-0c5d-4a5f-a795-db0ceeca8d40",
+              "revision": 1
+            },
+            {
+              "id": "bd51f70d-7f05-4875-a9fb-119c26e7f4b1",
+              "revision": 1
+            }
+          ],
+          "explanation": "The established brass seal and sender can support a foreshadowing connection. How the seal points to Bjarni remains unchosen.",
+          "consequences": [],
+          "resolution_options": [
+            "Explore the seal as a clue without inferring ownership or a chosen mechanism."
+          ],
+          "disposition": "open",
+          "decision_ids": [],
+          "narrative_explanation": null
+        }
+      ],
+      "unknown_knowledge": [
+        {
+          "id": "2619c8e9-4a43-4a7f-9727-59d3fc5622f6",
+          "kind": "assertion",
+          "revision": 1,
+          "previous_revision": null,
+          "source_refs": [
+            {
+              "type": "message",
+              "exchange_id": "a24f43cb-db0a-42b6-af10-147502f98ae0",
+              "message_id": "a0bddc6e-48be-40c5-bee0-1cf3d6a395c6",
+              "range": {
+                "start": 687,
+                "end": 745
+              }
+            }
+          ],
+          "created_exchange_id": "a24f43cb-db0a-42b6-af10-147502f98ae0",
+          "origin": "supplied",
+          "subject_element_id": "9cf4bd1e-668a-404d-b52b-fcc36442d35a",
+          "predicate": "knows",
+          "value": "hidden-room secret",
+          "perspective": "character_knowledge",
+          "holder_id": "9cf4bd1e-668a-404d-b52b-fcc36442d35a",
+          "reader_audience": null,
+          "time_ref": {
+            "chronology": {
+              "precision": "unknown",
+              "event_anchor": null,
+              "start": null,
+              "end": null,
+              "before_refs": [],
+              "after_refs": []
+            },
+            "narrative": {
+              "precision": "unknown",
+              "event_anchor": null,
+              "start": null,
+              "end": null,
+              "before_refs": [],
+              "after_refs": []
+            }
+          },
+          "truth_state": "unknown",
+          "status": "unresolved",
+          "decision_ids": [],
+          "supersedes": null
+        }
+      ],
+      "deferred_scope_persisted": true,
+      "unavailable_context_held": true,
+      "corrected_session_revalidated": true,
+      "final_intentional_resolution": {
+        "id": "69b768af-bfe2-494a-bb99-c37c5cb7daf6",
+        "kind": "finding",
+        "revision": 3,
+        "previous_revision": 2,
+        "source_refs": [
+          {
+            "type": "message",
+            "exchange_id": "2b515dae-bb19-4e96-8a2f-2550ae7a6980",
+            "message_id": "94f1548f-3c89-48f1-8ad0-016f6d0c8df4",
+            "range": {
+              "start": 456,
+              "end": 535
+            }
+          },
+          {
+            "type": "message",
+            "exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+            "message_id": "6a634120-a28f-48cb-9bfa-156c295a6e7b",
+            "range": {
+              "start": 395,
+              "end": 449
+            }
+          },
+          {
+            "type": "message",
+            "exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+            "message_id": "6a634120-a28f-48cb-9bfa-156c295a6e7b",
+            "range": {
+              "start": 395,
+              "end": 449
+            }
+          },
+          {
+            "type": "message",
+            "exchange_id": "a24f43cb-db0a-42b6-af10-147502f98ae0",
+            "message_id": "a0bddc6e-48be-40c5-bee0-1cf3d6a395c6",
+            "range": {
+              "start": 531,
+              "end": 613
+            }
+          },
+          {
+            "type": "message",
+            "exchange_id": "d3acdbe1-665b-4454-87ac-7a8cb27b938f",
+            "message_id": "f03385cc-cfaf-42f2-a22a-d481770cf7a5",
+            "range": {
+              "start": 69,
+              "end": 180
+            }
+          }
+        ],
+        "created_exchange_id": "2b515dae-bb19-4e96-8a2f-2550ae7a6980",
+        "origin": "supplied",
+        "category": "relationship",
+        "assessment": "conflict",
+        "severity": "significant",
+        "affected_refs": [
+          {
+            "id": "42cd4d30-12e8-41e6-8435-d6446b09104d",
+            "revision": 1
+          },
+          {
+            "id": "6d6e2baf-4ef0-4d2e-ab2b-f6177db2dad1",
+            "revision": 1
+          },
+          {
+            "id": "20ec7fd0-c681-4ec1-aeb4-bbbac37b43e2",
+            "revision": 1
+          },
+          {
+            "id": "7e466350-3fdf-421d-9961-0dfc47665cb5",
+            "revision": 1
+          }
+        ],
+        "explanation": "A real shared childhood encounter or shared personal history before their first reunion contradicts the established relationship that Freyja and Sigrún had never met before that reunion. A different meaning of shared has not been supplied.",
+        "consequences": [
+          "Do not invent an earlier meeting or silently reinterpret a real memory as a lie or false memory.",
+          "The relationship history or meaning of the memory must be clarified before promotion."
+        ],
+        "resolution_options": [
+          "Reject or revise this proposal.",
+          "Explicitly revise the affected canon, subject to protected directions.",
+          "Provide an intentional narrative explanation and clarify how the affected facts relate.",
+          "Defer resolution and retain the affected promotion hold."
+        ],
+        "disposition": "intentional",
+        "decision_ids": [
+          "f7b15a21-66b0-474e-87c5-d9226beba605",
+          "cb322bf4-03d8-42fa-b4b9-655a1504c042"
+        ],
+        "narrative_explanation": "The apparent shared childhood is intentionally Freyja’s imagined dream content, not a real shared experience or earlier meeting. Freyja and Sigrún still never met before the reunion. The dream viewpoint does not establish a genuine prior relationship or a belief that the dream is real."
+      },
+      "unavailable_scope": "Actual missing session lookup; damaged-history faults remain separate structural evidence"
+    },
+    {
+      "language": "is",
+      "six_categories": [
+        {
+          "category": "motivation",
+          "original": {
+            "id": "f5138be7-8137-4360-8129-97933c28b53a",
+            "kind": "finding",
+            "revision": 1,
+            "previous_revision": null,
+            "created_exchange_id": "162a5780-2bcc-4e9b-b617-aa38fa2b4acd",
+            "origin": "supplied",
+            "source_refs": [
+              {
+                "type": "message",
+                "exchange_id": "162a5780-2bcc-4e9b-b617-aa38fa2b4acd",
+                "message_id": "0d0858df-1c47-4448-bb78-d69af11270a4",
+                "range": {
+                  "start": 84,
+                  "end": 132
+                }
+              },
+              {
+                "type": "message",
+                "exchange_id": "38fb5b68-545e-4692-9d9b-0d0e0377a62d",
+                "message_id": "30087814-674c-4d7d-b28e-e8654b8eb4ae",
+                "range": {
+                  "start": 151,
+                  "end": 183
+                }
+              }
+            ],
+            "category": "motivation",
+            "assessment": "conflict",
+            "severity": "significant",
+            "affected_refs": [
+              {
+                "id": "1d2bf975-171c-48a6-b03b-b1eeb984a32f",
+                "revision": 1
+              },
+              {
+                "id": "d31dba8f-bdf2-4744-9c47-1359510d9d03",
+                "revision": 1
+              },
+              {
+                "id": "94cc12aa-9dea-4032-a58e-9e6b216f631d",
+                "revision": 1
+              },
+              {
+                "id": "d9215850-dcc4-4cb1-b999-e838039e2371",
+                "revision": 1
+              }
+            ],
+            "explanation": "Staðfestur eiður Rúnu um að vernda Eddu stendur í beinni andstöðu við vísvitandi svik án breyttrar hvatar. Eið má rjúfa í sögu, en hér vantar skýringu á þeirri stefnubreytingu.",
+            "consequences": [
+              "Svik án breyttrar hvatar grafa undan staðfestri skuldbindingu Rúnu."
+            ],
+            "resolution_options": [
+              "Endurskoða svikatillöguna.",
+              "Gefa viljandi og samræmanlega skýringu á eiðsrofinu.",
+              "Endurskoða staðfestan eið með skýrri ákvörðun.",
+              "Fresta tillögunni."
+            ],
+            "disposition": "open",
+            "decision_ids": [],
+            "narrative_explanation": null
+          },
+          "disposition": {
+            "id": "f5138be7-8137-4360-8129-97933c28b53a",
+            "kind": "finding",
+            "revision": 2,
+            "previous_revision": 1,
+            "created_exchange_id": "162a5780-2bcc-4e9b-b617-aa38fa2b4acd",
+            "origin": "supplied",
+            "source_refs": [
+              {
+                "type": "message",
+                "exchange_id": "162a5780-2bcc-4e9b-b617-aa38fa2b4acd",
+                "message_id": "0d0858df-1c47-4448-bb78-d69af11270a4",
+                "range": {
+                  "start": 84,
+                  "end": 132
+                }
+              },
+              {
+                "type": "message",
+                "exchange_id": "38fb5b68-545e-4692-9d9b-0d0e0377a62d",
+                "message_id": "30087814-674c-4d7d-b28e-e8654b8eb4ae",
+                "range": {
+                  "start": 151,
+                  "end": 183
+                }
+              },
+              {
+                "type": "message",
+                "exchange_id": "3c08a608-1279-42ce-a953-750fc34c065c",
+                "message_id": "afdee4d6-b637-4407-82a9-0cee39d3760d",
+                "range": {
+                  "start": 70,
+                  "end": 92
+                }
+              }
+            ],
+            "category": "motivation",
+            "assessment": "conflict",
+            "severity": "significant",
+            "affected_refs": [
+              {
+                "id": "1d2bf975-171c-48a6-b03b-b1eeb984a32f",
+                "revision": 1
+              },
+              {
+                "id": "d31dba8f-bdf2-4744-9c47-1359510d9d03",
+                "revision": 1
+              },
+              {
+                "id": "94cc12aa-9dea-4032-a58e-9e6b216f631d",
+                "revision": 1
+              },
+              {
+                "id": "d9215850-dcc4-4cb1-b999-e838039e2371",
+                "revision": 1
+              }
+            ],
+            "explanation": "Staðfestur eiður Rúnu um að vernda Eddu stendur í beinni andstöðu við vísvitandi svik án breyttrar hvatar. Eið má rjúfa í sögu, en hér vantar skýringu á þeirri stefnubreytingu.",
+            "consequences": [
+              "Svik án breyttrar hvatar grafa undan staðfestri skuldbindingu Rúnu."
+            ],
+            "resolution_options": [
+              "Endurskoða svikatillöguna.",
+              "Gefa viljandi og samræmanlega skýringu á eiðsrofinu.",
+              "Endurskoða staðfestan eið með skýrri ákvörðun.",
+              "Fresta tillögunni."
+            ],
+            "disposition": "rejected_idea",
+            "decision_ids": [
+              "97f50591-87d2-484b-ae0b-59aa0c6d8814"
+            ],
+            "narrative_explanation": null
+          }
+        },
+        {
+          "category": "chronology",
+          "original": {
+            "id": "f8d47499-791b-4f19-a4ed-18bdd844c2ab",
+            "kind": "finding",
+            "revision": 1,
+            "previous_revision": null,
+            "created_exchange_id": "162a5780-2bcc-4e9b-b617-aa38fa2b4acd",
+            "origin": "supplied",
+            "source_refs": [
+              {
+                "type": "message",
+                "exchange_id": "162a5780-2bcc-4e9b-b617-aa38fa2b4acd",
+                "message_id": "0d0858df-1c47-4448-bb78-d69af11270a4",
+                "range": {
+                  "start": 137,
+                  "end": 222
+                }
+              },
+              {
+                "type": "message",
+                "exchange_id": "8608face-e906-413c-aeeb-502affe55cb3",
+                "message_id": "3cf15120-ff30-4459-9e4a-460438246d92",
+                "range": {
+                  "start": 238,
+                  "end": 274
+                }
+              }
+            ],
+            "category": "chronology",
+            "assessment": "conflict",
+            "severity": "significant",
+            "affected_refs": [
+              {
+                "id": "872262c3-acb0-4d10-bb8d-256dd69bc7f1",
+                "revision": 1
+              },
+              {
+                "id": "8e045fd6-3b53-404d-bcb5-669527854e2f",
+                "revision": 1
+              },
+              {
+                "id": "6cd104ac-5256-47e5-8cc2-454e88700f8b",
+                "revision": 1
+              },
+              {
+                "id": "7999a76d-00eb-4e1b-81ca-e0074e492fa9",
+                "revision": 1
+              }
+            ],
+            "explanation": "Rúna kemur til hafnar eftir miðnætti. Björgun hennar þar klukkan tíu sama kvöld á sömu tímalínu er áður en hún kemur þangað.",
+            "consequences": [
+              "Óbreytt röð krefst þess að Rúna sé í höfninni fyrir komu sína."
+            ],
+            "resolution_options": [
+              "Færa björgunina eða breyta þátttakanda.",
+              "Endurskoða komutímann með skýrri ákvörðun.",
+              "Skýra viljandi aðra tímalínu án þess að álykta hana.",
+              "Fresta tillögunni."
+            ],
+            "disposition": "open",
+            "decision_ids": [],
+            "narrative_explanation": null
+          },
+          "disposition": {
+            "id": "f8d47499-791b-4f19-a4ed-18bdd844c2ab",
+            "kind": "finding",
+            "revision": 2,
+            "previous_revision": 1,
+            "created_exchange_id": "162a5780-2bcc-4e9b-b617-aa38fa2b4acd",
+            "origin": "supplied",
+            "source_refs": [
+              {
+                "type": "message",
+                "exchange_id": "162a5780-2bcc-4e9b-b617-aa38fa2b4acd",
+                "message_id": "0d0858df-1c47-4448-bb78-d69af11270a4",
+                "range": {
+                  "start": 137,
+                  "end": 222
+                }
+              },
+              {
+                "type": "message",
+                "exchange_id": "8608face-e906-413c-aeeb-502affe55cb3",
+                "message_id": "3cf15120-ff30-4459-9e4a-460438246d92",
+                "range": {
+                  "start": 238,
+                  "end": 274
+                }
+              },
+              {
+                "type": "message",
+                "exchange_id": "3c08a608-1279-42ce-a953-750fc34c065c",
+                "message_id": "afdee4d6-b637-4407-82a9-0cee39d3760d",
+                "range": {
+                  "start": 94,
+                  "end": 189
+                }
+              }
+            ],
+            "category": "chronology",
+            "assessment": "conflict",
+            "severity": "significant",
+            "affected_refs": [
+              {
+                "id": "872262c3-acb0-4d10-bb8d-256dd69bc7f1",
+                "revision": 1
+              },
+              {
+                "id": "8e045fd6-3b53-404d-bcb5-669527854e2f",
+                "revision": 1
+              },
+              {
+                "id": "6cd104ac-5256-47e5-8cc2-454e88700f8b",
+                "revision": 1
+              },
+              {
+                "id": "7999a76d-00eb-4e1b-81ca-e0074e492fa9",
+                "revision": 1
+              }
+            ],
+            "explanation": "Rúna kemur til hafnar eftir miðnætti. Björgun hennar þar klukkan tíu sama kvöld á sömu tímalínu er áður en hún kemur þangað.",
+            "consequences": [
+              "Óbreytt röð krefst þess að Rúna sé í höfninni fyrir komu sína."
+            ],
+            "resolution_options": [
+              "Færa björgunina eða breyta þátttakanda.",
+              "Endurskoða komutímann með skýrri ákvörðun.",
+              "Skýra viljandi aðra tímalínu án þess að álykta hana.",
+              "Fresta tillögunni."
+            ],
+            "disposition": "revised_idea",
+            "decision_ids": [
+              "0d4af3ab-6e46-401c-a291-e30986fb3ec4"
+            ],
+            "narrative_explanation": null
+          }
+        },
+        {
+          "category": "knowledge",
+          "original": {
+            "id": "045b572d-fcf6-4521-b2a6-ce88f794094f",
+            "kind": "finding",
+            "revision": 1,
+            "previous_revision": null,
+            "created_exchange_id": "162a5780-2bcc-4e9b-b617-aa38fa2b4acd",
+            "origin": "supplied",
+            "source_refs": [
+              {
+                "type": "message",
+                "exchange_id": "162a5780-2bcc-4e9b-b617-aa38fa2b4acd",
+                "message_id": "0d0858df-1c47-4448-bb78-d69af11270a4",
+                "range": {
+                  "start": 227,
+                  "end": 299
+                }
+              },
+              {
+                "type": "message",
+                "exchange_id": "8608face-e906-413c-aeeb-502affe55cb3",
+                "message_id": "3cf15120-ff30-4459-9e4a-460438246d92",
+                "range": {
+                  "start": 276,
+                  "end": 331
+                }
+              },
+              {
+                "type": "message",
+                "exchange_id": "8608face-e906-413c-aeeb-502affe55cb3",
+                "message_id": "3cf15120-ff30-4459-9e4a-460438246d92",
+                "range": {
+                  "start": 276,
+                  "end": 331
+                }
+              }
+            ],
+            "category": "knowledge",
+            "assessment": "conflict",
+            "severity": "significant",
+            "affected_refs": [
+              {
+                "id": "a65f2d80-43bf-4103-b5ee-3bac40281900",
+                "revision": 1
+              },
+              {
+                "id": "553cc2f0-4dfb-4e9e-a9c0-8f66ccfbbbfb",
+                "revision": 1
+              },
+              {
+                "id": "0a95e2e3-a6c3-426b-9212-60b27751ce4a",
+                "revision": 1
+              },
+              {
+                "id": "79c29f4a-049c-4f80-99d4-feb50914813c",
+                "revision": 1
+              },
+              {
+                "id": "fab8d0b4-8490-40ff-947d-7d9d18a86b68",
+                "revision": 1
+              }
+            ],
+            "explanation": "Rúna lærir björgunarkóðann fyrst eftir að þetta skip sekkur. Að nota hann til að koma í veg fyrir sama skipsökk krefst vitneskjunnar fyrr en hún fær hana.",
+            "consequences": [
+              "Tillagan byggir á vitneskju sem Rúna hefur ekki á þeim tímapunkti og eyðir atburðinum sem er forsenda námsins."
+            ],
+            "resolution_options": [
+              "Breyta því hvernig hún reynir að bjarga skipinu.",
+              "Endurskoða tímasetningu kóðanámsins með skýrri ákvörðun.",
+              "Skýra viljandi tímabragð án sjálfvirkrar staðfestingar.",
+              "Fresta tillögunni."
+            ],
+            "disposition": "open",
+            "decision_ids": [],
+            "narrative_explanation": null
+          },
+          "disposition": {
+            "id": "045b572d-fcf6-4521-b2a6-ce88f794094f",
+            "kind": "finding",
+            "revision": 2,
+            "previous_revision": 1,
+            "created_exchange_id": "162a5780-2bcc-4e9b-b617-aa38fa2b4acd",
+            "origin": "supplied",
+            "source_refs": [
+              {
+                "type": "message",
+                "exchange_id": "162a5780-2bcc-4e9b-b617-aa38fa2b4acd",
+                "message_id": "0d0858df-1c47-4448-bb78-d69af11270a4",
+                "range": {
+                  "start": 227,
+                  "end": 299
+                }
+              },
+              {
+                "type": "message",
+                "exchange_id": "8608face-e906-413c-aeeb-502affe55cb3",
+                "message_id": "3cf15120-ff30-4459-9e4a-460438246d92",
+                "range": {
+                  "start": 276,
+                  "end": 331
+                }
+              },
+              {
+                "type": "message",
+                "exchange_id": "8608face-e906-413c-aeeb-502affe55cb3",
+                "message_id": "3cf15120-ff30-4459-9e4a-460438246d92",
+                "range": {
+                  "start": 276,
+                  "end": 331
+                }
+              },
+              {
+                "type": "message",
+                "exchange_id": "3c08a608-1279-42ce-a953-750fc34c065c",
+                "message_id": "afdee4d6-b637-4407-82a9-0cee39d3760d",
+                "range": {
+                  "start": 191,
+                  "end": 319
+                }
+              }
+            ],
+            "category": "knowledge",
+            "assessment": "conflict",
+            "severity": "significant",
+            "affected_refs": [
+              {
+                "id": "a65f2d80-43bf-4103-b5ee-3bac40281900",
+                "revision": 1
+              },
+              {
+                "id": "553cc2f0-4dfb-4e9e-a9c0-8f66ccfbbbfb",
+                "revision": 1
+              },
+              {
+                "id": "0a95e2e3-a6c3-426b-9212-60b27751ce4a",
+                "revision": 1
+              },
+              {
+                "id": "79c29f4a-049c-4f80-99d4-feb50914813c",
+                "revision": 1
+              },
+              {
+                "id": "fab8d0b4-8490-40ff-947d-7d9d18a86b68",
+                "revision": 1
+              }
+            ],
+            "explanation": "Höfundur endurskoðaði kóðanám frá eftir skipsökk til fyrir skipsökk. Fyrri vitneskjumótsögn leyst með þeirri staðfestu breytingu; björgunartillagan er ekki sjálfkrafa samþykkt.",
+            "consequences": [
+              "Tillagan byggir á vitneskju sem Rúna hefur ekki á þeim tímapunkti og eyðir atburðinum sem er forsenda námsins."
+            ],
+            "resolution_options": [
+              "Breyta því hvernig hún reynir að bjarga skipinu.",
+              "Endurskoða tímasetningu kóðanámsins með skýrri ákvörðun.",
+              "Skýra viljandi tímabragð án sjálfvirkrar staðfestingar.",
+              "Fresta tillögunni."
+            ],
+            "disposition": "revised_canon",
+            "decision_ids": [
+              "ae03d21f-d3df-4a21-9202-9fb67c7ba9bc"
+            ],
+            "narrative_explanation": null
+          }
+        },
+        {
+          "category": "plot_dependency",
+          "original": {
+            "id": "0892fa17-5e1c-4c59-84e5-4d6de2f8f4df",
+            "kind": "finding",
+            "revision": 1,
+            "previous_revision": null,
+            "created_exchange_id": "162a5780-2bcc-4e9b-b617-aa38fa2b4acd",
+            "origin": "supplied",
+            "source_refs": [
+              {
+                "type": "message",
+                "exchange_id": "162a5780-2bcc-4e9b-b617-aa38fa2b4acd",
+                "message_id": "0d0858df-1c47-4448-bb78-d69af11270a4",
+                "range": {
+                  "start": 304,
+                  "end": 379
+                }
+              },
+              {
+                "type": "message",
+                "exchange_id": "8608face-e906-413c-aeeb-502affe55cb3",
+                "message_id": "3cf15120-ff30-4459-9e4a-460438246d92",
+                "range": {
+                  "start": 333,
+                  "end": 380
+                }
+              },
+              {
+                "type": "message",
+                "exchange_id": "8608face-e906-413c-aeeb-502affe55cb3",
+                "message_id": "3cf15120-ff30-4459-9e4a-460438246d92",
+                "range": {
+                  "start": 333,
+                  "end": 380
+                }
+              }
+            ],
+            "category": "plot_dependency",
+            "assessment": "conflict",
+            "severity": "significant",
+            "affected_refs": [
+              {
+                "id": "eb8b34e9-ec78-47c5-bf60-da24da54d123",
+                "revision": 1
+              },
+              {
+                "id": "bc9c3db4-018c-4500-ab72-16519ca705d5",
+                "revision": 1
+              },
+              {
+                "id": "6a61ab8a-d512-49ad-ba33-bd130bb6f534",
+                "revision": 1
+              },
+              {
+                "id": "e4195696-47c0-4598-9633-477fa84617c0",
+                "revision": 1
+              },
+              {
+                "id": "0992b08f-79ff-449f-9d1f-4972833a5846",
+                "revision": 1
+              }
+            ],
+            "explanation": "Fyrirhugaður flótti krefst eina nothæfa bátsins. Eyðilegging hans fyrir annars óbreyttan flótta fjarlægir þá nauðsynlegu forsendu.",
+            "consequences": [
+              "Óbreyttur flótti verður óframkvæmanlegur með þeim skráðu úrræðum."
+            ],
+            "resolution_options": [
+              "Endurskoða eyðilegginguna eða tímasetningu hennar.",
+              "Endurskoða flóttaáætlun eða bátaforsenduna með skýrri ákvörðun.",
+              "Fresta tillögunni."
+            ],
+            "disposition": "open",
+            "decision_ids": [],
+            "narrative_explanation": null
+          },
+          "disposition": {
+            "id": "0892fa17-5e1c-4c59-84e5-4d6de2f8f4df",
+            "kind": "finding",
+            "revision": 2,
+            "previous_revision": 1,
+            "created_exchange_id": "162a5780-2bcc-4e9b-b617-aa38fa2b4acd",
+            "origin": "supplied",
+            "source_refs": [
+              {
+                "type": "message",
+                "exchange_id": "162a5780-2bcc-4e9b-b617-aa38fa2b4acd",
+                "message_id": "0d0858df-1c47-4448-bb78-d69af11270a4",
+                "range": {
+                  "start": 304,
+                  "end": 379
+                }
+              },
+              {
+                "type": "message",
+                "exchange_id": "8608face-e906-413c-aeeb-502affe55cb3",
+                "message_id": "3cf15120-ff30-4459-9e4a-460438246d92",
+                "range": {
+                  "start": 333,
+                  "end": 380
+                }
+              },
+              {
+                "type": "message",
+                "exchange_id": "8608face-e906-413c-aeeb-502affe55cb3",
+                "message_id": "3cf15120-ff30-4459-9e4a-460438246d92",
+                "range": {
+                  "start": 333,
+                  "end": 380
+                }
+              },
+              {
+                "type": "message",
+                "exchange_id": "3c08a608-1279-42ce-a953-750fc34c065c",
+                "message_id": "afdee4d6-b637-4407-82a9-0cee39d3760d",
+                "range": {
+                  "start": 321,
+                  "end": 436
+                }
+              }
+            ],
+            "category": "plot_dependency",
+            "assessment": "conflict",
+            "severity": "significant",
+            "affected_refs": [
+              {
+                "id": "eb8b34e9-ec78-47c5-bf60-da24da54d123",
+                "revision": 1
+              },
+              {
+                "id": "bc9c3db4-018c-4500-ab72-16519ca705d5",
+                "revision": 1
+              },
+              {
+                "id": "6a61ab8a-d512-49ad-ba33-bd130bb6f534",
+                "revision": 1
+              },
+              {
+                "id": "e4195696-47c0-4598-9633-477fa84617c0",
+                "revision": 1
+              },
+              {
+                "id": "0992b08f-79ff-449f-9d1f-4972833a5846",
+                "revision": 1
+              }
+            ],
+            "explanation": "Fyrirhugaður flótti krefst eina nothæfa bátsins. Eyðilegging hans fyrir annars óbreyttan flótta fjarlægir þá nauðsynlegu forsendu.",
+            "consequences": [
+              "Óbreyttur flótti verður óframkvæmanlegur með þeim skráðu úrræðum."
+            ],
+            "resolution_options": [
+              "Endurskoða eyðilegginguna eða tímasetningu hennar.",
+              "Endurskoða flóttaáætlun eða bátaforsenduna með skýrri ákvörðun.",
+              "Fresta tillögunni."
+            ],
+            "disposition": "revised_idea",
+            "decision_ids": [
+              "68339a4d-6d96-4031-8dcc-ff5a525438bf"
+            ],
+            "narrative_explanation": null
+          }
+        },
+        {
+          "category": "world_rule",
+          "original": {
+            "id": "24217ee6-14c5-4590-bf90-cdfc550e7234",
+            "kind": "finding",
+            "revision": 1,
+            "previous_revision": null,
+            "created_exchange_id": "162a5780-2bcc-4e9b-b617-aa38fa2b4acd",
+            "origin": "supplied",
+            "source_refs": [
+              {
+                "type": "message",
+                "exchange_id": "162a5780-2bcc-4e9b-b617-aa38fa2b4acd",
+                "message_id": "0d0858df-1c47-4448-bb78-d69af11270a4",
+                "range": {
+                  "start": 384,
+                  "end": 444
+                }
+              },
+              {
+                "type": "message",
+                "exchange_id": "8608face-e906-413c-aeeb-502affe55cb3",
+                "message_id": "3cf15120-ff30-4459-9e4a-460438246d92",
+                "range": {
+                  "start": 382,
+                  "end": 428
+                }
+              }
+            ],
+            "category": "world_rule",
+            "assessment": "conflict",
+            "severity": "significant",
+            "affected_refs": [
+              {
+                "id": "e2e8e629-c584-48ab-acc3-8c2c9958a583",
+                "revision": 1
+              },
+              {
+                "id": "2c0f86dd-155d-4b5b-ae1d-5207dfee9e2b",
+                "revision": 1
+              },
+              {
+                "id": "f2c29259-c5b0-4b9c-a272-1bbefd82645a",
+                "revision": 1
+              },
+              {
+                "id": "3206e87d-d058-48dc-b691-4cf20a3679d9",
+                "revision": 1
+              }
+            ],
+            "explanation": "Staðfest regla segir að ekkert bréf geti farið yfir innsigluðu mörkin. Venjulegt bréf án undantekningar brýtur þá reglu beint.",
+            "consequences": [
+              "Mörkin missa skráða hindrun sína ef tillagan er staðfest óbreytt."
+            ],
+            "resolution_options": [
+              "Endurskoða bréfaflutningstillöguna.",
+              "Endurskoða regluna með skýrri ákvörðun.",
+              "Skýra viljandi undantekningu ef höfundur kýs að breyta forsendunni.",
+              "Fresta tillögunni."
+            ],
+            "disposition": "open",
+            "decision_ids": [],
+            "narrative_explanation": null
+          },
+          "disposition": {
+            "id": "24217ee6-14c5-4590-bf90-cdfc550e7234",
+            "kind": "finding",
+            "revision": 2,
+            "previous_revision": 1,
+            "created_exchange_id": "162a5780-2bcc-4e9b-b617-aa38fa2b4acd",
+            "origin": "supplied",
+            "source_refs": [
+              {
+                "type": "message",
+                "exchange_id": "162a5780-2bcc-4e9b-b617-aa38fa2b4acd",
+                "message_id": "0d0858df-1c47-4448-bb78-d69af11270a4",
+                "range": {
+                  "start": 384,
+                  "end": 444
+                }
+              },
+              {
+                "type": "message",
+                "exchange_id": "8608face-e906-413c-aeeb-502affe55cb3",
+                "message_id": "3cf15120-ff30-4459-9e4a-460438246d92",
+                "range": {
+                  "start": 382,
+                  "end": 428
+                }
+              },
+              {
+                "type": "message",
+                "exchange_id": "3c08a608-1279-42ce-a953-750fc34c065c",
+                "message_id": "afdee4d6-b637-4407-82a9-0cee39d3760d",
+                "range": {
+                  "start": 438,
+                  "end": 570
+                }
+              }
+            ],
+            "category": "world_rule",
+            "assessment": "conflict",
+            "severity": "significant",
+            "affected_refs": [
+              {
+                "id": "e2e8e629-c584-48ab-acc3-8c2c9958a583",
+                "revision": 1
+              },
+              {
+                "id": "2c0f86dd-155d-4b5b-ae1d-5207dfee9e2b",
+                "revision": 1
+              },
+              {
+                "id": "f2c29259-c5b0-4b9c-a272-1bbefd82645a",
+                "revision": 1
+              },
+              {
+                "id": "3206e87d-d058-48dc-b691-4cf20a3679d9",
+                "revision": 1
+              }
+            ],
+            "explanation": "Staðfest regla segir að ekkert bréf geti farið yfir innsigluðu mörkin. Venjulegt bréf án undantekningar brýtur þá reglu beint.",
+            "consequences": [
+              "Mörkin missa skráða hindrun sína ef tillagan er staðfest óbreytt."
+            ],
+            "resolution_options": [
+              "Endurskoða bréfaflutningstillöguna.",
+              "Endurskoða regluna með skýrri ákvörðun.",
+              "Skýra viljandi undantekningu ef höfundur kýs að breyta forsendunni.",
+              "Fresta tillögunni."
+            ],
+            "disposition": "intentional",
+            "decision_ids": [
+              "c6ae569e-30d2-44a9-8a59-d0758070216b"
+            ],
+            "narrative_explanation": "Viljandi óáreiðanleg vitnisfrásögn lýgur um bréfaflutning. Fullyrðingin er frásagnarinnihald fyrir lesanda, ekki atburður í höfundarsannleika; algilda mörkareglan stendur."
+          }
+        },
+        {
+          "category": "relationship",
+          "original": {
+            "id": "93c85a29-4d91-4c23-b682-7677c95fbf79",
+            "kind": "finding",
+            "revision": 1,
+            "previous_revision": null,
+            "created_exchange_id": "162a5780-2bcc-4e9b-b617-aa38fa2b4acd",
+            "origin": "supplied",
+            "source_refs": [
+              {
+                "type": "message",
+                "exchange_id": "162a5780-2bcc-4e9b-b617-aa38fa2b4acd",
+                "message_id": "0d0858df-1c47-4448-bb78-d69af11270a4",
+                "range": {
+                  "start": 449,
+                  "end": 536
+                }
+              },
+              {
+                "type": "message",
+                "exchange_id": "8608face-e906-413c-aeeb-502affe55cb3",
+                "message_id": "3cf15120-ff30-4459-9e4a-460438246d92",
+                "range": {
+                  "start": 430,
+                  "end": 487
+                }
+              },
+              {
+                "type": "message",
+                "exchange_id": "8608face-e906-413c-aeeb-502affe55cb3",
+                "message_id": "3cf15120-ff30-4459-9e4a-460438246d92",
+                "range": {
+                  "start": 430,
+                  "end": 487
+                }
+              }
+            ],
+            "category": "relationship",
+            "assessment": "conflict",
+            "severity": "significant",
+            "affected_refs": [
+              {
+                "id": "cd8104e3-07fc-416a-bfa9-076888134348",
+                "revision": 1
+              },
+              {
+                "id": "b6279ad2-0eaf-4f5a-b7fa-d67643574285",
+                "revision": 1
+              },
+              {
+                "id": "247e8a85-44dd-46cb-ac9c-761b72a68484",
+                "revision": 1
+              },
+              {
+                "id": "60e3081b-187d-4b2b-b52a-1df93ab5e31c",
+                "revision": 1
+              },
+              {
+                "id": "134717c6-0cc8-4249-981b-b5c18e517d08",
+                "revision": 1
+              }
+            ],
+            "explanation": "Freyja og Sigrún hafa aldrei hist fyrir þessa endurfundi. Raunveruleg sameiginleg æskuminning þeirra af fyrri samveru krefst fyrri kynna sem sú staðreynd útilokar.",
+            "consequences": [
+              "Sameiginleg fortíð af því tagi myndi breyta staðfestum bakgrunni tengsla þeirra."
+            ],
+            "resolution_options": [
+              "Endurskoða minningartillöguna.",
+              "Endurskoða fyrri kynni með skýrri ákvörðun.",
+              "Skýra viljandi aðra merkingu minningar án þess að breyta raunverulegri sameiginlegri æsku sjálfkrafa.",
+              "Fresta tillögunni."
+            ],
+            "disposition": "open",
+            "decision_ids": [],
+            "narrative_explanation": null
+          },
+          "disposition": {
+            "id": "93c85a29-4d91-4c23-b682-7677c95fbf79",
+            "kind": "finding",
+            "revision": 2,
+            "previous_revision": 1,
+            "created_exchange_id": "162a5780-2bcc-4e9b-b617-aa38fa2b4acd",
+            "origin": "supplied",
+            "source_refs": [
+              {
+                "type": "message",
+                "exchange_id": "162a5780-2bcc-4e9b-b617-aa38fa2b4acd",
+                "message_id": "0d0858df-1c47-4448-bb78-d69af11270a4",
+                "range": {
+                  "start": 449,
+                  "end": 536
+                }
+              },
+              {
+                "type": "message",
+                "exchange_id": "8608face-e906-413c-aeeb-502affe55cb3",
+                "message_id": "3cf15120-ff30-4459-9e4a-460438246d92",
+                "range": {
+                  "start": 430,
+                  "end": 487
+                }
+              },
+              {
+                "type": "message",
+                "exchange_id": "8608face-e906-413c-aeeb-502affe55cb3",
+                "message_id": "3cf15120-ff30-4459-9e4a-460438246d92",
+                "range": {
+                  "start": 430,
+                  "end": 487
+                }
+              },
+              {
+                "type": "message",
+                "exchange_id": "3c08a608-1279-42ce-a953-750fc34c065c",
+                "message_id": "afdee4d6-b637-4407-82a9-0cee39d3760d",
+                "range": {
+                  "start": 572,
+                  "end": 641
+                }
+              }
+            ],
+            "category": "relationship",
+            "assessment": "conflict",
+            "severity": "significant",
+            "affected_refs": [
+              {
+                "id": "cd8104e3-07fc-416a-bfa9-076888134348",
+                "revision": 1
+              },
+              {
+                "id": "b6279ad2-0eaf-4f5a-b7fa-d67643574285",
+                "revision": 1
+              },
+              {
+                "id": "247e8a85-44dd-46cb-ac9c-761b72a68484",
+                "revision": 1
+              },
+              {
+                "id": "60e3081b-187d-4b2b-b52a-1df93ab5e31c",
+                "revision": 1
+              },
+              {
+                "id": "134717c6-0cc8-4249-981b-b5c18e517d08",
+                "revision": 1
+              }
+            ],
+            "explanation": "Freyja og Sigrún hafa aldrei hist fyrir þessa endurfundi. Raunveruleg sameiginleg æskuminning þeirra af fyrri samveru krefst fyrri kynna sem sú staðreynd útilokar.",
+            "consequences": [
+              "Sameiginleg fortíð af því tagi myndi breyta staðfestum bakgrunni tengsla þeirra."
+            ],
+            "resolution_options": [
+              "Endurskoða minningartillöguna.",
+              "Endurskoða fyrri kynni með skýrri ákvörðun.",
+              "Skýra viljandi aðra merkingu minningar án þess að breyta raunverulegri sameiginlegri æsku sjálfkrafa.",
+              "Fresta tillögunni."
+            ],
+            "disposition": "deferred",
+            "decision_ids": [
+              "106da5e3-4aa2-4d01-bb23-9ba969520c2f"
+            ],
+            "narrative_explanation": null
+          }
+        }
+      ],
+      "advisory_opportunities": [
+        {
+          "id": "1ee64885-d273-4246-803b-2cee08578ebd",
+          "kind": "finding",
+          "revision": 1,
+          "previous_revision": null,
+          "created_exchange_id": "3c08a608-1279-42ce-a953-750fc34c065c",
+          "origin": "supplied",
+          "source_refs": [
+            {
+              "type": "message",
+              "exchange_id": "3c08a608-1279-42ce-a953-750fc34c065c",
+              "message_id": "afdee4d6-b637-4407-82a9-0cee39d3760d",
+              "range": {
+                "start": 643,
+                "end": 710
+              }
+            },
+            {
+              "type": "message",
+              "exchange_id": "38fb5b68-545e-4692-9d9b-0d0e0377a62d",
+              "message_id": "30087814-674c-4d7d-b28e-e8654b8eb4ae",
+              "range": {
+                "start": 124,
+                "end": 149
+              }
+            }
+          ],
+          "category": "plot_dependency",
+          "assessment": "opportunity",
+          "severity": "advisory",
+          "affected_refs": [
+            {
+              "id": "8fc8b19d-8341-4d0d-bc96-6ed7d8582a54",
+              "revision": 1
+            },
+            {
+              "id": "e49f9a76-ac1d-4b6c-8a86-ae3eec006fa8",
+              "revision": 1
+            },
+            {
+              "id": "7329912f-a403-4c50-958d-19ae373249e3",
+              "revision": 2
+            }
+          ],
+          "explanation": "Skráð látúnsinnsigli gæti verið vísbending í könnun sendandans; vísbending staðfestir ekki sjálf niðurstöðu.",
+          "consequences": [],
+          "resolution_options": [
+            "Kanna innsiglið sem vísbendingu.",
+            "Láta hugmyndina bíða."
+          ],
+          "disposition": "open",
+          "decision_ids": [],
+          "narrative_explanation": null
+        }
+      ],
+      "unknown_knowledge": [
+        {
+          "id": "f82120a5-bfc1-429b-b18d-b6b1ec361432",
+          "kind": "assertion",
+          "revision": 1,
+          "previous_revision": null,
+          "created_exchange_id": "3c08a608-1279-42ce-a953-750fc34c065c",
+          "origin": "supplied",
+          "source_refs": [
+            {
+              "type": "message",
+              "exchange_id": "3c08a608-1279-42ce-a953-750fc34c065c",
+              "message_id": "afdee4d6-b637-4407-82a9-0cee39d3760d",
+              "range": {
+                "start": 711,
+                "end": 769
+              }
+            }
+          ],
+          "subject_element_id": "cc940f23-5d36-46aa-8542-2de56ae91078",
+          "predicate": "lærði leyndarmál leyniherbergisins",
+          "value": {
+            "id": "7984d4ed-acda-4940-b567-971592bb0507",
+            "revision": 1
+          },
+          "perspective": "character_knowledge",
+          "holder_id": "cc940f23-5d36-46aa-8542-2de56ae91078",
+          "reader_audience": null,
+          "time_ref": {
+            "chronology": {
+              "precision": "unknown",
+              "event_anchor": null,
+              "start": null,
+              "end": null,
+              "before_refs": [],
+              "after_refs": []
+            },
+            "narrative": {
+              "precision": "unknown",
+              "event_anchor": null,
+              "start": null,
+              "end": null,
+              "before_refs": [],
+              "after_refs": []
+            }
+          },
+          "truth_state": "unknown",
+          "status": "unresolved",
+          "decision_ids": [],
+          "supersedes": null
+        }
+      ],
+      "deferred_scope_persisted": true,
+      "unavailable_context_held": true,
+      "corrected_session_revalidated": true,
+      "final_intentional_resolution": {
+        "id": "93c85a29-4d91-4c23-b682-7677c95fbf79",
+        "kind": "finding",
+        "revision": 3,
+        "previous_revision": 2,
+        "created_exchange_id": "162a5780-2bcc-4e9b-b617-aa38fa2b4acd",
+        "origin": "supplied",
+        "source_refs": [
+          {
+            "type": "message",
+            "exchange_id": "162a5780-2bcc-4e9b-b617-aa38fa2b4acd",
+            "message_id": "0d0858df-1c47-4448-bb78-d69af11270a4",
+            "range": {
+              "start": 449,
+              "end": 536
+            }
+          },
+          {
+            "type": "message",
+            "exchange_id": "8608face-e906-413c-aeeb-502affe55cb3",
+            "message_id": "3cf15120-ff30-4459-9e4a-460438246d92",
+            "range": {
+              "start": 430,
+              "end": 487
+            }
+          },
+          {
+            "type": "message",
+            "exchange_id": "8608face-e906-413c-aeeb-502affe55cb3",
+            "message_id": "3cf15120-ff30-4459-9e4a-460438246d92",
+            "range": {
+              "start": 430,
+              "end": 487
+            }
+          },
+          {
+            "type": "message",
+            "exchange_id": "3c08a608-1279-42ce-a953-750fc34c065c",
+            "message_id": "afdee4d6-b637-4407-82a9-0cee39d3760d",
+            "range": {
+              "start": 572,
+              "end": 641
+            }
+          },
+          {
+            "type": "message",
+            "exchange_id": "16893d05-744d-4869-a918-4c5b2f26ae7d",
+            "message_id": "afbe61c6-9717-459a-a842-5213d947576c",
+            "range": {
+              "start": 62,
+              "end": 175
+            }
+          },
+          {
+            "type": "message",
+            "exchange_id": "16893d05-744d-4869-a918-4c5b2f26ae7d",
+            "message_id": "afbe61c6-9717-459a-a842-5213d947576c",
+            "range": {
+              "start": 176,
+              "end": 234
+            }
+          }
+        ],
+        "category": "relationship",
+        "assessment": "conflict",
+        "severity": "significant",
+        "affected_refs": [
+          {
+            "id": "cd8104e3-07fc-416a-bfa9-076888134348",
+            "revision": 1
+          },
+          {
+            "id": "b6279ad2-0eaf-4f5a-b7fa-d67643574285",
+            "revision": 1
+          },
+          {
+            "id": "247e8a85-44dd-46cb-ac9c-761b72a68484",
+            "revision": 1
+          },
+          {
+            "id": "60e3081b-187d-4b2b-b52a-1df93ab5e31c",
+            "revision": 1
+          },
+          {
+            "id": "134717c6-0cc8-4249-981b-b5c18e517d08",
+            "revision": 1
+          }
+        ],
+        "explanation": "Freyja og Sigrún hafa aldrei hist fyrir þessa endurfundi. Raunveruleg sameiginleg æskuminning þeirra af fyrri samveru krefst fyrri kynna sem sú staðreynd útilokar.",
+        "consequences": [
+          "Sameiginleg fortíð af því tagi myndi breyta staðfestum bakgrunni tengsla þeirra."
+        ],
+        "resolution_options": [
+          "Endurskoða minningartillöguna.",
+          "Endurskoða fyrri kynni með skýrri ákvörðun.",
+          "Skýra viljandi aðra merkingu minningar án þess að breyta raunverulegri sameiginlegri æsku sjálfkrafa.",
+          "Fresta tillögunni."
+        ],
+        "disposition": "intentional",
+        "decision_ids": [
+          "106da5e3-4aa2-4d01-bb23-9ba969520c2f",
+          "9aba8142-23b9-41a7-97f2-23fa2620e66c"
+        ],
+        "narrative_explanation": "Sýnileg sameiginleg æskuminning er viljandi draumur/ímyndun Freyju, ekki raunveruleg sameiginleg fortíð. Höfundarsannleikur um að Freyja og Sigrún höfðu aldrei hist fyrir endurfundina stendur. Tímasetning sjálfs draumsins er ótilgreind."
+      },
+      "unavailable_scope": "Actual missing session lookup; damaged-history faults remain separate structural evidence"
+    }
+  ]
+}

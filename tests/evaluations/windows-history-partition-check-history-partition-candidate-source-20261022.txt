@@ -1,0 +1,133 @@
+"""Candidate fault/equality checks against the unchanged original reader."""
+import hashlib,json,subprocess,sys,threading,unittest
+from pathlib import Path
+from unittest.mock import patch
+sys.path.insert(0,str(Path.cwd()))
+import history_partition_candidate as candidate
+from novel_creator import storage,records,validation_cache
+from novel_creator.cli import ToolError
+from tests.helpers import repository,git,envelope
+from tests.performance import benchmark_records as benchmark
+
+class CandidateChecks(unittest.TestCase):
+    def fixture(self,root):
+        novel_id=records.loads((root/'.novel-creator/manifest.json').read_bytes())['novel_id']
+        history,_=benchmark.generate(novel_id,exchanges=8,sessions=2,assertions=16,minimum_bytes=0)
+        for index,bundle in enumerate(history):
+            target=root/storage.bundle_path(bundle);target.parent.mkdir(parents=True,exist_ok=True);target.write_bytes(benchmark.serialized(bundle))
+            if index==0:
+                git(root,'add','story/exchanges');git(root,'commit','-m','Validated one-exchange prefix')
+        git(root,'add','story/exchanges');git(root,'commit','-m','Complete candidate fault fixture')
+        storage.read_history(root)
+        return history,storage.head(root),storage.committed_entries(root,storage.head(root))
+    def result(self,root,commit,entries,reader):
+        with patch.object(storage,'_batch_blobs',reader):
+            try:
+                history,chain=storage._read_snapshot(root,commit,entries)
+                return ('ok',history,chain._state)
+            except ToolError as error:return ('error',error.code,error.affected_refs,error.checkpoint)
+    def reader(self,root,entries,paths):return candidate.partitioned_blobs(root,entries,paths,workers=4)
+    def test_cached_uncached_and_captured_snapshot_equality(self):
+        for fmt in ('sha1','sha256'):
+            with self.subTest(fmt=fmt),benchmark.benchmark_key(True),repository(object_format=fmt) as root:
+                history,commit,entries=self.fixture(root)
+                for trusted in (False,True):
+                    with patch.object(validation_cache,'trusted',return_value=trusted):
+                        self.assertEqual(self.result(root,commit,entries,candidate.serial_blobs),self.result(root,commit,entries,self.reader))
+                following=envelope(root,previous=history[-1]);target=root/storage.bundle_path(following);target.write_bytes(benchmark.serialized(following))
+                git(root,'add','story/exchanges');git(root,'commit','-m','Advance captured snapshot')
+                self.assertNotEqual(storage.head(root),commit)
+                self.assertEqual(self.result(root,commit,entries,self.reader)[1],history)
+                self.assertEqual(storage.read_history(root),[*history,following])
+    def test_binary_framing_and_nonzero_outputs(self):
+        for fmt in ('sha1','sha256'):
+            with self.subTest(fmt=fmt),benchmark.benchmark_key(True),repository(object_format=fmt) as root:
+                _,commit,entries=self.fixture(root)
+                paths=sorted(p for p in entries if p.startswith('story/exchanges/'))
+                raw={entries[p][1]:(root/p).read_bytes() for p in paths}
+                oids=[entries[p][1] for p in paths];original=storage.git
+                cases=[(kind,index) for kind in ('missing','header','truncated') for index in (1,2,3,4,5,6)]
+                cases += [('trailing',index) for index in (1,3,5)]
+                cases += [('nonzero_partial',index) for index in (0,2,4)] + [('nonzero_complete',0)]
+                for kind,index in cases:
+                    with self.subTest(fmt=fmt,kind=kind,index=index):
+                        def fake(root,*args,**kwargs):
+                            if args[0]!='cat-file':return original(root,*args,**kwargs)
+                            requested=kwargs['input'].decode().splitlines();data=[];status=0
+                            for oid in requested:
+                                body=raw[oid];header=f'{oid} blob {len(body)}\n'.encode()
+                                frame=header+body+b'\n'
+                                if oid==oids[index]:
+                                    if kind=='missing':frame=f'{oid} missing\n'.encode()
+                                    if kind=='header':frame=b'invalid header\n'+body+b'\n'
+                                    if kind=='truncated':data.append(header+body[:-1]);break
+                                    if kind=='trailing':frame+=b'unexpected trailing bytes\n'
+                                data.append(frame)
+                                if kind=='nonzero_partial' and oid==oids[index]:status=1;break
+                            if kind=='nonzero_complete':status=1
+                            return subprocess.CompletedProcess(args,status,b''.join(data),b'')
+                        with patch.object(storage,'git',fake):
+                            expected=self.result(root,commit,entries,candidate.serial_blobs)
+                            actual=self.result(root,commit,entries,self.reader)
+                        self.assertEqual(actual,expected)
+                        self.assertEqual(actual[0],'ok' if kind=='nonzero_complete' else 'error')
+    def test_late_worker_failure_preserves_earlier_damage_and_guard_precedence(self):
+        for fmt in ('sha1','sha256'):
+            with self.subTest(fmt=fmt),benchmark.benchmark_key(True),repository(object_format=fmt) as root:
+                history,_,_=self.fixture(root)
+                damaged=root/storage.bundle_path(history[1]);damaged.write_bytes(b'{bad history}\n')
+                git(root,'add','story/exchanges');git(root,'commit','-m','Malformed second exchange')
+                commit=storage.head(root);entries=storage.committed_entries(root,commit)
+                expected=self.result(root,commit,entries,candidate.serial_blobs)
+                self.assertEqual(expected[0:2],('error',4));self.assertEqual(expected[3]['sequence'],1)
+                paths=sorted(p for p in entries if p.startswith('story/exchanges/'))
+                late=entries[paths[4]][1];original=storage.git;completed=[];ready=threading.Event()
+                def flaky(root,*args,**kwargs):
+                    if args[0]!='cat-file':return original(root,*args,**kwargs)
+                    requested=kwargs['input'].decode().splitlines()
+                    if len(requested)==8:
+                        self.assertEqual(len(completed),4,'Fallback began before every worker joined')
+                        return original(root,*args,**kwargs)
+                    try:
+                        if requested[0]==late:
+                            self.assertTrue(ready.wait(10),'Background guard did not fail')
+                            raise OSError('Injected late chunk launch failure')
+                        return original(root,*args,**kwargs)
+                    finally:completed.append(requested[0])
+                ready.set()
+                with patch.object(storage,'git',flaky):self.assertEqual(self.result(root,commit,entries,self.reader),expected)
+                ready.clear();completed.clear()
+                working=root/storage.bundle_path(history[0]);working.write_bytes(working.read_bytes()+b' ')
+                index=(root/'.git/index').read_bytes();original_guard=storage.check_managed
+                def guard(*args,**kwargs):
+                    try:return original_guard(*args,**kwargs)
+                    except ToolError as error:
+                        self.assertEqual(error.code,3);ready.set();raise
+                with patch.object(storage,'git',flaky),patch.object(storage,'check_managed',guard),patch.object(storage,'_batch_blobs',self.reader):
+                    with self.assertRaises(ToolError) as error:storage.save(root,envelope(root,previous=history[-1]))
+                self.assertEqual((error.exception.code,error.exception.affected_refs,error.exception.checkpoint),expected[1:])
+                self.assertEqual(storage.head(root),commit);self.assertEqual((root/'.git/index').read_bytes(),index)
+                self.assertFalse((root/'.novel-creator/local/write.lock').exists())
+    def test_thread_start_failure_joins_started_request_before_serial_fallback(self):
+        for fmt in ('sha1','sha256'):
+            with self.subTest(fmt=fmt),benchmark.benchmark_key(True),repository(object_format=fmt) as root:
+                history,commit,entries=self.fixture(root)
+                original=storage.git;done=threading.Event();calls=[];real_pool=candidate.ThreadPoolExecutor
+                class FailSecondSubmit(real_pool):
+                    def submit(self,*args,**kwargs):
+                        if getattr(self,'submitted',False):raise RuntimeError('Injected worker start failure')
+                        self.submitted=True
+                        return super().submit(*args,**kwargs)
+                def traced(root,*args,**kwargs):
+                    if args[0]!='cat-file':return original(root,*args,**kwargs)
+                    requested=kwargs['input'].decode().splitlines();calls.append(len(requested))
+                    if len(requested)==8:
+                        self.assertTrue(done.is_set(),'Started child was not joined before fallback')
+                        return original(root,*args,**kwargs)
+                    try:return original(root,*args,**kwargs)
+                    finally:done.set()
+                with patch.object(candidate,'ThreadPoolExecutor',FailSecondSubmit),patch.object(storage,'git',traced):
+                    result=self.result(root,commit,entries,self.reader)
+                self.assertEqual(result[0:2],('ok',history));self.assertEqual(calls,[2,8])
+
+if __name__=='__main__':unittest.main(verbosity=2)

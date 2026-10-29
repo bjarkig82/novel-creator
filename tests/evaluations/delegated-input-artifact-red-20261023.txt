@@ -1,0 +1,23 @@
+test_provenance_cannot_mismatch_current_message_or_source_labels (tests.unit.test_host_input.HostInputTests.test_provenance_cannot_mismatch_current_message_or_source_labels) ... ERROR
+
+======================================================================
+ERROR: test_provenance_cannot_mismatch_current_message_or_source_labels (tests.unit.test_host_input.HostInputTests.test_provenance_cannot_mismatch_current_message_or_source_labels)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\unit\test_host_input.py", line 63, in test_provenance_cannot_mismatch_current_message_or_source_labels
+    validation.validate_exchange(exchange, [first])
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\validation.py", line 151, in validate_exchange
+    state, _, _, _ = _validate_exchange(bundle, ExchangeValidator(history))
+                     ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\validation.py", line 174, in _validate_exchange
+    local_messages, local_artifacts, identifiers = _sources(bundle, context._ids)
+                                                   ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\validation.py", line 140, in _sources
+    raise ValueError('Input artifacts belong to bootstrap')
+ValueError: Input artifacts belong to bootstrap
+
+----------------------------------------------------------------------
+Ran 1 test in 0.489s
+
+FAILED (errors=1)

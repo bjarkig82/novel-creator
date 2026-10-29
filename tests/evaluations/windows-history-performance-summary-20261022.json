@@ -1,0 +1,21 @@
+{
+  "source_sha256": "593b46960df2316ea058f03840bb8ac011a716e3c3dd516c8297d0fc91265322",
+  "benchmark_sha256": "0130b52a323d4b955f0f66ebb42e93464cac6e8de314b9fe185e8d7227171656",
+  "matched_comparison_exit": 0,
+  "default": {
+    "exit_code": 1,
+    "wall_seconds": 216.54322220000904,
+    "cold_read_seconds": 2.3543709999648854,
+    "read_p95_seconds": 1.7153635000577196,
+    "save_p95_seconds": 3.398351400042884,
+    "maintenance_seconds": null
+  },
+  "packed": {
+    "exit_code": 1,
+    "wall_seconds": 166.20801850000862,
+    "cold_read_seconds": 1.9130631000734866,
+    "read_p95_seconds": 1.020150600001216,
+    "save_p95_seconds": 2.7391703999601305,
+    "maintenance_seconds": 4.742777599953115
+  }
+}

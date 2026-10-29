@@ -1,0 +1,46 @@
+test_success_and_error_json_remain_utf8_with_legacy_stdio (tests.contract.test_cli_encoding.CliEncodingContract.test_success_and_error_json_remain_utf8_with_legacy_stdio) ... 
+  test_success_and_error_json_remain_utf8_with_legacy_stdio (tests.contract.test_cli_encoding.CliEncodingContract.test_success_and_error_json_remain_utf8_with_legacy_stdio) (encoding='ascii', command=('context',)) ... FAIL
+  test_success_and_error_json_remain_utf8_with_legacy_stdio (tests.contract.test_cli_encoding.CliEncodingContract.test_success_and_error_json_remain_utf8_with_legacy_stdio) (encoding='ascii', command=('inspect', '--id', 'Bréf Þóru — 東京 🌒')) ... FAIL
+  test_success_and_error_json_remain_utf8_with_legacy_stdio (tests.contract.test_cli_encoding.CliEncodingContract.test_success_and_error_json_remain_utf8_with_legacy_stdio) (encoding='cp1252', command=('context',)) ... FAIL
+  test_success_and_error_json_remain_utf8_with_legacy_stdio (tests.contract.test_cli_encoding.CliEncodingContract.test_success_and_error_json_remain_utf8_with_legacy_stdio) (encoding='cp1252', command=('inspect', '--id', 'Bréf Þóru — 東京 🌒')) ... FAIL
+
+======================================================================
+FAIL: test_success_and_error_json_remain_utf8_with_legacy_stdio (tests.contract.test_cli_encoding.CliEncodingContract.test_success_and_error_json_remain_utf8_with_legacy_stdio) (encoding='ascii', command=('context',))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\contract\test_cli_encoding.py", line 31, in test_success_and_error_json_remain_utf8_with_legacy_stdio
+    self.assertEqual(result.returncode, code, result.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 0 : b'Traceback (most recent call last):\r\n  File "C:\\Users\\BjarkiGunnarsson\\AppData\\Local\\Temp\\tmpt0olipl_\\.novel-creator\\run.py", line 5, in <module>\r\n    raise SystemExit(main())\r\n                     ~~~~^^\r\n  File "C:\\Users\\BjarkiGunnarsson\\AppData\\Local\\Temp\\tmpt0olipl_\\.novel-creator\\src\\novel_creator\\cli.py", line 85, in main\r\n    print(json.dumps(result, ensure_ascii=False, allow_nan=False))\r\n    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\r\nUnicodeEncodeError: \'ascii\' codec can\'t encode character \'\\xe9\' in position 784: ordinal not in range(128)\r\n'
+
+======================================================================
+FAIL: test_success_and_error_json_remain_utf8_with_legacy_stdio (tests.contract.test_cli_encoding.CliEncodingContract.test_success_and_error_json_remain_utf8_with_legacy_stdio) (encoding='ascii', command=('inspect', '--id', 'Bréf Þóru — 東京 🌒'))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\contract\test_cli_encoding.py", line 31, in test_success_and_error_json_remain_utf8_with_legacy_stdio
+    self.assertEqual(result.returncode, code, result.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 4 : b'Traceback (most recent call last):\r\n  File "C:\\Users\\BjarkiGunnarsson\\AppData\\Local\\Temp\\tmpt0olipl_\\.novel-creator\\src\\novel_creator\\cli.py", line 82, in main\r\n    result = read(args.novel, operation=args.command, session=getattr(args, \'session\', None),\r\n                  kind=getattr(args, \'kind\', None), identifier=getattr(args, \'id\', None),\r\n                  revision=getattr(args, \'revision\', None))\r\n  File "C:\\Users\\BjarkiGunnarsson\\AppData\\Local\\Temp\\tmpt0olipl_\\.novel-creator\\src\\novel_creator\\context.py", line 52, in read\r\n    raise ToolError(4, \'Requested record unavailable\', checkpoint=point, affected_refs=[identifier])\r\nnovel_creator.cli.ToolError: Requested record unavailable\r\n\r\nDuring handling of the above exception, another exception occurred:\r\n\r\nTraceback (most recent call last):\r\n  File "C:\\Users\\BjarkiGunnarsson\\AppData\\Local\\Temp\\tmpt0olipl_\\.novel-creator\\run.py", line 5, in <module>\r\n    raise SystemExit(main())\r\n                     ~~~~^^\r\n  File "C:\\Users\\BjarkiGunnarsson\\AppData\\Local\\Temp\\tmpt0olipl_\\.novel-creator\\src\\novel_creator\\cli.py", line 104, in main\r\n    print(json.dumps(error.result(), ensure_ascii=False, allow_nan=False))\r\n    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\r\nUnicodeEncodeError: \'ascii\' codec can\'t encode character \'\\xe9\' in position 99: ordinal not in range(128)\r\n'
+
+======================================================================
+FAIL: test_success_and_error_json_remain_utf8_with_legacy_stdio (tests.contract.test_cli_encoding.CliEncodingContract.test_success_and_error_json_remain_utf8_with_legacy_stdio) (encoding='cp1252', command=('context',))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\contract\test_cli_encoding.py", line 31, in test_success_and_error_json_remain_utf8_with_legacy_stdio
+    self.assertEqual(result.returncode, code, result.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 0 : b'Traceback (most recent call last):\r\n  File "C:\\Users\\BjarkiGunnarsson\\AppData\\Local\\Temp\\tmpt0olipl_\\.novel-creator\\run.py", line 5, in <module>\r\n    raise SystemExit(main())\r\n                     ~~~~^^\r\n  File "C:\\Users\\BjarkiGunnarsson\\AppData\\Local\\Temp\\tmpt0olipl_\\.novel-creator\\src\\novel_creator\\cli.py", line 85, in main\r\n    print(json.dumps(result, ensure_ascii=False, allow_nan=False))\r\n    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\r\n  File "C:\\Users\\BjarkiGunnarsson\\.pyenv\\pyenv-win\\versions\\3.13.13\\Lib\\encodings\\cp1252.py", line 19, in encode\r\n    return codecs.charmap_encode(input,self.errors,encoding_table)[0]\r\n           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\r\nUnicodeEncodeError: \'charmap\' codec can\'t encode characters in position 794-795: character maps to <undefined>\r\n'
+
+======================================================================
+FAIL: test_success_and_error_json_remain_utf8_with_legacy_stdio (tests.contract.test_cli_encoding.CliEncodingContract.test_success_and_error_json_remain_utf8_with_legacy_stdio) (encoding='cp1252', command=('inspect', '--id', 'Bréf Þóru — 東京 🌒'))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\contract\test_cli_encoding.py", line 31, in test_success_and_error_json_remain_utf8_with_legacy_stdio
+    self.assertEqual(result.returncode, code, result.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 4 : b'Traceback (most recent call last):\r\n  File "C:\\Users\\BjarkiGunnarsson\\AppData\\Local\\Temp\\tmpt0olipl_\\.novel-creator\\src\\novel_creator\\cli.py", line 82, in main\r\n    result = read(args.novel, operation=args.command, session=getattr(args, \'session\', None),\r\n                  kind=getattr(args, \'kind\', None), identifier=getattr(args, \'id\', None),\r\n                  revision=getattr(args, \'revision\', None))\r\n  File "C:\\Users\\BjarkiGunnarsson\\AppData\\Local\\Temp\\tmpt0olipl_\\.novel-creator\\src\\novel_creator\\context.py", line 52, in read\r\n    raise ToolError(4, \'Requested record unavailable\', checkpoint=point, affected_refs=[identifier])\r\nnovel_creator.cli.ToolError: Requested record unavailable\r\n\r\nDuring handling of the above exception, another exception occurred:\r\n\r\nTraceback (most recent call last):\r\n  File "C:\\Users\\BjarkiGunnarsson\\AppData\\Local\\Temp\\tmpt0olipl_\\.novel-creator\\run.py", line 5, in <module>\r\n    raise SystemExit(main())\r\n                     ~~~~^^\r\n  File "C:\\Users\\BjarkiGunnarsson\\AppData\\Local\\Temp\\tmpt0olipl_\\.novel-creator\\src\\novel_creator\\cli.py", line 104, in main\r\n    print(json.dumps(error.result(), ensure_ascii=False, allow_nan=False))\r\n    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\r\n  File "C:\\Users\\BjarkiGunnarsson\\.pyenv\\pyenv-win\\versions\\3.13.13\\Lib\\encodings\\cp1252.py", line 19, in encode\r\n    return codecs.charmap_encode(input,self.errors,encoding_table)[0]\r\n           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\r\nUnicodeEncodeError: \'charmap\' codec can\'t encode characters in position 109-110: character maps to <undefined>\r\n'
+
+----------------------------------------------------------------------
+Ran 1 test in 8.470s
+
+FAILED (failures=4)

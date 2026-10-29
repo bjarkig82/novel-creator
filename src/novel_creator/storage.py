@@ -4,6 +4,8 @@ Only a published local branch commit is authority. Pending files/receipts are no
 The lock serializes this tool, not arbitrary external Git operations.
 """
 from contextlib import contextmanager
+from concurrent.futures import ThreadPoolExecutor
+from functools import lru_cache
 import hashlib
 import io
 import json
@@ -23,6 +25,63 @@ from .cli import ToolError
 
 UUID = r'[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}'
 BUNDLE = re.compile(r'^story/exchanges/[0-9]{6,}-' + UUID + r'\.json$')
+# Large Windows first/final guards use two/four byte readers after metadata.
+# Small guards and other platforms retain one reader.
+_PARALLEL_HASH_MINIMUM = 1024
+_SAVE_HASH_WORKERS = 4 if os.name == 'nt' else 1
+_INITIAL_HASH_WORKERS = 2 if os.name == 'nt' else 1
+_HISTORY_PARALLEL_MINIMUM = 1024
+_READ_HISTORY_WORKERS = 4 if os.name == 'nt' else 1
+_SAVE_HISTORY_WORKERS = 4 if os.name == 'nt' else 1
+_WINDOWS_BUNDLE_TYPES = os.name == 'nt'
+
+
+@lru_cache(maxsize=1)
+def _windows_file_attributes():
+    """Cache only the optional API callable, never filesystem metadata."""
+    if not _WINDOWS_BUNDLE_TYPES:
+        return None
+    try:
+        import ctypes
+        from ctypes import wintypes
+        library = ctypes.WinDLL('kernel32', use_last_error=True)
+        function = library.GetFileAttributesW
+        function.argtypes = [wintypes.LPCWSTR]
+        function.restype = wintypes.DWORD
+    except (ImportError, OSError, AttributeError):
+        return None
+
+    def query(path):
+        try:
+            return function(path)
+        except (OSError, TypeError, ValueError, ctypes.ArgumentError):
+            return None
+    return query
+
+
+def _path_mode(path):
+    """Treat Windows junctions and other reparse points as redirected paths."""
+    info = os.lstat(path)
+    if getattr(info, 'st_file_attributes', 0) & stat.FILE_ATTRIBUTE_REPARSE_POINT:
+        return stat.S_IFLNK
+    return info.st_mode
+
+
+def _bundle_leaf_mode(path):
+    """Fresh type for an ordinary disk bundle; every other case uses lstat."""
+    query = _windows_file_attributes()
+    if query is not None:
+        try:
+            attributes = query(path)
+        except (OSError, TypeError, ValueError):
+            attributes = None
+        # NORMAL is valid alone. The other accepted flags are ARCHIVE,
+        # READONLY, HIDDEN and SYSTEM. Reparse/directory/device/unknown flags,
+        # invalid or unavailable results retain the complete original lstat.
+        if type(attributes) is int and (attributes == 0x80 or
+                (attributes and not attributes & ~0x27)):
+            return stat.S_IFREG
+    return _path_mode(path)
 
 
 def git(root, *args, env=None, input=None, check=True):
@@ -51,6 +110,26 @@ def branch(root):
     return value
 
 
+def _branch_head(root):
+    """Read the checked-out local ref and OID; retain legacy exceptional cases."""
+    result = git(root, 'for-each-ref', '--format=%(HEAD)%00%(refname)%00%(objectname)',
+                 'refs/heads/', check=False)
+    if not result.returncode:
+        selected = [line.split(b'\0') for line in result.stdout.splitlines()
+                    if line.startswith(b'*\0')]
+        if len(selected) == 1 and len(selected[0]) == 3:
+            _, reference, oid = selected[0]
+            if (reference.startswith(b'refs/heads/') and
+                    re.fullmatch(rb'(?:[0-9a-f]{40}|[0-9a-f]{64})', oid)):
+                try:
+                    return reference.decode('utf-8'), oid.decode('ascii')
+                except UnicodeError:
+                    pass
+    # Detached, unborn, unsupported or malformed query results use the original
+    # authoritative queries, including their local-branch rejection behavior.
+    return branch(root), head(root)
+
+
 def root_path(root):
     path = Path(root).absolute()
     if '..' in path.parts or path.resolve() != path:
@@ -59,18 +138,25 @@ def root_path(root):
     if Path(actual).resolve() != path:
         raise ToolError(3, 'Novel must be an independent Git root')
     gitdir = path / '.git'
-    if not gitdir.is_dir() or gitdir.is_symlink():
+    if not gitdir.is_dir() or stat.S_ISLNK(_path_mode(gitdir)):
         raise ToolError(3, 'Linked worktrees and redirected Git directories are unsupported')
     return path
 
 
-def safe_path(root, relative, *, setup=False, _regular_leaf=False):
+def _checked_path(root, relative, *, setup=False, _regular_leaf=False, _directories=None):
     """Allow only fixed managed locations; check each existing path component."""
-    path = PurePosixPath(relative)
-    if (not relative or path.is_absolute() or '..' in path.parts or '\\' in relative or
-        str(path) != relative or any(c in relative for c in ('\x00', '\n', '\r'))):
-        raise ToolError(2, 'Invalid managed path')
-    allowed = (BUNDLE.fullmatch(relative) or relative.startswith('.novel-creator/local/') or
+    # The exact bundle grammar already guarantees canonical relative components.
+    # Other managed locations retain the complete canonical-path validation.
+    bundle = BUNDLE.fullmatch(relative) if isinstance(relative, str) else None
+    if bundle:
+        parts = relative.split('/')
+    else:
+        path = PurePosixPath(relative)
+        if (not relative or path.is_absolute() or '..' in path.parts or '\\' in relative or
+            str(path) != relative or any(c in relative for c in ('\x00', '\n', '\r'))):
+            raise ToolError(2, 'Invalid managed path')
+        parts = path.parts
+    allowed = (bundle or relative.startswith('.novel-creator/local/') or
                relative == '.novel-creator/manifest.json')
     if setup:
         allowed = allowed or (relative in ('.gitignore', '.gitattributes', 'AGENTS.md') or
@@ -81,20 +167,31 @@ def safe_path(root, relative, *, setup=False, _regular_leaf=False):
     if not allowed:
         raise ToolError(2, 'Write is outside the managed allowlist')
     current = os.fspath(root)
-    parts = path.parts
     for index, part in enumerate(parts):
         current = os.path.join(current, part)
+        parent = index < len(parts) - 1
+        if parent and _directories is not None and current in _directories:
+            continue
         try:
-            mode = os.lstat(current).st_mode
+            mode = (_bundle_leaf_mode(current) if _WINDOWS_BUNDLE_TYPES and bundle and
+                    _regular_leaf and not parent else _path_mode(current))
         except FileNotFoundError:
             if _regular_leaf and index == len(parts) - 1:
                 raise ToolError(3, 'Managed file is missing or has an unsafe mode')
             continue
         if stat.S_ISLNK(mode):
-            raise ToolError(2, 'Symlink in managed path')
+            raise ToolError(2, 'Symlink or reparse point in managed path')
+        if parent and _directories is not None and stat.S_ISDIR(mode):
+            _directories.add(current)
         if _regular_leaf and index == len(parts) - 1 and not stat.S_ISREG(mode):
             raise ToolError(3, 'Managed file is missing or has an unsafe mode')
-    return Path(current)
+    return current
+
+
+def safe_path(root, relative, *, setup=False, _regular_leaf=False, _directories=None):
+    """Return a checked Path for callers that use it; guards need only validation."""
+    return Path(_checked_path(root, relative, setup=setup,
+                              _regular_leaf=_regular_leaf, _directories=_directories))
 
 
 def bundle_path(bundle):
@@ -148,26 +245,94 @@ def _prefix_checkpoint(root, history, commit, entries):
     return confirmed
 
 
-def _batch_blobs(root, entries, paths):
-    """One snapshot-bound Git request, with binary lengths and per-path failures."""
+def _read_batch_object(stream, oid, kind):
+    header = stream.readline().decode('ascii').strip().split()
+    if len(header) != 3 or header[0] != oid or header[1] != kind:
+        raise ValueError('Unavailable object')
+    size = int(header[2])
+    if size < 0:
+        raise ValueError('Invalid object size')
+    raw = stream.read(size)
+    if len(raw) != size or stream.read(1) != b'\n':
+        raise ValueError('Truncated object')
+    return raw
+
+
+def _batch_blobs(root, entries, paths, *, workers=1):
+    """Ordered snapshot-bound blobs, with binary lengths and per-path failures."""
     if not paths:
         return
-    result = git(root, 'cat-file', '--batch', input=''.join(entries[p][1] + '\n' for p in paths).encode(), check=False)
-    stream = io.BytesIO(result.stdout)
+    def request(selected):
+        # Keep usable stdout on a nonzero exit: parsing names the first
+        # unavailable object and preserves the validated-prefix checkpoint.
+        return git(root, 'cat-file', '--batch',
+                   input=''.join(entries[p][1] + '\n' for p in selected).encode(), check=False)
+
+    if workers == 1 or len(paths) < _HISTORY_PARALLEL_MINIMUM:
+        raw = request(paths).stdout
+    else:
+        workers = min(workers, 4)
+        size = (len(paths) + workers - 1) // workers
+        futures = []
+        results = None
+        try:
+            with ThreadPoolExecutor(max_workers=workers) as executor:
+                for offset in range(0, len(paths), size):
+                    futures.append(executor.submit(request, paths[offset:offset + size]))
+                results = [future.result() for future in futures]
+        except (OSError, RuntimeError):
+            pass  # The executor joins every started child before serial retry.
+        futures.clear()
+        if results is None or any(result.returncode for result in results):
+            # A failed child may have stopped exactly at a chunk boundary. A
+            # single original request preserves its usable prefix and reports
+            # earlier damaged history before a later worker/exit failure.
+            results = None
+            raw = request(paths).stdout
+        else:
+            # One ordered stream preserves framing across chunk boundaries.
+            # Release child outputs before decoding the complete history.
+            raw = b''.join(result.stdout for result in results)
+            results = None
+    stream = io.BytesIO(raw)
     for path in paths:
         try:
-            header = stream.readline().decode('ascii').strip().split()
-            if len(header) != 3 or header[0] != entries[path][1] or header[1] != 'blob':
-                raise ValueError('Unavailable blob')
-            size = int(header[2])
-            if size < 0:
-                raise ValueError('Invalid blob size')
-            raw = stream.read(size)
-            if len(raw) != size or stream.read(1) != b'\n':
-                raise ValueError('Truncated blob')
-            yield path, raw
+            yield path, _read_batch_object(stream, entries[path][1], 'blob')
         except (UnicodeError, ValueError):
             yield path, ToolError(4, 'Committed exchange blob is unavailable', affected_refs=[path])
+
+
+def _verify_candidate(root, candidate, initial, baseline, paths, bundle):
+    """Verify one immutable candidate with a tree read and a batched object read."""
+    entries = committed_entries(root, candidate)
+    changed = {path for path in baseline.keys() | entries.keys()
+               if baseline.get(path) != entries.get(path)}
+    if changed != set(paths) or any(entries.get(path, (None,))[0] != '100644' for path in paths):
+        raise ToolError(5, 'Candidate delta contains unexpected paths or modes')
+    path = bundle_path(bundle)
+    oid = entries[path][1]
+    raw = git(root, 'cat-file', '--batch', input=f'{candidate}\n{oid}\n'.encode())
+    try:
+        stream = io.BytesIO(raw)
+        commit_raw = _read_batch_object(stream, candidate, 'commit')
+        algorithm = 'sha256' if len(candidate) == 64 else 'sha1'
+        actual = hashlib.new(algorithm, b'commit ' + str(len(commit_raw)).encode() + b'\0' + commit_raw).hexdigest()
+        if actual != candidate:
+            raise ValueError('Candidate commit hash mismatch')
+        parents = [line[7:].decode('ascii') for line in commit_raw.split(b'\n\n', 1)[0].splitlines()
+                   if line.startswith(b'parent ')]
+        if parents != ([initial] if initial else []):
+            raise ValueError('Candidate parent differs from expected checkpoint')
+        blob_raw = _read_batch_object(stream, oid, 'blob')
+        actual = hashlib.new(algorithm, b'blob ' + str(len(blob_raw)).encode() + b'\0' + blob_raw).hexdigest()
+        if actual != oid:
+            raise ValueError('Candidate blob hash mismatch')
+        value = records.loads(blob_raw)
+        if stream.read() or value != bundle or records.digest(value) != bundle['payload_digest']:
+            raise ValueError('Candidate exchange failed digest verification')
+    except (UnicodeError, ValueError, TypeError, KeyError) as error:
+        raise ToolError(5, 'Candidate parent or exchange failed verification') from error
+    return entries
 
 
 def read_history(root, commit=None):
@@ -178,24 +343,29 @@ def read_snapshot(root, commit=None):
     """Return the validated prefix and its ephemeral indexes from one Git tree."""
     root = Path(root)
     commit = commit or head(root)
+    return _read_snapshot(root, commit, committed_entries(root, commit),
+                          history_workers=_READ_HISTORY_WORKERS)
+
+
+def _read_snapshot(root, commit, entries, *, history_workers=1):
+    """Read every blob using tree metadata bound to this exact commit."""
     history = []
     chain = validation.ExchangeValidator()
-    entries = committed_entries(root, commit)
     certified = validation_cache.trusted(root, commit, entries)
     chain.cache_hit = certified
     paths = sorted(p for p in entries if p.startswith('story/exchanges/'))
-    for path, raw in _batch_blobs(root, entries, paths):
+    for path, raw in _batch_blobs(root, entries, paths, workers=history_workers):
         try:
             if not BUNDLE.fullmatch(path) or entries[path][0] != '100644':
                 raise ToolError(4, 'Invalid committed exchange path or file mode', affected_refs=[path])
             if isinstance(raw, ToolError):
                 raise raw
+            oid = entries[path][1]
+            algorithm = 'sha256' if len(oid) == 64 else 'sha1'
+            actual = hashlib.new(algorithm, b'blob ' + str(len(raw)).encode() + b'\0' + raw).hexdigest()
+            if actual != oid:
+                raise ToolError(4, 'Committed exchange object hash differs from validated snapshot', affected_refs=[path])
             if certified:
-                oid = entries[path][1]
-                algorithm = 'sha256' if len(oid) == 64 else 'sha1'
-                actual = hashlib.new(algorithm, b'blob ' + str(len(raw)).encode() + b'\0' + raw).hexdigest()
-                if actual != oid:
-                    raise ToolError(4, 'Committed exchange object hash differs from validated snapshot', affected_refs=[path])
                 value = json.loads(raw)
             else:
                 value = records.loads(raw)
@@ -305,8 +475,37 @@ def index_entries(root, paths):
     return git(root, 'ls-files', '--stage', '-z', '--', *paths)
 
 
-def check_managed(root, commit, paths):
-    entries = committed_entries(root, commit)
+def _hash_managed(root, managed, workers):
+    def chunk_hashes(chunk):
+        # Root binding and C quoting apply independently to every reader.
+        payload = ''.join(json.dumps(path, ensure_ascii=False) + '\n' for path, _ in chunk).encode()
+        hashes = git(root, 'hash-object', '--no-filters', '--stdin-paths', input=payload,
+                     env={'GIT_WORK_TREE': str(root)}).decode().splitlines()
+        if len(hashes) != len(chunk):
+            raise ToolError(5, 'Managed file hashing returned an incomplete result')
+        return hashes
+
+    if workers == 1 or len(managed) < _PARALLEL_HASH_MINIMUM:
+        return chunk_hashes(managed)
+    workers = min(workers, 4)
+    size = (len(managed) + workers - 1) // workers
+    # Every metadata check has already succeeded. Consume original chunk order,
+    # and join all workers even on error, before the writer lock can be released.
+    try:
+        with ThreadPoolExecutor(max_workers=workers) as executor:
+            futures = [executor.submit(chunk_hashes, managed[offset:offset + size])
+                       for offset in range(0, len(managed), size)]
+            results = [future.result() for future in futures]
+    except RuntimeError as error:
+        raise ToolError(5, 'Managed file verification worker failed') from error
+    # No byte-conflict comparison can mask a process/count failure in any chunk.
+    return [oid for hashes in results for oid in hashes]
+
+
+def check_managed(root, commit, paths, *, entries=None, hash_workers=1):
+    # A supplied tree is immutable and bound to the captured commit. Worktree
+    # bytes, modes and the live index are always inspected again on each call.
+    entries = committed_entries(root, commit) if entries is None else entries
     indexed = {}
     for entry in index_entries(root, []).split(b'\0'):
         if entry:
@@ -314,23 +513,24 @@ def check_managed(root, commit, paths):
             path = path_bytes.decode('utf-8')
             indexed[path] = indexed.get(path, b'') + entry + b'\0'
     managed = []
+    directories = set()
     for path, (mode, oid) in entries.items():
         if path.startswith(('story/exchanges/', '.novel-creator/')) and not path.startswith('.novel-creator/local/'):
-            target = safe_path(root, path, setup=True, _regular_leaf=True)
+            _checked_path(root, path, setup=True, _regular_leaf=True, _directories=directories)
             if mode != '100644':
                 raise ToolError(3, 'Managed file is missing or has an unsafe mode')
             baseline = f'100644 {oid} 0\t{path}\0'.encode()
             if indexed.get(path, b'') != baseline:
                 raise ToolError(3, 'Managed index entry changed outside the transaction')
-            managed.append((target, oid))
+            managed.append((path, oid))
     if managed:
         # Git's native reader avoids Python open() overhead for every file while
         # hashing every byte, including same-size/mtime edits. C quoting protects
-        # spaces, quotes and non-ASCII paths in the stdin-paths protocol.
-        payload = ''.join(json.dumps(target.as_posix(), ensure_ascii=False) + '\n' for target, _ in managed).encode()
-        hashes = git(root, 'hash-object', '--no-filters', '--stdin-paths', input=payload).decode().splitlines()
-        if len(hashes) != len(managed):
-            raise ToolError(5, 'Managed file hashing returned an incomplete result')
+        # spaces, quotes and non-ASCII paths in the stdin-paths protocol. Git's
+        # explicit worktree binding prevents a changed core.worktree from
+        # redirecting relative paths after root validation. Keep paths relative
+        # to avoid reconstructing and quoting that root for every file.
+        hashes = _hash_managed(root, managed, hash_workers)
         if any(current != oid for current, (_, oid) in zip(hashes, managed)):
             raise ToolError(3, 'Managed working file changed outside the exchange transaction')
     for path in paths:
@@ -338,9 +538,10 @@ def check_managed(root, commit, paths):
             raise ToolError(3, 'Exchange path already exists in confirmed history')
         if indexed.get(path, b''):
             raise ToolError(3, 'New managed exchange has incompatible staged contents')
+    return entries
 
 
-def sync_index(root, paths, baseline, commit):
+def sync_index(root, paths, baseline, commit, *, entries=None):
     """Merge only managed entries while holding the real Git index lock."""
     index = root / '.git/index'
     lock = root / '.git/index.lock'
@@ -362,7 +563,7 @@ def sync_index(root, paths, baseline, commit):
                 temporary = str(Path(temp) / 'empty-index')
                 git(root, 'read-tree', '--empty', env={'GIT_INDEX_FILE': temporary})
                 lock.write_bytes(Path(temporary).read_bytes())
-        entries = committed_entries(root, commit)
+        entries = committed_entries(root, commit) if entries is None else entries
         payload = b''.join(f'{entries[p][0]} {entries[p][1]} 0\t{p}\0'.encode() for p in paths)
         git(root, 'update-index', '-z', '--index-info', input=payload, env={'GIT_INDEX_FILE': str(lock)})
         # Windows FlushFileBuffers requires write access; a read-only descriptor
@@ -393,11 +594,18 @@ def _save(root, bundle, *, fault=None):
     pending_id = bundle['exchange_id']
     published = None
     receipt = safe_path(root, f'.novel-creator/local/{pending_id}.json')
-    with writer_lock(root, pending=pending_id):
+    # The executor exits before the writer lock, including failed validation.
+    # Only immutable tree metadata is shared; each guard reads live state.
+    with writer_lock(root, pending=pending_id), ThreadPoolExecutor(max_workers=1) as preparation:
         try:
-            reference = branch(root)
-            initial = head(root)
-            history, chain = read_snapshot(root, initial)
+            reference, initial = _branch_head(root)
+            initial_entries = committed_entries(root, initial)
+            initial_guard = None
+            if initial and path not in initial_entries:
+                initial_guard = preparation.submit(check_managed, root, initial, [path],
+                    entries=initial_entries, hash_workers=_INITIAL_HASH_WORKERS)
+            history, chain = _read_snapshot(root, initial, initial_entries,
+                                           history_workers=_SAVE_HISTORY_WORKERS)
             confirmed = checkpoint(root, history, initial)
             for old in history:
                 if old['exchange_id'] == pending_id:
@@ -438,7 +646,13 @@ def _save(root, bundle, *, fault=None):
             paths = sorted(set(paths))
             for managed in paths:
                 safe_path(root, managed, setup=True)
-            check_managed(root, initial, paths)
+            if initial_guard is None:
+                check_managed(root, initial, paths, entries=initial_entries,
+                              hash_workers=_INITIAL_HASH_WORKERS)
+            else:
+                # Preserve validation/error precedence and require the complete
+                # first guard before writing any pending transaction/candidate.
+                initial_guard.result()
             baseline = index_entries(root, paths)
             if receipt.exists():
                 previous = read_receipt(root, receipt)
@@ -480,16 +694,7 @@ def _save(root, bundle, *, fault=None):
                 if initial:
                     arguments += ['-p', initial]
                 candidate = git(root, *arguments).decode().strip()
-            changes = (git(root, 'diff-tree', '--no-commit-id', '--name-only', '-r', initial, candidate)
-                       if initial else git(root, 'ls-tree', '-r', '--name-only', candidate))
-            if set(changes.decode().splitlines()) != set(paths):
-                raise ToolError(5, 'Candidate delta contains unexpected paths')
-            parents = git(root, 'rev-list', '--parents', '-n', '1', candidate).decode().split()[1:]
-            if parents != ([initial] if initial else []):
-                raise ToolError(5, 'Candidate parent differs from expected checkpoint')
-            candidate_bundle = records.loads(git(root, 'show', candidate + ':' + path))
-            if candidate_bundle != bundle or records.digest(candidate_bundle) != bundle['payload_digest']:
-                raise ToolError(5, 'Candidate exchange failed digest verification')
+            candidate_entries = _verify_candidate(root, candidate, initial, initial_entries, paths, bundle)
             state['candidate'] = candidate
             atomic_json(receipt, state)
             fault('after_candidate')
@@ -497,8 +702,7 @@ def _save(root, bundle, *, fault=None):
             if branch(root) != reference:
                 raise ToolError(3, 'Checked-out branch changed during save')
             # Recheck managed worktree and index after external preparation/race.
-            check_managed(root, initial, paths)
-            candidate_entries = committed_entries(root, candidate)
+            check_managed(root, initial, paths, entries=initial_entries, hash_workers=_SAVE_HASH_WORKERS)
             for managed in paths:
                 target = safe_path(root, managed, setup=True)
                 working_oid = git(root, 'hash-object', '--no-filters', '--', str(target)).decode().strip()
@@ -519,9 +723,9 @@ def _save(root, bundle, *, fault=None):
                 atomic_json(receipt, state)
                 fault('after_ref')
                 fault('before_cleanup')
-                if branch(root) != reference or head(root) != candidate:
+                if _branch_head(root) != (reference, candidate):
                     raise OSError('Branch changed after publication')
-                sync_index(root, paths, baseline, candidate)
+                sync_index(root, paths, baseline, candidate, entries=candidate_entries)
                 state['cleanup_required'] = False
                 fault('before_receipt')
                 atomic_json(receipt, state)

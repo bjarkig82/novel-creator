@@ -1,0 +1,9 @@
+test_binary_framing_and_nonzero_outputs (__main__.CandidateChecks.test_binary_framing_and_nonzero_outputs) ... ok
+test_cached_uncached_and_captured_snapshot_equality (__main__.CandidateChecks.test_cached_uncached_and_captured_snapshot_equality) ... ok
+test_late_worker_failure_preserves_earlier_damage_and_guard_precedence (__main__.CandidateChecks.test_late_worker_failure_preserves_earlier_damage_and_guard_precedence) ... ok
+test_thread_start_failure_joins_started_request_before_serial_fallback (__main__.CandidateChecks.test_thread_start_failure_joins_started_request_before_serial_fallback) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 24.562s
+
+OK

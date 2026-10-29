@@ -1,0 +1,126 @@
+test_partitioned_history_preserves_binary_framing_and_nonzero_outputs (tests.integration.test_storage.StorageTests.test_partitioned_history_preserves_binary_framing_and_nonzero_outputs) ... 
+  test_partitioned_history_preserves_binary_framing_and_nonzero_outputs (tests.integration.test_storage.StorageTests.test_partitioned_history_preserves_binary_framing_and_nonzero_outputs) (fmt='sha1', kind='nonzero_partial', index=1) ... FAIL
+  test_partitioned_history_preserves_binary_framing_and_nonzero_outputs (tests.integration.test_storage.StorageTests.test_partitioned_history_preserves_binary_framing_and_nonzero_outputs) (fmt='sha1', kind='nonzero_partial', index=3) ... FAIL
+  test_partitioned_history_preserves_binary_framing_and_nonzero_outputs (tests.integration.test_storage.StorageTests.test_partitioned_history_preserves_binary_framing_and_nonzero_outputs) (fmt='sha1', kind='nonzero_partial', index=5) ... FAIL
+  test_partitioned_history_preserves_binary_framing_and_nonzero_outputs (tests.integration.test_storage.StorageTests.test_partitioned_history_preserves_binary_framing_and_nonzero_outputs) (fmt='sha256', kind='nonzero_partial', index=1) ... FAIL
+  test_partitioned_history_preserves_binary_framing_and_nonzero_outputs (tests.integration.test_storage.StorageTests.test_partitioned_history_preserves_binary_framing_and_nonzero_outputs) (fmt='sha256', kind='nonzero_partial', index=3) ... FAIL
+  test_partitioned_history_preserves_binary_framing_and_nonzero_outputs (tests.integration.test_storage.StorageTests.test_partitioned_history_preserves_binary_framing_and_nonzero_outputs) (fmt='sha256', kind='nonzero_partial', index=5) ... FAIL
+
+======================================================================
+FAIL: test_partitioned_history_preserves_binary_framing_and_nonzero_outputs (tests.integration.test_storage.StorageTests.test_partitioned_history_preserves_binary_framing_and_nonzero_outputs) (fmt='sha1', kind='nonzero_partial', index=1)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 110, in test_partitioned_history_preserves_binary_framing_and_nonzero_outputs
+    self.assertEqual(actual, expected)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+AssertionError: Tuples differ: ('ok', [{'continuity_review': {'canon_hold_[61290 chars]'}}}) != ('error', 4, ['story/exchanges/000003-b0ff8[124 chars]: 2})
+
+First differing element 0:
+'ok'
+'error'
+
+Second tuple contains 1 additional elements.
+First extra element 3:
+{'git_head': None, 'exchange_id': 'e90c3dd5-ff7d-42c7-b5cd-006afec0ed8c', 'sequence': 2}
+
+Diff is 136473 characters long. Set self.maxDiff to None to see it.
+
+======================================================================
+FAIL: test_partitioned_history_preserves_binary_framing_and_nonzero_outputs (tests.integration.test_storage.StorageTests.test_partitioned_history_preserves_binary_framing_and_nonzero_outputs) (fmt='sha1', kind='nonzero_partial', index=3)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 110, in test_partitioned_history_preserves_binary_framing_and_nonzero_outputs
+    self.assertEqual(actual, expected)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+AssertionError: Tuples differ: ('ok', [{'continuity_review': {'canon_hold_[61290 chars]'}}}) != ('error', 4, ['story/exchanges/000005-5a405[124 chars]: 4})
+
+First differing element 0:
+'ok'
+'error'
+
+Second tuple contains 1 additional elements.
+First extra element 3:
+{'git_head': None, 'exchange_id': '53929287-90c9-4855-a3d5-45884dfc7595', 'sequence': 4}
+
+Diff is 136473 characters long. Set self.maxDiff to None to see it.
+
+======================================================================
+FAIL: test_partitioned_history_preserves_binary_framing_and_nonzero_outputs (tests.integration.test_storage.StorageTests.test_partitioned_history_preserves_binary_framing_and_nonzero_outputs) (fmt='sha1', kind='nonzero_partial', index=5)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 110, in test_partitioned_history_preserves_binary_framing_and_nonzero_outputs
+    self.assertEqual(actual, expected)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+AssertionError: Tuples differ: ('ok', [{'continuity_review': {'canon_hold_[61290 chars]'}}}) != ('error', 4, ['story/exchanges/000007-7a2c3[124 chars]: 6})
+
+First differing element 0:
+'ok'
+'error'
+
+Second tuple contains 1 additional elements.
+First extra element 3:
+{'git_head': None, 'exchange_id': 'b6e81be4-9f18-49a5-913b-79b9c1af3e3a', 'sequence': 6}
+
+Diff is 136473 characters long. Set self.maxDiff to None to see it.
+
+======================================================================
+FAIL: test_partitioned_history_preserves_binary_framing_and_nonzero_outputs (tests.integration.test_storage.StorageTests.test_partitioned_history_preserves_binary_framing_and_nonzero_outputs) (fmt='sha256', kind='nonzero_partial', index=1)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 110, in test_partitioned_history_preserves_binary_framing_and_nonzero_outputs
+    self.assertEqual(actual, expected)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+AssertionError: Tuples differ: ('ok', [{'continuity_review': {'canon_hold_[61290 chars]'}}}) != ('error', 4, ['story/exchanges/000003-c62c1[124 chars]: 2})
+
+First differing element 0:
+'ok'
+'error'
+
+Second tuple contains 1 additional elements.
+First extra element 3:
+{'git_head': None, 'exchange_id': 'b2e4946c-9dea-4fec-8a8d-4b9ca5ac939b', 'sequence': 2}
+
+Diff is 136473 characters long. Set self.maxDiff to None to see it.
+
+======================================================================
+FAIL: test_partitioned_history_preserves_binary_framing_and_nonzero_outputs (tests.integration.test_storage.StorageTests.test_partitioned_history_preserves_binary_framing_and_nonzero_outputs) (fmt='sha256', kind='nonzero_partial', index=3)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 110, in test_partitioned_history_preserves_binary_framing_and_nonzero_outputs
+    self.assertEqual(actual, expected)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+AssertionError: Tuples differ: ('ok', [{'continuity_review': {'canon_hold_[61290 chars]'}}}) != ('error', 4, ['story/exchanges/000005-9a9c4[124 chars]: 4})
+
+First differing element 0:
+'ok'
+'error'
+
+Second tuple contains 1 additional elements.
+First extra element 3:
+{'git_head': None, 'exchange_id': 'fc57c26e-1c54-4592-8d1a-f05c84fecf40', 'sequence': 4}
+
+Diff is 136473 characters long. Set self.maxDiff to None to see it.
+
+======================================================================
+FAIL: test_partitioned_history_preserves_binary_framing_and_nonzero_outputs (tests.integration.test_storage.StorageTests.test_partitioned_history_preserves_binary_framing_and_nonzero_outputs) (fmt='sha256', kind='nonzero_partial', index=5)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 110, in test_partitioned_history_preserves_binary_framing_and_nonzero_outputs
+    self.assertEqual(actual, expected)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+AssertionError: Tuples differ: ('ok', [{'continuity_review': {'canon_hold_[61290 chars]'}}}) != ('error', 4, ['story/exchanges/000007-bfb4d[124 chars]: 6})
+
+First differing element 0:
+'ok'
+'error'
+
+Second tuple contains 1 additional elements.
+First extra element 3:
+{'git_head': None, 'exchange_id': 'a4aa6638-29c4-40c6-8196-634a808acc90', 'sequence': 6}
+
+Diff is 136473 characters long. Set self.maxDiff to None to see it.
+
+----------------------------------------------------------------------
+Ran 1 test in 12.975s
+
+FAILED (failures=6)

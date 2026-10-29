@@ -1,0 +1,14 @@
+[
+  {
+    "id": "msg_02f80cb399e0759d016adbed53a4208191b0fb675fd527ed9f",
+    "text": "I’ll load the saved sessions and record history, prepare the checkpoint response, and save it before display.",
+    "classification": "administrative",
+    "reason": "Operational reading/reference validation/preparation/save-retry only; the new correction and creative summary are not disclosed here."
+  },
+  {
+    "id": "msg_02f80cb399e0759d016adbed942dfc8191a70f18e7146903f7",
+    "text": "The exchange is prepared. I’m running the production save, then checking the persisted reply and writing the evidence report.",
+    "classification": "administrative",
+    "reason": "Operational reading/reference validation/preparation/save-retry only; the new correction and creative summary are not disclosed here."
+  }
+]

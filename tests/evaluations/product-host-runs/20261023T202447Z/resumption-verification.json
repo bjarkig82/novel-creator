@@ -1,0 +1,73 @@
+{
+  "ok": true,
+  "scope": "actual fresh delegated tasks reading committed context",
+  "interrupted_before_display_observed": false,
+  "full_three_session_capture_matrix_complete": false,
+  "results": [
+    {
+      "language": "en",
+      "thread_id": "01a16aa5-4c4c-7a52-89d0-26df804faaf0",
+      "all_preexisting_records_recovered": true,
+      "record_count": 42,
+      "before_context_exactly_equal": false,
+      "equivalent_timestamp_serializations": [
+        {
+          "exchange_id": "a124446d-6603-4f53-8a40-02c9d3f3ae91",
+          "field": "recorded_at",
+          "observed": "2026-10-23T20:26:12.55354Z",
+          "original": "2026-10-23T20:26:12.553540Z"
+        },
+        {
+          "exchange_id": "00246238-3a0c-47ae-bf93-65bc94455205",
+          "field": "recorded_at",
+          "observed": "2026-10-23T20:57:13.39075Z",
+          "original": "2026-10-23T20:57:13.390750Z"
+        },
+        {
+          "exchange_id": "067d9c45-5828-4d7b-86ab-0426dcc8fbc1",
+          "field": "recorded_at",
+          "observed": "2026-10-23T21:00:26.22787Z",
+          "original": "2026-10-23T21:00:26.227870Z"
+        },
+        {
+          "exchange_id": "8e3cb13e-c691-4fb6-9baa-0a585e9bd665",
+          "field": "recorded_at",
+          "observed": "2026-10-23T21:11:10.16647Z",
+          "original": "2026-10-23T21:11:10.166470Z"
+        }
+      ],
+      "prior_checkpoint": {
+        "git_head": "4a377444fc12b4f703e6ad03019b1d35a6a0e33a",
+        "exchange_id": "07e34fe4-c829-4200-98ef-f683a9b81094",
+        "sequence": 17
+      },
+      "exchange_id": "7c441d6a-ff46-45da-ad97-d8fee35cc1b7",
+      "saved_mode_preserved": true,
+      "session_id_preserved": true,
+      "last_saved_response_exposed_display_unconfirmed": true,
+      "no_creative_record_changes": true,
+      "source_type": "delegated",
+      "novice_evidence": false
+    },
+    {
+      "language": "is",
+      "thread_id": "01a16aa7-60f4-74e1-9efe-d132eed653e4",
+      "all_preexisting_records_recovered": true,
+      "record_count": 35,
+      "before_context_exactly_equal": true,
+      "equivalent_timestamp_serializations": [],
+      "prior_checkpoint": {
+        "git_head": "cb9b3fbc8d748bddb906971764bca85924061c89",
+        "exchange_id": "46618668-6c3b-43ea-89ce-93523c178eff",
+        "sequence": 17
+      },
+      "exchange_id": "9f0a3d6f-a565-4a2b-8f79-2af905e2e2cf",
+      "saved_mode_preserved": true,
+      "session_id_preserved": true,
+      "last_saved_response_exposed_display_unconfirmed": true,
+      "no_creative_record_changes": true,
+      "source_type": "delegated",
+      "novice_evidence": false
+    }
+  ]
+}

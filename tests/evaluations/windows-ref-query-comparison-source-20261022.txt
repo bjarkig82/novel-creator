@@ -1,0 +1,56 @@
+"""Matched final-source save diagnostics; not release p95."""
+import hashlib
+import importlib.util
+import json
+from pathlib import Path
+import statistics
+import time
+import sys
+sys.path.insert(0,str(Path.cwd()))
+from unittest.mock import patch
+from novel_creator import storage, records
+from novel_creator.context import read
+from tests.helpers import repository, git
+from tests.performance import benchmark_records as benchmark
+
+spec = importlib.util.spec_from_file_location('novel_creator.overlap_baseline', Path(__file__).with_name('baseline_ref_query_storage.py'))
+baseline = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(baseline)
+with benchmark.benchmark_key(True), repository() as root:
+    novel_id = records.loads((root / '.novel-creator/manifest.json').read_bytes())['novel_id']
+    history, fixture = benchmark.generate(novel_id)
+    for exchange in history:
+        target = root / storage.bundle_path(exchange)
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.write_bytes(benchmark.serialized(exchange))
+    git(root, 'add', '--', 'story/exchanges')
+    git(root, 'commit', '-m', 'Disposable combined-ref-query fixture')
+    git(root, 'repack', '-ad')
+    del history, exchange
+    read(root)
+    fixture['fully_validated'] = True
+    print(json.dumps({'fixture': fixture, 'source_sha256': {'before': hashlib.sha256(Path(baseline.__file__).read_bytes()).hexdigest(), 'after': hashlib.sha256(Path(storage.__file__).read_bytes()).hexdigest()}, 'method': 'ABBA/ABBA complete packed-fixture save-only timers with command trace; preparation history retained for both; not p95'}), flush=True)
+    samples = {False: [], True: []}
+    for optimized in [False, True, True, False] * 2:
+        selected = storage if optimized else baseline
+        prior = storage.read_history(root)
+        exchange = records.new_exchange(prior[0]['novel_id'], previous=prior[-1], expected_head=storage.head(root),
+            messages=[{'message_id': benchmark.uid(), 'role': 'user', 'text': 'Continue the benchmark.'},
+                      {'message_id': benchmark.uid(), 'role': 'assistant', 'text': 'Benchmark continuation.'}])
+        exchange['payload_digest'] = records.digest(exchange)
+        events = []
+        original = selected.git
+        def traced(root, *args, **kwargs):
+            start = time.perf_counter()
+            try:
+                return original(root, *args, **kwargs)
+            finally:
+                events.append({'command': args[0], 'seconds': time.perf_counter() - start})
+        with patch.object(selected, 'git', traced):
+            start = time.perf_counter()
+            result = selected.save(root, exchange)
+            seconds = time.perf_counter() - start
+        assert not result['data']['cleanup_required']
+        samples[optimized].append(seconds)
+        print(json.dumps({'optimized': optimized, 'seconds': seconds, 'sequence': result['checkpoint']['sequence'], 'git': events}), flush=True)
+    print(json.dumps({'save_medians': {str(k): statistics.median(v) for k,v in samples.items()}}), flush=True)

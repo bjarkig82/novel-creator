@@ -1,0 +1,116 @@
+{
+  "medians": {
+    "False": {
+      "save": 5.589910349925049,
+      "write_tree": 0.4406716999365017
+    },
+    "True": {
+      "save": 6.019328800030053,
+      "write_tree": 0.5039737999904901
+    }
+  },
+  "trace_measurements": [
+    {
+      "file": "windows-phase22-write-tree-trace-1-20261028.txt",
+      "fscache": false,
+      "cache_tree_update_seconds": 0.207122,
+      "hardware_flushes": 3
+    },
+    {
+      "file": "windows-phase22-write-tree-trace-2-20261028.txt",
+      "fscache": true,
+      "cache_tree_update_seconds": 0.209793,
+      "hardware_flushes": 3
+    },
+    {
+      "file": "windows-phase22-write-tree-trace-3-20261028.txt",
+      "fscache": true,
+      "cache_tree_update_seconds": 0.250672,
+      "hardware_flushes": 3
+    },
+    {
+      "file": "windows-phase22-write-tree-trace-4-20261028.txt",
+      "fscache": false,
+      "cache_tree_update_seconds": 0.227619,
+      "hardware_flushes": 3
+    },
+    {
+      "file": "windows-phase22-write-tree-trace-5-20261028.txt",
+      "fscache": false,
+      "cache_tree_update_seconds": 0.212343,
+      "hardware_flushes": 3
+    },
+    {
+      "file": "windows-phase22-write-tree-trace-6-20261028.txt",
+      "fscache": true,
+      "cache_tree_update_seconds": 0.283988,
+      "hardware_flushes": 3
+    },
+    {
+      "file": "windows-phase22-write-tree-trace-7-20261028.txt",
+      "fscache": true,
+      "cache_tree_update_seconds": 0.286682,
+      "hardware_flushes": 3
+    },
+    {
+      "file": "windows-phase22-write-tree-trace-8-20261028.txt",
+      "fscache": false,
+      "cache_tree_update_seconds": 0.263009,
+      "hardware_flushes": 3
+    }
+  ],
+  "cache_tree_update_medians": {
+    "False": 0.21998099999999998,
+    "True": 0.26733
+  },
+  "missing_object_checks": [
+    {
+      "format": "sha1",
+      "fscache": false,
+      "missing_object_rejected": true,
+      "returncode": 128
+    },
+    {
+      "format": "sha1",
+      "fscache": true,
+      "missing_object_rejected": true,
+      "returncode": 128
+    },
+    {
+      "format": "sha256",
+      "fscache": false,
+      "missing_object_rejected": true,
+      "returncode": 128
+    },
+    {
+      "format": "sha256",
+      "fscache": true,
+      "missing_object_rejected": true,
+      "returncode": 128
+    }
+  ],
+  "cache_activation_observed": {
+    "write-tree": false,
+    "status": true
+  },
+  "production_source_unchanged": true,
+  "candidate_retained": false,
+  "T172_complete": false,
+  "T173_prerequisite_satisfied": false,
+  "artifact_sha256": {
+    "windows-phase22-write-tree-20261028.jsonl": "504cab8ba6e0c7d41e9eb5160c0a01a983532286b964f425b4f6fe34fc88cd0f",
+    "windows-phase22-fscache-activation-20261028.json": "d2033bd819ffe4ca606c287733aa2a1f1546f4b1f187eb0f1179c6328032db65",
+    "verify-phase22-write-tree-20261028.py": "eb191ddad16421556e29b7e4ff71fdbff499286995aa8d4695919b4f2cd7aa15",
+    "phase22-write-tree-20261028.py": "e7ced6a148e6147fa19168c2a0dbf8962e1fa376ecc3afa6b5bdade4edb44523",
+    "phase22-tree-cache-activation-20261028.py": "9174b03fe14aefb54922cb813e95cd0d5b08ab2af1f5c3d5139de83d675340a5",
+    "windows-phase22-write-tree-trace-1-20261028.txt": "f237e5261a13c94986d5ce49068bb681d1c783a0973f90ffdbcfe5bcd30724d6",
+    "windows-phase22-write-tree-trace-2-20261028.txt": "7183d3a60b925b30a7506e3128e5d2ab7e6f7fa911f250e98a8d6cdd947e3e08",
+    "windows-phase22-write-tree-trace-3-20261028.txt": "0d7a79e6019a126d938480b5f9f7d53ffb48dedbf368314299c2e6075e72eabf",
+    "windows-phase22-write-tree-trace-4-20261028.txt": "44a7b669f820a42081cee927b252ad3dc4df1b1ec22c8b9113e34589d0e41879",
+    "windows-phase22-write-tree-trace-5-20261028.txt": "b4c61934dfa8e25bca6f569803dd09dcf753903244f632ea8f3c1a8dde896c43",
+    "windows-phase22-write-tree-trace-6-20261028.txt": "63b12e2deb96ad07dc49bd461330d4eda73b6e111982922fcdee52de0e25a6f1",
+    "windows-phase22-write-tree-trace-7-20261028.txt": "7cef616d64fb7cee3c3ea64b90efd12a9c590808a8f40edddfb9841c7887bbd5",
+    "windows-phase22-write-tree-trace-8-20261028.txt": "e8e2a38bc8de2122180893c3e280d673c347ccbf64952a2a8688caa903dba856"
+  },
+  "scope": "Full-scale diagnostics and arithmetic; traced comparisons are not a qualification p95 or a causal slowdown claim"
+}

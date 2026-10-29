@@ -1,0 +1,79 @@
+test_edit_after_background_guard_during_validation_stays_pending (tests.integration.test_storage.StorageTests.test_edit_after_background_guard_during_validation_stays_pending) ... 
+  test_edit_after_background_guard_during_validation_stays_pending (tests.integration.test_storage.StorageTests.test_edit_after_background_guard_during_validation_stays_pending) (object_format='sha1') ... FAIL
+  test_edit_after_background_guard_during_validation_stays_pending (tests.integration.test_storage.StorageTests.test_edit_after_background_guard_during_validation_stays_pending) (object_format='sha256') ... FAIL
+test_unreadable_history_keeps_precedence_over_background_guard_failure (tests.integration.test_storage.StorageTests.test_unreadable_history_keeps_precedence_over_background_guard_failure) ... 
+  test_unreadable_history_keeps_precedence_over_background_guard_failure (tests.integration.test_storage.StorageTests.test_unreadable_history_keeps_precedence_over_background_guard_failure) (object_format='sha1') ... FAIL
+  test_unreadable_history_keeps_precedence_over_background_guard_failure (tests.integration.test_storage.StorageTests.test_unreadable_history_keeps_precedence_over_background_guard_failure) (object_format='sha256') ... FAIL
+
+======================================================================
+FAIL: test_edit_after_background_guard_during_validation_stays_pending (tests.integration.test_storage.StorageTests.test_edit_after_background_guard_during_validation_stays_pending) (object_format='sha1')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 45, in test_edit_after_background_guard_during_validation_stays_pending
+    storage.save(root, second)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 589, in save
+    return _save(root, bundle, fault=fault)
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 451, in _save
+    history, chain = _read_snapshot(root, initial, initial_entries)
+                     ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 39, in reader
+    self.assertTrue(ready.wait(10), 'First guard did not finish during validation')
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : First guard did not finish during validation
+
+======================================================================
+FAIL: test_edit_after_background_guard_during_validation_stays_pending (tests.integration.test_storage.StorageTests.test_edit_after_background_guard_during_validation_stays_pending) (object_format='sha256')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 45, in test_edit_after_background_guard_during_validation_stays_pending
+    storage.save(root, second)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 589, in save
+    return _save(root, bundle, fault=fault)
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 451, in _save
+    history, chain = _read_snapshot(root, initial, initial_entries)
+                     ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 39, in reader
+    self.assertTrue(ready.wait(10), 'First guard did not finish during validation')
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : First guard did not finish during validation
+
+======================================================================
+FAIL: test_unreadable_history_keeps_precedence_over_background_guard_failure (tests.integration.test_storage.StorageTests.test_unreadable_history_keeps_precedence_over_background_guard_failure) (object_format='sha1')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 92, in test_unreadable_history_keeps_precedence_over_background_guard_failure
+    storage.save(root, following)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 589, in save
+    return _save(root, bundle, fault=fault)
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 451, in _save
+    history, chain = _read_snapshot(root, initial, initial_entries)
+                     ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 88, in reader
+    self.assertTrue(failed.wait(10), 'Background guard failure was not exercised')
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : Background guard failure was not exercised
+
+======================================================================
+FAIL: test_unreadable_history_keeps_precedence_over_background_guard_failure (tests.integration.test_storage.StorageTests.test_unreadable_history_keeps_precedence_over_background_guard_failure) (object_format='sha256')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 92, in test_unreadable_history_keeps_precedence_over_background_guard_failure
+    storage.save(root, following)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 589, in save
+    return _save(root, bundle, fault=fault)
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 451, in _save
+    history, chain = _read_snapshot(root, initial, initial_entries)
+                     ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 88, in reader
+    self.assertTrue(failed.wait(10), 'Background guard failure was not exercised')
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : Background guard failure was not exercised
+
+----------------------------------------------------------------------
+Ran 2 tests in 47.813s
+
+FAILED (failures=4)

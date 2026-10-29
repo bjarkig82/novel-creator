@@ -1,0 +1,11 @@
+{
+  "case_id": "CONT_RESOLVE",
+  "task": "T170",
+  "inputs": {
+    "en": "Case CONT_RESOLVE. Resolve the deferred relationship issue this way: the apparent shared childhood memory is intentionally a dream imagined by Freyja, not a real shared experience. Freyja and Sigrún still never met before the reunion. Preserve that author truth and the dream’s separate viewpoint. Also mark the advisory brass-seal foreshadowing finding resolved: I understand that suggestion and need no further advice about it. This disposition does not accept the foreshadowing proposal. Close the review and pause.",
+    "is": "Tilvik CONT_RESOLVE. Leystu frestaða tengslaálitamálið svona: sýnileg sameiginleg æskuminning er viljandi draumur sem Freyja ímyndar sér, ekki raunveruleg sameiginleg reynsla. Freyja og Sigrún höfðu enn aldrei hist fyrir endurfundina. Varðveittu þann sannleik höfundar og aðskilið sjónarhorn draumsins. Merktu einnig ráðgefandi álitamálið um látúnsinnsiglið sem fyrirboða leyst: ég skil tillöguna og þarf ekki frekari ráðgjöf um hana. Þessi ráðstöfun samþykkir ekki fyrirboðatillöguna. Ljúktu yfirferðinni og staldraðu við."
+  },
+  "submitted": true,
+  "require_commentary_review": true,
+  "notes": "Explicit generic resolved disposition applies to an actual existing advisory finding; missing-context coverage is exchange metadata, not an invented finding."
+}

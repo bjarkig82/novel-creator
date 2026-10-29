@@ -1,0 +1,175 @@
+import hashlib,json,math,re,statistics
+from pathlib import Path
+base=Path('tests/evaluations')
+def load(name):return json.loads((base/name).read_text(encoding='utf-8-sig'))
+def write(path,text):Path(path).write_text(text,encoding='utf-8',newline='\n')
+b=load('windows-balanced-save-default-30-20261022.json')
+v=load('windows-balanced-save-benchmark-verification-20261022.json')
+assert v['unchanged']
+for p,sha in v['before'].items():assert hashlib.sha256(Path(p).read_bytes()).hexdigest()==sha,p
+runtimes={};skips={}
+for platform in ['windows','linux']:
+    checked=load(f'{platform}-balanced-save-verification-20261022.json')
+    assert checked['unchanged'] and checked['before']==v['before']
+    assert (checked['commands'][0]['exit'] if platform=='windows' else checked['exit'])==0
+    log=(base/f'{platform}-balanced-save-full-tests-20261022.txt').read_text(encoding='utf-8')
+    found=re.search(r'Ran 143 tests in ([0-9.]+)s',log);assert found
+    runtimes[platform]=float(found.group(1))
+    found=re.search(r'\nOK(?: \(skipped=(\d+)\))?\s*$',log);assert found
+    skips[platform]=int(found.group(1) or 0)
+assert skips['linux']==0
+assert b['fixture']['sessions']==100 and b['fixture']['exchanges']==5000 and b['fixture']['active_assertions']==10000
+assert b['fixture']['json_bytes']>=25*1024*1024 and b['fixture']['fully_validated'] and b['cold_read']['status']=='ok'
+for kind in ['read','save']:
+    assert b[kind]['completed_runs']==30 and b[kind]['failure'] is None
+    assert len(b[kind]['samples_seconds'])==30 and b[kind]['p95_seconds']==sorted(b[kind]['samples_seconds'])[math.ceil(30*.95)-1]
+assert not b['save']['passes'],'Reaudit completion if save target passes'
+rows=[json.loads(x) for x in (base/'windows-balanced-save-comparison-20261022.txt').read_text(encoding='utf-8').splitlines() if x.startswith('{')]
+assert len(rows)==10 and rows[0]['source_sha256']==v['before']['src/novel_creator/storage.py'] and rows[-1]['source_unchanged']
+samples={i:[r['seconds'] for r in rows[1:-1] if r['balanced']==i] for i in [0,1]}
+for i in [0,1]:
+    assert len(samples[i])==4 and rows[-1]['medians'][str(i)]==statistics.median(samples[i])
+    for row in rows[1:-1]:
+        if row['balanced']==i:assert not row['cleanup_required'] and row['counts']=={'git':27 if i else 25,'history_workers':[2 if i else 1],'guard_workers':[2 if i else 1,4]}
+prior=statistics.median(samples[0]);now=statistics.median(samples[1]);gain=(1-now/prior)*100
+stages=[json.loads(x) for x in (base/'windows-balanced-save-stages-20261022.jsonl').read_text(encoding='utf-8').splitlines() if x.startswith('{')]
+assert len(stages)==5 and stages[0]['source_sha256']==v['before']['src/novel_creator/storage.py']
+cold=b['cold_read']['seconds'];rd=b['read']['p95_seconds'];sv=b['save']['p95_seconds'];status='passes' if b['read']['passes'] else 'misses'
+summary=f'''Windows full suite: 143 tests in {runtimes['windows']:.3f}s, {143-skips['windows']} passed,
+{skips['windows']} explicit real-symlink privilege skips, exit 0. Linux/WSL2: all 143
+pass in {runtimes['linux']:.3f}s, zero skips, exit 0. The same five source/test/harness/
+helper fingerprints match before and after both suites and the benchmark.
+
+Ordinary-layout Windows PowerShell with the optional authenticated cache:
+first read {cold:.9f}s; read p95 {rd:.9f}s; validation/local-save p95
+{sv:.9f}s. All 30 reads and 30 saves succeed without operation errors or timeouts.
+Read {status} the unchanged 2s target; save misses the unchanged 1s target.
+Benchmark exit 1 records that unmet threshold. No explicit packing/maintenance
+is requested. Linux performance has not been remeasured for this source;
+its earlier reference results remain historical evidence.
+'''
+safety='''Large Windows saves use two history readers and two first-guard full-byte
+readers while the original operations overlap. The final full-byte guard and
+public history reads retain up to four readers. Each existing 1,024-item
+threshold independently keeps small inputs serial; non-Windows defaults remain
+one. All metadata/index/path/symlink/mode checks precede each guard's hashing.
+All actual blob/digest/schema/authority/hold checks, both complete root-bound
+byte guards, private candidate verification, original first-guard error/await
+position, worker/lock lifetime, fresh branch/CAS, receipts and recovery remain.
+History outputs keep ordered single-stream framing and one full serial fallback
+on worker/submission/nonzero exit failure. No check is skipped or moved.
+'''
+report=f'''# Balanced Windows save readers — 2026-10-22
+
+T149 continuation. Storage SHA-256:
+`{v['before']['src/novel_creator/storage.py']}`.
+Novice evaluations remain deferred/unverified. T149 remains unchecked.
+
+## Retained policy and safeguards
+
+{safety}
+## Verification and complete required benchmark
+
+{summary}
+The fixture contains 100 sessions, 5,000 exchanges, 10,000 active assertions
+and {b['fixture']['json_bytes']:,} UTF-8 JSON bytes. Every timed operation uses a
+fresh worker; import time and save payload preparation are excluded. Complete
+save history/validation, local publication and cleanup remain included. First
+read is fixture-cold rather than an OS page-cache flush. Cache trust uses a
+temporary private key outside the novel, not a novel-provided key.
+Hardware: Lenovo 22AWS00800, Intel Core Ultra 7 268V, eight logical CPUs,
+33,847,832,576 memory bytes, C: NTFS. {b['environment']['os']}; Python
+{b['environment']['python']}; {b['environment']['git']}. Git executable:
+`{b['environment']['git_executable']}`. PYTHONUTF8=1, PYTHONPATH=src,
+PYTHONDONTWRITEBYTECODE=1. Suites run concurrently; the benchmark and each
+subsequent diagnostic run separately after both suites finish. Other machine
+activity is uncontrolled; differences from dated historical p95 runs do not
+isolate this policy's effect. Disk space was freed before verification resumed.
+
+[Windows full suite](windows-balanced-save-full-tests-20261022.txt),
+[Linux full suite](linux-balanced-save-full-tests-20261022.txt),
+[raw 30-run result](windows-balanced-save-default-30-20261022.json),
+[operation progress](windows-balanced-save-default-progress-20261022.txt),
+[hardware](windows-history-read-hardware-20261022.json).
+
+## Matched final-source comparison
+
+Eight fresh-worker complete saves use balanced ABBA/ABBA order on one ordinary
+complete fixture, four samples per policy. Identical final source selects one
+history/one first-guard reader for controls and two/two for the retained policy;
+public payload preparation and four final hash readers remain unchanged. All
+saves succeed at sequences 5001–5008 with no cleanup; Git calls are 25/27.
+Control median {prior:.9f}s; two/two median {now:.9f}s ({gain:.2f}% lower).
+Control range {min(samples[0]):.9f}–{max(samples[0]):.9f}s; retained-policy range
+{min(samples[1]):.9f}–{max(samples[1]):.9f}s. These small variable samples support
+policy assessment; they are not p95, a portable speedup or release compliance.
+[Raw final-source samples](windows-balanced-save-comparison-20261022.txt).
+The [earlier external candidate](windows-balanced-save-readers-20261022.md)
+measured medians 5.669104200s/4.856166300s; it did not verify production adoption.
+
+## Current save stages
+
+Two untraced controls surround two lightly traced complete saves on one ordinary
+full fixture. Payload-preparation history remains retained, matching the benchmark.
+Thread durations overlap and must not be added as though serial. This diagnostic
+does not replace the 30-save p95. [All events](windows-balanced-save-stages-20261022.jsonl).
+
+'''
+for row in stages[1:]:
+    if not row['traced']:report+=f"Untraced save {row['sequence']}: {row['seconds']:.9f}s.\n\n"
+    else:
+        history=next(e for e in row['events'] if e['stage']=='_read_snapshot')
+        guards=sorted([e for e in row['events'] if e['stage']=='check_managed'],key=lambda e:e['start'])
+        report+=f"Traced save {row['sequence']}: {row['seconds']:.9f}s; history {history['seconds']:.9f}s; first guard {guards[0]['seconds']:.9f}s; final guard {guards[1]['seconds']:.9f}s; first-guard/history overlap {row['first_guard_history_overlap_seconds']:.9f}s.\n\n"
+report+='''## Regression and review evidence
+
+The initial five-method red run failed on 17 missing-policy cases before runtime
+changes. Eight focused methods subsequently pass in 85.046s. Five combined
+production regressions cover Windows/non-Windows policy, small bootstrap/retry,
+earlier malformed history versus later worker/nonzero failure and failed first
+guard, first-guard launch/process/count/partial-thread-submit failures with all
+workers joined under the lock, real-root same-stat tampering despite a decoy,
+post-first-guard edits caught by the final guard, recoverable pending work and
+unchanged retry publishing once with identical history. Existing binary framing
+cases exercise both two and four history readers. Both full suites include them.
+Read-only review of the minimal delta found no actionable issue.
+
+The preceding source's [138-test verification and 1.787683800s/9.219870400s p95](windows-history-read-20261022.md)
+remain source-specific historical evidence. The original Windows 3.845654300s
+save miss remains historical unmet evidence. No threshold is lowered or Linux
+result substituted for Windows. Novice evaluations remain deferred/unverified;
+other host, bilingual semantic, durability and release gates remain open.
+No provider call, commit or push is performed.
+
+[Source, executed scripts and artifact hashes](windows-balanced-save-evidence-manifest-20261022.json).
+'''
+write(base/'windows-balanced-save-20261022.md',report)
+entry='\n\n### T149 balanced save readers — full verification\n\n'+summary+'\n'+safety+f'\nMatched final-source medians: {prior:.9f}s control / {now:.9f}s two/two,\nfour balanced samples per policy. This is diagnostic, not p95 compliance.\nSource, full results, hardware, paired samples and stage traces:\ntests/evaluations/windows-balanced-save-20261022.md. T149 remains unchecked;\nnovice evaluations remain deferred/unverified.\n'
+for name in ['tasks.md','implementation-ledger.md']:
+    with (Path('specs/001-novel-initialization-brainstorming')/name).open('a',encoding='utf-8',newline='\n') as f:f.write(entry)
+def strip_pending(text):
+    return '\n'.join(line for line in text.split('\n') if not line.startswith('Pending balanced-reader integration:'))
+p=base/'performance.md';text=strip_pending(p.read_text(encoding='utf-8'))
+line=next(line for line in text.splitlines() if '](windows-history-read-default-30-20261022.json)' in line)
+text=text.replace(line,line+f'\n| [Windows, balanced save readers/cache, ordinary PowerShell fixture](windows-balanced-save-default-30-20261022.json) | {cold:.3f} | {rd:.3f} | {sv:.3f} | UNMET |',1)
+text=text.replace('The current public-history-read source passes all 138 Linux tests,','The current balanced-save source passes all 143 Linux tests,',1)
+text=text.replace('[public-history-read report](windows-history-read-20261022.md) records current-source','[balanced-save report](windows-balanced-save-20261022.md) records current-source',1)
+text+='\n\n## Balanced save readers — 2026-10-22\n\n'+summary+'\n'+safety+'\nSee [source and all diagnostics](windows-balanced-save-20261022.md).\n';write(p,text)
+p=base/'platform-results.md';text=strip_pending(p.read_text(encoding='utf-8'));head='# Platform verification\n';assert text.startswith(head)
+write(p,head+'\n## Balanced Windows save readers — 2026-10-22\n\n'+summary+'\n'+safety+'\n[Current source evidence](windows-balanced-save-20261022.md). T149 remains open; novice evaluations remain deferred/unverified.\n\nFollowing sections are source-specific historical checkpoints.\n'+text[len(head):])
+p=base/'release-readiness.md';text=p.read_text(encoding='utf-8');end=text.index('The T103 capture capability gate')
+text='# Release readiness — incomplete\n\nLatest continuation — 2026-10-22: novice evaluations remain deferred/unverified.\nT149 retains its unmet save gate; no safeguard or target is waived.\n\n'+summary+'\n'+safety+'\n[Source-specific verification](windows-balanced-save-20261022.md).\n\n'+text[end:]
+text=text.replace('Linux structural installation and all 138 tests pass','Linux structural installation and all 143 tests pass');write(p,text)
+p=Path('docs/development.md');text=p.read_text(encoding='utf-8')
+text=text.replace('The public-history-read source passes all 138 Linux tests. Its Linux performance','The balanced-save source passes all 143 Linux tests. Its Linux performance')
+text=text.replace('[latest verification](../tests/evaluations/windows-history-read-20261022.md)','[latest verification](../tests/evaluations/windows-balanced-save-20261022.md)')
+text=text.replace('1,024 managed files, the initial guard, and non-Windows runtime policy keep one\nreader.','1,024 managed files and non-Windows runtime policy keep one reader.\nLarge Windows initial guards use two byte readers; final guards use four.')
+text=text.replace('Save history remains serial: measured parallel\nsave variants provided no gain.','Large Windows saves now select two history readers alongside two first-guard\nbyte readers; small/non-Windows work remains serial.')
+text=text.replace('Both full suites cover 138 tests. See [current source and measurements](../tests/evaluations/windows-history-read-20261022.md).','Both full suites cover 143 tests. See [current source and measurements](../tests/evaluations/windows-balanced-save-20261022.md).')
+text+='\n\n## Balanced Windows save readers\n\n'+safety+'\n'+summary+'\n[Current verification](../tests/evaluations/windows-balanced-save-20261022.md).\n';write(p,text)
+artifacts=set(base.glob('*balanced-save*-20261022.*'))|set(base.glob('*balanced_save*source-20261022.txt'))
+artifacts.discard(base/'windows-balanced-save-evidence-manifest-20261022.json');artifacts.add(base/'windows-history-read-hardware-20261022.json')
+manifest={'source':v['before'],'artifacts':{p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(artifacts)}}
+write(base/'windows-balanced-save-evidence-manifest-20261022.json',json.dumps(manifest,indent=2)+'\n')
+for name,sha in manifest['artifacts'].items():assert hashlib.sha256((base/name).read_bytes()).hexdigest()==sha,name
+print(json.dumps({'cold':cold,'read_p95':rd,'save_p95':sv,'matched_control':prior,'matched_two_two':now,'matched_gain_percent':gain,'artifacts_verified':len(artifacts),'test_runtimes':runtimes}))

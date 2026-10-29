@@ -1,0 +1,63 @@
+{
+  "ok": true,
+  "scope": "Public delegated persistence/display/source checks only",
+  "case_filter": [
+    "AUTH_REVISE"
+  ],
+  "language_filter": [
+    "is"
+  ],
+  "all_submitted_cases_checked": false,
+  "semantic_assessment": "Separate agent judgments required; no human/native result inferred",
+  "cases": [
+    {
+      "case_id": "AUTH_REVISE",
+      "language": "is",
+      "thread_id": "01a16afa-1197-7650-8189-9365687429ee",
+      "turn_id": "01a181fb-d019-7dc3-bafa-4adb292aa9f4",
+      "exchange_id": "49dd2603-f922-4446-a6f9-fca97c8b8d16",
+      "checkpoint": {
+        "git_head": "379cddcbb5680b2738d2038661515c8aad11ed04",
+        "exchange_id": "49dd2603-f922-4446-a6f9-fca97c8b8d16",
+        "sequence": 10
+      },
+      "exact_input_saved": true,
+      "exact_response_saved_and_displayed": true,
+      "save_precedes_display": true,
+      "source_type": "delegated",
+      "native_user_input": false,
+      "novice_evidence": false,
+      "installed_bundle_verified": true,
+      "installed_bundle_matches_current_source": true,
+      "commentary_agent_reviewed": true,
+      "record_kinds": [
+        "assertion",
+        "idea",
+        "story_element",
+        "story_element",
+        "idea",
+        "decision",
+        "story_element",
+        "assertion",
+        "idea",
+        "story_element",
+        "decision",
+        "story_element",
+        "assertion",
+        "idea",
+        "story_element",
+        "decision",
+        "assertion",
+        "idea",
+        "decision",
+        "assertion",
+        "idea",
+        "decision",
+        "novel_project",
+        "session"
+      ],
+      "response": "Atburðum er lokið. Regluleg yfirferð er nú við lok lotu.\n\nEndurskoðaðar ákvarðanir:\n- Bjarni sendi bréfið (7329912f v2; hugmynd 500cb7e7 v2; endurskoðun 46964f35 v1). Fyrri v1 er varðveitt í sögu.\n- Sigrún er fórnarlambið (d85445c0 v2; hugmynd 1a1d9bcc v2; endurskoðun d2555a08 v1). Fyrri v1 er varðveitt í sögu.\n- Freyja er rannsakandinn (0d70cc7f v2; hugmynd 90ddf826 v2; endurskoðun f1581433 v1). Fyrri v1 er varðveitt í sögu.\n- sagan gerist að hausti (756e32ca v2; hugmynd 646ced87 v2; endurskoðun f0c9c761 v1). Fyrri v1 er varðveitt í sögu.\n- bréfið kom síðdegis (85612da9 v2; hugmynd 8954dff5 v2; endurskoðun 4fbb9867 v1). Fyrri v1 er varðveitt í sögu.\nAri er áfram bróðir Rúnu (f351ee38 v1; samband 46838eca v1), og Edda systir hennar (a594b87b v1; samband 27211402 v1).\nEndurtekin eldri sendandaskráning Rúnu er tekin úr gildandi staðreyndum (81a44c03 v2; staða superseded).\nVernduð skapandi stefna: „Edda verður að vera saklaus af morðinu.“ (711ac5fd v4).\n\nBein áhrif samkvæmt skráðum tilvísunum:\n- Bjarni, en ekki Rúna, sendi bréfið: 792fbf4b v1, c8c55438 v1, f2def862 v1, 987d8385 v1, a65358cf v1, 8ed04638 v1.\n- Sigrún, en ekki Ari, er fórnarlambið: 5a01d331 v1, da79f6a2 v1.\n- Freyja, en ekki Edda, er rannsakandinn: c86ca859 v1, a65358cf v1, d9215850 v1, ed991523 v1.\n- sagan gerist að hausti en ekki vetri: c030d800 v1.\n- bréfið kom síðdegis en ekki fyrir dögun: 17c4de0d v1.\nÞessar tilvísanir eru varðveittar til yfirferðar; eldri ákvarðanir halda sögulegu gildi sínu. Óskráðar afleiðingar er ekki hægt að tryggja að finnist.\nSpurningin um hvers vegna Rúna sendi bréfið hefur nú úrelta forsendu og er áfram opin til endurskoðunar. Tillöguna um að Edda reki bréfið þarf einnig að yfirfara; breyting rannsakandans hafnar henni ekki sjálfkrafa.\n\nAðrar staðfestar ákvarðanir sem standa:\n- Rúna er vitavörður (e19f2739 v1).\n- Ari er bróðir Rúnu (f351ee38 v1).\n- Edda er systir Rúnu (a594b87b v1).\n- Rúna þekkir Bjarna (515f2c3b v1).\n- ljósið bilaði nóttina sem bréfið kom (82eba284 v1).\n- blátt ljós gæti sést (60c1be74 v2).\n- engin brú er á eyjuna (c33e9f0b v1).\n- bréfið ber látúnsinnsigli (36444d2f v1).\n- Rúna hefur svarið að vernda Eddu (811ce9aa v1).\n\nEftirstandandi tillögur og óútkljáðir valkostir:\n- Rúna safnar rekaviði (29fd0678 v2).\n- Edda vantreystir bjöllum (45553df8 v1).\n- Bjarni skuldar Eddu hugsanlega peninga (8a81444f v1).\n- stormur gæti falið merki (27765347 v1).\n- Stormur (da566d49 v3).\n- Heiðskírt veður (3ee9968a v1).\n- skipbrot gæti orðið (37d7b9b9 v1).\n- viðvörunarbjalla gæti hljómað (e37f88d3 v1).\n- göng gætu tengt vitann og höfnina (9b4ec66f v1).\n- fjara gæti afhjúpað gamlar tröppur (ffbf3c57 v1).\n- leynilegt herbergi gæti geymt kort (54443716 v1).\n- Edda gæti rakið bréfið um göngin að leyniherberginu (a14330f1 v1).\n- Rúna er morðinginn (e6deaac1 v1).\n- Bjarni gæti átt rauðan frakka (0bae9007 v1).\n- Edda gæti hafa fundið kortið (59e59791 v1).\n- Ari gæti átt dóttur (12368f8d v1).\n- Möguleg persónuorð: „Ég drap hann.“ Mælandi og fórnarlamb óauðkennd (5f135481 v1).\n- Brún bryggja (f65265b4 v1).\n- Svört bryggja (2306571e v1).\n- Báturinn gæti lekið (44703877 v1).\n- Gólfhleri sem inngangur í leyniherbergið (bf1352af v1).\n- Veggdyr sem inngangur í leyniherbergið (1dd11de7 v1).\n- Mögulegur flóðbúnaður; gæti gengið einhvern daginn (b0d516a0 v1).\n- Segjum að flotbrú lægi að eyjunni (a5a37507 v1).\n- Tilvitnun í mögulega dagbókarfærslu: „Edda stal innsiglinu.“ (aefc91c6 v1).\n- Bjarni sem sjómaður er óstaðfest skráning (1ccc30a9 v1).\nFlotbrúarálitamálið er enn opið (f1fcc75e v1); brúarleysið hefur ekki verið endurskoðað. Höfnunin á tillögu um að Bjarni hafi falið kortið stendur (4982f4a1 v1; aa43248a v1).\n\nÓsvaraðar spurningar:\n- Hvers vegna sendi Rúna bréfið? (f2def862 v1).\n- Hvað vill Edda frá Bjarna? (a65358cf v1).\n- Hver finnur bréfið? (5d72fc12 v1).\n- Hvenær kemur Bjarni aftur? (8ed04638 v1).\n- Hvað opnar leyniherbergið? (7d3570e2 v1).\n- Hvað ef Ari á dóttur? (da79f6a2 v1).\n- Gæti báturinn lekið? (8f56ec6e v1).\n- Á „Já“ við gólfhlerann, veggdyrnar eða að halda báðum inngöngum til skoðunar? (20822d29 v1).\n\nYfirlitið er afleitt af heimildafærslum. Fyrri vistunarpunktur: 464a3b2bce000f1b0772b992f6831d9f188a87d1, röð 9. Þessi færsla: 49dd2603-f922-4446-a6f9-fca97c8b8d16, röð 10; lokuð lota 17356bdd v4.\nÉg staldra við án frekari þróunar."
+    }
+  ],
+  "failures": []
+}

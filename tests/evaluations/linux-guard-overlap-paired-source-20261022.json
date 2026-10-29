@@ -1,0 +1,8 @@
+{
+  "after_sha256": "16de2fab76922e9252924eada706c7a8d5071875c68e155279192edd749b5828",
+  "before_sha256": "57ba0d7f4dbb3c3ac68a70a74559236c36dadfad07713550f7970369f739a59b",
+  "method": "Eight alternating saves per variant; copied runtime/schemas and fixtures on /tmp ext4; diagnostic only",
+  "exit_code": 0,
+  "wall_seconds": 27.696963016,
+  "source_unchanged": true
+}

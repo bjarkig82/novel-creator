@@ -1,0 +1,1411 @@
+from contextlib import contextmanager
+import hashlib
+import json
+import os
+import subprocess
+from pathlib import Path
+import unittest
+import tempfile
+import threading
+from unittest.mock import patch
+
+from novel_creator import records, storage, validation_cache
+from novel_creator.cli import ToolError
+from tests.helpers import repository, git, envelope, seal, FailAt, uid
+
+
+class StorageTests(unittest.TestCase):
+
+    @contextmanager
+    def _balanced_save_policy(self, enabled=True, force_large=True):
+        from contextlib import ExitStack
+        with ExitStack() as stack:
+            for name, value in (('_SAVE_HISTORY_WORKERS', 4 if enabled else 1),
+                                ('_INITIAL_HASH_WORKERS', 2 if enabled else 1),
+                                ('_SAVE_HASH_WORKERS', 4 if enabled else 1)):
+                stack.enter_context(patch.object(storage, name, value))
+            if force_large:
+                stack.enter_context(patch.object(storage, '_HISTORY_PARALLEL_MINIMUM', 1))
+                stack.enter_context(patch.object(storage, '_PARALLEL_HASH_MINIMUM', 1))
+            yield
+
+    def test_balanced_save_selects_bounded_readers_and_keeps_small_bootstrap_retry_serial(self):
+        self.assertEqual(storage._SAVE_HISTORY_WORKERS, 4 if os.name == 'nt' else 1)
+        self.assertEqual(storage._INITIAL_HASH_WORKERS, 2 if os.name == 'nt' else 1)
+        for fmt in ('sha1', 'sha256'):
+            for enabled in (False, True):
+                with self.subTest(fmt=fmt, enabled=enabled), self._partition_key(), repository(object_format=fmt) as root:
+                    history, _, _ = self._partition_fixture(root)
+                    chosen, guards = [], []
+                    batch, guard = storage._batch_blobs, storage.check_managed
+                    def blobs(*args, **kwargs):
+                        chosen.append(kwargs.get('workers', 1))
+                        return batch(*args, **kwargs)
+                    def checked(*args, **kwargs):
+                        guards.append(kwargs.get('hash_workers', 1))
+                        return guard(*args, **kwargs)
+                    with self._balanced_save_policy(enabled), patch.object(storage, '_READ_HISTORY_WORKERS', 4 if enabled else 1), patch.object(storage, '_batch_blobs', blobs), patch.object(storage, 'check_managed', checked):
+                        self.assertEqual(storage.read_snapshot(root)[0], history)
+                        saved = storage.save(root, envelope(root, previous=history[-1]))
+                    self.assertFalse(saved['data']['cleanup_required'])
+                    self.assertEqual(chosen, [4 if enabled else 1, 4 if enabled else 1])
+                    self.assertEqual(guards, [2 if enabled else 1, 4 if enabled else 1])
+            with self.subTest(fmt=fmt, small=True), repository(object_format=fmt, unborn=True) as root:
+                first = envelope(root)
+                real_pool = storage.ThreadPoolExecutor
+                pools = []
+                def serial_pool(*args, **kwargs):
+                    count = kwargs.get('max_workers', args[0] if args else None)
+                    pools.append(count)
+                    self.assertEqual(count, 1, 'Small history/guards started a parallel pool')
+                    return real_pool(*args, **kwargs)
+                with self._balanced_save_policy(force_large=False), patch.object(storage, 'ThreadPoolExecutor', serial_pool):
+                    saved = storage.save(root, first)
+                    again = storage.save(root, first)
+                    self.assertEqual(storage.read_history(root), [first])
+                self.assertTrue(again['data']['already_saved'])
+                self.assertEqual(saved['checkpoint'], again['checkpoint'])
+                self.assertEqual(pools, [1, 1])
+
+    def test_balanced_save_preserves_damaged_prefix_over_nested_worker_failures(self):
+        for fmt in ('sha1', 'sha256'):
+            for failure in ('launch', 'nonzero'):
+                with self.subTest(fmt=fmt, failure=failure), self._partition_key(), repository(object_format=fmt) as root:
+                    history, _, _ = self._partition_fixture(root)
+                    (root / storage.bundle_path(history[1])).write_bytes(b'{damaged history}\n')
+                    git(root, 'add', 'story/exchanges')
+                    git(root, 'commit', '-m', 'Damaged second exchange')
+                    commit = storage.head(root)
+                    entries = storage.committed_entries(root, commit)
+                    expected = self._partition_result(root, commit, entries, 1)
+                    self.assertEqual(expected[0:2], ('error', 4))
+                    self.assertEqual(expected[3]['sequence'], 1)
+                    pending = envelope(root, previous=history[-1])
+                    index = (root / '.git/index').read_bytes()
+                    late = entries[sorted(p for p in entries if p.startswith('story/exchanges/'))[4]][1]
+                    original, guard = storage.git, storage.check_managed
+                    guard_done = threading.Event()
+                    history_done, hash_done = [], []
+                    def checked(*args, **kwargs):
+                        try:
+                            return guard(*args, **kwargs)
+                        finally:
+                            guard_done.set()
+                    def flaky(root, *args, **kwargs):
+                        if args[0] == 'hash-object' and '--stdin-paths' in args:
+                            hash_done.append(kwargs['input'])
+                            return b''
+                        if args[0] != 'cat-file':
+                            return original(root, *args, **kwargs)
+                        requested = kwargs['input'].decode().splitlines()
+                        if len(requested) == 8:
+                            self.assertEqual(len(history_done), 4, 'History fallback did not join all four children')
+                            self.assertTrue(guard_done.is_set())
+                            return original(root, *args, **kwargs)
+                        try:
+                            if requested[0] == late:
+                                self.assertTrue(guard_done.wait(10), 'First guard did not finish')
+                                if failure == 'launch':
+                                    raise OSError('Injected history worker launch failure')
+                                return subprocess.CompletedProcess(args, 1, b'', b'')
+                            return original(root, *args, **kwargs)
+                        finally:
+                            history_done.append(requested[0])
+                    with self._balanced_save_policy(), patch.object(storage, 'git', flaky), patch.object(storage, 'check_managed', checked):
+                        with self.assertRaises(ToolError) as error:
+                            storage.save(root, pending)
+                    self.assertEqual((error.exception.code, error.exception.affected_refs, error.exception.checkpoint), expected[1:])
+                    self.assertEqual(len(hash_done), 2)
+                    self.assertTrue(guard_done.is_set())
+                    self.assertEqual(storage.head(root), commit)
+                    self.assertEqual((root / '.git/index').read_bytes(), index)
+                    self.assertFalse((root / storage.bundle_path(pending)).exists())
+                    self.assertFalse((root / '.novel-creator/local' / (pending['exchange_id'] + '.json')).exists())
+                    self.assertFalse((root / '.novel-creator/local/write.lock').exists())
+
+    def test_balanced_first_guard_failures_join_before_unlock_without_pending_work(self):
+        for fmt in ('sha1', 'sha256'):
+            for failure in ('launch', 'process', 'count', 'thread'):
+                with self.subTest(fmt=fmt, failure=failure), self._partition_key(), repository(object_format=fmt) as root:
+                    history, commit, _ = self._partition_fixture(root)
+                    pending = envelope(root, previous=history[-1])
+                    index = (root / '.git/index').read_bytes()
+                    original, real_pool = storage.git, storage.ThreadPoolExecutor
+                    started, finished = [], []
+                    class FailSecondHashSubmit(real_pool):
+                        def submit(self, fn, *args, **kwargs):
+                            if fn.__name__ == 'chunk_hashes':
+                                if getattr(self, 'hash_submitted', False):
+                                    raise RuntimeError('Injected nested hash thread-start failure')
+                                self.hash_submitted = True
+                            return super().submit(fn, *args, **kwargs)
+                    def flaky(root, *args, **kwargs):
+                        if args[0] != 'hash-object' or '--stdin-paths' not in args:
+                            return original(root, *args, **kwargs)
+                        started.append(kwargs['input'])
+                        self.assertTrue((root / '.novel-creator/local/write.lock').exists())
+                        try:
+                            if failure == 'launch':
+                                raise OSError('Injected first-guard launch failure')
+                            if failure == 'process':
+                                raise ToolError(5, 'Injected first-guard process failure')
+                            if failure == 'count':
+                                return b''
+                            return original(root, *args, **kwargs)
+                        finally:
+                            self.assertTrue((root / '.novel-creator/local/write.lock').exists())
+                            finished.append(kwargs['input'])
+                    with self._balanced_save_policy(), patch.object(storage, 'git', flaky), patch.object(storage, 'ThreadPoolExecutor', FailSecondHashSubmit if failure == 'thread' else real_pool):
+                        with self.assertRaises(ToolError) as error:
+                            storage.save(root, pending)
+                    self.assertEqual(error.exception.code, 5)
+                    self.assertEqual(error.exception.checkpoint['sequence'], 8)
+                    self.assertEqual(len(started), 1 if failure == 'thread' else 2)
+                    self.assertCountEqual(finished, started)
+                    self.assertEqual(storage.head(root), commit)
+                    self.assertEqual((root / '.git/index').read_bytes(), index)
+                    self.assertFalse((root / storage.bundle_path(pending)).exists())
+                    self.assertFalse((root / '.novel-creator/local' / (pending['exchange_id'] + '.json')).exists())
+                    self.assertFalse((root / '.novel-creator/local/write.lock').exists())
+
+    def test_balanced_first_guard_hashes_real_root_after_metadata_despite_same_stat_decoy(self):
+        for fmt in ('sha1', 'sha256'):
+            with self.subTest(fmt=fmt), self._partition_key(), repository(object_format=fmt) as root:
+                history, _, _ = self._partition_fixture(root)
+                target = root / '.novel-creator/src/guard.txt'
+                target.parent.mkdir(parents=True, exist_ok=True)
+                target.write_bytes(b'original\n')
+                git(root, 'add', '.novel-creator/src')
+                git(root, 'commit', '-m', 'First-guard byte resource')
+                commit = storage.head(root)
+                entries = storage.committed_entries(root, commit)
+                index = (root / '.git/index').read_bytes()
+                pending = envelope(root, previous=history[-1])
+                before = target.stat()
+                original_hash = storage._hash_managed
+                changed = threading.Event()
+                with tempfile.TemporaryDirectory(prefix='novel-balanced-decoy-') as directory:
+                    decoy = Path(directory)
+                    for path in entries:
+                        destination = decoy / path
+                        destination.parent.mkdir(parents=True, exist_ok=True)
+                        destination.write_bytes((root / path).read_bytes())
+                    def redirected(root, managed, workers):
+                        self.assertEqual(workers, 2)
+                        self.assertFalse(changed.is_set())
+                        changed.set()
+                        target.write_bytes(b'tampered\n')
+                        os.utime(target, ns=(before.st_atime_ns, before.st_mtime_ns))
+                        git(root, 'config', 'core.worktree', str(decoy))
+                        return original_hash(root, managed, workers)
+                    try:
+                        with self._balanced_save_policy(), patch.object(storage, '_hash_managed', redirected):
+                            with self.assertRaises(ToolError) as error:
+                                storage.save(root, pending)
+                        self.assertEqual(error.exception.code, 3)
+                        self.assertEqual(error.exception.checkpoint['sequence'], 8)
+                        self.assertEqual(target.read_bytes(), b'tampered\n')
+                        self.assertEqual(storage.head(root), commit)
+                        self.assertEqual((root / '.git/index').read_bytes(), index)
+                        self.assertFalse((root / '.novel-creator/local/write.lock').exists())
+                        self.assertFalse((root / '.novel-creator/local' / (pending['exchange_id'] + '.json')).exists())
+                    finally:
+                        git(root, 'config', '--unset', 'core.worktree')
+
+    def test_balanced_edit_after_first_guard_is_caught_then_unchanged_retry_publishes_once(self):
+        for fmt in ('sha1', 'sha256'):
+            with self.subTest(fmt=fmt), self._partition_key(), repository(object_format=fmt) as root:
+                history, _, _ = self._partition_fixture(root)
+                target = root / '.novel-creator/src/guard.txt'
+                target.parent.mkdir(parents=True, exist_ok=True)
+                target.write_bytes(b'original\n')
+                git(root, 'add', '.novel-creator/src')
+                git(root, 'commit', '-m', 'Post-first-guard byte resource')
+                commit = storage.head(root)
+                index = (root / '.git/index').read_bytes()
+                pending = envelope(root, previous=history[-1])
+                before = target.stat()
+                guard, blobs = storage.check_managed, storage._batch_blobs
+                changed = threading.Event()
+                def checked(*args, **kwargs):
+                    result = guard(*args, **kwargs)
+                    if kwargs.get('hash_workers') == 2:
+                        target.write_bytes(b'tampered\n')
+                        os.utime(target, ns=(before.st_atime_ns, before.st_mtime_ns))
+                        changed.set()
+                    return result
+                def wait_for_edit(*args, **kwargs):
+                    for number, item in enumerate(blobs(*args, **kwargs)):
+                        if number == 0:
+                            self.assertTrue(changed.wait(10), 'First guard/edit did not finish before validation')
+                        yield item
+                with self._balanced_save_policy(), patch.object(storage, 'check_managed', checked), patch.object(storage, '_batch_blobs', wait_for_edit):
+                    with self.assertRaises(ToolError) as error:
+                        storage.save(root, pending)
+                self.assertEqual(error.exception.code, 3)
+                self.assertTrue(changed.is_set())
+                self.assertEqual(storage.head(root), commit)
+                self.assertEqual((root / '.git/index').read_bytes(), index)
+                self.assertEqual(target.read_bytes(), b'tampered\n')
+                self.assertFalse((root / '.novel-creator/local/write.lock').exists())
+                receipt = storage.read_receipt(root, root / '.novel-creator/local' / (pending['exchange_id'] + '.json'))
+                self.assertEqual(receipt['state'], 'pending')
+                self.assertIn('candidate', receipt)
+                target.write_bytes(b'original\n')
+                with self._balanced_save_policy():
+                    saved = storage.save(root, pending)
+                    again = storage.save(root, pending)
+                self.assertFalse(saved['data']['cleanup_required'])
+                self.assertTrue(again['data']['already_saved'])
+                self.assertEqual(saved['checkpoint'], again['checkpoint'])
+                self.assertEqual(git(root, 'rev-list', '--count', commit + '..HEAD'), '1')
+                self.assertEqual(storage.read_history(root), history + [pending])
+                self.assertEqual(git(root, 'diff', '--cached', '--exit-code'), '')
+
+    @contextmanager
+    def _partition_key(self):
+        from tests.performance import benchmark_records as benchmark
+        with benchmark.benchmark_key(True):
+            yield
+
+    def _partition_fixture(self, root):
+        from tests.performance import benchmark_records as benchmark
+        novel_id = records.loads((root / '.novel-creator/manifest.json').read_bytes())['novel_id']
+        history, _ = benchmark.generate(novel_id, exchanges=8, sessions=2, assertions=16, minimum_bytes=0)
+        for index, bundle in enumerate(history):
+            target = root / storage.bundle_path(bundle)
+            target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_bytes(benchmark.serialized(bundle))
+            if index == 0:
+                git(root, 'add', 'story/exchanges')
+                git(root, 'commit', '-m', 'Validated one-exchange prefix')
+        git(root, 'add', 'story/exchanges')
+        git(root, 'commit', '-m', 'Complete candidate fault fixture')
+        storage.read_history(root)
+        return (history, storage.head(root), storage.committed_entries(root, storage.head(root)))
+
+    def _partition_result(self, root, commit, entries, workers):
+        with patch.object(storage, '_HISTORY_PARALLEL_MINIMUM', 1):
+            try:
+                history, chain = storage._read_snapshot(root, commit, entries, history_workers=workers)
+                return ('ok', history, chain._state)
+            except ToolError as error:
+                return ('error', error.code, error.affected_refs, error.checkpoint)
+
+    def test_partitioned_history_preserves_cached_uncached_and_captured_snapshots(self):
+        for fmt in ('sha1', 'sha256'):
+            with self.subTest(fmt=fmt), self._partition_key(), repository(object_format=fmt) as root:
+                history, commit, entries = self._partition_fixture(root)
+                self.assertTrue(validation_cache.trusted(root, commit, entries))
+                for trusted in (False, True):
+                    with patch.object(validation_cache, 'trusted', return_value=trusted):
+                        self.assertEqual(self._partition_result(root, commit, entries, 1), self._partition_result(root, commit, entries, 4))
+                following = envelope(root, previous=history[-1])
+                target = root / storage.bundle_path(following)
+                target.write_bytes(json.dumps(following, ensure_ascii=False, sort_keys=True, separators=(',', ':'), allow_nan=False).encode('utf-8'))
+                git(root, 'add', 'story/exchanges')
+                git(root, 'commit', '-m', 'Advance captured snapshot')
+                self.assertNotEqual(storage.head(root), commit)
+                self.assertEqual(self._partition_result(root, commit, entries, 4)[1], history)
+                self.assertEqual(storage.read_history(root), [*history, following])
+
+    def test_partitioned_history_preserves_binary_framing_and_nonzero_outputs(self):
+        for fmt in ('sha1', 'sha256'):
+            with self.subTest(fmt=fmt), self._partition_key(), repository(object_format=fmt) as root:
+                _, commit, entries = self._partition_fixture(root)
+                paths = sorted((p for p in entries if p.startswith('story/exchanges/')))
+                raw = {entries[p][1]: (root / p).read_bytes() for p in paths}
+                oids = [entries[p][1] for p in paths]
+                original = storage.git
+                cases = [(kind, index) for kind in ('missing', 'header', 'truncated') for index in (1, 2, 3, 4, 5, 6)]
+                cases += [('trailing', index) for index in (1, 3, 5)]
+                cases += [('nonzero_partial', index) for index in (0, 1, 2, 3, 4, 5)] + [('nonzero_complete', 0)]
+                for kind, index in cases:
+                    with self.subTest(fmt=fmt, kind=kind, index=index):
+
+                        def fake(root, *args, **kwargs):
+                            if args[0] != 'cat-file':
+                                return original(root, *args, **kwargs)
+                            requested = kwargs['input'].decode().splitlines()
+                            data = []
+                            status = 0
+                            for oid in requested:
+                                body = raw[oid]
+                                header = f'{oid} blob {len(body)}\n'.encode()
+                                frame = header + body + b'\n'
+                                if oid == oids[index]:
+                                    if kind == 'missing':
+                                        frame = f'{oid} missing\n'.encode()
+                                    if kind == 'header':
+                                        frame = b'invalid header\n' + body + b'\n'
+                                    if kind == 'truncated':
+                                        data.append(header + body[:-1])
+                                        break
+                                    if kind == 'trailing':
+                                        frame += b'unexpected trailing bytes\n'
+                                data.append(frame)
+                                if kind == 'nonzero_partial' and oid == oids[index]:
+                                    status = 1
+                                    break
+                            if kind == 'nonzero_complete':
+                                status = 1
+                            return subprocess.CompletedProcess(args, status, b''.join(data), b'')
+                        with patch.object(storage, 'git', fake):
+                            expected = self._partition_result(root, commit, entries, 1)
+                            for workers in (2, 4):
+                                with self.subTest(workers=workers):
+                                    actual = self._partition_result(root, commit, entries, workers)
+                                    self.assertEqual(actual, expected)
+                                    self.assertEqual(actual[0], 'ok' if kind == 'nonzero_complete' else 'error')
+
+    def test_partitioned_history_preserves_earlier_damage_and_guard_precedence(self):
+        for fmt in ('sha1', 'sha256'):
+            with self.subTest(fmt=fmt), self._partition_key(), repository(object_format=fmt) as root:
+                history, _, _ = self._partition_fixture(root)
+                damaged = root / storage.bundle_path(history[1])
+                damaged.write_bytes(b'{bad history}\n')
+                git(root, 'add', 'story/exchanges')
+                git(root, 'commit', '-m', 'Malformed second exchange')
+                commit = storage.head(root)
+                entries = storage.committed_entries(root, commit)
+                expected = self._partition_result(root, commit, entries, 1)
+                self.assertEqual(expected[0:2], ('error', 4))
+                self.assertEqual(expected[3]['sequence'], 1)
+                paths = sorted((p for p in entries if p.startswith('story/exchanges/')))
+                late = entries[paths[4]][1]
+                original = storage.git
+                completed = []
+                ready = threading.Event()
+
+                def flaky(root, *args, **kwargs):
+                    if args[0] != 'cat-file':
+                        return original(root, *args, **kwargs)
+                    requested = kwargs['input'].decode().splitlines()
+                    if len(requested) == 8:
+                        self.assertEqual(len(completed), 4, 'Fallback began before every worker joined')
+                        return original(root, *args, **kwargs)
+                    try:
+                        if requested[0] == late:
+                            self.assertTrue(ready.wait(10), 'Background guard did not fail')
+                            raise OSError('Injected late chunk launch failure')
+                        return original(root, *args, **kwargs)
+                    finally:
+                        completed.append(requested[0])
+                ready.set()
+                with patch.object(storage, 'git', flaky):
+                    self.assertEqual(self._partition_result(root, commit, entries, 4), expected)
+                ready.clear()
+                completed.clear()
+                working = root / storage.bundle_path(history[0])
+                working.write_bytes(working.read_bytes() + b' ')
+                index = (root / '.git/index').read_bytes()
+                original_guard = storage.check_managed
+
+                def guard(*args, **kwargs):
+                    try:
+                        return original_guard(*args, **kwargs)
+                    except ToolError as error:
+                        self.assertEqual(error.code, 3)
+                        ready.set()
+                        raise
+                original_reader = storage._read_snapshot
+
+                def force_parallel(*args, **kwargs):
+                    kwargs['history_workers'] = 4
+                    return original_reader(*args, **kwargs)
+                with patch.object(storage, '_HISTORY_PARALLEL_MINIMUM', 1), patch.object(storage, 'git', flaky), patch.object(storage, 'check_managed', guard), patch.object(storage, '_read_snapshot', force_parallel):
+                    with self.assertRaises(ToolError) as error:
+                        storage.save(root, envelope(root, previous=history[-1]))
+                self.assertEqual((error.exception.code, error.exception.affected_refs, error.exception.checkpoint), expected[1:])
+                self.assertEqual(storage.head(root), commit)
+                self.assertEqual((root / '.git/index').read_bytes(), index)
+                self.assertFalse((root / '.novel-creator/local/write.lock').exists())
+
+    def test_partitioned_history_joins_partial_submission_before_single_fallback(self):
+        for fmt in ('sha1', 'sha256'):
+            with self.subTest(fmt=fmt), self._partition_key(), repository(object_format=fmt) as root:
+                history, commit, entries = self._partition_fixture(root)
+                original = storage.git
+                done = threading.Event()
+                calls = []
+                real_pool = storage.ThreadPoolExecutor
+
+                class FailSecondSubmit(real_pool):
+
+                    def submit(self, *args, **kwargs):
+                        if getattr(self, 'submitted', False):
+                            raise RuntimeError('Injected worker start failure')
+                        self.submitted = True
+                        return super().submit(*args, **kwargs)
+
+                def traced(root, *args, **kwargs):
+                    if args[0] != 'cat-file':
+                        return original(root, *args, **kwargs)
+                    requested = kwargs['input'].decode().splitlines()
+                    calls.append(len(requested))
+                    if len(requested) == 8:
+                        self.assertTrue(done.is_set(), 'Started child was not joined before fallback')
+                        return original(root, *args, **kwargs)
+                    try:
+                        return original(root, *args, **kwargs)
+                    finally:
+                        done.set()
+                with patch.object(storage, 'ThreadPoolExecutor', FailSecondSubmit), patch.object(storage, 'git', traced):
+                    result = self._partition_result(root, commit, entries, 4)
+                self.assertEqual(result[0:2], ('ok', history))
+                self.assertEqual(calls, [2, 8])
+
+    def test_partitioned_history_keeps_small_reads_serial_and_selects_save_policy(self):
+        with self._partition_key(), repository() as root:
+            history, commit, entries = self._partition_fixture(root)
+            with patch.object(storage, '_READ_HISTORY_WORKERS', 4), patch.object(storage, 'ThreadPoolExecutor', side_effect=AssertionError('Small history must stay serial')):
+                self.assertEqual(storage.read_snapshot(root)[0], history)
+            original = storage._batch_blobs
+            selected = []
+
+            def traced(*args, **kwargs):
+                selected.append(kwargs.get('workers', 1))
+                return original(*args, **kwargs)
+            with patch.object(storage, '_HISTORY_PARALLEL_MINIMUM', 1), patch.object(storage, '_READ_HISTORY_WORKERS', 4), patch.object(storage, '_batch_blobs', traced):
+                self.assertEqual(storage.read_snapshot(root)[0], history)
+                result = storage.save(root, envelope(root, previous=history[-1]))
+            self.assertFalse(result['data']['cleanup_required'])
+            self.assertEqual(selected, [4, storage._SAVE_HISTORY_WORKERS])
+
+    def test_parallel_hash_guard_checks_every_path_after_all_metadata(self):
+        for object_format in ('sha1', 'sha256'):
+            with self.subTest(object_format=object_format), repository(object_format=object_format,
+                    prefix='novel Þóra with spaces-') as root:
+                for number in range(7):
+                    target = root / f'.novel-creator/src/Þóra {number}.py'
+                    target.parent.mkdir(parents=True, exist_ok=True)
+                    target.write_bytes(b'original managed data\n')
+                git(root, 'add', '--', '.novel-creator/src')
+                git(root, 'commit', '-m', 'Disposable complete guard byte fixture')
+                initial = storage.head(root)
+                entries = storage.committed_entries(root, initial)
+                expected = [path for path in entries if path.startswith('.novel-creator/')]
+                checked, hashed = [], []
+                original_git, original_check = storage.git, storage._checked_path
+                def checked_path(root, path, **kwargs):
+                    result = original_check(root, path, **kwargs)
+                    checked.append(path)
+                    return result
+                def traced(root, *args, **kwargs):
+                    if args[0] == 'hash-object':
+                        self.assertEqual(checked, expected)
+                        self.assertEqual(args, ('hash-object', '--no-filters', '--stdin-paths'))
+                        self.assertEqual(kwargs['env'], {'GIT_WORK_TREE': str(root)})
+                        hashed.extend(json.loads(path) for path in kwargs['input'].decode().splitlines())
+                    return original_git(root, *args, **kwargs)
+                with patch.object(storage, '_PARALLEL_HASH_MINIMUM', 1), \
+                        patch.object(storage, '_checked_path', checked_path), patch.object(storage, 'git', traced):
+                    self.assertEqual(storage.check_managed(root, initial, [], entries=entries, hash_workers=4), entries)
+                self.assertCountEqual(hashed, expected)
+                self.assertEqual(len(hashed), len(set(hashed)))
+                # A later unsafe leaf must prevent every content reader, even
+                # when the earlier paths would form a complete first chunk.
+                target = root / expected[-1]
+                target.unlink()
+                target.mkdir()
+                hashed.clear()
+                with patch.object(storage, '_PARALLEL_HASH_MINIMUM', 1), patch.object(storage, 'git', traced):
+                    with self.assertRaises(ToolError) as error:
+                        storage.check_managed(root, initial, [], entries=entries, hash_workers=4)
+                self.assertEqual(error.exception.code, 3)
+                self.assertEqual(hashed, [])
+
+    def test_parallel_hash_guard_preserves_serial_small_fixture_policy(self):
+        with repository() as root:
+            original, calls = storage.git, []
+            def traced(root, *args, **kwargs):
+                if args[0] == 'hash-object':
+                    calls.append(threading.current_thread())
+                return original(root, *args, **kwargs)
+            with patch.object(storage, 'git', traced):
+                storage.check_managed(root, storage.head(root), [], hash_workers=4)
+            self.assertEqual(calls, [threading.current_thread()])
+
+    def test_parallel_final_guard_failures_join_workers_before_releasing_writer(self):
+        for object_format in ('sha1', 'sha256'):
+            for failure in ('incomplete', 'process', 'launch', 'thread'):
+                with self.subTest(object_format=object_format, failure=failure), repository(
+                        object_format=object_format) as root:
+                    first = envelope(root)
+                    storage.save(root, first)
+                    for number in range(6):
+                        target = root / f'.novel-creator/src/resource {number}.py'
+                        target.parent.mkdir(parents=True, exist_ok=True)
+                        target.write_bytes(b'original managed data\n')
+                    git(root, 'add', '--', '.novel-creator/src')
+                    git(root, 'commit', '-m', 'Disposable save resources')
+                    initial = storage.head(root)
+                    index = (root / '.git/index').read_bytes()
+                    second = envelope(root, previous=first)
+                    original, original_guard = storage.git, storage.check_managed
+                    original_executor = storage.ThreadPoolExecutor
+                    phase, completed, selected = threading.Event(), [], []
+                    class UnavailableExecutor(original_executor):
+                        def submit(self, *args, **kwargs):
+                            raise RuntimeError("Injected failure to start a worker thread")
+                    def executor(*args, **kwargs):
+                        selected_executor = UnavailableExecutor if failure == 'thread' and phase.is_set() else original_executor
+                        return selected_executor(*args, **kwargs)
+                    def guard(*args, **kwargs):
+                        selected.append(kwargs.get('hash_workers', 1))
+                        return original_guard(*args, **kwargs)
+                    def fault(point):
+                        if point == 'before_ref':
+                            phase.set()
+                    def fail_hash(root, *args, **kwargs):
+                        if args[0] != 'hash-object' or '--stdin-paths' not in args or not phase.is_set():
+                            return original(root, *args, **kwargs)
+                        paths = [json.loads(path) for path in kwargs['input'].decode().splitlines()]
+                        self.assertTrue((root / '.novel-creator/local/write.lock').exists())
+                        try:
+                            if paths[0] == '.novel-creator/manifest.json':
+                                # This conflict must not mask another chunk's
+                                # incomplete output or Git process failure.
+                                return (('0' * len(initial) + '\n') * len(paths)).encode()
+                            if failure == 'launch':
+                                raise OSError('Injected Git process launch failure')
+                            if failure == 'process':
+                                raise ToolError(5, 'Injected Git process failure')
+                            return b''
+                        finally:
+                            completed.extend(paths)
+                    with patch.object(storage, '_PARALLEL_HASH_MINIMUM', 1), \
+                            patch.object(storage, '_SAVE_HASH_WORKERS', 4), \
+                            patch.object(storage, 'ThreadPoolExecutor', executor), \
+                            patch.object(storage, 'check_managed', guard), patch.object(storage, 'git', fail_hash):
+                        with self.assertRaises(ToolError) as error:
+                            storage.save(root, second, fault=fault)
+                    self.assertEqual(error.exception.code, 5)
+                    self.assertEqual(selected, [storage._INITIAL_HASH_WORKERS, 4])
+                    expected = [path for path in storage.committed_entries(root, initial)
+                                if path.startswith(('.novel-creator/', 'story/exchanges/'))]
+                    self.assertCountEqual(completed, [] if failure == 'thread' else expected)
+                    self.assertEqual(storage.head(root), initial)
+                    self.assertEqual((root / '.git/index').read_bytes(), index)
+                    self.assertFalse((root / '.novel-creator/local/write.lock').exists())
+                    receipt = storage.read_receipt(root, root / '.novel-creator/local' / (second['exchange_id'] + '.json'))
+                    self.assertEqual(receipt['state'], 'pending')
+                    self.assertIn('candidate', receipt)
+
+    def test_parallel_final_guard_rejects_same_stat_edits_and_root_redirection(self):
+        for object_format in ('sha1', 'sha256'):
+            with self.subTest(object_format=object_format), repository(object_format=object_format) as root:
+                first = envelope(root)
+                storage.save(root, first)
+                for number in range(6):
+                    target = root / f'.novel-creator/src/resource {number}.py'
+                    target.parent.mkdir(parents=True, exist_ok=True)
+                    target.write_bytes(b'original managed data\n')
+                git(root, 'add', '--', '.novel-creator/src')
+                git(root, 'commit', '-m', 'Disposable save resources')
+                initial = storage.head(root)
+                index = (root / '.git/index').read_bytes()
+                second = envelope(root, previous=first)
+                target = root / storage.bundle_path(first)
+                before = target.stat()
+                original = target.read_bytes()
+                changed = original.replace(b'Fixture only', b'Fixture evil')
+                self.assertNotEqual(changed, original)
+                self.assertEqual(len(changed), len(original))
+                with tempfile.TemporaryDirectory(prefix='novel-hash-decoy-') as decoy:
+                    for path in storage.committed_entries(root, initial):
+                        source = root / path
+                        destination = Path(decoy) / path
+                        destination.parent.mkdir(parents=True, exist_ok=True)
+                        destination.write_bytes(source.read_bytes())
+                    final_phase = threading.Event()
+                    def fault(point):
+                        if point == 'before_ref':
+                            git(root, 'config', 'core.worktree', decoy)
+                            target.write_bytes(changed)
+                            os.utime(target, ns=(before.st_atime_ns, before.st_mtime_ns))
+                            final_phase.set()
+                    original_git, final_hashes = storage.git, []
+                    def traced(root, *args, **kwargs):
+                        if args[0] == 'hash-object' and '--stdin-paths' in args and final_phase.is_set():
+                            final_hashes.append(kwargs['input'])
+                        return original_git(root, *args, **kwargs)
+                    with patch.object(storage, '_PARALLEL_HASH_MINIMUM', 1), \
+                            patch.object(storage, '_SAVE_HASH_WORKERS', 4), patch.object(storage, 'git', traced):
+                        with self.assertRaises(ToolError) as error:
+                            storage.save(root, second, fault=fault)
+                    self.assertEqual(error.exception.code, 3)
+                    self.assertEqual(storage.head(root), initial)
+                    self.assertEqual((root / '.git/index').read_bytes(), index)
+                    self.assertEqual(target.read_bytes(), changed)
+                    self.assertFalse((root / '.novel-creator/local/write.lock').exists())
+                    self.assertEqual(len(final_hashes), 4)
+                    git(root, 'config', '--unset', 'core.worktree')
+                    target.write_bytes(original)
+                    final_hashes.clear()
+                    final_phase.clear()
+                    with patch.object(storage, '_PARALLEL_HASH_MINIMUM', 1), \
+                            patch.object(storage, '_SAVE_HASH_WORKERS', 4), patch.object(storage, 'git', traced):
+                        saved = storage.save(root, second,
+                            fault=lambda point: final_phase.set() if point == 'before_ref' else None)
+                    self.assertFalse(saved['data']['cleanup_required'])
+                    self.assertEqual(storage.read_history(root), [first, second])
+                    self.assertEqual(len(final_hashes), 4)
+
+    def test_branch_head_query_preserves_git_reference_states(self):
+        for object_format in ('sha1', 'sha256'):
+            with self.subTest(object_format=object_format), repository(object_format=object_format) as root:
+                initial = storage.head(root)
+                def compare(case):
+                    with self.subTest(case=case):
+                        try:
+                            expected = storage.branch(root), storage.head(root)
+                        except ToolError as expected_error:
+                            with self.assertRaises(ToolError) as actual_error:
+                                storage._branch_head(root)
+                            self.assertEqual(actual_error.exception.code, expected_error.code)
+                        else:
+                            self.assertEqual(storage._branch_head(root), expected)
+                compare('normal')
+                git(root, 'branch', 'same-commit', initial)
+                compare('another branch at same OID')
+                git(root, 'pack-refs', '--all')
+                compare('packed refs')
+                git(root, 'checkout', '--detach', initial)
+                compare('detached')
+                git(root, 'symbolic-ref', 'HEAD', 'refs/heads/unborn')
+                compare('unborn')
+                reference = 'refs/heads/Þóra,percent%00;name'
+                git(root, 'update-ref', reference, initial)
+                git(root, 'symbolic-ref', 'HEAD', reference)
+                compare('Unicode and delimiter-like branch name')
+                git(root, 'symbolic-ref', 'refs/heads/alias', 'refs/heads/main')
+                git(root, 'symbolic-ref', 'HEAD', 'refs/heads/alias')
+                compare('recursive symbolic branch')
+                git(root, 'tag', 'fixture-tag', initial)
+                git(root, 'symbolic-ref', 'refs/heads/tag-alias', 'refs/tags/fixture-tag')
+                git(root, 'symbolic-ref', 'HEAD', 'refs/heads/tag-alias')
+                compare('symbolic branch resolving outside local heads')
+
+    def test_branch_head_query_falls_back_for_failed_or_malformed_results(self):
+        with repository() as root:
+            expected = storage.branch(root), storage.head(root)
+            oid = expected[1].encode()
+            other = b'*\0refs/heads/other\0' + oid + b'\n'
+            cases = [
+                (1, other), (0, b''), (0, b'*\0refs/heads/other\n'),
+                (0, other + b'*\0refs/heads/main\0' + oid + b'\n'),
+                (0, b'*\0refs/remotes/other\0' + oid + b'\n'),
+                (0, b'*\0refs/heads/other\0' + b'z' * len(oid) + b'\n'),
+                (0, b'*\0refs/heads/other\0abc\n'),
+                (0, b'*\0refs/heads/\xff\0' + oid + b'\n'),
+            ]
+            original = storage.git
+            for status, output in cases:
+                def query(root, *args, **kwargs):
+                    if args[0] == 'for-each-ref':
+                        return subprocess.CompletedProcess(args, status, output, b'')
+                    return original(root, *args, **kwargs)
+                with self.subTest(status=status, output=output), patch.object(storage, 'git', query):
+                    self.assertEqual(storage._branch_head(root), expected)
+
+    def test_switch_to_same_oid_branch_preserves_publication_and_cleanup_boundaries(self):
+        for object_format in ('sha1', 'sha256'):
+            for point in ('before_ref', 'after_ref'):
+                with self.subTest(object_format=object_format, point=point), repository(object_format=object_format) as root:
+                    first = envelope(root)
+                    initial = storage.save(root, first)['checkpoint']['git_head']
+                    second = envelope(root, previous=first)
+                    git(root, 'branch', 'other', initial)
+                    baseline = (root / '.git/index').read_bytes()
+                    def switch(actual):
+                        if actual == point:
+                            # Same OID means a commit-only check cannot detect this.
+                            if point == 'after_ref':
+                                git(root, 'branch', '-f', 'other', storage.head(root))
+                            git(root, 'symbolic-ref', 'HEAD', 'refs/heads/other')
+                    if point == 'before_ref':
+                        with self.assertRaises(ToolError) as error:
+                            storage.save(root, second, fault=switch)
+                        self.assertEqual(error.exception.code, 3)
+                        self.assertEqual(git(root, 'rev-parse', 'refs/heads/main'), initial)
+                        self.assertEqual(storage.head(root), initial)
+                        self.assertEqual(storage.read_history(root), [first])
+                    else:
+                        result = storage.save(root, second, fault=switch)
+                        self.assertTrue(result['data']['saved'])
+                        self.assertTrue(result['data']['cleanup_required'])
+                        self.assertEqual(git(root, 'rev-parse', 'refs/heads/main'), result['checkpoint']['git_head'])
+                        self.assertEqual(storage.head(root), result['checkpoint']['git_head'])
+                        self.assertEqual(storage.read_history(root), [first, second])
+                    self.assertEqual(storage.branch(root), 'refs/heads/other')
+                    self.assertEqual((root / '.git/index').read_bytes(), baseline)
+                    self.assertFalse((root / '.novel-creator/local/write.lock').exists())
+
+    def test_edit_after_background_guard_during_validation_stays_pending(self):
+        for object_format in ('sha1', 'sha256'):
+            with self.subTest(object_format=object_format), repository(object_format=object_format) as root:
+                first = envelope(root)
+                saved = storage.save(root, first)
+                initial = saved['checkpoint']['git_head']
+                second = envelope(root, previous=first)
+                target = root / storage.bundle_path(first)
+                before = target.stat()
+                changed = target.read_bytes().replace(b'Fixture only', b'Fixture evil')
+                self.assertNotEqual(changed, target.read_bytes())
+                self.assertEqual(len(changed), before.st_size)
+                index = (root / '.git/index').read_bytes()
+                ready = threading.Event()
+                owner = threading.current_thread()
+                original_guard, original_reader = storage.check_managed, storage._read_snapshot
+                def guard(*args, **kwargs):
+                    result = original_guard(*args, **kwargs)
+                    if threading.current_thread() is not owner:
+                        ready.set()
+                    return result
+                def reader(*args, **kwargs):
+                    result = original_reader(*args, **kwargs)
+                    self.assertTrue(ready.wait(10), 'First guard did not finish during validation')
+                    target.write_bytes(changed)
+                    os.utime(target, ns=(before.st_atime_ns, before.st_mtime_ns))
+                    return result
+                with patch.object(storage, 'check_managed', guard), patch.object(storage, '_read_snapshot', reader):
+                    with self.assertRaises(ToolError) as error:
+                        storage.save(root, second)
+                self.assertEqual(error.exception.code, 3)
+                self.assertEqual(storage.head(root), initial)
+                self.assertEqual((root / '.git/index').read_bytes(), index)
+                self.assertEqual(target.read_bytes(), changed)
+                self.assertFalse((root / '.novel-creator/local/write.lock').exists())
+                receipt = storage.read_receipt(root, root / '.novel-creator/local' / (second['exchange_id'] + '.json'))
+                self.assertEqual(receipt['state'], 'pending')
+                self.assertIn('candidate', receipt)
+                report = storage.recover(root, second['exchange_id'])
+                self.assertEqual(report['data']['state'], 'pending')
+                self.assertFalse(report['data']['saved'])
+                self.assertEqual(report['checkpoint'], saved['checkpoint'])
+                self.assertEqual(storage.read_history(root), [first])
+
+    def test_unreadable_history_keeps_precedence_over_background_guard_failure(self):
+        for object_format in ('sha1', 'sha256'):
+            with self.subTest(object_format=object_format), repository(object_format=object_format) as root:
+                first = envelope(root)
+                saved = storage.save(root, first)
+                second = envelope(root, previous=first)
+                damaged = root / storage.bundle_path(second)
+                damaged.write_bytes(b'{broken history}\n')
+                git(root, 'add', '--', storage.bundle_path(second))
+                git(root, 'commit', '-m', 'Disposable unreadable journal fixture')
+                initial = storage.head(root)
+                following = envelope(root, previous=second)
+                target = root / storage.bundle_path(first)
+                changed = target.read_bytes().replace(b'Fixture only', b'Fixture evil')
+                target.write_bytes(changed)
+                index = (root / '.git/index').read_bytes()
+                failed = threading.Event()
+                owner = threading.current_thread()
+                original_guard, original_reader = storage.check_managed, storage._read_snapshot
+                def guard(*args, **kwargs):
+                    try:
+                        return original_guard(*args, **kwargs)
+                    except ToolError as error:
+                        if threading.current_thread() is not owner:
+                            self.assertEqual(error.code, 3)
+                            failed.set()
+                        raise
+                def reader(*args, **kwargs):
+                    self.assertTrue(failed.wait(10), 'Background guard failure was not exercised')
+                    return original_reader(*args, **kwargs)
+                with patch.object(storage, 'check_managed', guard), patch.object(storage, '_read_snapshot', reader):
+                    with self.assertRaises(ToolError) as error:
+                        storage.save(root, following)
+                self.assertEqual(error.exception.code, 4)
+                self.assertEqual(error.exception.checkpoint, saved['checkpoint'])
+                self.assertEqual(storage.head(root), initial)
+                self.assertEqual((root / '.git/index').read_bytes(), index)
+                self.assertEqual(target.read_bytes(), changed)
+                self.assertEqual(damaged.read_bytes(), b'{broken history}\n')
+                self.assertFalse((root / '.novel-creator/local/write.lock').exists())
+                self.assertFalse((root / storage.bundle_path(following)).exists())
+                self.assertFalse((root / '.novel-creator/local' / (following['exchange_id'] + '.json')).exists())
+
+    def test_explicit_history_snapshot_stays_bound_after_head_advances(self):
+        for object_format in ('sha1', 'sha256'):
+            with self.subTest(object_format=object_format), repository(object_format=object_format) as root:
+                first = envelope(root)
+                saved = storage.save(root, first)
+                initial = saved['checkpoint']['git_head']
+                second = envelope(root, previous=first)
+                storage.save(root, second)
+                old_history, _ = storage.read_snapshot(root, initial)
+                current_history, _ = storage.read_snapshot(root)
+                self.assertEqual(old_history, [first])
+                self.assertEqual(current_history, [first, second])
+                self.assertNotEqual(storage.head(root), initial)
+
+    def test_second_guard_rejects_tampering_under_changed_worktree_config_and_index_prefix(self):
+        for object_format in ('sha1', 'sha256'):
+            with self.subTest(object_format=object_format), tempfile.TemporaryDirectory(
+                    prefix='novel-worktree-decoy-') as ancestor, repository(
+                    object_format=object_format, parent=ancestor) as root:
+                first = envelope(root)
+                saved = storage.save(root, first)
+                initial = saved['checkpoint']['git_head']
+                entries = storage.committed_entries(root, initial)
+                for path in entries:
+                    decoy = Path(ancestor) / path
+                    decoy.parent.mkdir(parents=True, exist_ok=True)
+                    decoy.write_bytes((root / path).read_bytes())
+                target = root / storage.bundle_path(first)
+                original = target.read_bytes()
+                changed = original.replace(b'Fixture only', b'Fixture evil')
+                self.assertNotEqual(original, changed)
+                self.assertEqual(len(original), len(changed))
+                before = target.stat()
+                external_index = []
+                def tamper(point):
+                    if point == 'before_ref':
+                        # Git's configured prefix can hide original index entries
+                        # and expose these duplicates under their old short names.
+                        payload = b''.join(f'{mode} {oid} 0\t{root.name}/{path}\0'.encode()
+                                           for path, (mode, oid) in entries.items())
+                        storage.git(root, 'update-index', '-z', '--index-info', input=payload)
+                        storage.git(root, 'config', 'core.worktree', ancestor)
+                        external_index.append((root / '.git/index').read_bytes())
+                        target.write_bytes(changed)
+                        os.utime(target, ns=(before.st_atime_ns, before.st_mtime_ns))
+                with patch.object(storage, '_PARALLEL_HASH_MINIMUM', 1), \
+                        patch.object(storage, '_SAVE_HASH_WORKERS', 4), self.assertRaises(ToolError) as error:
+                    storage.save(root, envelope(root, previous=first), fault=tamper)
+                self.assertEqual(error.exception.code, 3)
+                self.assertEqual(storage.head(root), initial)
+                self.assertEqual((root / '.git/index').read_bytes(), external_index[0])
+                self.assertEqual(target.read_bytes(), changed)
+
+    def test_full_file_guard_uses_novel_root_and_fresh_bytes_and_index(self):
+        for object_format in ('sha1', 'sha256'):
+            with self.subTest(object_format=object_format), repository(
+                    object_format=object_format, prefix='novel Þóra with spaces-') as root:
+                first = envelope(root)
+                storage.save(root, first)
+                relative = '.novel-creator/src/Þóra with spaces.py'
+                target = root / relative
+                target.parent.mkdir(parents=True, exist_ok=True)
+                original = b'original managed data\n'
+                changed = b'tampered managed data\n'
+                self.assertEqual(len(original), len(changed))
+                target.write_bytes(original)
+                git(root, 'add', '--', relative)
+                git(root, 'commit', '-m', 'Managed Unicode fixture')
+                commit = storage.head(root)
+                entries = storage.committed_entries(root, commit)
+                original_stat = target.stat()
+                with tempfile.TemporaryDirectory(prefix='novel-decoy-') as decoy:
+                    decoy_file = Path(decoy) / relative
+                    decoy_file.parent.mkdir(parents=True)
+                    decoy_file.write_bytes(original)
+                    previous = os.getcwd()
+                    try:
+                        os.chdir(decoy)
+                        with patch.dict(os.environ, {'GIT_WORK_TREE': decoy, 'GIT_DIR': str(Path(decoy) / '.git')}):
+                            self.assertEqual(storage.check_managed(root, commit, [], entries=entries), entries)
+                            target.write_bytes(changed)
+                            os.utime(target, ns=(original_stat.st_atime_ns, original_stat.st_mtime_ns))
+                            with self.assertRaises(ToolError) as error:
+                                storage.check_managed(root, commit, [], entries=entries)
+                            self.assertEqual(error.exception.code, 3)
+                            # Git add may legitimately skip a same-stat edit;
+                            # stage the known changed blob explicitly.
+                            oid = storage.git(root, 'hash-object', '-w', '--stdin', input=changed).decode().strip()
+                            storage.git(root, 'update-index', '--cacheinfo', f'100644,{oid},{relative}')
+                            staged = (root / '.git/index').read_bytes()
+                            target.write_bytes(original)
+                            with self.assertRaises(ToolError) as error:
+                                storage.check_managed(root, commit, [], entries=entries)
+                            self.assertEqual(error.exception.code, 3)
+                            self.assertEqual((root / '.git/index').read_bytes(), staged)
+                            self.assertEqual(storage.head(root), commit)
+                    finally:
+                        os.chdir(previous)
+
+    def test_shared_directory_checks_are_fresh_for_each_guard_pass(self):
+        with repository() as root:
+            first = envelope(root)
+            saved = storage.save(root, first)
+            commit = saved['checkpoint']['git_head']
+            entries = storage.check_managed(root, commit, [])
+            directory = root / 'story/exchanges'
+            backup = root / '.novel-creator/local/exchanges-backup'
+            directory.rename(backup)
+            try:
+                try:
+                    directory.symlink_to(backup, target_is_directory=True)
+                except OSError as error:
+                    if getattr(error, 'winerror', None) == 1314:
+                        self.skipTest('Real symlink rejection unverified: Windows symlink privilege unavailable (1314)')
+                    raise
+                with self.assertRaises(ToolError) as error:
+                    storage.check_managed(root, commit, [], entries=entries)
+                self.assertEqual(error.exception.code, 2)
+                self.assertEqual(storage.head(root), commit)
+            finally:
+                if directory.is_symlink():
+                    directory.unlink()
+                backup.rename(directory)
+
+    def test_second_guard_rejects_same_stat_byte_change_after_candidate(self):
+        for object_format in ('sha1', 'sha256'):
+            with self.subTest(object_format=object_format), repository(object_format=object_format) as root:
+                first = envelope(root)
+                saved = storage.save(root, first)
+                target = root / storage.bundle_path(first)
+                original = target.read_bytes()
+                before = target.stat()
+                index = (root / '.git/index').read_bytes()
+                changed = original.replace(b'Fixture only', b'Fixture evil')
+                self.assertNotEqual(original, changed)
+                self.assertEqual(len(original), len(changed))
+                def alter(point):
+                    if point == 'before_ref':
+                        target.write_bytes(changed)
+                        os.utime(target, ns=(before.st_atime_ns, before.st_mtime_ns))
+                with self.assertRaises(ToolError) as error:
+                    storage.save(root, envelope(root, previous=first), fault=alter)
+                self.assertEqual(error.exception.code, 3)
+                self.assertEqual(storage.head(root), saved['checkpoint']['git_head'])
+                self.assertEqual((root / '.git/index').read_bytes(), index)
+                self.assertEqual(target.read_bytes(), changed)
+
+    def test_byte_hash_guard_rejects_same_size_same_timestamp_edits_for_both_git_formats(self):
+        for object_format in ('sha1', 'sha256'):
+            with self.subTest(object_format=object_format), repository(object_format=object_format) as root:
+                initial = envelope(root)
+                initial['continuity_review']['summary'] = 'Fixture only: Þóra\r\n'
+                initial = seal(initial)
+                storage.save(root, initial)
+                checkpoint = storage.head(root)
+                self.assertEqual(len(checkpoint), 40 if object_format == 'sha1' else 64)
+                path = root / storage.bundle_path(initial)
+                before = path.stat()
+                raw = path.read_bytes()
+                changed = raw.replace(b'Fixture only', b'Fixture evil')
+                self.assertNotEqual(raw, changed)
+                self.assertEqual(len(raw), len(changed))
+                path.write_bytes(changed)
+                os.utime(path, ns=(before.st_atime_ns, before.st_mtime_ns))
+                index = (root / '.git/index').read_bytes()
+                with self.assertRaises(ToolError) as error:
+                    storage.save(root, envelope(root, previous=initial))
+                self.assertEqual(error.exception.code, 3)
+                self.assertEqual(storage.head(root), checkpoint)
+                self.assertEqual((root / '.git/index').read_bytes(), index)
+                self.assertEqual(path.read_bytes(), changed)
+
+    def test_clean_save_continuation_and_retry_leave_managed_index_synchronized(self):
+        for unborn in (False, True):
+            with self.subTest(unborn=unborn), repository(unborn=unborn) as root:
+                first = envelope(root)
+                for data in (first, envelope(root, previous=first)):
+                    # The next exchange must expect the checkpoint just saved.
+                    data = seal(dict(data, expected_git_head=storage.head(root)))
+                    saved = storage.save(root, data)
+                    self.assertFalse(saved['data']['cleanup_required'])
+                    self.assertEqual(git(root, 'diff', '--cached', '--name-only'), '')
+                    receipt = root / '.novel-creator/local' / (data['exchange_id'] + '.json')
+                    self.assertFalse(json.loads(receipt.read_text())['cleanup_required'])
+                    retry = storage.save(root, data)
+                    self.assertEqual(retry['checkpoint'], saved['checkpoint'])
+                    self.assertTrue(retry['data']['already_saved'])
+                    self.assertFalse(retry['data']['cleanup_required'])
+                self.assertEqual(len(storage.read_history(root)), 2)
+
+    def test_private_index_preserves_unrelated_staged_and_manuscript(self):
+        with repository() as root:
+            manuscript = root / 'chapter.md'
+            manuscript.write_text('Approved Þóra text')
+            git(root, 'add', 'chapter.md')
+            baseline = git(root, 'ls-files', '--stage', '--', 'chapter.md')
+            original = hashlib.sha256(manuscript.read_bytes()).hexdigest()
+            data = envelope(root)
+            result = storage.save(root, data)
+            self.assertTrue(result['data']['saved'])
+            self.assertEqual(git(root, 'ls-files', '--stage', '--', 'chapter.md'), baseline)
+            self.assertEqual(hashlib.sha256(manuscript.read_bytes()).hexdigest(), original)
+            self.assertEqual(git(root, 'diff-tree', '--no-commit-id', '--name-only', '-r', 'HEAD'), storage.bundle_path(data))
+            self.assertEqual(git(root, 'diff', '--cached', '--name-only'), 'chapter.md')
+            self.assertEqual(storage.read_history(root)[0], data)
+
+    def test_unborn_bootstrap_and_identical_changed_retry(self):
+        with repository(unborn=True) as root:
+            data = envelope(root)
+            result = storage.save(root, data)
+            checkpoint = result['checkpoint']
+            self.assertEqual(git(root, 'rev-list', '--count', 'HEAD'), '1')
+            self.assertEqual(storage.save(root, data)['checkpoint'], checkpoint)
+            self.assertTrue(storage.save(root, data)['data']['already_saved'])
+            changed = seal(dict(data, recorded_at='2026-10-21T13:00:00Z'))
+            with self.assertRaises(ToolError) as error: storage.save(root, changed)
+            self.assertEqual(error.exception.code, 3)
+            self.assertEqual(git(root, 'rev-list', '--count', 'HEAD'), '1')
+
+    def test_competing_commit_before_publication_never_contains_candidate(self):
+        with repository() as root:
+            data = envelope(root)
+            (root / 'notes.txt').write_text('Unrelated staged')
+            git(root, 'add', 'notes.txt')
+            index = (root / '.git/index').read_bytes()
+            competitor = []
+            def compete(point):
+                if point == 'before_ref':
+                    tree = git(root, 'rev-parse', 'HEAD^{tree}')
+                    candidate = git(root, 'commit-tree', tree, '-p', 'HEAD', '-m', 'External writer')
+                    git(root, 'update-ref', 'refs/heads/main', candidate, git(root, 'rev-parse', 'HEAD'))
+                    competitor.append(candidate)
+            with self.assertRaises(ToolError) as error: storage.save(root, data, fault=compete)
+            self.assertEqual(error.exception.code, 3)
+            self.assertEqual(error.exception.result()['error'].get('expected_git_head'), data['expected_git_head'])
+            self.assertEqual(error.exception.result()['error'].get('actual_git_head'), competitor[0])
+            self.assertEqual(git(root, 'rev-parse', 'HEAD'), competitor[0])
+            self.assertEqual((root / '.git/index').read_bytes(), index)
+            self.assertEqual(storage.read_history(root), [])
+            self.assertEqual(git(root, 'log', '--oneline', '--all', '--', storage.bundle_path(data)), '')
+            self.assertTrue((root / storage.bundle_path(data)).exists())
+
+    def test_fault_windows_preserve_authority_and_pending_payload(self):
+        for point in ('before_file', 'after_file', 'after_candidate', 'before_ref'):
+            with self.subTest(point=point), repository() as root:
+                data = envelope(root)
+                head = git(root, 'rev-parse', 'HEAD')
+                with self.assertRaises(ToolError) as error: storage.save(root, data, fault=FailAt(point))
+                self.assertEqual(error.exception.code, 5)
+                self.assertEqual(error.exception.pending, data['exchange_id'])
+                self.assertEqual(git(root, 'rev-parse', 'HEAD'), head)
+                self.assertEqual(storage.read_history(root), [])
+                self.assertTrue(storage.save(root, data)['data']['saved'])
+
+    def test_published_cleanup_failure_is_saved_and_pauses_writes(self):
+        with repository() as root:
+            first = envelope(root)
+            result = storage.save(root, first, fault=FailAt('before_cleanup'))
+            self.assertTrue(result['ok'])
+            self.assertTrue(result['data']['cleanup_required'])
+            self.assertEqual(storage.read_history(root), [first])
+            with self.assertRaises(ToolError): storage.save(root, envelope(root, previous=first))
+            retry = storage.save(root, first)
+            self.assertTrue(retry['data']['already_saved'])
+            self.assertTrue(retry['data']['cleanup_required'])
+
+    def test_receipt_failure_returns_published_checkpoint_without_replay(self):
+        with repository() as root:
+            data = envelope(root)
+            result = storage.save(root, data, fault=FailAt('before_receipt'))
+            self.assertTrue(result['data']['saved'])
+            again = storage.save(root, data)
+            self.assertTrue(again['data']['already_saved'])
+            self.assertEqual(again['checkpoint'], result['checkpoint'])
+
+    def test_lock_stale_parent_and_managed_changes(self):
+        with repository() as root:
+            data = envelope(root)
+            lock = root / '.novel-creator/local/write.lock'
+            lock.mkdir()
+            with self.assertRaises(ToolError) as error: storage.save(root, data)
+            self.assertEqual(error.exception.code, 6)
+            lock.rmdir()
+            with self.assertRaises(ToolError) as error: storage.save(root, seal(dict(data, expected_git_head='0' * 40)))
+            self.assertEqual(error.exception.code, 3)
+            (root / '.novel-creator/manifest.json').write_text('{}')
+            with self.assertRaises(ToolError): storage.save(root, data)
+
+    def test_stale_checkpoint_diagnostics_include_expected_and_actual_heads(self):
+        for unborn in (False, True):
+            with self.subTest(unborn=unborn), repository(unborn=unborn) as root:
+                actual = storage.head(root)
+                data = envelope(root, expected_git_head='0' * 40)
+                with self.assertRaises(ToolError) as error:
+                    storage.save(root, data)
+                details = error.exception.result()['error']
+                self.assertEqual(error.exception.code, 3)
+                self.assertEqual(details.get('expected_git_head'), '0' * 40)
+                self.assertIn('actual_git_head', details)
+                self.assertEqual(details['actual_git_head'], actual)
+                self.assertEqual(storage.head(root), actual)
+                self.assertFalse((root / storage.bundle_path(data)).exists())
+
+    def test_held_lock_reports_failure_context_without_mutating_owner_or_saved_work(self):
+        for context in ('saved', 'unborn', 'unreadable', 'non_utf8'):
+            if context == 'non_utf8' and os.name == 'nt':
+                continue  # Windows filenames do not expose arbitrary byte names.
+            with self.subTest(context=context), repository(unborn=context == 'unborn') as root:
+                expected = None
+                if context in ('saved', 'non_utf8'):
+                    first = envelope(root)
+                    expected = storage.save(root, first)['checkpoint']
+                    data = envelope(root, previous=first)
+                else:
+                    data = envelope(root)
+                affected = []
+                if context == 'unreadable':
+                    relative = storage.bundle_path(data)
+                    (root / relative).parent.mkdir(parents=True)
+                    (root / relative).write_text('[]')
+                    git(root, 'add', relative)
+                    git(root, 'commit', '-m', 'Unreadable fixture')
+                    affected = [relative]
+                if context == 'non_utf8':
+                    with open(os.fsencode(root) + b'/notes-\xff.txt', 'wb') as stream:
+                        stream.write(b'Unrelated user file')
+                    git(root, 'add', '--all')
+                    git(root, 'commit', '-m', 'Byte filename fixture')
+                    expected = None  # Inspection cannot validate this committed tree.
+                (root / 'notes.txt').write_text('Unrelated staged work')
+                git(root, 'add', 'notes.txt')
+                lock = root / '.novel-creator/local/write.lock'
+                lock.mkdir()
+                (lock / 'owner.json').write_text('{"pid":12345,"note":"existing owner"}')
+                initial = storage.head(root)
+                index = (root / '.git/index').read_bytes()
+                managed = {path.relative_to(root): path.read_bytes() for directory in
+                           (root / 'story', root / '.novel-creator')
+                           for path in directory.rglob('*') if path.is_file()}
+                with self.assertRaises(ToolError) as error:
+                    storage.save(root, data)
+                self.assertEqual(error.exception.code, 6)
+                self.assertEqual(error.exception.pending, data['exchange_id'])
+                self.assertEqual(error.exception.checkpoint, expected)
+                self.assertEqual(error.exception.affected_refs, affected)
+                self.assertEqual(storage.head(root), initial)
+                self.assertEqual((root / '.git/index').read_bytes(), index)
+                self.assertTrue(lock.is_dir())
+                self.assertEqual({path.relative_to(root): path.read_bytes() for directory in
+                                  (root / 'story', root / '.novel-creator')
+                                  for path in directory.rglob('*') if path.is_file()}, managed)
+
+    def test_traversal_and_payload_paths_rejected(self):
+        with repository() as root:
+            for path in ('../outside', 'story/../chapter.md', '/tmp/outside', 'chapter.md'):
+                with self.subTest(path=path), self.assertRaises(ToolError): storage.safe_path(root, path)
+        with repository() as root:
+            data = envelope(root, destination='../chapter.md')
+            with self.assertRaises(ToolError): storage.save(root, data)
+
+    def test_managed_path_canonical_spelling_and_allowlist(self):
+        # Near-miss exchange names must not inherit the canonical bundle allowlist.
+        canonical = 'story/exchanges/000001-12345678-1234-1234-1234-123456789abc.json'
+        invalid = [
+            '', '/' + canonical, './' + canonical, canonical + '/',
+            canonical.replace('story/', 'story//'),
+            canonical.replace('/exchanges/', '/./exchanges/'),
+            canonical.replace('/exchanges/', '/../exchanges/'),
+            canonical.replace('/', '\\'), canonical + '\x00', canonical + '\n',
+            canonical + '\r', canonical.upper(), canonical[:-5] + '.JSON',
+            canonical.replace('000001-', '00001-'), canonical.replace('9abc', '9abg'),
+            '.novel-creator/local/../manifest.json',
+            '.novel-creator/local//receipt.json',
+            '.novel-creator/local/./receipt.json',
+            '.novel-creator/src/../manifest.json',
+            '.agents/skills/novel-init//SKILL.md',
+        ]
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder)
+            for setup in (False, True):
+                for relative in invalid:
+                    with self.subTest(relative=relative, setup=setup), self.assertRaises(ToolError):
+                        storage.safe_path(root, relative, setup=setup)
+            for relative in (canonical, canonical.replace('000001-', '1000000-'),
+                             '.novel-creator/local/receipt.json', '.novel-creator/manifest.json'):
+                with self.subTest(relative=relative):
+                    self.assertEqual(storage.safe_path(root, relative), root / relative)
+            for relative in ('.gitignore', '.gitattributes', 'AGENTS.md',
+                             '.novel-creator/src/example.py', '.novel-creator/schemas/example.json',
+                             '.novel-creator/workflows/example.md', '.novel-creator/languages/is.json',
+                             '.novel-creator/run.py', '.agents/skills/novel-init/SKILL.md'):
+                with self.subTest(relative=relative):
+                    self.assertEqual(storage.safe_path(root, relative, setup=True), root / relative)
+                    with self.assertRaises(ToolError):
+                        storage.safe_path(root, relative)
+
+    def test_real_symlink_path_rejected_when_creation_is_available(self):
+        with repository() as root:
+            try:
+                (root / 'story').symlink_to(root / '.novel-creator', target_is_directory=True)
+            except OSError as error:
+                if getattr(error, 'winerror', None) == 1314:
+                    self.skipTest('Real symlink rejection unverified: Windows symlink privilege unavailable (1314)')
+                raise
+            with self.assertRaises(ToolError):
+                storage.save(root, envelope(root))
+
+    def test_unrelated_index_change_during_save_survives_cleanup(self):
+        with repository() as root:
+            def stage(point):
+                if point == 'before_ref':
+                    (root / 'new.txt').write_text('User change')
+                    git(root, 'add', 'new.txt')
+            result = storage.save(root, envelope(root), fault=stage)
+            self.assertFalse(result['data']['cleanup_required'])
+            self.assertEqual(git(root, 'diff', '--cached', '--name-only'), 'new.txt')
+
+    def test_pending_bundle_change_after_candidate_is_rejected(self):
+        with repository() as root:
+            data = envelope(root)
+            initial = git(root, 'rev-parse', 'HEAD')
+            def tamper(point):
+                if point == 'before_ref':
+                    (root / storage.bundle_path(data)).write_text('{}')
+            with self.assertRaises(ToolError): storage.save(root, data, fault=tamper)
+            self.assertEqual(git(root, 'rev-parse', 'HEAD'), initial)
+
+    def test_managed_staged_change_during_save_reports_conflict(self):
+        with repository() as root:
+            data = envelope(root)
+            initial = git(root, 'rev-parse', 'HEAD')
+            def stage(point):
+                if point == 'before_ref':
+                    git(root, 'add', storage.bundle_path(data))
+            with self.assertRaises(ToolError): storage.save(root, data, fault=stage)
+            self.assertEqual(git(root, 'rev-parse', 'HEAD'), initial)
+            self.assertIn(storage.bundle_path(data), git(root, 'diff', '--cached', '--name-only'))
+
+    def test_post_ref_interruption_returns_saved_cleanup_warning(self):
+        with repository() as root:
+            data = envelope(root)
+            result = storage.save(root, data, fault=FailAt('after_ref'))
+            self.assertTrue(result['data']['saved'])
+            self.assertTrue(result['data']['cleanup_required'])
+            self.assertTrue(storage.save(root, data)['data']['cleanup_required'])
+
+    def test_unsupported_committed_schema_is_unavailable(self):
+        with repository() as root:
+            data = envelope(root)
+            path = root / storage.bundle_path(data)
+            path.parent.mkdir(parents=True)
+            path.write_text(json.dumps(seal(dict(data, schema_version='2.0'))))
+            git(root, 'add', storage.bundle_path(data))
+            git(root, 'commit', '-m', 'Unsupported record')
+            with self.assertRaises(ToolError) as error: storage.read_history(root)
+            self.assertEqual(error.exception.code, 4)
+
+    def test_nonobject_committed_json_is_unavailable(self):
+        for raw in ('[]', 'null', '"not an envelope"', '42'):
+            with self.subTest(raw=raw), repository() as root:
+                data = envelope(root)
+                relative = storage.bundle_path(data)
+                path = root / relative
+                path.parent.mkdir(parents=True)
+                path.write_text(raw)
+                git(root, 'add', relative)
+                git(root, 'commit', '-m', 'Malformed fixture')
+                initial = git(root, 'rev-parse', 'HEAD')
+                index = (root / '.git/index').read_bytes()
+                with self.assertRaises(ToolError) as error:
+                    storage.read_history(root)
+                self.assertEqual(error.exception.code, 4)
+                self.assertIn(relative, error.exception.affected_refs)
+                self.assertEqual(git(root, 'rev-parse', 'HEAD'), initial)
+                self.assertEqual((root / '.git/index').read_bytes(), index)
+
+    def test_unreadable_successor_retains_last_verifiable_checkpoint(self):
+        for damage in ('[]', '{', 'unsupported'):
+            with self.subTest(damage=damage), repository() as root:
+                first = envelope(root)
+                saved = storage.save(root, first)
+                second = envelope(root, previous=first)
+                relative = storage.bundle_path(second)
+                raw = json.dumps(seal(dict(second, schema_version='2.0'))) if damage == 'unsupported' else damage
+                (root / relative).write_text(raw)
+                git(root, 'add', relative)
+                git(root, 'commit', '-m', 'Unreadable successor fixture')
+                initial = git(root, 'rev-parse', 'HEAD')
+                index = (root / '.git/index').read_bytes()
+                data = envelope(root, previous=second)
+                for operation in (lambda: storage.read_history(root), lambda: storage.save(root, data)):
+                    with self.assertRaises(ToolError) as error:
+                        operation()
+                    self.assertEqual(error.exception.code, 4)
+                    self.assertEqual(error.exception.checkpoint, saved['checkpoint'])
+                    self.assertIn(relative, error.exception.affected_refs)
+                self.assertEqual(git(root, 'rev-parse', 'HEAD'), initial)
+                self.assertEqual((root / '.git/index').read_bytes(), index)
+                self.assertFalse((root / storage.bundle_path(data)).exists())
+
+    def test_valid_prefix_never_labels_a_damaged_commit_as_a_checkpoint(self):
+        with repository() as root:
+            first = envelope(root)
+            saved = storage.save(root, first)
+            edited = seal(dict(first, recorded_at='2026-10-21T13:00:00Z'))
+            (root / storage.bundle_path(first)).write_text(json.dumps(edited))
+            second = envelope(root, previous=edited)
+            (root / storage.bundle_path(second)).write_text('[]')
+            git(root, 'add', storage.bundle_path(first), storage.bundle_path(second))
+            git(root, 'commit', '-m', 'Altered prefix and damaged successor')
+            with self.assertRaises(ToolError) as error:
+                storage.read_history(root)
+            self.assertEqual(error.exception.checkpoint,
+                             {'git_head': None, 'exchange_id': first['exchange_id'], 'sequence': 1})
+            self.assertNotEqual(error.exception.checkpoint['git_head'], saved['checkpoint']['git_head'])
+
+    def test_malformed_receipts_block_retry_and_further_saves(self):
+        for raw in ('[]', 'null', '{}', '{', '{"state":"pending","bundle":[]}'):
+            with self.subTest(raw=raw), repository() as root:
+                first = envelope(root)
+                saved = storage.save(root, first)
+                relative = f'.novel-creator/local/{first["exchange_id"]}.json'
+                receipt = root / relative
+                receipt.write_text(raw)
+                index = (root / '.git/index').read_bytes()
+                for data in (first, envelope(root, previous=first)):
+                    with self.subTest(retry=data == first), self.assertRaises(ToolError) as error:
+                        storage.save(root, data)
+                    self.assertEqual(error.exception.code, 4)
+                    self.assertIn(relative, error.exception.affected_refs)
+                    self.assertEqual(error.exception.checkpoint, saved['checkpoint'])
+                self.assertEqual(git(root, 'rev-parse', 'HEAD'), saved['checkpoint']['git_head'])
+                self.assertEqual((root / '.git/index').read_bytes(), index)
+                self.assertEqual(receipt.read_text(), raw)
+
+    def test_lock_cleanup_error_after_publication_still_returns_saved(self):
+        from unittest.mock import patch
+        with repository() as root:
+            data = envelope(root)
+            original = Path.rmdir
+            def fail_lock(path):
+                if path.name == 'write.lock':
+                    raise OSError('Injected writer-lock cleanup failure')
+                return original(path)
+            with patch.object(Path, 'rmdir', fail_lock):
+                result = storage.save(root, data)
+            self.assertTrue(result['data']['saved'])
+            self.assertTrue(result['data']['cleanup_required'])
+            self.assertTrue(result['warnings'])
+            self.assertEqual(storage.read_history(root), [data])
+
+    def test_lost_receipt_after_publication_detects_index_cleanup(self):
+        with repository() as root:
+            data = envelope(root)
+            result = storage.save(root, data, fault=FailAt('before_cleanup'))
+            (root / '.novel-creator/local' / (data['exchange_id'] + '.json')).unlink()
+            retry = storage.save(root, data)
+            self.assertTrue(retry['data']['already_saved'])
+            self.assertTrue(retry['data']['cleanup_required'])
+            self.assertEqual(retry['checkpoint'], result['checkpoint'])
+
+    def test_missing_git_identity_leaves_pending_and_authority_unchanged(self):
+        with repository() as root:
+            data = envelope(root)
+            initial = git(root, 'rev-parse', 'HEAD')
+            git(root, 'config', 'user.name', '')
+            with self.assertRaises(ToolError) as error: storage.save(root, data)
+            self.assertEqual(error.exception.code, 5)
+            self.assertEqual(git(root, 'rev-parse', 'HEAD'), initial)
+            self.assertEqual(error.exception.checkpoint['git_head'], initial)
+
+    def test_lost_receipt_after_cleanup_remains_clean_identical_success(self):
+        with repository() as root:
+            data = envelope(root)
+            result = storage.save(root,data)
+            (root / '.novel-creator/local' / (data['exchange_id']+'.json')).unlink()
+            retry = storage.save(root,data)
+            self.assertTrue(retry['data']['already_saved'])
+            self.assertFalse(retry['data']['cleanup_required'])
+            self.assertEqual(retry['checkpoint'],result['checkpoint'])

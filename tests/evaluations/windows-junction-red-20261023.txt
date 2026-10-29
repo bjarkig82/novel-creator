@@ -1,0 +1,66 @@
+test_managed_components_reject_directory_and_file_reparse_points (tests.integration.test_path_redirection.PathRedirectionTests.test_managed_components_reject_directory_and_file_reparse_points) ... 
+  test_managed_components_reject_directory_and_file_reparse_points (tests.integration.test_path_redirection.PathRedirectionTests.test_managed_components_reject_directory_and_file_reparse_points) (path='C:\\Users\\BjarkiGunnarsson\\AppData\\Local\\Temp\\tmpby1agznz\\story', native=False) ... FAIL
+  test_managed_components_reject_directory_and_file_reparse_points (tests.integration.test_path_redirection.PathRedirectionTests.test_managed_components_reject_directory_and_file_reparse_points) (path='C:\\Users\\BjarkiGunnarsson\\AppData\\Local\\Temp\\tmpby1agznz\\story', native=True) ... FAIL
+  test_managed_components_reject_directory_and_file_reparse_points (tests.integration.test_path_redirection.PathRedirectionTests.test_managed_components_reject_directory_and_file_reparse_points) (path='C:\\Users\\BjarkiGunnarsson\\AppData\\Local\\Temp\\tmpby1agznz\\story\\exchanges\\000001-12a0d959-4b13-4c92-9efb-04a9eaba25e6.json', native=False) ... FAIL
+  test_managed_components_reject_directory_and_file_reparse_points (tests.integration.test_path_redirection.PathRedirectionTests.test_managed_components_reject_directory_and_file_reparse_points) (path='C:\\Users\\BjarkiGunnarsson\\AppData\\Local\\Temp\\tmpby1agznz\\story\\exchanges\\000001-12a0d959-4b13-4c92-9efb-04a9eaba25e6.json', native=True) ... FAIL
+test_real_junction_cannot_redirect_exchange_publication (tests.integration.test_path_redirection.PathRedirectionTests.test_real_junction_cannot_redirect_exchange_publication) ... FAIL
+test_real_junction_cannot_redirect_git_directory (tests.integration.test_path_redirection.PathRedirectionTests.test_real_junction_cannot_redirect_git_directory) ... FAIL
+
+======================================================================
+FAIL: test_managed_components_reject_directory_and_file_reparse_points (tests.integration.test_path_redirection.PathRedirectionTests.test_managed_components_reject_directory_and_file_reparse_points) (path='C:\\Users\\BjarkiGunnarsson\\AppData\\Local\\Temp\\tmpby1agznz\\story', native=False)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_path_redirection.py", line 38, in test_managed_components_reject_directory_and_file_reparse_points
+    self.assertEqual(caught.exception.code, 2)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 3 != 2
+
+======================================================================
+FAIL: test_managed_components_reject_directory_and_file_reparse_points (tests.integration.test_path_redirection.PathRedirectionTests.test_managed_components_reject_directory_and_file_reparse_points) (path='C:\\Users\\BjarkiGunnarsson\\AppData\\Local\\Temp\\tmpby1agznz\\story', native=True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_path_redirection.py", line 38, in test_managed_components_reject_directory_and_file_reparse_points
+    self.assertEqual(caught.exception.code, 2)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 3 != 2
+
+======================================================================
+FAIL: test_managed_components_reject_directory_and_file_reparse_points (tests.integration.test_path_redirection.PathRedirectionTests.test_managed_components_reject_directory_and_file_reparse_points) (path='C:\\Users\\BjarkiGunnarsson\\AppData\\Local\\Temp\\tmpby1agznz\\story\\exchanges\\000001-12a0d959-4b13-4c92-9efb-04a9eaba25e6.json', native=False)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_path_redirection.py", line 36, in test_managed_components_reject_directory_and_file_reparse_points
+    with self.assertRaises(ToolError) as caught:
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+AssertionError: ToolError not raised
+
+======================================================================
+FAIL: test_managed_components_reject_directory_and_file_reparse_points (tests.integration.test_path_redirection.PathRedirectionTests.test_managed_components_reject_directory_and_file_reparse_points) (path='C:\\Users\\BjarkiGunnarsson\\AppData\\Local\\Temp\\tmpby1agznz\\story\\exchanges\\000001-12a0d959-4b13-4c92-9efb-04a9eaba25e6.json', native=True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_path_redirection.py", line 36, in test_managed_components_reject_directory_and_file_reparse_points
+    with self.assertRaises(ToolError) as caught:
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+AssertionError: ToolError not raised
+
+======================================================================
+FAIL: test_real_junction_cannot_redirect_exchange_publication (tests.integration.test_path_redirection.PathRedirectionTests.test_real_junction_cannot_redirect_exchange_publication)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_path_redirection.py", line 59, in test_real_junction_cannot_redirect_exchange_publication
+    self.assertEqual(caught.exception.code, 2)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 5 != 2
+
+======================================================================
+FAIL: test_real_junction_cannot_redirect_git_directory (tests.integration.test_path_redirection.PathRedirectionTests.test_real_junction_cannot_redirect_git_directory)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_path_redirection.py", line 79, in test_real_junction_cannot_redirect_git_directory
+    with self.assertRaises(ToolError) as caught:
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+AssertionError: ToolError not raised
+
+----------------------------------------------------------------------
+Ran 3 tests in 1.178s
+
+FAILED (failures=6)

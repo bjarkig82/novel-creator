@@ -1,0 +1,20 @@
+[
+  {
+    "id": "msg_02f80cb399e0759d016ae1c89564fc8191bbfbc2a249c2522a",
+    "text": "I’ll read the saved context, capture the current input, and save the prepared response before displaying it.",
+    "classification": "administrative",
+    "reason": "Operational capture, context preparation and save checks only; no story disclosures."
+  },
+  {
+    "id": "msg_02f80cb399e0759d016ae1c8ea117481918dd7013285363198",
+    "text": "I’m preparing the separate captures and checkpoint from the saved records. The response will be saved as one exchange before display.",
+    "classification": "administrative",
+    "reason": "Operational capture, context preparation and save checks only; no story disclosures."
+  },
+  {
+    "id": "msg_02f80cb399e0759d016ae1c92fdb7c8191ae82324476babbc2",
+    "text": "The exchange is prepared. I’m saving it through the installed launcher, then checking the persisted reply and writing the report.",
+    "classification": "administrative",
+    "reason": "Operational capture, context preparation and save checks only; no story disclosures."
+  }
+]

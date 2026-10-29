@@ -1,0 +1,9 @@
+{
+  "case_id": "A01",
+  "source_type": "delegated",
+  "novice_evidence": false,
+  "inputs": {
+    "en": "Accept the keeper as the sender.",
+    "is": "Samþykktu að vitavörðurinn sé sendandinn."
+  }
+}

@@ -1,0 +1,1052 @@
+{
+  "schema_version": "1.0",
+  "novel_id": "efe877df-1995-4cd1-a927-a8d17e0a66ef",
+  "exchange_id": "c9a9796b-a830-4ed1-a55a-9327cbfef657",
+  "sequence": 6,
+  "previous_exchange_id": "c11573ee-7eec-407f-b5a0-92a12521a59d",
+  "previous_digest": "4c404ddcd28cb4423917bacb651410e5e098c5cf8df66c00c65a32094aefef5b",
+  "session_id": "2f3c8a6f-d830-47cf-a0d6-78a7b06e24fa",
+  "expected_git_head": "e6b2e5862597ae7ecb16a6d2e6083d00daa74992",
+  "recorded_at": "2026-10-23T23:11:03.004913Z",
+  "operation": "conversation",
+  "messages": [
+    {
+      "message_id": "e07d8905-5d15-41c8-b3f9-58b7b60f184e",
+      "role": "user",
+      "text": "Case CAPTURE3. Start a third guided session called Island. Six further possibilities: the island has no bridge; the letter bears a brass seal; Rúna has sworn to protect Edda; a tunnel might link the lighthouse and harbour; the tide might expose old steps; a hidden room might contain a map. I accept that the island has no bridge. I choose the brass seal. Establish Rúna's protective oath as a fact. Keep the tunnel, steps and hidden room as proposals. One question remains open: What opens the hidden room? Do not answer it or invent other facts."
+    },
+    {
+      "message_id": "58c04823-6ac4-42f0-939b-6ed485be12f2",
+      "role": "assistant",
+      "text": "Island is now a guided session; People and Events are preserved.\n\nEstablished: the island has no bridge; the letter bears a brass seal; Rúna has sworn to protect Edda.\n\nStill proposed: a tunnel linking the lighthouse and harbour; the tide exposing old steps; a hidden room containing a map.\n\nOpen and unanswered: What opens the hidden room?"
+    }
+  ],
+  "input_artifacts": [
+    {
+      "artifact_id": "6b2a8cc6-4eca-4611-91be-d3809ca6c6d3",
+      "original_text": "{\"kind\":\"host_input\",\"source_type\":\"delegated\",\"thread_id\":\"01a16af9-f289-73c1-8151-55f50ace05d9\",\"turn_id\":\"01a16b07-5499-72f3-af94-0959b0351571\",\"event_id\":\"fco_01a16b07-549a-77a3-9c0e-3a67ef5be585\",\"event_type\":\"functionCallOutput\",\"source_thread_id\":\"01a16af6-0d9b-7173-a5f5-c8775f37df18\",\"native_user_input\":false,\"novice_evidence\":false,\"evaluation_only\":true,\"text\":\"Case CAPTURE3. Start a third guided session called Island. Six further possibilities: the island has no bridge; the letter bears a brass seal; Rúna has sworn to protect Edda; a tunnel might link the lighthouse and harbour; the tide might expose old steps; a hidden room might contain a map. I accept that the island has no bridge. I choose the brass seal. Establish Rúna's protective oath as a fact. Keep the tunnel, steps and hidden room as proposals. One question remains open: What opens the hidden room? Do not answer it or invent other facts.\",\"public_event\":{\"type\":\"functionCallOutput\",\"id\":\"fco_01a16b07-549a-77a3-9c0e-3a67ef5be585\",\"namespace\":\"codex_app\",\"name\":\"send_message_to_thread\",\"output\":{\"text\":\"<codex_delegation>\\n  <source_thread_id>01a16af6-0d9b-7173-a5f5-c8775f37df18</source_thread_id>\\n  <input>Case CAPTURE3. Start a third guided session called Island. Six further possibilities: the island has no bridge; the letter bears a brass seal; Rúna has sworn to protect Edda; a tunnel might link the lighthouse and harbour; the tide might expose old steps; a hidden room might contain a map. I accept that the island has no bridge. I choose the brass seal. Establish Rúna's protective oath as a fact. Keep the tunnel, steps and hidden room as proposals. One question remains open: What opens the hidden room? Do not answer it or invent other facts.</input>\\n</codex_delegation>\",\"truncated\":false}}}",
+      "parsed_value": {
+        "kind": "host_input",
+        "source_type": "delegated",
+        "thread_id": "01a16af9-f289-73c1-8151-55f50ace05d9",
+        "turn_id": "01a16b07-5499-72f3-af94-0959b0351571",
+        "event_id": "fco_01a16b07-549a-77a3-9c0e-3a67ef5be585",
+        "event_type": "functionCallOutput",
+        "source_thread_id": "01a16af6-0d9b-7173-a5f5-c8775f37df18",
+        "native_user_input": false,
+        "novice_evidence": false,
+        "evaluation_only": true,
+        "text": "Case CAPTURE3. Start a third guided session called Island. Six further possibilities: the island has no bridge; the letter bears a brass seal; Rúna has sworn to protect Edda; a tunnel might link the lighthouse and harbour; the tide might expose old steps; a hidden room might contain a map. I accept that the island has no bridge. I choose the brass seal. Establish Rúna's protective oath as a fact. Keep the tunnel, steps and hidden room as proposals. One question remains open: What opens the hidden room? Do not answer it or invent other facts.",
+        "public_event": {
+          "type": "functionCallOutput",
+          "id": "fco_01a16b07-549a-77a3-9c0e-3a67ef5be585",
+          "namespace": "codex_app",
+          "name": "send_message_to_thread",
+          "output": {
+            "text": "<codex_delegation>\n  <source_thread_id>01a16af6-0d9b-7173-a5f5-c8775f37df18</source_thread_id>\n  <input>Case CAPTURE3. Start a third guided session called Island. Six further possibilities: the island has no bridge; the letter bears a brass seal; Rúna has sworn to protect Edda; a tunnel might link the lighthouse and harbour; the tide might expose old steps; a hidden room might contain a map. I accept that the island has no bridge. I choose the brass seal. Establish Rúna's protective oath as a fact. Keep the tunnel, steps and hidden room as proposals. One question remains open: What opens the hidden room? Do not answer it or invent other facts.</input>\n</codex_delegation>",
+            "truncated": false
+          }
+        }
+      },
+      "digest": "5836f1d93f40dcd71924333d703d1ba220b470f71511beb28ba9ec143c4909ff"
+    }
+  ],
+  "record_versions": [
+    {
+      "id": "2f3c8a6f-d830-47cf-a0d6-78a7b06e24fa",
+      "kind": "session",
+      "revision": 1,
+      "previous_revision": null,
+      "created_exchange_id": "c9a9796b-a830-4ed1-a55a-9327cbfef657",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "c9a9796b-a830-4ed1-a55a-9327cbfef657",
+          "message_id": "e07d8905-5d15-41c8-b3f9-58b7b60f184e",
+          "range": {
+            "start": 15,
+            "end": 58
+          }
+        }
+      ],
+      "topic": "Island",
+      "mode": "guided",
+      "state": "open",
+      "started_exchange_id": "c9a9796b-a830-4ed1-a55a-9327cbfef657",
+      "last_exchange_id": "c9a9796b-a830-4ed1-a55a-9327cbfef657",
+      "related_record_ids": [
+        "0e247ac4-2d73-431b-b475-085f05311131",
+        "4471cb08-60e4-4813-b8f2-15ebe7340763",
+        "d91f8522-8972-4f54-860f-76282dfd336b",
+        "69769b80-4bd3-4f48-9d55-0e98ea41d1e7",
+        "80571280-ee87-45c4-afcc-aaf55059472f",
+        "9d53b874-b979-4c46-9fe8-295bfe75aef9",
+        "e4373870-e479-4f0a-b188-e6aba1f7606b",
+        "e8398003-52fe-42c5-b3c6-607123132db1",
+        "ddcd5d58-1632-46b0-aa49-866d770efa00",
+        "99745c9d-6a2b-478a-864d-a6b1d180855d",
+        "fc2916e6-384b-41b2-975f-9deb06204d72",
+        "2923bc2a-3901-45dd-96a7-386bfb5682ca",
+        "0541d70e-c004-4e9a-821c-44eb8a897310",
+        "413c58c5-b4cb-4948-b521-46126c76f909",
+        "d86a81e6-4a7a-4e99-9648-38aadd1f0435",
+        "ac4ffee3-0ed5-4741-a854-ccf39c3d6d0c",
+        "7c9035ba-6dc2-4adb-88a0-db0727fbe774",
+        "74735d72-8932-41c2-82ea-398ee8a4db87",
+        "164e1880-d4dd-4ddb-81b5-5defe2947b2e",
+        "5b23e031-535d-419d-a3ab-e97757785c40",
+        "5f20bb36-0d0d-4e9a-8566-cab4ce01ad37",
+        "fd7c3b23-607d-47eb-a05a-a70974185ea5",
+        "2586c21a-f2a3-460c-88af-4639d21ad460"
+      ],
+      "unresolved_question_ids": [
+        "5f20bb36-0d0d-4e9a-8566-cab4ce01ad37"
+      ],
+      "derived_context_ref": null
+    },
+    {
+      "id": "0e247ac4-2d73-431b-b475-085f05311131",
+      "kind": "story_element",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "c9a9796b-a830-4ed1-a55a-9327cbfef657",
+          "message_id": "e07d8905-5d15-41c8-b3f9-58b7b60f184e",
+          "range": {
+            "start": 86,
+            "end": 110
+          }
+        }
+      ],
+      "created_exchange_id": "c9a9796b-a830-4ed1-a55a-9327cbfef657",
+      "origin": "supplied",
+      "element_type": "location",
+      "display_name": "Island",
+      "aliases": [],
+      "status": "accepted",
+      "assertion_ids": [
+        "d91f8522-8972-4f54-860f-76282dfd336b"
+      ],
+      "relationship_ids": [],
+      "dependency_refs": [],
+      "time_ref": null,
+      "decision_ids": [
+        "80571280-ee87-45c4-afcc-aaf55059472f"
+      ]
+    },
+    {
+      "id": "4471cb08-60e4-4813-b8f2-15ebe7340763",
+      "kind": "story_element",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "c9a9796b-a830-4ed1-a55a-9327cbfef657",
+          "message_id": "e07d8905-5d15-41c8-b3f9-58b7b60f184e",
+          "range": {
+            "start": 112,
+            "end": 141
+          }
+        }
+      ],
+      "created_exchange_id": "c9a9796b-a830-4ed1-a55a-9327cbfef657",
+      "origin": "supplied",
+      "element_type": "plot_thread",
+      "display_name": "Letter",
+      "aliases": [],
+      "status": "accepted",
+      "assertion_ids": [
+        "9d53b874-b979-4c46-9fe8-295bfe75aef9"
+      ],
+      "relationship_ids": [],
+      "dependency_refs": [],
+      "time_ref": null,
+      "decision_ids": [
+        "e8398003-52fe-42c5-b3c6-607123132db1"
+      ]
+    },
+    {
+      "id": "d91f8522-8972-4f54-860f-76282dfd336b",
+      "kind": "assertion",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "c9a9796b-a830-4ed1-a55a-9327cbfef657",
+          "message_id": "e07d8905-5d15-41c8-b3f9-58b7b60f184e",
+          "range": {
+            "start": 86,
+            "end": 110
+          }
+        }
+      ],
+      "created_exchange_id": "c9a9796b-a830-4ed1-a55a-9327cbfef657",
+      "origin": "supplied",
+      "subject_element_id": "0e247ac4-2d73-431b-b475-085f05311131",
+      "predicate": "has_bridge",
+      "value": false,
+      "perspective": "author_truth",
+      "holder_id": null,
+      "reader_audience": null,
+      "time_ref": {
+        "chronology": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        },
+        "narrative": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        }
+      },
+      "truth_state": "affirmed",
+      "status": "accepted",
+      "decision_ids": [
+        "80571280-ee87-45c4-afcc-aaf55059472f"
+      ],
+      "supersedes": null
+    },
+    {
+      "id": "69769b80-4bd3-4f48-9d55-0e98ea41d1e7",
+      "kind": "idea",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "c9a9796b-a830-4ed1-a55a-9327cbfef657",
+          "message_id": "e07d8905-5d15-41c8-b3f9-58b7b60f184e",
+          "range": {
+            "start": 86,
+            "end": 110
+          }
+        }
+      ],
+      "created_exchange_id": "c9a9796b-a830-4ed1-a55a-9327cbfef657",
+      "origin": "supplied",
+      "statement": "The island has no bridge.",
+      "status": "accepted",
+      "related_element_ids": [
+        "0e247ac4-2d73-431b-b475-085f05311131"
+      ],
+      "alternative_group_id": null,
+      "selected_parts": [
+        "The island has no bridge."
+      ],
+      "decision_ids": [
+        "80571280-ee87-45c4-afcc-aaf55059472f"
+      ],
+      "resulting_assertion_ids": [
+        "d91f8522-8972-4f54-860f-76282dfd336b"
+      ]
+    },
+    {
+      "id": "80571280-ee87-45c4-afcc-aaf55059472f",
+      "kind": "decision",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "c9a9796b-a830-4ed1-a55a-9327cbfef657",
+          "message_id": "e07d8905-5d15-41c8-b3f9-58b7b60f184e",
+          "range": {
+            "start": 291,
+            "end": 330
+          }
+        }
+      ],
+      "created_exchange_id": "c9a9796b-a830-4ed1-a55a-9327cbfef657",
+      "origin": "supplied",
+      "action": "accept",
+      "user_message_ref": {
+        "type": "message",
+        "exchange_id": "c9a9796b-a830-4ed1-a55a-9327cbfef657",
+        "message_id": "e07d8905-5d15-41c8-b3f9-58b7b60f184e",
+        "range": {
+          "start": 291,
+          "end": 330
+        }
+      },
+      "span": {
+        "start": 291,
+        "end": 330
+      },
+      "target_refs": [
+        {
+          "id": "69769b80-4bd3-4f48-9d55-0e98ea41d1e7",
+          "revision": 1
+        },
+        {
+          "id": "d91f8522-8972-4f54-860f-76282dfd336b",
+          "revision": 1
+        },
+        {
+          "id": "0e247ac4-2d73-431b-b475-085f05311131",
+          "revision": 1
+        }
+      ],
+      "selected_parts": [
+        "The island has no bridge."
+      ],
+      "prior_refs": [],
+      "result_refs": [
+        {
+          "id": "69769b80-4bd3-4f48-9d55-0e98ea41d1e7",
+          "revision": 1
+        },
+        {
+          "id": "d91f8522-8972-4f54-860f-76282dfd336b",
+          "revision": 1
+        },
+        {
+          "id": "0e247ac4-2d73-431b-b475-085f05311131",
+          "revision": 1
+        }
+      ],
+      "reason": "Explicit current simulated director selection.",
+      "affected_refs": [
+        {
+          "id": "69769b80-4bd3-4f48-9d55-0e98ea41d1e7",
+          "revision": 1
+        },
+        {
+          "id": "d91f8522-8972-4f54-860f-76282dfd336b",
+          "revision": 1
+        },
+        {
+          "id": "0e247ac4-2d73-431b-b475-085f05311131",
+          "revision": 1
+        }
+      ],
+      "review_required_refs": []
+    },
+    {
+      "id": "9d53b874-b979-4c46-9fe8-295bfe75aef9",
+      "kind": "assertion",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "c9a9796b-a830-4ed1-a55a-9327cbfef657",
+          "message_id": "e07d8905-5d15-41c8-b3f9-58b7b60f184e",
+          "range": {
+            "start": 112,
+            "end": 141
+          }
+        }
+      ],
+      "created_exchange_id": "c9a9796b-a830-4ed1-a55a-9327cbfef657",
+      "origin": "supplied",
+      "subject_element_id": "4471cb08-60e4-4813-b8f2-15ebe7340763",
+      "predicate": "seal_material",
+      "value": "brass",
+      "perspective": "author_truth",
+      "holder_id": null,
+      "reader_audience": null,
+      "time_ref": {
+        "chronology": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        },
+        "narrative": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        }
+      },
+      "truth_state": "affirmed",
+      "status": "accepted",
+      "decision_ids": [
+        "e8398003-52fe-42c5-b3c6-607123132db1"
+      ],
+      "supersedes": null
+    },
+    {
+      "id": "e4373870-e479-4f0a-b188-e6aba1f7606b",
+      "kind": "idea",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "c9a9796b-a830-4ed1-a55a-9327cbfef657",
+          "message_id": "e07d8905-5d15-41c8-b3f9-58b7b60f184e",
+          "range": {
+            "start": 112,
+            "end": 141
+          }
+        }
+      ],
+      "created_exchange_id": "c9a9796b-a830-4ed1-a55a-9327cbfef657",
+      "origin": "supplied",
+      "statement": "The letter bears a brass seal.",
+      "status": "accepted",
+      "related_element_ids": [
+        "4471cb08-60e4-4813-b8f2-15ebe7340763"
+      ],
+      "alternative_group_id": null,
+      "selected_parts": [
+        "The letter bears a brass seal."
+      ],
+      "decision_ids": [
+        "e8398003-52fe-42c5-b3c6-607123132db1"
+      ],
+      "resulting_assertion_ids": [
+        "9d53b874-b979-4c46-9fe8-295bfe75aef9"
+      ]
+    },
+    {
+      "id": "e8398003-52fe-42c5-b3c6-607123132db1",
+      "kind": "decision",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "c9a9796b-a830-4ed1-a55a-9327cbfef657",
+          "message_id": "e07d8905-5d15-41c8-b3f9-58b7b60f184e",
+          "range": {
+            "start": 331,
+            "end": 355
+          }
+        }
+      ],
+      "created_exchange_id": "c9a9796b-a830-4ed1-a55a-9327cbfef657",
+      "origin": "supplied",
+      "action": "accept",
+      "user_message_ref": {
+        "type": "message",
+        "exchange_id": "c9a9796b-a830-4ed1-a55a-9327cbfef657",
+        "message_id": "e07d8905-5d15-41c8-b3f9-58b7b60f184e",
+        "range": {
+          "start": 331,
+          "end": 355
+        }
+      },
+      "span": {
+        "start": 331,
+        "end": 355
+      },
+      "target_refs": [
+        {
+          "id": "e4373870-e479-4f0a-b188-e6aba1f7606b",
+          "revision": 1
+        },
+        {
+          "id": "9d53b874-b979-4c46-9fe8-295bfe75aef9",
+          "revision": 1
+        },
+        {
+          "id": "4471cb08-60e4-4813-b8f2-15ebe7340763",
+          "revision": 1
+        }
+      ],
+      "selected_parts": [
+        "The letter bears a brass seal."
+      ],
+      "prior_refs": [],
+      "result_refs": [
+        {
+          "id": "e4373870-e479-4f0a-b188-e6aba1f7606b",
+          "revision": 1
+        },
+        {
+          "id": "9d53b874-b979-4c46-9fe8-295bfe75aef9",
+          "revision": 1
+        },
+        {
+          "id": "4471cb08-60e4-4813-b8f2-15ebe7340763",
+          "revision": 1
+        }
+      ],
+      "reason": "Explicit current simulated director selection.",
+      "affected_refs": [
+        {
+          "id": "e4373870-e479-4f0a-b188-e6aba1f7606b",
+          "revision": 1
+        },
+        {
+          "id": "9d53b874-b979-4c46-9fe8-295bfe75aef9",
+          "revision": 1
+        },
+        {
+          "id": "4471cb08-60e4-4813-b8f2-15ebe7340763",
+          "revision": 1
+        }
+      ],
+      "review_required_refs": []
+    },
+    {
+      "id": "ddcd5d58-1632-46b0-aa49-866d770efa00",
+      "kind": "relationship",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "c9a9796b-a830-4ed1-a55a-9327cbfef657",
+          "message_id": "e07d8905-5d15-41c8-b3f9-58b7b60f184e",
+          "range": {
+            "start": 143,
+            "end": 173
+          }
+        }
+      ],
+      "created_exchange_id": "c9a9796b-a830-4ed1-a55a-9327cbfef657",
+      "origin": "supplied",
+      "from_element_id": "fd7c3b23-607d-47eb-a05a-a70974185ea5",
+      "to_element_id": "2586c21a-f2a3-460c-88af-4639d21ad460",
+      "meaning": "has sworn to protect",
+      "perspective": "author_truth",
+      "holder_id": null,
+      "reader_audience": null,
+      "time_ref": {
+        "chronology": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        },
+        "narrative": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        }
+      },
+      "status": "accepted",
+      "decision_ids": [
+        "fc2916e6-384b-41b2-975f-9deb06204d72"
+      ]
+    },
+    {
+      "id": "99745c9d-6a2b-478a-864d-a6b1d180855d",
+      "kind": "idea",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "c9a9796b-a830-4ed1-a55a-9327cbfef657",
+          "message_id": "e07d8905-5d15-41c8-b3f9-58b7b60f184e",
+          "range": {
+            "start": 143,
+            "end": 173
+          }
+        }
+      ],
+      "created_exchange_id": "c9a9796b-a830-4ed1-a55a-9327cbfef657",
+      "origin": "supplied",
+      "statement": "Rúna has sworn to protect Edda.",
+      "status": "accepted",
+      "related_element_ids": [
+        "fd7c3b23-607d-47eb-a05a-a70974185ea5",
+        "2586c21a-f2a3-460c-88af-4639d21ad460"
+      ],
+      "alternative_group_id": null,
+      "selected_parts": [
+        "Rúna has sworn to protect Edda."
+      ],
+      "decision_ids": [
+        "fc2916e6-384b-41b2-975f-9deb06204d72"
+      ],
+      "resulting_assertion_ids": []
+    },
+    {
+      "id": "fc2916e6-384b-41b2-975f-9deb06204d72",
+      "kind": "decision",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "c9a9796b-a830-4ed1-a55a-9327cbfef657",
+          "message_id": "e07d8905-5d15-41c8-b3f9-58b7b60f184e",
+          "range": {
+            "start": 356,
+            "end": 399
+          }
+        }
+      ],
+      "created_exchange_id": "c9a9796b-a830-4ed1-a55a-9327cbfef657",
+      "origin": "supplied",
+      "action": "accept",
+      "user_message_ref": {
+        "type": "message",
+        "exchange_id": "c9a9796b-a830-4ed1-a55a-9327cbfef657",
+        "message_id": "e07d8905-5d15-41c8-b3f9-58b7b60f184e",
+        "range": {
+          "start": 356,
+          "end": 399
+        }
+      },
+      "span": {
+        "start": 356,
+        "end": 399
+      },
+      "target_refs": [
+        {
+          "id": "99745c9d-6a2b-478a-864d-a6b1d180855d",
+          "revision": 1
+        },
+        {
+          "id": "ddcd5d58-1632-46b0-aa49-866d770efa00",
+          "revision": 1
+        }
+      ],
+      "selected_parts": [
+        "Rúna has sworn to protect Edda."
+      ],
+      "prior_refs": [],
+      "result_refs": [
+        {
+          "id": "99745c9d-6a2b-478a-864d-a6b1d180855d",
+          "revision": 1
+        },
+        {
+          "id": "ddcd5d58-1632-46b0-aa49-866d770efa00",
+          "revision": 1
+        }
+      ],
+      "reason": "Explicit current simulated director selection.",
+      "affected_refs": [
+        {
+          "id": "99745c9d-6a2b-478a-864d-a6b1d180855d",
+          "revision": 1
+        },
+        {
+          "id": "ddcd5d58-1632-46b0-aa49-866d770efa00",
+          "revision": 1
+        }
+      ],
+      "review_required_refs": []
+    },
+    {
+      "id": "2923bc2a-3901-45dd-96a7-386bfb5682ca",
+      "kind": "story_element",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "c9a9796b-a830-4ed1-a55a-9327cbfef657",
+          "message_id": "e07d8905-5d15-41c8-b3f9-58b7b60f184e",
+          "range": {
+            "start": 175,
+            "end": 221
+          }
+        }
+      ],
+      "created_exchange_id": "c9a9796b-a830-4ed1-a55a-9327cbfef657",
+      "origin": "supplied",
+      "element_type": "location",
+      "display_name": "Tunnel",
+      "aliases": [],
+      "status": "proposed",
+      "assertion_ids": [],
+      "relationship_ids": [],
+      "dependency_refs": [],
+      "time_ref": null,
+      "decision_ids": []
+    },
+    {
+      "id": "0541d70e-c004-4e9a-821c-44eb8a897310",
+      "kind": "story_element",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "c9a9796b-a830-4ed1-a55a-9327cbfef657",
+          "message_id": "e07d8905-5d15-41c8-b3f9-58b7b60f184e",
+          "range": {
+            "start": 175,
+            "end": 221
+          }
+        }
+      ],
+      "created_exchange_id": "c9a9796b-a830-4ed1-a55a-9327cbfef657",
+      "origin": "supplied",
+      "element_type": "location",
+      "display_name": "Lighthouse",
+      "aliases": [],
+      "status": "proposed",
+      "assertion_ids": [],
+      "relationship_ids": [],
+      "dependency_refs": [],
+      "time_ref": null,
+      "decision_ids": []
+    },
+    {
+      "id": "413c58c5-b4cb-4948-b521-46126c76f909",
+      "kind": "story_element",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "c9a9796b-a830-4ed1-a55a-9327cbfef657",
+          "message_id": "e07d8905-5d15-41c8-b3f9-58b7b60f184e",
+          "range": {
+            "start": 175,
+            "end": 221
+          }
+        }
+      ],
+      "created_exchange_id": "c9a9796b-a830-4ed1-a55a-9327cbfef657",
+      "origin": "supplied",
+      "element_type": "location",
+      "display_name": "Harbour",
+      "aliases": [],
+      "status": "proposed",
+      "assertion_ids": [],
+      "relationship_ids": [],
+      "dependency_refs": [],
+      "time_ref": null,
+      "decision_ids": []
+    },
+    {
+      "id": "d86a81e6-4a7a-4e99-9648-38aadd1f0435",
+      "kind": "idea",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "c9a9796b-a830-4ed1-a55a-9327cbfef657",
+          "message_id": "e07d8905-5d15-41c8-b3f9-58b7b60f184e",
+          "range": {
+            "start": 175,
+            "end": 221
+          }
+        }
+      ],
+      "created_exchange_id": "c9a9796b-a830-4ed1-a55a-9327cbfef657",
+      "origin": "supplied",
+      "statement": "A tunnel might link the lighthouse and harbour.",
+      "status": "proposed",
+      "related_element_ids": [
+        "2923bc2a-3901-45dd-96a7-386bfb5682ca",
+        "0541d70e-c004-4e9a-821c-44eb8a897310",
+        "413c58c5-b4cb-4948-b521-46126c76f909"
+      ],
+      "alternative_group_id": null,
+      "selected_parts": [],
+      "decision_ids": [],
+      "resulting_assertion_ids": []
+    },
+    {
+      "id": "ac4ffee3-0ed5-4741-a854-ccf39c3d6d0c",
+      "kind": "story_element",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "c9a9796b-a830-4ed1-a55a-9327cbfef657",
+          "message_id": "e07d8905-5d15-41c8-b3f9-58b7b60f184e",
+          "range": {
+            "start": 223,
+            "end": 254
+          }
+        }
+      ],
+      "created_exchange_id": "c9a9796b-a830-4ed1-a55a-9327cbfef657",
+      "origin": "supplied",
+      "element_type": "location",
+      "display_name": "Old steps",
+      "aliases": [],
+      "status": "proposed",
+      "assertion_ids": [],
+      "relationship_ids": [],
+      "dependency_refs": [],
+      "time_ref": null,
+      "decision_ids": []
+    },
+    {
+      "id": "7c9035ba-6dc2-4adb-88a0-db0727fbe774",
+      "kind": "story_element",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "c9a9796b-a830-4ed1-a55a-9327cbfef657",
+          "message_id": "e07d8905-5d15-41c8-b3f9-58b7b60f184e",
+          "range": {
+            "start": 223,
+            "end": 254
+          }
+        }
+      ],
+      "created_exchange_id": "c9a9796b-a830-4ed1-a55a-9327cbfef657",
+      "origin": "supplied",
+      "element_type": "event",
+      "display_name": "Tide exposing old steps",
+      "aliases": [],
+      "status": "proposed",
+      "assertion_ids": [],
+      "relationship_ids": [],
+      "dependency_refs": [],
+      "time_ref": null,
+      "decision_ids": []
+    },
+    {
+      "id": "74735d72-8932-41c2-82ea-398ee8a4db87",
+      "kind": "idea",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "c9a9796b-a830-4ed1-a55a-9327cbfef657",
+          "message_id": "e07d8905-5d15-41c8-b3f9-58b7b60f184e",
+          "range": {
+            "start": 223,
+            "end": 254
+          }
+        }
+      ],
+      "created_exchange_id": "c9a9796b-a830-4ed1-a55a-9327cbfef657",
+      "origin": "supplied",
+      "statement": "The tide might expose old steps.",
+      "status": "proposed",
+      "related_element_ids": [
+        "7c9035ba-6dc2-4adb-88a0-db0727fbe774",
+        "ac4ffee3-0ed5-4741-a854-ccf39c3d6d0c"
+      ],
+      "alternative_group_id": null,
+      "selected_parts": [],
+      "decision_ids": [],
+      "resulting_assertion_ids": []
+    },
+    {
+      "id": "164e1880-d4dd-4ddb-81b5-5defe2947b2e",
+      "kind": "story_element",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "c9a9796b-a830-4ed1-a55a-9327cbfef657",
+          "message_id": "e07d8905-5d15-41c8-b3f9-58b7b60f184e",
+          "range": {
+            "start": 256,
+            "end": 289
+          }
+        }
+      ],
+      "created_exchange_id": "c9a9796b-a830-4ed1-a55a-9327cbfef657",
+      "origin": "supplied",
+      "element_type": "location",
+      "display_name": "Hidden room",
+      "aliases": [],
+      "status": "proposed",
+      "assertion_ids": [],
+      "relationship_ids": [],
+      "dependency_refs": [],
+      "time_ref": null,
+      "decision_ids": []
+    },
+    {
+      "id": "5b23e031-535d-419d-a3ab-e97757785c40",
+      "kind": "idea",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "c9a9796b-a830-4ed1-a55a-9327cbfef657",
+          "message_id": "e07d8905-5d15-41c8-b3f9-58b7b60f184e",
+          "range": {
+            "start": 256,
+            "end": 289
+          }
+        }
+      ],
+      "created_exchange_id": "c9a9796b-a830-4ed1-a55a-9327cbfef657",
+      "origin": "supplied",
+      "statement": "A hidden room might contain a map.",
+      "status": "proposed",
+      "related_element_ids": [
+        "164e1880-d4dd-4ddb-81b5-5defe2947b2e"
+      ],
+      "alternative_group_id": null,
+      "selected_parts": [],
+      "decision_ids": [],
+      "resulting_assertion_ids": []
+    },
+    {
+      "id": "5f20bb36-0d0d-4e9a-8566-cab4ce01ad37",
+      "kind": "question",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "c9a9796b-a830-4ed1-a55a-9327cbfef657",
+          "message_id": "e07d8905-5d15-41c8-b3f9-58b7b60f184e",
+          "range": {
+            "start": 480,
+            "end": 507
+          }
+        }
+      ],
+      "created_exchange_id": "c9a9796b-a830-4ed1-a55a-9327cbfef657",
+      "origin": "supplied",
+      "text": "What opens the hidden room?",
+      "related_refs": [
+        {
+          "id": "164e1880-d4dd-4ddb-81b5-5defe2947b2e",
+          "revision": 1
+        }
+      ],
+      "alternative_ids": [],
+      "state": "open",
+      "resolution_decision_id": null
+    }
+  ],
+  "continuity_review": {
+    "coverage": "complete",
+    "reviewed_record_refs": [
+      {
+        "id": "fd7c3b23-607d-47eb-a05a-a70974185ea5",
+        "revision": 1
+      },
+      {
+        "id": "5999aeda-3a9b-4974-bae0-e1cbaf8761be",
+        "revision": 1
+      },
+      {
+        "id": "2586c21a-f2a3-460c-88af-4639d21ad460",
+        "revision": 1
+      },
+      {
+        "id": "70955588-c21e-4378-a81d-c5973f26928f",
+        "revision": 1
+      },
+      {
+        "id": "73d06e88-9a26-4008-9b24-85b1cfb7df20",
+        "revision": 1
+      },
+      {
+        "id": "f90121d7-28e7-4133-b78f-c4c0b44c0167",
+        "revision": 1
+      },
+      {
+        "id": "3024b7f6-cdfe-4a77-b3d0-c9706389458d",
+        "revision": 1
+      },
+      {
+        "id": "49a2dd5f-7e07-447e-9ed3-95e4919db21c",
+        "revision": 1
+      },
+      {
+        "id": "6a45b69b-0009-434d-8543-36091190bc9b",
+        "revision": 1
+      },
+      {
+        "id": "87a365a6-2a26-4ca3-8ed3-523ccdf13d70",
+        "revision": 1
+      },
+      {
+        "id": "6c35b430-78e0-45ef-a53d-aeaae6052c34",
+        "revision": 1
+      },
+      {
+        "id": "0878911d-417b-4543-8d37-e2f4dae2bff0",
+        "revision": 1
+      },
+      {
+        "id": "18acc095-7113-4041-b300-f78d59cbcccc",
+        "revision": 1
+      },
+      {
+        "id": "aec2723d-ae5f-4d98-b216-609ddde3f18f",
+        "revision": 1
+      },
+      {
+        "id": "fb2df9af-1445-4fed-9dc9-e5dcd8995ec0",
+        "revision": 1
+      },
+      {
+        "id": "18ff3035-46ee-4534-aa88-b1f73320c279",
+        "revision": 1
+      },
+      {
+        "id": "5ebc5c86-cb02-476d-a156-90728ec30a4d",
+        "revision": 1
+      },
+      {
+        "id": "5b3f84d8-2f6a-4df1-b3ef-8512af3bc4b6",
+        "revision": 1
+      },
+      {
+        "id": "928fe3d3-2d45-4de7-8257-80f3abacee90",
+        "revision": 1
+      },
+      {
+        "id": "c2ba69ca-c49f-44c5-bdda-dbfee346bd73",
+        "revision": 1
+      },
+      {
+        "id": "7020a640-dc0b-4e1c-9b79-32030081f72e",
+        "revision": 1
+      },
+      {
+        "id": "4923dcf4-c0bd-47e5-b7ae-95878c3cff69",
+        "revision": 1
+      },
+      {
+        "id": "0708f180-101c-4949-bbcd-226832c8b791",
+        "revision": 1
+      },
+      {
+        "id": "bc5e5849-e0fd-4338-a998-5dd9ddfdf0d4",
+        "revision": 1
+      },
+      {
+        "id": "42287c09-8013-4459-9cba-94bcb66f00a4",
+        "revision": 1
+      },
+      {
+        "id": "8d397cdc-4ba7-4ae1-b8fe-f45ebf854a5d",
+        "revision": 1
+      },
+      {
+        "id": "37164de8-916d-489b-8e68-d0131882d6b2",
+        "revision": 1
+      }
+    ],
+    "unavailable_refs": [],
+    "canon_hold_refs": [],
+    "finding_ids": [],
+    "summary": "Reviewed available People and Events canon against the bridge absence, brass seal and protective oath. No conflict identified. Lack of a bridge does not establish isolation by sea or negate an unaccepted tunnel. Oath timing and motives remain unknown; proposals and room-opening question remain unconfirmed."
+  },
+  "payload_digest": "2e72fd33bfaec75f034e0be130300d5a52372e1a1842cb46b738069b7bbf0527"
+}

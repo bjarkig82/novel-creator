@@ -1,0 +1,22 @@
+14:12:46.054137 common-init.c:57             | d0 | main                     | version      |     |           |           |              | 2.53.0.windows.3
+14:12:46.056134 common-init.c:58             | d0 | main                     | start        |     |  0.032381 |           |              | git.exe -C 'C:\Users\BjarkiGunnarsson\AppData\Local\Temp\novel tree components qa_z8dxm' write-tree
+14:12:46.196041 ..._win32_process_info.c:122 | d0 | main                     | data_json    | r0  |  0.172300 |  0.172300 | process      | windows/ancestry:["git.exe","python.exe","python.exe","pwsh.exe","codex.exe","ChatGPT.exe","sihost.exe","svchost.exe","services.exe","wininit.exe","(truncated)"]
+14:12:46.210560 repository.c:237             | d0 | main                     | def_repo     | r1  |           |           |              | worktree:'C:/Users/BjarkiGunnarsson/AppData/Local/Temp/novel tree components qa_z8dxm'
+14:12:46.211559 git.c:503                    | d0 | main                     | cmd_name     |     |           |           |              | write-tree (write-tree)
+14:12:46.212561 read-cache.c:2366            | d0 | main                     | region_enter | r1  |  0.188629 |           | index        | label:do_read_index C:\Users\BjarkiGunnarsson\AppData\Local\Temp\novel tree probes ftn56n4i\replay-3-2
+14:12:46.213559 cache-tree.c:667             | d0 | main                     | region_enter | r1  |  0.189487 |           | cache_tree   | ..label:read
+14:12:46.213559 cache-tree.c:669             | d0 | main                     | region_leave | r1  |  0.189520 |  0.000033 | cache_tree   | ..label:read
+14:12:46.213559 read-cache.c:2315            | d0 | main                     | data         | r1  |  0.189586 |  0.000957 | index        | ..read/version:2
+14:12:46.213559 read-cache.c:2317            | d0 | main                     | data         | r1  |  0.189598 |  0.000969 | index        | ..read/cache_nr:5005
+14:12:46.213559 read-cache.c:2371            | d0 | main                     | region_leave | r1  |  0.189607 |  0.000978 | index        | label:do_read_index C:\Users\BjarkiGunnarsson\AppData\Local\Temp\novel tree probes ftn56n4i\replay-3-2
+14:12:46.213559 cache-tree.c:491             | d0 | main                     | region_enter | r1  |  0.189642 |           | cache_tree   | label:update
+14:12:46.573892 cache-tree.c:496             | d0 | main                     | region_leave | r1  |  0.549653 |  0.360011 | cache_tree   | label:update
+14:12:46.573892 read-cache.c:3150            | d0 | main                     | region_enter | r1  |  0.549733 |           | index        | label:do_write_index C:\Users\BjarkiGunnarsson\AppData\Local\Temp\novel tree probes ftn56n4i\replay-3-2.lock
+14:12:46.597534 cache-tree.c:546             | d0 | main                     | region_enter | r1  |  0.573272 |           | cache_tree   | ..label:write
+14:12:46.597534 cache-tree.c:548             | d0 | main                     | region_leave | r1  |  0.573319 |  0.000047 | cache_tree   | ..label:write
+14:12:46.597534 read-cache.c:3102            | d0 | main                     | data         | r1  |  0.574596 |  0.024863 | index        | ..write/version:2
+14:12:46.598996 read-cache.c:3104            | d0 | main                     | data         | r1  |  0.574654 |  0.024921 | index        | ..write/cache_nr:5005
+14:12:46.598996 read-cache.c:3153            | d0 | main                     | region_leave | r1  |  0.574670 |  0.024937 | index        | label:do_write_index C:\Users\BjarkiGunnarsson\AppData\Local\Temp\novel tree probes ftn56n4i\replay-3-2.lock
+14:12:46.601007 ..._win32_process_info.c:170 | d0 | main                     | data_json    | r1  |  0.577214 |  0.577214 | process      | windows/memory:{"PageFaultCount":17087,"PeakWorkingSetSize":13058048,"PeakPagefileUsage":37404672}
+14:12:46.601007 git.c:783                    | d0 | main                     | exit         |     |  0.577251 |           |              | code:0
+14:12:46.601007 trace2/tr2_tgt_perf.c:219    | d0 | main                     | atexit       |     |  0.577264 |           |              | code:0

@@ -1,0 +1,88 @@
+{
+  "schemaVersion": 1,
+  "thread": {
+    "id": "01a16833-e1cf-79d2-bee0-80a6ca973e3c",
+    "kind": "codex",
+    "hostId": "local"
+  },
+  "turns": [
+    {
+      "id": "01a16a78-924b-7bb1-8e45-a38c95aed456",
+      "status": "completed",
+      "items": [
+        {
+          "type": "functionCallOutput",
+          "id": "fco_01a16a78-924d-71f3-b9b5-869a4b901e64",
+          "name": "send_message_to_thread",
+          "namespace": "codex_app",
+          "output": {
+            "text": "<codex_delegation>\n  <source_thread_id>01a167df-036b-7c71-b306-9d7021046c01</source_thread_id>\n  <input>I'd like a quiet mystery for adults, with a gentle but unsettling tone, plain language and one viewpoint. I'm interested in a lighthouse keeper who receives a letter addressed to someone who died. I haven't chosen who sent it. Please take those preferences together rather than asking me to repeat them.</input>\n</codex_delegation>",
+            "truncated": false
+          }
+        },
+        {
+          "type": "agentMessage",
+          "id": "msg_06d2f81bda1c6b72016adbc4cbdfc88191bf8d0a17d39e644d",
+          "phase": "commentary",
+          "text": "I’ll save those preferences together, keep the sender undecided, and record the lighthouse premise as a possibility to explore."
+        },
+        {
+          "type": "commandExecution",
+          "id": "exec-0e36be96-f66c-4795-8216-f559fbd44476",
+          "status": "completed",
+          "exitCode": 0,
+          "output": {
+            "text": "01a16833-e1cf-79d2-bee0-80a6ca973e3c\r\n496:    \"idea\": {\n504:          \"const\": \"idea\"\n1135:    \"decision\": {\n1143:          \"const\": \"decision\"\n",
+            "truncated": false
+          }
+        },
+        {
+          "type": "commandExecution",
+          "id": "exec-216cc9ac-3886-42d8-b99b-8d7980483a25",
+          "status": "completed",
+          "exitCode": 0,
+          "output": {
+            "text": "    \"idea\": {\r\n      \"type\": \"object\",\r\n      \"properties\": {\r\n        \"id\": {\r\n          \"type\": \"string\",\r\n          \"format\": \"uuid\"\r\n        },\r\n        \"kind\": {\r\n          \"const\": \"idea\"\r\n        },\r\n        \"revision\": {\r\n          \"type\": \"integer\",\r\n          \"minimum\": 1\r\n        },\r\n        \"previous_revision\": {\r\n          \"anyOf\": [\r\n            {\r\n              \"type\": \"integer\",\r\n              \"minimum\": 1\r\n            },\r\n            {\r\n              \"type\": \"null\"\r\n            }\r\n          ]\r\n        },\r\n        \"source_refs\": {\r\n          \"type\": \"array\",\r\n          \"items\": {\r\n            \"$ref\": \"#/$defs/source\"\r\n          }\r\n        },\r\n        \"created_exchange_id\": {\r\n          \"type\": \"string\",\r\n          \"format\": \"uuid\"\r\n        },\r\n        \"origin\": {\r\n          \"enum\": [\r\n            \"supplied\",\r\n            \"interpreted\",\r\n            \"system_default\"\r\n          ]\r\n        },\r\n        \"statement\": {\r\n          \"type\": \"string\"\r\n        },\r\n        \"status\": {\r\n          \"enum\": [\r\n            \"proposed\",\r\n            \"accepted\",\r\n            \"rejected\",\r\n            \"unresolved\",\r\n            \"superseded\"\r\n          ]\r\n        },\r\n        \"related_element_ids\": {\r\n          \"type\": \"array\",\r\n          \"items\": {\r\n            \"type\": \"string\",\r\n            \"format\": \"uuid\"\r\n          }\r\n        },\r\n        \"alternative_group_id\": {\r\n          \"anyOf\": [\r\n            {\r\n              \"type\": \"string\",\r\n              \"format\": \"uuid\"\r\n            },\r\n            {\r\n              \"type\": \"null\"\r\n            }\r\n          ]\r\n        },\r\n        \"selected_parts\": {\r\n          \"type\": \"array\",\r\n          \"items\": {\r\n            \"type\": \"string\"\r\n          }\r\n        },\r\n        \"decision_ids\": {\r\n          \"type\": \"array\",\r\n          \"items\": {\r\n            \"type\": \"string\",\r\n            \"format\": \"uuid\"\r\n          }\r\n        },\r\n        \"resulting_assertion_ids\": {\r\n          \"type\": \"array\",\r\n          \"items\": {\r\n            \"type\": \"string\",\r\n            \"format\": \"uuid\"\r\n          }\r\n        }\r\n      },\r\n      \"required\": [\r\n        \"id\",\r\n        \"kind\",\r\n        \"revision\",\r\n        \"previous_revision\",\r\n        \"source_refs\",\r\n        \"created_exchange_id\",\r\n        \"origin\",\r\n        \"statement\",\r\n        \"status\",\r\n        \"related_element_ids\",\r\n        \"alternative_group_id\",\r\n        \"selected_parts\",\r\n        \"decision_ids\",\r\n        \"resulting_assertion_ids\"\r\n      ],\r\n      \"additionalProperties\": false\r\n",
+            "truncated": false
+          }
+        },
+        {
+          "type": "commandExecution",
+          "id": "exec-a8751050-e990-430a-b31d-49854e3d5fd6",
+          "status": "completed",
+          "exitCode": 0,
+          "output": {
+            "text": "{\"exchange_id\": \"e1adc0ee-d02f-4f73-bbb4-d64e2988848d\"}\r\nExchange save failed; pending work is not confirmed\r\n{\"ok\": false, \"error\": {\"code\": 5, \"message\": \"Exchange save failed; pending work is not confirmed\", \"affected_refs\": [], \"retryable\": true}, \"last_confirmed_checkpoint\": {\"git_head\": \"863d4e1da10e0531538f5231e9d97c2700d874bc\", \"exchange_id\": \"9896c9bc-f75e-4d6a-a647-b0566945556c\", \"sequence\": 3}, \"pending_exchange_id\": \"e1adc0ee-d02f-4f73-bbb4-d64e2988848d\"}\r\n",
+            "truncated": false
+          }
+        },
+        {
+          "type": "commandExecution",
+          "id": "exec-1c9f4fcf-0a6c-4944-a931-9abdd6f75846",
+          "status": "completed",
+          "exitCode": 0,
+          "output": {
+            "text": "{\"ok\": true, \"operation\": \"exchange.save\", \"novel_id\": \"adfafe79-ad44-4097-8fc2-305095c3e4ec\", \"data\": {\"saved\": true, \"already_saved\": false, \"cleanup_required\": false}, \"warnings\": [], \"checkpoint\": {\"git_head\": \"e0c0f67c5d43395d978c3725939e31ea83a6065a\", \"exchange_id\": \"e1adc0ee-d02f-4f73-bbb4-d64e2988848d\", \"sequence\": 4}}\r\n",
+            "truncated": false
+          }
+        },
+        {
+          "type": "commandExecution",
+          "id": "exec-236f71fd-c650-4d32-a09b-617b6905b512",
+          "status": "completed",
+          "exitCode": 0,
+          "output": {
+            "text": "{\"saved\": true, \"exchange_id\": \"e1adc0ee-d02f-4f73-bbb4-d64e2988848d\", \"checkpoint\": {\"git_head\": \"e0c0f67c5d43395d978c3725939e31ea83a6065a\", \"exchange_id\": \"e1adc0ee-d02f-4f73-bbb4-d64e2988848d\", \"sequence\": 4}}\r\n",
+            "truncated": false
+          }
+        },
+        {
+          "type": "agentMessage",
+          "id": "msg_06d2f81bda1c6b72016adbc5404144819198b65e37735ddcb0",
+          "phase": "final_answer",
+          "text": "I'll keep those preferences together: a quiet mystery for adults, a gentle but unsettling tone, plain language, and one viewpoint. The lighthouse keeper and the letter addressed to someone who died give us a starting possibility; the sender stays undecided.\n\nTo give the mystery a personal pull, what makes the letter matter to the keeper?"
+        }
+      ]
+    }
+  ]
+}

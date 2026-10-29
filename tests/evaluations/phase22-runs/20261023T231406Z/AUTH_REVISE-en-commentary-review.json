@@ -1,0 +1,20 @@
+[
+  {
+    "id": "msg_02f80cb399e0759d016ae1c99d6270819186497e2c3043fefc",
+    "text": "I’ll inspect the current records and their direct dependencies, prepare the revisions and session closure, and save the response before displaying it.",
+    "classification": "administrative",
+    "reason": "Operational source inspection, preparation, save and record-history verification; no story content."
+  },
+  {
+    "id": "msg_02f80cb399e0759d016ae1ca029cc88191827f0189f7bc020e",
+    "text": "The inspection results are saved. I’m preparing the record revisions and closure in one exchange, with the prior versions retained for inspection.",
+    "classification": "administrative",
+    "reason": "Operational source inspection, preparation, save and record-history verification; no story content."
+  },
+  {
+    "id": "msg_02f80cb399e0759d016ae1ca52e9648191a3fac1b501cf9ca5",
+    "text": "The exchange is prepared. I’m running the production save, then verifying the persisted response and writing the evidence report.",
+    "classification": "administrative",
+    "reason": "Operational source inspection, preparation, save and record-history verification; no story content."
+  }
+]

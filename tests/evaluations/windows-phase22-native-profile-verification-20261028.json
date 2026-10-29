@@ -1,0 +1,191 @@
+{
+  "completed_guarded_full_scale_saves": 16,
+  "sha1_sha256_tree_and_missing_object_checks": 8,
+  "source_and_installed_binary_unchanged": true,
+  "native_profile_count": 4,
+  "initial_quiet_gate_passed": true,
+  "quiet_native_profile_windows": 0,
+  "native_total_milliseconds": {
+    "median": 38.65915,
+    "minimum": 29.4009,
+    "maximum": 80.6564,
+    "samples": [
+      29.4009,
+      37.9093,
+      80.6564,
+      39.409
+    ]
+  },
+  "native_exclusive_milliseconds": {
+    "lookup": {
+      "median": 6.724550000000001,
+      "minimum": 2.677,
+      "maximum": 15.6324,
+      "samples": [
+        3.7206,
+        2.677,
+        15.6324,
+        9.7285
+      ]
+    },
+    "serialize": {
+      "median": 1.28755,
+      "minimum": 1.0262,
+      "maximum": 5.5666,
+      "samples": [
+        1.1512,
+        1.0262,
+        5.5666,
+        1.4239
+      ]
+    },
+    "object_write": {
+      "median": 12.92005,
+      "minimum": 10.6206,
+      "maximum": 31.5303,
+      "samples": [
+        11.4409,
+        10.6206,
+        31.5303,
+        14.3992
+      ]
+    },
+    "deflate": {
+      "median": 7.6770499999999995,
+      "minimum": 6.7276,
+      "maximum": 13.0967,
+      "samples": [
+        7.4795,
+        6.7276,
+        13.0967,
+        7.8746
+      ]
+    },
+    "fsync": {
+      "median": 9.73975,
+      "minimum": 5.087,
+      "maximum": 16.3791,
+      "samples": [
+        5.087,
+        16.3791,
+        13.9981,
+        5.4814
+      ]
+    }
+  },
+  "variant_tree_wall_seconds": {
+    "installed": {
+      "median": 0.333726349985227,
+      "minimum": 0.08089480013586581,
+      "maximum": 0.4035076000727713,
+      "samples": [
+        0.08089480013586581,
+        0.4035076000727713,
+        0.36364859994500875,
+        0.3038041000254452
+      ]
+    },
+    "baseline": {
+      "median": 0.2763883000006899,
+      "minimum": 0.114154800074175,
+      "maximum": 0.6151796001940966,
+      "samples": [
+        0.6151796001940966,
+        0.114154800074175,
+        0.1403322999831289,
+        0.41244430001825094
+      ]
+    },
+    "profile_off": {
+      "median": 0.12572839995846152,
+      "minimum": 0.10503530013374984,
+      "maximum": 0.2132989999372512,
+      "samples": [
+        0.2132989999372512,
+        0.10503530013374984,
+        0.12825469998642802,
+        0.12320209993049502
+      ]
+    },
+    "profile_on": {
+      "median": 0.18364440009463578,
+      "minimum": 0.09643230005167425,
+      "maximum": 0.22463459987193346,
+      "samples": [
+        0.15675560012459755,
+        0.09643230005167425,
+        0.21053320006467402,
+        0.22463459987193346
+      ]
+    }
+  },
+  "variant_save_seconds": {
+    "installed": {
+      "median": 10.44602659996599,
+      "minimum": 4.5313817001879215,
+      "maximum": 19.6373137999326,
+      "samples": [
+        4.5313817001879215,
+        12.836261099902913,
+        19.6373137999326,
+        8.055792100029066
+      ]
+    },
+    "baseline": {
+      "median": 8.049219400039874,
+      "minimum": 5.614849300123751,
+      "maximum": 19.403088700026274,
+      "samples": [
+        19.403088700026274,
+        5.614849300123751,
+        7.842842600075528,
+        8.25559620000422
+      ]
+    },
+    "profile_off": {
+      "median": 6.971091150073335,
+      "minimum": 5.223515199963003,
+      "maximum": 10.296726300148293,
+      "samples": [
+        10.296726300148293,
+        5.223515199963003,
+        5.386641100049019,
+        8.55554120009765
+      ]
+    },
+    "profile_on": {
+      "median": 8.11136694997549,
+      "minimum": 5.025480400072411,
+      "maximum": 9.417732200119644,
+      "samples": [
+        7.452756199985743,
+        5.025480400072411,
+        8.769977699965239,
+        9.417732200119644
+      ]
+    }
+  },
+  "scope": "Owner-thread MSVC/zlib1.3.1 native source-build diagnostics with explicit load/clock/compiler limits. No production optimization or installed-distribution p95/low-load claim.",
+  "stricter_followup": {
+    "status": "not_measured",
+    "reason": "Preflight quiet gate did not pass in 60 seconds; no new fixture or timing samples",
+    "load_samples": 12
+  },
+  "artifact_sha256": {
+    "windows-phase22-native-profile-20261028.jsonl": "854901c50cad7dde45a70a3240622aa2ca3b5c072b4e463540c3b00343bd58e6",
+    "windows-phase22-native-profile-settled-20261028.jsonl": "162591ffd8c2edd2e9bc61f04f98b23dcb136b1ad4276569c97a64bb7a6c3fae",
+    "windows-phase22-native-git-instrumentation-20261028.json": "bfcfe4487e31241daddf3e400e94fe4325aba7af5c074e92e9111f8448294503",
+    "verify-phase22-native-profile-20261028.py": "efc150fa2d2761d1707ee2945e017fd5be7ada03315a355b1e3e4011ff927ad1",
+    "prepare-phase22-native-profile-20261028.py": "bd98c0f46c79c7bf384c3e1835ea9047e0d2bd38eef9c08e55fb5ab0a15ad181",
+    "phase22-native-profile-20261028.py": "9c2a08b53a054b847ec2d37d239b0ba4af6e97be23e5e85578cc96a8e14b4beb",
+    "phase22-native-profile-settled-20261028.py": "fc7c971b4665c891742091a2248d16aeb48ce6a354ed194dc79ff05729715a45",
+    "windows-phase22-native-git-instrumentation-20261028.patch": "6fc568081b32e7386f58bb4131f74e9058642495adb677cb8c185d9897a13bdf",
+    "windows-phase22-native-git-baseline-build-20261028.txt": "aeee3f794d108ef87ad87c638a138e0bc7768c8663ca481c0405a26098c1483b",
+    "windows-phase22-native-git-baseline-build-v2-20261028.txt": "6c35314ae934ac4cd0cfaf2e133e3bc245c4207adec3962a940ccd9f1c83420b",
+    "windows-phase22-native-git-profile-build-20261028.txt": "d9737d05e734a832513b2824470a5278dab8ad06a4e262b6cd764e961e595769",
+    "windows-phase22-native-git-configure-source-20261028.txt": "3abf9a455e46a71455bb163dfa8e6e56ee82d9760569eaa7fb82f304159fd0aa",
+    "windows-phase22-native-git-rebuild-source-20261028.txt": "050f04d9ef2b6a1841bb15fd0ef16c9505ea18271d39834cfbc034ab94fe3e95",
+    "windows-phase22-native-git-portable-tools-20261028.json": "4a3558d207dac36b3dc0883a654dc44f058ddb6435c80f9f9a05bfcdbbfd26ca",
+    "windows-phase22-native-git-header-20261028.txt": "edd2ac1bdd212aa455060ad96205a52d6b044366cb0ddc93a119c915e46c454f"
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "ok": true,
+  "scope": "Public delegated persistence/display/source checks only",
+  "case_filter": [
+    "AUTH_PROTECTED"
+  ],
+  "language_filter": null,
+  "all_submitted_cases_checked": false,
+  "semantic_assessment": "Separate agent judgments required; no human/native result inferred",
+  "cases": [
+    {
+      "case_id": "AUTH_PROTECTED",
+      "language": "en",
+      "thread_id": "01a16af9-f289-73c1-8151-55f50ace05d9",
+      "turn_id": "01a181ff-9c8c-7a63-a9f9-7d65d7579f36",
+      "exchange_id": "88b2e32e-458b-475a-8ab1-96cec246ba69",
+      "checkpoint": {
+        "git_head": "a1de66c5a234fbdbdfc11cebe1aaab210cd461be",
+        "exchange_id": "88b2e32e-458b-475a-8ab1-96cec246ba69",
+        "sequence": 11
+      },
+      "exact_input_saved": true,
+      "exact_response_saved_and_displayed": true,
+      "save_precedes_display": true,
+      "source_type": "delegated",
+      "native_user_input": false,
+      "novice_evidence": false,
+      "installed_bundle_verified": true,
+      "installed_bundle_matches_current_source": true,
+      "commentary_agent_reviewed": true,
+      "record_kinds": [
+        "idea",
+        "assertion",
+        "finding",
+        "question",
+        "session"
+      ],
+      "response": "Events is reopened in its saved open-ended mode (638564fa r5).\n\nI have not established Edda as the murderer. Your protected direction says “Edda must remain innocent of the murder” (cb66f60c r4; innocence assertion 97157e2f r1), and your current request explicitly keeps that direction in force. Making her the murderer of that same murder would contradict it.\n\nThe requested change remains unresolved (f0f4d12b r1; assertion a20b0b76 r1). A significant conflict is open (36c107d0 r1), holding promotion of the affected murder and innocence facts until the instructions are reconciled. The protected direction and established innocence remain unchanged.\n\nHow should I reconcile establishing Edda as the murderer with keeping her protected innocence in force? (e82c4150 r1).\n\nRoutine checkpoints remain set to session close. Events is open, so no closure checkpoint is due. All earlier unanswered questions remain open. Paused here."
+    },
+    {
+      "case_id": "AUTH_PROTECTED",
+      "language": "is",
+      "thread_id": "01a16afa-1197-7650-8189-9365687429ee",
+      "turn_id": "01a181ff-3453-7072-baae-80d2b7c3cc98",
+      "exchange_id": "e7cb2f2c-7def-4ec4-98dd-0b0c794d5373",
+      "checkpoint": {
+        "git_head": "5b674afea108a66c71c7d6fa431bfe13a53823c7",
+        "exchange_id": "e7cb2f2c-7def-4ec4-98dd-0b0c794d5373",
+        "sequence": 11
+      },
+      "exact_input_saved": true,
+      "exact_response_saved_and_displayed": true,
+      "save_precedes_display": true,
+      "source_type": "delegated",
+      "native_user_input": false,
+      "novice_evidence": false,
+      "installed_bundle_verified": true,
+      "installed_bundle_matches_current_source": true,
+      "commentary_agent_reviewed": true,
+      "record_kinds": [
+        "idea",
+        "assertion",
+        "finding",
+        "question",
+        "session"
+      ],
+      "response": "Atburðir er aftur opin lota í frjálsum ham (17356bdd v5).\n\nÉg get ekki staðfest Eddu sem morðingja á meðan verndaða stefnan „Edda verður að vera saklaus af morðinu.“ er í gildi (711ac5fd v4). Þú biður jafnframt um að halda öllum vernduðum stefnum, svo beiðnin stangast á við þá stefnu.\n\nMorðsekt Eddu er ekki staðfest. Beiðnin er varðveitt óútkljáð (558ee882 v1; fullyrðing 4f256968 v1), með opnu álitamáli og bið á þeirri staðfestingu (f05c97e2 v1). Aðrar staðreyndir og verndaðar stefnur haldast.\n\nViltu draga til baka beiðnina um Eddu sem morðingja eða endurskoða hina vernduðu stefnu? (17d426bd v1).\n\nÉg staldra við þar til þetta hefur verið skýrt."
+    }
+  ],
+  "failures": []
+}

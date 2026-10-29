@@ -2,17 +2,68 @@
 
 ## Current implemented commands
 
+**Current target: single-user POC (owner decision, 2026-10-23).** Novice testers
+are out of scope and manual testing follows delivery. Use the
+[POC quickstart](poc-quickstart.md) and
+[POC verification report](../tests/evaluations/poc-readiness-20261023.md).
+The broader historical release gates described below are not prerequisites for
+trying this POC. Unknown literary quality and unmeasured host behavior remain
+unknown; no human observations are inferred from automated tests.
+
 Initialization, settings revisions, context, session list, inspection, structural
 validation and explicit recovery are now implemented. Installed Codex entries
 load shared guidance, resumption, authority and continuity workflows. Use the
 [current README](../README.md) for runnable setup and recovery examples.
 
 The host capture gate has passed; no repeat of its Stop-button exercise is needed.
-The new product workflows still require their actual host/human evaluations,
-bilingual semantic checks, full consumer matrix and representative performance.
+The current authorized delegated evaluation now covers the capture/resumption,
+authority, continuity and paired language-pitfall matrices. Structural checks,
+agent meaning judgments and human observations remain distinct. See the
+[2026-10-28 continuation](../tests/evaluations/phase22-resumption-20261028.md).
+The new ordinary-layout Windows measurement completes all 30 reads and saves:
+read p95 is 1.028736700s and save p95 is 3.067419500s. The owner withdrew all
+latency targets on 2026-10-28; these timings are informational. Historical target
+misses remain unchanged. The current benchmark exits successfully only when all
+requested operations complete, with no latency pass/fail verdict.
+Representative independent-consumer coverage is automated. Earlier Linux
+performance remains source/configuration specific. Native-input coverage outside
+the observed host scope and subjective literary quality are unmeasured; novice
+recruitment and manual ratings are excluded from this POC's prerequisites.
+Current platform scope is Linux and Windows; macOS support and verification
+are deferred.
 [Release evidence](../tests/evaluations/release-readiness.md) separates completed
 structural journeys from those remaining gates. Older procedures below are
-historical/planned guidance where they describe unavailable commands.
+historical fixture procedures, not the current product entry point.
+
+## Current product recovery
+
+For a novel created with `init`, inspect a saved or pending exchange through its
+installed launcher. Use the configured Python environment and actual novel path:
+
+```powershell
+python C:\Novels\MyNovel\.novel-creator\run.py recover --novel C:\Novels\MyNovel --exchange EXCHANGE_UUID --json
+```
+
+Inspection is read-only. `data.saved` identifies whether the exchange is committed;
+`data.state` distinguishes `pending`, `published` and `cleanup_needed`.
+`saved_response_display: unconfirmed` does not establish that a reply was seen or
+accepted. A held lock must be inspected; recovery never steals it.
+
+Only after inspecting the report, request an explicit unchanged retry with its
+current `checkpoint.git_head`:
+
+```powershell
+python C:\Novels\MyNovel\.novel-creator\run.py recover --novel C:\Novels\MyNovel --exchange EXCHANGE_UUID --retry --expected-head CONFIRMED_HEAD --json
+```
+
+Use `--expected-head unborn` only when no first commit exists. Pending recovery
+reuses the original receipt payload and IDs. Published cleanup preserves the
+saved commit, updates managed index entries and does not replay decisions. If
+HEAD, the pending payload, managed files or staged entries conflict, preserve
+them and inspect the error instead of retrying with replacement content. Further
+writes pause until recovery succeeds. Do not reset history or delete receipts to
+force progress. Older spike installations remain pinned; do not copy current
+source over an old fixture or assume its test helpers are product commands.
 
 ## Current decision: PASS — focused spike-03 confirmation
 
@@ -29,9 +80,9 @@ source JSON belongs under `.novel-creator/local/evidence/`, outside root receipt
 discovery. No old exchange or payload ID was rewritten.
 
 T012/T069/T089/T103/T116 are complete; T013's current decision is PASS. No further
-manual host test is required for this change. Dependent story implementation may
-begin. Product workflows, release readiness, voice, other hosts and unattended
-default-sandbox operation remain unverified.
+manual capture-gate test is required for this change. Story tooling is implemented;
+its product-level creative judgments and release readiness remain unverified,
+along with voice, other hosts and unattended default-sandbox operation.
 
 The earlier assessments and procedures below are retained as historical records.
 Their BLOCKED/pending statements are superseded by this decision; their test
@@ -61,9 +112,10 @@ smoke checks; see the [current Windows foundation report](../tests/evaluations/p
 for local results and unavailable coverage. These tests establish storage behavior, not the quality of an AI
 conversation or complete product readiness.
 
-Initialization, full brainstorming, session management, production context and
-inspection, continuity review, bilingual workflows and safe recovery are still
-unfinished. Their CLI placeholders are not usable product features.
+At this early assessment, initialization, session management, production reads
+and safe recovery were placeholders. They are now implemented as described in
+the current product sections above; full creative-host and bilingual evaluation
+remains incomplete.
 
 Our live experiment saved an initial prepared reply and two real typed follow-up
 exchanges without repeating a skill invocation. An unchanged retry also returned
@@ -122,7 +174,7 @@ Requirements:
 - A disposable test location **outside** the framework and every other Git
   repository. The setup script rejects existing target folders and nested repos.
 
-Open a terminal in the framework folder. On macOS/Linux:
+Open a terminal in the framework folder. On Linux (Bash):
 
 ```bash
 python3 -m venv .venv
@@ -156,7 +208,7 @@ experiment successful. The optional developer smoke check is
 
 From the same framework terminal, with the Python environment active:
 
-macOS/Linux:
+Linux (Bash):
 
 ```bash
 spike="$HOME/novel-creator-host-tests/spike-01"
@@ -273,7 +325,7 @@ Do not assume a successful receipt alone proves display ordering.
 Keep the payload path returned by preparation for one successful exchange. Do
 not prepare it again. Set `payload` to that exact existing file in your terminal.
 
-macOS/Linux:
+Linux (Bash):
 
 ```bash
 payload="/absolute/path/returned/by/preparation.payload"
@@ -331,16 +383,17 @@ displayed or accepted. Continue the save-before-display protocol for this turn.
 
 **Pass:** the new chat obtains the interrupted response and checkpoint from the
 saved fixture, needs no retelling and does not infer visibility or acceptance.
-Check its own new response was also saved. This fixture context reader is the
-available tool; production `context`, `session` and `recover` commands are still
-placeholders and must not be used as though implemented.
+Check its own new response was also saved. Use this historical fixture's pinned
+context helper for that experiment. Current product installations provide
+`context`, `session list` and `recover`; their commands and recovery boundaries
+are described above. Do not assume an older fixture includes the current runtime.
 
 ### E. Disclose a failed save and pause
 
 Ensure no save is currently running. In the terminal, create an **empty test
 lock**, only if the path is absent:
 
-macOS/Linux:
+Linux (Bash):
 
 ```bash
 mkdir "$spike/.novel-creator/local/write.lock"
@@ -372,7 +425,7 @@ save failed; it must truthfully explain the unsaved attempt.
 
 For the empty test lock **you created in E**, remove that directory only:
 
-macOS/Linux:
+Linux (Bash):
 
 ```bash
 rmdir "$spike/.novel-creator/local/write.lock"
@@ -392,9 +445,12 @@ exchange ID and text. Do not replace it with a newly prepared response.
 
 **Pass:** the original attempt saves once, then an identical retry returns the
 same checkpoint without another commit. Offer the saved response without claiming
-it was previously displayed. If `cleanup_required: true` appears, retain the
-evidence and stop: production cleanup recovery is not implemented yet. Do not
-delete receipts or rewrite history to force the test to pass.
+it was previously displayed. If `cleanup_required: true` appears, the exchange
+is already saved. Preserve its receipt and checkpoint. A current product
+installation supports explicit managed-index recovery as described above; an
+older pinned spike may lack that command and should be preserved for inspection.
+Do not delete receipts, replace the fixture runtime or rewrite history to force
+the test to pass.
 
 ## 7. Keep a small evidence report and review the gate
 
@@ -428,8 +484,8 @@ change. Do not implement dependent stories or weaken FR-009 to make the gate pas
 
 The [task plan](../specs/001-novel-initialization-brainstorming/tasks.md) says:
 **“No story phase starts before T013 passes.”** T013's current checked marker
-means a blocked decision was recorded; it does not mean the experiment passed.
-Repeating converge will not supply missing host evidence.
+records the current PASS decision described above; the earlier blocked decision
+is historical. Repeating converge will not supply missing product-host evidence.
 
 ## 8. Finish implementation in these milestones
 
@@ -470,9 +526,10 @@ tests, real-host observations, agent judgments and human evaluations.
 
 The specification's full acceptance criteria remain authoritative. In particular:
 
-- **Novice usability:** five evaluators; at least four initialize within ten
-  minutes without outside assistance, and at least four rate guidance/control
-  at least 4/5. Have someone other than the implementer perform these exercises.
+- **Initialization/guidance:** automated installed journeys preserve unknown
+  preferences and reopen without invented creative details; mode/topic changes
+  take effect in the next response. Novice recruitment and manual ratings are
+  excluded by the owner's current POC scope; owner assessment follows delivery.
 - **Resume:** three sessions plus a fresh interaction recover all 20 designated
   ideas, 10 decisions and 5 questions with correct state/source.
 - **Authority:** at least 12 clear-acceptance and 12 non-acceptance examples,
@@ -494,10 +551,11 @@ The specification's full acceptance criteria remain authoritative. In particular
   plan; do not claim support for unverified combinations. All automated tests,
   quickstart journeys, release evidence and required reviews must pass.
 
-You supply real user observations, the novice evaluators and any language review
-you want from fluent readers. Codex can prepare fixtures, run measurements,
-implement fixes and organize evidence. A code test cannot substitute for a human
-rating or an unavailable real-host/platform run.
+Codex can execute the authorized automated scenarios, run measurements,
+implement fixes and organize evidence. Optional owner or fluent-reader review
+after delivery remains separate; it is not required to start using the POC.
+A code test cannot substitute for a human rating or an unavailable host/platform
+observation, and no such result is inferred from delegated inputs.
 
 Completion means the current initialization/brainstorming feature satisfies
 [spec.md](../specs/001-novel-initialization-brainstorming/spec.md), its
@@ -507,6 +565,8 @@ host adapters are explicitly outside this feature. Finishing the larger Novel
 Creator product requires separately specified and planned features for those
 capabilities after this foundation is usable.
 
-**Your immediate next action:** obtain this task's current code locally, create
-the disposable fixture, and run A–F in your intended Codex host. Bring back that
-evidence to resolve the gate; the remaining implementation can then proceed.
+**Current next actions:** continue from the latest incomplete tasks using
+`$speckit-implement` and resolve Windows save performance before broader release
+qualification. No novice/manual recruitment is requested. The earlier A–F capture
+experiment already passed in its documented scope; repeat it only if a later
+change invalidates that evidence.

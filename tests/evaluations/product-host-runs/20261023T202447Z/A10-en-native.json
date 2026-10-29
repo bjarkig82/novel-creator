@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "thread": {
+    "id": "01a16833-e1cf-79d2-bee0-80a6ca973e3c",
+    "kind": "codex",
+    "hostId": "local"
+  },
+  "turns": [
+    {
+      "id": "01a16a8c-ba03-7a90-a3c7-ed9167e3d0c9",
+      "status": "completed",
+      "items": [
+        {
+          "type": "functionCallOutput",
+          "id": "fco_01a16a8c-ba05-7581-a06c-5e92f3b66004",
+          "name": "send_message_to_thread",
+          "namespace": "codex_app",
+          "output": {
+            "text": "<codex_delegation>\n  <source_thread_id>01a167df-036b-7c71-b306-9d7021046c01</source_thread_id>\n  <input>Keep the storm, but leave the shipwreck as a possibility.</input>\n</codex_delegation>",
+            "truncated": false
+          }
+        },
+        {
+          "type": "agentMessage",
+          "id": "msg_06d2f81bda1c6b72016adbc9fb2f10819185b0aa9b754f7445",
+          "phase": "commentary",
+          "text": "I’ll save the storm as selected and the shipwreck as proposed, without adding timing or a connection between them."
+        },
+        {
+          "type": "commandExecution",
+          "id": "exec-97ee4b1f-d9eb-40d8-b3ce-3cc50de23a48",
+          "status": "completed",
+          "exitCode": 0,
+          "output": {
+            "text": "01a16833-e1cf-79d2-bee0-80a6ca973e3c\r\n",
+            "truncated": false
+          }
+        },
+        {
+          "type": "commandExecution",
+          "id": "exec-0739389c-8802-450c-981d-7f516acf0010",
+          "status": "completed",
+          "exitCode": 0
+        },
+        {
+          "type": "commandExecution",
+          "id": "exec-f739e64e-2502-46e0-982f-dc50e7800a96",
+          "status": "completed",
+          "exitCode": 0,
+          "output": {
+            "text": "{\"exchange_id\": \"00246238-3a0c-47ae-bf93-65bc94455205\"}\r\n{\"ok\": true, \"operation\": \"exchange.save\", \"novel_id\": \"adfafe79-ad44-4097-8fc2-305095c3e4ec\", \"data\": {\"saved\": true, \"already_saved\": false, \"cleanup_required\": false}, \"warnings\": [], \"checkpoint\": {\"git_head\": \"cedceae0b6e36c87d0bc125f491c3e6ca024ca0d\", \"exchange_id\": \"00246238-3a0c-47ae-bf93-65bc94455205\", \"sequence\": 10}}\r\n",
+            "truncated": false
+          }
+        },
+        {
+          "type": "commandExecution",
+          "id": "exec-5e9edb8f-6179-47fb-bca9-2c0efabe46f5",
+          "status": "completed",
+          "exitCode": 0,
+          "output": {
+            "text": "{\"saved\": true, \"exchange_id\": \"00246238-3a0c-47ae-bf93-65bc94455205\", \"checkpoint\": {\"git_head\": \"cedceae0b6e36c87d0bc125f491c3e6ca024ca0d\", \"exchange_id\": \"00246238-3a0c-47ae-bf93-65bc94455205\", \"sequence\": 10}}\r\n",
+            "truncated": false
+          }
+        },
+        {
+          "type": "agentMessage",
+          "id": "msg_06d2f81bda1c6b72016adbca399530819193f7a2a3ce01ca2a",
+          "phase": "final_answer",
+          "text": "We'll keep a storm in the story. The shipwreck stays a possibility, with no decision about whether it happens or connects to the storm. The storm's timing and details are still open."
+        }
+      ]
+    }
+  ]
+}

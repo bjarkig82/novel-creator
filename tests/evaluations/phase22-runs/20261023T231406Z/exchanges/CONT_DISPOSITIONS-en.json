@@ -1,0 +1,3358 @@
+{
+  "schema_version": "1.0",
+  "novel_id": "cb66f60c-4b08-4aea-9616-a2fc168a09eb",
+  "exchange_id": "a24f43cb-db0a-42b6-af10-147502f98ae0",
+  "sequence": 14,
+  "previous_exchange_id": "2b515dae-bb19-4e96-8a2f-2550ae7a6980",
+  "previous_digest": "9db90dd0a10ec3c9bc47c387349f7d9c0aeafa0f26c2a322cf4cdfe3413268f8",
+  "session_id": "7b956f0b-12a9-4a91-9568-f76844ea690e",
+  "expected_git_head": "da8f19d1dbefd271a7d2abebfa41ea599dc97ca4",
+  "recorded_at": "2026-10-28T10:29:10.206080Z",
+  "operation": "conversation",
+  "messages": [
+    {
+      "message_id": "a0bddc6e-48be-40c5-bee0-1cf3d6a395c6",
+      "role": "user",
+      "text": "Case CONT_DISPOSITIONS. Here are my decisions on the six issues: reject the betrayal idea; revise the harbour rescue proposal to one in the morning, after arrival; deliberately revise canon so Rúna learned the rescue code before the ship sank, retaining the previous version; revise the destruction idea so a different unusable boat is destroyed and the only usable escape boat remains intact; the crossing letter is intentionally an unreliable witness’s false account, not an event in author truth, so preserve the boundary rule; defer the shared-childhood relationship issue without settling either alternative. Separately, perhaps the recorded brass seal could foreshadow the sender. The time Freyja learned the hidden-room secret is unknown. The reader may see the letter after its delivery even though Rúna saw it earlier. Rúna might lie that she, rather than Bjarni, sent it; this is possible dialogue only. Explore these safe possibilities briefly, summarize the checkpoint I request now, and pause."
+    },
+    {
+      "message_id": "1087fd63-a0b2-4354-84e0-a74e7d5d4a55",
+      "role": "assistant",
+      "text": "Your six dispositions are recorded with their prior versions retained.\n\n1. Betrayal rejected (ca37ee5a r2; decision 6b8f2dc8 r1); finding 336c0a14 r2 is rejected_idea. Rúna’s oath remains unchanged (249f979b r1).\n\n2. Rescue revised to one in the morning, explicitly after arrival, and remains proposed (69b1fceb r2; event a59cef3c r2; decision 602d93fa r1). Finding 42774683 r2 is revised_idea.\n\n3. Canon revised: Rúna learned the code before the sinking (89357784 r1; author truth a153fa04 r1; character knowledge 39fc465b r1; decision b00f3432 r1). Prior learning e7860735 r1 and knowledge 82dc2970 r1 / da98ac0d r1 remain inspectable; their current versions are superseded. Finding d0614c62 r2 is revised_canon. The code-use prevention proposal (fe6fa08b r1) is still unaccepted; no successful prevention or erasure of the recorded sinking has been established.\n\n4. Destruction revised to a different unusable boat, with the only usable escape boat intact within that proposal (bfef12dd r2; distinct boat 7063c495 r1; decision 06d97456 r1). Finding 04d94072 r2 is revised_idea. The revised destruction remains proposed.\n\n5. The apparent crossing is now an intentional unreliable witness’s false account (82980897 r1; false-account assertion 1251fe58 r1; technique decision 1f6f5c8d r1). Finding c8bed026 r2 is intentional (resolution a4acd395 r1). The original crossing proposal is superseded; the boundary rule remains unchanged (d148a2a0 r1). No witness belief or true crossing has been inferred.\n\n6. Shared childhood is deferred and unresolved (42cd4d30 r2; finding 69b768af r2; decision f7b15a21 r1). Its significant hold remains on the same affected relationship and reunion scope. The never-met fact (20ec7fd0 r1) remains unchanged; neither alternative has been settled by this deferral.\n\nBrief safe exploration:\n\n- The brass seal can become a clue readers reinterpret after Bjarni’s authorship is revealed, without choosing a seal-to-sender mechanism or inventing seal ownership (ef0b727a r1; advisory opportunity cefb035a r1; established seal 8913530c r1 and sender bd51f70d r1).\n- Freyja’s secret-learning time remains unknown, with null chronological bounds. That is not proof she knew it before any event, nor proof she did not (2619c8e9 r1; open question acc2c929 r1).\n- A delayed reader view can coexist with Rúna having seen the letter earlier: reader presentation order is separate from character knowledge and story chronology. No exact earlier clock time is inferred (e5c3a12c r1; reader revelation d45aee58 r1; character perspective 03ddca22 r1).\n- Rúna’s possible lie could misdirect the reader without changing Bjarni’s established authorship. It remains proposed dialogue, not a confession or a new sender fact (cf68a5b3 r1).\n\nCheckpoint summary: exchange a24f43cb-db0a-42b6-af10-147502f98ae0, sequence 14; predecessor Git checkpoint da8f19d1dbefd271a7d2abebfa41ea599dc97ca4 (sequence 13). References identify the supporting record revisions.\n\nThe shared-childhood conflict remains deferred with its promotion hold (69b768af r2). The earlier floating-bridge timing/intent uncertainty remains open (c8ddb813 r1). The foreshadowing opportunity is advisory and non-blocking (cefb035a r1). The old question “Why did Rúna send the letter?” still has an outdated premise after the sender revision and remains open for your review (f1e737c0 r1). No other open question has been answered.\n\nEstablished decisions:\n\n- Rúna is the lighthouse keeper. (b2bba552 r1; decision b857a602 r1).\n- Ari is Rúna’s brother. (89643a23 r1; decision 8b1386f6 r1).\n- Edda is Rúna’s sister. (e4198cbf r1; decision 73dd4a06 r1).\n- Rúna knows Bjarni. (b0134264 r1; decision b7cefc5a r1).\n- The lamp failed on the night of the letter. (2d32b3f7 r1; decision f6d39415 r1).\n- A blue light is visible. (6a6267eb r2; decision fd6e1431 r1).\n- The island has no bridge. (1e4f66c1 r1; decision 2fd6b656 r1).\n- The letter bears a brass seal. (3a2d51c7 r1; decision 96686fac r1).\n- Rúna has sworn to protect Edda. (5d69e81a r1; decision e031c7a6 r1).\n- Bjarni sent the letter. (40374e80 r1; decision 7fe89f79 r1).\n- Sigrún is the victim. (1bf3143e r1; decision a7619f5d r1).\n- Freyja is the investigator. (93d9cbfa r1; decision 0ae1d104 r1).\n- The story takes place in autumn. (6f666732 r1; decision 2e864c76 r1).\n- The letter arrived in the afternoon. (02cb9854 r1; decision 902c4083 r1).\n- Edda must remain innocent of the murder. (72d9ac2b r1; decision 538b8b03 r1).\n- Rúna arrives at the harbour after midnight. (c37ada40 r1; decision 12c209e1 r1).\n- The planned escape requires the only usable boat. (39813baf r1; decision 47964b12 r1).\n- No letter can cross the sealed boundary. (2f049d07 r1; decision e10e3e70 r1).\n- Freyja and Sigrún have never met before their reunion. (a4aa58cb r1; decision a5480c17 r1).\n- Rúna learned the rescue code before the ship sank. (89357784 r1; decision b00f3432 r1).\n- The apparent letter crossing is an unreliable witness’s false account, not an author-truth event. (82980897 r1; decision 1f6f5c8d r1).\n\nProposed or unresolved; none of these is accepted:\n\n- Rúna collects driftwood. (2d56748a r2; proposed).\n- Edda distrusts bells. (e4a49295 r1; proposed).\n- Bjarni is a sailor. (a48aa0fb r1; proposed).\n- Bjarni may owe Edda money. (eacc5318 r1; proposed).\n- Stormy weather. (ca5f921f r3; unresolved alternative).\n- Clear weather. (6b3bb4ae r1; unresolved alternative).\n- The storm may conceal a signal. (0ef4149b r1; proposed).\n- A shipwreck may occur. (ee68d703 r1; proposed).\n- A warning bell might sound. (12d564bf r1; proposed).\n- A tunnel might link the lighthouse and harbour. (9ea7eb09 r1; proposed).\n- The tide might expose old steps. (84e3fbc4 r1; proposed).\n- A hidden room might contain a map. (6ad4b40e r1; proposed).\n- Edda could trace the letter through the tunnel to the hidden room. (3c8cad60 r1; proposed).\n- Rúna is the murderer. (6e2f14e2 r1; unresolved).\n- Bjarni might own a red coat. (ee523c46 r1; proposed).\n- Edda might have found the map. (b9b74305 r1; proposed).\n- Ari might have a daughter. (c72be9b2 r1; proposed).\n- Possible dialogue: \"I killed him.\" Speaker and victim unidentified. (bb93a8e9 r1; proposed).\n- The dock might be brown. (a86ca6b8 r1; unresolved alternative).\n- The dock might be black. (2c8bdb38 r1; unresolved alternative).\n- The boat might have a leak. (decea5c4 r1; proposed).\n- The hidden-room entrance might be a floor hatch. (b265bcf2 r1; unresolved alternative).\n- The hidden-room entrance might be a wall door. (fb1bc34e r1; unresolved alternative).\n- A tidal mechanism might work someday. (5bcfbb3c r1; proposed).\n- The island might have a floating bridge. (96dee911 r1; proposed).\n- Possible diary wording: \"Edda stole the seal.\" (0128429a r1; proposed).\n- Rúna performs the harbour rescue at one in the morning, after arrival. (69b1fceb r2; proposed).\n- Rúna uses the rescue code to prevent that ship’s sinking. (fe6fa08b r1; proposed).\n- A different unusable boat is destroyed before the planned escape; the only usable escape boat remains intact. (bfef12dd r2; proposed).\n- Freyja and Sigrún’s real shared childhood memory motivates their first reunion. (42cd4d30 r2; unresolved).\n- The recorded brass seal could foreshadow the sender. (ef0b727a r1; proposed).\n- The time Freyja learned the hidden-room secret is unknown. (7bbe66fa r1; unresolved).\n- The reader may see the letter after delivery, while Rúna saw it earlier. (e5c3a12c r1; proposed).\n- Possible dialogue only: Rúna falsely claims she, rather than Bjarni, sent the letter. (cf68a5b3 r1; proposed).\n\nOpen and unanswered questions:\n\n- Why did Rúna send the letter? (f1e737c0 r1).\n- What does Edda want from Bjarni? (55b62a7f r1).\n- Who finds the letter? (d7c22da4 r1).\n- When does Bjarni return? (f68c6800 r1).\n- What opens the hidden room? (e7236c19 r1).\n- What if Ari has a daughter? (73f2747c r1).\n- Could the boat have a leak? (3c94b6c2 r1).\n- For the hidden-room entrance, does “Yes” select the floor hatch, the wall door, or neither yet? (bffb6141 r1).\n- When did Freyja learn the hidden-room secret? (acc2c929 r1).\n\nPaused here until your next direction."
+    }
+  ],
+  "input_artifacts": [
+    {
+      "artifact_id": "22d779e0-31bd-4417-bfaa-e06159e4f2c0",
+      "original_text": "{\"kind\":\"host_input\",\"source_type\":\"delegated\",\"thread_id\":\"01a16af9-f289-73c1-8151-55f50ace05d9\",\"turn_id\":\"01a18209-19fb-7b51-aa29-ddd51487e88e\",\"event_id\":\"fco_01a18209-19fd-7bc1-9178-cd82c9137fd3\",\"event_type\":\"functionCallOutput\",\"source_thread_id\":\"01a16af6-0d9b-7173-a5f5-c8775f37df18\",\"native_user_input\":false,\"novice_evidence\":false,\"evaluation_only\":true,\"text\":\"Case CONT_DISPOSITIONS. Here are my decisions on the six issues: reject the betrayal idea; revise the harbour rescue proposal to one in the morning, after arrival; deliberately revise canon so Rúna learned the rescue code before the ship sank, retaining the previous version; revise the destruction idea so a different unusable boat is destroyed and the only usable escape boat remains intact; the crossing letter is intentionally an unreliable witness’s false account, not an event in author truth, so preserve the boundary rule; defer the shared-childhood relationship issue without settling either alternative. Separately, perhaps the recorded brass seal could foreshadow the sender. The time Freyja learned the hidden-room secret is unknown. The reader may see the letter after its delivery even though Rúna saw it earlier. Rúna might lie that she, rather than Bjarni, sent it; this is possible dialogue only. Explore these safe possibilities briefly, summarize the checkpoint I request now, and pause.\",\"public_event\":{\"type\":\"functionCallOutput\",\"id\":\"fco_01a18209-19fd-7bc1-9178-cd82c9137fd3\",\"namespace\":\"codex_app\",\"name\":\"send_message_to_thread\",\"output\":{\"text\":\"<codex_delegation>\\n  <source_thread_id>01a16af6-0d9b-7173-a5f5-c8775f37df18</source_thread_id>\\n  <input>Case CONT_DISPOSITIONS. Here are my decisions on the six issues: reject the betrayal idea; revise the harbour rescue proposal to one in the morning, after arrival; deliberately revise canon so Rúna learned the rescue code before the ship sank, retaining the previous version; revise the destruction idea so a different unusable boat is destroyed and the only usable escape boat remains intact; the crossing letter is intentionally an unreliable witness’s false account, not an event in author truth, so preserve the boundary rule; defer the shared-childhood relationship issue without settling either alternative. Separately, perhaps the recorded brass seal could foreshadow the sender. The time Freyja learned the hidden-room secret is unknown. The reader may see the letter after its delivery even though Rúna saw it earlier. Rúna might lie that she, rather than Bjarni, sent it; this is possible dialogue only. Explore these safe possibilities briefly, summarize the checkpoint I request now, and pause.</input>\\n</codex_delegation>\",\"truncated\":false}}}",
+      "parsed_value": {
+        "kind": "host_input",
+        "source_type": "delegated",
+        "thread_id": "01a16af9-f289-73c1-8151-55f50ace05d9",
+        "turn_id": "01a18209-19fb-7b51-aa29-ddd51487e88e",
+        "event_id": "fco_01a18209-19fd-7bc1-9178-cd82c9137fd3",
+        "event_type": "functionCallOutput",
+        "source_thread_id": "01a16af6-0d9b-7173-a5f5-c8775f37df18",
+        "native_user_input": false,
+        "novice_evidence": false,
+        "evaluation_only": true,
+        "text": "Case CONT_DISPOSITIONS. Here are my decisions on the six issues: reject the betrayal idea; revise the harbour rescue proposal to one in the morning, after arrival; deliberately revise canon so Rúna learned the rescue code before the ship sank, retaining the previous version; revise the destruction idea so a different unusable boat is destroyed and the only usable escape boat remains intact; the crossing letter is intentionally an unreliable witness’s false account, not an event in author truth, so preserve the boundary rule; defer the shared-childhood relationship issue without settling either alternative. Separately, perhaps the recorded brass seal could foreshadow the sender. The time Freyja learned the hidden-room secret is unknown. The reader may see the letter after its delivery even though Rúna saw it earlier. Rúna might lie that she, rather than Bjarni, sent it; this is possible dialogue only. Explore these safe possibilities briefly, summarize the checkpoint I request now, and pause.",
+        "public_event": {
+          "type": "functionCallOutput",
+          "id": "fco_01a18209-19fd-7bc1-9178-cd82c9137fd3",
+          "namespace": "codex_app",
+          "name": "send_message_to_thread",
+          "output": {
+            "text": "<codex_delegation>\n  <source_thread_id>01a16af6-0d9b-7173-a5f5-c8775f37df18</source_thread_id>\n  <input>Case CONT_DISPOSITIONS. Here are my decisions on the six issues: reject the betrayal idea; revise the harbour rescue proposal to one in the morning, after arrival; deliberately revise canon so Rúna learned the rescue code before the ship sank, retaining the previous version; revise the destruction idea so a different unusable boat is destroyed and the only usable escape boat remains intact; the crossing letter is intentionally an unreliable witness’s false account, not an event in author truth, so preserve the boundary rule; defer the shared-childhood relationship issue without settling either alternative. Separately, perhaps the recorded brass seal could foreshadow the sender. The time Freyja learned the hidden-room secret is unknown. The reader may see the letter after its delivery even though Rúna saw it earlier. Rúna might lie that she, rather than Bjarni, sent it; this is possible dialogue only. Explore these safe possibilities briefly, summarize the checkpoint I request now, and pause.</input>\n</codex_delegation>",
+            "truncated": false
+          }
+        }
+      },
+      "digest": "e607d13f2abf25810c99e610ea6c104c35363e1fb4f0175f9ac20693659accb2"
+    }
+  ],
+  "record_versions": [
+    {
+      "id": "ca37ee5a-4d3c-49cc-ab84-1c70bfadff6b",
+      "kind": "idea",
+      "revision": 2,
+      "previous_revision": 1,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "2b515dae-bb19-4e96-8a2f-2550ae7a6980",
+          "message_id": "94f1548f-3c89-48f1-8ad0-016f6d0c8df4",
+          "range": {
+            "start": 91,
+            "end": 150
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "a24f43cb-db0a-42b6-af10-147502f98ae0",
+          "message_id": "a0bddc6e-48be-40c5-bee0-1cf3d6a395c6",
+          "range": {
+            "start": 65,
+            "end": 89
+          }
+        }
+      ],
+      "created_exchange_id": "2b515dae-bb19-4e96-8a2f-2550ae7a6980",
+      "origin": "supplied",
+      "statement": "Without any changed motive, Rúna deliberately betrays Edda.",
+      "status": "rejected",
+      "related_element_ids": [
+        "e7ebe0ce-980f-44c9-bf1a-8eae7e0d4df9",
+        "ba58b0dd-8d4e-402a-a41e-4adbabd0bcf0",
+        "83c818af-8c1a-4871-beca-eb354753ab30"
+      ],
+      "alternative_group_id": null,
+      "selected_parts": [],
+      "decision_ids": [
+        "6b8f2dc8-8705-4fd6-8793-4c2a58296f81"
+      ],
+      "resulting_assertion_ids": []
+    },
+    {
+      "id": "e7ebe0ce-980f-44c9-bf1a-8eae7e0d4df9",
+      "kind": "story_element",
+      "revision": 2,
+      "previous_revision": 1,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "2b515dae-bb19-4e96-8a2f-2550ae7a6980",
+          "message_id": "94f1548f-3c89-48f1-8ad0-016f6d0c8df4",
+          "range": {
+            "start": 91,
+            "end": 150
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "a24f43cb-db0a-42b6-af10-147502f98ae0",
+          "message_id": "a0bddc6e-48be-40c5-bee0-1cf3d6a395c6",
+          "range": {
+            "start": 65,
+            "end": 89
+          }
+        }
+      ],
+      "created_exchange_id": "2b515dae-bb19-4e96-8a2f-2550ae7a6980",
+      "origin": "supplied",
+      "element_type": "event",
+      "display_name": "Rúna deliberately betrays Edda",
+      "aliases": [],
+      "status": "rejected",
+      "assertion_ids": [],
+      "relationship_ids": [],
+      "dependency_refs": [
+        {
+          "id": "ba58b0dd-8d4e-402a-a41e-4adbabd0bcf0",
+          "revision": 1
+        },
+        {
+          "id": "83c818af-8c1a-4871-beca-eb354753ab30",
+          "revision": 1
+        }
+      ],
+      "time_ref": {
+        "chronology": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        },
+        "narrative": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        }
+      },
+      "decision_ids": [
+        "6b8f2dc8-8705-4fd6-8793-4c2a58296f81"
+      ]
+    },
+    {
+      "id": "336c0a14-2e41-4c96-9c37-c4e3747f836a",
+      "kind": "finding",
+      "revision": 2,
+      "previous_revision": 1,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "2b515dae-bb19-4e96-8a2f-2550ae7a6980",
+          "message_id": "94f1548f-3c89-48f1-8ad0-016f6d0c8df4",
+          "range": {
+            "start": 91,
+            "end": 150
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "0c0dd85d-7244-4ed4-91b4-652a854d2edf",
+          "message_id": "98d455a4-1267-4a37-a2ad-4319793eefc4",
+          "range": {
+            "start": 143,
+            "end": 173
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "a24f43cb-db0a-42b6-af10-147502f98ae0",
+          "message_id": "a0bddc6e-48be-40c5-bee0-1cf3d6a395c6",
+          "range": {
+            "start": 65,
+            "end": 89
+          }
+        }
+      ],
+      "created_exchange_id": "2b515dae-bb19-4e96-8a2f-2550ae7a6980",
+      "origin": "supplied",
+      "category": "motivation",
+      "assessment": "conflict",
+      "severity": "significant",
+      "affected_refs": [
+        {
+          "id": "ca37ee5a-4d3c-49cc-ab84-1c70bfadff6b",
+          "revision": 1
+        },
+        {
+          "id": "e7ebe0ce-980f-44c9-bf1a-8eae7e0d4df9",
+          "revision": 1
+        },
+        {
+          "id": "249f979b-d59a-4815-b1ed-1dc386393711",
+          "revision": 1
+        }
+      ],
+      "explanation": "Deliberate betrayal without a changed motive or supplied explanation directly opposes Rúna’s established protective oath. An oath is not physical compulsion, but the proposal requires conscious motivation or relationship handling.",
+      "consequences": [
+        "The protective commitment and the unexplained deliberate betrayal cannot be treated as a coherent unchanged motivation without clarification.",
+        "Do not promote the betrayal or silently remove the oath."
+      ],
+      "resolution_options": [
+        "Reject or revise this proposal.",
+        "Explicitly revise the affected canon, subject to protected directions.",
+        "Provide an intentional narrative explanation and clarify how the affected facts relate.",
+        "Defer resolution and retain the affected promotion hold."
+      ],
+      "disposition": "rejected_idea",
+      "decision_ids": [
+        "6b8f2dc8-8705-4fd6-8793-4c2a58296f81"
+      ],
+      "narrative_explanation": null
+    },
+    {
+      "id": "6b8f2dc8-8705-4fd6-8793-4c2a58296f81",
+      "kind": "decision",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "a24f43cb-db0a-42b6-af10-147502f98ae0",
+          "message_id": "a0bddc6e-48be-40c5-bee0-1cf3d6a395c6",
+          "range": {
+            "start": 65,
+            "end": 89
+          }
+        }
+      ],
+      "created_exchange_id": "a24f43cb-db0a-42b6-af10-147502f98ae0",
+      "origin": "supplied",
+      "action": "reject",
+      "user_message_ref": {
+        "type": "message",
+        "exchange_id": "a24f43cb-db0a-42b6-af10-147502f98ae0",
+        "message_id": "a0bddc6e-48be-40c5-bee0-1cf3d6a395c6",
+        "range": {
+          "start": 65,
+          "end": 89
+        }
+      },
+      "span": {
+        "start": 65,
+        "end": 89
+      },
+      "target_refs": [
+        {
+          "id": "336c0a14-2e41-4c96-9c37-c4e3747f836a",
+          "revision": 1
+        },
+        {
+          "id": "ca37ee5a-4d3c-49cc-ab84-1c70bfadff6b",
+          "revision": 1
+        },
+        {
+          "id": "e7ebe0ce-980f-44c9-bf1a-8eae7e0d4df9",
+          "revision": 1
+        }
+      ],
+      "selected_parts": [],
+      "prior_refs": [
+        {
+          "id": "336c0a14-2e41-4c96-9c37-c4e3747f836a",
+          "revision": 1
+        },
+        {
+          "id": "ca37ee5a-4d3c-49cc-ab84-1c70bfadff6b",
+          "revision": 1
+        },
+        {
+          "id": "e7ebe0ce-980f-44c9-bf1a-8eae7e0d4df9",
+          "revision": 1
+        }
+      ],
+      "result_refs": [
+        {
+          "id": "336c0a14-2e41-4c96-9c37-c4e3747f836a",
+          "revision": 2
+        },
+        {
+          "id": "ca37ee5a-4d3c-49cc-ab84-1c70bfadff6b",
+          "revision": 2
+        },
+        {
+          "id": "e7ebe0ce-980f-44c9-bf1a-8eae7e0d4df9",
+          "revision": 2
+        }
+      ],
+      "reason": "Reject the betrayal proposal while preserving the protective oath.",
+      "affected_refs": [
+        {
+          "id": "336c0a14-2e41-4c96-9c37-c4e3747f836a",
+          "revision": 2
+        },
+        {
+          "id": "ca37ee5a-4d3c-49cc-ab84-1c70bfadff6b",
+          "revision": 2
+        },
+        {
+          "id": "e7ebe0ce-980f-44c9-bf1a-8eae7e0d4df9",
+          "revision": 2
+        }
+      ],
+      "review_required_refs": []
+    },
+    {
+      "id": "69b1fceb-c281-4264-9ef6-394ab5435da5",
+      "kind": "idea",
+      "revision": 2,
+      "previous_revision": 1,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "2b515dae-bb19-4e96-8a2f-2550ae7a6980",
+          "message_id": "94f1548f-3c89-48f1-8ad0-016f6d0c8df4",
+          "range": {
+            "start": 155,
+            "end": 243
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "a24f43cb-db0a-42b6-af10-147502f98ae0",
+          "message_id": "a0bddc6e-48be-40c5-bee0-1cf3d6a395c6",
+          "range": {
+            "start": 91,
+            "end": 162
+          }
+        }
+      ],
+      "created_exchange_id": "2b515dae-bb19-4e96-8a2f-2550ae7a6980",
+      "origin": "supplied",
+      "statement": "Rúna performs the harbour rescue at one in the morning, after arrival.",
+      "status": "proposed",
+      "related_element_ids": [
+        "a59cef3c-52be-4ca8-bed6-ea0f2ad683f3",
+        "ba58b0dd-8d4e-402a-a41e-4adbabd0bcf0",
+        "2497fdcb-e3bd-4af7-b1a9-9452719b43ba"
+      ],
+      "alternative_group_id": null,
+      "selected_parts": [],
+      "decision_ids": [
+        "602d93fa-9c78-4432-810d-06a007de66d7"
+      ],
+      "resulting_assertion_ids": []
+    },
+    {
+      "id": "a59cef3c-52be-4ca8-bed6-ea0f2ad683f3",
+      "kind": "story_element",
+      "revision": 2,
+      "previous_revision": 1,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "2b515dae-bb19-4e96-8a2f-2550ae7a6980",
+          "message_id": "94f1548f-3c89-48f1-8ad0-016f6d0c8df4",
+          "range": {
+            "start": 155,
+            "end": 243
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "a24f43cb-db0a-42b6-af10-147502f98ae0",
+          "message_id": "a0bddc6e-48be-40c5-bee0-1cf3d6a395c6",
+          "range": {
+            "start": 91,
+            "end": 162
+          }
+        }
+      ],
+      "created_exchange_id": "2b515dae-bb19-4e96-8a2f-2550ae7a6980",
+      "origin": "supplied",
+      "element_type": "event",
+      "display_name": "Harbour rescue at one in the morning, after arrival",
+      "aliases": [],
+      "status": "proposed",
+      "assertion_ids": [],
+      "relationship_ids": [],
+      "dependency_refs": [
+        {
+          "id": "ba58b0dd-8d4e-402a-a41e-4adbabd0bcf0",
+          "revision": 1
+        },
+        {
+          "id": "2497fdcb-e3bd-4af7-b1a9-9452719b43ba",
+          "revision": 2
+        }
+      ],
+      "time_ref": {
+        "chronology": {
+          "precision": "partial",
+          "event_anchor": null,
+          "start": "one in the morning",
+          "end": null,
+          "before_refs": [],
+          "after_refs": [
+            {
+              "id": "8b2e30d5-9ccf-4f6f-a2ae-f97e76f3ec0b",
+              "revision": 1
+            }
+          ]
+        },
+        "narrative": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        }
+      },
+      "decision_ids": [
+        "602d93fa-9c78-4432-810d-06a007de66d7"
+      ]
+    },
+    {
+      "id": "42774683-64c0-4b27-9ded-fd1ed3cec0db",
+      "kind": "finding",
+      "revision": 2,
+      "previous_revision": 1,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "2b515dae-bb19-4e96-8a2f-2550ae7a6980",
+          "message_id": "94f1548f-3c89-48f1-8ad0-016f6d0c8df4",
+          "range": {
+            "start": 155,
+            "end": 243
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+          "message_id": "6a634120-a28f-48cb-9bfa-156c295a6e7b",
+          "range": {
+            "start": 205,
+            "end": 247
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+          "message_id": "6a634120-a28f-48cb-9bfa-156c295a6e7b",
+          "range": {
+            "start": 205,
+            "end": 247
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "a24f43cb-db0a-42b6-af10-147502f98ae0",
+          "message_id": "a0bddc6e-48be-40c5-bee0-1cf3d6a395c6",
+          "range": {
+            "start": 91,
+            "end": 162
+          }
+        }
+      ],
+      "created_exchange_id": "2b515dae-bb19-4e96-8a2f-2550ae7a6980",
+      "origin": "supplied",
+      "category": "chronology",
+      "assessment": "conflict",
+      "severity": "significant",
+      "affected_refs": [
+        {
+          "id": "69b1fceb-c281-4264-9ef6-394ab5435da5",
+          "revision": 1
+        },
+        {
+          "id": "a59cef3c-52be-4ca8-bed6-ea0f2ad683f3",
+          "revision": 1
+        },
+        {
+          "id": "4355d4e9-a670-4136-accf-7ee9e44d7c9a",
+          "revision": 1
+        },
+        {
+          "id": "8b2e30d5-9ccf-4f6f-a2ae-f97e76f3ec0b",
+          "revision": 1
+        }
+      ],
+      "explanation": "In the explicitly shared timeline, the harbour rescue requires Rúna at the harbour at ten that evening, before her established after-midnight arrival.",
+      "consequences": [
+        "The rescue precedes the saved arrival on which her harbour presence depends.",
+        "A timing or event interpretation must be resolved before promoting the rescue."
+      ],
+      "resolution_options": [
+        "Reject or revise this proposal.",
+        "Explicitly revise the affected canon, subject to protected directions.",
+        "Provide an intentional narrative explanation and clarify how the affected facts relate.",
+        "Defer resolution and retain the affected promotion hold."
+      ],
+      "disposition": "revised_idea",
+      "decision_ids": [
+        "602d93fa-9c78-4432-810d-06a007de66d7"
+      ],
+      "narrative_explanation": null
+    },
+    {
+      "id": "602d93fa-9c78-4432-810d-06a007de66d7",
+      "kind": "decision",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "a24f43cb-db0a-42b6-af10-147502f98ae0",
+          "message_id": "a0bddc6e-48be-40c5-bee0-1cf3d6a395c6",
+          "range": {
+            "start": 91,
+            "end": 162
+          }
+        }
+      ],
+      "created_exchange_id": "a24f43cb-db0a-42b6-af10-147502f98ae0",
+      "origin": "supplied",
+      "action": "revise",
+      "user_message_ref": {
+        "type": "message",
+        "exchange_id": "a24f43cb-db0a-42b6-af10-147502f98ae0",
+        "message_id": "a0bddc6e-48be-40c5-bee0-1cf3d6a395c6",
+        "range": {
+          "start": 91,
+          "end": 162
+        }
+      },
+      "span": {
+        "start": 91,
+        "end": 162
+      },
+      "target_refs": [
+        {
+          "id": "42774683-64c0-4b27-9ded-fd1ed3cec0db",
+          "revision": 1
+        },
+        {
+          "id": "69b1fceb-c281-4264-9ef6-394ab5435da5",
+          "revision": 1
+        },
+        {
+          "id": "a59cef3c-52be-4ca8-bed6-ea0f2ad683f3",
+          "revision": 1
+        }
+      ],
+      "selected_parts": [],
+      "prior_refs": [
+        {
+          "id": "42774683-64c0-4b27-9ded-fd1ed3cec0db",
+          "revision": 1
+        },
+        {
+          "id": "69b1fceb-c281-4264-9ef6-394ab5435da5",
+          "revision": 1
+        },
+        {
+          "id": "a59cef3c-52be-4ca8-bed6-ea0f2ad683f3",
+          "revision": 1
+        }
+      ],
+      "result_refs": [
+        {
+          "id": "42774683-64c0-4b27-9ded-fd1ed3cec0db",
+          "revision": 2
+        },
+        {
+          "id": "69b1fceb-c281-4264-9ef6-394ab5435da5",
+          "revision": 2
+        },
+        {
+          "id": "a59cef3c-52be-4ca8-bed6-ea0f2ad683f3",
+          "revision": 2
+        }
+      ],
+      "reason": "Revise only the rescue proposal and its ordering; do not promote it to canon.",
+      "affected_refs": [
+        {
+          "id": "42774683-64c0-4b27-9ded-fd1ed3cec0db",
+          "revision": 2
+        },
+        {
+          "id": "69b1fceb-c281-4264-9ef6-394ab5435da5",
+          "revision": 2
+        },
+        {
+          "id": "a59cef3c-52be-4ca8-bed6-ea0f2ad683f3",
+          "revision": 2
+        }
+      ],
+      "review_required_refs": []
+    },
+    {
+      "id": "e7860735-5143-462d-8358-727436f2376f",
+      "kind": "assertion",
+      "revision": 2,
+      "previous_revision": 1,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+          "message_id": "6a634120-a28f-48cb-9bfa-156c295a6e7b",
+          "range": {
+            "start": 249,
+            "end": 302
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "a24f43cb-db0a-42b6-af10-147502f98ae0",
+          "message_id": "a0bddc6e-48be-40c5-bee0-1cf3d6a395c6",
+          "range": {
+            "start": 164,
+            "end": 274
+          }
+        }
+      ],
+      "created_exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+      "origin": "supplied",
+      "subject_element_id": "ba58b0dd-8d4e-402a-a41e-4adbabd0bcf0",
+      "predicate": "learns",
+      "value": "rescue code only after the ship sinks",
+      "perspective": "author_truth",
+      "holder_id": null,
+      "reader_audience": null,
+      "time_ref": {
+        "chronology": {
+          "precision": "partial",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": [
+            {
+              "id": "bfcbbdff-35cc-425c-8670-c722ff6b4bca",
+              "revision": 1
+            }
+          ]
+        },
+        "narrative": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        }
+      },
+      "truth_state": "affirmed",
+      "status": "superseded",
+      "decision_ids": [
+        "a264da48-d66f-41c8-a418-be835131c5f3",
+        "b00f3432-61ac-44cd-aaa1-6f85761ec80c"
+      ],
+      "supersedes": null
+    },
+    {
+      "id": "82dc2970-0fc0-44fb-a904-242c882e0eb5",
+      "kind": "assertion",
+      "revision": 2,
+      "previous_revision": 1,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+          "message_id": "6a634120-a28f-48cb-9bfa-156c295a6e7b",
+          "range": {
+            "start": 249,
+            "end": 302
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "a24f43cb-db0a-42b6-af10-147502f98ae0",
+          "message_id": "a0bddc6e-48be-40c5-bee0-1cf3d6a395c6",
+          "range": {
+            "start": 164,
+            "end": 274
+          }
+        }
+      ],
+      "created_exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+      "origin": "supplied",
+      "subject_element_id": "ba58b0dd-8d4e-402a-a41e-4adbabd0bcf0",
+      "predicate": "knows",
+      "value": "rescue code",
+      "perspective": "character_knowledge",
+      "holder_id": "ba58b0dd-8d4e-402a-a41e-4adbabd0bcf0",
+      "reader_audience": null,
+      "time_ref": {
+        "chronology": {
+          "precision": "partial",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [
+            {
+              "id": "bfcbbdff-35cc-425c-8670-c722ff6b4bca",
+              "revision": 1
+            }
+          ],
+          "after_refs": []
+        },
+        "narrative": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        }
+      },
+      "truth_state": "denied",
+      "status": "superseded",
+      "decision_ids": [
+        "a264da48-d66f-41c8-a418-be835131c5f3",
+        "b00f3432-61ac-44cd-aaa1-6f85761ec80c"
+      ],
+      "supersedes": null
+    },
+    {
+      "id": "da98ac0d-9394-437b-a84e-b58340400e68",
+      "kind": "assertion",
+      "revision": 2,
+      "previous_revision": 1,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+          "message_id": "6a634120-a28f-48cb-9bfa-156c295a6e7b",
+          "range": {
+            "start": 249,
+            "end": 302
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "a24f43cb-db0a-42b6-af10-147502f98ae0",
+          "message_id": "a0bddc6e-48be-40c5-bee0-1cf3d6a395c6",
+          "range": {
+            "start": 164,
+            "end": 274
+          }
+        }
+      ],
+      "created_exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+      "origin": "supplied",
+      "subject_element_id": "ba58b0dd-8d4e-402a-a41e-4adbabd0bcf0",
+      "predicate": "knows",
+      "value": "rescue code",
+      "perspective": "character_knowledge",
+      "holder_id": "ba58b0dd-8d4e-402a-a41e-4adbabd0bcf0",
+      "reader_audience": null,
+      "time_ref": {
+        "chronology": {
+          "precision": "partial",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": [
+            {
+              "id": "bfcbbdff-35cc-425c-8670-c722ff6b4bca",
+              "revision": 1
+            }
+          ]
+        },
+        "narrative": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        }
+      },
+      "truth_state": "affirmed",
+      "status": "superseded",
+      "decision_ids": [
+        "a264da48-d66f-41c8-a418-be835131c5f3",
+        "b00f3432-61ac-44cd-aaa1-6f85761ec80c"
+      ],
+      "supersedes": null
+    },
+    {
+      "id": "b379a543-162e-428d-b7a1-e95b331d4937",
+      "kind": "idea",
+      "revision": 2,
+      "previous_revision": 1,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+          "message_id": "6a634120-a28f-48cb-9bfa-156c295a6e7b",
+          "range": {
+            "start": 249,
+            "end": 302
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "a24f43cb-db0a-42b6-af10-147502f98ae0",
+          "message_id": "a0bddc6e-48be-40c5-bee0-1cf3d6a395c6",
+          "range": {
+            "start": 164,
+            "end": 274
+          }
+        }
+      ],
+      "created_exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+      "origin": "supplied",
+      "statement": "Rúna learns the rescue code only after the ship sinks.",
+      "status": "superseded",
+      "related_element_ids": [
+        "ba58b0dd-8d4e-402a-a41e-4adbabd0bcf0",
+        "bfcbbdff-35cc-425c-8670-c722ff6b4bca",
+        "9428530a-3d9a-4705-8b93-30a534bb99b3"
+      ],
+      "alternative_group_id": null,
+      "selected_parts": [
+        "Rúna learns the rescue code only after the ship sinks."
+      ],
+      "decision_ids": [
+        "a264da48-d66f-41c8-a418-be835131c5f3",
+        "b00f3432-61ac-44cd-aaa1-6f85761ec80c"
+      ],
+      "resulting_assertion_ids": [
+        "e7860735-5143-462d-8358-727436f2376f",
+        "da98ac0d-9394-437b-a84e-b58340400e68",
+        "82dc2970-0fc0-44fb-a904-242c882e0eb5"
+      ]
+    },
+    {
+      "id": "9428530a-3d9a-4705-8b93-30a534bb99b3",
+      "kind": "story_element",
+      "revision": 2,
+      "previous_revision": 1,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+          "message_id": "6a634120-a28f-48cb-9bfa-156c295a6e7b",
+          "range": {
+            "start": 249,
+            "end": 302
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "a24f43cb-db0a-42b6-af10-147502f98ae0",
+          "message_id": "a0bddc6e-48be-40c5-bee0-1cf3d6a395c6",
+          "range": {
+            "start": 164,
+            "end": 274
+          }
+        }
+      ],
+      "created_exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+      "origin": "supplied",
+      "element_type": "event",
+      "display_name": "Rúna learns rescue code",
+      "aliases": [],
+      "status": "accepted",
+      "assertion_ids": [
+        "a153fa04-d0d2-4ff1-a397-dec8cf77f714",
+        "39fc465b-3c82-40ef-9de6-aea330b9ee42"
+      ],
+      "relationship_ids": [],
+      "dependency_refs": [
+        {
+          "id": "ba58b0dd-8d4e-402a-a41e-4adbabd0bcf0",
+          "revision": 1
+        },
+        {
+          "id": "bfcbbdff-35cc-425c-8670-c722ff6b4bca",
+          "revision": 1
+        }
+      ],
+      "time_ref": {
+        "chronology": {
+          "precision": "partial",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [
+            {
+              "id": "bfcbbdff-35cc-425c-8670-c722ff6b4bca",
+              "revision": 1
+            }
+          ],
+          "after_refs": []
+        },
+        "narrative": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        }
+      },
+      "decision_ids": [
+        "a264da48-d66f-41c8-a418-be835131c5f3",
+        "b00f3432-61ac-44cd-aaa1-6f85761ec80c"
+      ]
+    },
+    {
+      "id": "a153fa04-d0d2-4ff1-a397-dec8cf77f714",
+      "kind": "assertion",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "a24f43cb-db0a-42b6-af10-147502f98ae0",
+          "message_id": "a0bddc6e-48be-40c5-bee0-1cf3d6a395c6",
+          "range": {
+            "start": 164,
+            "end": 274
+          }
+        }
+      ],
+      "created_exchange_id": "a24f43cb-db0a-42b6-af10-147502f98ae0",
+      "origin": "supplied",
+      "subject_element_id": "ba58b0dd-8d4e-402a-a41e-4adbabd0bcf0",
+      "predicate": "learns",
+      "value": "rescue code before the ship sank",
+      "perspective": "author_truth",
+      "holder_id": null,
+      "reader_audience": null,
+      "time_ref": {
+        "chronology": {
+          "precision": "partial",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [
+            {
+              "id": "bfcbbdff-35cc-425c-8670-c722ff6b4bca",
+              "revision": 1
+            }
+          ],
+          "after_refs": []
+        },
+        "narrative": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        }
+      },
+      "truth_state": "affirmed",
+      "status": "accepted",
+      "decision_ids": [
+        "b00f3432-61ac-44cd-aaa1-6f85761ec80c"
+      ],
+      "supersedes": {
+        "id": "e7860735-5143-462d-8358-727436f2376f",
+        "revision": 1
+      }
+    },
+    {
+      "id": "39fc465b-3c82-40ef-9de6-aea330b9ee42",
+      "kind": "assertion",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "a24f43cb-db0a-42b6-af10-147502f98ae0",
+          "message_id": "a0bddc6e-48be-40c5-bee0-1cf3d6a395c6",
+          "range": {
+            "start": 164,
+            "end": 274
+          }
+        }
+      ],
+      "created_exchange_id": "a24f43cb-db0a-42b6-af10-147502f98ae0",
+      "origin": "supplied",
+      "subject_element_id": "ba58b0dd-8d4e-402a-a41e-4adbabd0bcf0",
+      "predicate": "knows",
+      "value": "rescue code",
+      "perspective": "character_knowledge",
+      "holder_id": "ba58b0dd-8d4e-402a-a41e-4adbabd0bcf0",
+      "reader_audience": null,
+      "time_ref": {
+        "chronology": {
+          "precision": "partial",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [
+            {
+              "id": "bfcbbdff-35cc-425c-8670-c722ff6b4bca",
+              "revision": 1
+            }
+          ],
+          "after_refs": []
+        },
+        "narrative": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        }
+      },
+      "truth_state": "affirmed",
+      "status": "accepted",
+      "decision_ids": [
+        "b00f3432-61ac-44cd-aaa1-6f85761ec80c"
+      ],
+      "supersedes": {
+        "id": "82dc2970-0fc0-44fb-a904-242c882e0eb5",
+        "revision": 1
+      }
+    },
+    {
+      "id": "89357784-4354-4935-9c58-c4a6b4155ad9",
+      "kind": "idea",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "a24f43cb-db0a-42b6-af10-147502f98ae0",
+          "message_id": "a0bddc6e-48be-40c5-bee0-1cf3d6a395c6",
+          "range": {
+            "start": 164,
+            "end": 274
+          }
+        }
+      ],
+      "created_exchange_id": "a24f43cb-db0a-42b6-af10-147502f98ae0",
+      "origin": "supplied",
+      "statement": "Rúna learned the rescue code before the ship sank.",
+      "status": "accepted",
+      "related_element_ids": [
+        "ba58b0dd-8d4e-402a-a41e-4adbabd0bcf0",
+        "bfcbbdff-35cc-425c-8670-c722ff6b4bca",
+        "9428530a-3d9a-4705-8b93-30a534bb99b3"
+      ],
+      "alternative_group_id": null,
+      "selected_parts": [
+        "Rúna learned the rescue code before the ship sank."
+      ],
+      "decision_ids": [
+        "b00f3432-61ac-44cd-aaa1-6f85761ec80c"
+      ],
+      "resulting_assertion_ids": [
+        "a153fa04-d0d2-4ff1-a397-dec8cf77f714",
+        "39fc465b-3c82-40ef-9de6-aea330b9ee42"
+      ]
+    },
+    {
+      "id": "d0614c62-ba76-46ed-9f38-2514585ed35a",
+      "kind": "finding",
+      "revision": 2,
+      "previous_revision": 1,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "2b515dae-bb19-4e96-8a2f-2550ae7a6980",
+          "message_id": "94f1548f-3c89-48f1-8ad0-016f6d0c8df4",
+          "range": {
+            "start": 248,
+            "end": 305
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+          "message_id": "6a634120-a28f-48cb-9bfa-156c295a6e7b",
+          "range": {
+            "start": 249,
+            "end": 302
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+          "message_id": "6a634120-a28f-48cb-9bfa-156c295a6e7b",
+          "range": {
+            "start": 249,
+            "end": 302
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+          "message_id": "6a634120-a28f-48cb-9bfa-156c295a6e7b",
+          "range": {
+            "start": 249,
+            "end": 302
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "a24f43cb-db0a-42b6-af10-147502f98ae0",
+          "message_id": "a0bddc6e-48be-40c5-bee0-1cf3d6a395c6",
+          "range": {
+            "start": 164,
+            "end": 274
+          }
+        }
+      ],
+      "created_exchange_id": "2b515dae-bb19-4e96-8a2f-2550ae7a6980",
+      "origin": "supplied",
+      "category": "knowledge",
+      "assessment": "conflict",
+      "severity": "significant",
+      "affected_refs": [
+        {
+          "id": "fe6fa08b-35f0-4e26-abf6-9659fe5c61af",
+          "revision": 1
+        },
+        {
+          "id": "ad9dd3f6-9656-406f-ac77-4690c770c08b",
+          "revision": 1
+        },
+        {
+          "id": "e7860735-5143-462d-8358-727436f2376f",
+          "revision": 1
+        },
+        {
+          "id": "82dc2970-0fc0-44fb-a904-242c882e0eb5",
+          "revision": 1
+        },
+        {
+          "id": "da98ac0d-9394-437b-a84e-b58340400e68",
+          "revision": 1
+        }
+      ],
+      "explanation": "Rúna learns the code only after this ship sinks, with no code knowledge before that event. Using it to prevent that same sinking requires unavailable prior knowledge and removes the event preceding her learning.",
+      "consequences": [
+        "The proposed action requires code knowledge before the recorded acquisition.",
+        "Preventing the same sinking also changes the stated learning dependency."
+      ],
+      "resolution_options": [
+        "Reject or revise this proposal.",
+        "Explicitly revise the affected canon, subject to protected directions.",
+        "Provide an intentional narrative explanation and clarify how the affected facts relate.",
+        "Defer resolution and retain the affected promotion hold."
+      ],
+      "disposition": "revised_canon",
+      "decision_ids": [
+        "b00f3432-61ac-44cd-aaa1-6f85761ec80c"
+      ],
+      "narrative_explanation": null
+    },
+    {
+      "id": "b00f3432-61ac-44cd-aaa1-6f85761ec80c",
+      "kind": "decision",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "a24f43cb-db0a-42b6-af10-147502f98ae0",
+          "message_id": "a0bddc6e-48be-40c5-bee0-1cf3d6a395c6",
+          "range": {
+            "start": 164,
+            "end": 274
+          }
+        }
+      ],
+      "created_exchange_id": "a24f43cb-db0a-42b6-af10-147502f98ae0",
+      "origin": "supplied",
+      "action": "revise",
+      "user_message_ref": {
+        "type": "message",
+        "exchange_id": "a24f43cb-db0a-42b6-af10-147502f98ae0",
+        "message_id": "a0bddc6e-48be-40c5-bee0-1cf3d6a395c6",
+        "range": {
+          "start": 164,
+          "end": 274
+        }
+      },
+      "span": {
+        "start": 164,
+        "end": 274
+      },
+      "target_refs": [
+        {
+          "id": "d0614c62-ba76-46ed-9f38-2514585ed35a",
+          "revision": 1
+        },
+        {
+          "id": "e7860735-5143-462d-8358-727436f2376f",
+          "revision": 1
+        },
+        {
+          "id": "82dc2970-0fc0-44fb-a904-242c882e0eb5",
+          "revision": 1
+        },
+        {
+          "id": "da98ac0d-9394-437b-a84e-b58340400e68",
+          "revision": 1
+        },
+        {
+          "id": "b379a543-162e-428d-b7a1-e95b331d4937",
+          "revision": 1
+        },
+        {
+          "id": "9428530a-3d9a-4705-8b93-30a534bb99b3",
+          "revision": 1
+        }
+      ],
+      "selected_parts": [],
+      "prior_refs": [
+        {
+          "id": "d0614c62-ba76-46ed-9f38-2514585ed35a",
+          "revision": 1
+        },
+        {
+          "id": "e7860735-5143-462d-8358-727436f2376f",
+          "revision": 1
+        },
+        {
+          "id": "82dc2970-0fc0-44fb-a904-242c882e0eb5",
+          "revision": 1
+        },
+        {
+          "id": "da98ac0d-9394-437b-a84e-b58340400e68",
+          "revision": 1
+        },
+        {
+          "id": "b379a543-162e-428d-b7a1-e95b331d4937",
+          "revision": 1
+        },
+        {
+          "id": "9428530a-3d9a-4705-8b93-30a534bb99b3",
+          "revision": 1
+        }
+      ],
+      "result_refs": [
+        {
+          "id": "d0614c62-ba76-46ed-9f38-2514585ed35a",
+          "revision": 2
+        },
+        {
+          "id": "e7860735-5143-462d-8358-727436f2376f",
+          "revision": 2
+        },
+        {
+          "id": "82dc2970-0fc0-44fb-a904-242c882e0eb5",
+          "revision": 2
+        },
+        {
+          "id": "da98ac0d-9394-437b-a84e-b58340400e68",
+          "revision": 2
+        },
+        {
+          "id": "b379a543-162e-428d-b7a1-e95b331d4937",
+          "revision": 2
+        },
+        {
+          "id": "9428530a-3d9a-4705-8b93-30a534bb99b3",
+          "revision": 2
+        },
+        {
+          "id": "a153fa04-d0d2-4ff1-a397-dec8cf77f714",
+          "revision": 1
+        },
+        {
+          "id": "39fc465b-3c82-40ef-9de6-aea330b9ee42",
+          "revision": 1
+        },
+        {
+          "id": "89357784-4354-4935-9c58-c4a6b4155ad9",
+          "revision": 1
+        }
+      ],
+      "reason": "Explicitly replace the rescue-code acquisition chronology and old knowledge states, retaining precise prior revisions. No successful prevention of the sinking is established.",
+      "affected_refs": [
+        {
+          "id": "d0614c62-ba76-46ed-9f38-2514585ed35a",
+          "revision": 2
+        },
+        {
+          "id": "e7860735-5143-462d-8358-727436f2376f",
+          "revision": 2
+        },
+        {
+          "id": "82dc2970-0fc0-44fb-a904-242c882e0eb5",
+          "revision": 2
+        },
+        {
+          "id": "da98ac0d-9394-437b-a84e-b58340400e68",
+          "revision": 2
+        },
+        {
+          "id": "b379a543-162e-428d-b7a1-e95b331d4937",
+          "revision": 2
+        },
+        {
+          "id": "9428530a-3d9a-4705-8b93-30a534bb99b3",
+          "revision": 2
+        },
+        {
+          "id": "a153fa04-d0d2-4ff1-a397-dec8cf77f714",
+          "revision": 1
+        },
+        {
+          "id": "39fc465b-3c82-40ef-9de6-aea330b9ee42",
+          "revision": 1
+        },
+        {
+          "id": "89357784-4354-4935-9c58-c4a6b4155ad9",
+          "revision": 1
+        }
+      ],
+      "review_required_refs": [
+        {
+          "id": "a264da48-d66f-41c8-a418-be835131c5f3",
+          "revision": 1
+        },
+        {
+          "id": "d0614c62-ba76-46ed-9f38-2514585ed35a",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "id": "7063c495-cb08-4980-b302-38b9305ac2e2",
+      "kind": "story_element",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "a24f43cb-db0a-42b6-af10-147502f98ae0",
+          "message_id": "a0bddc6e-48be-40c5-bee0-1cf3d6a395c6",
+          "range": {
+            "start": 276,
+            "end": 392
+          }
+        }
+      ],
+      "created_exchange_id": "a24f43cb-db0a-42b6-af10-147502f98ae0",
+      "origin": "supplied",
+      "element_type": "location",
+      "display_name": "Different unusable boat",
+      "aliases": [],
+      "status": "proposed",
+      "assertion_ids": [],
+      "relationship_ids": [],
+      "dependency_refs": [],
+      "time_ref": {
+        "chronology": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        },
+        "narrative": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        }
+      },
+      "decision_ids": [
+        "06d97456-b26a-4866-847d-684e22cecf8b"
+      ]
+    },
+    {
+      "id": "bfef12dd-42fc-49c6-8b3e-686dedc131bf",
+      "kind": "idea",
+      "revision": 2,
+      "previous_revision": 1,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "2b515dae-bb19-4e96-8a2f-2550ae7a6980",
+          "message_id": "94f1548f-3c89-48f1-8ad0-016f6d0c8df4",
+          "range": {
+            "start": 310,
+            "end": 385
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "a24f43cb-db0a-42b6-af10-147502f98ae0",
+          "message_id": "a0bddc6e-48be-40c5-bee0-1cf3d6a395c6",
+          "range": {
+            "start": 276,
+            "end": 392
+          }
+        }
+      ],
+      "created_exchange_id": "2b515dae-bb19-4e96-8a2f-2550ae7a6980",
+      "origin": "supplied",
+      "statement": "A different unusable boat is destroyed before the planned escape; the only usable escape boat remains intact.",
+      "status": "proposed",
+      "related_element_ids": [
+        "7063c495-cb08-4980-b302-38b9305ac2e2",
+        "ccc7f13e-7414-4828-8baa-ccaa54c66545",
+        "1cc55999-9d0c-44d0-b5a5-16d59789838c",
+        "ee861f63-8079-47da-89fb-102de1b58ce3"
+      ],
+      "alternative_group_id": null,
+      "selected_parts": [],
+      "decision_ids": [
+        "06d97456-b26a-4866-847d-684e22cecf8b"
+      ],
+      "resulting_assertion_ids": []
+    },
+    {
+      "id": "ee861f63-8079-47da-89fb-102de1b58ce3",
+      "kind": "story_element",
+      "revision": 2,
+      "previous_revision": 1,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "2b515dae-bb19-4e96-8a2f-2550ae7a6980",
+          "message_id": "94f1548f-3c89-48f1-8ad0-016f6d0c8df4",
+          "range": {
+            "start": 310,
+            "end": 385
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "a24f43cb-db0a-42b6-af10-147502f98ae0",
+          "message_id": "a0bddc6e-48be-40c5-bee0-1cf3d6a395c6",
+          "range": {
+            "start": 276,
+            "end": 392
+          }
+        }
+      ],
+      "created_exchange_id": "2b515dae-bb19-4e96-8a2f-2550ae7a6980",
+      "origin": "supplied",
+      "element_type": "event",
+      "display_name": "Destruction of a different unusable boat",
+      "aliases": [],
+      "status": "proposed",
+      "assertion_ids": [],
+      "relationship_ids": [],
+      "dependency_refs": [
+        {
+          "id": "7063c495-cb08-4980-b302-38b9305ac2e2",
+          "revision": 1
+        },
+        {
+          "id": "ccc7f13e-7414-4828-8baa-ccaa54c66545",
+          "revision": 2
+        },
+        {
+          "id": "1cc55999-9d0c-44d0-b5a5-16d59789838c",
+          "revision": 1
+        }
+      ],
+      "time_ref": {
+        "chronology": {
+          "precision": "partial",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [
+            {
+              "id": "1cc55999-9d0c-44d0-b5a5-16d59789838c",
+              "revision": 1
+            }
+          ],
+          "after_refs": []
+        },
+        "narrative": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        }
+      },
+      "decision_ids": [
+        "06d97456-b26a-4866-847d-684e22cecf8b"
+      ]
+    },
+    {
+      "id": "04d94072-e6f5-437e-950c-24051f04a904",
+      "kind": "finding",
+      "revision": 2,
+      "previous_revision": 1,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "2b515dae-bb19-4e96-8a2f-2550ae7a6980",
+          "message_id": "94f1548f-3c89-48f1-8ad0-016f6d0c8df4",
+          "range": {
+            "start": 310,
+            "end": 385
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+          "message_id": "6a634120-a28f-48cb-9bfa-156c295a6e7b",
+          "range": {
+            "start": 304,
+            "end": 352
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+          "message_id": "6a634120-a28f-48cb-9bfa-156c295a6e7b",
+          "range": {
+            "start": 304,
+            "end": 352
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+          "message_id": "6a634120-a28f-48cb-9bfa-156c295a6e7b",
+          "range": {
+            "start": 304,
+            "end": 352
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "a24f43cb-db0a-42b6-af10-147502f98ae0",
+          "message_id": "a0bddc6e-48be-40c5-bee0-1cf3d6a395c6",
+          "range": {
+            "start": 276,
+            "end": 392
+          }
+        }
+      ],
+      "created_exchange_id": "2b515dae-bb19-4e96-8a2f-2550ae7a6980",
+      "origin": "supplied",
+      "category": "plot_dependency",
+      "assessment": "conflict",
+      "severity": "significant",
+      "affected_refs": [
+        {
+          "id": "bfef12dd-42fc-49c6-8b3e-686dedc131bf",
+          "revision": 1
+        },
+        {
+          "id": "ee861f63-8079-47da-89fb-102de1b58ce3",
+          "revision": 1
+        },
+        {
+          "id": "0accdfbe-bd95-4d34-83e6-ef2b71154d92",
+          "revision": 1
+        },
+        {
+          "id": "b6de28b4-5b48-422c-97a0-327241b7e417",
+          "revision": 1
+        },
+        {
+          "id": "1cc55999-9d0c-44d0-b5a5-16d59789838c",
+          "revision": 1
+        }
+      ],
+      "explanation": "The unchanged escape requires the only usable boat. Destroying it beforehand removes an explicit prerequisite for carrying out that escape as planned.",
+      "consequences": [
+        "The planned escape cannot be carried out unchanged with its sole required boat destroyed.",
+        "Destruction itself is a proposal; failure, a changed escape or any replacement is not automatically established."
+      ],
+      "resolution_options": [
+        "Reject or revise this proposal.",
+        "Explicitly revise the affected canon, subject to protected directions.",
+        "Provide an intentional narrative explanation and clarify how the affected facts relate.",
+        "Defer resolution and retain the affected promotion hold."
+      ],
+      "disposition": "revised_idea",
+      "decision_ids": [
+        "06d97456-b26a-4866-847d-684e22cecf8b"
+      ],
+      "narrative_explanation": null
+    },
+    {
+      "id": "06d97456-b26a-4866-847d-684e22cecf8b",
+      "kind": "decision",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "a24f43cb-db0a-42b6-af10-147502f98ae0",
+          "message_id": "a0bddc6e-48be-40c5-bee0-1cf3d6a395c6",
+          "range": {
+            "start": 276,
+            "end": 392
+          }
+        }
+      ],
+      "created_exchange_id": "a24f43cb-db0a-42b6-af10-147502f98ae0",
+      "origin": "supplied",
+      "action": "revise",
+      "user_message_ref": {
+        "type": "message",
+        "exchange_id": "a24f43cb-db0a-42b6-af10-147502f98ae0",
+        "message_id": "a0bddc6e-48be-40c5-bee0-1cf3d6a395c6",
+        "range": {
+          "start": 276,
+          "end": 392
+        }
+      },
+      "span": {
+        "start": 276,
+        "end": 392
+      },
+      "target_refs": [
+        {
+          "id": "04d94072-e6f5-437e-950c-24051f04a904",
+          "revision": 1
+        },
+        {
+          "id": "bfef12dd-42fc-49c6-8b3e-686dedc131bf",
+          "revision": 1
+        },
+        {
+          "id": "ee861f63-8079-47da-89fb-102de1b58ce3",
+          "revision": 1
+        }
+      ],
+      "selected_parts": [],
+      "prior_refs": [
+        {
+          "id": "04d94072-e6f5-437e-950c-24051f04a904",
+          "revision": 1
+        },
+        {
+          "id": "bfef12dd-42fc-49c6-8b3e-686dedc131bf",
+          "revision": 1
+        },
+        {
+          "id": "ee861f63-8079-47da-89fb-102de1b58ce3",
+          "revision": 1
+        }
+      ],
+      "result_refs": [
+        {
+          "id": "04d94072-e6f5-437e-950c-24051f04a904",
+          "revision": 2
+        },
+        {
+          "id": "7063c495-cb08-4980-b302-38b9305ac2e2",
+          "revision": 1
+        },
+        {
+          "id": "bfef12dd-42fc-49c6-8b3e-686dedc131bf",
+          "revision": 2
+        },
+        {
+          "id": "ee861f63-8079-47da-89fb-102de1b58ce3",
+          "revision": 2
+        }
+      ],
+      "reason": "Revise the destruction proposal to a different, unusable boat without promoting a destruction event or changing the accepted escape requirement.",
+      "affected_refs": [
+        {
+          "id": "04d94072-e6f5-437e-950c-24051f04a904",
+          "revision": 2
+        },
+        {
+          "id": "7063c495-cb08-4980-b302-38b9305ac2e2",
+          "revision": 1
+        },
+        {
+          "id": "bfef12dd-42fc-49c6-8b3e-686dedc131bf",
+          "revision": 2
+        },
+        {
+          "id": "ee861f63-8079-47da-89fb-102de1b58ce3",
+          "revision": 2
+        }
+      ],
+      "review_required_refs": []
+    },
+    {
+      "id": "d43f629f-24e8-420b-8439-b18e58b708fa",
+      "kind": "idea",
+      "revision": 2,
+      "previous_revision": 1,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "2b515dae-bb19-4e96-8a2f-2550ae7a6980",
+          "message_id": "94f1548f-3c89-48f1-8ad0-016f6d0c8df4",
+          "range": {
+            "start": 390,
+            "end": 451
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "a24f43cb-db0a-42b6-af10-147502f98ae0",
+          "message_id": "a0bddc6e-48be-40c5-bee0-1cf3d6a395c6",
+          "range": {
+            "start": 394,
+            "end": 529
+          }
+        }
+      ],
+      "created_exchange_id": "2b515dae-bb19-4e96-8a2f-2550ae7a6980",
+      "origin": "supplied",
+      "statement": "An ordinary unexceptional letter crosses the sealed boundary.",
+      "status": "superseded",
+      "related_element_ids": [
+        "1312e021-4019-487f-ae79-5088de5dd51f",
+        "b8dce011-5cbb-41ad-976d-7d739db40ced",
+        "35e60556-5757-44be-9402-91bdbaf3596a"
+      ],
+      "alternative_group_id": null,
+      "selected_parts": [],
+      "decision_ids": [
+        "1f6f5c8d-38d9-4bc6-a0b3-89a46b996f21",
+        "a4acd395-a443-407a-af06-88563cf8e2f6"
+      ],
+      "resulting_assertion_ids": []
+    },
+    {
+      "id": "1312e021-4019-487f-ae79-5088de5dd51f",
+      "kind": "story_element",
+      "revision": 2,
+      "previous_revision": 1,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "2b515dae-bb19-4e96-8a2f-2550ae7a6980",
+          "message_id": "94f1548f-3c89-48f1-8ad0-016f6d0c8df4",
+          "range": {
+            "start": 390,
+            "end": 451
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "a24f43cb-db0a-42b6-af10-147502f98ae0",
+          "message_id": "a0bddc6e-48be-40c5-bee0-1cf3d6a395c6",
+          "range": {
+            "start": 394,
+            "end": 529
+          }
+        }
+      ],
+      "created_exchange_id": "2b515dae-bb19-4e96-8a2f-2550ae7a6980",
+      "origin": "supplied",
+      "element_type": "event",
+      "display_name": "Ordinary letter crosses sealed boundary",
+      "aliases": [],
+      "status": "superseded",
+      "assertion_ids": [],
+      "relationship_ids": [],
+      "dependency_refs": [
+        {
+          "id": "b8dce011-5cbb-41ad-976d-7d739db40ced",
+          "revision": 1
+        },
+        {
+          "id": "35e60556-5757-44be-9402-91bdbaf3596a",
+          "revision": 1
+        }
+      ],
+      "time_ref": {
+        "chronology": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        },
+        "narrative": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        }
+      },
+      "decision_ids": [
+        "1f6f5c8d-38d9-4bc6-a0b3-89a46b996f21",
+        "a4acd395-a443-407a-af06-88563cf8e2f6"
+      ]
+    },
+    {
+      "id": "4e630db6-5258-4ae8-8724-81aa7d3260d3",
+      "kind": "story_element",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "a24f43cb-db0a-42b6-af10-147502f98ae0",
+          "message_id": "a0bddc6e-48be-40c5-bee0-1cf3d6a395c6",
+          "range": {
+            "start": 394,
+            "end": 529
+          }
+        }
+      ],
+      "created_exchange_id": "a24f43cb-db0a-42b6-af10-147502f98ae0",
+      "origin": "supplied",
+      "element_type": "plot_thread",
+      "display_name": "Unreliable witness’s false boundary-crossing account",
+      "aliases": [],
+      "status": "accepted",
+      "assertion_ids": [],
+      "relationship_ids": [],
+      "dependency_refs": [],
+      "time_ref": {
+        "chronology": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        },
+        "narrative": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        }
+      },
+      "decision_ids": [
+        "1f6f5c8d-38d9-4bc6-a0b3-89a46b996f21"
+      ]
+    },
+    {
+      "id": "1251fe58-bb3f-45be-974e-beaab7398a5a",
+      "kind": "assertion",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "a24f43cb-db0a-42b6-af10-147502f98ae0",
+          "message_id": "a0bddc6e-48be-40c5-bee0-1cf3d6a395c6",
+          "range": {
+            "start": 394,
+            "end": 529
+          }
+        }
+      ],
+      "created_exchange_id": "a24f43cb-db0a-42b6-af10-147502f98ae0",
+      "origin": "supplied",
+      "subject_element_id": "4e630db6-5258-4ae8-8724-81aa7d3260d3",
+      "predicate": "account_is_true",
+      "value": false,
+      "perspective": "author_truth",
+      "holder_id": null,
+      "reader_audience": null,
+      "time_ref": {
+        "chronology": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        },
+        "narrative": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        }
+      },
+      "truth_state": "affirmed",
+      "status": "accepted",
+      "decision_ids": [
+        "1f6f5c8d-38d9-4bc6-a0b3-89a46b996f21"
+      ],
+      "supersedes": null
+    },
+    {
+      "id": "82980897-fe23-42d3-b888-66a208b7eb4e",
+      "kind": "idea",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "a24f43cb-db0a-42b6-af10-147502f98ae0",
+          "message_id": "a0bddc6e-48be-40c5-bee0-1cf3d6a395c6",
+          "range": {
+            "start": 394,
+            "end": 529
+          }
+        }
+      ],
+      "created_exchange_id": "a24f43cb-db0a-42b6-af10-147502f98ae0",
+      "origin": "supplied",
+      "statement": "The apparent letter crossing is an unreliable witness’s false account, not an author-truth event.",
+      "status": "accepted",
+      "related_element_ids": [
+        "4e630db6-5258-4ae8-8724-81aa7d3260d3",
+        "b8dce011-5cbb-41ad-976d-7d739db40ced"
+      ],
+      "alternative_group_id": null,
+      "selected_parts": [
+        "The apparent letter crossing is an unreliable witness’s false account, not an author-truth event."
+      ],
+      "decision_ids": [
+        "1f6f5c8d-38d9-4bc6-a0b3-89a46b996f21"
+      ],
+      "resulting_assertion_ids": [
+        "1251fe58-bb3f-45be-974e-beaab7398a5a"
+      ]
+    },
+    {
+      "id": "1f6f5c8d-38d9-4bc6-a0b3-89a46b996f21",
+      "kind": "decision",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "a24f43cb-db0a-42b6-af10-147502f98ae0",
+          "message_id": "a0bddc6e-48be-40c5-bee0-1cf3d6a395c6",
+          "range": {
+            "start": 394,
+            "end": 529
+          }
+        }
+      ],
+      "created_exchange_id": "a24f43cb-db0a-42b6-af10-147502f98ae0",
+      "origin": "supplied",
+      "action": "revise",
+      "user_message_ref": {
+        "type": "message",
+        "exchange_id": "a24f43cb-db0a-42b6-af10-147502f98ae0",
+        "message_id": "a0bddc6e-48be-40c5-bee0-1cf3d6a395c6",
+        "range": {
+          "start": 394,
+          "end": 529
+        }
+      },
+      "span": {
+        "start": 394,
+        "end": 529
+      },
+      "target_refs": [
+        {
+          "id": "d43f629f-24e8-420b-8439-b18e58b708fa",
+          "revision": 1
+        },
+        {
+          "id": "1312e021-4019-487f-ae79-5088de5dd51f",
+          "revision": 1
+        }
+      ],
+      "selected_parts": [
+        "The apparent letter crossing is an unreliable witness’s false account, not an author-truth event."
+      ],
+      "prior_refs": [
+        {
+          "id": "d43f629f-24e8-420b-8439-b18e58b708fa",
+          "revision": 1
+        },
+        {
+          "id": "1312e021-4019-487f-ae79-5088de5dd51f",
+          "revision": 1
+        }
+      ],
+      "result_refs": [
+        {
+          "id": "d43f629f-24e8-420b-8439-b18e58b708fa",
+          "revision": 2
+        },
+        {
+          "id": "1312e021-4019-487f-ae79-5088de5dd51f",
+          "revision": 2
+        },
+        {
+          "id": "4e630db6-5258-4ae8-8724-81aa7d3260d3",
+          "revision": 1
+        },
+        {
+          "id": "1251fe58-bb3f-45be-974e-beaab7398a5a",
+          "revision": 1
+        },
+        {
+          "id": "82980897-fe23-42d3-b888-66a208b7eb4e",
+          "revision": 1
+        }
+      ],
+      "reason": "Replace the apparent crossing proposal with the explicitly chosen unreliable-account technique, retaining the objective boundary rule.",
+      "affected_refs": [
+        {
+          "id": "d43f629f-24e8-420b-8439-b18e58b708fa",
+          "revision": 2
+        },
+        {
+          "id": "1312e021-4019-487f-ae79-5088de5dd51f",
+          "revision": 2
+        },
+        {
+          "id": "4e630db6-5258-4ae8-8724-81aa7d3260d3",
+          "revision": 1
+        },
+        {
+          "id": "1251fe58-bb3f-45be-974e-beaab7398a5a",
+          "revision": 1
+        },
+        {
+          "id": "82980897-fe23-42d3-b888-66a208b7eb4e",
+          "revision": 1
+        }
+      ],
+      "review_required_refs": []
+    },
+    {
+      "id": "c8bed026-b7e6-4da6-b1b0-9020357ac34d",
+      "kind": "finding",
+      "revision": 2,
+      "previous_revision": 1,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "2b515dae-bb19-4e96-8a2f-2550ae7a6980",
+          "message_id": "94f1548f-3c89-48f1-8ad0-016f6d0c8df4",
+          "range": {
+            "start": 390,
+            "end": 451
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+          "message_id": "6a634120-a28f-48cb-9bfa-156c295a6e7b",
+          "range": {
+            "start": 354,
+            "end": 393
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "a24f43cb-db0a-42b6-af10-147502f98ae0",
+          "message_id": "a0bddc6e-48be-40c5-bee0-1cf3d6a395c6",
+          "range": {
+            "start": 394,
+            "end": 529
+          }
+        }
+      ],
+      "created_exchange_id": "2b515dae-bb19-4e96-8a2f-2550ae7a6980",
+      "origin": "supplied",
+      "category": "world_rule",
+      "assessment": "conflict",
+      "severity": "significant",
+      "affected_refs": [
+        {
+          "id": "d43f629f-24e8-420b-8439-b18e58b708fa",
+          "revision": 1
+        },
+        {
+          "id": "1312e021-4019-487f-ae79-5088de5dd51f",
+          "revision": 1
+        },
+        {
+          "id": "d148a2a0-f588-48a5-853b-7864fa9ee505",
+          "revision": 1
+        }
+      ],
+      "explanation": "An ordinary, unexceptional letter crossing the sealed boundary directly opposes the accepted rule that no letter can cross it.",
+      "consequences": [
+        "The crossing cannot be promoted while that absolute rule remains unchanged and no intentional explanation has been selected."
+      ],
+      "resolution_options": [
+        "Reject or revise this proposal.",
+        "Explicitly revise the affected canon, subject to protected directions.",
+        "Provide an intentional narrative explanation and clarify how the affected facts relate.",
+        "Defer resolution and retain the affected promotion hold."
+      ],
+      "disposition": "intentional",
+      "decision_ids": [
+        "a4acd395-a443-407a-af06-88563cf8e2f6"
+      ],
+      "narrative_explanation": "An unreliable witness falsely accounts for a letter crossing. This is deliberately unreliable testimony, not an event in author truth; the rule that no letter can cross the boundary remains in force."
+    },
+    {
+      "id": "a4acd395-a443-407a-af06-88563cf8e2f6",
+      "kind": "decision",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "a24f43cb-db0a-42b6-af10-147502f98ae0",
+          "message_id": "a0bddc6e-48be-40c5-bee0-1cf3d6a395c6",
+          "range": {
+            "start": 394,
+            "end": 529
+          }
+        }
+      ],
+      "created_exchange_id": "a24f43cb-db0a-42b6-af10-147502f98ae0",
+      "origin": "supplied",
+      "action": "resolve",
+      "user_message_ref": {
+        "type": "message",
+        "exchange_id": "a24f43cb-db0a-42b6-af10-147502f98ae0",
+        "message_id": "a0bddc6e-48be-40c5-bee0-1cf3d6a395c6",
+        "range": {
+          "start": 394,
+          "end": 529
+        }
+      },
+      "span": {
+        "start": 394,
+        "end": 529
+      },
+      "target_refs": [
+        {
+          "id": "c8bed026-b7e6-4da6-b1b0-9020357ac34d",
+          "revision": 1
+        },
+        {
+          "id": "d43f629f-24e8-420b-8439-b18e58b708fa",
+          "revision": 1
+        },
+        {
+          "id": "1312e021-4019-487f-ae79-5088de5dd51f",
+          "revision": 1
+        }
+      ],
+      "selected_parts": [],
+      "prior_refs": [
+        {
+          "id": "c8bed026-b7e6-4da6-b1b0-9020357ac34d",
+          "revision": 1
+        },
+        {
+          "id": "d43f629f-24e8-420b-8439-b18e58b708fa",
+          "revision": 1
+        },
+        {
+          "id": "1312e021-4019-487f-ae79-5088de5dd51f",
+          "revision": 1
+        }
+      ],
+      "result_refs": [
+        {
+          "id": "c8bed026-b7e6-4da6-b1b0-9020357ac34d",
+          "revision": 2
+        },
+        {
+          "id": "d43f629f-24e8-420b-8439-b18e58b708fa",
+          "revision": 2
+        },
+        {
+          "id": "1312e021-4019-487f-ae79-5088de5dd51f",
+          "revision": 2
+        }
+      ],
+      "reason": "Resolve the crossing conflict by the user’s intentional unreliable-witness false-account explanation; no objective crossing occurs.",
+      "affected_refs": [
+        {
+          "id": "c8bed026-b7e6-4da6-b1b0-9020357ac34d",
+          "revision": 2
+        },
+        {
+          "id": "d43f629f-24e8-420b-8439-b18e58b708fa",
+          "revision": 2
+        },
+        {
+          "id": "1312e021-4019-487f-ae79-5088de5dd51f",
+          "revision": 2
+        }
+      ],
+      "review_required_refs": []
+    },
+    {
+      "id": "42cd4d30-12e8-41e6-8435-d6446b09104d",
+      "kind": "idea",
+      "revision": 2,
+      "previous_revision": 1,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "2b515dae-bb19-4e96-8a2f-2550ae7a6980",
+          "message_id": "94f1548f-3c89-48f1-8ad0-016f6d0c8df4",
+          "range": {
+            "start": 456,
+            "end": 535
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "a24f43cb-db0a-42b6-af10-147502f98ae0",
+          "message_id": "a0bddc6e-48be-40c5-bee0-1cf3d6a395c6",
+          "range": {
+            "start": 531,
+            "end": 613
+          }
+        }
+      ],
+      "created_exchange_id": "2b515dae-bb19-4e96-8a2f-2550ae7a6980",
+      "origin": "supplied",
+      "statement": "Freyja and Sigrún’s real shared childhood memory motivates their first reunion.",
+      "status": "unresolved",
+      "related_element_ids": [
+        "6d6e2baf-4ef0-4d2e-ab2b-f6177db2dad1",
+        "9cf4bd1e-668a-404d-b52b-fcc36442d35a",
+        "5f9d9c2d-c08e-4ccc-8ace-20b7e6bd161c",
+        "7e466350-3fdf-421d-9961-0dfc47665cb5"
+      ],
+      "alternative_group_id": null,
+      "selected_parts": [],
+      "decision_ids": [
+        "f7b15a21-66b0-474e-87c5-d9226beba605"
+      ],
+      "resulting_assertion_ids": []
+    },
+    {
+      "id": "6d6e2baf-4ef0-4d2e-ab2b-f6177db2dad1",
+      "kind": "story_element",
+      "revision": 2,
+      "previous_revision": 1,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "2b515dae-bb19-4e96-8a2f-2550ae7a6980",
+          "message_id": "94f1548f-3c89-48f1-8ad0-016f6d0c8df4",
+          "range": {
+            "start": 456,
+            "end": 535
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "a24f43cb-db0a-42b6-af10-147502f98ae0",
+          "message_id": "a0bddc6e-48be-40c5-bee0-1cf3d6a395c6",
+          "range": {
+            "start": 531,
+            "end": 613
+          }
+        }
+      ],
+      "created_exchange_id": "2b515dae-bb19-4e96-8a2f-2550ae7a6980",
+      "origin": "supplied",
+      "element_type": "event",
+      "display_name": "Real shared childhood memory",
+      "aliases": [],
+      "status": "unresolved",
+      "assertion_ids": [],
+      "relationship_ids": [],
+      "dependency_refs": [
+        {
+          "id": "9cf4bd1e-668a-404d-b52b-fcc36442d35a",
+          "revision": 1
+        },
+        {
+          "id": "5f9d9c2d-c08e-4ccc-8ace-20b7e6bd161c",
+          "revision": 1
+        },
+        {
+          "id": "7e466350-3fdf-421d-9961-0dfc47665cb5",
+          "revision": 1
+        }
+      ],
+      "time_ref": {
+        "chronology": {
+          "precision": "partial",
+          "event_anchor": null,
+          "start": "childhood",
+          "end": null,
+          "before_refs": [
+            {
+              "id": "7e466350-3fdf-421d-9961-0dfc47665cb5",
+              "revision": 1
+            }
+          ],
+          "after_refs": []
+        },
+        "narrative": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        }
+      },
+      "decision_ids": [
+        "f7b15a21-66b0-474e-87c5-d9226beba605"
+      ]
+    },
+    {
+      "id": "69b768af-bfe2-494a-bb99-c37c5cb7daf6",
+      "kind": "finding",
+      "revision": 2,
+      "previous_revision": 1,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "2b515dae-bb19-4e96-8a2f-2550ae7a6980",
+          "message_id": "94f1548f-3c89-48f1-8ad0-016f6d0c8df4",
+          "range": {
+            "start": 456,
+            "end": 535
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+          "message_id": "6a634120-a28f-48cb-9bfa-156c295a6e7b",
+          "range": {
+            "start": 395,
+            "end": 449
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+          "message_id": "6a634120-a28f-48cb-9bfa-156c295a6e7b",
+          "range": {
+            "start": 395,
+            "end": 449
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "a24f43cb-db0a-42b6-af10-147502f98ae0",
+          "message_id": "a0bddc6e-48be-40c5-bee0-1cf3d6a395c6",
+          "range": {
+            "start": 531,
+            "end": 613
+          }
+        }
+      ],
+      "created_exchange_id": "2b515dae-bb19-4e96-8a2f-2550ae7a6980",
+      "origin": "supplied",
+      "category": "relationship",
+      "assessment": "conflict",
+      "severity": "significant",
+      "affected_refs": [
+        {
+          "id": "42cd4d30-12e8-41e6-8435-d6446b09104d",
+          "revision": 1
+        },
+        {
+          "id": "6d6e2baf-4ef0-4d2e-ab2b-f6177db2dad1",
+          "revision": 1
+        },
+        {
+          "id": "20ec7fd0-c681-4ec1-aeb4-bbbac37b43e2",
+          "revision": 1
+        },
+        {
+          "id": "7e466350-3fdf-421d-9961-0dfc47665cb5",
+          "revision": 1
+        }
+      ],
+      "explanation": "A real shared childhood encounter or shared personal history before their first reunion contradicts the established relationship that Freyja and Sigrún had never met before that reunion. A different meaning of shared has not been supplied.",
+      "consequences": [
+        "Do not invent an earlier meeting or silently reinterpret a real memory as a lie or false memory.",
+        "The relationship history or meaning of the memory must be clarified before promotion."
+      ],
+      "resolution_options": [
+        "Reject or revise this proposal.",
+        "Explicitly revise the affected canon, subject to protected directions.",
+        "Provide an intentional narrative explanation and clarify how the affected facts relate.",
+        "Defer resolution and retain the affected promotion hold."
+      ],
+      "disposition": "deferred",
+      "decision_ids": [
+        "f7b15a21-66b0-474e-87c5-d9226beba605"
+      ],
+      "narrative_explanation": null
+    },
+    {
+      "id": "f7b15a21-66b0-474e-87c5-d9226beba605",
+      "kind": "decision",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "a24f43cb-db0a-42b6-af10-147502f98ae0",
+          "message_id": "a0bddc6e-48be-40c5-bee0-1cf3d6a395c6",
+          "range": {
+            "start": 531,
+            "end": 613
+          }
+        }
+      ],
+      "created_exchange_id": "a24f43cb-db0a-42b6-af10-147502f98ae0",
+      "origin": "supplied",
+      "action": "defer",
+      "user_message_ref": {
+        "type": "message",
+        "exchange_id": "a24f43cb-db0a-42b6-af10-147502f98ae0",
+        "message_id": "a0bddc6e-48be-40c5-bee0-1cf3d6a395c6",
+        "range": {
+          "start": 531,
+          "end": 613
+        }
+      },
+      "span": {
+        "start": 531,
+        "end": 613
+      },
+      "target_refs": [
+        {
+          "id": "69b768af-bfe2-494a-bb99-c37c5cb7daf6",
+          "revision": 1
+        },
+        {
+          "id": "42cd4d30-12e8-41e6-8435-d6446b09104d",
+          "revision": 1
+        },
+        {
+          "id": "6d6e2baf-4ef0-4d2e-ab2b-f6177db2dad1",
+          "revision": 1
+        }
+      ],
+      "selected_parts": [],
+      "prior_refs": [
+        {
+          "id": "69b768af-bfe2-494a-bb99-c37c5cb7daf6",
+          "revision": 1
+        },
+        {
+          "id": "42cd4d30-12e8-41e6-8435-d6446b09104d",
+          "revision": 1
+        },
+        {
+          "id": "6d6e2baf-4ef0-4d2e-ab2b-f6177db2dad1",
+          "revision": 1
+        }
+      ],
+      "result_refs": [
+        {
+          "id": "69b768af-bfe2-494a-bb99-c37c5cb7daf6",
+          "revision": 2
+        },
+        {
+          "id": "42cd4d30-12e8-41e6-8435-d6446b09104d",
+          "revision": 2
+        },
+        {
+          "id": "6d6e2baf-4ef0-4d2e-ab2b-f6177db2dad1",
+          "revision": 2
+        }
+      ],
+      "reason": "Defer the relationship issue without accepting a childhood meeting or changing the established never-met relationship.",
+      "affected_refs": [
+        {
+          "id": "69b768af-bfe2-494a-bb99-c37c5cb7daf6",
+          "revision": 2
+        },
+        {
+          "id": "42cd4d30-12e8-41e6-8435-d6446b09104d",
+          "revision": 2
+        },
+        {
+          "id": "6d6e2baf-4ef0-4d2e-ab2b-f6177db2dad1",
+          "revision": 2
+        }
+      ],
+      "review_required_refs": []
+    },
+    {
+      "id": "ef0b727a-8642-4060-b495-cbdd9f1f1198",
+      "kind": "idea",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "a24f43cb-db0a-42b6-af10-147502f98ae0",
+          "message_id": "a0bddc6e-48be-40c5-bee0-1cf3d6a395c6",
+          "range": {
+            "start": 626,
+            "end": 686
+          }
+        }
+      ],
+      "created_exchange_id": "a24f43cb-db0a-42b6-af10-147502f98ae0",
+      "origin": "supplied",
+      "statement": "The recorded brass seal could foreshadow the sender.",
+      "status": "proposed",
+      "related_element_ids": [
+        "35e60556-5757-44be-9402-91bdbaf3596a",
+        "fe4f5d2f-3ecc-48db-918a-3bb260cee80f"
+      ],
+      "alternative_group_id": null,
+      "selected_parts": [],
+      "decision_ids": [],
+      "resulting_assertion_ids": []
+    },
+    {
+      "id": "cefb035a-922d-4968-9c3e-b9bf7f5b0b89",
+      "kind": "finding",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "a24f43cb-db0a-42b6-af10-147502f98ae0",
+          "message_id": "a0bddc6e-48be-40c5-bee0-1cf3d6a395c6",
+          "range": {
+            "start": 626,
+            "end": 686
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "0c0dd85d-7244-4ed4-91b4-652a854d2edf",
+          "message_id": "98d455a4-1267-4a37-a2ad-4319793eefc4",
+          "range": {
+            "start": 112,
+            "end": 141
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "e8153db8-c478-484a-ada7-468d732944f5",
+          "message_id": "c4e20dc4-f782-4c06-b7be-eddf85aecf6d",
+          "range": {
+            "start": 142,
+            "end": 183
+          }
+        }
+      ],
+      "created_exchange_id": "a24f43cb-db0a-42b6-af10-147502f98ae0",
+      "origin": "interpreted",
+      "category": "plot_dependency",
+      "assessment": "opportunity",
+      "severity": "advisory",
+      "affected_refs": [
+        {
+          "id": "ef0b727a-8642-4060-b495-cbdd9f1f1198",
+          "revision": 1
+        },
+        {
+          "id": "8913530c-0c5d-4a5f-a795-db0ceeca8d40",
+          "revision": 1
+        },
+        {
+          "id": "bd51f70d-7f05-4875-a9fb-119c26e7f4b1",
+          "revision": 1
+        }
+      ],
+      "explanation": "The established brass seal and sender can support a foreshadowing connection. How the seal points to Bjarni remains unchosen.",
+      "consequences": [],
+      "resolution_options": [
+        "Explore the seal as a clue without inferring ownership or a chosen mechanism."
+      ],
+      "disposition": "open",
+      "decision_ids": [],
+      "narrative_explanation": null
+    },
+    {
+      "id": "2619c8e9-4a43-4a7f-9727-59d3fc5622f6",
+      "kind": "assertion",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "a24f43cb-db0a-42b6-af10-147502f98ae0",
+          "message_id": "a0bddc6e-48be-40c5-bee0-1cf3d6a395c6",
+          "range": {
+            "start": 687,
+            "end": 745
+          }
+        }
+      ],
+      "created_exchange_id": "a24f43cb-db0a-42b6-af10-147502f98ae0",
+      "origin": "supplied",
+      "subject_element_id": "9cf4bd1e-668a-404d-b52b-fcc36442d35a",
+      "predicate": "knows",
+      "value": "hidden-room secret",
+      "perspective": "character_knowledge",
+      "holder_id": "9cf4bd1e-668a-404d-b52b-fcc36442d35a",
+      "reader_audience": null,
+      "time_ref": {
+        "chronology": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        },
+        "narrative": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        }
+      },
+      "truth_state": "unknown",
+      "status": "unresolved",
+      "decision_ids": [],
+      "supersedes": null
+    },
+    {
+      "id": "7bbe66fa-53ff-480e-9572-ada288bf9e63",
+      "kind": "idea",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "a24f43cb-db0a-42b6-af10-147502f98ae0",
+          "message_id": "a0bddc6e-48be-40c5-bee0-1cf3d6a395c6",
+          "range": {
+            "start": 687,
+            "end": 745
+          }
+        }
+      ],
+      "created_exchange_id": "a24f43cb-db0a-42b6-af10-147502f98ae0",
+      "origin": "supplied",
+      "statement": "The time Freyja learned the hidden-room secret is unknown.",
+      "status": "unresolved",
+      "related_element_ids": [
+        "9cf4bd1e-668a-404d-b52b-fcc36442d35a",
+        "0ee57c24-f6c4-46e8-9de2-d05094db0248"
+      ],
+      "alternative_group_id": null,
+      "selected_parts": [],
+      "decision_ids": [],
+      "resulting_assertion_ids": [
+        "2619c8e9-4a43-4a7f-9727-59d3fc5622f6"
+      ]
+    },
+    {
+      "id": "acc2c929-b415-4202-9bf4-912154080faf",
+      "kind": "question",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "a24f43cb-db0a-42b6-af10-147502f98ae0",
+          "message_id": "a0bddc6e-48be-40c5-bee0-1cf3d6a395c6",
+          "range": {
+            "start": 687,
+            "end": 745
+          }
+        }
+      ],
+      "created_exchange_id": "a24f43cb-db0a-42b6-af10-147502f98ae0",
+      "origin": "interpreted",
+      "text": "When did Freyja learn the hidden-room secret?",
+      "related_refs": [
+        {
+          "id": "2619c8e9-4a43-4a7f-9727-59d3fc5622f6",
+          "revision": 1
+        },
+        {
+          "id": "9cf4bd1e-668a-404d-b52b-fcc36442d35a",
+          "revision": 1
+        }
+      ],
+      "alternative_ids": [],
+      "state": "open",
+      "resolution_decision_id": null
+    },
+    {
+      "id": "6b550ade-f9e9-4bdf-8070-9cdc8a99dc2f",
+      "kind": "story_element",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "a24f43cb-db0a-42b6-af10-147502f98ae0",
+          "message_id": "a0bddc6e-48be-40c5-bee0-1cf3d6a395c6",
+          "range": {
+            "start": 746,
+            "end": 827
+          }
+        }
+      ],
+      "created_exchange_id": "a24f43cb-db0a-42b6-af10-147502f98ae0",
+      "origin": "supplied",
+      "element_type": "plot_thread",
+      "display_name": "Possible delayed reader view of the letter",
+      "aliases": [],
+      "status": "proposed",
+      "assertion_ids": [],
+      "relationship_ids": [],
+      "dependency_refs": [],
+      "time_ref": {
+        "chronology": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        },
+        "narrative": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        }
+      },
+      "decision_ids": []
+    },
+    {
+      "id": "d45aee58-0014-4ec4-b6ec-628031adadb5",
+      "kind": "assertion",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "a24f43cb-db0a-42b6-af10-147502f98ae0",
+          "message_id": "a0bddc6e-48be-40c5-bee0-1cf3d6a395c6",
+          "range": {
+            "start": 746,
+            "end": 827
+          }
+        }
+      ],
+      "created_exchange_id": "a24f43cb-db0a-42b6-af10-147502f98ae0",
+      "origin": "supplied",
+      "subject_element_id": "35e60556-5757-44be-9402-91bdbaf3596a",
+      "predicate": "shown_to_reader",
+      "value": true,
+      "perspective": "reader_revelation",
+      "holder_id": null,
+      "reader_audience": "reader",
+      "time_ref": {
+        "chronology": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        },
+        "narrative": {
+          "precision": "partial",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": [
+            {
+              "id": "aeb371cf-d132-4ef1-8268-25136577aa15",
+              "revision": 2
+            }
+          ]
+        }
+      },
+      "truth_state": "affirmed",
+      "status": "proposed",
+      "decision_ids": [],
+      "supersedes": null
+    },
+    {
+      "id": "03ddca22-3e19-4679-8a21-a71b980e5890",
+      "kind": "assertion",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "a24f43cb-db0a-42b6-af10-147502f98ae0",
+          "message_id": "a0bddc6e-48be-40c5-bee0-1cf3d6a395c6",
+          "range": {
+            "start": 746,
+            "end": 827
+          }
+        }
+      ],
+      "created_exchange_id": "a24f43cb-db0a-42b6-af10-147502f98ae0",
+      "origin": "supplied",
+      "subject_element_id": "ba58b0dd-8d4e-402a-a41e-4adbabd0bcf0",
+      "predicate": "has_seen",
+      "value": "the letter earlier than the reader view",
+      "perspective": "character_knowledge",
+      "holder_id": "ba58b0dd-8d4e-402a-a41e-4adbabd0bcf0",
+      "reader_audience": null,
+      "time_ref": {
+        "chronology": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        },
+        "narrative": {
+          "precision": "partial",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [
+            {
+              "id": "6b550ade-f9e9-4bdf-8070-9cdc8a99dc2f",
+              "revision": 1
+            }
+          ],
+          "after_refs": []
+        }
+      },
+      "truth_state": "affirmed",
+      "status": "proposed",
+      "decision_ids": [],
+      "supersedes": null
+    },
+    {
+      "id": "e5c3a12c-0b10-46c5-b912-15f31bf93f38",
+      "kind": "idea",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "a24f43cb-db0a-42b6-af10-147502f98ae0",
+          "message_id": "a0bddc6e-48be-40c5-bee0-1cf3d6a395c6",
+          "range": {
+            "start": 746,
+            "end": 827
+          }
+        }
+      ],
+      "created_exchange_id": "a24f43cb-db0a-42b6-af10-147502f98ae0",
+      "origin": "supplied",
+      "statement": "The reader may see the letter after delivery, while Rúna saw it earlier.",
+      "status": "proposed",
+      "related_element_ids": [
+        "35e60556-5757-44be-9402-91bdbaf3596a",
+        "ba58b0dd-8d4e-402a-a41e-4adbabd0bcf0",
+        "6b550ade-f9e9-4bdf-8070-9cdc8a99dc2f"
+      ],
+      "alternative_group_id": null,
+      "selected_parts": [],
+      "decision_ids": [],
+      "resulting_assertion_ids": [
+        "d45aee58-0014-4ec4-b6ec-628031adadb5",
+        "03ddca22-3e19-4679-8a21-a71b980e5890"
+      ]
+    },
+    {
+      "id": "39607300-6a79-4cdd-ae2c-158a3093af9f",
+      "kind": "story_element",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "a24f43cb-db0a-42b6-af10-147502f98ae0",
+          "message_id": "a0bddc6e-48be-40c5-bee0-1cf3d6a395c6",
+          "range": {
+            "start": 828,
+            "end": 913
+          }
+        }
+      ],
+      "created_exchange_id": "a24f43cb-db0a-42b6-af10-147502f98ae0",
+      "origin": "supplied",
+      "element_type": "plot_thread",
+      "display_name": "Possible false sender claim by Rúna",
+      "aliases": [],
+      "status": "proposed",
+      "assertion_ids": [],
+      "relationship_ids": [],
+      "dependency_refs": [],
+      "time_ref": {
+        "chronology": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        },
+        "narrative": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        }
+      },
+      "decision_ids": []
+    },
+    {
+      "id": "cf68a5b3-c2b3-4dfe-beac-c9368075c01f",
+      "kind": "idea",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "a24f43cb-db0a-42b6-af10-147502f98ae0",
+          "message_id": "a0bddc6e-48be-40c5-bee0-1cf3d6a395c6",
+          "range": {
+            "start": 828,
+            "end": 913
+          }
+        }
+      ],
+      "created_exchange_id": "a24f43cb-db0a-42b6-af10-147502f98ae0",
+      "origin": "supplied",
+      "statement": "Possible dialogue only: Rúna falsely claims she, rather than Bjarni, sent the letter.",
+      "status": "proposed",
+      "related_element_ids": [
+        "ba58b0dd-8d4e-402a-a41e-4adbabd0bcf0",
+        "fe4f5d2f-3ecc-48db-918a-3bb260cee80f",
+        "39607300-6a79-4cdd-ae2c-158a3093af9f"
+      ],
+      "alternative_group_id": null,
+      "selected_parts": [],
+      "decision_ids": [],
+      "resulting_assertion_ids": []
+    },
+    {
+      "id": "7b956f0b-12a9-4a91-9568-f76844ea690e",
+      "kind": "session",
+      "revision": 3,
+      "previous_revision": 2,
+      "created_exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "a24f43cb-db0a-42b6-af10-147502f98ae0",
+          "message_id": "a0bddc6e-48be-40c5-bee0-1cf3d6a395c6",
+          "range": {
+            "start": 914,
+            "end": 1006
+          }
+        }
+      ],
+      "topic": "Continuity review",
+      "mode": "open",
+      "state": "open",
+      "started_exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+      "last_exchange_id": "a24f43cb-db0a-42b6-af10-147502f98ae0",
+      "related_record_ids": [
+        "36c107d0-448e-4ec8-8acf-0bbd1a80e624",
+        "f0f4d12b-e666-4d1c-9f86-271a75ea134c",
+        "a20b0b76-e180-44db-85ce-e5158bb4d186",
+        "455a9689-b8eb-42fe-9c72-03063d226753",
+        "e82c4150-a3f3-41c6-8bea-8139ab892e51",
+        "481b0e24-125e-49bd-a932-2d5694ee5d7b",
+        "2497fdcb-e3bd-4af7-b1a9-9452719b43ba",
+        "8b2e30d5-9ccf-4f6f-a2ae-f97e76f3ec0b",
+        "4355d4e9-a670-4136-accf-7ee9e44d7c9a",
+        "c37ada40-5047-46bb-8d91-45b1e363517b",
+        "12c209e1-49a3-4b8d-bbca-845729395f9b",
+        "bfcbbdff-35cc-425c-8670-c722ff6b4bca",
+        "9428530a-3d9a-4705-8b93-30a534bb99b3",
+        "e7860735-5143-462d-8358-727436f2376f",
+        "da98ac0d-9394-437b-a84e-b58340400e68",
+        "82dc2970-0fc0-44fb-a904-242c882e0eb5",
+        "b379a543-162e-428d-b7a1-e95b331d4937",
+        "a264da48-d66f-41c8-a418-be835131c5f3",
+        "ccc7f13e-7414-4828-8baa-ccaa54c66545",
+        "1cc55999-9d0c-44d0-b5a5-16d59789838c",
+        "0accdfbe-bd95-4d34-83e6-ef2b71154d92",
+        "b6de28b4-5b48-422c-97a0-327241b7e417",
+        "39813baf-380a-41fe-82d7-28371fbf1526",
+        "47964b12-7a25-4ea5-9296-b273bc670b0f",
+        "b8dce011-5cbb-41ad-976d-7d739db40ced",
+        "d148a2a0-f588-48a5-853b-7864fa9ee505",
+        "2f049d07-42ed-45ed-82f6-c2898f2d1635",
+        "e10e3e70-64e2-4458-90ae-0ad638c6e6f0",
+        "7e466350-3fdf-421d-9961-0dfc47665cb5",
+        "20ec7fd0-c681-4ec1-aeb4-bbbac37b43e2",
+        "a4aa58cb-28d1-42c9-9daf-9a206c8ece8e",
+        "a5480c17-770d-422a-acdc-f5833c13bfe7",
+        "ba58b0dd-8d4e-402a-a41e-4adbabd0bcf0",
+        "83c818af-8c1a-4871-beca-eb354753ab30",
+        "9cf4bd1e-668a-404d-b52b-fcc36442d35a",
+        "5f9d9c2d-c08e-4ccc-8ace-20b7e6bd161c",
+        "e7ebe0ce-980f-44c9-bf1a-8eae7e0d4df9",
+        "ca37ee5a-4d3c-49cc-ab84-1c70bfadff6b",
+        "336c0a14-2e41-4c96-9c37-c4e3747f836a",
+        "a59cef3c-52be-4ca8-bed6-ea0f2ad683f3",
+        "69b1fceb-c281-4264-9ef6-394ab5435da5",
+        "42774683-64c0-4b27-9ded-fd1ed3cec0db",
+        "ad9dd3f6-9656-406f-ac77-4690c770c08b",
+        "fe6fa08b-35f0-4e26-abf6-9659fe5c61af",
+        "d0614c62-ba76-46ed-9f38-2514585ed35a",
+        "ee861f63-8079-47da-89fb-102de1b58ce3",
+        "bfef12dd-42fc-49c6-8b3e-686dedc131bf",
+        "04d94072-e6f5-437e-950c-24051f04a904",
+        "1312e021-4019-487f-ae79-5088de5dd51f",
+        "d43f629f-24e8-420b-8439-b18e58b708fa",
+        "c8bed026-b7e6-4da6-b1b0-9020357ac34d",
+        "6d6e2baf-4ef0-4d2e-ab2b-f6177db2dad1",
+        "42cd4d30-12e8-41e6-8435-d6446b09104d",
+        "69b768af-bfe2-494a-bb99-c37c5cb7daf6",
+        "6b8f2dc8-8705-4fd6-8793-4c2a58296f81",
+        "602d93fa-9c78-4432-810d-06a007de66d7",
+        "a153fa04-d0d2-4ff1-a397-dec8cf77f714",
+        "39fc465b-3c82-40ef-9de6-aea330b9ee42",
+        "89357784-4354-4935-9c58-c4a6b4155ad9",
+        "b00f3432-61ac-44cd-aaa1-6f85761ec80c",
+        "7063c495-cb08-4980-b302-38b9305ac2e2",
+        "06d97456-b26a-4866-847d-684e22cecf8b",
+        "4e630db6-5258-4ae8-8724-81aa7d3260d3",
+        "1251fe58-bb3f-45be-974e-beaab7398a5a",
+        "82980897-fe23-42d3-b888-66a208b7eb4e",
+        "1f6f5c8d-38d9-4bc6-a0b3-89a46b996f21",
+        "a4acd395-a443-407a-af06-88563cf8e2f6",
+        "f7b15a21-66b0-474e-87c5-d9226beba605",
+        "ef0b727a-8642-4060-b495-cbdd9f1f1198",
+        "cefb035a-922d-4968-9c3e-b9bf7f5b0b89",
+        "2619c8e9-4a43-4a7f-9727-59d3fc5622f6",
+        "7bbe66fa-53ff-480e-9572-ada288bf9e63",
+        "acc2c929-b415-4202-9bf4-912154080faf",
+        "6b550ade-f9e9-4bdf-8070-9cdc8a99dc2f",
+        "d45aee58-0014-4ec4-b6ec-628031adadb5",
+        "03ddca22-3e19-4679-8a21-a71b980e5890",
+        "e5c3a12c-0b10-46c5-b912-15f31bf93f38",
+        "39607300-6a79-4cdd-ae2c-158a3093af9f",
+        "cf68a5b3-c2b3-4dfe-beac-c9368075c01f"
+      ],
+      "unresolved_question_ids": [
+        "acc2c929-b415-4202-9bf4-912154080faf"
+      ],
+      "derived_context_ref": null
+    }
+  ],
+  "continuity_review": {
+    "coverage": "complete",
+    "reviewed_record_refs": [
+      {
+        "id": "ba58b0dd-8d4e-402a-a41e-4adbabd0bcf0",
+        "revision": 1
+      },
+      {
+        "id": "5299dee6-4976-454a-b3bd-f85936be0fc3",
+        "revision": 1
+      },
+      {
+        "id": "83c818af-8c1a-4871-beca-eb354753ab30",
+        "revision": 1
+      },
+      {
+        "id": "fe4f5d2f-3ecc-48db-918a-3bb260cee80f",
+        "revision": 2
+      },
+      {
+        "id": "3a173fe0-b9d9-41dd-bd07-6b797c7c3390",
+        "revision": 1
+      },
+      {
+        "id": "b2bba552-bebf-4cae-b835-e01708b8d516",
+        "revision": 1
+      },
+      {
+        "id": "0636c698-a7f7-4957-ac90-2cc56a68bdfa",
+        "revision": 1
+      },
+      {
+        "id": "89643a23-bc5b-47e7-805d-69baf02f51e4",
+        "revision": 1
+      },
+      {
+        "id": "0fafb781-6fe4-4f55-9665-8201f692081d",
+        "revision": 1
+      },
+      {
+        "id": "e4198cbf-dbfc-4068-a487-81dc21c73380",
+        "revision": 1
+      },
+      {
+        "id": "5ecad072-009b-438c-8e65-034fe992d3a9",
+        "revision": 1
+      },
+      {
+        "id": "b0134264-50de-4438-9ea4-7b7fea14021a",
+        "revision": 1
+      },
+      {
+        "id": "9132e8e4-53d6-46cc-bcf2-4a3d1d8c543d",
+        "revision": 1
+      },
+      {
+        "id": "aeb371cf-d132-4ef1-8268-25136577aa15",
+        "revision": 2
+      },
+      {
+        "id": "6e43feba-be95-4219-bdee-734b58b049d4",
+        "revision": 2
+      },
+      {
+        "id": "a03667be-bc38-4303-bac4-dee40f97b84f",
+        "revision": 1
+      },
+      {
+        "id": "2d32b3f7-e9b6-44e6-a298-fcd139036721",
+        "revision": 1
+      },
+      {
+        "id": "e9bb208a-9c02-4f2f-9b19-e60379ac0bba",
+        "revision": 2
+      },
+      {
+        "id": "6a6267eb-2724-44d9-8d94-13811e1b0da2",
+        "revision": 2
+      },
+      {
+        "id": "f39dce7b-0a80-4c61-86f0-db07bbcec4ef",
+        "revision": 1
+      },
+      {
+        "id": "35e60556-5757-44be-9402-91bdbaf3596a",
+        "revision": 1
+      },
+      {
+        "id": "c70819f0-73c7-46b0-9dcd-8fbdbc0713ba",
+        "revision": 1
+      },
+      {
+        "id": "1e4f66c1-05e2-41f5-aba2-290339dcc3a5",
+        "revision": 1
+      },
+      {
+        "id": "8913530c-0c5d-4a5f-a795-db0ceeca8d40",
+        "revision": 1
+      },
+      {
+        "id": "3a2d51c7-eb33-4443-95b9-86cdfa542100",
+        "revision": 1
+      },
+      {
+        "id": "249f979b-d59a-4815-b1ed-1dc386393711",
+        "revision": 1
+      },
+      {
+        "id": "5d69e81a-becd-438a-97f3-5368dc22f78b",
+        "revision": 1
+      },
+      {
+        "id": "2497fdcb-e3bd-4af7-b1a9-9452719b43ba",
+        "revision": 2
+      },
+      {
+        "id": "94551fd9-2bdd-4435-aae3-fae189089a8f",
+        "revision": 1
+      },
+      {
+        "id": "ccc7f13e-7414-4828-8baa-ccaa54c66545",
+        "revision": 2
+      },
+      {
+        "id": "bd51f70d-7f05-4875-a9fb-119c26e7f4b1",
+        "revision": 1
+      },
+      {
+        "id": "40374e80-9595-4da3-9a21-899186c00ac7",
+        "revision": 1
+      },
+      {
+        "id": "5f9d9c2d-c08e-4ccc-8ace-20b7e6bd161c",
+        "revision": 1
+      },
+      {
+        "id": "4a2d70a3-0aa7-4d87-8c72-df8a733715a1",
+        "revision": 1
+      },
+      {
+        "id": "1bf3143e-c3d6-41b8-a176-e86454d4529d",
+        "revision": 1
+      },
+      {
+        "id": "9cf4bd1e-668a-404d-b52b-fcc36442d35a",
+        "revision": 1
+      },
+      {
+        "id": "1106d257-9ac0-43ed-ba9e-d3d106c69603",
+        "revision": 1
+      },
+      {
+        "id": "93d9cbfa-475b-4127-8e4b-31ed4c793219",
+        "revision": 1
+      },
+      {
+        "id": "1486b2fe-43a0-41b9-82b8-42b2906574ec",
+        "revision": 1
+      },
+      {
+        "id": "6f666732-02be-4777-b277-f54c92a7edbd",
+        "revision": 1
+      },
+      {
+        "id": "8065ddb2-ef78-4d7a-bd3b-6f298eb8e814",
+        "revision": 1
+      },
+      {
+        "id": "02cb9854-b2ca-4a76-a5fd-7b9d2a1dfa4a",
+        "revision": 1
+      },
+      {
+        "id": "97157e2f-9e6b-406f-b4ea-c5abba4acd22",
+        "revision": 1
+      },
+      {
+        "id": "72d9ac2b-628d-4f20-bd2d-23b9e935aa2d",
+        "revision": 1
+      },
+      {
+        "id": "8b2e30d5-9ccf-4f6f-a2ae-f97e76f3ec0b",
+        "revision": 1
+      },
+      {
+        "id": "4355d4e9-a670-4136-accf-7ee9e44d7c9a",
+        "revision": 1
+      },
+      {
+        "id": "c37ada40-5047-46bb-8d91-45b1e363517b",
+        "revision": 1
+      },
+      {
+        "id": "bfcbbdff-35cc-425c-8670-c722ff6b4bca",
+        "revision": 1
+      },
+      {
+        "id": "9428530a-3d9a-4705-8b93-30a534bb99b3",
+        "revision": 1
+      },
+      {
+        "id": "e7860735-5143-462d-8358-727436f2376f",
+        "revision": 1
+      },
+      {
+        "id": "da98ac0d-9394-437b-a84e-b58340400e68",
+        "revision": 1
+      },
+      {
+        "id": "82dc2970-0fc0-44fb-a904-242c882e0eb5",
+        "revision": 1
+      },
+      {
+        "id": "b379a543-162e-428d-b7a1-e95b331d4937",
+        "revision": 1
+      },
+      {
+        "id": "1cc55999-9d0c-44d0-b5a5-16d59789838c",
+        "revision": 1
+      },
+      {
+        "id": "0accdfbe-bd95-4d34-83e6-ef2b71154d92",
+        "revision": 1
+      },
+      {
+        "id": "b6de28b4-5b48-422c-97a0-327241b7e417",
+        "revision": 1
+      },
+      {
+        "id": "39813baf-380a-41fe-82d7-28371fbf1526",
+        "revision": 1
+      },
+      {
+        "id": "b8dce011-5cbb-41ad-976d-7d739db40ced",
+        "revision": 1
+      },
+      {
+        "id": "d148a2a0-f588-48a5-853b-7864fa9ee505",
+        "revision": 1
+      },
+      {
+        "id": "2f049d07-42ed-45ed-82f6-c2898f2d1635",
+        "revision": 1
+      },
+      {
+        "id": "7e466350-3fdf-421d-9961-0dfc47665cb5",
+        "revision": 1
+      },
+      {
+        "id": "20ec7fd0-c681-4ec1-aeb4-bbbac37b43e2",
+        "revision": 1
+      },
+      {
+        "id": "a4aa58cb-28d1-42c9-9daf-9a206c8ece8e",
+        "revision": 1
+      },
+      {
+        "id": "336c0a14-2e41-4c96-9c37-c4e3747f836a",
+        "revision": 1
+      },
+      {
+        "id": "42774683-64c0-4b27-9ded-fd1ed3cec0db",
+        "revision": 1
+      },
+      {
+        "id": "d0614c62-ba76-46ed-9f38-2514585ed35a",
+        "revision": 1
+      },
+      {
+        "id": "04d94072-e6f5-437e-950c-24051f04a904",
+        "revision": 1
+      },
+      {
+        "id": "c8bed026-b7e6-4da6-b1b0-9020357ac34d",
+        "revision": 1
+      },
+      {
+        "id": "69b768af-bfe2-494a-bb99-c37c5cb7daf6",
+        "revision": 1
+      }
+    ],
+    "unavailable_refs": [],
+    "canon_hold_refs": [],
+    "finding_ids": [
+      "336c0a14-2e41-4c96-9c37-c4e3747f836a",
+      "42774683-64c0-4b27-9ded-fd1ed3cec0db",
+      "d0614c62-ba76-46ed-9f38-2514585ed35a",
+      "04d94072-e6f5-437e-950c-24051f04a904",
+      "c8bed026-b7e6-4da6-b1b0-9020357ac34d",
+      "69b768af-bfe2-494a-bb99-c37c5cb7daf6",
+      "cefb035a-922d-4968-9c3e-b9bf7f5b0b89"
+    ],
+    "summary": "Applied only the explicit current user dispositions with sourced decisions and retained finding history. Rejection, revised proposals, revised code chronology and the intentional false-account technique release only their resolved finding scopes. Shared childhood remains deferred with its original hold scope. Unknown secret knowledge time is not a contradiction; reader revelation, character knowledge and proposed lies remain distinct. The seal/sender connection is an advisory proposal, not new canon."
+  },
+  "payload_digest": "880ed30ca8b638baf9f2e2421072a308148f6e115cd2db444afcd492473bdf3b"
+}

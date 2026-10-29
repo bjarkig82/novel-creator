@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "thread": {
+    "id": "01a16833-e1cf-79d2-bee0-80a6ca973e3c",
+    "kind": "codex",
+    "hostId": "local"
+  },
+  "turns": [
+    {
+      "id": "01a16a8f-acae-7190-9849-316ac55a8a69",
+      "status": "completed",
+      "items": [
+        {
+          "type": "functionCallOutput",
+          "id": "fco_01a16a8f-acb1-7261-9d51-6d2dde7699ca",
+          "name": "send_message_to_thread",
+          "namespace": "codex_app",
+          "output": {
+            "text": "<codex_delegation>\n  <source_thread_id>01a167df-036b-7c71-b306-9d7021046c01</source_thread_id>\n  <input>I mean a new storm at the lighthouse, not an earlier saved idea. Keep that storm in the story. A shipwreck remains only a possibility; I'm not establishing one.</input>\n</codex_delegation>",
+            "truncated": false
+          }
+        },
+        {
+          "type": "agentMessage",
+          "id": "msg_06d2f81bda1c6b72016adbcabadaf48191a68c8542c7562d10",
+          "phase": "commentary",
+          "text": "I’ll record the location as the lighthouse and keep this as the newly introduced storm. The shipwreck will remain unestablished."
+        },
+        {
+          "type": "commandExecution",
+          "id": "exec-2f75b6c4-9f27-4e53-8b7a-1b4aea65dd67",
+          "status": "completed",
+          "exitCode": 0,
+          "output": {
+            "text": "01a16833-e1cf-79d2-bee0-80a6ca973e3c\r\n",
+            "truncated": false
+          }
+        },
+        {
+          "type": "commandExecution",
+          "id": "exec-e67e82e6-991d-41d7-a89a-416a2a90eb8f",
+          "status": "completed",
+          "exitCode": 0
+        },
+        {
+          "type": "commandExecution",
+          "id": "exec-a29f807b-b39f-4ecd-889b-6bae6740c387",
+          "status": "completed",
+          "exitCode": 0,
+          "output": {
+            "text": "{\"exchange_id\": \"067d9c45-5828-4d7b-86ab-0426dcc8fbc1\"}\r\n{\"ok\": true, \"operation\": \"exchange.save\", \"novel_id\": \"adfafe79-ad44-4097-8fc2-305095c3e4ec\", \"data\": {\"saved\": true, \"already_saved\": false, \"cleanup_required\": false}, \"warnings\": [], \"checkpoint\": {\"git_head\": \"bf4895a0c2f764b4d9974d652918820d36d57386\", \"exchange_id\": \"067d9c45-5828-4d7b-86ab-0426dcc8fbc1\", \"sequence\": 11}}\r\n",
+            "truncated": false
+          }
+        },
+        {
+          "type": "commandExecution",
+          "id": "exec-459a466a-54b6-4831-80cb-29db9530a4a4",
+          "status": "completed",
+          "exitCode": 0,
+          "output": {
+            "text": "{\"saved\": true, \"exchange_id\": \"067d9c45-5828-4d7b-86ab-0426dcc8fbc1\", \"checkpoint\": {\"git_head\": \"bf4895a0c2f764b4d9974d652918820d36d57386\", \"exchange_id\": \"067d9c45-5828-4d7b-86ab-0426dcc8fbc1\", \"sequence\": 11}}\r\n",
+            "truncated": false
+          }
+        },
+        {
+          "type": "agentMessage",
+          "id": "msg_06d2f81bda1c6b72016adbcaf8bf1c8191b5283d9c81ff8477",
+          "phase": "final_answer",
+          "text": "Understood: a new storm at the lighthouse is established. The shipwreck remains only a possibility."
+        }
+      ]
+    }
+  ]
+}

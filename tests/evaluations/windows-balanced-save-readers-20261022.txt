@@ -1,0 +1,10 @@
+{"fixture": {"sessions": 100, "exchanges": 5000, "active_assertions": 10000, "json_bytes": 26215716, "synthetic": true, "fully_validated": true}, "source_sha256": "9b9092130ff0ee2768ba739cdb9ae28613010ed82b4a9eeb70bb9b342b080ffc", "method": "Eight complete fresh-worker saves, balanced ABBA/ABBA, four samples per variant. Original payload preparation/public reads retained, final guard stays four. Candidate uses two history plus two first-guard hash readers; every original check active. Ordinary fixture; opt-in external private key; diagnostic not p95."}
+{"balanced": 0, "seconds": 5.619891699985601, "sequence": 5001, "cleanup_required": false, "counts": {"git": 25, "history_workers": [1], "guard_workers": [1, 4]}}
+{"balanced": 1, "seconds": 4.5281550999497995, "sequence": 5002, "cleanup_required": false, "counts": {"git": 27, "history_workers": [2], "guard_workers": [2, 4]}}
+{"balanced": 1, "seconds": 5.886827899958007, "sequence": 5003, "cleanup_required": false, "counts": {"git": 27, "history_workers": [2], "guard_workers": [2, 4]}}
+{"balanced": 0, "seconds": 5.718316700076684, "sequence": 5004, "cleanup_required": false, "counts": {"git": 25, "history_workers": [1], "guard_workers": [1, 4]}}
+{"balanced": 0, "seconds": 4.26386679999996, "sequence": 5005, "cleanup_required": false, "counts": {"git": 25, "history_workers": [1], "guard_workers": [1, 4]}}
+{"balanced": 1, "seconds": 5.184177499962971, "sequence": 5006, "cleanup_required": false, "counts": {"git": 27, "history_workers": [2], "guard_workers": [2, 4]}}
+{"balanced": 1, "seconds": 4.51284380001016, "sequence": 5007, "cleanup_required": false, "counts": {"git": 27, "history_workers": [2], "guard_workers": [2, 4]}}
+{"balanced": 0, "seconds": 7.42930990003515, "sequence": 5008, "cleanup_required": false, "counts": {"git": 25, "history_workers": [1], "guard_workers": [1, 4]}}
+{"medians": {"0": 5.669104200031143, "1": 4.856166299956385}, "source_unchanged": true}

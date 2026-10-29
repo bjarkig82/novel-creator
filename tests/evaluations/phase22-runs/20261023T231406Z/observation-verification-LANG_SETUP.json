@@ -1,0 +1,71 @@
+{
+  "ok": true,
+  "scope": "Public delegated persistence/display/source checks only",
+  "case_filter": [
+    "LANG_SETUP"
+  ],
+  "language_filter": null,
+  "all_submitted_cases_checked": false,
+  "semantic_assessment": "Separate agent judgments required; no human/native result inferred",
+  "cases": [
+    {
+      "case_id": "LANG_SETUP",
+      "language": "en",
+      "thread_id": "01a16af9-f289-73c1-8151-55f50ace05d9",
+      "turn_id": "01a1821e-c740-7890-af0f-0827f53d7c83",
+      "exchange_id": "9ded8930-92ba-4ab6-8e42-4d71833ed365",
+      "checkpoint": {
+        "git_head": "d1f9fcb1305e81ca4fe4016ec7c2c468d13d9c6c",
+        "exchange_id": "9ded8930-92ba-4ab6-8e42-4d71833ed365",
+        "sequence": 2
+      },
+      "exact_input_saved": true,
+      "exact_response_saved_and_displayed": true,
+      "save_precedes_display": true,
+      "source_type": "delegated",
+      "native_user_input": false,
+      "novice_evidence": false,
+      "installed_bundle_verified": true,
+      "installed_bundle_matches_current_source": true,
+      "commentary_agent_reviewed": true,
+      "record_kinds": [
+        "novel_project",
+        "story_element",
+        "assertion",
+        "idea",
+        "decision"
+      ],
+      "response": "The manuscript language is Icelandic; I’ll respond in English. Genre remains unknown (42754ded r2).\n\nEstablished author truth: The engine runs exclusively on petrol (2d9d1a12 r1; decision 2e9fcc93 r1).\n\nPaused here."
+    },
+    {
+      "case_id": "LANG_SETUP",
+      "language": "is",
+      "thread_id": "01a16afa-1197-7650-8189-9365687429ee",
+      "turn_id": "01a1821e-d0fc-7971-b031-2659684926db",
+      "exchange_id": "49ab0fda-40cd-4521-8744-64af31134614",
+      "checkpoint": {
+        "git_head": "8399084dafac10d480c4aff076305537b2393b25",
+        "exchange_id": "49ab0fda-40cd-4521-8744-64af31134614",
+        "sequence": 2
+      },
+      "exact_input_saved": true,
+      "exact_response_saved_and_displayed": true,
+      "save_precedes_display": true,
+      "source_type": "delegated",
+      "native_user_input": false,
+      "novice_evidence": false,
+      "installed_bundle_verified": true,
+      "installed_bundle_matches_current_source": true,
+      "commentary_agent_reviewed": true,
+      "record_kinds": [
+        "novel_project",
+        "story_element",
+        "assertion",
+        "idea",
+        "decision"
+      ],
+      "response": "The manuscript language is Icelandic, and I’ll reply in English. Genre remains undecided.\n\nEstablished author truth: “Vélin gengur eingöngu fyrir bensíni.” The engine runs exclusively on petrol (gasoline).\n\nI’ll pause here."
+    }
+  ],
+  "failures": []
+}

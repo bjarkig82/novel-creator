@@ -1,0 +1,14 @@
+test_native_attribute_table_and_errors_always_preserve_full_lstat_fallback (tests.unit.test_bundle_metadata.BundleMetadataTests.test_native_attribute_table_and_errors_always_preserve_full_lstat_fallback) ... ok
+test_native_bootstrap_and_identical_retry_do_not_initialize_queries (tests.unit.test_bundle_metadata.BundleMetadataTests.test_native_bootstrap_and_identical_retry_do_not_initialize_queries) ... ok
+test_native_initialization_and_wide_query_failures_remain_optional (tests.unit.test_bundle_metadata.BundleMetadataTests.test_native_initialization_and_wide_query_failures_remain_optional) ... ok
+test_native_queries_are_fresh_and_exclude_parents_nonbundles_and_nonwindows (tests.unit.test_bundle_metadata.BundleMetadataTests.test_native_queries_are_fresh_and_exclude_parents_nonbundles_and_nonwindows) ... ok
+test_native_same_stat_edit_stays_pending_then_exact_retry_publishes_once (tests.unit.test_bundle_metadata.BundleMetadataTests.test_native_same_stat_edit_stays_pending_then_exact_retry_publishes_once) ... ok
+test_native_staged_tampering_is_preserved_and_prevents_publication (tests.unit.test_bundle_metadata.BundleMetadataTests.test_native_staged_tampering_is_preserved_and_prevents_publication) ... ok
+test_native_unicode_long_and_special_paths_preserve_original_results (tests.unit.test_bundle_metadata.BundleMetadataTests.test_native_unicode_long_and_special_paths_preserve_original_results) ... ok
+test_balanced_first_guard_hashes_real_root_after_metadata_despite_same_stat_decoy (tests.integration.test_storage.StorageTests.test_balanced_first_guard_hashes_real_root_after_metadata_despite_same_stat_decoy) ... ok
+test_parallel_final_guard_rejects_same_stat_edits_and_root_redirection (tests.integration.test_storage.StorageTests.test_parallel_final_guard_rejects_same_stat_edits_and_root_redirection) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 25.960s
+
+OK

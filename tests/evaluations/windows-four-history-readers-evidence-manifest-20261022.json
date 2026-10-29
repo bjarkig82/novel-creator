@@ -1,0 +1,39 @@
+{
+  "source": {
+    "src/novel_creator/storage.py": "2563aa5a257971a264d2a36094a818a528a561509e4f48d47ad24c6c708f4fb3",
+    "src/novel_creator/validation.py": "7e4c75ada3c3eaf3c196066ff657e5e5d9084abdd14a97b6e07c4f5d3b6bf517",
+    "tests/performance/benchmark_records.py": "7f69593cbee6330af1cb67261f662db8d186cc6d00787d3710d002a8430650f2",
+    "tests/integration/test_storage.py": "224dc216473bb4f300baffefdd5be9d51b8c5c3091376c65f1d7694ebe8183da",
+    "tests/helpers.py": "b6ddda217adb87a43d14dcd7be46e3cab76b5aa4023ec41b6e4eb509d8ed9be5",
+    "tests/unit/test_bundle_metadata.py": "d30be22646d9daa88e16b5e850652e00b61a89a0a5069c66c7a8eb6a3afd4ea8"
+  },
+  "artifacts": {
+    "benchmark_four_history_readers-source-20261022.txt": "51de20e0bbd5c12f0e6ce3761bc0a9a29a76b9b696def699c8e629f6b0e900c1",
+    "linux-four-history-readers-full-tests-20261022.txt": "20b91aaec313d1886dfb70b6f5735b4933af8f428454dbf70671d58c0dba2ff1",
+    "linux-four-history-readers-verification-20261022.json": "68dde63a77402233aa593e3515d7bf656cbfe0ea78c49339587a8b3db82e8ec4",
+    "verify_four_history_readers-source-20261022.txt": "5062dc97ff688f2fdbe77986687aca626d45b148fa650dddc4a0e80d366decdf",
+    "verify_linux_four_history_readers-source-20261022.txt": "86b6f8b4815d24b47e7978e2ee46629c394bf23722f5788f414d7526eea0c16d",
+    "windows-four-history-readers-20261022.md": "b2a38c5a1c2855ca046d4e8924446fec10c29a67d6426bb771121feec7b9a6e9",
+    "windows-four-history-readers-benchmark-verification-20261022.json": "c82bd7e0797c66840ec72c8d621b60c2500aeeb7c3167535ab30c84da1accc31",
+    "windows-four-history-readers-comparison-20261022.txt": "4412b536ac2d2eb44b6b824d9b6b84f47cbba8cde3af348a8fe6c909d322e170",
+    "windows-four-history-readers-comparison-source-20261022.txt": "71aebbdff0d8894ecc73ac4e4a8050e94517e6d49fb6c844f7ee71a0e7b9c78b",
+    "windows-four-history-readers-default-30-20261022.json": "fac86d9589b046f80240ad1db2f29af8a3ad0e6493fc93a5d9d52463ec81627b",
+    "windows-four-history-readers-default-progress-20261022.txt": "f01f65d104837824f70247ff988965ac71ba3e91e3d59d3ba3843333379bfb83",
+    "windows-four-history-readers-finalizer-source-20261022.txt": "9ef614cb79d64fbdcc095cb8064e4bd47115d6c09cd8273856aed6960f9d8582",
+    "windows-four-history-readers-focused-20261022.txt": "c4af5c3342b1cdf8972d443843d8db4c2ab8dc74566d1b6454c3f00648ed1225",
+    "windows-four-history-readers-full-tests-20261022.txt": "b601a755047f1cdfeb84f39f7fab7f742fed5cce4731fd3cdd14d543ff29ed70",
+    "windows-four-history-readers-integration-tests-source-20261022.txt": "224dc216473bb4f300baffefdd5be9d51b8c5c3091376c65f1d7694ebe8183da",
+    "windows-four-history-readers-pending-20261022.md": "76d01fc7c0493b50be54e09b45e5dbf9fd67a89b1fea2afbbff13b595ed43034",
+    "windows-four-history-readers-red-20261022.txt": "764befc67070bf151af0b2fb3c6106aaf2fd85083af40cecadf60947adf31dee",
+    "windows-four-history-readers-stages-20261022.jsonl": "2dde4acd6a49621fe133121a65832ad6ca4b1a28c4eff888465b5576f675d662",
+    "windows-four-history-readers-stages-source-20261022.txt": "2ba3725c7226c6f38401c6c625d488216ec7f9c800bea4f834cf703115eaa941",
+    "windows-four-history-readers-storage-source-20261022.txt": "2563aa5a257971a264d2a36094a818a528a561509e4f48d47ad24c6c708f4fb3",
+    "windows-four-history-readers-unit-tests-source-20261022.txt": "d30be22646d9daa88e16b5e850652e00b61a89a0a5069c66c7a8eb6a3afd4ea8",
+    "windows-four-history-readers-verification-20261022.json": "9e500009ffb3c46683f0f1333c574853bcda524df0f4abc14ab014201db4aaf5",
+    "windows-history-components-20261022.jsonl": "2cb37b53d58644c6ecfb7c2aac6fb75182e691f3a9b02042607288bbd4b06915",
+    "windows-history-components-source-20261022.txt": "197a53080e60763a8e829f70659a951015986d3bbf5f42c39c6aeb4b0794d532",
+    "windows-history-read-hardware-20261022.json": "1f8e5433da0ac9e312860f48ce1c86330dddbad359e03cf51a88e8926a04854c",
+    "windows-native-history-workers-20261022.txt": "70dba8f411fd51b49eade638fb170929132b30019d00f69c53de52b4d92e2a43",
+    "windows-native-history-workers-source-20261022.txt": "71aebbdff0d8894ecc73ac4e4a8050e94517e6d49fb6c844f7ee71a0e7b9c78b"
+  }
+}

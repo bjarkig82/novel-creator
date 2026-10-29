@@ -34,6 +34,17 @@ empty source_refs, never fabricated user sources. Bootstrap artifacts establish
 provenance of supplied settings/concepts only; they cannot authorize canon.
 Creative Decisions still require an actual user message and accepting span.
 
+The user-authorized delegated evaluation extension also permits exactly one
+`host_input` evidence artifact in a conversation envelope. The installed parser
+retains explicit native_user/delegated source labels, current host thread/turn/
+event IDs, selected public event and exact input text. Validation rebuilds the
+provenance and checks the conversation user text; these artifacts never resolve
+as bootstrap creative sources, including on the certified path. Host IDs are
+optional delivery evidence, never story identity or approval. Delegated scenario
+decisions remain simulations in disposable evaluations and cannot establish
+native-input compliance, real human approval or novice participation. Existing
+JSON schema fields and no-artifact conversation semantics remain unchanged.
+
 ## Exchange envelope
 
 Fields: `schema_version` ("1.0"), `novel_id`, `exchange_id`, `sequence` (integer

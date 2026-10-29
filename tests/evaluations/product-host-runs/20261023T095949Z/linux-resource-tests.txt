@@ -1,0 +1,19 @@
+test_crlf_framework_resources_install_as_lf_without_changing_original_brief (tests.integration.test_install.InstallationTests.test_crlf_framework_resources_install_as_lf_without_changing_original_brief) ... ok
+test_existing_instructions_preserved_and_unrelated_content_refused (tests.integration.test_install.InstallationTests.test_existing_instructions_preserved_and_unrelated_content_refused) ... ok
+test_independent_pinned_install_and_recognized_continuation (tests.integration.test_install.InstallationTests.test_independent_pinned_install_and_recognized_continuation) ... ok
+test_interrupted_bootstrap_retries_exact_original_payload (tests.integration.test_install.InstallationTests.test_interrupted_bootstrap_retries_exact_original_payload) ... ok
+test_missing_identity_does_not_install (tests.integration.test_install.InstallationTests.test_missing_identity_does_not_install) ... ok
+test_nested_repository_is_refused_without_changes (tests.integration.test_install.InstallationTests.test_nested_repository_is_refused_without_changes) ... ok
+test_new_directory_creates_independent_repository_using_existing_identity (tests.integration.test_install.InstallationTests.test_new_directory_creates_independent_repository_using_existing_identity) ... ok
+test_partial_retry_refuses_changed_brief_and_managed_files (tests.integration.test_install.InstallationTests.test_partial_retry_refuses_changed_brief_and_managed_files) ... ok
+test_recognized_novel_does_not_hide_published_cleanup (tests.integration.test_install.InstallationTests.test_recognized_novel_does_not_hide_published_cleanup) ... ok
+test_isolated_interpreter_loads_every_product_module_from_novel_bundle (tests.integration.test_portable_install.PortableInstallTests.test_isolated_interpreter_loads_every_product_module_from_novel_bundle) ... ok
+test_empty_brief_and_explicit_unknowns (tests.contract.test_initialize.InitializationContract.test_empty_brief_and_explicit_unknowns) ... ok
+test_invalid_briefs_are_rejected (tests.contract.test_initialize.InitializationContract.test_invalid_briefs_are_rejected) ... ok
+test_supplied_preferences_have_exact_artifact_sources (tests.contract.test_initialize.InitializationContract.test_supplied_preferences_have_exact_artifact_sources) ... ok
+test_title_revision_keeps_identity_and_original_concept (tests.contract.test_initialize.InitializationContract.test_title_revision_keeps_identity_and_original_concept) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 4.466s
+
+OK

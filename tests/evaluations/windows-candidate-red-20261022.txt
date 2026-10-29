@@ -1,0 +1,17 @@
+test_candidate_checks_full_tree_parent_and_exact_exchange_for_both_object_formats (tests.integration.test_candidate.CandidateTests.test_candidate_checks_full_tree_parent_and_exact_exchange_for_both_object_formats) ... FAIL
+
+======================================================================
+FAIL: test_candidate_checks_full_tree_parent_and_exact_exchange_for_both_object_formats (tests.integration.test_candidate.CandidateTests.test_candidate_checks_full_tree_parent_and_exact_exchange_for_both_object_formats)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_candidate.py", line 27, in test_candidate_checks_full_tree_parent_and_exact_exchange_for_both_object_formats
+    self.assertTrue(callable(getattr(storage, '_verify_candidate', None)),
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                    'Candidate verification needs a shared tree/parent/content check')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : Candidate verification needs a shared tree/parent/content check
+
+----------------------------------------------------------------------
+Ran 1 test in 0.011s
+
+FAILED (failures=1)

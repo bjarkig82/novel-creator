@@ -1,0 +1,116 @@
+{
+  "schema_version": "1.0",
+  "novel_id": "e048107e-e089-4082-8ebe-b15cad9a85da",
+  "exchange_id": "273286f7-8665-44f6-a832-0f5985578d89",
+  "sequence": 5,
+  "previous_exchange_id": "5dc2cd92-fd0e-412c-b9d1-02d3004bbfea",
+  "previous_digest": "7e0ea74f03cd929021c44cc32238430978ade76cb07835578aa1929632b6b411",
+  "session_id": "36be3954-58f7-4a35-a95f-ee040d969ce8",
+  "expected_git_head": "0e00627932c2daf616db5a1f5ea491d43cae34e8",
+  "recorded_at": "2026-10-23T22:43:34.145722Z",
+  "operation": "conversation",
+  "messages": [
+    {
+      "message_id": "cb36bd61-7af4-4f50-91c1-24c73621f626",
+      "role": "user",
+      "text": "$novel-resume Resume this session and summarize the saved proposals and open questions. Pause after the summary; don't add new exploration."
+    },
+    {
+      "message_id": "c7865ad2-85d3-46fc-9d7b-bc2ceb5f0eec",
+      "role": "assistant",
+      "text": "Resumed “A lighthouse keeper's childhood” in guided mode. The session remains open with the same ID, `36be3954-58f7-4a35-a95f-ee040d969ce8`.\n\nSaved proposal:\n\n- As a child, the future keeper was forbidden to enter the lighthouse. This remains an unaccepted possibility. The reason for the prohibition is undecided. [Idea `02139b09` r1]\n\nSaved open questions:\n\n- “What feeling would you like your story to leave with its reader?” [Question `96071e74` r1]\n- “Does that feel worth exploring?” This refers to the childhood prohibition. [Question `c9f1bced` r1]\n\nNeither question has a recorded answer. Changing the topic to the keeper's childhood did not resolve the reader-feeling question.\n\nNo creative decisions or accepted story facts are recorded, and no continuity findings are recorded. Your preferences remain one question and one possibility at a time. [Project `e048107e` r3; session `36be3954` r2]\n\nThis summary derives from checkpoint 4, exchange `5dc2cd92-fd0e-412c-b9d1-02d3004bbfea`. References above use unambiguous record ID prefixes. The previous saved reply's display is unconfirmed; no acceptance is inferred.\n\nI'll pause here."
+    }
+  ],
+  "input_artifacts": [
+    {
+      "artifact_id": "4fc3ac14-41b1-409e-bf19-c9f248fcfc96",
+      "original_text": "{\"kind\":\"host_input\",\"source_type\":\"delegated\",\"thread_id\":\"01a16aa5-4c4c-7a52-89d0-26df804faaf0\",\"turn_id\":\"01a16aee-68b3-76b3-9dc8-25d47a67cb27\",\"event_id\":\"fco_01a16aee-68b5-7a90-8f36-a15c27316c4a\",\"event_type\":\"functionCallOutput\",\"source_thread_id\":\"01a167df-036b-7c71-b306-9d7021046c01\",\"native_user_input\":false,\"novice_evidence\":false,\"evaluation_only\":true,\"text\":\"$novel-resume Resume this session and summarize the saved proposals and open questions. Pause after the summary; don't add new exploration.\",\"public_event\":{\"type\":\"functionCallOutput\",\"id\":\"fco_01a16aee-68b5-7a90-8f36-a15c27316c4a\",\"namespace\":\"codex_app\",\"name\":\"send_message_to_thread\",\"output\":{\"text\":\"<codex_delegation>\\n  <source_thread_id>01a167df-036b-7c71-b306-9d7021046c01</source_thread_id>\\n  <input>$novel-resume Resume this session and summarize the saved proposals and open questions. Pause after the summary; don't add new exploration.</input>\\n</codex_delegation>\",\"truncated\":false}}}",
+      "parsed_value": {
+        "kind": "host_input",
+        "source_type": "delegated",
+        "thread_id": "01a16aa5-4c4c-7a52-89d0-26df804faaf0",
+        "turn_id": "01a16aee-68b3-76b3-9dc8-25d47a67cb27",
+        "event_id": "fco_01a16aee-68b5-7a90-8f36-a15c27316c4a",
+        "event_type": "functionCallOutput",
+        "source_thread_id": "01a167df-036b-7c71-b306-9d7021046c01",
+        "native_user_input": false,
+        "novice_evidence": false,
+        "evaluation_only": true,
+        "text": "$novel-resume Resume this session and summarize the saved proposals and open questions. Pause after the summary; don't add new exploration.",
+        "public_event": {
+          "type": "functionCallOutput",
+          "id": "fco_01a16aee-68b5-7a90-8f36-a15c27316c4a",
+          "namespace": "codex_app",
+          "name": "send_message_to_thread",
+          "output": {
+            "text": "<codex_delegation>\n  <source_thread_id>01a167df-036b-7c71-b306-9d7021046c01</source_thread_id>\n  <input>$novel-resume Resume this session and summarize the saved proposals and open questions. Pause after the summary; don't add new exploration.</input>\n</codex_delegation>",
+            "truncated": false
+          }
+        }
+      },
+      "digest": "39951c19afff13e222c3797e202855a589ea188e54a2f4e96968e2f373e949ac"
+    }
+  ],
+  "record_versions": [
+    {
+      "id": "36be3954-58f7-4a35-a95f-ee040d969ce8",
+      "kind": "session",
+      "revision": 3,
+      "previous_revision": 2,
+      "created_exchange_id": "fa6eb054-c261-4d7f-b61e-e8899001ba6b",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "273286f7-8665-44f6-a832-0f5985578d89",
+          "message_id": "cb36bd61-7af4-4f50-91c1-24c73621f626"
+        }
+      ],
+      "topic": "A lighthouse keeper's childhood",
+      "mode": "guided",
+      "state": "open",
+      "started_exchange_id": "fa6eb054-c261-4d7f-b61e-e8899001ba6b",
+      "last_exchange_id": "273286f7-8665-44f6-a832-0f5985578d89",
+      "related_record_ids": [
+        "96071e74-7204-44ac-a6db-6018b573b300",
+        "02139b09-cd31-4f54-9f12-61a3ec7391d1",
+        "c9f1bced-dcf2-472b-ac34-a23d0099fa4d"
+      ],
+      "unresolved_question_ids": [
+        "96071e74-7204-44ac-a6db-6018b573b300",
+        "c9f1bced-dcf2-472b-ac34-a23d0099fa4d"
+      ],
+      "derived_context_ref": null
+    }
+  ],
+  "continuity_review": {
+    "coverage": "complete",
+    "reviewed_record_refs": [
+      {
+        "id": "e048107e-e089-4082-8ebe-b15cad9a85da",
+        "revision": 3
+      },
+      {
+        "id": "36be3954-58f7-4a35-a95f-ee040d969ce8",
+        "revision": 2
+      },
+      {
+        "id": "96071e74-7204-44ac-a6db-6018b573b300",
+        "revision": 1
+      },
+      {
+        "id": "02139b09-cd31-4f54-9f12-61a3ec7391d1",
+        "revision": 1
+      },
+      {
+        "id": "c9f1bced-dcf2-472b-ac34-a23d0099fa4d",
+        "revision": 1
+      }
+    ],
+    "unavailable_refs": [],
+    "canon_hold_refs": [],
+    "finding_ids": [],
+    "summary": "Derived resumption summary only. Reviewed all available session records and sources, including proposed childhood prohibition and both open questions. No accepted narrative facts or creative decisions; no recorded continuity findings. No unanswered preference question resolved by topic change; no proposal promoted or rejected. No new exploration, question, creative fact or decision added. Session mode, identity, start, topic and open state retained. Current request requires checkpoint pause; prior response display remains unconfirmed. Complete coverage refers only to available saved records, not a literary consistency guarantee. Delegated automated evaluation, not native or novice evidence."
+  },
+  "payload_digest": "c7aa2bd7d1913dea642cee74685dac798ca4329d2f8778ea1fcd3b56188acbca"
+}

@@ -1,0 +1,34 @@
+"""Parser-only diagnostic. No production change or release performance claim."""
+import gc,hashlib,json,statistics,sys,time,tracemalloc
+from pathlib import Path
+sys.path.insert(0,str(Path.cwd()))
+from novel_creator import records,storage,validation
+from tests.performance import benchmark_records as benchmark
+history,fixture=benchmark.generate(benchmark.uid())
+raw=[benchmark.serialized(e) for e in history]
+chain=validation.ExchangeValidator()
+for e in history: chain._append_owned(e)
+fixture['fully_validated']=True
+del chain,history,e
+joined=b'['+b','.join(raw)+b']'
+expected=json.loads(joined)
+assert expected==[json.loads(v) for v in raw]
+aggregate=hashlib.sha256(b''.join(raw)).hexdigest()
+print(json.dumps({'fixture':fixture,'source_sha256':hashlib.sha256(Path(storage.__file__).read_bytes()).hexdigest(),'raw_digest':aggregate,'method':'ABBA parser-only comparison, 4 samples per variant, batching assembly INCLUDED, GC unchanged; not save or p95','note':'This experiment does not implement authenticated cache or error-prefix semantics'}),flush=True)
+del expected,joined
+samples={False:[],True:[]}
+for combined in [False,True,True,False]*2:
+    start=time.perf_counter()
+    values=json.loads(b'['+b','.join(raw)+b']') if combined else [json.loads(v) for v in raw]
+    seconds=time.perf_counter()-start
+    assert len(values)==5000 and values[-1]['sequence']==5000
+    samples[combined].append(seconds)
+    print(json.dumps({'combined':combined,'seconds':seconds,'exchanges':len(values)}),flush=True)
+    del values
+print(json.dumps({'medians':{str(k):statistics.median(v) for k,v in samples.items()}}),flush=True)
+for combined in (False,True):
+    gc.collect(); tracemalloc.start()
+    values=json.loads(b'['+b','.join(raw)+b']') if combined else [json.loads(v) for v in raw]
+    current,peak=tracemalloc.get_traced_memory();tracemalloc.stop()
+    print(json.dumps({'combined':combined,'python_retained_bytes':current,'python_peak_bytes':peak,'measurement':'separate untimed allocation profile; collection before profile only'}),flush=True)
+    del values

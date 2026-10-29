@@ -1,0 +1,907 @@
+{
+  "schema_version": "1.0",
+  "novel_id": "711ac5fd-eb25-4a33-89ca-fc62260cb0a2",
+  "exchange_id": "16893d05-744d-4869-a918-4c5b2f26ae7d",
+  "sequence": 18,
+  "previous_exchange_id": "6f2dca64-0adc-402c-b595-e83184f2179f",
+  "previous_digest": "59c0729ba19f003655b22042e64c88657c6c21aec8504991b74a0a762b540670",
+  "session_id": "bd14ac9f-4b8f-4f9c-9f1f-eb34e8ec8f7f",
+  "expected_git_head": "158d08cfb1927dd3b395b3c857ea392f1d9bc9be",
+  "recorded_at": "2026-10-28T10:44:45.827459Z",
+  "operation": "conversation",
+  "messages": [
+    {
+      "message_id": "afbe61c6-9717-459a-a842-5213d947576c",
+      "role": "user",
+      "text": "Tilvik CONT_RESOLVE. Leystu frestaða tengslaálitamálið svona: sýnileg sameiginleg æskuminning er viljandi draumur sem Freyja ímyndar sér, ekki raunveruleg sameiginleg reynsla. Freyja og Sigrún höfðu enn aldrei hist fyrir endurfundina. Varðveittu þann sannleik höfundar og aðskilið sjónarhorn draumsins. Merktu einnig ráðgefandi álitamálið um látúnsinnsiglið sem fyrirboða leyst: ég skil tillöguna og þarf ekki frekari ráðgjöf um hana. Þessi ráðstöfun samþykkir ekki fyrirboðatillöguna. Ljúktu yfirferðinni og staldraðu við."
+    },
+    {
+      "message_id": "35416c12-a07c-41a3-922b-a9dc64d727c7",
+      "role": "assistant",
+      "text": "Yfirferðinni er lokið.\n\nFrestaða tengslaálitamálið er leyst sem viljandi frásagnartækni (93c85a29 v3; úrlausn 9aba8142 v1). Sýnileg sameiginleg æskuminning er draumur sem Freyja ímyndar sér, ekki raunveruleg sameiginleg reynsla (cd8104e3 v3; endurskoðun 07d3b2bc v1).\nSjónarhorn draumsins er varðveitt aðskilið (247e8a85 v2); sú staðreynd að Freyja ímyndi sér hann er höfundarsannleikur (cb0c5e2d v1). Tímasetning draumsins er ótilgreind. Freyja og Sigrún höfðu enn aldrei hist fyrir endurfundina (60e3081b v1; 134717c6 v1). Fyrri útgáfur eru varðveittar.\nFyrra staðfestingarhald þessa tengslaálitamáls er aflétt með úrlausninni; raunveruleg sameiginleg æska er ekki staðfest.\n\nRáðgjöf um látúnsinnsiglið:\n- Ráðgefandi álitamálið er merkt leyst (1ee64885 v2; úrlausn 3658fa58 v1).\n- Fyrirboðatillagan er áfram óstaðfest tillaga (8fc8b19d v1). Að ljúka ráðgjöf er ekki samþykki hennar.\n\nEftirstandandi atriði:\n- Flotbrúarálitamálið er enn opið með óbreyttu umfangi (f1fcc75e v1).\n- Tímasetning vitneskju Freyju er enn óþekkt (0b71babb v1; f82120a5 v1).\n- Aðskilin látúnsspeglun er áfram tillaga (da64b265 v1).\n- Verndað sakleysi Eddu og aðrar staðfestar ákvarðanir haldast (711ac5fd v5).\n\nOpnar spurningar sem halda sér:\n- Hvers vegna sendi Rúna bréfið? (f2def862 v1).\n- Hvað vill Edda frá Bjarna? (a65358cf v1).\n- Hver finnur bréfið? (5d72fc12 v1).\n- Hvenær kemur Bjarni aftur? (8ed04638 v1).\n- Hvað opnar leyniherbergið? (7d3570e2 v1).\n- Hvað ef Ari á dóttur? (da79f6a2 v1).\n- Gæti báturinn lekið? (8f56ec6e v1).\n- Á „Já“ við gólfhlerann, veggdyrnar eða að halda báðum inngöngum til skoðunar? (20822d29 v1).\n- Hvenær lærði Freyja leyndarmál leyniherbergisins? (9c73d1de v1).\nAðrar ósamþykktar tillögur haldast án nýrrar staðfestingar.\nYfirlitið er afleitt af heimildafærslum. Fyrri vistunarpunktur: 158d08cfb1927dd3b395b3c857ea392f1d9bc9be, röð 17. Þessi færsla: 16893d05-744d-4869-a918-4c5b2f26ae7d, röð 18; lota bd14ac9f v6.\nÉg staldra við."
+    }
+  ],
+  "input_artifacts": [
+    {
+      "artifact_id": "8fe2644c-e93a-473b-9638-a335348d61d3",
+      "original_text": "{\"kind\":\"host_input\",\"source_type\":\"delegated\",\"thread_id\":\"01a16afa-1197-7650-8189-9365687429ee\",\"turn_id\":\"01a1821b-34a4-79d2-9478-be769e06d271\",\"event_id\":\"fco_01a1821b-34a5-7e22-a28f-750b868e2ab2\",\"event_type\":\"functionCallOutput\",\"source_thread_id\":\"01a16af6-0d9b-7173-a5f5-c8775f37df18\",\"native_user_input\":false,\"novice_evidence\":false,\"evaluation_only\":true,\"text\":\"Tilvik CONT_RESOLVE. Leystu frestaða tengslaálitamálið svona: sýnileg sameiginleg æskuminning er viljandi draumur sem Freyja ímyndar sér, ekki raunveruleg sameiginleg reynsla. Freyja og Sigrún höfðu enn aldrei hist fyrir endurfundina. Varðveittu þann sannleik höfundar og aðskilið sjónarhorn draumsins. Merktu einnig ráðgefandi álitamálið um látúnsinnsiglið sem fyrirboða leyst: ég skil tillöguna og þarf ekki frekari ráðgjöf um hana. Þessi ráðstöfun samþykkir ekki fyrirboðatillöguna. Ljúktu yfirferðinni og staldraðu við.\",\"public_event\":{\"type\":\"functionCallOutput\",\"id\":\"fco_01a1821b-34a5-7e22-a28f-750b868e2ab2\",\"namespace\":\"codex_app\",\"name\":\"send_message_to_thread\",\"output\":{\"text\":\"<codex_delegation>\\n  <source_thread_id>01a16af6-0d9b-7173-a5f5-c8775f37df18</source_thread_id>\\n  <input>Tilvik CONT_RESOLVE. Leystu frestaða tengslaálitamálið svona: sýnileg sameiginleg æskuminning er viljandi draumur sem Freyja ímyndar sér, ekki raunveruleg sameiginleg reynsla. Freyja og Sigrún höfðu enn aldrei hist fyrir endurfundina. Varðveittu þann sannleik höfundar og aðskilið sjónarhorn draumsins. Merktu einnig ráðgefandi álitamálið um látúnsinnsiglið sem fyrirboða leyst: ég skil tillöguna og þarf ekki frekari ráðgjöf um hana. Þessi ráðstöfun samþykkir ekki fyrirboðatillöguna. Ljúktu yfirferðinni og staldraðu við.</input>\\n</codex_delegation>\",\"truncated\":false}}}",
+      "parsed_value": {
+        "kind": "host_input",
+        "source_type": "delegated",
+        "thread_id": "01a16afa-1197-7650-8189-9365687429ee",
+        "turn_id": "01a1821b-34a4-79d2-9478-be769e06d271",
+        "event_id": "fco_01a1821b-34a5-7e22-a28f-750b868e2ab2",
+        "event_type": "functionCallOutput",
+        "source_thread_id": "01a16af6-0d9b-7173-a5f5-c8775f37df18",
+        "native_user_input": false,
+        "novice_evidence": false,
+        "evaluation_only": true,
+        "text": "Tilvik CONT_RESOLVE. Leystu frestaða tengslaálitamálið svona: sýnileg sameiginleg æskuminning er viljandi draumur sem Freyja ímyndar sér, ekki raunveruleg sameiginleg reynsla. Freyja og Sigrún höfðu enn aldrei hist fyrir endurfundina. Varðveittu þann sannleik höfundar og aðskilið sjónarhorn draumsins. Merktu einnig ráðgefandi álitamálið um látúnsinnsiglið sem fyrirboða leyst: ég skil tillöguna og þarf ekki frekari ráðgjöf um hana. Þessi ráðstöfun samþykkir ekki fyrirboðatillöguna. Ljúktu yfirferðinni og staldraðu við.",
+        "public_event": {
+          "type": "functionCallOutput",
+          "id": "fco_01a1821b-34a5-7e22-a28f-750b868e2ab2",
+          "namespace": "codex_app",
+          "name": "send_message_to_thread",
+          "output": {
+            "text": "<codex_delegation>\n  <source_thread_id>01a16af6-0d9b-7173-a5f5-c8775f37df18</source_thread_id>\n  <input>Tilvik CONT_RESOLVE. Leystu frestaða tengslaálitamálið svona: sýnileg sameiginleg æskuminning er viljandi draumur sem Freyja ímyndar sér, ekki raunveruleg sameiginleg reynsla. Freyja og Sigrún höfðu enn aldrei hist fyrir endurfundina. Varðveittu þann sannleik höfundar og aðskilið sjónarhorn draumsins. Merktu einnig ráðgefandi álitamálið um látúnsinnsiglið sem fyrirboða leyst: ég skil tillöguna og þarf ekki frekari ráðgjöf um hana. Þessi ráðstöfun samþykkir ekki fyrirboðatillöguna. Ljúktu yfirferðinni og staldraðu við.</input>\n</codex_delegation>",
+            "truncated": false
+          }
+        }
+      },
+      "digest": "d2f21aa6acf567118fa30401eea8701e872539180fcb418e5530d10be9dbe933"
+    }
+  ],
+  "record_versions": [
+    {
+      "id": "cd8104e3-07fc-416a-bfa9-076888134348",
+      "kind": "idea",
+      "revision": 3,
+      "previous_revision": 2,
+      "created_exchange_id": "162a5780-2bcc-4e9b-b617-aa38fa2b4acd",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "162a5780-2bcc-4e9b-b617-aa38fa2b4acd",
+          "message_id": "0d0858df-1c47-4448-bb78-d69af11270a4",
+          "range": {
+            "start": 449,
+            "end": 536
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "3c08a608-1279-42ce-a953-750fc34c065c",
+          "message_id": "afdee4d6-b637-4407-82a9-0cee39d3760d",
+          "range": {
+            "start": 572,
+            "end": 641
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "16893d05-744d-4869-a918-4c5b2f26ae7d",
+          "message_id": "afbe61c6-9717-459a-a842-5213d947576c",
+          "range": {
+            "start": 62,
+            "end": 175
+          }
+        }
+      ],
+      "statement": "Sýnileg sameiginleg æskuminning er viljandi draumur sem Freyja ímyndar sér, ekki raunveruleg sameiginleg reynsla.",
+      "status": "accepted",
+      "related_element_ids": [
+        "b6279ad2-0eaf-4f5a-b7fa-d67643574285",
+        "cc940f23-5d36-46aa-8542-2de56ae91078",
+        "99c51fea-b976-497a-b8c3-5d3b5aacffea",
+        "c9f32ba4-188f-4ee1-9ee2-d5d42b1ff1d4"
+      ],
+      "alternative_group_id": null,
+      "selected_parts": [],
+      "decision_ids": [
+        "106da5e3-4aa2-4d01-bb23-9ba969520c2f",
+        "07d3b2bc-d223-472c-9f75-d81a84a0ff8a"
+      ],
+      "resulting_assertion_ids": [
+        "247e8a85-44dd-46cb-ac9c-761b72a68484",
+        "cb0c5e2d-b87f-49e4-8c31-4c11aa3cfaff"
+      ]
+    },
+    {
+      "id": "b6279ad2-0eaf-4f5a-b7fa-d67643574285",
+      "kind": "story_element",
+      "revision": 2,
+      "previous_revision": 1,
+      "created_exchange_id": "162a5780-2bcc-4e9b-b617-aa38fa2b4acd",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "162a5780-2bcc-4e9b-b617-aa38fa2b4acd",
+          "message_id": "0d0858df-1c47-4448-bb78-d69af11270a4",
+          "range": {
+            "start": 449,
+            "end": 536
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "16893d05-744d-4869-a918-4c5b2f26ae7d",
+          "message_id": "afbe61c6-9717-459a-a842-5213d947576c",
+          "range": {
+            "start": 62,
+            "end": 175
+          }
+        }
+      ],
+      "element_type": "event",
+      "display_name": "Viljandi draumur Freyju um sameiginlega æsku",
+      "aliases": [],
+      "status": "accepted",
+      "assertion_ids": [
+        "247e8a85-44dd-46cb-ac9c-761b72a68484",
+        "cb0c5e2d-b87f-49e4-8c31-4c11aa3cfaff"
+      ],
+      "relationship_ids": [],
+      "dependency_refs": [
+        {
+          "id": "cc940f23-5d36-46aa-8542-2de56ae91078",
+          "revision": 1
+        },
+        {
+          "id": "99c51fea-b976-497a-b8c3-5d3b5aacffea",
+          "revision": 1
+        }
+      ],
+      "time_ref": {
+        "chronology": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        },
+        "narrative": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        }
+      },
+      "decision_ids": [
+        "07d3b2bc-d223-472c-9f75-d81a84a0ff8a"
+      ]
+    },
+    {
+      "id": "247e8a85-44dd-46cb-ac9c-761b72a68484",
+      "kind": "assertion",
+      "revision": 2,
+      "previous_revision": 1,
+      "created_exchange_id": "162a5780-2bcc-4e9b-b617-aa38fa2b4acd",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "162a5780-2bcc-4e9b-b617-aa38fa2b4acd",
+          "message_id": "0d0858df-1c47-4448-bb78-d69af11270a4",
+          "range": {
+            "start": 449,
+            "end": 536
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "16893d05-744d-4869-a918-4c5b2f26ae7d",
+          "message_id": "afbe61c6-9717-459a-a842-5213d947576c",
+          "range": {
+            "start": 62,
+            "end": 175
+          }
+        }
+      ],
+      "subject_element_id": "cc940f23-5d36-46aa-8542-2de56ae91078",
+      "predicate": "ímyndar sér í draumi",
+      "value": "sameiginlega æsku með Sigrúnu",
+      "perspective": "character_belief",
+      "holder_id": "cc940f23-5d36-46aa-8542-2de56ae91078",
+      "reader_audience": null,
+      "time_ref": {
+        "chronology": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        },
+        "narrative": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        }
+      },
+      "truth_state": "unknown",
+      "status": "accepted",
+      "decision_ids": [
+        "07d3b2bc-d223-472c-9f75-d81a84a0ff8a"
+      ],
+      "supersedes": {
+        "id": "247e8a85-44dd-46cb-ac9c-761b72a68484",
+        "revision": 1
+      }
+    },
+    {
+      "id": "b63ec5c5-6585-488a-bbc1-396428f3d71d",
+      "kind": "relationship",
+      "revision": 2,
+      "previous_revision": 1,
+      "created_exchange_id": "162a5780-2bcc-4e9b-b617-aa38fa2b4acd",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "162a5780-2bcc-4e9b-b617-aa38fa2b4acd",
+          "message_id": "0d0858df-1c47-4448-bb78-d69af11270a4",
+          "range": {
+            "start": 449,
+            "end": 536
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "16893d05-744d-4869-a918-4c5b2f26ae7d",
+          "message_id": "afbe61c6-9717-459a-a842-5213d947576c",
+          "range": {
+            "start": 62,
+            "end": 175
+          }
+        }
+      ],
+      "from_element_id": "cc940f23-5d36-46aa-8542-2de56ae91078",
+      "to_element_id": "99c51fea-b976-497a-b8c3-5d3b5aacffea",
+      "meaning": "raunveruleg sameiginleg æskuminning",
+      "perspective": "author_truth",
+      "holder_id": null,
+      "reader_audience": null,
+      "time_ref": {
+        "chronology": {
+          "precision": "partial",
+          "event_anchor": {
+            "id": "c9f32ba4-188f-4ee1-9ee2-d5d42b1ff1d4",
+            "revision": 1
+          },
+          "start": null,
+          "end": null,
+          "before_refs": [
+            {
+              "id": "c9f32ba4-188f-4ee1-9ee2-d5d42b1ff1d4",
+              "revision": 1
+            }
+          ],
+          "after_refs": []
+        },
+        "narrative": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        }
+      },
+      "status": "superseded",
+      "decision_ids": [
+        "07d3b2bc-d223-472c-9f75-d81a84a0ff8a"
+      ]
+    },
+    {
+      "id": "cb0c5e2d-b87f-49e4-8c31-4c11aa3cfaff",
+      "kind": "assertion",
+      "revision": 1,
+      "previous_revision": null,
+      "created_exchange_id": "16893d05-744d-4869-a918-4c5b2f26ae7d",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "16893d05-744d-4869-a918-4c5b2f26ae7d",
+          "message_id": "afbe61c6-9717-459a-a842-5213d947576c",
+          "range": {
+            "start": 62,
+            "end": 175
+          }
+        }
+      ],
+      "subject_element_id": "cc940f23-5d36-46aa-8542-2de56ae91078",
+      "predicate": "ímyndar sér í viljandi draumi",
+      "value": "sýnilega sameiginlega æskuminningu",
+      "perspective": "author_truth",
+      "holder_id": null,
+      "reader_audience": null,
+      "time_ref": {
+        "chronology": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        },
+        "narrative": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        }
+      },
+      "truth_state": "affirmed",
+      "status": "accepted",
+      "decision_ids": [
+        "07d3b2bc-d223-472c-9f75-d81a84a0ff8a"
+      ],
+      "supersedes": null
+    },
+    {
+      "id": "07d3b2bc-d223-472c-9f75-d81a84a0ff8a",
+      "kind": "decision",
+      "revision": 1,
+      "previous_revision": null,
+      "created_exchange_id": "16893d05-744d-4869-a918-4c5b2f26ae7d",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "16893d05-744d-4869-a918-4c5b2f26ae7d",
+          "message_id": "afbe61c6-9717-459a-a842-5213d947576c",
+          "range": {
+            "start": 62,
+            "end": 175
+          }
+        }
+      ],
+      "action": "revise",
+      "user_message_ref": {
+        "type": "message",
+        "exchange_id": "16893d05-744d-4869-a918-4c5b2f26ae7d",
+        "message_id": "afbe61c6-9717-459a-a842-5213d947576c",
+        "range": {
+          "start": 62,
+          "end": 175
+        }
+      },
+      "span": {
+        "start": 62,
+        "end": 175
+      },
+      "target_refs": [
+        {
+          "id": "cd8104e3-07fc-416a-bfa9-076888134348",
+          "revision": 2
+        },
+        {
+          "id": "b6279ad2-0eaf-4f5a-b7fa-d67643574285",
+          "revision": 1
+        },
+        {
+          "id": "247e8a85-44dd-46cb-ac9c-761b72a68484",
+          "revision": 1
+        },
+        {
+          "id": "b63ec5c5-6585-488a-bbc1-396428f3d71d",
+          "revision": 1
+        }
+      ],
+      "selected_parts": [],
+      "prior_refs": [
+        {
+          "id": "cd8104e3-07fc-416a-bfa9-076888134348",
+          "revision": 2
+        },
+        {
+          "id": "b6279ad2-0eaf-4f5a-b7fa-d67643574285",
+          "revision": 1
+        },
+        {
+          "id": "247e8a85-44dd-46cb-ac9c-761b72a68484",
+          "revision": 1
+        },
+        {
+          "id": "b63ec5c5-6585-488a-bbc1-396428f3d71d",
+          "revision": 1
+        }
+      ],
+      "result_refs": [
+        {
+          "id": "cd8104e3-07fc-416a-bfa9-076888134348",
+          "revision": 3
+        },
+        {
+          "id": "b6279ad2-0eaf-4f5a-b7fa-d67643574285",
+          "revision": 2
+        },
+        {
+          "id": "247e8a85-44dd-46cb-ac9c-761b72a68484",
+          "revision": 2
+        },
+        {
+          "id": "b63ec5c5-6585-488a-bbc1-396428f3d71d",
+          "revision": 2
+        },
+        {
+          "id": "cb0c5e2d-b87f-49e4-8c31-4c11aa3cfaff",
+          "revision": 1
+        }
+      ],
+      "reason": "sýnileg sameiginleg æskuminning er viljandi draumur sem Freyja ímyndar sér, ekki raunveruleg sameiginleg reynsla.",
+      "affected_refs": [],
+      "review_required_refs": []
+    },
+    {
+      "id": "93c85a29-4d91-4c23-b682-7677c95fbf79",
+      "kind": "finding",
+      "revision": 3,
+      "previous_revision": 2,
+      "created_exchange_id": "162a5780-2bcc-4e9b-b617-aa38fa2b4acd",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "162a5780-2bcc-4e9b-b617-aa38fa2b4acd",
+          "message_id": "0d0858df-1c47-4448-bb78-d69af11270a4",
+          "range": {
+            "start": 449,
+            "end": 536
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "8608face-e906-413c-aeeb-502affe55cb3",
+          "message_id": "3cf15120-ff30-4459-9e4a-460438246d92",
+          "range": {
+            "start": 430,
+            "end": 487
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "8608face-e906-413c-aeeb-502affe55cb3",
+          "message_id": "3cf15120-ff30-4459-9e4a-460438246d92",
+          "range": {
+            "start": 430,
+            "end": 487
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "3c08a608-1279-42ce-a953-750fc34c065c",
+          "message_id": "afdee4d6-b637-4407-82a9-0cee39d3760d",
+          "range": {
+            "start": 572,
+            "end": 641
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "16893d05-744d-4869-a918-4c5b2f26ae7d",
+          "message_id": "afbe61c6-9717-459a-a842-5213d947576c",
+          "range": {
+            "start": 62,
+            "end": 175
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "16893d05-744d-4869-a918-4c5b2f26ae7d",
+          "message_id": "afbe61c6-9717-459a-a842-5213d947576c",
+          "range": {
+            "start": 176,
+            "end": 234
+          }
+        }
+      ],
+      "category": "relationship",
+      "assessment": "conflict",
+      "severity": "significant",
+      "affected_refs": [
+        {
+          "id": "cd8104e3-07fc-416a-bfa9-076888134348",
+          "revision": 1
+        },
+        {
+          "id": "b6279ad2-0eaf-4f5a-b7fa-d67643574285",
+          "revision": 1
+        },
+        {
+          "id": "247e8a85-44dd-46cb-ac9c-761b72a68484",
+          "revision": 1
+        },
+        {
+          "id": "60e3081b-187d-4b2b-b52a-1df93ab5e31c",
+          "revision": 1
+        },
+        {
+          "id": "134717c6-0cc8-4249-981b-b5c18e517d08",
+          "revision": 1
+        }
+      ],
+      "explanation": "Freyja og Sigrún hafa aldrei hist fyrir þessa endurfundi. Raunveruleg sameiginleg æskuminning þeirra af fyrri samveru krefst fyrri kynna sem sú staðreynd útilokar.",
+      "consequences": [
+        "Sameiginleg fortíð af því tagi myndi breyta staðfestum bakgrunni tengsla þeirra."
+      ],
+      "resolution_options": [
+        "Endurskoða minningartillöguna.",
+        "Endurskoða fyrri kynni með skýrri ákvörðun.",
+        "Skýra viljandi aðra merkingu minningar án þess að breyta raunverulegri sameiginlegri æsku sjálfkrafa.",
+        "Fresta tillögunni."
+      ],
+      "disposition": "intentional",
+      "decision_ids": [
+        "106da5e3-4aa2-4d01-bb23-9ba969520c2f",
+        "9aba8142-23b9-41a7-97f2-23fa2620e66c"
+      ],
+      "narrative_explanation": "Sýnileg sameiginleg æskuminning er viljandi draumur/ímyndun Freyju, ekki raunveruleg sameiginleg fortíð. Höfundarsannleikur um að Freyja og Sigrún höfðu aldrei hist fyrir endurfundina stendur. Tímasetning sjálfs draumsins er ótilgreind."
+    },
+    {
+      "id": "9aba8142-23b9-41a7-97f2-23fa2620e66c",
+      "kind": "decision",
+      "revision": 1,
+      "previous_revision": null,
+      "created_exchange_id": "16893d05-744d-4869-a918-4c5b2f26ae7d",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "16893d05-744d-4869-a918-4c5b2f26ae7d",
+          "message_id": "afbe61c6-9717-459a-a842-5213d947576c",
+          "range": {
+            "start": 62,
+            "end": 175
+          }
+        }
+      ],
+      "action": "resolve",
+      "user_message_ref": {
+        "type": "message",
+        "exchange_id": "16893d05-744d-4869-a918-4c5b2f26ae7d",
+        "message_id": "afbe61c6-9717-459a-a842-5213d947576c",
+        "range": {
+          "start": 62,
+          "end": 175
+        }
+      },
+      "span": {
+        "start": 62,
+        "end": 175
+      },
+      "target_refs": [
+        {
+          "id": "93c85a29-4d91-4c23-b682-7677c95fbf79",
+          "revision": 2
+        }
+      ],
+      "selected_parts": [],
+      "prior_refs": [
+        {
+          "id": "93c85a29-4d91-4c23-b682-7677c95fbf79",
+          "revision": 2
+        }
+      ],
+      "result_refs": [
+        {
+          "id": "93c85a29-4d91-4c23-b682-7677c95fbf79",
+          "revision": 3
+        }
+      ],
+      "reason": "sýnileg sameiginleg æskuminning er viljandi draumur sem Freyja ímyndar sér, ekki raunveruleg sameiginleg reynsla.",
+      "affected_refs": [],
+      "review_required_refs": []
+    },
+    {
+      "id": "1ee64885-d273-4246-803b-2cee08578ebd",
+      "kind": "finding",
+      "revision": 2,
+      "previous_revision": 1,
+      "created_exchange_id": "3c08a608-1279-42ce-a953-750fc34c065c",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "3c08a608-1279-42ce-a953-750fc34c065c",
+          "message_id": "afdee4d6-b637-4407-82a9-0cee39d3760d",
+          "range": {
+            "start": 643,
+            "end": 710
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "38fb5b68-545e-4692-9d9b-0d0e0377a62d",
+          "message_id": "30087814-674c-4d7d-b28e-e8654b8eb4ae",
+          "range": {
+            "start": 124,
+            "end": 149
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "16893d05-744d-4869-a918-4c5b2f26ae7d",
+          "message_id": "afbe61c6-9717-459a-a842-5213d947576c",
+          "range": {
+            "start": 303,
+            "end": 434
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "16893d05-744d-4869-a918-4c5b2f26ae7d",
+          "message_id": "afbe61c6-9717-459a-a842-5213d947576c",
+          "range": {
+            "start": 435,
+            "end": 485
+          }
+        }
+      ],
+      "category": "plot_dependency",
+      "assessment": "opportunity",
+      "severity": "advisory",
+      "affected_refs": [
+        {
+          "id": "8fc8b19d-8341-4d0d-bc96-6ed7d8582a54",
+          "revision": 1
+        },
+        {
+          "id": "e49f9a76-ac1d-4b6c-8a86-ae3eec006fa8",
+          "revision": 1
+        },
+        {
+          "id": "7329912f-a403-4c50-958d-19ae373249e3",
+          "revision": 2
+        }
+      ],
+      "explanation": "Skráð látúnsinnsigli gæti verið vísbending í könnun sendandans; vísbending staðfestir ekki sjálf niðurstöðu.",
+      "consequences": [],
+      "resolution_options": [
+        "Kanna innsiglið sem vísbendingu.",
+        "Láta hugmyndina bíða."
+      ],
+      "disposition": "resolved",
+      "decision_ids": [
+        "3658fa58-1650-4744-ae05-625c334b841b"
+      ],
+      "narrative_explanation": null
+    },
+    {
+      "id": "3658fa58-1650-4744-ae05-625c334b841b",
+      "kind": "decision",
+      "revision": 1,
+      "previous_revision": null,
+      "created_exchange_id": "16893d05-744d-4869-a918-4c5b2f26ae7d",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "16893d05-744d-4869-a918-4c5b2f26ae7d",
+          "message_id": "afbe61c6-9717-459a-a842-5213d947576c",
+          "range": {
+            "start": 303,
+            "end": 434
+          }
+        }
+      ],
+      "action": "resolve",
+      "user_message_ref": {
+        "type": "message",
+        "exchange_id": "16893d05-744d-4869-a918-4c5b2f26ae7d",
+        "message_id": "afbe61c6-9717-459a-a842-5213d947576c",
+        "range": {
+          "start": 303,
+          "end": 434
+        }
+      },
+      "span": {
+        "start": 303,
+        "end": 434
+      },
+      "target_refs": [
+        {
+          "id": "1ee64885-d273-4246-803b-2cee08578ebd",
+          "revision": 1
+        }
+      ],
+      "selected_parts": [],
+      "prior_refs": [
+        {
+          "id": "1ee64885-d273-4246-803b-2cee08578ebd",
+          "revision": 1
+        }
+      ],
+      "result_refs": [
+        {
+          "id": "1ee64885-d273-4246-803b-2cee08578ebd",
+          "revision": 2
+        }
+      ],
+      "reason": "Ráðgjöf lokið að beiðni höfundar; fyrirboðatillagan ekki samþykkt.",
+      "affected_refs": [],
+      "review_required_refs": []
+    },
+    {
+      "id": "bd14ac9f-4b8f-4f9c-9f1f-eb34e8ec8f7f",
+      "kind": "session",
+      "revision": 6,
+      "previous_revision": 5,
+      "created_exchange_id": "8608face-e906-413c-aeeb-502affe55cb3",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "16893d05-744d-4869-a918-4c5b2f26ae7d",
+          "message_id": "afbe61c6-9717-459a-a842-5213d947576c"
+        }
+      ],
+      "topic": "Samfella",
+      "mode": "open",
+      "state": "open",
+      "started_exchange_id": "8608face-e906-413c-aeeb-502affe55cb3",
+      "last_exchange_id": "16893d05-744d-4869-a918-4c5b2f26ae7d",
+      "related_record_ids": [
+        "558ee882-eeef-4654-bf22-b83acda83f24",
+        "4f256968-185e-48bb-8209-4933e3e70230",
+        "f05c97e2-9647-47c2-b18f-f1d7aad90e06",
+        "17d426bd-a8df-48bd-883b-62a6590b42d8",
+        "c36f71a0-2ecd-444a-a038-cca37a23812d",
+        "e79c6511-1406-4732-9948-72e0763f702d",
+        "b6bf10d8-dd6c-4414-b4a3-4f2a9b2db75b",
+        "7999a76d-00eb-4e1b-81ca-e0074e492fa9",
+        "a01c0753-7a94-46f6-974a-9aeb416e631b",
+        "a4f179f6-8b3d-4fe5-9fbf-fcacdd84c57f",
+        "cd7a9ab8-611c-4185-bb78-f2dcb1407fe3",
+        "e066972a-ded5-41f3-890e-86e478102813",
+        "79c29f4a-049c-4f80-99d4-feb50914813c",
+        "fab8d0b4-8490-40ff-947d-7d9d18a86b68",
+        "a5010930-b834-49f9-b122-6a6678a73e83",
+        "265f35ea-5dd5-463a-b083-00a8bca7df73",
+        "4ec27039-9f65-447b-a740-e5b20737d9ba",
+        "3f86204e-5886-46ef-b0cb-0849f04b8ff8",
+        "e4195696-47c0-4598-9633-477fa84617c0",
+        "0992b08f-79ff-449f-9d1f-4972833a5846",
+        "cdf3af43-8fca-4268-af32-1d7b31026923",
+        "ae6f1848-5501-4d0d-9ba2-81f0d8c034a6",
+        "91666f59-5a86-4f99-9669-eed33ab08f92",
+        "9888f02a-1968-48e3-9945-ced2a2953c8d",
+        "3206e87d-d058-48dc-b691-4cf20a3679d9",
+        "09ba833b-db90-49bb-94e9-05c8c50ec334",
+        "d5626dfc-dd52-4435-b38c-499842d68d8f",
+        "c9f32ba4-188f-4ee1-9ee2-d5d42b1ff1d4",
+        "60e3081b-187d-4b2b-b52a-1df93ab5e31c",
+        "134717c6-0cc8-4249-981b-b5c18e517d08",
+        "62ab0f6e-3d21-4482-9d60-ac5beb49ba38",
+        "92e21458-5351-4ebf-ad5d-54059b87def5",
+        "d31dba8f-bdf2-4744-9c47-1359510d9d03",
+        "94cc12aa-9dea-4032-a58e-9e6b216f631d",
+        "b344c49b-220e-45ce-bf91-48a1836c4406",
+        "1d2bf975-171c-48a6-b03b-b1eeb984a32f",
+        "f5138be7-8137-4360-8129-97933c28b53a",
+        "8e045fd6-3b53-404d-bcb5-669527854e2f",
+        "6cd104ac-5256-47e5-8cc2-454e88700f8b",
+        "872262c3-acb0-4d10-bb8d-256dd69bc7f1",
+        "f8d47499-791b-4f19-a4ed-18bdd844c2ab",
+        "553cc2f0-4dfb-4e9e-a9c0-8f66ccfbbbfb",
+        "0a95e2e3-a6c3-426b-9212-60b27751ce4a",
+        "a65f2d80-43bf-4103-b5ee-3bac40281900",
+        "045b572d-fcf6-4521-b2a6-ce88f794094f",
+        "bc9c3db4-018c-4500-ab72-16519ca705d5",
+        "6a61ab8a-d512-49ad-ba33-bd130bb6f534",
+        "eb8b34e9-ec78-47c5-bf60-da24da54d123",
+        "0892fa17-5e1c-4c59-84e5-4d6de2f8f4df",
+        "2c0f86dd-155d-4b5b-ae1d-5207dfee9e2b",
+        "f2c29259-c5b0-4b9c-a272-1bbefd82645a",
+        "e2e8e629-c584-48ab-acc3-8c2c9958a583",
+        "24217ee6-14c5-4590-bf90-cdfc550e7234",
+        "b6279ad2-0eaf-4f5a-b7fa-d67643574285",
+        "247e8a85-44dd-46cb-ac9c-761b72a68484",
+        "b63ec5c5-6585-488a-bbc1-396428f3d71d",
+        "cd8104e3-07fc-416a-bfa9-076888134348",
+        "93c85a29-4d91-4c23-b682-7677c95fbf79",
+        "97f50591-87d2-484b-ae0b-59aa0c6d8814",
+        "0d4af3ab-6e46-401c-a291-e30986fb3ec4",
+        "ae03d21f-d3df-4a21-9202-9fb67c7ba9bc",
+        "52a35a1a-07e1-4d3e-8f10-1b33f85e3bcc",
+        "68339a4d-6d96-4031-8dcc-ff5a525438bf",
+        "d242638a-56f3-4128-979f-2627aaad7122",
+        "21ab8021-4331-4394-b326-49a05b80269f",
+        "0ccbdb45-6160-4fe3-ab0a-f32a00edbe58",
+        "c6ae569e-30d2-44a9-8a59-d0758070216b",
+        "106da5e3-4aa2-4d01-bb23-9ba969520c2f",
+        "8fc8b19d-8341-4d0d-bc96-6ed7d8582a54",
+        "1ee64885-d273-4246-803b-2cee08578ebd",
+        "f82120a5-bfc1-429b-b18d-b6b1ec361432",
+        "e66724ac-fa91-41b1-836c-e6561825b148",
+        "9c73d1de-b23a-441a-adf5-1a1982f94a73",
+        "0b71babb-3320-4478-ab98-7133afebc58e",
+        "3b4b97a9-fab1-4d97-977a-fa034c273153",
+        "332aa033-a9ad-47b3-a9ee-483705902adb",
+        "83f63405-90bb-42f2-a4c5-be2acad2e507",
+        "a6ad138e-daef-4299-b69f-f83e4ed13956",
+        "5dfee8b2-3a35-4246-b34f-267c8272a79d",
+        "7fcb60be-22d4-47a4-a859-232f5a5c4e00",
+        "1b6e088d-9099-487c-80b8-23c0454d5f0d",
+        "1c2137be-a225-4d69-b5bb-48a6d87776ce",
+        "9b77eb0d-21bb-4a2e-8144-afe98eacedaf",
+        "7b879cba-a9e9-4125-afb9-e8cff00fc9eb",
+        "da64b265-a3b2-4858-b32f-baab17486ff7",
+        "760a6de3-0fbe-4898-bc2c-f4b4ebb5187e",
+        "a33ad64e-f155-4c40-af7d-15128c4adacd",
+        "cb0c5e2d-b87f-49e4-8c31-4c11aa3cfaff",
+        "07d3b2bc-d223-472c-9f75-d81a84a0ff8a",
+        "9aba8142-23b9-41a7-97f2-23fa2620e66c",
+        "3658fa58-1650-4744-ae05-625c334b841b"
+      ],
+      "unresolved_question_ids": [
+        "9c73d1de-b23a-441a-adf5-1a1982f94a73"
+      ],
+      "derived_context_ref": null
+    }
+  ],
+  "continuity_review": {
+    "coverage": "incomplete",
+    "reviewed_record_refs": [
+      {
+        "id": "93c85a29-4d91-4c23-b682-7677c95fbf79",
+        "revision": 2
+      },
+      {
+        "id": "93c85a29-4d91-4c23-b682-7677c95fbf79",
+        "revision": 3
+      },
+      {
+        "id": "60e3081b-187d-4b2b-b52a-1df93ab5e31c",
+        "revision": 1
+      },
+      {
+        "id": "134717c6-0cc8-4249-981b-b5c18e517d08",
+        "revision": 1
+      },
+      {
+        "id": "247e8a85-44dd-46cb-ac9c-761b72a68484",
+        "revision": 2
+      },
+      {
+        "id": "cb0c5e2d-b87f-49e4-8c31-4c11aa3cfaff",
+        "revision": 1
+      },
+      {
+        "id": "1ee64885-d273-4246-803b-2cee08578ebd",
+        "revision": 2
+      }
+    ],
+    "unavailable_refs": [],
+    "canon_hold_refs": [
+      "c2a328d6-9474-4b20-81e2-f57327efa071",
+      "a5a37507-baff-4ad3-87c0-5a405dae0262",
+      "69059156-f3a0-4d96-820c-b342bbedc157"
+    ],
+    "finding_ids": [
+      "f1fcc75e-8c7d-44a7-aed2-d68e860db715",
+      "f05c97e2-9647-47c2-b18f-f1d7aad90e06",
+      "f5138be7-8137-4360-8129-97933c28b53a",
+      "f8d47499-791b-4f19-a4ed-18bdd844c2ab",
+      "045b572d-fcf6-4521-b2a6-ce88f794094f",
+      "0892fa17-5e1c-4c59-84e5-4d6de2f8f4df",
+      "24217ee6-14c5-4590-bf90-cdfc550e7234",
+      "93c85a29-4d91-4c23-b682-7677c95fbf79",
+      "1ee64885-d273-4246-803b-2cee08578ebd",
+      "0b71babb-3320-4478-ab98-7133afebc58e"
+    ],
+    "summary": "Frestað tengslaálitamál leyst sem viljandi draumur Freyju. Ímyndað innihald aðgreint frá höfundarsannleika um fyrri kynni; upprunaleg fullyrðing um raunverulega sameiginlega fortíð ekki lengur gildandi. Fyrri höfundarsannleikur óbreyttur. Ráðgefandi innsiglisálitamál leyst án samþykkis tillögu. Flotbrúarhold og óvissa um vitneskju Freyju varðveitt."
+  },
+  "payload_digest": "4ff1175d1ff71625c8675c1722f80c80e5e8c5955519359aa0eb148942e65e75"
+}

@@ -1,0 +1,257 @@
+{
+  "case_id": "AUTH_PARTIAL",
+  "novel_path": "C:\\Users\\BjarkiGunnarsson\\Documents\\Codex\\2026-10-23\\novel-phase22-en-20261023\\work\\commentary-regression-novel",
+  "thread_id": "01a16af9-f289-73c1-8151-55f50ace05d9",
+  "turn_id": "01a16b2b-6fdf-7aa0-a42d-5de800d58169",
+  "save_result": {
+    "ok": true,
+    "operation": "exchange.save",
+    "novel_id": "cb66f60c-4b08-4aea-9616-a2fc168a09eb",
+    "data": {
+      "saved": true,
+      "already_saved": false,
+      "cleanup_required": false
+    },
+    "warnings": [],
+    "checkpoint": {
+      "git_head": "65eab6f4ebfdb319a53c29e1dc581132dedeadeb",
+      "exchange_id": "d83026c5-c29f-42e9-a520-7eb10c16138a",
+      "sequence": 8
+    }
+  },
+  "manifest_digest": "c98f5d51c5521643ab64fa64b040edd11c969f1c99aa995cfe8a94895171dad1",
+  "source_type": "delegated",
+  "native_user_input": false,
+  "novice_evidence": false,
+  "host": "Codex desktop",
+  "host_version": "unknown",
+  "model": "GPT-6",
+  "model_version": "unknown",
+  "session_id": "638564fa-74b2-450e-a0a7-d15dac37024a",
+  "record_versions": [
+    {
+      "id": "cb66f60c-4b08-4aea-9616-a2fc168a09eb",
+      "kind": "novel_project",
+      "revision": 3
+    },
+    {
+      "id": "ca5f921f-84d4-491b-a40f-16a576e9cb03",
+      "kind": "idea",
+      "revision": 2
+    },
+    {
+      "id": "56d74b11-d849-4ce4-926a-d04242a4af43",
+      "kind": "assertion",
+      "revision": 1
+    },
+    {
+      "id": "91679de1-7f15-4dd2-85be-d4edfa4809c7",
+      "kind": "decision",
+      "revision": 1
+    },
+    {
+      "id": "6a6267eb-2724-44d9-8d94-13811e1b0da2",
+      "kind": "idea",
+      "revision": 2
+    },
+    {
+      "id": "e9bb208a-9c02-4f2f-9b19-e60379ac0bba",
+      "kind": "story_element",
+      "revision": 2
+    },
+    {
+      "id": "94551fd9-2bdd-4435-aae3-fae189089a8f",
+      "kind": "assertion",
+      "revision": 1
+    },
+    {
+      "id": "fd6e1431-35c0-4a10-82d7-a8bd02939858",
+      "kind": "decision",
+      "revision": 1
+    },
+    {
+      "id": "4a8cee6c-02a9-4a65-a3c6-d7fa96ef93b8",
+      "kind": "decision",
+      "revision": 1
+    },
+    {
+      "id": "6e2f14e2-5707-4009-9e7f-7231ae914c4c",
+      "kind": "idea",
+      "revision": 1
+    },
+    {
+      "id": "fa6e1900-e33e-4c33-99d9-86d28588086c",
+      "kind": "assertion",
+      "revision": 1
+    },
+    {
+      "id": "638564fa-74b2-450e-a0a7-d15dac37024a",
+      "kind": "session",
+      "revision": 2
+    }
+  ],
+  "continuity_review": {
+    "coverage": "complete",
+    "reviewed_record_refs": [
+      {
+        "id": "ba58b0dd-8d4e-402a-a41e-4adbabd0bcf0",
+        "revision": 1
+      },
+      {
+        "id": "5299dee6-4976-454a-b3bd-f85936be0fc3",
+        "revision": 1
+      },
+      {
+        "id": "83c818af-8c1a-4871-beca-eb354753ab30",
+        "revision": 1
+      },
+      {
+        "id": "fe4f5d2f-3ecc-48db-918a-3bb260cee80f",
+        "revision": 1
+      },
+      {
+        "id": "3a173fe0-b9d9-41dd-bd07-6b797c7c3390",
+        "revision": 1
+      },
+      {
+        "id": "b2bba552-bebf-4cae-b835-e01708b8d516",
+        "revision": 1
+      },
+      {
+        "id": "11fcc852-4938-4808-85d1-d80cbc08b8ef",
+        "revision": 1
+      },
+      {
+        "id": "24a9e934-c113-4281-bbfd-59e1db9d03ce",
+        "revision": 1
+      },
+      {
+        "id": "0636c698-a7f7-4957-ac90-2cc56a68bdfa",
+        "revision": 1
+      },
+      {
+        "id": "89643a23-bc5b-47e7-805d-69baf02f51e4",
+        "revision": 1
+      },
+      {
+        "id": "92657929-a1d8-4db7-81bc-3e5b83516e12",
+        "revision": 1
+      },
+      {
+        "id": "12fdedbe-1fd7-43c7-9899-d854c00ebf7f",
+        "revision": 1
+      },
+      {
+        "id": "0fafb781-6fe4-4f55-9665-8201f692081d",
+        "revision": 1
+      },
+      {
+        "id": "e4198cbf-dbfc-4068-a487-81dc21c73380",
+        "revision": 1
+      },
+      {
+        "id": "d5adf09d-3773-4d70-828b-5cee7def7194",
+        "revision": 1
+      },
+      {
+        "id": "c1edb38c-e177-4154-add4-13ebf95c7207",
+        "revision": 1
+      },
+      {
+        "id": "5ecad072-009b-438c-8e65-034fe992d3a9",
+        "revision": 1
+      },
+      {
+        "id": "b0134264-50de-4438-9ea4-7b7fea14021a",
+        "revision": 1
+      },
+      {
+        "id": "9132e8e4-53d6-46cc-bcf2-4a3d1d8c543d",
+        "revision": 1
+      },
+      {
+        "id": "aeb371cf-d132-4ef1-8268-25136577aa15",
+        "revision": 1
+      },
+      {
+        "id": "6e43feba-be95-4219-bdee-734b58b049d4",
+        "revision": 1
+      },
+      {
+        "id": "a03667be-bc38-4303-bac4-dee40f97b84f",
+        "revision": 1
+      },
+      {
+        "id": "2d32b3f7-e9b6-44e6-a298-fcd139036721",
+        "revision": 1
+      },
+      {
+        "id": "63f9c91e-e5ea-4984-b708-d0ee2a6ca2ca",
+        "revision": 1
+      },
+      {
+        "id": "112f571c-3b26-420a-a232-9523e41db09f",
+        "revision": 1
+      },
+      {
+        "id": "35505134-099c-4d53-af9c-33f1abe55199",
+        "revision": 1
+      },
+      {
+        "id": "05f15bb9-5745-45fe-bf72-8fdabc1b8108",
+        "revision": 1
+      },
+      {
+        "id": "f39dce7b-0a80-4c61-86f0-db07bbcec4ef",
+        "revision": 1
+      },
+      {
+        "id": "35e60556-5757-44be-9402-91bdbaf3596a",
+        "revision": 1
+      },
+      {
+        "id": "c70819f0-73c7-46b0-9dcd-8fbdbc0713ba",
+        "revision": 1
+      },
+      {
+        "id": "1e4f66c1-05e2-41f5-aba2-290339dcc3a5",
+        "revision": 1
+      },
+      {
+        "id": "8913530c-0c5d-4a5f-a795-db0ceeca8d40",
+        "revision": 1
+      },
+      {
+        "id": "3a2d51c7-eb33-4443-95b9-86cdfa542100",
+        "revision": 1
+      },
+      {
+        "id": "249f979b-d59a-4815-b1ed-1dc386393711",
+        "revision": 1
+      },
+      {
+        "id": "5d69e81a-becd-438a-97f3-5368dc22f78b",
+        "revision": 1
+      },
+      {
+        "id": "ca5f921f-84d4-491b-a40f-16a576e9cb03",
+        "revision": 1
+      },
+      {
+        "id": "6a6267eb-2724-44d9-8d94-13811e1b0da2",
+        "revision": 1
+      },
+      {
+        "id": "e9bb208a-9c02-4f2f-9b19-e60379ac0bba",
+        "revision": 1
+      }
+    ],
+    "unavailable_refs": [],
+    "canon_hold_refs": [],
+    "finding_ids": [],
+    "summary": "Compared the storm and blue-light selections with available accepted facts and their sources. No significant conflict identified. Clear weather stays unselected in the alternative group; shipwreck and bell stay proposed. Sender is reaffirmed without rewriting accepted history; the murderer proposition remains unresolved with unknown truth. All five earlier questions remain open."
+  },
+  "display_status": "unconfirmed",
+  "exact_input_matches_capture": true,
+  "prepared_response_matches_saved": true
+}

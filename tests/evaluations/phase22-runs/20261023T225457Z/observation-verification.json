@@ -1,0 +1,61 @@
+{
+  "ok": false,
+  "scope": "Public delegated persistence/display/source checks only",
+  "case_filter": null,
+  "all_submitted_cases_checked": true,
+  "semantic_assessment": "Separate agent judgments required; no human/native result inferred",
+  "cases": [
+    {
+      "case_id": "GATE",
+      "language": "is",
+      "thread_id": "01a16afa-1197-7650-8189-9365687429ee",
+      "turn_id": "01a16afa-186e-72d1-bb2b-5418e5845605",
+      "exchange_id": "7f6c3f2b-88c4-4b5a-9d9b-4f36365e0264",
+      "checkpoint": {
+        "git_head": "d10223e3894eb90ce7e001b8476a7a5144692bde",
+        "exchange_id": "7f6c3f2b-88c4-4b5a-9d9b-4f36365e0264",
+        "sequence": 2
+      },
+      "exact_input_saved": true,
+      "exact_response_saved_and_displayed": true,
+      "save_precedes_display": true,
+      "source_type": "delegated",
+      "native_user_input": false,
+      "novice_evidence": false,
+      "current_installed_bundle_verified": true,
+      "record_kinds": [],
+      "response": "Evaluation workspace is ready."
+    },
+    {
+      "case_id": "GATE_RETRY",
+      "language": "en",
+      "thread_id": "01a16af9-f289-73c1-8151-55f50ace05d9",
+      "turn_id": "01a16aff-455c-7d13-a700-cf777ecbfc76",
+      "exchange_id": "1cea29d6-e2c2-4e17-8a2c-b225b8f6eed6",
+      "checkpoint": {
+        "git_head": "ffb8757c5b8ad503b5682c0cb1460aa70bd0fd4e",
+        "exchange_id": "1cea29d6-e2c2-4e17-8a2c-b225b8f6eed6",
+        "sequence": 3
+      },
+      "exact_input_saved": true,
+      "exact_response_saved_and_displayed": true,
+      "save_precedes_display": true,
+      "source_type": "delegated",
+      "native_user_input": false,
+      "novice_evidence": false,
+      "current_installed_bundle_verified": true,
+      "record_kinds": [],
+      "response": "Evaluation workspace is ready."
+    }
+  ],
+  "failures": [
+    {
+      "case_id": "GATE",
+      "language": "en",
+      "thread_id": "01a16af9-f289-73c1-8151-55f50ace05d9",
+      "turn_id": "01a16af9-f604-7072-992a-f5b600cf7b55",
+      "exchange_id": "4bc3797e-0568-495d-adf4-2c373aa68050",
+      "error": "Saved/displayed response differs"
+    }
+  ]
+}

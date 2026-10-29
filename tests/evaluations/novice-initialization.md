@@ -1,4 +1,9 @@
-# SC-001 novice initialization — UNVERIFIED
+# Historical novice initialization - out of scope for the single-user POC
+
+On 2026-10-23 the owner explicitly excluded novice testers and chose personal
+testing after POC delivery. SC-001 now uses automated installed-tool journeys.
+The original unexecuted worksheet below is historical evidence, not a POC gate
+or a request to recruit participants. No novice results were collected or invented.
 
 The implemented structural journeys cover no concept, unknown answers, supplied
 English/Icelandic text, settings revisions, independent installation and optional

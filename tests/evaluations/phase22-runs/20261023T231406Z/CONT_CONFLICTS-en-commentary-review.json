@@ -1,0 +1,14 @@
+[
+  {
+    "id": "msg_02f80cb399e0759d016ae1cc4c41f88191afdef57fc144df6b",
+    "text": "I’ll compare the current proposals with the saved facts, prepare the assessment, and save it before displaying the response.",
+    "classification": "administrative",
+    "reason": "Reviewed operational comparison, preparation and save status only; no creative judgment disclosed before save."
+  },
+  {
+    "id": "msg_02f80cb399e0759d016ae1ccb748088191ac656596a54c247b",
+    "text": "The assessment is prepared. I’m saving the exchange, then checking the persisted response and writing its report.",
+    "classification": "administrative",
+    "reason": "Reviewed operational comparison, preparation and save status only; no creative judgment disclosed before save."
+  }
+]

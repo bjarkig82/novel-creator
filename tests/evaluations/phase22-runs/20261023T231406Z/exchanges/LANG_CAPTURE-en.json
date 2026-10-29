@@ -1,0 +1,451 @@
+{
+  "schema_version": "1.0",
+  "novel_id": "42754ded-2ba3-42d4-98b4-3e30663c4e76",
+  "exchange_id": "cd8b9ee7-19e0-4e76-a4da-1a474809fc33",
+  "sequence": 4,
+  "previous_exchange_id": "4146312e-8b9a-4739-bab5-55407e45623a",
+  "previous_digest": "4ec38ecbdf300022478a614f4f0289b6766bf744936ddbf94bab8c6344ff6894",
+  "session_id": "3a4a9d59-c811-4c3c-ab96-438872a1add6",
+  "expected_git_head": "95ffe5a5e534560af07d38f62ce83f517a56b079",
+  "recorded_at": "2026-10-28T10:53:30.054920Z",
+  "operation": "conversation",
+  "messages": [
+    {
+      "message_id": "8d366c6b-90fc-44aa-ae35-2c20eba92d5a",
+      "role": "user",
+      "text": "Case LANG_CAPTURE. Possibly Þóra sent the letter.\n\nÞóra is married. Establish that as a fact.\n\nThe character says, “I am married.” This is only a possible lie.\n\nDo not establish that Þóra is the sender.\n\nPause after your response."
+    },
+    {
+      "message_id": "58b93d09-6bbf-4935-80ed-92a47ceb3438",
+      "role": "assistant",
+      "text": "Established author truth: Þóra is married (010a1c3d r1; decision f250ede0 r1).\n\nÞóra sending the letter remains an unaccepted possibility (a3e1a84d r1); I have not established her as the sender.\n\n“I am married” is captured only as possible dialogue or a possible lie (c05518bd r1). It does not establish a speaker’s marital status, identify the speaker, or overturn Þóra’s marriage fact. Ægir’s earlier childhood question remains open.\n\nPaused here."
+    }
+  ],
+  "input_artifacts": [
+    {
+      "artifact_id": "8e112ebb-8376-4324-8442-a51700503296",
+      "original_text": "{\"kind\":\"host_input\",\"source_type\":\"delegated\",\"thread_id\":\"01a16af9-f289-73c1-8151-55f50ace05d9\",\"turn_id\":\"01a18223-d08e-7db2-bec6-2947b7b7d9f2\",\"event_id\":\"fco_01a18223-d08f-7961-9157-3d903908c530\",\"event_type\":\"functionCallOutput\",\"source_thread_id\":\"01a16af6-0d9b-7173-a5f5-c8775f37df18\",\"native_user_input\":false,\"novice_evidence\":false,\"evaluation_only\":true,\"text\":\"Case LANG_CAPTURE. Possibly Þóra sent the letter.\\n\\nÞóra is married. Establish that as a fact.\\n\\nThe character says, “I am married.” This is only a possible lie.\\n\\nDo not establish that Þóra is the sender.\\n\\nPause after your response.\",\"public_event\":{\"type\":\"functionCallOutput\",\"id\":\"fco_01a18223-d08f-7961-9157-3d903908c530\",\"namespace\":\"codex_app\",\"name\":\"send_message_to_thread\",\"output\":{\"text\":\"<codex_delegation>\\n  <source_thread_id>01a16af6-0d9b-7173-a5f5-c8775f37df18</source_thread_id>\\n  <input>Case LANG_CAPTURE. Possibly Þóra sent the letter.\\n\\nÞóra is married. Establish that as a fact.\\n\\nThe character says, “I am married.” This is only a possible lie.\\n\\nDo not establish that Þóra is the sender.\\n\\nPause after your response.</input>\\n</codex_delegation>\",\"truncated\":false}}}",
+      "parsed_value": {
+        "kind": "host_input",
+        "source_type": "delegated",
+        "thread_id": "01a16af9-f289-73c1-8151-55f50ace05d9",
+        "turn_id": "01a18223-d08e-7db2-bec6-2947b7b7d9f2",
+        "event_id": "fco_01a18223-d08f-7961-9157-3d903908c530",
+        "event_type": "functionCallOutput",
+        "source_thread_id": "01a16af6-0d9b-7173-a5f5-c8775f37df18",
+        "native_user_input": false,
+        "novice_evidence": false,
+        "evaluation_only": true,
+        "text": "Case LANG_CAPTURE. Possibly Þóra sent the letter.\n\nÞóra is married. Establish that as a fact.\n\nThe character says, “I am married.” This is only a possible lie.\n\nDo not establish that Þóra is the sender.\n\nPause after your response.",
+        "public_event": {
+          "type": "functionCallOutput",
+          "id": "fco_01a18223-d08f-7961-9157-3d903908c530",
+          "namespace": "codex_app",
+          "name": "send_message_to_thread",
+          "output": {
+            "text": "<codex_delegation>\n  <source_thread_id>01a16af6-0d9b-7173-a5f5-c8775f37df18</source_thread_id>\n  <input>Case LANG_CAPTURE. Possibly Þóra sent the letter.\n\nÞóra is married. Establish that as a fact.\n\nThe character says, “I am married.” This is only a possible lie.\n\nDo not establish that Þóra is the sender.\n\nPause after your response.</input>\n</codex_delegation>",
+            "truncated": false
+          }
+        }
+      },
+      "digest": "8efc6346ef37087fae5f64cfd5eb55a63036fed1cdbee8a1542042e81dbb177c"
+    }
+  ],
+  "record_versions": [
+    {
+      "id": "08f2bfd7-199a-4de6-b6da-39c5bce8ce94",
+      "kind": "story_element",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "cd8b9ee7-19e0-4e76-a4da-1a474809fc33",
+          "message_id": "8d366c6b-90fc-44aa-ae35-2c20eba92d5a",
+          "range": {
+            "start": 51,
+            "end": 67
+          }
+        }
+      ],
+      "created_exchange_id": "cd8b9ee7-19e0-4e76-a4da-1a474809fc33",
+      "origin": "supplied",
+      "element_type": "character",
+      "display_name": "Þóra",
+      "aliases": [],
+      "status": "accepted",
+      "assertion_ids": [
+        "010a1c3d-e88d-4792-b9e7-82e9cf9a7089"
+      ],
+      "relationship_ids": [],
+      "dependency_refs": [],
+      "time_ref": null,
+      "decision_ids": [
+        "f250ede0-1c17-4a29-a953-7c8cf512204d"
+      ]
+    },
+    {
+      "id": "010a1c3d-e88d-4792-b9e7-82e9cf9a7089",
+      "kind": "assertion",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "cd8b9ee7-19e0-4e76-a4da-1a474809fc33",
+          "message_id": "8d366c6b-90fc-44aa-ae35-2c20eba92d5a",
+          "range": {
+            "start": 51,
+            "end": 67
+          }
+        }
+      ],
+      "created_exchange_id": "cd8b9ee7-19e0-4e76-a4da-1a474809fc33",
+      "origin": "supplied",
+      "subject_element_id": "08f2bfd7-199a-4de6-b6da-39c5bce8ce94",
+      "predicate": "marital_status",
+      "value": "married",
+      "perspective": "author_truth",
+      "holder_id": null,
+      "reader_audience": null,
+      "time_ref": {
+        "chronology": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        },
+        "narrative": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        }
+      },
+      "truth_state": "affirmed",
+      "status": "accepted",
+      "decision_ids": [
+        "f250ede0-1c17-4a29-a953-7c8cf512204d"
+      ],
+      "supersedes": null
+    },
+    {
+      "id": "cc598574-fe29-425f-b3a3-2d80d241aebe",
+      "kind": "idea",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "cd8b9ee7-19e0-4e76-a4da-1a474809fc33",
+          "message_id": "8d366c6b-90fc-44aa-ae35-2c20eba92d5a",
+          "range": {
+            "start": 51,
+            "end": 67
+          }
+        }
+      ],
+      "created_exchange_id": "cd8b9ee7-19e0-4e76-a4da-1a474809fc33",
+      "origin": "supplied",
+      "statement": "Þóra is married.",
+      "status": "accepted",
+      "related_element_ids": [
+        "08f2bfd7-199a-4de6-b6da-39c5bce8ce94"
+      ],
+      "alternative_group_id": null,
+      "selected_parts": [
+        "Þóra is married."
+      ],
+      "decision_ids": [
+        "f250ede0-1c17-4a29-a953-7c8cf512204d"
+      ],
+      "resulting_assertion_ids": [
+        "010a1c3d-e88d-4792-b9e7-82e9cf9a7089"
+      ]
+    },
+    {
+      "id": "f250ede0-1c17-4a29-a953-7c8cf512204d",
+      "kind": "decision",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "cd8b9ee7-19e0-4e76-a4da-1a474809fc33",
+          "message_id": "8d366c6b-90fc-44aa-ae35-2c20eba92d5a",
+          "range": {
+            "start": 51,
+            "end": 93
+          }
+        }
+      ],
+      "created_exchange_id": "cd8b9ee7-19e0-4e76-a4da-1a474809fc33",
+      "origin": "supplied",
+      "action": "accept",
+      "user_message_ref": {
+        "type": "message",
+        "exchange_id": "cd8b9ee7-19e0-4e76-a4da-1a474809fc33",
+        "message_id": "8d366c6b-90fc-44aa-ae35-2c20eba92d5a",
+        "range": {
+          "start": 51,
+          "end": 93
+        }
+      },
+      "span": {
+        "start": 51,
+        "end": 93
+      },
+      "target_refs": [
+        {
+          "id": "08f2bfd7-199a-4de6-b6da-39c5bce8ce94",
+          "revision": 1
+        },
+        {
+          "id": "010a1c3d-e88d-4792-b9e7-82e9cf9a7089",
+          "revision": 1
+        },
+        {
+          "id": "cc598574-fe29-425f-b3a3-2d80d241aebe",
+          "revision": 1
+        }
+      ],
+      "selected_parts": [
+        "Þóra is married."
+      ],
+      "prior_refs": [],
+      "result_refs": [
+        {
+          "id": "08f2bfd7-199a-4de6-b6da-39c5bce8ce94",
+          "revision": 1
+        },
+        {
+          "id": "010a1c3d-e88d-4792-b9e7-82e9cf9a7089",
+          "revision": 1
+        },
+        {
+          "id": "cc598574-fe29-425f-b3a3-2d80d241aebe",
+          "revision": 1
+        }
+      ],
+      "reason": "Explicitly establish only the independently identified marriage fact. No spouse or sender fact is inferred.",
+      "affected_refs": [
+        {
+          "id": "08f2bfd7-199a-4de6-b6da-39c5bce8ce94",
+          "revision": 1
+        },
+        {
+          "id": "010a1c3d-e88d-4792-b9e7-82e9cf9a7089",
+          "revision": 1
+        },
+        {
+          "id": "cc598574-fe29-425f-b3a3-2d80d241aebe",
+          "revision": 1
+        }
+      ],
+      "review_required_refs": []
+    },
+    {
+      "id": "a3e1a84d-497e-45e8-b195-7347cd755cea",
+      "kind": "idea",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "cd8b9ee7-19e0-4e76-a4da-1a474809fc33",
+          "message_id": "8d366c6b-90fc-44aa-ae35-2c20eba92d5a",
+          "range": {
+            "start": 19,
+            "end": 49
+          }
+        }
+      ],
+      "created_exchange_id": "cd8b9ee7-19e0-4e76-a4da-1a474809fc33",
+      "origin": "supplied",
+      "statement": "Þóra possibly sent the letter.",
+      "status": "proposed",
+      "related_element_ids": [
+        "08f2bfd7-199a-4de6-b6da-39c5bce8ce94"
+      ],
+      "alternative_group_id": null,
+      "selected_parts": [],
+      "decision_ids": [],
+      "resulting_assertion_ids": [
+        "cbc84f52-ea8a-4bb6-a2e5-58acf50dfc33"
+      ]
+    },
+    {
+      "id": "cbc84f52-ea8a-4bb6-a2e5-58acf50dfc33",
+      "kind": "assertion",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "cd8b9ee7-19e0-4e76-a4da-1a474809fc33",
+          "message_id": "8d366c6b-90fc-44aa-ae35-2c20eba92d5a",
+          "range": {
+            "start": 19,
+            "end": 49
+          }
+        }
+      ],
+      "created_exchange_id": "cd8b9ee7-19e0-4e76-a4da-1a474809fc33",
+      "origin": "supplied",
+      "subject_element_id": "08f2bfd7-199a-4de6-b6da-39c5bce8ce94",
+      "predicate": "sent",
+      "value": "the letter",
+      "perspective": "author_truth",
+      "holder_id": null,
+      "reader_audience": null,
+      "time_ref": {
+        "chronology": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        },
+        "narrative": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        }
+      },
+      "truth_state": "unknown",
+      "status": "proposed",
+      "decision_ids": [],
+      "supersedes": null
+    },
+    {
+      "id": "0e3c365a-843f-46d2-b47c-dbfbf3e38f9d",
+      "kind": "story_element",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "cd8b9ee7-19e0-4e76-a4da-1a474809fc33",
+          "message_id": "8d366c6b-90fc-44aa-ae35-2c20eba92d5a",
+          "range": {
+            "start": 95,
+            "end": 159
+          }
+        }
+      ],
+      "created_exchange_id": "cd8b9ee7-19e0-4e76-a4da-1a474809fc33",
+      "origin": "supplied",
+      "element_type": "plot_thread",
+      "display_name": "Possible married-status dialogue or lie",
+      "aliases": [],
+      "status": "proposed",
+      "assertion_ids": [],
+      "relationship_ids": [],
+      "dependency_refs": [],
+      "time_ref": null,
+      "decision_ids": []
+    },
+    {
+      "id": "c05518bd-5c60-4021-ae99-7dcf79ac8680",
+      "kind": "idea",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "cd8b9ee7-19e0-4e76-a4da-1a474809fc33",
+          "message_id": "8d366c6b-90fc-44aa-ae35-2c20eba92d5a",
+          "range": {
+            "start": 95,
+            "end": 159
+          }
+        }
+      ],
+      "created_exchange_id": "cd8b9ee7-19e0-4e76-a4da-1a474809fc33",
+      "origin": "supplied",
+      "statement": "Possible dialogue or lie: “I am married.”",
+      "status": "proposed",
+      "related_element_ids": [
+        "0e3c365a-843f-46d2-b47c-dbfbf3e38f9d"
+      ],
+      "alternative_group_id": null,
+      "selected_parts": [],
+      "decision_ids": [],
+      "resulting_assertion_ids": []
+    },
+    {
+      "id": "3a4a9d59-c811-4c3c-ab96-438872a1add6",
+      "kind": "session",
+      "revision": 2,
+      "previous_revision": 1,
+      "created_exchange_id": "4146312e-8b9a-4739-bab5-55407e45623a",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "cd8b9ee7-19e0-4e76-a4da-1a474809fc33",
+          "message_id": "8d366c6b-90fc-44aa-ae35-2c20eba92d5a",
+          "range": {
+            "start": 51,
+            "end": 93
+          }
+        }
+      ],
+      "topic": "Þóra",
+      "mode": "guided",
+      "state": "open",
+      "started_exchange_id": "4146312e-8b9a-4739-bab5-55407e45623a",
+      "last_exchange_id": "cd8b9ee7-19e0-4e76-a4da-1a474809fc33",
+      "related_record_ids": [
+        "3e7cfe68-ceea-486f-b6e8-0e27cffd8057",
+        "27f89d03-dd4a-40a3-8afd-9b0036a15895",
+        "08f2bfd7-199a-4de6-b6da-39c5bce8ce94",
+        "010a1c3d-e88d-4792-b9e7-82e9cf9a7089",
+        "cc598574-fe29-425f-b3a3-2d80d241aebe",
+        "f250ede0-1c17-4a29-a953-7c8cf512204d",
+        "a3e1a84d-497e-45e8-b195-7347cd755cea",
+        "cbc84f52-ea8a-4bb6-a2e5-58acf50dfc33",
+        "0e3c365a-843f-46d2-b47c-dbfbf3e38f9d",
+        "c05518bd-5c60-4021-ae99-7dcf79ac8680"
+      ],
+      "unresolved_question_ids": [
+        "27f89d03-dd4a-40a3-8afd-9b0036a15895"
+      ],
+      "derived_context_ref": null
+    }
+  ],
+  "continuity_review": {
+    "coverage": "complete",
+    "reviewed_record_refs": [
+      {
+        "id": "535a64d5-f560-4c5c-9bde-cf235f3b42e3",
+        "revision": 1
+      },
+      {
+        "id": "2d9d1a12-afd9-4ed4-baa3-4851f12cfd29",
+        "revision": 1
+      },
+      {
+        "id": "2ca3565a-e1fa-48f0-a7c1-a4dbb550d1f7",
+        "revision": 1
+      },
+      {
+        "id": "3a4a9d59-c811-4c3c-ab96-438872a1add6",
+        "revision": 1
+      }
+    ],
+    "unavailable_refs": [],
+    "canon_hold_refs": [],
+    "finding_ids": [],
+    "summary": "The exact current message separately establishes Þóra’s marriage, proposes her as sender without accepting that role, and labels the quoted line as a possible lie. No unspecified speaker identity, spouse, sender truth or actual lie is inferred. Topic changes within the saved session retain its prior question and history. Manuscript language and English interaction preference are unchanged."
+  },
+  "payload_digest": "aca1737551c2537fff14f0ee01dffb85582ca37efccef69bc68cef36d5d25478"
+}

@@ -1,0 +1,44 @@
+{
+  "ok": true,
+  "scope": "observed delegated capture gates only",
+  "results": [
+    {
+      "language": "en",
+      "thread_id": "01a16833-e1cf-79d2-bee0-80a6ca973e3c",
+      "turn_id": "01a16a70-c7af-78a3-90e6-f81b9482c509",
+      "exchange_id": "39ea169c-8c5b-4053-82b9-8703ca7fb3cf",
+      "checkpoint": {
+        "git_head": "f84c6459c8275b06efbb323de1aeb7b6cadfde08",
+        "exchange_id": "39ea169c-8c5b-4053-82b9-8703ca7fb3cf",
+        "sequence": 2
+      },
+      "exact_observed_input_saved": true,
+      "exact_response_saved_and_displayed": true,
+      "save_precedes_display": true,
+      "installed_bundle_matches_source": true,
+      "fresh_cli_context_reopened": true,
+      "source_type": "delegated",
+      "native_user_input": false,
+      "novice_evidence": false
+    },
+    {
+      "language": "is",
+      "thread_id": "01a16833-fa8e-7ec1-9c69-53dc7eaec197",
+      "turn_id": "01a16a72-27ab-78c1-b714-3801c27fbee3",
+      "exchange_id": "6b7652e4-d3e3-48ac-944c-2c568665973b",
+      "checkpoint": {
+        "git_head": "08e7ba4c3e3ba465a08ffeb7d5d4366486f99c58",
+        "exchange_id": "6b7652e4-d3e3-48ac-944c-2c568665973b",
+        "sequence": 2
+      },
+      "exact_observed_input_saved": true,
+      "exact_response_saved_and_displayed": true,
+      "save_precedes_display": true,
+      "installed_bundle_matches_source": true,
+      "fresh_cli_context_reopened": true,
+      "source_type": "delegated",
+      "native_user_input": false,
+      "novice_evidence": false
+    }
+  ]
+}

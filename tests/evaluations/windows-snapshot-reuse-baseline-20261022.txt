@@ -1,0 +1,6 @@
+test_explicit_history_snapshot_stays_bound_after_head_advances (tests.integration.test_storage.StorageTests.test_explicit_history_snapshot_stays_bound_after_head_advances) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 17.826s
+
+OK

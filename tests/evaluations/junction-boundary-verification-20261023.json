@@ -1,0 +1,51 @@
+{
+  "date": "2026-10-23",
+  "task": "T159",
+  "pre_suite_source": {
+    "src/novel_creator/storage.py": "a4cc5cba1ffd7f3885610ed98b8e0b965b16d3ed14ead91e73e8b58c7cab88d3",
+    "tests/integration/test_path_redirection.py": "62fc236e5257cd2c3816f557d14ddb44a1b63070e4b4df36c7790d4063d5b14a"
+  },
+  "post_verification_sha256": {
+    "src/novel_creator/storage.py": "a4cc5cba1ffd7f3885610ed98b8e0b965b16d3ed14ead91e73e8b58c7cab88d3",
+    "tests/integration/test_path_redirection.py": "62fc236e5257cd2c3816f557d14ddb44a1b63070e4b4df36c7790d4063d5b14a",
+    "tests/unit/test_bundle_metadata.py": "d30be22646d9daa88e16b5e850652e00b61a89a0a5069c66c7a8eb6a3afd4ea8",
+    "tests/verify_wheel.py": "7abd59d409a99142fe46158547dad7ee1747c031d89c5cba488d3c73854299bd",
+    "tests/evaluations/windows-junction-red-20261023.txt": "8b30f6f50987d03afa6b05c1da9e27889c2fbbc1c8b31aa5e48e01127e69bd2f",
+    "tests/evaluations/windows-junction-focused-20261023.txt": "4dd11a6c650a5b001c39cc55a563ae61d5ee2718e944aa0622c82ebe2e1e1e73",
+    "tests/evaluations/windows-junction-full-tests-20261023.txt": "454edbc6e591816252b0aa75eb9b140526f71365314b0e93776f42722de203b6",
+    "tests/evaluations/linux-junction-full-tests-20261023.txt": "42c930a7ee0c585186b98f4466e51a2924faa93b18991c97bbbd8f01033b22b5",
+    "tests/evaluations/windows-junction-wheel-20261023.json": "b2ed6dcf203a9d903820d800e320d51ad45d5c1b5ef82a23759f9d54eafd2656",
+    "tests/evaluations/linux-junction-wheel-20261023.json": "0aab87ab7e21c2fcdb54c8be9edf54e33b00ac57b89c2dd74feba243ed5d661d",
+    "tests/evaluations/junction-wheel-build-20261023.txt": "7af5c4b102b7af229922dad365474a9017a557650b5e949d8dd21891b09edd42",
+    "tests/evaluations/windows-junction-boundary-20261023.md": "1a4277d30f7da38d67e890fae3e8c9c8f106eb6359a4acc25075b5fb3179e1e3",
+    "dist/junction-20261023/novel_creator-0.1.0-py3-none-any.whl": "fbd67c26ec0fff54f1daeb1be7e1bbf33b6ca41b3ad313266a1f967af19e5323"
+  },
+  "results": {
+    "windows": {
+      "tests": 155,
+      "passed": 153,
+      "skipped": 2,
+      "seconds": 503.662,
+      "exit": 0,
+      "skip_reason": "Existing real-symlink privilege checks"
+    },
+    "linux": {
+      "tests": 155,
+      "passed": 152,
+      "skipped": 3,
+      "seconds": 69.759,
+      "exit": 0,
+      "skip_reason": "Windows-only junction methods"
+    },
+    "windows_wheel_exit": 0,
+    "linux_wheel_exit": 0,
+    "wheel_source_files_verified": 25,
+    "source_fingerprints_unchanged": true,
+    "independent_review": "No actionable finding",
+    "requirements_checklist_checked": 16,
+    "requirements_checklist_unchecked": 0,
+    "performance_remeasured": false,
+    "host_or_human_evaluation": false,
+    "release_complete": false
+  }
+}

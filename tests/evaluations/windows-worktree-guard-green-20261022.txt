@@ -1,0 +1,7 @@
+test_second_guard_rejects_tampering_under_changed_worktree_config_and_index_prefix (tests.integration.test_storage.StorageTests.test_second_guard_rejects_tampering_under_changed_worktree_config_and_index_prefix) ... ok
+test_full_file_guard_uses_novel_root_and_fresh_bytes_and_index (tests.integration.test_storage.StorageTests.test_full_file_guard_uses_novel_root_and_fresh_bytes_and_index) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 13.354s
+
+OK

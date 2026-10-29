@@ -1,0 +1,35 @@
+{
+  "source": {
+    "src/novel_creator/storage.py": "6d1b50fe2d7af827d0ebebac12b8538c525081d40bab74cdf00febe2968adf60",
+    "src/novel_creator/validation.py": "7e4c75ada3c3eaf3c196066ff657e5e5d9084abdd14a97b6e07c4f5d3b6bf517",
+    "tests/performance/benchmark_records.py": "7f69593cbee6330af1cb67261f662db8d186cc6d00787d3710d002a8430650f2",
+    "tests/integration/test_storage.py": "45f49d8b22d6cddd4023769782bef5ffba5ed2370df9edab4e548255c085ff6c",
+    "tests/helpers.py": "b6ddda217adb87a43d14dcd7be46e3cab76b5aa4023ec41b6e4eb509d8ed9be5",
+    "tests/unit/test_bundle_metadata.py": "6488b756e60cabd0d35a9d63810fd723fa8334d1c00b16d7baa0dba486ff008d"
+  },
+  "artifacts": {
+    "benchmark_native_bundle_mode-source-20261022.txt": "3351153660f9ba4259cd76a1100c68a8d74b2273ca3f727c939d18e7604cbdbf",
+    "linux-native-bundle-mode-full-tests-20261022.txt": "2b5dc986cf18202c03bcc7bbd0bfc1c80599b6f0e1b17c050113047c3114cb28",
+    "linux-native-bundle-mode-verification-20261022.json": "c41b83cf99d640c5909af058a00d7214cc5a6b3784392380821e9d8c66333fea",
+    "verify_linux_native_bundle_mode-source-20261022.txt": "5f9829c57f7535dcdd389e8c1addc9d70d7042ba110069ad0ac9937e6b2adb60",
+    "verify_native_bundle_mode-source-20261022.txt": "8fd3f11909b49514ede5a80f64e2ce54cbbddc0abbd1e8ed479a4a02eb9f6245",
+    "windows-history-read-hardware-20261022.json": "1f8e5433da0ac9e312860f48ce1c86330dddbad359e03cf51a88e8926a04854c",
+    "windows-native-bundle-mode-benchmark-verification-20261022.json": "8bf1dc50c51f9d896eceec4b2113a0ad693de84541b3506ed9b149bacafe4410",
+    "windows-native-bundle-mode-default-30-20261022.json": "8005bd32b6e29095db204082c75518b522c2de06c8e66c2d43e17063a42384dd",
+    "windows-native-bundle-mode-default-progress-20261022.txt": "0601cf7038843ae7669f4ea34c97aad92047f611690f4f72b1a83adbc6ca9220",
+    "windows-native-bundle-mode-full-tests-20261022.txt": "74405b025a051437b0f709c636c4f90f7e60be65ee9d37be4497dcec3b9a6fca",
+    "windows-native-bundle-mode-production-20261022.md": "fd264d1a0e78db4b069db4667b50d7867ab34b6c13fe9a7740904e82ac266529",
+    "windows-native-bundle-mode-production-comparison-20261022.txt": "1dfa609a1a5f93d697ca8c6ac59ecf12ecc78041284fdb06ccd779f9b7008b62",
+    "windows-native-bundle-mode-production-comparison-source-20261022.txt": "21e3d49fd9dff45c283def59d9d9c54fec344c57b43b15a4d6c2fdc4e54a730c",
+    "windows-native-bundle-mode-production-final-focused-20261022.txt": "7e612699e85d2e52e44c4de6edcf5dea0d7f47a275d5dc130921a2e35b511ff1",
+    "windows-native-bundle-mode-production-finalizer-source-20261022.txt": "134809dee37cb8bde227b759039633ce703fb19b75ce2baf3d686b6b2f08e7d7",
+    "windows-native-bundle-mode-production-focused-20261022.txt": "d21f65e31984a3702024852a15c858ccf5ab6b35ed399b9cf37a90228c530122",
+    "windows-native-bundle-mode-production-pending-20261022.md": "b13340df9ab1108e37ec58821e2fe512ba072afba2d0621ed5088a506a14628c",
+    "windows-native-bundle-mode-production-red-20261022.txt": "43f477ae2a814dba2f361512d4851957dbdeeb1754a2aaf31df4a2b5219a7a4b",
+    "windows-native-bundle-mode-production-stages-20261022.jsonl": "fcbd5bdab685fabc8cab558de472966f337f26223d0bddb410d58baf4cd3c647",
+    "windows-native-bundle-mode-production-stages-source-20261022.txt": "2ba3725c7226c6f38401c6c625d488216ec7f9c800bea4f834cf703115eaa941",
+    "windows-native-bundle-mode-production-storage-source-20261022.txt": "6d1b50fe2d7af827d0ebebac12b8538c525081d40bab74cdf00febe2968adf60",
+    "windows-native-bundle-mode-production-unit-tests-source-20261022.txt": "6488b756e60cabd0d35a9d63810fd723fa8334d1c00b16d7baa0dba486ff008d",
+    "windows-native-bundle-mode-verification-20261022.json": "3462f25dfdee249a81f4aec5c6c1e6c3fb04623fb0ffb3780e6f93321129c800"
+  }
+}

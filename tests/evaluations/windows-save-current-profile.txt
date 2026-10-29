@@ -1,0 +1,323 @@
+{
+  "fixture": {
+    "sessions": 100,
+    "exchanges": 5000,
+    "active_assertions": 10000,
+    "json_bytes": 26215716,
+    "synthetic": true,
+    "fully_validated": false
+  },
+  "cold_read": {
+    "seconds": 2.1181094999192283,
+    "observed_count": 15101
+  }
+}
+{
+  "save": {
+    "seconds": 3.6245850999839604,
+    "observed_count": 5001
+  },
+  "git_operations": [
+    {
+      "command": [
+        "rev-parse",
+        "--verify",
+        "HEAD"
+      ],
+      "seconds": 0.035132299992255867
+    },
+    {
+      "command": [
+        "ls-tree",
+        "-rz",
+        "86e0b8c09c5387f54c9c33c954eb4732bbb14466"
+      ],
+      "seconds": 0.0365241999970749
+    },
+    {
+      "command": [
+        "cat-file",
+        "--batch"
+      ],
+      "seconds": 0.6051943999482319
+    },
+    {
+      "command": [
+        "rev-parse",
+        "--verify",
+        "HEAD"
+      ],
+      "seconds": 0.03565949993208051
+    },
+    {
+      "command": [
+        "rev-parse",
+        "--show-toplevel"
+      ],
+      "seconds": 0.0356289999326691
+    },
+    {
+      "command": [
+        "symbolic-ref",
+        "--quiet",
+        "HEAD"
+      ],
+      "seconds": 0.03730409999843687
+    },
+    {
+      "command": [
+        "rev-parse",
+        "--verify",
+        "HEAD"
+      ],
+      "seconds": 0.0354313999414444
+    },
+    {
+      "command": [
+        "ls-tree",
+        "-rz",
+        "86e0b8c09c5387f54c9c33c954eb4732bbb14466"
+      ],
+      "seconds": 0.041017299983650446
+    },
+    {
+      "command": [
+        "cat-file",
+        "--batch"
+      ],
+      "seconds": 0.6100876999553293
+    },
+    {
+      "command": [
+        "ls-tree",
+        "-rz",
+        "86e0b8c09c5387f54c9c33c954eb4732bbb14466"
+      ],
+      "seconds": 0.040379000012762845
+    },
+    {
+      "command": [
+        "ls-files",
+        "--stage",
+        "-z"
+      ],
+      "seconds": 0.03866359998937696
+    },
+    {
+      "command": [
+        "hash-object",
+        "--no-filters",
+        "--stdin-paths"
+      ],
+      "seconds": 0.27909660001751035
+    },
+    {
+      "command": [
+        "ls-files",
+        "--stage",
+        "-z"
+      ],
+      "seconds": 0.04071470000781119
+    },
+    {
+      "command": [
+        "read-tree",
+        "86e0b8c09c5387f54c9c33c954eb4732bbb14466"
+      ],
+      "seconds": 0.046090600080788136
+    },
+    {
+      "command": [
+        "hash-object",
+        "-w",
+        "--no-filters"
+      ],
+      "seconds": 0.04747940006200224
+    },
+    {
+      "command": [
+        "update-index",
+        "--add",
+        "--cacheinfo"
+      ],
+      "seconds": 0.044406100059859455
+    },
+    {
+      "command": [
+        "write-tree"
+      ],
+      "seconds": 0.17075100005604327
+    },
+    {
+      "command": [
+        "commit-tree",
+        "148455e547404fd8538b70c97d271bdd2b2bd354",
+        "-m"
+      ],
+      "seconds": 0.0410983000183478
+    },
+    {
+      "command": [
+        "diff-tree",
+        "--no-commit-id",
+        "--name-only"
+      ],
+      "seconds": 0.03875429998151958
+    },
+    {
+      "command": [
+        "rev-list",
+        "--parents",
+        "-n"
+      ],
+      "seconds": 0.034288200084120035
+    },
+    {
+      "command": [
+        "show",
+        "2b54c19d8a19fd5f1fe732b226a19b494d10825f:story/exchanges/005001-e0a3e746-971a-4fc8-b625-e207bba0c46c.json"
+      ],
+      "seconds": 0.0388136999681592
+    },
+    {
+      "command": [
+        "symbolic-ref",
+        "--quiet",
+        "HEAD"
+      ],
+      "seconds": 0.03199719998519868
+    },
+    {
+      "command": [
+        "ls-tree",
+        "-rz",
+        "86e0b8c09c5387f54c9c33c954eb4732bbb14466"
+      ],
+      "seconds": 0.0369953999761492
+    },
+    {
+      "command": [
+        "ls-files",
+        "--stage",
+        "-z"
+      ],
+      "seconds": 0.03546230006031692
+    },
+    {
+      "command": [
+        "hash-object",
+        "--no-filters",
+        "--stdin-paths"
+      ],
+      "seconds": 0.3045407000463456
+    },
+    {
+      "command": [
+        "ls-tree",
+        "-rz",
+        "2b54c19d8a19fd5f1fe732b226a19b494d10825f"
+      ],
+      "seconds": 0.043505400069989264
+    },
+    {
+      "command": [
+        "hash-object",
+        "--no-filters",
+        "--"
+      ],
+      "seconds": 0.03923440002836287
+    },
+    {
+      "command": [
+        "update-ref",
+        "refs/heads/main",
+        "2b54c19d8a19fd5f1fe732b226a19b494d10825f"
+      ],
+      "seconds": 0.039357799920253456
+    },
+    {
+      "command": [
+        "symbolic-ref",
+        "--quiet",
+        "HEAD"
+      ],
+      "seconds": 0.03813670005183667
+    },
+    {
+      "command": [
+        "rev-parse",
+        "--verify",
+        "HEAD"
+      ],
+      "seconds": 0.04503289994318038
+    },
+    {
+      "command": [
+        "ls-files",
+        "--stage",
+        "-z"
+      ],
+      "seconds": 0.03974230005405843
+    },
+    {
+      "command": [
+        "ls-tree",
+        "-rz",
+        "2b54c19d8a19fd5f1fe732b226a19b494d10825f"
+      ],
+      "seconds": 0.04163059999700636
+    },
+    {
+      "command": [
+        "update-index",
+        "-z",
+        "--index-info"
+      ],
+      "seconds": 0.0406346000963822
+    }
+  ]
+}
+         2079013 function calls (2068597 primitive calls) in 4.754 seconds
+
+   Ordered by: cumulative time
+   List reduced from 430 to 35 due to restriction <35>
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.000    0.000    4.754    4.754 C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\performance\benchmark_records.py:87(worker)
+       71    0.000    0.000    4.672    0.066 C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\threading.py:1059(join)
+       71    0.004    0.000    4.637    0.065 {method 'join' of '_thread._ThreadHandle' objects}
+        1    0.024    0.024    3.625    3.625 C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py:545(save)
+        1    0.006    0.006    3.601    3.601 C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py:387(_save)
+       33    0.000    0.000    3.069    0.093 C:\Users\BjarkiGunnarsson\.codex\visualizations\2026\10\21\01a16020-dd90-7f51-9b62-2b009cf833b0\profile_windows_save.py:27(timed_git)
+       33    0.002    0.000    3.068    0.093 C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py:28(git)
+       33    0.001    0.000    3.059    0.093 C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\subprocess.py:512(run)
+       33    0.000    0.000    2.910    0.088 C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\subprocess.py:1178(communicate)
+       33    0.001    0.000    2.901    0.088 C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\subprocess.py:1623(_communicate)
+    71/33    0.000    0.000    2.894    0.088 C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\threading.py:1001(_bootstrap)
+    71/33    0.008    0.000    2.894    0.088 C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\threading.py:1028(_bootstrap_inner)
+    71/33    0.001    0.000    2.889    0.088 C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\threading.py:984(run)
+    66/33    0.000    0.000    2.854    0.086 C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\subprocess.py:1614(_readerthread)
+  198/172    0.002    0.000    2.515    0.015 {method 'close' of '_io.BufferedReader' objects}
+        2    0.038    0.019    2.072    1.036 C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py:177(read_snapshot)
+        5    0.000    0.000    1.739    0.348 C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\subprocess.py:1619(_writerthread)
+       12    1.739    0.145    1.739    0.145 {method 'write' of '_io.BufferedWriter' objects}
+        5    0.000    0.000    1.739    0.348 C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\subprocess.py:1153(_stdin_write)
+        2    0.021    0.011    1.577    0.788 C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py:308(check_managed)
+    10002    0.019    0.000    1.252    0.000 C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py:151(_batch_blobs)
+        1    0.003    0.003    1.094    1.094 C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py:173(read_history)
+    10012    0.063    0.000    0.585    0.000 C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py:67(safe_path)
+    10004    0.010    0.000    0.458    0.000 C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\json\__init__.py:304(loads)
+    10004    0.012    0.000    0.424    0.000 C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\json\decoder.py:340(decode)
+    10004    0.403    0.000    0.403    0.000 C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\json\decoder.py:351(raw_decode)
+    73/40    1.138    0.016    0.371    0.009 {method 'read' of '_io.BufferedReader' objects}
+    30037    0.313    0.000    0.313    0.000 {built-in method nt.lstat}
+        6    0.017    0.003    0.272    0.045 C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py:119(committed_entries)
+20164/10162    0.007    0.000    0.215    0.000 {method 'join' of 'str' objects}
+    40102    0.022    0.000    0.212    0.000 C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\pathlib\_local.py:289(drive)
+    10004    0.006    0.000    0.209    0.000 C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py:330(<genexpr>)
+    30184    0.025    0.000    0.206    0.000 C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\pathlib\_local.py:227(__str__)
+    10002    0.004    0.000    0.186    0.000 C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\pathlib\_abc.py:142(as_posix)
+    20051    0.139    0.000    0.179    0.000 C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\pathlib\_local.py:257(_parse_path)
+
+
+

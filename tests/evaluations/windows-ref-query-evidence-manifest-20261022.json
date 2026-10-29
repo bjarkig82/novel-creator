@@ -1,0 +1,20 @@
+{
+  "source_test_harness_unchanged": {
+    "src/novel_creator/storage.py": "47c6eac0122d1076a91f21caeb253bf6721678f4e626fc0630ab069557e55304",
+    "tests/performance/benchmark_records.py": "7f69593cbee6330af1cb67261f662db8d186cc6d00787d3710d002a8430650f2",
+    "tests/integration/test_storage.py": "4395f6deec3bc7dae00c5cb3ec140715d51e784557c689c460a8f119dcf4b711",
+    "tests/helpers.py": "b6ddda217adb87a43d14dcd7be46e3cab76b5aa4023ec41b6e4eb509d8ed9be5"
+  },
+  "p95_recomputed_from_all_samples": true,
+  "current_configuration": "PowerShell default Git wrapper; ordinary fixture; temporary authenticated cache",
+  "evidence_sha256": {
+    "windows-ref-query-20261022.md": "6d1b88a7d4a9603fb19dd1ce27d801d5b50d30ffeb06464b86a3ec5ed1e4d864",
+    "windows-ref-query-comparison-20261022.txt": "7888f78227ba7552985c6469d179f8d8a56d704caa02a655c9c862634e8b79cb",
+    "windows-ref-query-diagnostic-20261022.txt": "d1a06ebde80b434856d1ad32c5d638ce42c559da44ac433e74b855c01a11766a",
+    "windows-ref-query-retained-source-20261022.txt": "47c6eac0122d1076a91f21caeb253bf6721678f4e626fc0630ab069557e55304",
+    "windows-ref-query-default-30-20261022.json": "4b56a0bea4c90df986ea6285ac389e8889214667c438b7c826a552aa4e90026c",
+    "windows-ref-query-full-tests-20261022.txt": "82680d446569537928722970cb9accd8cfebb1933f12856c401824379a310eda",
+    "linux-ref-query-full-tests-20261022.txt": "b40a2c7d23e55145f30f1c0ae15580a55aa181316dc2948276d9cbdf778dd5d5"
+  },
+  "scope": "T149 remains unmet; novice evaluations deferred; no source/harness mutation after full verification"
+}

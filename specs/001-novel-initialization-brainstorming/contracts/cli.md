@@ -11,6 +11,8 @@ files avoid shell quoting problems for Icelandic and multiline conversation.
 | Command | Inputs | Result / authoritative effect |
 |---|---|---|
 | `init --path PATH --brief-file FILE --json` | Explicit target; brief with unknowns allowed | Independent Git root, versioned bundle, project bootstrap; no invented canon |
+| `input capture --capture-file FILE --thread-id ID --turn-id ID --source native_user --json` | Exactly one current public read_thread turn | Exact text and source evidence artifact; no novel write or authority effect |
+| `input capture --capture-file FILE --thread-id ID --turn-id ID --source delegated --source-thread-id PARENT --evaluation-only --json` | Explicitly authorized disposable evaluation and complete supported delegation event | Delegated text/provenance; never native input, real human approval or novice evidence |
 | `session list --novel PATH --json` | Novel | Session identities/topics/modes/status; read-only |
 | `context --novel PATH --session ID --json` | Optional session/focus refs | Confirmed head, relevant records/sources, open questions, findings and availability |
 | `exchange save --novel PATH --input FILE --json` | Complete exchange envelope and expected HEAD | Validate and commit exactly once; session create/mode/close changes are typed record versions |
@@ -29,6 +31,13 @@ Every `--json` invocation emits one JSON object to stdout; diagnostics go to
 stderr without leaking story contents unnecessarily. Success contains
 `ok: true`, `operation`, `novel_id`, `data`, `warnings` and `checkpoint`.
 Checkpoint contains committed `git_head`, last `exchange_id` and sequence.
+The non-novel `input capture` operation returns only `ok` and `data`, containing
+exact `text`, `source_type` and `input_artifact`; it neither reads nor writes a
+novel and therefore supplies no saved checkpoint. The caller includes the
+artifact unchanged in the prepared exchange. Conversation validation allows
+exactly one such evidence artifact, validates its event/labels/message binding,
+and excludes it from bootstrap creative-source lookup. Existing no-artifact
+conversations and initialization artifacts retain their prior semantics.
 After successful conditional ref publication, index synchronization failure returns
 `ok: true`, `data.saved: true`, `data.cleanup_required: true` and a warning,
 with exit code 0 and the published checkpoint. Pause subsequent writes until

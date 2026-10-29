@@ -1,0 +1,51 @@
+{
+  "ok": true,
+  "scope": "Public delegated persistence/display/source checks only",
+  "case_filter": [
+    "AUTH_PARTIAL"
+  ],
+  "language_filter": [
+    "en"
+  ],
+  "all_submitted_cases_checked": false,
+  "semantic_assessment": "Separate agent judgments required; no human/native result inferred",
+  "cases": [
+    {
+      "case_id": "AUTH_PARTIAL",
+      "language": "en",
+      "thread_id": "01a16af9-f289-73c1-8151-55f50ace05d9",
+      "turn_id": "01a16b2b-6fdf-7aa0-a42d-5de800d58169",
+      "exchange_id": "d83026c5-c29f-42e9-a520-7eb10c16138a",
+      "checkpoint": {
+        "git_head": "65eab6f4ebfdb319a53c29e1dc581132dedeadeb",
+        "exchange_id": "d83026c5-c29f-42e9-a520-7eb10c16138a",
+        "sequence": 8
+      },
+      "exact_input_saved": true,
+      "exact_response_saved_and_displayed": true,
+      "save_precedes_display": true,
+      "source_type": "delegated",
+      "native_user_input": false,
+      "novice_evidence": false,
+      "installed_bundle_verified": true,
+      "installed_bundle_matches_current_source": true,
+      "commentary_agent_reviewed": true,
+      "record_kinds": [
+        "novel_project",
+        "idea",
+        "assertion",
+        "decision",
+        "idea",
+        "story_element",
+        "assertion",
+        "decision",
+        "decision",
+        "idea",
+        "assertion",
+        "session"
+      ],
+      "response": "Events resumed in open mode. Routine checkpoints are now set to every exchange. People and Island are preserved.\n\nCheckpoint summary: exchange d83026c5-c29f-42e9-a520-7eb10c16138a, sequence 8; predecessor Git checkpoint 285e6cec844ae3a5e145e6051b590a7705f96db7 (sequence 7). References identify the supporting record revisions.\n\nSelected only the storm and blue light. The shipwreck and warning bell remain possibilities; clear weather is unselected, not rejected. The sender part of “Rúna is the sender and the murderer” is reaffirmed (4a8cee6c r1); murder remains undecided. No new answer has been chosen for any question.\n\nEstablished decisions:\n\n- Rúna is the lighthouse keeper. (b2bba552 r1; decision b857a602 r1).\n- Rúna sent the letter. (24a9e934 r1; decision d06311e5 r1).\n- Ari is Rúna’s brother. (89643a23 r1; decision 8b1386f6 r1).\n- Ari is the victim. (12fdedbe r1; decision 8981fd4e r1).\n- Edda is Rúna’s sister. (e4198cbf r1; decision 73dd4a06 r1).\n- Edda is the investigator. (c1edb38c r1; decision 83602256 r1).\n- Rúna knows Bjarni. (b0134264 r1; decision b7cefc5a r1).\n- The lamp failed on the night of the letter. (2d32b3f7 r1; decision f6d39415 r1).\n- The letter arrived before dawn. (112f571c r1; decision eae7c6ff r1).\n- The story takes place in winter. (05f15bb9 r1; decision 3b7fbd73 r1).\n- Stormy weather. (ca5f921f r2; decision 91679de1 r1).\n- A blue light is visible. (6a6267eb r2; decision fd6e1431 r1).\n- The island has no bridge. (1e4f66c1 r1; decision 2fd6b656 r1).\n- The letter bears a brass seal. (3a2d51c7 r1; decision 96686fac r1).\n- Rúna has sworn to protect Edda. (5d69e81a r1; decision e031c7a6 r1).\n\nProposed or unresolved; none of these is accepted:\n\n- Rúna collects driftwood. (2d56748a r2; proposed).\n- Edda distrusts bells. (e4a49295 r1; proposed).\n- Bjarni is a sailor. (a48aa0fb r1; proposed).\n- Bjarni may owe Edda money. (eacc5318 r1; proposed).\n- Clear weather. (6b3bb4ae r1; unresolved alternative).\n- The storm may conceal a signal. (0ef4149b r1; proposed).\n- A shipwreck may occur. (ee68d703 r1; proposed).\n- A warning bell might sound. (12d564bf r1; proposed).\n- A tunnel might link the lighthouse and harbour. (9ea7eb09 r1; proposed).\n- The tide might expose old steps. (84e3fbc4 r1; proposed).\n- A hidden room might contain a map. (6ad4b40e r1; proposed).\n- Edda could trace the letter through the tunnel to the hidden room. (3c8cad60 r1; proposed).\n- Rúna is the murderer. (6e2f14e2 r1; unresolved).\n\nOpen and unanswered questions:\n\n- Why did Rúna send the letter? (f1e737c0 r1).\n- What does Edda want from Bjarni? (55b62a7f r1).\n- Who finds the letter? (d7c22da4 r1).\n- When does Bjarni return? (f68c6800 r1).\n- What opens the hidden room? (e7236c19 r1).\n\nPaused here until your next direction."
+    }
+  ],
+  "failures": []
+}

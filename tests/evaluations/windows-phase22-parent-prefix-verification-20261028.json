@@ -1,0 +1,24 @@
+{
+  "medians": {
+    "False": 7.865432450082153,
+    "True": 12.29750324995257
+  },
+  "ranges": {
+    "False": [
+      5.790182099910453,
+      9.256357399979606
+    ],
+    "True": [
+      6.011504799826071,
+      15.87275439989753
+    ]
+  },
+  "eight_full_scale_saves_verified": true,
+  "source_unchanged": true,
+  "scope": "Matched diagnostic with identical guard/hash/leaf counts; not a qualification p95 or sufficient alone for production adoption",
+  "artifact_sha256": {
+    "windows-phase22-parent-prefix-20261028.jsonl": "3829053fe06a21b322f61114973e6f529399b0370bac1f17705a0b49eda127cb",
+    "verify-phase22-parent-prefix-20261028.py": "4392a8d30bc8ab6d428a89d7ab5f214ccb3057ca4154416b852c10c9135a3c78",
+    "phase22-parent-prefix-20261028.py": "6996a5c0826514698d6ba5a913ffbf73406c1d2a8e16f4e5320127550474595d"
+  }
+}

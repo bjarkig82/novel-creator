@@ -1,0 +1,78 @@
+{
+  "ok": true,
+  "scope": "Public delegated persistence/display/source checks only",
+  "case_filter": [
+    "AUTH_NONACCEPT"
+  ],
+  "language_filter": [
+    "en"
+  ],
+  "all_submitted_cases_checked": false,
+  "semantic_assessment": "Separate agent judgments required; no human/native result inferred",
+  "cases": [
+    {
+      "case_id": "AUTH_NONACCEPT",
+      "language": "en",
+      "thread_id": "01a16af9-f289-73c1-8151-55f50ace05d9",
+      "turn_id": "01a181f7-55c5-77b3-8b7c-7f03c96f7de5",
+      "exchange_id": "26fac46a-e141-40ad-a03e-8c679c474d3a",
+      "checkpoint": {
+        "git_head": "fd2ee9447c7631a853862186400119457416d091",
+        "exchange_id": "26fac46a-e141-40ad-a03e-8c679c474d3a",
+        "sequence": 9
+      },
+      "exact_input_saved": true,
+      "exact_response_saved_and_displayed": true,
+      "save_precedes_display": true,
+      "source_type": "delegated",
+      "native_user_input": false,
+      "novice_evidence": false,
+      "installed_bundle_verified": true,
+      "installed_bundle_matches_current_source": true,
+      "commentary_agent_reviewed": true,
+      "record_kinds": [
+        "idea",
+        "assertion",
+        "idea",
+        "assertion",
+        "story_element",
+        "relationship",
+        "idea",
+        "question",
+        "story_element",
+        "idea",
+        "story_element",
+        "idea",
+        "assertion",
+        "idea",
+        "assertion",
+        "idea",
+        "assertion",
+        "decision",
+        "story_element",
+        "idea",
+        "assertion",
+        "question",
+        "story_element",
+        "story_element",
+        "idea",
+        "idea",
+        "question",
+        "story_element",
+        "idea",
+        "story_element",
+        "idea",
+        "assertion",
+        "finding",
+        "idea",
+        "assertion",
+        "decision",
+        "story_element",
+        "idea",
+        "session"
+      ],
+      "response": "Events remains in open mode. Each note is captured in its own context; routine checkpoints remain every exchange.\n\n1. Red coat: “Interesting” is a reaction, so Bjarni owning a red coat remains proposed (ee523c46 r1).\n\n2. Map discovery: “Maybe” leaves Edda finding the map proposed (b9b74305 r1).\n\n3. Daughter: this is a what-if proposal, not an established family relationship (c72be9b2 r1; open question 73f2747c r1).\n\n4. Dialogue: “I killed him” is captured as possible dialogue. Neither the speaker nor victim is identified, and no killing is established (bb93a8e9 r1).\n\n5. Dock colours: liking the possibilities selects neither brown nor black. Both remain separate proposals in one alternative group (a86ca6b8 r1; 2c8bdb38 r1).\n\n6. Hidden map: Bjarni hiding the map is explicitly rejected (58d64833 r1; decision 8fb9d139 r1). No earlier saved version was found, so none has been invented. This rejection does not establish a separate fact about what Bjarni did.\n\n7. Boat leak: this remains a possibility and an unanswered question (decea5c4 r1; 3c94b6c2 r1).\n\n8. Entrances: “Yes” does not identify which alternative you mean; neither is accepted (b265bcf2 r1; fb1bc34e r1; clarification bffb6141 r1). For the hidden-room entrance, does “Yes” select the floor hatch, the wall door, or neither yet?\n\n9. Tidal mechanism: tentative future interest leaves it proposed; it is not an acceptance or a committed deferral decision (5bcfbb3c r1).\n\n10. Floating bridge: hypothetical only (96dee911 r1). In the same period it would conflict with the accepted no-bridge rule (c70819f0 r1); that rule is unchanged. Timing and intent remain uncertain (c8ddb813 r1).\n\n11. Weather: both alternatives are open again. The prior storm selection is retained in history; its current status is unresolved (ca5f921f r3; weather assertion 56d74b11 r2; revision decision 1f27742d r1). Clear weather remains unresolved and unselected (6b3bb4ae r1). Neither is rejected.\n\n12. Diary note: the quoted wording is proposed text, not author truth that Edda stole the seal (0128429a r1).\n\nCheckpoint summary: exchange 26fac46a-e141-40ad-a03e-8c679c474d3a, sequence 9; predecessor Git checkpoint 65eab6f4ebfdb319a53c29e1dc581132dedeadeb (sequence 8). References identify the supporting record revisions.\n\nThe explicit hidden-map rejection is recorded above. Reopening the weather alternatives is the only change to an earlier accepted story choice. All other exploratory reactions, hypotheses and quotations remain unaccepted. The floating-bridge uncertainty remains open (c8ddb813 r1).\n\nEstablished decisions:\n\n- Rúna is the lighthouse keeper. (b2bba552 r1; decision b857a602 r1).\n- Rúna sent the letter. (24a9e934 r1; decision d06311e5 r1).\n- Ari is Rúna’s brother. (89643a23 r1; decision 8b1386f6 r1).\n- Ari is the victim. (12fdedbe r1; decision 8981fd4e r1).\n- Edda is Rúna’s sister. (e4198cbf r1; decision 73dd4a06 r1).\n- Edda is the investigator. (c1edb38c r1; decision 83602256 r1).\n- Rúna knows Bjarni. (b0134264 r1; decision b7cefc5a r1).\n- The lamp failed on the night of the letter. (2d32b3f7 r1; decision f6d39415 r1).\n- The letter arrived before dawn. (112f571c r1; decision eae7c6ff r1).\n- The story takes place in winter. (05f15bb9 r1; decision 3b7fbd73 r1).\n- A blue light is visible. (6a6267eb r2; decision fd6e1431 r1).\n- The island has no bridge. (1e4f66c1 r1; decision 2fd6b656 r1).\n- The letter bears a brass seal. (3a2d51c7 r1; decision 96686fac r1).\n- Rúna has sworn to protect Edda. (5d69e81a r1; decision e031c7a6 r1).\n\nProposed or unresolved; none of these is accepted:\n\n- Rúna collects driftwood. (2d56748a r2; proposed).\n- Edda distrusts bells. (e4a49295 r1; proposed).\n- Bjarni is a sailor. (a48aa0fb r1; proposed).\n- Bjarni may owe Edda money. (eacc5318 r1; proposed).\n- Stormy weather. (ca5f921f r3; unresolved alternative).\n- Clear weather. (6b3bb4ae r1; unresolved alternative).\n- The storm may conceal a signal. (0ef4149b r1; proposed).\n- A shipwreck may occur. (ee68d703 r1; proposed).\n- A warning bell might sound. (12d564bf r1; proposed).\n- A tunnel might link the lighthouse and harbour. (9ea7eb09 r1; proposed).\n- The tide might expose old steps. (84e3fbc4 r1; proposed).\n- A hidden room might contain a map. (6ad4b40e r1; proposed).\n- Edda could trace the letter through the tunnel to the hidden room. (3c8cad60 r1; proposed).\n- Rúna is the murderer. (6e2f14e2 r1; unresolved).\n- Bjarni might own a red coat. (ee523c46 r1; proposed).\n- Edda might have found the map. (b9b74305 r1; proposed).\n- Ari might have a daughter. (c72be9b2 r1; proposed).\n- Possible dialogue: \"I killed him.\" Speaker and victim unidentified. (bb93a8e9 r1; proposed).\n- The dock might be brown. (a86ca6b8 r1; unresolved alternative).\n- The dock might be black. (2c8bdb38 r1; unresolved alternative).\n- The boat might have a leak. (decea5c4 r1; proposed).\n- The hidden-room entrance might be a floor hatch. (b265bcf2 r1; unresolved alternative).\n- The hidden-room entrance might be a wall door. (fb1bc34e r1; unresolved alternative).\n- A tidal mechanism might work someday. (5bcfbb3c r1; proposed).\n- The island might have a floating bridge. (96dee911 r1; proposed).\n- Possible diary wording: \"Edda stole the seal.\" (0128429a r1; proposed).\n\nOpen and unanswered questions:\n\n- Why did Rúna send the letter? (f1e737c0 r1).\n- What does Edda want from Bjarni? (55b62a7f r1).\n- Who finds the letter? (d7c22da4 r1).\n- When does Bjarni return? (f68c6800 r1).\n- What opens the hidden room? (e7236c19 r1).\n- What if Ari has a daughter? (73f2747c r1).\n- Could the boat have a leak? (3c94b6c2 r1).\n- For the hidden-room entrance, does “Yes” select the floor hatch, the wall door, or neither yet? (bffb6141 r1).\n\nPaused here until your next direction."
+    }
+  ],
+  "failures": []
+}

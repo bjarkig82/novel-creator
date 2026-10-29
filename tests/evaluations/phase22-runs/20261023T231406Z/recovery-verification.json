@@ -1,0 +1,19 @@
+{
+  "ok": true,
+  "source_type": "delegated",
+  "native_user_input": false,
+  "novice_evidence": false,
+  "original_turn": "01a16b2b-7a97-7d81-81e8-ab64cf41d5b2",
+  "recovery_turn": "01a181f6-c59d-7133-b653-38a9cd374a19",
+  "checkpoint": {
+    "git_head": "2306b38efa3d597f3715ffe32a0b86bb1466b07f",
+    "exchange_id": "f785cc17-4d49-438c-878c-118229fddc0d",
+    "sequence": 8
+  },
+  "original_input_and_provenance_preserved": true,
+  "original_prepared_response_unchanged": true,
+  "exact_recovered_display": true,
+  "original_failed_display_retained": true,
+  "single_original_exchange": true,
+  "installed_bundle_verified": true
+}

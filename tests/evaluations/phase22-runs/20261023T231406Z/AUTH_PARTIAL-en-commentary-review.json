@@ -1,0 +1,20 @@
+[
+  {
+    "id": "msg_02f80cb399e0759d016adbf28d66948191880348ffa8c3f25e",
+    "text": "I’ll load the saved context, prepare this turn with its requested checkpoint, and save the reply before display.",
+    "classification": "administrative",
+    "reason": "Only operational context, preparation, save status and persisted-response checks; no new creative content disclosed."
+  },
+  {
+    "id": "msg_02f80cb399e0759d016adcd78c54388191b5431796811f63bc",
+    "text": "The preparation call is still pending. I’m checking its status before attempting the save.",
+    "classification": "administrative",
+    "reason": "Only operational context, preparation, save status and persisted-response checks; no new creative content disclosed."
+  },
+  {
+    "id": "msg_02f80cb399e0759d016ae0694bd9bc819187c198810c02a203",
+    "text": "The save succeeded. I’m completing the persisted-reply check and evidence report before displaying the saved response.",
+    "classification": "administrative",
+    "reason": "Only operational context, preparation, save status and persisted-response checks; no new creative content disclosed."
+  }
+]

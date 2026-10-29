@@ -1,0 +1,14 @@
+[
+  {
+    "id": "msg_077138367b8a5910016adbeb230a58819188e7d0fec93e6019",
+    "text": "Ég sæki samhengi úr nýja vinnusvæðinu og undirbý vistun samkvæmt uppsettu verklagi.",
+    "classification": "administrative",
+    "reason": "Only operational reading/preparation/save-retry information; no new creative conclusion is disclosed."
+  },
+  {
+    "id": "msg_077138367b8a5910016adbeb3b0b7081918dd73b2fd6f1004a",
+    "text": "Vistunin er í bið eftir skráakerfisvillu. Ég endurtek hana með óbreyttu auðkenni og óbreyttum gögnum.",
+    "classification": "failure_disclosure",
+    "reason": "Only operational reading/preparation/save-retry information; no new creative conclusion is disclosed."
+  }
+]

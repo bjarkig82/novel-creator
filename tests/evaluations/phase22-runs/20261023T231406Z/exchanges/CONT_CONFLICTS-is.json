@@ -1,0 +1,1611 @@
+{
+  "schema_version": "1.0",
+  "novel_id": "711ac5fd-eb25-4a33-89ca-fc62260cb0a2",
+  "exchange_id": "162a5780-2bcc-4e9b-b617-aa38fa2b4acd",
+  "sequence": 13,
+  "previous_exchange_id": "8608face-e906-413c-aeeb-502affe55cb3",
+  "previous_digest": "13a64cb68c46f10d96c30d740b456e11c8eb1f437e8c94af8b9603a790db4a5f",
+  "session_id": "bd14ac9f-4b8f-4f9c-9f1f-eb34e8ec8f7f",
+  "expected_git_head": "0fce4da16ef303168c28112060fa27f670f70de4",
+  "recorded_at": "2026-10-28T10:21:16.355939Z",
+  "operation": "conversation",
+  "messages": [
+    {
+      "message_id": "0d0858df-1c47-4448-bb78-d69af11270a4",
+      "role": "user",
+      "text": "Tilvik CONT_CONFLICTS. Skoðum sex aðskildar tillögur á sömu staðfestu tímalínu: (1) Án breyttrar hvatar svíkur Rúna Eddu vísvitandi. (2) Rúna bjargar fólki í höfninni klukkan tíu um kvöldið, fyrir komu sína eftir miðnætti. (3) Rúna notar björgunarkóðann til að koma í veg fyrir að þetta skip sökkvi. (4) Eyðileggjum eina nothæfa bátinn fyrir annars óbreyttan fyrirhugaðan flótta. (5) Venjulegt bréf án undantekningar fer yfir innsigluðu mörkin. (6) Raunveruleg sameiginleg æskuminning Freyju og Sigrúnar hvetur fyrstu endurfundi þeirra. Metið möguleikana gagnvart vistuðum staðreyndum okkar; veldu ekki úrlausnir fyrir mig. Staldraðu við eftir svarið."
+    },
+    {
+      "message_id": "ccba1e3a-3d45-4d42-bd35-6705e84546a4",
+      "role": "assistant",
+      "text": "Allar sex eru áfram tillögur, ekki nýjar staðreyndir. Ég stöðva þróun hvers árekstrar og vel enga úrlausn fyrir þig.\n\n1. Staðfestur eiður Rúnu um að vernda Eddu stendur í beinni andstöðu við vísvitandi svik án breyttrar hvatar. Eið má rjúfa í sögu, en hér vantar skýringu á þeirri stefnubreytingu. Afleiðing: Svik án breyttrar hvatar grafa undan staðfestri skuldbindingu Rúnu. Heimildir: d9215850 v1. Opið álitamál: f5138be7 v1.\nValkostir: Endurskoða svikatillöguna. Gefa viljandi og samræmanlega skýringu á eiðsrofinu. Endurskoða staðfestan eið með skýrri ákvörðun. Fresta tillögunni.\n\n2. Rúna kemur til hafnar eftir miðnætti. Björgun hennar þar klukkan tíu sama kvöld á sömu tímalínu er áður en hún kemur þangað. Afleiðing: Óbreytt röð krefst þess að Rúna sé í höfninni fyrir komu sína. Heimildir: 7999a76d v1. Opið álitamál: f8d47499 v1.\nValkostir: Færa björgunina eða breyta þátttakanda. Endurskoða komutímann með skýrri ákvörðun. Skýra viljandi aðra tímalínu án þess að álykta hana. Fresta tillögunni.\n\n3. Rúna lærir björgunarkóðann fyrst eftir að þetta skip sekkur. Að nota hann til að koma í veg fyrir sama skipsökk krefst vitneskjunnar fyrr en hún fær hana. Afleiðing: Tillagan byggir á vitneskju sem Rúna hefur ekki á þeim tímapunkti og eyðir atburðinum sem er forsenda námsins. Heimildir: 79c29f4a v1; fab8d0b4 v1. Opið álitamál: 045b572d v1.\nValkostir: Breyta því hvernig hún reynir að bjarga skipinu. Endurskoða tímasetningu kóðanámsins með skýrri ákvörðun. Skýra viljandi tímabragð án sjálfvirkrar staðfestingar. Fresta tillögunni.\n\n4. Fyrirhugaður flótti krefst eina nothæfa bátsins. Eyðilegging hans fyrir annars óbreyttan flótta fjarlægir þá nauðsynlegu forsendu. Afleiðing: Óbreyttur flótti verður óframkvæmanlegur með þeim skráðu úrræðum. Heimildir: e4195696 v1; 0992b08f v1. Opið álitamál: 0892fa17 v1.\nValkostir: Endurskoða eyðilegginguna eða tímasetningu hennar. Endurskoða flóttaáætlun eða bátaforsenduna með skýrri ákvörðun. Fresta tillögunni.\n\n5. Staðfest regla segir að ekkert bréf geti farið yfir innsigluðu mörkin. Venjulegt bréf án undantekningar brýtur þá reglu beint. Afleiðing: Mörkin missa skráða hindrun sína ef tillagan er staðfest óbreytt. Heimildir: 3206e87d v1. Opið álitamál: 24217ee6 v1.\nValkostir: Endurskoða bréfaflutningstillöguna. Endurskoða regluna með skýrri ákvörðun. Skýra viljandi undantekningu ef höfundur kýs að breyta forsendunni. Fresta tillögunni.\n\n6. Freyja og Sigrún hafa aldrei hist fyrir þessa endurfundi. Raunveruleg sameiginleg æskuminning þeirra af fyrri samveru krefst fyrri kynna sem sú staðreynd útilokar. Afleiðing: Sameiginleg fortíð af því tagi myndi breyta staðfestum bakgrunni tengsla þeirra. Heimildir: 60e3081b v1; 134717c6 v1. Opið álitamál: 93c85a29 v1.\nValkostir: Endurskoða minningartillöguna. Endurskoða fyrri kynni með skýrri ákvörðun. Skýra viljandi aðra merkingu minningar án þess að breyta raunverulegri sameiginlegri æsku sjálfkrafa. Fresta tillögunni.\n\nÖll sex álitamálin eru opin og halda viðkomandi staðfestingu í bið. Staðfestar heimildir haldast óbreyttar. Fyrra flotbrúarálitamálið er einnig enn opið (f1fcc75e v1).\nÉg staldra við."
+    }
+  ],
+  "input_artifacts": [
+    {
+      "artifact_id": "391d6521-91c4-4d46-95d5-eb817c93f7ed",
+      "original_text": "{\"kind\":\"host_input\",\"source_type\":\"delegated\",\"thread_id\":\"01a16afa-1197-7650-8189-9365687429ee\",\"turn_id\":\"01a18205-f445-7702-82a7-198a662ff705\",\"event_id\":\"fco_01a18205-f446-7481-b7b1-e7a06f27259e\",\"event_type\":\"functionCallOutput\",\"source_thread_id\":\"01a16af6-0d9b-7173-a5f5-c8775f37df18\",\"native_user_input\":false,\"novice_evidence\":false,\"evaluation_only\":true,\"text\":\"Tilvik CONT_CONFLICTS. Skoðum sex aðskildar tillögur á sömu staðfestu tímalínu: (1) Án breyttrar hvatar svíkur Rúna Eddu vísvitandi. (2) Rúna bjargar fólki í höfninni klukkan tíu um kvöldið, fyrir komu sína eftir miðnætti. (3) Rúna notar björgunarkóðann til að koma í veg fyrir að þetta skip sökkvi. (4) Eyðileggjum eina nothæfa bátinn fyrir annars óbreyttan fyrirhugaðan flótta. (5) Venjulegt bréf án undantekningar fer yfir innsigluðu mörkin. (6) Raunveruleg sameiginleg æskuminning Freyju og Sigrúnar hvetur fyrstu endurfundi þeirra. Metið möguleikana gagnvart vistuðum staðreyndum okkar; veldu ekki úrlausnir fyrir mig. Staldraðu við eftir svarið.\",\"public_event\":{\"type\":\"functionCallOutput\",\"id\":\"fco_01a18205-f446-7481-b7b1-e7a06f27259e\",\"namespace\":\"codex_app\",\"name\":\"send_message_to_thread\",\"output\":{\"text\":\"<codex_delegation>\\n  <source_thread_id>01a16af6-0d9b-7173-a5f5-c8775f37df18</source_thread_id>\\n  <input>Tilvik CONT_CONFLICTS. Skoðum sex aðskildar tillögur á sömu staðfestu tímalínu: (1) Án breyttrar hvatar svíkur Rúna Eddu vísvitandi. (2) Rúna bjargar fólki í höfninni klukkan tíu um kvöldið, fyrir komu sína eftir miðnætti. (3) Rúna notar björgunarkóðann til að koma í veg fyrir að þetta skip sökkvi. (4) Eyðileggjum eina nothæfa bátinn fyrir annars óbreyttan fyrirhugaðan flótta. (5) Venjulegt bréf án undantekningar fer yfir innsigluðu mörkin. (6) Raunveruleg sameiginleg æskuminning Freyju og Sigrúnar hvetur fyrstu endurfundi þeirra. Metið möguleikana gagnvart vistuðum staðreyndum okkar; veldu ekki úrlausnir fyrir mig. Staldraðu við eftir svarið.</input>\\n</codex_delegation>\",\"truncated\":false}}}",
+      "parsed_value": {
+        "kind": "host_input",
+        "source_type": "delegated",
+        "thread_id": "01a16afa-1197-7650-8189-9365687429ee",
+        "turn_id": "01a18205-f445-7702-82a7-198a662ff705",
+        "event_id": "fco_01a18205-f446-7481-b7b1-e7a06f27259e",
+        "event_type": "functionCallOutput",
+        "source_thread_id": "01a16af6-0d9b-7173-a5f5-c8775f37df18",
+        "native_user_input": false,
+        "novice_evidence": false,
+        "evaluation_only": true,
+        "text": "Tilvik CONT_CONFLICTS. Skoðum sex aðskildar tillögur á sömu staðfestu tímalínu: (1) Án breyttrar hvatar svíkur Rúna Eddu vísvitandi. (2) Rúna bjargar fólki í höfninni klukkan tíu um kvöldið, fyrir komu sína eftir miðnætti. (3) Rúna notar björgunarkóðann til að koma í veg fyrir að þetta skip sökkvi. (4) Eyðileggjum eina nothæfa bátinn fyrir annars óbreyttan fyrirhugaðan flótta. (5) Venjulegt bréf án undantekningar fer yfir innsigluðu mörkin. (6) Raunveruleg sameiginleg æskuminning Freyju og Sigrúnar hvetur fyrstu endurfundi þeirra. Metið möguleikana gagnvart vistuðum staðreyndum okkar; veldu ekki úrlausnir fyrir mig. Staldraðu við eftir svarið.",
+        "public_event": {
+          "type": "functionCallOutput",
+          "id": "fco_01a18205-f446-7481-b7b1-e7a06f27259e",
+          "namespace": "codex_app",
+          "name": "send_message_to_thread",
+          "output": {
+            "text": "<codex_delegation>\n  <source_thread_id>01a16af6-0d9b-7173-a5f5-c8775f37df18</source_thread_id>\n  <input>Tilvik CONT_CONFLICTS. Skoðum sex aðskildar tillögur á sömu staðfestu tímalínu: (1) Án breyttrar hvatar svíkur Rúna Eddu vísvitandi. (2) Rúna bjargar fólki í höfninni klukkan tíu um kvöldið, fyrir komu sína eftir miðnætti. (3) Rúna notar björgunarkóðann til að koma í veg fyrir að þetta skip sökkvi. (4) Eyðileggjum eina nothæfa bátinn fyrir annars óbreyttan fyrirhugaðan flótta. (5) Venjulegt bréf án undantekningar fer yfir innsigluðu mörkin. (6) Raunveruleg sameiginleg æskuminning Freyju og Sigrúnar hvetur fyrstu endurfundi þeirra. Metið möguleikana gagnvart vistuðum staðreyndum okkar; veldu ekki úrlausnir fyrir mig. Staldraðu við eftir svarið.</input>\n</codex_delegation>",
+            "truncated": false
+          }
+        }
+      },
+      "digest": "e632024b5d8fd96fa47493f3d00429803c955c4516c1d5fad28195465d9fb1f9"
+    }
+  ],
+  "record_versions": [
+    {
+      "id": "d31dba8f-bdf2-4744-9c47-1359510d9d03",
+      "kind": "story_element",
+      "revision": 1,
+      "previous_revision": null,
+      "created_exchange_id": "162a5780-2bcc-4e9b-b617-aa38fa2b4acd",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "162a5780-2bcc-4e9b-b617-aa38fa2b4acd",
+          "message_id": "0d0858df-1c47-4448-bb78-d69af11270a4",
+          "range": {
+            "start": 84,
+            "end": 132
+          }
+        }
+      ],
+      "element_type": "event",
+      "display_name": "Viljandi svik Rúnu við Eddu",
+      "aliases": [],
+      "status": "proposed",
+      "assertion_ids": [
+        "94cc12aa-9dea-4032-a58e-9e6b216f631d"
+      ],
+      "relationship_ids": [
+        "b344c49b-220e-45ce-bf91-48a1836c4406"
+      ],
+      "dependency_refs": [
+        {
+          "id": "230b68ca-fa8b-45d3-8e31-de9d44027b6b",
+          "revision": 2
+        },
+        {
+          "id": "3086ba61-669d-4800-b65a-9c7253334c91",
+          "revision": 2
+        },
+        {
+          "id": "d9215850-dcc4-4cb1-b999-e838039e2371",
+          "revision": 1
+        }
+      ],
+      "time_ref": null,
+      "decision_ids": []
+    },
+    {
+      "id": "94cc12aa-9dea-4032-a58e-9e6b216f631d",
+      "kind": "assertion",
+      "revision": 1,
+      "previous_revision": null,
+      "created_exchange_id": "162a5780-2bcc-4e9b-b617-aa38fa2b4acd",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "162a5780-2bcc-4e9b-b617-aa38fa2b4acd",
+          "message_id": "0d0858df-1c47-4448-bb78-d69af11270a4",
+          "range": {
+            "start": 84,
+            "end": 132
+          }
+        }
+      ],
+      "subject_element_id": "d31dba8f-bdf2-4744-9c47-1359510d9d03",
+      "predicate": "fyrirhuguð athöfn",
+      "value": "Án breyttrar hvatar svíkur Rúna Eddu vísvitandi.",
+      "perspective": "author_truth",
+      "holder_id": null,
+      "reader_audience": null,
+      "time_ref": {
+        "chronology": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        },
+        "narrative": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        }
+      },
+      "truth_state": "affirmed",
+      "status": "proposed",
+      "decision_ids": [],
+      "supersedes": null
+    },
+    {
+      "id": "b344c49b-220e-45ce-bf91-48a1836c4406",
+      "kind": "relationship",
+      "revision": 1,
+      "previous_revision": null,
+      "created_exchange_id": "162a5780-2bcc-4e9b-b617-aa38fa2b4acd",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "162a5780-2bcc-4e9b-b617-aa38fa2b4acd",
+          "message_id": "0d0858df-1c47-4448-bb78-d69af11270a4",
+          "range": {
+            "start": 84,
+            "end": 132
+          }
+        }
+      ],
+      "from_element_id": "230b68ca-fa8b-45d3-8e31-de9d44027b6b",
+      "to_element_id": "3086ba61-669d-4800-b65a-9c7253334c91",
+      "meaning": "svíkur vísvitandi án breyttrar hvatar",
+      "perspective": "author_truth",
+      "holder_id": null,
+      "reader_audience": null,
+      "time_ref": {
+        "chronology": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        },
+        "narrative": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        }
+      },
+      "status": "proposed",
+      "decision_ids": []
+    },
+    {
+      "id": "1d2bf975-171c-48a6-b03b-b1eeb984a32f",
+      "kind": "idea",
+      "revision": 1,
+      "previous_revision": null,
+      "created_exchange_id": "162a5780-2bcc-4e9b-b617-aa38fa2b4acd",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "162a5780-2bcc-4e9b-b617-aa38fa2b4acd",
+          "message_id": "0d0858df-1c47-4448-bb78-d69af11270a4",
+          "range": {
+            "start": 84,
+            "end": 132
+          }
+        }
+      ],
+      "statement": "Án breyttrar hvatar svíkur Rúna Eddu vísvitandi.",
+      "status": "proposed",
+      "related_element_ids": [
+        "d31dba8f-bdf2-4744-9c47-1359510d9d03",
+        "230b68ca-fa8b-45d3-8e31-de9d44027b6b",
+        "3086ba61-669d-4800-b65a-9c7253334c91"
+      ],
+      "alternative_group_id": null,
+      "selected_parts": [],
+      "decision_ids": [],
+      "resulting_assertion_ids": [
+        "94cc12aa-9dea-4032-a58e-9e6b216f631d"
+      ]
+    },
+    {
+      "id": "f5138be7-8137-4360-8129-97933c28b53a",
+      "kind": "finding",
+      "revision": 1,
+      "previous_revision": null,
+      "created_exchange_id": "162a5780-2bcc-4e9b-b617-aa38fa2b4acd",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "162a5780-2bcc-4e9b-b617-aa38fa2b4acd",
+          "message_id": "0d0858df-1c47-4448-bb78-d69af11270a4",
+          "range": {
+            "start": 84,
+            "end": 132
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "38fb5b68-545e-4692-9d9b-0d0e0377a62d",
+          "message_id": "30087814-674c-4d7d-b28e-e8654b8eb4ae",
+          "range": {
+            "start": 151,
+            "end": 183
+          }
+        }
+      ],
+      "category": "motivation",
+      "assessment": "conflict",
+      "severity": "significant",
+      "affected_refs": [
+        {
+          "id": "1d2bf975-171c-48a6-b03b-b1eeb984a32f",
+          "revision": 1
+        },
+        {
+          "id": "d31dba8f-bdf2-4744-9c47-1359510d9d03",
+          "revision": 1
+        },
+        {
+          "id": "94cc12aa-9dea-4032-a58e-9e6b216f631d",
+          "revision": 1
+        },
+        {
+          "id": "d9215850-dcc4-4cb1-b999-e838039e2371",
+          "revision": 1
+        }
+      ],
+      "explanation": "Staðfestur eiður Rúnu um að vernda Eddu stendur í beinni andstöðu við vísvitandi svik án breyttrar hvatar. Eið má rjúfa í sögu, en hér vantar skýringu á þeirri stefnubreytingu.",
+      "consequences": [
+        "Svik án breyttrar hvatar grafa undan staðfestri skuldbindingu Rúnu."
+      ],
+      "resolution_options": [
+        "Endurskoða svikatillöguna.",
+        "Gefa viljandi og samræmanlega skýringu á eiðsrofinu.",
+        "Endurskoða staðfestan eið með skýrri ákvörðun.",
+        "Fresta tillögunni."
+      ],
+      "disposition": "open",
+      "decision_ids": [],
+      "narrative_explanation": null
+    },
+    {
+      "id": "8e045fd6-3b53-404d-bcb5-669527854e2f",
+      "kind": "story_element",
+      "revision": 1,
+      "previous_revision": null,
+      "created_exchange_id": "162a5780-2bcc-4e9b-b617-aa38fa2b4acd",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "162a5780-2bcc-4e9b-b617-aa38fa2b4acd",
+          "message_id": "0d0858df-1c47-4448-bb78-d69af11270a4",
+          "range": {
+            "start": 137,
+            "end": 222
+          }
+        }
+      ],
+      "element_type": "event",
+      "display_name": "Björgun Rúnu í höfn klukkan tíu",
+      "aliases": [],
+      "status": "proposed",
+      "assertion_ids": [
+        "6cd104ac-5256-47e5-8cc2-454e88700f8b"
+      ],
+      "relationship_ids": [],
+      "dependency_refs": [
+        {
+          "id": "230b68ca-fa8b-45d3-8e31-de9d44027b6b",
+          "revision": 2
+        },
+        {
+          "id": "b6bf10d8-dd6c-4414-b4a3-4f2a9b2db75b",
+          "revision": 1
+        },
+        {
+          "id": "7999a76d-00eb-4e1b-81ca-e0074e492fa9",
+          "revision": 1
+        }
+      ],
+      "time_ref": {
+        "chronology": {
+          "precision": "partial",
+          "event_anchor": {
+            "id": "b6bf10d8-dd6c-4414-b4a3-4f2a9b2db75b",
+            "revision": 1
+          },
+          "start": "22:00",
+          "end": null,
+          "before_refs": [
+            {
+              "id": "b6bf10d8-dd6c-4414-b4a3-4f2a9b2db75b",
+              "revision": 1
+            }
+          ],
+          "after_refs": []
+        },
+        "narrative": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        }
+      },
+      "decision_ids": []
+    },
+    {
+      "id": "6cd104ac-5256-47e5-8cc2-454e88700f8b",
+      "kind": "assertion",
+      "revision": 1,
+      "previous_revision": null,
+      "created_exchange_id": "162a5780-2bcc-4e9b-b617-aa38fa2b4acd",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "162a5780-2bcc-4e9b-b617-aa38fa2b4acd",
+          "message_id": "0d0858df-1c47-4448-bb78-d69af11270a4",
+          "range": {
+            "start": 137,
+            "end": 222
+          }
+        }
+      ],
+      "subject_element_id": "8e045fd6-3b53-404d-bcb5-669527854e2f",
+      "predicate": "fyrirhuguð athöfn",
+      "value": "Rúna bjargar fólki í höfninni klukkan tíu um kvöldið, fyrir komu sína eftir miðnætti.",
+      "perspective": "author_truth",
+      "holder_id": null,
+      "reader_audience": null,
+      "time_ref": {
+        "chronology": {
+          "precision": "partial",
+          "event_anchor": {
+            "id": "b6bf10d8-dd6c-4414-b4a3-4f2a9b2db75b",
+            "revision": 1
+          },
+          "start": "22:00",
+          "end": null,
+          "before_refs": [
+            {
+              "id": "b6bf10d8-dd6c-4414-b4a3-4f2a9b2db75b",
+              "revision": 1
+            }
+          ],
+          "after_refs": []
+        },
+        "narrative": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        }
+      },
+      "truth_state": "affirmed",
+      "status": "proposed",
+      "decision_ids": [],
+      "supersedes": null
+    },
+    {
+      "id": "872262c3-acb0-4d10-bb8d-256dd69bc7f1",
+      "kind": "idea",
+      "revision": 1,
+      "previous_revision": null,
+      "created_exchange_id": "162a5780-2bcc-4e9b-b617-aa38fa2b4acd",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "162a5780-2bcc-4e9b-b617-aa38fa2b4acd",
+          "message_id": "0d0858df-1c47-4448-bb78-d69af11270a4",
+          "range": {
+            "start": 137,
+            "end": 222
+          }
+        }
+      ],
+      "statement": "Rúna bjargar fólki í höfninni klukkan tíu um kvöldið, fyrir komu sína eftir miðnætti.",
+      "status": "proposed",
+      "related_element_ids": [
+        "8e045fd6-3b53-404d-bcb5-669527854e2f",
+        "230b68ca-fa8b-45d3-8e31-de9d44027b6b",
+        "b6bf10d8-dd6c-4414-b4a3-4f2a9b2db75b"
+      ],
+      "alternative_group_id": null,
+      "selected_parts": [],
+      "decision_ids": [],
+      "resulting_assertion_ids": [
+        "6cd104ac-5256-47e5-8cc2-454e88700f8b"
+      ]
+    },
+    {
+      "id": "f8d47499-791b-4f19-a4ed-18bdd844c2ab",
+      "kind": "finding",
+      "revision": 1,
+      "previous_revision": null,
+      "created_exchange_id": "162a5780-2bcc-4e9b-b617-aa38fa2b4acd",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "162a5780-2bcc-4e9b-b617-aa38fa2b4acd",
+          "message_id": "0d0858df-1c47-4448-bb78-d69af11270a4",
+          "range": {
+            "start": 137,
+            "end": 222
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "8608face-e906-413c-aeeb-502affe55cb3",
+          "message_id": "3cf15120-ff30-4459-9e4a-460438246d92",
+          "range": {
+            "start": 238,
+            "end": 274
+          }
+        }
+      ],
+      "category": "chronology",
+      "assessment": "conflict",
+      "severity": "significant",
+      "affected_refs": [
+        {
+          "id": "872262c3-acb0-4d10-bb8d-256dd69bc7f1",
+          "revision": 1
+        },
+        {
+          "id": "8e045fd6-3b53-404d-bcb5-669527854e2f",
+          "revision": 1
+        },
+        {
+          "id": "6cd104ac-5256-47e5-8cc2-454e88700f8b",
+          "revision": 1
+        },
+        {
+          "id": "7999a76d-00eb-4e1b-81ca-e0074e492fa9",
+          "revision": 1
+        }
+      ],
+      "explanation": "Rúna kemur til hafnar eftir miðnætti. Björgun hennar þar klukkan tíu sama kvöld á sömu tímalínu er áður en hún kemur þangað.",
+      "consequences": [
+        "Óbreytt röð krefst þess að Rúna sé í höfninni fyrir komu sína."
+      ],
+      "resolution_options": [
+        "Færa björgunina eða breyta þátttakanda.",
+        "Endurskoða komutímann með skýrri ákvörðun.",
+        "Skýra viljandi aðra tímalínu án þess að álykta hana.",
+        "Fresta tillögunni."
+      ],
+      "disposition": "open",
+      "decision_ids": [],
+      "narrative_explanation": null
+    },
+    {
+      "id": "553cc2f0-4dfb-4e9e-a9c0-8f66ccfbbbfb",
+      "kind": "story_element",
+      "revision": 1,
+      "previous_revision": null,
+      "created_exchange_id": "162a5780-2bcc-4e9b-b617-aa38fa2b4acd",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "162a5780-2bcc-4e9b-b617-aa38fa2b4acd",
+          "message_id": "0d0858df-1c47-4448-bb78-d69af11270a4",
+          "range": {
+            "start": 227,
+            "end": 299
+          }
+        }
+      ],
+      "element_type": "event",
+      "display_name": "Rúna notar kóðann til að afstýra skipsökki",
+      "aliases": [],
+      "status": "proposed",
+      "assertion_ids": [
+        "0a95e2e3-a6c3-426b-9212-60b27751ce4a"
+      ],
+      "relationship_ids": [],
+      "dependency_refs": [
+        {
+          "id": "230b68ca-fa8b-45d3-8e31-de9d44027b6b",
+          "revision": 2
+        },
+        {
+          "id": "cd7a9ab8-611c-4185-bb78-f2dcb1407fe3",
+          "revision": 1
+        },
+        {
+          "id": "79c29f4a-049c-4f80-99d4-feb50914813c",
+          "revision": 1
+        },
+        {
+          "id": "fab8d0b4-8490-40ff-947d-7d9d18a86b68",
+          "revision": 1
+        }
+      ],
+      "time_ref": {
+        "chronology": {
+          "precision": "partial",
+          "event_anchor": {
+            "id": "cd7a9ab8-611c-4185-bb78-f2dcb1407fe3",
+            "revision": 1
+          },
+          "start": null,
+          "end": null,
+          "before_refs": [
+            {
+              "id": "cd7a9ab8-611c-4185-bb78-f2dcb1407fe3",
+              "revision": 1
+            }
+          ],
+          "after_refs": []
+        },
+        "narrative": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        }
+      },
+      "decision_ids": []
+    },
+    {
+      "id": "0a95e2e3-a6c3-426b-9212-60b27751ce4a",
+      "kind": "assertion",
+      "revision": 1,
+      "previous_revision": null,
+      "created_exchange_id": "162a5780-2bcc-4e9b-b617-aa38fa2b4acd",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "162a5780-2bcc-4e9b-b617-aa38fa2b4acd",
+          "message_id": "0d0858df-1c47-4448-bb78-d69af11270a4",
+          "range": {
+            "start": 227,
+            "end": 299
+          }
+        }
+      ],
+      "subject_element_id": "553cc2f0-4dfb-4e9e-a9c0-8f66ccfbbbfb",
+      "predicate": "fyrirhuguð athöfn",
+      "value": "Rúna notar björgunarkóðann til að koma í veg fyrir að þetta skip sökkvi.",
+      "perspective": "author_truth",
+      "holder_id": null,
+      "reader_audience": null,
+      "time_ref": {
+        "chronology": {
+          "precision": "partial",
+          "event_anchor": {
+            "id": "cd7a9ab8-611c-4185-bb78-f2dcb1407fe3",
+            "revision": 1
+          },
+          "start": null,
+          "end": null,
+          "before_refs": [
+            {
+              "id": "cd7a9ab8-611c-4185-bb78-f2dcb1407fe3",
+              "revision": 1
+            }
+          ],
+          "after_refs": []
+        },
+        "narrative": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        }
+      },
+      "truth_state": "affirmed",
+      "status": "proposed",
+      "decision_ids": [],
+      "supersedes": null
+    },
+    {
+      "id": "a65f2d80-43bf-4103-b5ee-3bac40281900",
+      "kind": "idea",
+      "revision": 1,
+      "previous_revision": null,
+      "created_exchange_id": "162a5780-2bcc-4e9b-b617-aa38fa2b4acd",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "162a5780-2bcc-4e9b-b617-aa38fa2b4acd",
+          "message_id": "0d0858df-1c47-4448-bb78-d69af11270a4",
+          "range": {
+            "start": 227,
+            "end": 299
+          }
+        }
+      ],
+      "statement": "Rúna notar björgunarkóðann til að koma í veg fyrir að þetta skip sökkvi.",
+      "status": "proposed",
+      "related_element_ids": [
+        "553cc2f0-4dfb-4e9e-a9c0-8f66ccfbbbfb",
+        "230b68ca-fa8b-45d3-8e31-de9d44027b6b",
+        "cd7a9ab8-611c-4185-bb78-f2dcb1407fe3"
+      ],
+      "alternative_group_id": null,
+      "selected_parts": [],
+      "decision_ids": [],
+      "resulting_assertion_ids": [
+        "0a95e2e3-a6c3-426b-9212-60b27751ce4a"
+      ]
+    },
+    {
+      "id": "045b572d-fcf6-4521-b2a6-ce88f794094f",
+      "kind": "finding",
+      "revision": 1,
+      "previous_revision": null,
+      "created_exchange_id": "162a5780-2bcc-4e9b-b617-aa38fa2b4acd",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "162a5780-2bcc-4e9b-b617-aa38fa2b4acd",
+          "message_id": "0d0858df-1c47-4448-bb78-d69af11270a4",
+          "range": {
+            "start": 227,
+            "end": 299
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "8608face-e906-413c-aeeb-502affe55cb3",
+          "message_id": "3cf15120-ff30-4459-9e4a-460438246d92",
+          "range": {
+            "start": 276,
+            "end": 331
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "8608face-e906-413c-aeeb-502affe55cb3",
+          "message_id": "3cf15120-ff30-4459-9e4a-460438246d92",
+          "range": {
+            "start": 276,
+            "end": 331
+          }
+        }
+      ],
+      "category": "knowledge",
+      "assessment": "conflict",
+      "severity": "significant",
+      "affected_refs": [
+        {
+          "id": "a65f2d80-43bf-4103-b5ee-3bac40281900",
+          "revision": 1
+        },
+        {
+          "id": "553cc2f0-4dfb-4e9e-a9c0-8f66ccfbbbfb",
+          "revision": 1
+        },
+        {
+          "id": "0a95e2e3-a6c3-426b-9212-60b27751ce4a",
+          "revision": 1
+        },
+        {
+          "id": "79c29f4a-049c-4f80-99d4-feb50914813c",
+          "revision": 1
+        },
+        {
+          "id": "fab8d0b4-8490-40ff-947d-7d9d18a86b68",
+          "revision": 1
+        }
+      ],
+      "explanation": "Rúna lærir björgunarkóðann fyrst eftir að þetta skip sekkur. Að nota hann til að koma í veg fyrir sama skipsökk krefst vitneskjunnar fyrr en hún fær hana.",
+      "consequences": [
+        "Tillagan byggir á vitneskju sem Rúna hefur ekki á þeim tímapunkti og eyðir atburðinum sem er forsenda námsins."
+      ],
+      "resolution_options": [
+        "Breyta því hvernig hún reynir að bjarga skipinu.",
+        "Endurskoða tímasetningu kóðanámsins með skýrri ákvörðun.",
+        "Skýra viljandi tímabragð án sjálfvirkrar staðfestingar.",
+        "Fresta tillögunni."
+      ],
+      "disposition": "open",
+      "decision_ids": [],
+      "narrative_explanation": null
+    },
+    {
+      "id": "bc9c3db4-018c-4500-ab72-16519ca705d5",
+      "kind": "story_element",
+      "revision": 1,
+      "previous_revision": null,
+      "created_exchange_id": "162a5780-2bcc-4e9b-b617-aa38fa2b4acd",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "162a5780-2bcc-4e9b-b617-aa38fa2b4acd",
+          "message_id": "0d0858df-1c47-4448-bb78-d69af11270a4",
+          "range": {
+            "start": 304,
+            "end": 379
+          }
+        }
+      ],
+      "element_type": "event",
+      "display_name": "Eyðilegging eina bátsins fyrir flótta",
+      "aliases": [],
+      "status": "proposed",
+      "assertion_ids": [
+        "6a61ab8a-d512-49ad-ba33-bd130bb6f534"
+      ],
+      "relationship_ids": [],
+      "dependency_refs": [
+        {
+          "id": "3f86204e-5886-46ef-b0cb-0849f04b8ff8",
+          "revision": 1
+        },
+        {
+          "id": "4ec27039-9f65-447b-a740-e5b20737d9ba",
+          "revision": 1
+        },
+        {
+          "id": "e4195696-47c0-4598-9633-477fa84617c0",
+          "revision": 1
+        },
+        {
+          "id": "0992b08f-79ff-449f-9d1f-4972833a5846",
+          "revision": 1
+        }
+      ],
+      "time_ref": {
+        "chronology": {
+          "precision": "partial",
+          "event_anchor": {
+            "id": "3f86204e-5886-46ef-b0cb-0849f04b8ff8",
+            "revision": 1
+          },
+          "start": null,
+          "end": null,
+          "before_refs": [
+            {
+              "id": "3f86204e-5886-46ef-b0cb-0849f04b8ff8",
+              "revision": 1
+            }
+          ],
+          "after_refs": []
+        },
+        "narrative": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        }
+      },
+      "decision_ids": []
+    },
+    {
+      "id": "6a61ab8a-d512-49ad-ba33-bd130bb6f534",
+      "kind": "assertion",
+      "revision": 1,
+      "previous_revision": null,
+      "created_exchange_id": "162a5780-2bcc-4e9b-b617-aa38fa2b4acd",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "162a5780-2bcc-4e9b-b617-aa38fa2b4acd",
+          "message_id": "0d0858df-1c47-4448-bb78-d69af11270a4",
+          "range": {
+            "start": 304,
+            "end": 379
+          }
+        }
+      ],
+      "subject_element_id": "bc9c3db4-018c-4500-ab72-16519ca705d5",
+      "predicate": "fyrirhuguð athöfn",
+      "value": "Eyðileggjum eina nothæfa bátinn fyrir annars óbreyttan fyrirhugaðan flótta.",
+      "perspective": "author_truth",
+      "holder_id": null,
+      "reader_audience": null,
+      "time_ref": {
+        "chronology": {
+          "precision": "partial",
+          "event_anchor": {
+            "id": "3f86204e-5886-46ef-b0cb-0849f04b8ff8",
+            "revision": 1
+          },
+          "start": null,
+          "end": null,
+          "before_refs": [
+            {
+              "id": "3f86204e-5886-46ef-b0cb-0849f04b8ff8",
+              "revision": 1
+            }
+          ],
+          "after_refs": []
+        },
+        "narrative": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        }
+      },
+      "truth_state": "affirmed",
+      "status": "proposed",
+      "decision_ids": [],
+      "supersedes": null
+    },
+    {
+      "id": "eb8b34e9-ec78-47c5-bf60-da24da54d123",
+      "kind": "idea",
+      "revision": 1,
+      "previous_revision": null,
+      "created_exchange_id": "162a5780-2bcc-4e9b-b617-aa38fa2b4acd",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "162a5780-2bcc-4e9b-b617-aa38fa2b4acd",
+          "message_id": "0d0858df-1c47-4448-bb78-d69af11270a4",
+          "range": {
+            "start": 304,
+            "end": 379
+          }
+        }
+      ],
+      "statement": "Eyðileggjum eina nothæfa bátinn fyrir annars óbreyttan fyrirhugaðan flótta.",
+      "status": "proposed",
+      "related_element_ids": [
+        "bc9c3db4-018c-4500-ab72-16519ca705d5",
+        "3f86204e-5886-46ef-b0cb-0849f04b8ff8",
+        "4ec27039-9f65-447b-a740-e5b20737d9ba"
+      ],
+      "alternative_group_id": null,
+      "selected_parts": [],
+      "decision_ids": [],
+      "resulting_assertion_ids": [
+        "6a61ab8a-d512-49ad-ba33-bd130bb6f534"
+      ]
+    },
+    {
+      "id": "0892fa17-5e1c-4c59-84e5-4d6de2f8f4df",
+      "kind": "finding",
+      "revision": 1,
+      "previous_revision": null,
+      "created_exchange_id": "162a5780-2bcc-4e9b-b617-aa38fa2b4acd",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "162a5780-2bcc-4e9b-b617-aa38fa2b4acd",
+          "message_id": "0d0858df-1c47-4448-bb78-d69af11270a4",
+          "range": {
+            "start": 304,
+            "end": 379
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "8608face-e906-413c-aeeb-502affe55cb3",
+          "message_id": "3cf15120-ff30-4459-9e4a-460438246d92",
+          "range": {
+            "start": 333,
+            "end": 380
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "8608face-e906-413c-aeeb-502affe55cb3",
+          "message_id": "3cf15120-ff30-4459-9e4a-460438246d92",
+          "range": {
+            "start": 333,
+            "end": 380
+          }
+        }
+      ],
+      "category": "plot_dependency",
+      "assessment": "conflict",
+      "severity": "significant",
+      "affected_refs": [
+        {
+          "id": "eb8b34e9-ec78-47c5-bf60-da24da54d123",
+          "revision": 1
+        },
+        {
+          "id": "bc9c3db4-018c-4500-ab72-16519ca705d5",
+          "revision": 1
+        },
+        {
+          "id": "6a61ab8a-d512-49ad-ba33-bd130bb6f534",
+          "revision": 1
+        },
+        {
+          "id": "e4195696-47c0-4598-9633-477fa84617c0",
+          "revision": 1
+        },
+        {
+          "id": "0992b08f-79ff-449f-9d1f-4972833a5846",
+          "revision": 1
+        }
+      ],
+      "explanation": "Fyrirhugaður flótti krefst eina nothæfa bátsins. Eyðilegging hans fyrir annars óbreyttan flótta fjarlægir þá nauðsynlegu forsendu.",
+      "consequences": [
+        "Óbreyttur flótti verður óframkvæmanlegur með þeim skráðu úrræðum."
+      ],
+      "resolution_options": [
+        "Endurskoða eyðilegginguna eða tímasetningu hennar.",
+        "Endurskoða flóttaáætlun eða bátaforsenduna með skýrri ákvörðun.",
+        "Fresta tillögunni."
+      ],
+      "disposition": "open",
+      "decision_ids": [],
+      "narrative_explanation": null
+    },
+    {
+      "id": "2c0f86dd-155d-4b5b-ae1d-5207dfee9e2b",
+      "kind": "story_element",
+      "revision": 1,
+      "previous_revision": null,
+      "created_exchange_id": "162a5780-2bcc-4e9b-b617-aa38fa2b4acd",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "162a5780-2bcc-4e9b-b617-aa38fa2b4acd",
+          "message_id": "0d0858df-1c47-4448-bb78-d69af11270a4",
+          "range": {
+            "start": 384,
+            "end": 444
+          }
+        }
+      ],
+      "element_type": "event",
+      "display_name": "Venjulegt bréf fer yfir innsigluð mörk",
+      "aliases": [],
+      "status": "proposed",
+      "assertion_ids": [
+        "f2c29259-c5b0-4b9c-a272-1bbefd82645a"
+      ],
+      "relationship_ids": [],
+      "dependency_refs": [
+        {
+          "id": "91666f59-5a86-4f99-9669-eed33ab08f92",
+          "revision": 1
+        },
+        {
+          "id": "3206e87d-d058-48dc-b691-4cf20a3679d9",
+          "revision": 1
+        }
+      ],
+      "time_ref": null,
+      "decision_ids": []
+    },
+    {
+      "id": "f2c29259-c5b0-4b9c-a272-1bbefd82645a",
+      "kind": "assertion",
+      "revision": 1,
+      "previous_revision": null,
+      "created_exchange_id": "162a5780-2bcc-4e9b-b617-aa38fa2b4acd",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "162a5780-2bcc-4e9b-b617-aa38fa2b4acd",
+          "message_id": "0d0858df-1c47-4448-bb78-d69af11270a4",
+          "range": {
+            "start": 384,
+            "end": 444
+          }
+        }
+      ],
+      "subject_element_id": "2c0f86dd-155d-4b5b-ae1d-5207dfee9e2b",
+      "predicate": "fyrirhuguð athöfn",
+      "value": "Venjulegt bréf án undantekningar fer yfir innsigluðu mörkin.",
+      "perspective": "author_truth",
+      "holder_id": null,
+      "reader_audience": null,
+      "time_ref": {
+        "chronology": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        },
+        "narrative": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        }
+      },
+      "truth_state": "affirmed",
+      "status": "proposed",
+      "decision_ids": [],
+      "supersedes": null
+    },
+    {
+      "id": "e2e8e629-c584-48ab-acc3-8c2c9958a583",
+      "kind": "idea",
+      "revision": 1,
+      "previous_revision": null,
+      "created_exchange_id": "162a5780-2bcc-4e9b-b617-aa38fa2b4acd",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "162a5780-2bcc-4e9b-b617-aa38fa2b4acd",
+          "message_id": "0d0858df-1c47-4448-bb78-d69af11270a4",
+          "range": {
+            "start": 384,
+            "end": 444
+          }
+        }
+      ],
+      "statement": "Venjulegt bréf án undantekningar fer yfir innsigluðu mörkin.",
+      "status": "proposed",
+      "related_element_ids": [
+        "2c0f86dd-155d-4b5b-ae1d-5207dfee9e2b",
+        "91666f59-5a86-4f99-9669-eed33ab08f92"
+      ],
+      "alternative_group_id": null,
+      "selected_parts": [],
+      "decision_ids": [],
+      "resulting_assertion_ids": [
+        "f2c29259-c5b0-4b9c-a272-1bbefd82645a"
+      ]
+    },
+    {
+      "id": "24217ee6-14c5-4590-bf90-cdfc550e7234",
+      "kind": "finding",
+      "revision": 1,
+      "previous_revision": null,
+      "created_exchange_id": "162a5780-2bcc-4e9b-b617-aa38fa2b4acd",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "162a5780-2bcc-4e9b-b617-aa38fa2b4acd",
+          "message_id": "0d0858df-1c47-4448-bb78-d69af11270a4",
+          "range": {
+            "start": 384,
+            "end": 444
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "8608face-e906-413c-aeeb-502affe55cb3",
+          "message_id": "3cf15120-ff30-4459-9e4a-460438246d92",
+          "range": {
+            "start": 382,
+            "end": 428
+          }
+        }
+      ],
+      "category": "world_rule",
+      "assessment": "conflict",
+      "severity": "significant",
+      "affected_refs": [
+        {
+          "id": "e2e8e629-c584-48ab-acc3-8c2c9958a583",
+          "revision": 1
+        },
+        {
+          "id": "2c0f86dd-155d-4b5b-ae1d-5207dfee9e2b",
+          "revision": 1
+        },
+        {
+          "id": "f2c29259-c5b0-4b9c-a272-1bbefd82645a",
+          "revision": 1
+        },
+        {
+          "id": "3206e87d-d058-48dc-b691-4cf20a3679d9",
+          "revision": 1
+        }
+      ],
+      "explanation": "Staðfest regla segir að ekkert bréf geti farið yfir innsigluðu mörkin. Venjulegt bréf án undantekningar brýtur þá reglu beint.",
+      "consequences": [
+        "Mörkin missa skráða hindrun sína ef tillagan er staðfest óbreytt."
+      ],
+      "resolution_options": [
+        "Endurskoða bréfaflutningstillöguna.",
+        "Endurskoða regluna með skýrri ákvörðun.",
+        "Skýra viljandi undantekningu ef höfundur kýs að breyta forsendunni.",
+        "Fresta tillögunni."
+      ],
+      "disposition": "open",
+      "decision_ids": [],
+      "narrative_explanation": null
+    },
+    {
+      "id": "b6279ad2-0eaf-4f5a-b7fa-d67643574285",
+      "kind": "story_element",
+      "revision": 1,
+      "previous_revision": null,
+      "created_exchange_id": "162a5780-2bcc-4e9b-b617-aa38fa2b4acd",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "162a5780-2bcc-4e9b-b617-aa38fa2b4acd",
+          "message_id": "0d0858df-1c47-4448-bb78-d69af11270a4",
+          "range": {
+            "start": 449,
+            "end": 536
+          }
+        }
+      ],
+      "element_type": "event",
+      "display_name": "Sameiginleg æskuminning Freyju og Sigrúnar",
+      "aliases": [],
+      "status": "proposed",
+      "assertion_ids": [
+        "247e8a85-44dd-46cb-ac9c-761b72a68484"
+      ],
+      "relationship_ids": [
+        "b63ec5c5-6585-488a-bbc1-396428f3d71d"
+      ],
+      "dependency_refs": [
+        {
+          "id": "cc940f23-5d36-46aa-8542-2de56ae91078",
+          "revision": 1
+        },
+        {
+          "id": "99c51fea-b976-497a-b8c3-5d3b5aacffea",
+          "revision": 1
+        },
+        {
+          "id": "c9f32ba4-188f-4ee1-9ee2-d5d42b1ff1d4",
+          "revision": 1
+        },
+        {
+          "id": "60e3081b-187d-4b2b-b52a-1df93ab5e31c",
+          "revision": 1
+        },
+        {
+          "id": "134717c6-0cc8-4249-981b-b5c18e517d08",
+          "revision": 1
+        }
+      ],
+      "time_ref": {
+        "chronology": {
+          "precision": "partial",
+          "event_anchor": {
+            "id": "c9f32ba4-188f-4ee1-9ee2-d5d42b1ff1d4",
+            "revision": 1
+          },
+          "start": null,
+          "end": null,
+          "before_refs": [
+            {
+              "id": "c9f32ba4-188f-4ee1-9ee2-d5d42b1ff1d4",
+              "revision": 1
+            }
+          ],
+          "after_refs": []
+        },
+        "narrative": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        }
+      },
+      "decision_ids": []
+    },
+    {
+      "id": "247e8a85-44dd-46cb-ac9c-761b72a68484",
+      "kind": "assertion",
+      "revision": 1,
+      "previous_revision": null,
+      "created_exchange_id": "162a5780-2bcc-4e9b-b617-aa38fa2b4acd",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "162a5780-2bcc-4e9b-b617-aa38fa2b4acd",
+          "message_id": "0d0858df-1c47-4448-bb78-d69af11270a4",
+          "range": {
+            "start": 449,
+            "end": 536
+          }
+        }
+      ],
+      "subject_element_id": "b6279ad2-0eaf-4f5a-b7fa-d67643574285",
+      "predicate": "fyrirhuguð athöfn",
+      "value": "Raunveruleg sameiginleg æskuminning Freyju og Sigrúnar hvetur fyrstu endurfundi þeirra.",
+      "perspective": "author_truth",
+      "holder_id": null,
+      "reader_audience": null,
+      "time_ref": {
+        "chronology": {
+          "precision": "partial",
+          "event_anchor": {
+            "id": "c9f32ba4-188f-4ee1-9ee2-d5d42b1ff1d4",
+            "revision": 1
+          },
+          "start": null,
+          "end": null,
+          "before_refs": [
+            {
+              "id": "c9f32ba4-188f-4ee1-9ee2-d5d42b1ff1d4",
+              "revision": 1
+            }
+          ],
+          "after_refs": []
+        },
+        "narrative": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        }
+      },
+      "truth_state": "affirmed",
+      "status": "proposed",
+      "decision_ids": [],
+      "supersedes": null
+    },
+    {
+      "id": "b63ec5c5-6585-488a-bbc1-396428f3d71d",
+      "kind": "relationship",
+      "revision": 1,
+      "previous_revision": null,
+      "created_exchange_id": "162a5780-2bcc-4e9b-b617-aa38fa2b4acd",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "162a5780-2bcc-4e9b-b617-aa38fa2b4acd",
+          "message_id": "0d0858df-1c47-4448-bb78-d69af11270a4",
+          "range": {
+            "start": 449,
+            "end": 536
+          }
+        }
+      ],
+      "from_element_id": "cc940f23-5d36-46aa-8542-2de56ae91078",
+      "to_element_id": "99c51fea-b976-497a-b8c3-5d3b5aacffea",
+      "meaning": "raunveruleg sameiginleg æskuminning",
+      "perspective": "author_truth",
+      "holder_id": null,
+      "reader_audience": null,
+      "time_ref": {
+        "chronology": {
+          "precision": "partial",
+          "event_anchor": {
+            "id": "c9f32ba4-188f-4ee1-9ee2-d5d42b1ff1d4",
+            "revision": 1
+          },
+          "start": null,
+          "end": null,
+          "before_refs": [
+            {
+              "id": "c9f32ba4-188f-4ee1-9ee2-d5d42b1ff1d4",
+              "revision": 1
+            }
+          ],
+          "after_refs": []
+        },
+        "narrative": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        }
+      },
+      "status": "proposed",
+      "decision_ids": []
+    },
+    {
+      "id": "cd8104e3-07fc-416a-bfa9-076888134348",
+      "kind": "idea",
+      "revision": 1,
+      "previous_revision": null,
+      "created_exchange_id": "162a5780-2bcc-4e9b-b617-aa38fa2b4acd",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "162a5780-2bcc-4e9b-b617-aa38fa2b4acd",
+          "message_id": "0d0858df-1c47-4448-bb78-d69af11270a4",
+          "range": {
+            "start": 449,
+            "end": 536
+          }
+        }
+      ],
+      "statement": "Raunveruleg sameiginleg æskuminning Freyju og Sigrúnar hvetur fyrstu endurfundi þeirra.",
+      "status": "proposed",
+      "related_element_ids": [
+        "b6279ad2-0eaf-4f5a-b7fa-d67643574285",
+        "cc940f23-5d36-46aa-8542-2de56ae91078",
+        "99c51fea-b976-497a-b8c3-5d3b5aacffea",
+        "c9f32ba4-188f-4ee1-9ee2-d5d42b1ff1d4"
+      ],
+      "alternative_group_id": null,
+      "selected_parts": [],
+      "decision_ids": [],
+      "resulting_assertion_ids": [
+        "247e8a85-44dd-46cb-ac9c-761b72a68484"
+      ]
+    },
+    {
+      "id": "93c85a29-4d91-4c23-b682-7677c95fbf79",
+      "kind": "finding",
+      "revision": 1,
+      "previous_revision": null,
+      "created_exchange_id": "162a5780-2bcc-4e9b-b617-aa38fa2b4acd",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "162a5780-2bcc-4e9b-b617-aa38fa2b4acd",
+          "message_id": "0d0858df-1c47-4448-bb78-d69af11270a4",
+          "range": {
+            "start": 449,
+            "end": 536
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "8608face-e906-413c-aeeb-502affe55cb3",
+          "message_id": "3cf15120-ff30-4459-9e4a-460438246d92",
+          "range": {
+            "start": 430,
+            "end": 487
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "8608face-e906-413c-aeeb-502affe55cb3",
+          "message_id": "3cf15120-ff30-4459-9e4a-460438246d92",
+          "range": {
+            "start": 430,
+            "end": 487
+          }
+        }
+      ],
+      "category": "relationship",
+      "assessment": "conflict",
+      "severity": "significant",
+      "affected_refs": [
+        {
+          "id": "cd8104e3-07fc-416a-bfa9-076888134348",
+          "revision": 1
+        },
+        {
+          "id": "b6279ad2-0eaf-4f5a-b7fa-d67643574285",
+          "revision": 1
+        },
+        {
+          "id": "247e8a85-44dd-46cb-ac9c-761b72a68484",
+          "revision": 1
+        },
+        {
+          "id": "60e3081b-187d-4b2b-b52a-1df93ab5e31c",
+          "revision": 1
+        },
+        {
+          "id": "134717c6-0cc8-4249-981b-b5c18e517d08",
+          "revision": 1
+        }
+      ],
+      "explanation": "Freyja og Sigrún hafa aldrei hist fyrir þessa endurfundi. Raunveruleg sameiginleg æskuminning þeirra af fyrri samveru krefst fyrri kynna sem sú staðreynd útilokar.",
+      "consequences": [
+        "Sameiginleg fortíð af því tagi myndi breyta staðfestum bakgrunni tengsla þeirra."
+      ],
+      "resolution_options": [
+        "Endurskoða minningartillöguna.",
+        "Endurskoða fyrri kynni með skýrri ákvörðun.",
+        "Skýra viljandi aðra merkingu minningar án þess að breyta raunverulegri sameiginlegri æsku sjálfkrafa.",
+        "Fresta tillögunni."
+      ],
+      "disposition": "open",
+      "decision_ids": [],
+      "narrative_explanation": null
+    },
+    {
+      "id": "bd14ac9f-4b8f-4f9c-9f1f-eb34e8ec8f7f",
+      "kind": "session",
+      "revision": 2,
+      "previous_revision": 1,
+      "created_exchange_id": "8608face-e906-413c-aeeb-502affe55cb3",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "162a5780-2bcc-4e9b-b617-aa38fa2b4acd",
+          "message_id": "0d0858df-1c47-4448-bb78-d69af11270a4"
+        }
+      ],
+      "topic": "Samfella",
+      "mode": "open",
+      "state": "open",
+      "started_exchange_id": "8608face-e906-413c-aeeb-502affe55cb3",
+      "last_exchange_id": "162a5780-2bcc-4e9b-b617-aa38fa2b4acd",
+      "related_record_ids": [
+        "558ee882-eeef-4654-bf22-b83acda83f24",
+        "4f256968-185e-48bb-8209-4933e3e70230",
+        "f05c97e2-9647-47c2-b18f-f1d7aad90e06",
+        "17d426bd-a8df-48bd-883b-62a6590b42d8",
+        "c36f71a0-2ecd-444a-a038-cca37a23812d",
+        "e79c6511-1406-4732-9948-72e0763f702d",
+        "b6bf10d8-dd6c-4414-b4a3-4f2a9b2db75b",
+        "7999a76d-00eb-4e1b-81ca-e0074e492fa9",
+        "a01c0753-7a94-46f6-974a-9aeb416e631b",
+        "a4f179f6-8b3d-4fe5-9fbf-fcacdd84c57f",
+        "cd7a9ab8-611c-4185-bb78-f2dcb1407fe3",
+        "e066972a-ded5-41f3-890e-86e478102813",
+        "79c29f4a-049c-4f80-99d4-feb50914813c",
+        "fab8d0b4-8490-40ff-947d-7d9d18a86b68",
+        "a5010930-b834-49f9-b122-6a6678a73e83",
+        "265f35ea-5dd5-463a-b083-00a8bca7df73",
+        "4ec27039-9f65-447b-a740-e5b20737d9ba",
+        "3f86204e-5886-46ef-b0cb-0849f04b8ff8",
+        "e4195696-47c0-4598-9633-477fa84617c0",
+        "0992b08f-79ff-449f-9d1f-4972833a5846",
+        "cdf3af43-8fca-4268-af32-1d7b31026923",
+        "ae6f1848-5501-4d0d-9ba2-81f0d8c034a6",
+        "91666f59-5a86-4f99-9669-eed33ab08f92",
+        "9888f02a-1968-48e3-9945-ced2a2953c8d",
+        "3206e87d-d058-48dc-b691-4cf20a3679d9",
+        "09ba833b-db90-49bb-94e9-05c8c50ec334",
+        "d5626dfc-dd52-4435-b38c-499842d68d8f",
+        "c9f32ba4-188f-4ee1-9ee2-d5d42b1ff1d4",
+        "60e3081b-187d-4b2b-b52a-1df93ab5e31c",
+        "134717c6-0cc8-4249-981b-b5c18e517d08",
+        "62ab0f6e-3d21-4482-9d60-ac5beb49ba38",
+        "92e21458-5351-4ebf-ad5d-54059b87def5",
+        "d31dba8f-bdf2-4744-9c47-1359510d9d03",
+        "94cc12aa-9dea-4032-a58e-9e6b216f631d",
+        "b344c49b-220e-45ce-bf91-48a1836c4406",
+        "1d2bf975-171c-48a6-b03b-b1eeb984a32f",
+        "f5138be7-8137-4360-8129-97933c28b53a",
+        "8e045fd6-3b53-404d-bcb5-669527854e2f",
+        "6cd104ac-5256-47e5-8cc2-454e88700f8b",
+        "872262c3-acb0-4d10-bb8d-256dd69bc7f1",
+        "f8d47499-791b-4f19-a4ed-18bdd844c2ab",
+        "553cc2f0-4dfb-4e9e-a9c0-8f66ccfbbbfb",
+        "0a95e2e3-a6c3-426b-9212-60b27751ce4a",
+        "a65f2d80-43bf-4103-b5ee-3bac40281900",
+        "045b572d-fcf6-4521-b2a6-ce88f794094f",
+        "bc9c3db4-018c-4500-ab72-16519ca705d5",
+        "6a61ab8a-d512-49ad-ba33-bd130bb6f534",
+        "eb8b34e9-ec78-47c5-bf60-da24da54d123",
+        "0892fa17-5e1c-4c59-84e5-4d6de2f8f4df",
+        "2c0f86dd-155d-4b5b-ae1d-5207dfee9e2b",
+        "f2c29259-c5b0-4b9c-a272-1bbefd82645a",
+        "e2e8e629-c584-48ab-acc3-8c2c9958a583",
+        "24217ee6-14c5-4590-bf90-cdfc550e7234",
+        "b6279ad2-0eaf-4f5a-b7fa-d67643574285",
+        "247e8a85-44dd-46cb-ac9c-761b72a68484",
+        "b63ec5c5-6585-488a-bbc1-396428f3d71d",
+        "cd8104e3-07fc-416a-bfa9-076888134348",
+        "93c85a29-4d91-4c23-b682-7677c95fbf79"
+      ],
+      "unresolved_question_ids": [],
+      "derived_context_ref": null
+    }
+  ],
+  "continuity_review": {
+    "coverage": "incomplete",
+    "reviewed_record_refs": [
+      {
+        "id": "d9215850-dcc4-4cb1-b999-e838039e2371",
+        "revision": 1
+      },
+      {
+        "id": "7999a76d-00eb-4e1b-81ca-e0074e492fa9",
+        "revision": 1
+      },
+      {
+        "id": "79c29f4a-049c-4f80-99d4-feb50914813c",
+        "revision": 1
+      },
+      {
+        "id": "fab8d0b4-8490-40ff-947d-7d9d18a86b68",
+        "revision": 1
+      },
+      {
+        "id": "e4195696-47c0-4598-9633-477fa84617c0",
+        "revision": 1
+      },
+      {
+        "id": "0992b08f-79ff-449f-9d1f-4972833a5846",
+        "revision": 1
+      },
+      {
+        "id": "3206e87d-d058-48dc-b691-4cf20a3679d9",
+        "revision": 1
+      },
+      {
+        "id": "60e3081b-187d-4b2b-b52a-1df93ab5e31c",
+        "revision": 1
+      },
+      {
+        "id": "134717c6-0cc8-4249-981b-b5c18e517d08",
+        "revision": 1
+      }
+    ],
+    "unavailable_refs": [],
+    "canon_hold_refs": [
+      "c2a328d6-9474-4b20-81e2-f57327efa071",
+      "a5a37507-baff-4ad3-87c0-5a405dae0262",
+      "69059156-f3a0-4d96-820c-b342bbedc157",
+      "1d2bf975-171c-48a6-b03b-b1eeb984a32f",
+      "d31dba8f-bdf2-4744-9c47-1359510d9d03",
+      "94cc12aa-9dea-4032-a58e-9e6b216f631d",
+      "d9215850-dcc4-4cb1-b999-e838039e2371",
+      "872262c3-acb0-4d10-bb8d-256dd69bc7f1",
+      "8e045fd6-3b53-404d-bcb5-669527854e2f",
+      "6cd104ac-5256-47e5-8cc2-454e88700f8b",
+      "7999a76d-00eb-4e1b-81ca-e0074e492fa9",
+      "a65f2d80-43bf-4103-b5ee-3bac40281900",
+      "553cc2f0-4dfb-4e9e-a9c0-8f66ccfbbbfb",
+      "0a95e2e3-a6c3-426b-9212-60b27751ce4a",
+      "79c29f4a-049c-4f80-99d4-feb50914813c",
+      "fab8d0b4-8490-40ff-947d-7d9d18a86b68",
+      "eb8b34e9-ec78-47c5-bf60-da24da54d123",
+      "bc9c3db4-018c-4500-ab72-16519ca705d5",
+      "6a61ab8a-d512-49ad-ba33-bd130bb6f534",
+      "e4195696-47c0-4598-9633-477fa84617c0",
+      "0992b08f-79ff-449f-9d1f-4972833a5846",
+      "e2e8e629-c584-48ab-acc3-8c2c9958a583",
+      "2c0f86dd-155d-4b5b-ae1d-5207dfee9e2b",
+      "f2c29259-c5b0-4b9c-a272-1bbefd82645a",
+      "3206e87d-d058-48dc-b691-4cf20a3679d9",
+      "cd8104e3-07fc-416a-bfa9-076888134348",
+      "b6279ad2-0eaf-4f5a-b7fa-d67643574285",
+      "247e8a85-44dd-46cb-ac9c-761b72a68484",
+      "60e3081b-187d-4b2b-b52a-1df93ab5e31c",
+      "134717c6-0cc8-4249-981b-b5c18e517d08"
+    ],
+    "finding_ids": [
+      "f1fcc75e-8c7d-44a7-aed2-d68e860db715",
+      "f5138be7-8137-4360-8129-97933c28b53a",
+      "f8d47499-791b-4f19-a4ed-18bdd844c2ab",
+      "045b572d-fcf6-4521-b2a6-ce88f794094f",
+      "0892fa17-5e1c-4c59-84e5-4d6de2f8f4df",
+      "24217ee6-14c5-4590-bf90-cdfc550e7234",
+      "93c85a29-4d91-4c23-b682-7677c95fbf79"
+    ],
+    "summary": "Sex tillögur metnar hvor í sínu samhengi gagnvart vistuðum höfundarstaðreyndum á sömu tímalínu. Sex veruleg opin álitamál: hvöt, tímaröð, vitneskja, flóttaforsenda, heimsregla og tengslabakgrunnur. Engin úrlausn valin eða tillaga staðfest; fyrri flotbrúarhold varðveitt."
+  },
+  "payload_digest": "5978746551dddc414091cad494fbc62834762044af33aab40c7dcbf240877568"
+}

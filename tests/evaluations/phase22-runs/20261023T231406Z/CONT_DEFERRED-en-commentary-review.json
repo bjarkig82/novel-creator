@@ -1,0 +1,8 @@
+[
+  {
+    "id": "msg_03411d8f27e999d1016ae1cf2660448191a39165346febf792",
+    "text": "I’ll load the saved review and affected records, then save the prepared response before displaying it.",
+    "classification": "administrative",
+    "reason": "Reviewed operational context and save/retry status only; no creative result before save."
+  }
+]

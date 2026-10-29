@@ -1,0 +1,18 @@
+import hashlib,json,os,subprocess,sys
+from pathlib import Path
+paths=['src/novel_creator/storage.py','src/novel_creator/validation.py','tests/performance/benchmark_records.py','tests/integration/test_storage.py','tests/helpers.py']
+def hashes():return {p:hashlib.sha256(Path(p).read_bytes()).hexdigest() for p in paths}
+base=Path('tests/evaluations')
+manifest={'before':hashes(),'environment':{k:os.environ.get(k) for k in ['PYTHONUTF8','PYTHONPATH','PYTHONDONTWRITEBYTECODE']}}
+for platform in ['windows','linux']:
+    prior=json.loads((base/f'{platform}-history-read-verification-20261022.json').read_text(encoding='utf-8'))
+    assert prior['unchanged'] and prior['before']==manifest['before']
+    assert (prior['commands'][0]['exit'] if platform=='windows' else prior['exit'])==0
+command=[sys.executable,'-B','-m','tests.performance.benchmark_records','--runs','30','--progress','--output',str(base/'windows-history-read-default-30-20261022.json')]
+with (base/'windows-history-read-default-progress-20261022.txt').open('w',encoding='utf-8') as log:
+    result=subprocess.run(command,stdout=log,stderr=subprocess.STDOUT)
+manifest.update(argv=command,exit=result.returncode,after=hashes())
+manifest['unchanged']=manifest['before']==manifest['after']
+(base/'windows-history-read-benchmark-verification-20261022.json').write_text(json.dumps(manifest,indent=2)+'\n',encoding='utf-8')
+assert manifest['unchanged']
+raise SystemExit(result.returncode)

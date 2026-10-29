@@ -1,0 +1,14 @@
+[
+  {
+    "id": "msg_03411d8f27e999d1016ae1d1d048d481919429b2db81bd4c31",
+    "text": "I’ll load the saved findings, prepare the requested dispositions and closure, and save the response before displaying it.",
+    "classification": "administrative",
+    "reason": "Reviewed operational context, provenance correction, preparation and save status only; no story before confirmed save."
+  },
+  {
+    "id": "msg_03411d8f27e999d1016ae1d2166e8c8191bf9206fa76335156",
+    "text": "The exchange is prepared. I’m saving it, then checking the persisted response and writing the report.",
+    "classification": "administrative",
+    "reason": "Reviewed operational context, provenance correction, preparation and save status only; no story before confirmed save."
+  }
+]

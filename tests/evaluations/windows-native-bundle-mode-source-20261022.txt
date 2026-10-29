@@ -1,0 +1,93 @@
+"""External fresh Windows bundle-mode query; no runtime source changes."""
+import ctypes,hashlib,inspect,json,os,stat,statistics,sys,time
+from ctypes import wintypes
+from pathlib import Path
+from unittest.mock import patch
+sys.path.insert(0,str(Path.cwd()))
+from novel_creator import records,storage
+from novel_creator.context import read
+from tests.helpers import repository,git
+from tests.performance import benchmark_records as benchmark
+assert os.name=='nt'
+kernel=ctypes.WinDLL('kernel32',use_last_error=True)
+get_attributes=kernel.GetFileAttributesW
+get_attributes.argtypes=[wintypes.LPCWSTR];get_attributes.restype=wintypes.DWORD
+ordinary=(stat.FILE_ATTRIBUTE_NORMAL|stat.FILE_ATTRIBUTE_ARCHIVE|stat.FILE_ATTRIBUTE_READONLY|stat.FILE_ATTRIBUTE_HIDDEN|stat.FILE_ATTRIBUTE_SYSTEM)
+def bundle_mode(path):
+    attributes=get_attributes(path)
+    # Only fresh ordinary-file metadata is used. Every other attribute/error
+    # goes through the existing lstat path, including reparse points and dirs.
+    if attributes and not attributes & ~ordinary:
+        return stat.S_IFREG
+    return os.lstat(path).st_mode
+source=inspect.getsource(storage._checked_path)
+original_line='            mode = os.lstat(current).st_mode'
+assert original_line in source
+source=source.replace(original_line,'            mode = _bundle_mode(current) if bundle and _regular_leaf and not parent else os.lstat(current).st_mode')
+namespace=dict(storage.__dict__);namespace['_bundle_mode']=bundle_mode
+exec(compile(source,'<fresh-Windows-bundle-mode-experiment>','exec'),namespace)
+candidate=namespace['_checked_path']
+frozen=hashlib.sha256(Path(storage.__file__).read_bytes()).hexdigest()
+# API failure/unknown/special attributes must delegate, never invent a type.
+with repository(prefix='novel native mode Þóra-') as root:
+    relative='story/exchanges/000001-'+benchmark.uid()+'.json'
+    leaf=root/relative;leaf.parent.mkdir(parents=True,exist_ok=True);leaf.write_bytes(b'ordinary bytes\n')
+    assert candidate(root,relative,_regular_leaf=True)==storage._checked_path(root,relative,_regular_leaf=True)
+    assert stat.S_IFMT(bundle_mode(str(leaf)))==stat.S_IFMT(os.lstat(leaf).st_mode)
+    actual_lstat=os.lstat
+    for attributes in (0,0xffffffff,stat.FILE_ATTRIBUTE_REPARSE_POINT,stat.FILE_ATTRIBUTE_DIRECTORY,0x40000000):
+        calls=[]
+        def traced(path):calls.append(path);return actual_lstat(path)
+        with patch.dict(bundle_mode.__globals__,{'get_attributes':lambda path:attributes}),patch.object(os,'lstat',traced):
+            assert stat.S_IFMT(bundle_mode(str(leaf)))==stat.S_IFREG
+        assert calls==[str(leaf)],calls
+    leaf.unlink();leaf.mkdir()
+    for selected in (storage._checked_path,candidate):
+        try:selected(root,relative,_regular_leaf=True)
+        except storage.ToolError as error:assert error.code==3
+        else:raise AssertionError('Directory accepted as a regular leaf')
+    leaf.rmdir()
+    for selected in (storage._checked_path,candidate):
+        try:selected(root,relative,_regular_leaf=True)
+        except storage.ToolError as error:assert error.code==3
+        else:raise AssertionError('Missing leaf accepted')
+    link_target=root/'target.txt';link_target.write_bytes(b'ordinary bytes\n')
+    try:leaf.symlink_to(link_target)
+    except OSError as error:
+        if getattr(error,'winerror',None) not in (5,1314):raise
+        symlink={'status':'unverified','winerror':error.winerror}
+    else:
+        for selected in (storage._checked_path,candidate):
+            try:selected(root,relative,_regular_leaf=True)
+            except storage.ToolError as error:assert error.code==2
+            else:raise AssertionError('Real symlink accepted')
+        symlink={'status':'verified'}
+        leaf.unlink()
+print(json.dumps({'conformance':'ordinary/directory/missing/API-error/unknown/special-attribute fallback passed','real_symlink':symlink,'production_unchanged':True}),flush=True)
+with benchmark.benchmark_key(True),repository(prefix='novel native metadata Þóra-') as root:
+    novel=records.loads((root/'.novel-creator/manifest.json').read_bytes())['novel_id']
+    history,fixture=benchmark.generate(novel)
+    for exchange in history:
+        target=root/storage.bundle_path(exchange);target.parent.mkdir(parents=True,exist_ok=True);target.write_bytes(benchmark.serialized(exchange))
+    git(root,'add','story/exchanges');git(root,'commit','-m','Fresh metadata query diagnostic fixture')
+    del history,exchange
+    read(root);fixture['fully_validated']=True
+    commit=storage.head(root);entries=storage.committed_entries(root,commit)
+    managed=[p for p in entries if p.startswith(('story/exchanges/','.novel-creator/')) and not p.startswith('.novel-creator/local/')]
+    print(json.dumps({'fixture':fixture,'source_sha256':frozen,'checked_path_candidate_sha256':hashlib.sha256(source.encode()).hexdigest(),'method':'Four balanced samples per existing/native query for complete metadata phase and complete guard with four full-byte hash readers. Fresh per-leaf query, no enumeration/cache; parents/non-bundle/special/error paths retain lstat. Ordinary layout, all real content/index checks active; not p95 or adoption.'}),flush=True)
+    for operation in ('metadata','guard'):
+        samples={0:[],1:[]}
+        for use_native in [0,1,1,0]*2:
+            selected=candidate if use_native else storage._checked_path
+            start=time.perf_counter()
+            if operation=='metadata':
+                directories=set()
+                for path in managed:selected(root,path,setup=True,_regular_leaf=True,_directories=directories)
+            else:
+                with patch.object(storage,'_checked_path',selected):
+                    assert storage.check_managed(root,commit,[],entries=entries,hash_workers=4)==entries
+            elapsed=time.perf_counter()-start;samples[use_native].append(elapsed)
+            print(json.dumps({'operation':operation,'native':use_native,'seconds':elapsed,'managed_count':len(managed)}),flush=True)
+        print(json.dumps({'operation':operation,'medians':{str(k):statistics.median(v) for k,v in samples.items()}}),flush=True)
+    assert frozen==hashlib.sha256(Path(storage.__file__).read_bytes()).hexdigest()
+    print(json.dumps({'source_unchanged':True}),flush=True)

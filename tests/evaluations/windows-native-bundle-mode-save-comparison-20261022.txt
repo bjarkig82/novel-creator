@@ -1,0 +1,11 @@
+{"attribute_table": "passed", "accepted_combinations": 16, "fallback_combinations": 21, "NORMAL_must_be_alone": true}
+{"fixture": {"sessions": 100, "exchanges": 5000, "active_assertions": 10000, "json_bytes": 26215716, "synthetic": true, "fully_validated": true}, "source_sha256": "9bbcb0acb6442ef45ce564d4b9980abe5889fbd0373d14acb2387ae429bf2a44", "helper_sha256": "f941509a353fda489b614adb2421f244c3e4aa0bda30a2bec8e4ab17b1fecfcb", "method": "Eight fresh-worker complete saves, ABBA/ABBA, four per existing/fresh-native-leaf type query. Ordinary layout, optional external private cache key, original public payload preparation retained. All native queries and six complete root-bound hash partitions counted. Diagnostic, not p95 or production adoption."}
+{"native": 0, "seconds": 5.301670400076546, "sequence": 5001, "cleanup_required": false, "git_calls": 27, "complete_hash_files": 10002, "native_leaf_queries": 0}
+{"native": 1, "seconds": 4.039916499983519, "sequence": 5002, "cleanup_required": false, "git_calls": 27, "complete_hash_files": 10004, "native_leaf_queries": 10002}
+{"native": 1, "seconds": 2.7486574000213295, "sequence": 5003, "cleanup_required": false, "git_calls": 27, "complete_hash_files": 10006, "native_leaf_queries": 10004}
+{"native": 0, "seconds": 3.5247065000003204, "sequence": 5004, "cleanup_required": false, "git_calls": 27, "complete_hash_files": 10008, "native_leaf_queries": 0}
+{"native": 0, "seconds": 3.2203607000410557, "sequence": 5005, "cleanup_required": false, "git_calls": 27, "complete_hash_files": 10010, "native_leaf_queries": 0}
+{"native": 1, "seconds": 3.593609999981709, "sequence": 5006, "cleanup_required": false, "git_calls": 27, "complete_hash_files": 10012, "native_leaf_queries": 10010}
+{"native": 1, "seconds": 4.758642100030556, "sequence": 5007, "cleanup_required": false, "git_calls": 27, "complete_hash_files": 10014, "native_leaf_queries": 10012}
+{"native": 0, "seconds": 6.741653400007635, "sequence": 5008, "cleanup_required": false, "git_calls": 27, "complete_hash_files": 10016, "native_leaf_queries": 0}
+{"medians": {"0": 4.413188450038433, "1": 3.816763249982614}, "source_unchanged": true, "helper_unchanged": true}

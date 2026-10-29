@@ -33,6 +33,14 @@ erroneous prior version and identify what changed. Capture proposals as proposed
 or unresolved; lack of acceptance does not mean rejection. Store mutually
 exclusive alternatives separately with alternative_group_id. Record questions
 with open state until an explicit resolution; unanswered questions imply no fact.
+Before digesting the exchange, compare both exact messages with the prepared
+captures. Save each newly raised open question as a question record, including
+reader-feeling/preferences and whether a proposed direction is worth exploring;
+link its exact source and add its ID to the session's unresolved_question_ids.
+Reuse an existing question when repeating it; do not duplicate it or infer an
+answer from a topic change. Resolve a question only from explicit direction,
+retaining its prior revision. Review all new proposals and explicit decisions
+in the same pass so a summary cannot silently omit uncaptured open issues.
 Names are display text, never identity. Keep author truth, character knowledge,
 beliefs and reader revelation distinct, with unknown timing explicit.
 
@@ -43,7 +51,7 @@ saved response, and pause agent-initiated exploration until user direction.
 Current explicit direction satisfies the pause; closing needs no extra approval.
 Never delay saving or request another approval of an already clear acceptance.
 
-Follow entry.md's exact native capture and save-before-display procedure on every
+Follow entry.md's explicitly selected input-capture and save-before-display procedure on every
 turn automatically. Save session changes, captures, continuity assessment and
 messages in one envelope. Only then display its unchanged assistant message.
 On failure disclose unsaved work, checkpoint and unchanged pending exchange;

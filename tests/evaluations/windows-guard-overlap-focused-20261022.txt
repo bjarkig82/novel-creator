@@ -1,0 +1,10 @@
+test_edit_after_background_guard_during_validation_stays_pending (tests.integration.test_storage.StorageTests.test_edit_after_background_guard_during_validation_stays_pending) ... ok
+test_unreadable_history_keeps_precedence_over_background_guard_failure (tests.integration.test_storage.StorageTests.test_unreadable_history_keeps_precedence_over_background_guard_failure) ... ok
+test_full_file_guard_uses_novel_root_and_fresh_bytes_and_index (tests.integration.test_storage.StorageTests.test_full_file_guard_uses_novel_root_and_fresh_bytes_and_index) ... ok
+test_second_guard_rejects_tampering_under_changed_worktree_config_and_index_prefix (tests.integration.test_storage.StorageTests.test_second_guard_rejects_tampering_under_changed_worktree_config_and_index_prefix) ... ok
+test_clean_save_continuation_and_retry_leave_managed_index_synchronized (tests.integration.test_storage.StorageTests.test_clean_save_continuation_and_retry_leave_managed_index_synchronized) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 23.715s
+
+OK

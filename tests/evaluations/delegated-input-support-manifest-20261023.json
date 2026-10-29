@@ -1,0 +1,63 @@
+{
+  "task": "T162",
+  "source_sha256": {
+    "src/novel_creator/host_input.py": "01b1922cb27e50ce884c477f2aed158f066991eed0d63e394e15bdc19b3afb67",
+    "src/novel_creator/validation.py": "cbbae36120accdebc4e499f4331b212ccf806fc0e7b020e9349c31878b3a9aee",
+    "src/novel_creator/cli.py": "fda87c4155b0ffb94a995e384c2671db771306e569cf12ec6e2dc5ab1a87b0e9"
+  },
+  "results": {
+    "windows": {
+      "tests": 165,
+      "passed": 163,
+      "skipped": 2,
+      "seconds": 1143.908,
+      "wheel_sha256": "d0bc73c599e9c84449202556a394a0d3ab9a6c2b5790c9241c63159d422289a0"
+    },
+    "linux": {
+      "tests": 165,
+      "passed": 162,
+      "skipped": 3,
+      "seconds": 97.115,
+      "wheel_sha256": "d0bc73c599e9c84449202556a394a0d3ab9a6c2b5790c9241c63159d422289a0"
+    }
+  },
+  "native_input_requirement_retained": true,
+  "novice_requirement_retained": true,
+  "host_cases_reported_separately": true,
+  "performance_remeasured": true,
+  "performance_report": "windows-delegated-provenance-performance-20261023.md",
+  "files": {
+    "src/novel_creator/__init__.py": "277031de0bb8a6cf825d6f25829addaefcdee170a24613786fe6cdc561c2738a",
+    "src/novel_creator/__main__.py": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+    "src/novel_creator/cli.py": "fda87c4155b0ffb94a995e384c2671db771306e569cf12ec6e2dc5ab1a87b0e9",
+    "src/novel_creator/context.py": "ce1a7819457b7dd700cf5478fed1746337d80efd38825c4d69c90d77711a1e54",
+    "src/novel_creator/host_input.py": "01b1922cb27e50ce884c477f2aed158f066991eed0d63e394e15bdc19b3afb67",
+    "src/novel_creator/install.py": "fe55d057d08361d52eb3c46f2ee006bef1f8c14c3c52ab8bbc25e6738cc69b79",
+    "src/novel_creator/records.py": "a13dc0ba0b94e32a010571f48ee34d304e1c79fa11bffcce2733583ba81bac1e",
+    "src/novel_creator/storage.py": "40c7c1ef61af98e9c1e04292d2befc963bd48bbd45196ce8cbf91576f3ee771b",
+    "src/novel_creator/validation.py": "cbbae36120accdebc4e499f4331b212ccf806fc0e7b020e9349c31878b3a9aee",
+    "src/novel_creator/validation_cache.py": "db43c3c1e480122a27f39d14a890fbbfa9f8c20eac426e323c613422e9a7fd55",
+    "tests/evaluations/delegated-input-artifact-red-20261023.txt": "126b23bca1551b87e9f70c6f91a1e0c51a56d0105782c9f8b0927f77fcaed696",
+    "tests/evaluations/delegated-input-current-turn-red-20261023.txt": "5081ea0446cc2874052504e7058259d265dd84de3dc0bfd8956569342085e90d",
+    "tests/evaluations/delegated-input-final-wheel-build-20261023.txt": "c5060936878c78c32cd5a624aff0b5fc6ed3ba4facd4a7300a0a110ba3a31aa1",
+    "tests/evaluations/delegated-input-red-20261023.txt": "180a85489893b92f4570fee2f3f53f023f88ecbf603e8385537033f7c8fdff8e",
+    "tests/evaluations/delegated-input-support-20261023.md": "46257477f029953b59d8f3d56f8144bc5d3cf8e1d6f8e4d2c76e9e7cebcde0e4",
+    "tests/evaluations/delegated-input-unit-20261023.txt": "e7f7a006b4138b146cd503bb148eebe684968ecb0d1216aeecf74d956b6dfa73",
+    "tests/evaluations/delegated-input-wheel-build-20261023.txt": "21d318fa19e22d1b4d4e2e6b0e5cbf7b0c2be179d4597a2d5f1d22dc47f1d079",
+    "tests/evaluations/delegated-provenance-wheel-build-20261023.txt": "005389981cd9168f72447db1f53e0bb3890304a0043d8029df6ddd44727b5c2d",
+    "tests/evaluations/linux-delegated-input-final-regressions-20261023.txt": "c82c7508ac6fb540a8ea3d863754ee4b12c5798a8284702ec4f1685bc63ba7d8",
+    "tests/evaluations/linux-delegated-input-focused-20261023.txt": "63e7bec4a1d3b60f386b08d114241ba1df8fad3117ced6f38929a1370a7f4fe7",
+    "tests/evaluations/linux-delegated-input-wheel-20261023.json": "7a6c9aef4b3b7fa507ed492a0d8c1384f9b09449a77a64ac3feeaea4145a350c",
+    "tests/evaluations/linux-delegated-provenance-full-20261023.txt": "c163424fbd15e43744e81c6319f8e64a01959e13aca071e4b876cd5879ee7214",
+    "tests/evaluations/linux-delegated-provenance-wheel-20261023.json": "03604456a22de4597125702a84e5c973eba41516e00955d153a906534b2cbac2",
+    "tests/evaluations/verify-delegated-support-20261023.py": "7015cdf8522cbc34c2ffc6331c40618598a8688ba69ff3288a5d7778e39a8800",
+    "tests/evaluations/windows-delegated-input-final-regressions-20261023.txt": "38c0bcbad69288c849628da30cb1783369cc1e2e146b75530e293ff3b3a17221",
+    "tests/evaluations/windows-delegated-input-focused-20261023.txt": "def7883e2eb53bb2d94c335832059b4bb820481953876865883f44255ca9772b",
+    "tests/evaluations/windows-delegated-input-wheel-20261023.json": "f6966326ba440e471415cc31d5ba6da46ed35c3a12ae9130db4f58395aff20da",
+    "tests/evaluations/windows-delegated-provenance-default-30-20261023.json": "bfd409a507c8d9792a0a61f220e704e62c31bef1eb00a212b365986656e270b7",
+    "tests/evaluations/windows-delegated-provenance-default-progress-20261023.txt": "6aec1557e5f4f8083fac8d93cefa2ad2e265af11685ed31031392c14e44ac1b0",
+    "tests/evaluations/windows-delegated-provenance-full-20261023.txt": "9a516f2ba30af14c8907605ecde85c32c4853475649c1c25b5bcd708886283ff",
+    "tests/evaluations/windows-delegated-provenance-performance-20261023.md": "2017a2a3e4c73df4eaa3fb9f4691662881252f916717cfacc43d9addab6dba66",
+    "tests/evaluations/windows-delegated-provenance-wheel-20261023.json": "b10172b229b0a2cd065589252dce7464281f4a579ca54129de4c5c296ebf52fc"
+  }
+}

@@ -1,0 +1,144 @@
+running bdist_wheel
+running build
+running build_py
+copying src\novel_creator\storage.py -> build\lib\novel_creator
+running egg_info
+writing novel_creator.egg-info\PKG-INFO
+writing dependency_links to novel_creator.egg-info\dependency_links.txt
+writing entry points to novel_creator.egg-info\entry_points.txt
+writing requirements to novel_creator.egg-info\requires.txt
+writing top-level names to novel_creator.egg-info\top_level.txt
+reading manifest file 'novel_creator.egg-info\SOURCES.txt'
+writing manifest file 'novel_creator.egg-info\SOURCES.txt'
+C:\Users\BjarkiGunnarsson\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\site-packages\setuptools\command\build_py.py:215: _Warning: Package 'novel_creator.codex.skills' is absent from the `packages` configuration.
+!!
+
+        ********************************************************************************
+        ############################
+        # Package would be ignored #
+        ############################
+        Python recognizes 'novel_creator.codex.skills' as an importable package[^1],
+        but it is absent from setuptools' `packages` configuration.
+
+        This leads to an ambiguous overall configuration. If you want to distribute this
+        package, please make sure that 'novel_creator.codex.skills' is explicitly added
+        to the `packages` configuration field.
+
+        Alternatively, you can also rely on setuptools' discovery methods
+        (for example by using `find_namespace_packages(...)`/`find_namespace:`
+        instead of `find_packages(...)`/`find:`).
+
+        You can read more about "package discovery" on setuptools documentation page:
+
+        - https://setuptools.pypa.io/en/latest/userguide/package_discovery.html
+
+        If you don't want 'novel_creator.codex.skills' to be distributed and are
+        already explicitly excluding 'novel_creator.codex.skills' via
+        `find_namespace_packages(...)/find_namespace` or `find_packages(...)/find`,
+        you can try to use `exclude_package_data`, or `include-package-data=False` in
+        combination with a more fine grained `package-data` configuration.
+
+        You can read more about "package data files" on setuptools documentation page:
+
+        - https://setuptools.pypa.io/en/latest/userguide/datafiles.html
+
+
+        [^1]: For Python, any directory (with suitable naming) can be imported,
+              even if it does not contain any `.py` files.
+              On the other hand, currently there is no concept of package data
+              directory, all directories are treated like packages.
+        ********************************************************************************
+
+!!
+  check.warn(importable)
+warning: build_py: byte-compiling is disabled, skipping.
+
+installing to build\bdist.win-amd64\wheel
+running install
+running install_lib
+creating build\bdist.win-amd64\wheel
+creating build\bdist.win-amd64\wheel\novel_creator
+copying build\lib\novel_creator\cli.py -> build\bdist.win-amd64\wheel\.\novel_creator
+creating build\bdist.win-amd64\wheel\novel_creator\codex
+copying build\lib\novel_creator\codex\AGENTS.fragment.md -> build\bdist.win-amd64\wheel\.\novel_creator\codex
+copying build\lib\novel_creator\codex\AGENTS.production.md -> build\bdist.win-amd64\wheel\.\novel_creator\codex
+creating build\bdist.win-amd64\wheel\novel_creator\codex\skills
+creating build\bdist.win-amd64\wheel\novel_creator\codex\skills\novel-brainstorm
+copying build\lib\novel_creator\codex\skills\novel-brainstorm\SKILL.md -> build\bdist.win-amd64\wheel\.\novel_creator\codex\skills\novel-brainstorm
+creating build\bdist.win-amd64\wheel\novel_creator\codex\skills\novel-init
+copying build\lib\novel_creator\codex\skills\novel-init\SKILL.md -> build\bdist.win-amd64\wheel\.\novel_creator\codex\skills\novel-init
+creating build\bdist.win-amd64\wheel\novel_creator\codex\skills\novel-inspect
+copying build\lib\novel_creator\codex\skills\novel-inspect\SKILL.md -> build\bdist.win-amd64\wheel\.\novel_creator\codex\skills\novel-inspect
+creating build\bdist.win-amd64\wheel\novel_creator\codex\skills\novel-resume
+copying build\lib\novel_creator\codex\skills\novel-resume\SKILL.md -> build\bdist.win-amd64\wheel\.\novel_creator\codex\skills\novel-resume
+copying build\lib\novel_creator\codex\__init__.py -> build\bdist.win-amd64\wheel\.\novel_creator\codex
+copying build\lib\novel_creator\context.py -> build\bdist.win-amd64\wheel\.\novel_creator
+copying build\lib\novel_creator\install.py -> build\bdist.win-amd64\wheel\.\novel_creator
+creating build\bdist.win-amd64\wheel\novel_creator\languages
+copying build\lib\novel_creator\languages\en.md -> build\bdist.win-amd64\wheel\.\novel_creator\languages
+copying build\lib\novel_creator\languages\is.md -> build\bdist.win-amd64\wheel\.\novel_creator\languages
+copying build\lib\novel_creator\languages\__init__.py -> build\bdist.win-amd64\wheel\.\novel_creator\languages
+copying build\lib\novel_creator\records.py -> build\bdist.win-amd64\wheel\.\novel_creator
+creating build\bdist.win-amd64\wheel\novel_creator\schemas
+creating build\bdist.win-amd64\wheel\novel_creator\schemas\v1
+copying build\lib\novel_creator\schemas\v1\exchange.schema.json -> build\bdist.win-amd64\wheel\.\novel_creator\schemas\v1
+copying build\lib\novel_creator\schemas\v1\records.schema.json -> build\bdist.win-amd64\wheel\.\novel_creator\schemas\v1
+copying build\lib\novel_creator\schemas\v1\__init__.py -> build\bdist.win-amd64\wheel\.\novel_creator\schemas\v1
+copying build\lib\novel_creator\schemas\__init__.py -> build\bdist.win-amd64\wheel\.\novel_creator\schemas
+copying build\lib\novel_creator\storage.py -> build\bdist.win-amd64\wheel\.\novel_creator
+copying build\lib\novel_creator\validation.py -> build\bdist.win-amd64\wheel\.\novel_creator
+copying build\lib\novel_creator\validation_cache.py -> build\bdist.win-amd64\wheel\.\novel_creator
+creating build\bdist.win-amd64\wheel\novel_creator\workflows
+copying build\lib\novel_creator\workflows\authority.md -> build\bdist.win-amd64\wheel\.\novel_creator\workflows
+copying build\lib\novel_creator\workflows\brainstorm.md -> build\bdist.win-amd64\wheel\.\novel_creator\workflows
+copying build\lib\novel_creator\workflows\continuity.md -> build\bdist.win-amd64\wheel\.\novel_creator\workflows
+copying build\lib\novel_creator\workflows\entry.md -> build\bdist.win-amd64\wheel\.\novel_creator\workflows
+copying build\lib\novel_creator\workflows\initialize.md -> build\bdist.win-amd64\wheel\.\novel_creator\workflows
+copying build\lib\novel_creator\workflows\resume.md -> build\bdist.win-amd64\wheel\.\novel_creator\workflows
+copying build\lib\novel_creator\workflows\__init__.py -> build\bdist.win-amd64\wheel\.\novel_creator\workflows
+copying build\lib\novel_creator\__init__.py -> build\bdist.win-amd64\wheel\.\novel_creator
+copying build\lib\novel_creator\__main__.py -> build\bdist.win-amd64\wheel\.\novel_creator
+warning: install_lib: byte-compiling is disabled, skipping.
+
+running install_egg_info
+Copying novel_creator.egg-info to build\bdist.win-amd64\wheel\.\novel_creator-0.1.0-py3.12.egg-info
+running install_scripts
+creating build\bdist.win-amd64\wheel\novel_creator-0.1.0.dist-info\WHEEL
+creating 'C:\\Users\\BjarkiGunnarsson\\source\\repos\\Personal\\novel-creator\\dist\\candidate-blob-hash-20261023\\.tmp-4dq4iv6v\\novel_creator-0.1.0-py3-none-any.whl' and adding 'build\\bdist.win-amd64\\wheel' to it
+adding 'novel_creator/__init__.py'
+adding 'novel_creator/__main__.py'
+adding 'novel_creator/cli.py'
+adding 'novel_creator/context.py'
+adding 'novel_creator/install.py'
+adding 'novel_creator/records.py'
+adding 'novel_creator/storage.py'
+adding 'novel_creator/validation.py'
+adding 'novel_creator/validation_cache.py'
+adding 'novel_creator/codex/AGENTS.fragment.md'
+adding 'novel_creator/codex/AGENTS.production.md'
+adding 'novel_creator/codex/__init__.py'
+adding 'novel_creator/codex/skills/novel-brainstorm/SKILL.md'
+adding 'novel_creator/codex/skills/novel-init/SKILL.md'
+adding 'novel_creator/codex/skills/novel-inspect/SKILL.md'
+adding 'novel_creator/codex/skills/novel-resume/SKILL.md'
+adding 'novel_creator/languages/__init__.py'
+adding 'novel_creator/languages/en.md'
+adding 'novel_creator/languages/is.md'
+adding 'novel_creator/schemas/__init__.py'
+adding 'novel_creator/schemas/v1/__init__.py'
+adding 'novel_creator/schemas/v1/exchange.schema.json'
+adding 'novel_creator/schemas/v1/records.schema.json'
+adding 'novel_creator/workflows/__init__.py'
+adding 'novel_creator/workflows/authority.md'
+adding 'novel_creator/workflows/brainstorm.md'
+adding 'novel_creator/workflows/continuity.md'
+adding 'novel_creator/workflows/entry.md'
+adding 'novel_creator/workflows/initialize.md'
+adding 'novel_creator/workflows/resume.md'
+adding 'novel_creator-0.1.0.dist-info/METADATA'
+adding 'novel_creator-0.1.0.dist-info/WHEEL'
+adding 'novel_creator-0.1.0.dist-info/entry_points.txt'
+adding 'novel_creator-0.1.0.dist-info/top_level.txt'
+adding 'novel_creator-0.1.0.dist-info/RECORD'
+removing build\bdist.win-amd64\wheel
+novel_creator-0.1.0-py3-none-any.whl

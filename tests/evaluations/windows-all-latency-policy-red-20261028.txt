@@ -1,0 +1,18 @@
+test_save_operation_failure_cannot_become_success (tests.contract.test_benchmark_policy.BenchmarkPolicyTests.test_save_operation_failure_cannot_become_success) ... ok
+test_save_timeout_cannot_become_success (tests.contract.test_benchmark_policy.BenchmarkPolicyTests.test_save_timeout_cannot_become_success) ... ok
+test_successful_slow_reads_are_measured_without_a_latency_pass_claim (tests.contract.test_benchmark_policy.BenchmarkPolicyTests.test_successful_slow_reads_are_measured_without_a_latency_pass_claim) ... FAIL
+test_successful_slow_saves_are_measured_without_a_latency_pass_claim (tests.contract.test_benchmark_policy.BenchmarkPolicyTests.test_successful_slow_saves_are_measured_without_a_latency_pass_claim) ... ok
+
+======================================================================
+FAIL: test_successful_slow_reads_are_measured_without_a_latency_pass_claim (tests.contract.test_benchmark_policy.BenchmarkPolicyTests.test_successful_slow_reads_are_measured_without_a_latency_pass_claim)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\contract\test_benchmark_policy.py", line 35, in test_successful_slow_reads_are_measured_without_a_latency_pass_claim
+    self.assertEqual(code, 0)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^
+AssertionError: 1 != 0
+
+----------------------------------------------------------------------
+Ran 4 tests in 13.510s
+
+FAILED (failures=1)

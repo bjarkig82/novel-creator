@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\evaluations\poc-runs\20261023T223255Z\verify_workflows.py", line 31, in <module>
+    question_check(json.loads(before.read_bytes()))
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\evaluations\poc-runs\20261023T223255Z\verify_workflows.py", line 15, in question_check
+    assert questions, "New open question was displayed without a question record"
+           ^^^^^^^^^
+AssertionError: New open question was displayed without a question record

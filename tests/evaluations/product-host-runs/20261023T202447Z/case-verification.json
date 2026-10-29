@@ -1,0 +1,1033 @@
+{
+  "ok": true,
+  "scope": "delegated case persistence and display only",
+  "semantic_assessment": "separately recorded agent judgment; no human ratings",
+  "cases": [
+    {
+      "case_id": "A01",
+      "language": "en",
+      "thread_id": "01a16833-e1cf-79d2-bee0-80a6ca973e3c",
+      "turn_id": "01a16a89-af0f-7d42-b09f-fb33b125b9fa",
+      "exchange_id": "341e9a54-1270-40e0-abc6-d689c55f3f2d",
+      "checkpoint": {
+        "git_head": "27b3cf385fbed571d6b27bcf245dceb31d4802ee",
+        "exchange_id": "341e9a54-1270-40e0-abc6-d689c55f3f2d",
+        "sequence": 9
+      },
+      "exact_input_saved": true,
+      "exact_response_saved_and_displayed": true,
+      "save_precedes_display": true,
+      "source_type": "delegated",
+      "novice_evidence": false,
+      "response": "Established: the keeper sent the letter.\n\nHis motive, what the letter says, and the childhood drawer remain undecided.",
+      "record_kinds": [
+        "idea",
+        "story_element",
+        "assertion",
+        "question",
+        "decision",
+        "session"
+      ],
+      "session_changes": [
+        {
+          "id": "5c6111bf-1bc4-4679-8354-b673e96a06f0",
+          "mode": "guided",
+          "topic": "The keeper's motive for retrieving the letter",
+          "status": null
+        }
+      ]
+    },
+    {
+      "case_id": "A01",
+      "language": "is",
+      "thread_id": "01a16833-fa8e-7ec1-9c69-53dc7eaec197",
+      "turn_id": "01a16a89-b8c9-70c0-98ba-166f0f0c292d",
+      "exchange_id": "acb3b31d-2b9b-4751-85dc-985c091fa1f9",
+      "checkpoint": {
+        "git_head": "082e4163dab3c0441dc4a5967b2c2d52f1130db7",
+        "exchange_id": "acb3b31d-2b9b-4751-85dc-985c091fa1f9",
+        "sequence": 9
+      },
+      "exact_input_saved": true,
+      "exact_response_saved_and_displayed": true,
+      "save_precedes_display": true,
+      "source_type": "delegated",
+      "novice_evidence": false,
+      "response": "Staðfest: Vitavörðurinn sendi bréfið sjálfur. Það er nú sögustaðreynd. Hvöt hans, bernskan og aðrar hugmyndir um bréfið eru áfram óákveðnar.",
+      "record_kinds": [
+        "idea",
+        "story_element",
+        "assertion",
+        "question",
+        "decision",
+        "session"
+      ],
+      "session_changes": [
+        {
+          "id": "89fb0978-b405-481d-bf72-025f7f0e7e9b",
+          "mode": "guided",
+          "topic": "Bernska vitavarðarins",
+          "status": null
+        }
+      ]
+    },
+    {
+      "case_id": "A10",
+      "language": "en",
+      "thread_id": "01a16833-e1cf-79d2-bee0-80a6ca973e3c",
+      "turn_id": "01a16a8c-ba03-7a90-a3c7-ed9167e3d0c9",
+      "exchange_id": "00246238-3a0c-47ae-bf93-65bc94455205",
+      "checkpoint": {
+        "git_head": "cedceae0b6e36c87d0bc125f491c3e6ca024ca0d",
+        "exchange_id": "00246238-3a0c-47ae-bf93-65bc94455205",
+        "sequence": 10
+      },
+      "exact_input_saved": true,
+      "exact_response_saved_and_displayed": true,
+      "save_precedes_display": true,
+      "source_type": "delegated",
+      "novice_evidence": false,
+      "response": "We'll keep a storm in the story. The shipwreck stays a possibility, with no decision about whether it happens or connects to the storm. The storm's timing and details are still open.",
+      "record_kinds": [
+        "idea",
+        "story_element",
+        "assertion",
+        "idea",
+        "decision",
+        "session"
+      ],
+      "session_changes": [
+        {
+          "id": "5c6111bf-1bc4-4679-8354-b673e96a06f0",
+          "mode": "guided",
+          "topic": "The storm and possible shipwreck",
+          "status": null
+        }
+      ]
+    },
+    {
+      "case_id": "A10",
+      "language": "is",
+      "thread_id": "01a16833-fa8e-7ec1-9c69-53dc7eaec197",
+      "turn_id": "01a16a8c-c5fd-7950-9bcb-0f707e321bc1",
+      "exchange_id": "f0c53e66-c28e-40f9-8eed-e2331a37c401",
+      "checkpoint": {
+        "git_head": "cdcbf9aa426b1678f3fc01d85feabdaa357ec43c",
+        "exchange_id": "f0c53e66-c28e-40f9-8eed-e2331a37c401",
+        "sequence": 10
+      },
+      "exact_input_saved": true,
+      "exact_response_saved_and_displayed": true,
+      "save_precedes_display": true,
+      "source_type": "delegated",
+      "novice_evidence": false,
+      "response": "Ég skil að þú viljir halda storminum en láta skipskaðann vera óstaðfestan möguleika. Ég finn þó enga fyrri hugmynd um storm eða skipskaða í vistuðu samtalinu. Hvaða atvik ertu að vísa til?",
+      "record_kinds": [
+        "idea",
+        "idea",
+        "question",
+        "session"
+      ],
+      "session_changes": [
+        {
+          "id": "89fb0978-b405-481d-bf72-025f7f0e7e9b",
+          "mode": "guided",
+          "topic": "Bernska vitavarðarins",
+          "status": null
+        }
+      ]
+    },
+    {
+      "case_id": "A10_CONTEXT",
+      "language": "en",
+      "thread_id": "01a16833-e1cf-79d2-bee0-80a6ca973e3c",
+      "turn_id": "01a16a8f-acae-7190-9849-316ac55a8a69",
+      "exchange_id": "067d9c45-5828-4d7b-86ab-0426dcc8fbc1",
+      "checkpoint": {
+        "git_head": "bf4895a0c2f764b4d9974d652918820d36d57386",
+        "exchange_id": "067d9c45-5828-4d7b-86ab-0426dcc8fbc1",
+        "sequence": 11
+      },
+      "exact_input_saved": true,
+      "exact_response_saved_and_displayed": true,
+      "save_precedes_display": true,
+      "source_type": "delegated",
+      "novice_evidence": false,
+      "response": "Understood: a new storm at the lighthouse is established. The shipwreck remains only a possibility.",
+      "record_kinds": [
+        "story_element",
+        "idea",
+        "assertion",
+        "decision",
+        "session"
+      ],
+      "session_changes": [
+        {
+          "id": "5c6111bf-1bc4-4679-8354-b673e96a06f0",
+          "mode": "guided",
+          "topic": "The new storm at the lighthouse",
+          "status": null
+        }
+      ]
+    },
+    {
+      "case_id": "A10_CONTEXT",
+      "language": "is",
+      "thread_id": "01a16833-fa8e-7ec1-9c69-53dc7eaec197",
+      "turn_id": "01a16a8f-ba20-7921-ab0c-d0d48a54318d",
+      "exchange_id": "9a5c6fdb-cf5c-435f-b61a-888b84dc8faa",
+      "checkpoint": {
+        "git_head": "bd45159b84aa399c66298027dc9043284b0a89ba",
+        "exchange_id": "9a5c6fdb-cf5c-435f-b61a-888b84dc8faa",
+        "sequence": 11
+      },
+      "exact_input_saved": true,
+      "exact_response_saved_and_displayed": true,
+      "save_precedes_display": true,
+      "source_type": "delegated",
+      "novice_evidence": false,
+      "response": "Staðfest: Stormur verður við vitann. Skipskaði er áfram aðeins möguleiki og hefur ekki verið staðfestur sem atburður. Tímasetning stormsins og tengsl hans við bréfið eru enn opin.",
+      "record_kinds": [
+        "idea",
+        "story_element",
+        "assertion",
+        "question",
+        "idea",
+        "decision",
+        "session"
+      ],
+      "session_changes": [
+        {
+          "id": "89fb0978-b405-481d-bf72-025f7f0e7e9b",
+          "mode": "guided",
+          "topic": "Bernska vitavarðarins",
+          "status": null
+        }
+      ]
+    },
+    {
+      "case_id": "A11",
+      "language": "en",
+      "thread_id": "01a16833-e1cf-79d2-bee0-80a6ca973e3c",
+      "turn_id": "01a16a98-040e-7782-8c7b-7f943146aa3e",
+      "exchange_id": "bb36f7ee-da2b-427c-830e-7060b5950c68",
+      "checkpoint": {
+        "git_head": "e26bf5f125011322c6040ddc325ebb0421f3d88a",
+        "exchange_id": "bb36f7ee-da2b-427c-830e-7060b5950c68",
+        "sequence": 13
+      },
+      "exact_input_saved": true,
+      "exact_response_saved_and_displayed": true,
+      "save_precedes_display": true,
+      "source_type": "delegated",
+      "novice_evidence": false,
+      "response": "Established: the lighthouse emits a blue light.\n\nThe warning bell remains a proposal; it is not established.",
+      "record_kinds": [
+        "idea",
+        "idea",
+        "idea",
+        "story_element",
+        "assertion",
+        "decision",
+        "session"
+      ],
+      "session_changes": [
+        {
+          "id": "5c6111bf-1bc4-4679-8354-b673e96a06f0",
+          "mode": "guided",
+          "topic": "The blue light and proposed warning bell",
+          "status": null
+        }
+      ]
+    },
+    {
+      "case_id": "A11",
+      "language": "is",
+      "thread_id": "01a16833-fa8e-7ec1-9c69-53dc7eaec197",
+      "turn_id": "01a16a98-0d29-78d0-8950-5aa1c3f21b2c",
+      "exchange_id": "7613de45-9499-471d-aa30-23b1d6b7c83d",
+      "checkpoint": {
+        "git_head": "f85d78b7b56fa3b44547a8d072ea161c699d0bde",
+        "exchange_id": "7613de45-9499-471d-aa30-23b1d6b7c83d",
+        "sequence": 13
+      },
+      "exact_input_saved": true,
+      "exact_response_saved_and_displayed": true,
+      "save_precedes_display": true,
+      "source_type": "delegated",
+      "novice_evidence": false,
+      "response": "Staðfest: Vitinn gefur frá sér blátt ljós. Viðvörunarbjallan er áfram óstaðfest tillaga; samþykkið nær aðeins til ljóssins.",
+      "record_kinds": [
+        "idea",
+        "idea",
+        "idea",
+        "story_element",
+        "assertion",
+        "decision",
+        "session"
+      ],
+      "session_changes": [
+        {
+          "id": "89fb0978-b405-481d-bf72-025f7f0e7e9b",
+          "mode": "guided",
+          "topic": "Bernska vitavarðarins",
+          "status": null
+        }
+      ]
+    },
+    {
+      "case_id": "FRESH_RESUME",
+      "language": "en",
+      "thread_id": "01a16aa5-4c4c-7a52-89d0-26df804faaf0",
+      "turn_id": "01a16aa6-adcd-7ef2-a612-96f3d70444ba",
+      "exchange_id": "7c441d6a-ff46-45da-ad97-d8fee35cc1b7",
+      "checkpoint": {
+        "git_head": "7c58012ee690b364cd4ed7bf4be2c3dd3927418b",
+        "exchange_id": "7c441d6a-ff46-45da-ad97-d8fee35cc1b7",
+        "sequence": 18
+      },
+      "exact_input_saved": true,
+      "exact_response_saved_and_displayed": true,
+      "save_precedes_display": true,
+      "source_type": "delegated",
+      "novice_evidence": false,
+      "response": "Resumed “The keeper's mistaken belief about the sender” in guided mode, with the same open session, `5c6111bf-1bc4-4679-8354-b673e96a06f0`.\n\nEstablished decisions:\n\n- The keeper sent the letter himself. He wrongly believes someone else sent it; that misunderstanding is intentional. Its cause and when the reader learns the truth remain undecided.\n- A new storm occurs at the lighthouse. Its timing, details and connection to the letter remain open.\n- The lighthouse emits a blue light. The warning bell was not accepted with it.\n\nUnaccepted possibilities remain available:\n\n- The keeper receives a letter addressed to someone who died. This premise is still recorded as proposed.\n- The letter could be an apology, or the dead person's name could help it reach someone else.\n- A forbidden childhood drawer, with an early scene foreshadowing a later discovery inside it. Neither the drawer nor its contents is established.\n- A life-risking retrieval, with boredom or repairing harm as possible motives. Neither motive is selected; the earlier response questioned whether boredom alone supports that sacrifice.\n- A shipwreck and a warning bell. The original combined light-and-bell proposal remains preserved with only the blue light selected.\n- The dialogue “I killed him.” Its speaker, referent, truth and timing remain unknown; it establishes no killing.\n\nOpen questions remain the desired feeling for the reader, why the letter matters to the keeper, whether to develop the childhood drawer and what he feels near it, and who speaks the dialogue and whom “him” means.\n\nThere are no recorded open or deferred continuity findings. The sender finding was resolved through intentional character misunderstanding, preserving the difference between author truth and character belief. The earlier objective-discovery wording is superseded. This review covers the available saved records; it does not establish complete literary consistency.\n\nYour preferences remain an adult quiet mystery, a gentle but unsettling tone, plain language, one viewpoint, and one possibility at a time. The title remains “Untitled novel”; the original concept, subgenre and complexity remain unspecified in project settings.\n\nThis is a derived summary of checkpoint 17, exchange `07e34fe4-c829-4200-98ef-f683a9b81094`, Git `4a377444fc12b4f703e6ad03019b1d35a6a0e33a`. Record references use unique ID prefixes: session `5c6111bf` r15; project `adfafe79` r4; sender `f172b29a` r1; belief `f492c797` r1; storm `e1dc5be0` r2 and location `118ccc29` r1; light `1bdb1bd5` r1; finding `28e945d8` r2. The prior saved reply is available, with its display unconfirmed; no interruption or acceptance is inferred.\n\nThe checkpoint after every exchange remains in effect. I'll pause here for your direction.",
+      "record_kinds": [
+        "session"
+      ],
+      "session_changes": [
+        {
+          "id": "5c6111bf-1bc4-4679-8354-b673e96a06f0",
+          "mode": "guided",
+          "topic": "The keeper's mistaken belief about the sender",
+          "status": null
+        }
+      ]
+    },
+    {
+      "case_id": "FRESH_RESUME",
+      "language": "is",
+      "thread_id": "01a16aa7-60f4-74e1-9efe-d132eed653e4",
+      "turn_id": "01a16aa7-f5d5-71f1-b4c5-b075cb1b07a7",
+      "exchange_id": "9f0a3d6f-a565-4a2b-8f79-2af905e2e2cf",
+      "checkpoint": {
+        "git_head": "195f7487d8d796d2e42cc3e43ea8652ed417d7c3",
+        "exchange_id": "9f0a3d6f-a565-4a2b-8f79-2af905e2e2cf",
+        "sequence": 18
+      },
+      "exact_input_saved": true,
+      "exact_response_saved_and_displayed": true,
+      "save_precedes_display": true,
+      "source_type": "delegated",
+      "novice_evidence": false,
+      "response": "Ég tek aftur upp lotuna „Bernska vitavarðarins“ (89fb0978-b405-481d-bf72-025f7f0e7e9b). Hún er áfram opin í leiðsögn. Yfirlitið byggir á vistuðum færslum við varðstöð 17; óstaðfest er hvort fyrra vistaða svarið var birt.\n\nStaðfestar ákvarðanir:\n\n- Vitavörðurinn sendi bréfið sjálfur.\n- Hann trúir ranglega að einhver annar hafi sent það. Trú hans og sannleikur söguheimsins eru aðskilin.\n- Stormur verður við vitann.\n- Vitinn gefur frá sér blátt ljós. Samþykkið náði aðeins til ljóssins.\n\nVarðveittir möguleikar sem hafa ekki verið samþykktir:\n\n- Vitavörðurinn fær bréf stílað á látinn einstakling.\n- Hann gæti kannast við eigin rithönd á umslaginu en hikað við að opna það.\n- Sem barn gæti hann hafa beðið við gluggann eftir einhverjum sem kom aldrei. Sú bið gæti tengst bréfinu sem fyrirboði.\n- Hann leggur lífið í hættu til að ná bréfinu vegna leiða. Fyrri athugasemd um að sú hvöt væri veik fyrir slíka áhættu stendur, en tillögunni hefur ekki verið hafnað.\n- Önnur möguleg hvöt er að bréfið geti skýrt hvers vegna sá sem hann beið eftir kom aldrei.\n- Skipskaði er enn aðeins möguleiki.\n- Viðvörunarbjalla hringir. Samsetta tillagan um blátt ljós og bjöllu er varðveitt, en bjallan er óstaðfest.\n- Ótilgreind persóna segir: „Ég drap hann.“ Orðin staðfesta ekki að morð hafi átt sér stað.\n\nOpnar spurningar:\n\n- Eftir hverjum gæti barnið verið að bíða?\n- Hvaða persóna segir „Ég drap hann.“?\n- Er fullyrðing persónunnar sönn innan söguheimsins?\n\nHvöt vitavarðarins, tímasetningar og hvenær lesandinn fær að vita sannleikann eru einnig óákveðin.\n\nEngin óleyst samfelluvandamál eða hömlur á staðfestingu eru skráð. Fyrri áreksturinn um sendanda bréfsins hefur fengið viljandi frásagnarskýringu: vitavörðurinn er sendandinn en trúir öðru. Það breytir ekki samþykktum sannleika. Þetta yfirlit jafngildir ekki fullri staðfestingu á bókmenntalegu samræmi sögunnar.\n\nÓskirnar haldast: hljóðlát ráðgáta fyrir fullorðna, mildur en órólegur tónn, einfalt mál, eitt sjónarhorn og einn möguleiki í einu. Ég staldra hér við eftir stöðuyfirlitið og bíð eftir næstu fyrirmælum þínum.",
+      "record_kinds": [
+        "session"
+      ],
+      "session_changes": [
+        {
+          "id": "89fb0978-b405-481d-bf72-025f7f0e7e9b",
+          "mode": "guided",
+          "topic": "Bernska vitavarðarins",
+          "status": null
+        }
+      ]
+    },
+    {
+      "case_id": "G01",
+      "language": "en",
+      "thread_id": "01a16833-e1cf-79d2-bee0-80a6ca973e3c",
+      "turn_id": "01a16a76-1879-7db3-88fd-0d5c4751c50f",
+      "exchange_id": "9896c9bc-f75e-4d6a-a647-b0566945556c",
+      "checkpoint": {
+        "git_head": "863d4e1da10e0531538f5231e9d97c2700d874bc",
+        "exchange_id": "9896c9bc-f75e-4d6a-a647-b0566945556c",
+        "sequence": 3
+      },
+      "exact_input_saved": true,
+      "exact_response_saved_and_displayed": true,
+      "save_precedes_display": true,
+      "source_type": "delegated",
+      "novice_evidence": false,
+      "response": "You don't need a concept yet. Starting with a feeling can give us a direction.\n\nWhat feeling would you like your story to leave with its reader?",
+      "record_kinds": [
+        "session",
+        "question"
+      ],
+      "session_changes": [
+        {
+          "id": "5c6111bf-1bc4-4679-8354-b673e96a06f0",
+          "mode": "guided",
+          "topic": "Finding a starting point",
+          "status": null
+        }
+      ]
+    },
+    {
+      "case_id": "G01",
+      "language": "is",
+      "thread_id": "01a16833-fa8e-7ec1-9c69-53dc7eaec197",
+      "turn_id": "01a16a76-26b6-7a73-bd86-03748f6f0b74",
+      "exchange_id": "c7e626e0-8335-449c-b9c4-587b3ed75692",
+      "checkpoint": {
+        "git_head": "4ab610d27f3d0242374469a0cd9fbf7dce2188c4",
+        "exchange_id": "c7e626e0-8335-449c-b9c4-587b3ed75692",
+        "sequence": 3
+      },
+      "exact_input_saved": true,
+      "exact_response_saved_and_displayed": true,
+      "save_precedes_display": true,
+      "source_type": "delegated",
+      "novice_evidence": false,
+      "response": "Við getum byrjað á tilfinningu og látið söguþráðinn bíða. Hvaða tilfinningu viltu helst að sagan veki hjá lesandanum?",
+      "record_kinds": [
+        "session"
+      ],
+      "session_changes": [
+        {
+          "id": "89fb0978-b405-481d-bf72-025f7f0e7e9b",
+          "mode": "guided",
+          "topic": "Upphaf hugmyndaleitar",
+          "status": null
+        }
+      ]
+    },
+    {
+      "case_id": "G02",
+      "language": "en",
+      "thread_id": "01a16833-e1cf-79d2-bee0-80a6ca973e3c",
+      "turn_id": "01a16a7b-3e1b-74b0-9d0a-5ee70a1c6d12",
+      "exchange_id": "845b11a1-46fb-4d38-a1f6-a456bacb0a5e",
+      "checkpoint": {
+        "git_head": "2d12d8ef1dcde67e51cbcd17fc1f6ff6fdd8babb",
+        "exchange_id": "845b11a1-46fb-4d38-a1f6-a456bacb0a5e",
+        "sequence": 5
+      },
+      "exact_input_saved": true,
+      "exact_response_saved_and_displayed": true,
+      "save_precedes_display": true,
+      "source_type": "delegated",
+      "novice_evidence": false,
+      "response": "We can keep that as a possibility and explore freely. If he sent it, perhaps the letter was an apology he couldn't make while the recipient was alive. Or perhaps the dead person's name was a way to get the letter into someone else's hands.\n\nThose lead to different kinds of unease: private guilt or a concealed purpose. Neither is decided.",
+      "record_kinds": [
+        "session",
+        "idea",
+        "idea",
+        "idea"
+      ],
+      "session_changes": [
+        {
+          "id": "5c6111bf-1bc4-4679-8354-b673e96a06f0",
+          "mode": "open",
+          "topic": "The lighthouse keeper and the letter",
+          "status": null
+        }
+      ]
+    },
+    {
+      "case_id": "G02",
+      "language": "is",
+      "thread_id": "01a16833-fa8e-7ec1-9c69-53dc7eaec197",
+      "turn_id": "01a16a7b-4edb-7143-a5d9-9d47559eee12",
+      "exchange_id": "47dc74e9-90fd-413a-8eef-bcd0bc2e6a25",
+      "checkpoint": {
+        "git_head": "2138f16a32a80222175f6d923e5b0063f9aa9286",
+        "exchange_id": "47dc74e9-90fd-413a-8eef-bcd0bc2e6a25",
+        "sequence": 5
+      },
+      "exact_input_saved": true,
+      "exact_response_saved_and_displayed": true,
+      "save_precedes_display": true,
+      "source_type": "delegated",
+      "novice_evidence": false,
+      "response": "Könnum þetta frjálst. Að vitavörðurinn hafi sjálfur sent bréfið er áfram möguleiki, ekki ákvörðun.\n\nEin leið til að leika sér með hann: Vitavörðurinn gæti kannast við eigin rithönd á umslaginu en hikað við að opna það. Þá gæti óróinn falist í því sem hann óttast að lesa. Þetta er tillaga til að kanna; hver sendi bréfið er enn óútkljáð.",
+      "record_kinds": [
+        "idea",
+        "idea",
+        "question",
+        "session"
+      ],
+      "session_changes": [
+        {
+          "id": "89fb0978-b405-481d-bf72-025f7f0e7e9b",
+          "mode": "open",
+          "topic": "Upphaf hugmyndaleitar",
+          "status": null
+        }
+      ]
+    },
+    {
+      "case_id": "G03_G08",
+      "language": "en",
+      "thread_id": "01a16833-e1cf-79d2-bee0-80a6ca973e3c",
+      "turn_id": "01a16a7f-2a5d-7153-b0d3-60c65362bdca",
+      "exchange_id": "9ee8c2f5-5530-445d-b167-62ea2c09fa4a",
+      "checkpoint": {
+        "git_head": "5ac32e2ba701de2a9e2ad61a2a7b3100cb3e5f0f",
+        "exchange_id": "9ee8c2f5-5530-445d-b167-62ea2c09fa4a",
+        "sequence": 7
+      },
+      "exact_input_saved": true,
+      "exact_response_saved_and_displayed": true,
+      "save_precedes_display": true,
+      "source_type": "delegated",
+      "novice_evidence": false,
+      "response": "Foreshadowing means planting a small hint early that matters later. For example, a childhood scene that draws attention to the forbidden drawer could make a later discovery inside it feel prepared rather than sudden. We can try that without deciding what the drawer contains.\n\nIf we keep that childhood idea, what feeling does the forbidden drawer bring up for him?",
+      "record_kinds": [
+        "session",
+        "idea",
+        "question"
+      ],
+      "session_changes": [
+        {
+          "id": "5c6111bf-1bc4-4679-8354-b673e96a06f0",
+          "mode": "guided",
+          "topic": "The keeper's childhood",
+          "status": null
+        }
+      ]
+    },
+    {
+      "case_id": "G03_G08",
+      "language": "is",
+      "thread_id": "01a16833-fa8e-7ec1-9c69-53dc7eaec197",
+      "turn_id": "01a16a7f-352c-7251-b0a9-44a69f26c945",
+      "exchange_id": "514ca1b6-ea80-4243-beac-f57d659db4b3",
+      "checkpoint": {
+        "git_head": "db2553232b4326ee4d88dca6cbff56096bfef95e",
+        "exchange_id": "514ca1b6-ea80-4243-beac-f57d659db4b3",
+        "sequence": 7
+      },
+      "exact_input_saved": true,
+      "exact_response_saved_and_displayed": true,
+      "save_precedes_display": true,
+      "source_type": "delegated",
+      "novice_evidence": false,
+      "response": "Ég leiði þig aftur, eitt skref í einu. Fyrirboði er lítil vísbending snemma í sögu sem fær meiri merkingu síðar. Lesandinn þarf ekki að skilja hana strax.\n\nÍ bernskuhugmyndinni bíður barnið við gluggann. Ef biðin tengdist síðar bréfinu gæti þessi minning verið fyrirboði: Þegar bréfið kemur skilur lesandinn betur hvers vegna við sáum barnið bíða. Þetta er aðeins dæmi; hvorki bernskan né tengingin við bréfið er ákveðin.\n\nEftir hverjum gæti barnið verið að bíða?",
+      "record_kinds": [
+        "idea",
+        "question",
+        "session"
+      ],
+      "session_changes": [
+        {
+          "id": "89fb0978-b405-481d-bf72-025f7f0e7e9b",
+          "mode": "guided",
+          "topic": "Bernska vitavarðarins",
+          "status": null
+        }
+      ]
+    },
+    {
+      "case_id": "G04_G05",
+      "language": "en",
+      "thread_id": "01a16833-e1cf-79d2-bee0-80a6ca973e3c",
+      "turn_id": "01a16a7d-15a0-73d1-9379-3bda42f9194d",
+      "exchange_id": "03a9f9ef-4389-4f77-b9fb-e55dbd9dbf55",
+      "checkpoint": {
+        "git_head": "f248782dce0f9714e36d6bdab7f109a685ff5d34",
+        "exchange_id": "03a9f9ef-4389-4f77-b9fb-e55dbd9dbf55",
+        "sequence": 6
+      },
+      "exact_input_saved": true,
+      "exact_response_saved_and_displayed": true,
+      "save_precedes_display": true,
+      "source_type": "delegated",
+      "novice_evidence": false,
+      "response": "We'll stay with his childhood and take one possibility at a time. The earlier letter ideas remain open.\n\nOne possibility: as a child, he was forbidden to open a particular drawer in the family home. An ordinary rule like that could carry a quiet unease without explaining the letter yet.\n\nDoes that feel worth exploring?",
+      "record_kinds": [
+        "novel_project",
+        "session",
+        "idea",
+        "question"
+      ],
+      "session_changes": [
+        {
+          "id": "5c6111bf-1bc4-4679-8354-b673e96a06f0",
+          "mode": "open",
+          "topic": "The keeper's childhood",
+          "status": null
+        }
+      ]
+    },
+    {
+      "case_id": "G04_G05",
+      "language": "is",
+      "thread_id": "01a16833-fa8e-7ec1-9c69-53dc7eaec197",
+      "turn_id": "01a16a7d-1ee1-7721-9ce0-41d26c56242b",
+      "exchange_id": "782d8a7c-a72f-4412-aa27-558a0c64c52d",
+      "checkpoint": {
+        "git_head": "6c7de84bd82a6ab59c65c183cef18eff27d34195",
+        "exchange_id": "782d8a7c-a72f-4412-aa27-558a0c64c52d",
+        "sequence": 6
+      },
+      "exact_input_saved": true,
+      "exact_response_saved_and_displayed": true,
+      "save_precedes_display": true,
+      "source_type": "delegated",
+      "novice_evidence": false,
+      "response": "Við færum okkur að bernsku vitavarðarins og tökum einn möguleika í einu. Fyrri hugmyndir um bréfið haldast tiltækar og óstaðfestar.\n\nEinn möguleiki: Sem barn gæti vitavörðurinn hafa átt þann sið að bíða við gluggann eftir einhverjum sem kom aldrei. Hvernig líst þér á að kanna þá minningu?",
+      "record_kinds": [
+        "novel_project",
+        "idea",
+        "session"
+      ],
+      "session_changes": [
+        {
+          "id": "89fb0978-b405-481d-bf72-025f7f0e7e9b",
+          "mode": "open",
+          "topic": "Bernska vitavarðarins",
+          "status": null
+        }
+      ]
+    },
+    {
+      "case_id": "G06",
+      "language": "en",
+      "thread_id": "01a16833-e1cf-79d2-bee0-80a6ca973e3c",
+      "turn_id": "01a16a87-aac9-7700-bcc2-3be05d08c0d3",
+      "exchange_id": "cdf16bd8-ae75-461c-9dda-077e58c78197",
+      "checkpoint": {
+        "git_head": "75af515655120324dc5e91db3bf9b74f1e735e16",
+        "exchange_id": "cdf16bd8-ae75-461c-9dda-077e58c78197",
+        "sequence": 8
+      },
+      "exact_input_saved": true,
+      "exact_response_saved_and_displayed": true,
+      "save_precedes_display": true,
+      "source_type": "delegated",
+      "novice_evidence": false,
+      "response": "Boredom alone would probably feel too slight to carry a deliberate risk to his life. It can explain why he becomes curious, but the reader needs to understand why getting this letter matters more to him than staying safe.\n\nOne alternative: he believes the letter offers a chance to put right a harm he caused. That gives the risk an emotional cost: walking away would mean leaving that harm unresolved.\n\nBoth motives remain proposals. The life-risking retrieval is also unestablished, and the earlier letter and childhood ideas stay undecided.",
+      "record_kinds": [
+        "session",
+        "idea",
+        "idea",
+        "idea"
+      ],
+      "session_changes": [
+        {
+          "id": "5c6111bf-1bc4-4679-8354-b673e96a06f0",
+          "mode": "guided",
+          "topic": "The keeper's motive for retrieving the letter",
+          "status": null
+        }
+      ]
+    },
+    {
+      "case_id": "G06",
+      "language": "is",
+      "thread_id": "01a16833-fa8e-7ec1-9c69-53dc7eaec197",
+      "turn_id": "01a16a87-b78a-7ec1-80da-9b637bbbccc1",
+      "exchange_id": "08cfc3bb-d659-48e6-a36e-56cad3b57b52",
+      "checkpoint": {
+        "git_head": "75baa553cde02f79b4f7076df575ac24276f766c",
+        "exchange_id": "08cfc3bb-d659-48e6-a36e-56cad3b57b52",
+        "sequence": 8
+      },
+      "exact_input_saved": true,
+      "exact_response_saved_and_displayed": true,
+      "save_precedes_display": true,
+      "source_type": "delegated",
+      "novice_evidence": false,
+      "response": "Leiði einn og sér finnst mér veik hvöt fyrir að leggja lífið í hættu. Hann skýrir löngun í tilbreytingu, en lesandinn þarf að finna hvers vegna bréfið er áhættunnar virði fyrir vitavörðinn. Þetta er mat á trúverðugleika tillögunnar, ekki mótsögn við staðfestar sögustaðreyndir.\n\nEinn möguleiki, ef við notum bernskuhugmyndina: Hann telur bréfið geta skýrt hvers vegna sá sem hann beið eftir kom aldrei. Þá væri persónuleg þörf fyrir svar á bak við áhættuna. Bæði leiðinn og þessi nýja hvöt eru áfram óstaðfestar tillögur.",
+      "record_kinds": [
+        "idea",
+        "idea",
+        "session"
+      ],
+      "session_changes": [
+        {
+          "id": "89fb0978-b405-481d-bf72-025f7f0e7e9b",
+          "mode": "guided",
+          "topic": "Bernska vitavarðarins",
+          "status": null
+        }
+      ]
+    },
+    {
+      "case_id": "G07",
+      "language": "en",
+      "thread_id": "01a16833-e1cf-79d2-bee0-80a6ca973e3c",
+      "turn_id": "01a16a78-924b-7bb1-8e45-a38c95aed456",
+      "exchange_id": "e1adc0ee-d02f-4f73-bbb4-d64e2988848d",
+      "checkpoint": {
+        "git_head": "e0c0f67c5d43395d978c3725939e31ea83a6065a",
+        "exchange_id": "e1adc0ee-d02f-4f73-bbb4-d64e2988848d",
+        "sequence": 4
+      },
+      "exact_input_saved": true,
+      "exact_response_saved_and_displayed": true,
+      "save_precedes_display": true,
+      "source_type": "delegated",
+      "novice_evidence": false,
+      "response": "I'll keep those preferences together: a quiet mystery for adults, a gentle but unsettling tone, plain language, and one viewpoint. The lighthouse keeper and the letter addressed to someone who died give us a starting possibility; the sender stays undecided.\n\nTo give the mystery a personal pull, what makes the letter matter to the keeper?",
+      "record_kinds": [
+        "novel_project",
+        "session",
+        "idea",
+        "question",
+        "question"
+      ],
+      "session_changes": [
+        {
+          "id": "5c6111bf-1bc4-4679-8354-b673e96a06f0",
+          "mode": "guided",
+          "topic": "The lighthouse keeper and the letter",
+          "status": null
+        }
+      ]
+    },
+    {
+      "case_id": "G07",
+      "language": "is",
+      "thread_id": "01a16833-fa8e-7ec1-9c69-53dc7eaec197",
+      "turn_id": "01a16a78-9cbe-72d3-bd87-f473e07cddef",
+      "exchange_id": "2c76a8f9-473f-44ed-a208-03ffc7cd60e6",
+      "checkpoint": {
+        "git_head": "a66906b2be782c535b80bb60d2a332b6bd060dc5",
+        "exchange_id": "2c76a8f9-473f-44ed-a208-03ffc7cd60e6",
+        "sequence": 4
+      },
+      "exact_input_saved": true,
+      "exact_response_saved_and_displayed": true,
+      "save_precedes_display": true,
+      "source_type": "delegated",
+      "novice_evidence": false,
+      "response": "Óskirnar þínar eru þessar:\n\n- Hljóðlát ráðgáta fyrir fullorðna.\n- Mildur en órólegur tónn.\n- Einfalt mál og eitt sjónarhorn.\n\nHugmyndin sem þú vilt kanna er vitavörður sem fær bréf stílað á látinn einstakling. Hún er enn á hugmyndastigi. Hver sendi bréfið er áfram opin spurning; enginn sendandi hefur verið valinn.",
+      "record_kinds": [
+        "novel_project",
+        "idea",
+        "question",
+        "session"
+      ],
+      "session_changes": [
+        {
+          "id": "89fb0978-b405-481d-bf72-025f7f0e7e9b",
+          "mode": "guided",
+          "topic": "Upphaf hugmyndaleitar",
+          "status": null
+        }
+      ]
+    },
+    {
+      "case_id": "G11",
+      "language": "en",
+      "thread_id": "01a16833-e1cf-79d2-bee0-80a6ca973e3c",
+      "turn_id": "01a16a9b-44aa-7020-a0f4-31fc2c4e7595",
+      "exchange_id": "ce6c5a38-2387-4adb-a371-aea21b1e3ab0",
+      "checkpoint": {
+        "git_head": "7b70ae6c5ebc51d5c05dc0a9b501df9d4234cd2a",
+        "exchange_id": "ce6c5a38-2387-4adb-a371-aea21b1e3ab0",
+        "sequence": 15
+      },
+      "exact_input_saved": true,
+      "exact_response_saved_and_displayed": true,
+      "save_precedes_display": true,
+      "source_type": "delegated",
+      "novice_evidence": false,
+      "response": "We have established that the keeper sent this letter. If the discovery means someone else sent it instead of him, it conflicts with that fact; we need to clarify this before developing it.\n\nOne possibility is that he mistakenly believes someone else sent it, while the established truth stays intact. Is that what you intend?",
+      "record_kinds": [
+        "idea",
+        "idea",
+        "finding",
+        "question",
+        "session"
+      ],
+      "session_changes": [
+        {
+          "id": "5c6111bf-1bc4-4679-8354-b673e96a06f0",
+          "mode": "guided",
+          "topic": "The conflicting sender discovery",
+          "status": null
+        }
+      ]
+    },
+    {
+      "case_id": "G11",
+      "language": "is",
+      "thread_id": "01a16833-fa8e-7ec1-9c69-53dc7eaec197",
+      "turn_id": "01a16a9b-4eaf-75f2-9ebc-56a304d33ce6",
+      "exchange_id": "ead83c85-399d-4da7-8254-e34e52b7920b",
+      "checkpoint": {
+        "git_head": "f21845ea2537ad32721cd013b71fe0b65c88d809",
+        "exchange_id": "ead83c85-399d-4da7-8254-e34e52b7920b",
+        "sequence": 15
+      },
+      "exact_input_saved": true,
+      "exact_response_saved_and_displayed": true,
+      "save_precedes_display": true,
+      "source_type": "delegated",
+      "novice_evidence": false,
+      "response": "Hér þurfum við að skýra mögulega mótsögn áður en við þróum uppgötvunina. Við höfum staðfest að vitavörðurinn sendi bréfið sjálfur. Ef uppgötvunin staðfestir annan sendanda í hans stað gengur hún gegn þeirri ákvörðun.\n\nEin leið til að halda staðfestu atriðinu er að aðgreina ályktun hans frá sannleikanum. Á vitavörðurinn að draga ranga ályktun af vísbendingu, þótt hann sé í raun sendandinn?",
+      "record_kinds": [
+        "idea",
+        "finding",
+        "question",
+        "session"
+      ],
+      "session_changes": [
+        {
+          "id": "89fb0978-b405-481d-bf72-025f7f0e7e9b",
+          "mode": "guided",
+          "topic": "Bernska vitavarðarins",
+          "status": null
+        }
+      ]
+    },
+    {
+      "case_id": "G11_INTENTIONAL",
+      "language": "en",
+      "thread_id": "01a16833-e1cf-79d2-bee0-80a6ca973e3c",
+      "turn_id": "01a16a9d-b6ac-76b3-b2f5-d17861f686f2",
+      "exchange_id": "10962cd8-6ec8-4e74-9a0c-2fe49aca70d9",
+      "checkpoint": {
+        "git_head": "8b47e1b06595b61086b34448adfd60d45dcf404d",
+        "exchange_id": "10962cd8-6ec8-4e74-9a0c-2fe49aca70d9",
+        "sequence": 16
+      },
+      "exact_input_saved": true,
+      "exact_response_saved_and_displayed": true,
+      "save_precedes_display": true,
+      "source_type": "delegated",
+      "novice_evidence": false,
+      "response": "Established: the keeper wrongly believes someone else sent the letter. In truth, he sent it himself.\n\nThe apparent contradiction is now an intentional character misunderstanding. We haven't decided why he is mistaken or when the reader learns the truth.",
+      "record_kinds": [
+        "idea",
+        "assertion",
+        "finding",
+        "question",
+        "idea",
+        "decision",
+        "decision",
+        "session"
+      ],
+      "session_changes": [
+        {
+          "id": "5c6111bf-1bc4-4679-8354-b673e96a06f0",
+          "mode": "guided",
+          "topic": "The keeper's mistaken belief about the sender",
+          "status": null
+        }
+      ]
+    },
+    {
+      "case_id": "G11_INTENTIONAL",
+      "language": "is",
+      "thread_id": "01a16833-fa8e-7ec1-9c69-53dc7eaec197",
+      "turn_id": "01a16a9d-bf12-7d02-8228-eff6c7e30175",
+      "exchange_id": "eca5c349-149d-427a-a844-d240bc363044",
+      "checkpoint": {
+        "git_head": "a0b46b0c6f45e11ff550cdbe84800765035149be",
+        "exchange_id": "eca5c349-149d-427a-a844-d240bc363044",
+        "sequence": 16
+      },
+      "exact_input_saved": true,
+      "exact_response_saved_and_displayed": true,
+      "save_precedes_display": true,
+      "source_type": "delegated",
+      "novice_evidence": false,
+      "response": "Staðfest: Vitavörðurinn trúir ranglega að einhver annar hafi sent bréfið. Sannleikurinn er áfram sá að hann sendi það sjálfur.\n\nSýnilega mótsögnin er nú skýrð sem viljandi misskilningur persónunnar. Tímasetning misskilningsins og hvenær lesandinn fær að vita sannleikann eru enn óákveðin.",
+      "record_kinds": [
+        "idea",
+        "assertion",
+        "finding",
+        "question",
+        "decision",
+        "decision",
+        "session"
+      ],
+      "session_changes": [
+        {
+          "id": "89fb0978-b405-481d-bf72-025f7f0e7e9b",
+          "mode": "guided",
+          "topic": "Bernska vitavarðarins",
+          "status": null
+        }
+      ]
+    },
+    {
+      "case_id": "G12",
+      "language": "en",
+      "thread_id": "01a16833-e1cf-79d2-bee0-80a6ca973e3c",
+      "turn_id": "01a16aa1-0988-7d40-a092-196c64ac148f",
+      "exchange_id": "07e34fe4-c829-4200-98ef-f683a9b81094",
+      "checkpoint": {
+        "git_head": "4a377444fc12b4f703e6ad03019b1d35a6a0e33a",
+        "exchange_id": "07e34fe4-c829-4200-98ef-f683a9b81094",
+        "sequence": 17
+      },
+      "exact_input_saved": true,
+      "exact_response_saved_and_displayed": true,
+      "save_precedes_display": true,
+      "source_type": "delegated",
+      "novice_evidence": false,
+      "response": "I'll give this checkpoint after every exchange, then pause for your direction.\n\n**Established decisions:**\n\n- The keeper sent the letter. He wrongly believes someone else sent it; that misunderstanding is intentional. Its cause and the reader's discovery of the truth remain undecided.\n- A new storm occurs at the lighthouse; its timing and details remain open.\n- The lighthouse emits a blue light. Only that part of the light-and-bell proposal was accepted.\n\n**Captured proposals, still unestablished:**\n\n- The keeper receives a letter addressed to someone who died.\n- The letter could be an apology, or the dead person's name could help it reach someone else.\n- A forbidden childhood drawer, with an early scene hinting at a later discovery inside it. Neither the drawer nor its contents are established.\n- A life-risking retrieval, motivated by boredom or a chance to repair harm he caused. Neither motive is selected; boredom alone was judged weak for that sacrifice.\n- A shipwreck and a warning bell, each still only possible. The original compound light-and-bell proposal is preserved without establishing the bell.\n- The dialogue line, \"I killed him.\" It does not establish a killing.\n\n**Open questions:**\n\n- What feeling should remain with the reader?\n- Why does the letter matter personally to the keeper?\n- Is the childhood drawer worth developing, and what does he feel near it?\n- Who says \"I killed him,\" and who is \"him\"?\n\nYour preferences remain: an adult quiet mystery, gentle but unsettling tone, plain language, one viewpoint, guided mode, and one possibility at a time. I'll pause here.",
+      "record_kinds": [
+        "novel_project",
+        "session"
+      ],
+      "session_changes": [
+        {
+          "id": "5c6111bf-1bc4-4679-8354-b673e96a06f0",
+          "mode": "guided",
+          "topic": "The keeper's mistaken belief about the sender",
+          "status": null
+        }
+      ]
+    },
+    {
+      "case_id": "G12",
+      "language": "is",
+      "thread_id": "01a16833-fa8e-7ec1-9c69-53dc7eaec197",
+      "turn_id": "01a16aa1-118e-75c0-9600-c0a6c570e9ba",
+      "exchange_id": "46618668-6c3b-43ea-89ce-93523c178eff",
+      "checkpoint": {
+        "git_head": "cb9b3fbc8d748bddb906971764bca85924061c89",
+        "exchange_id": "46618668-6c3b-43ea-89ce-93523c178eff",
+        "sequence": 17
+      },
+      "exact_input_saved": true,
+      "exact_response_saved_and_displayed": true,
+      "save_precedes_display": true,
+      "source_type": "delegated",
+      "novice_evidence": false,
+      "response": "Héðan í frá lýk ég hverjum samskiptum með stöðuyfirliti og bíð síðan eftir þér.\n\n**Staðfestar ákvarðanir**\n\n- Vitavörðurinn sendi bréfið sjálfur.\n- Hann trúir ranglega að einhver annar hafi sent það. Þetta er viljandi misskilningur persónunnar; raunverulegi sendandinn breytist ekki.\n- Stormur verður við vitann.\n- Vitinn gefur frá sér blátt ljós. Samþykkið náði ekki til viðvörunarbjöllunnar.\n\n**Varðveittar tillögur, enn óstaðfestar**\n\n- Vitavörðurinn fær bréf stílað á látinn einstakling.\n- Hann kannast við eigin rithönd á umslaginu en hikar við að opna það.\n- Í bernsku bíður hann við gluggann eftir einhverjum sem kemur aldrei. Biðin gæti tengst bréfinu sem fyrirboði.\n- Hann leggur lífið í hættu til að ná bréfinu vegna leiða. Sú hvöt þótti veik fyrir slíka áhættu, en var ekki felld út.\n- Önnur möguleg hvöt er að bréfið geti skýrt hvers vegna sá sem hann beið eftir kom aldrei.\n- Skipskaði er möguleiki.\n- Viðvörunarbjalla hringir. Upprunalega samsetta tillagan um blátt ljós og bjöllu er varðveitt, en aðeins ljósið er staðfest.\n- Orð ótilgreindrar persónu: „Ég drap hann.“ Þau staðfesta ekki morð.\n\n**Opnar spurningar**\n\n- Eftir hverjum gæti barnið verið að bíða?\n- Hvaða persóna segir „Ég drap hann.“?\n- Er fullyrðing hennar sönn innan söguheimsins?\n\nHvöt vitavarðarins, tímasetningar og hvenær lesandinn fær að vita sannleikann eru einnig óákveðin. Sendandaspurningin og sýnilega mótsögnin hafa verið leyst.\n\nÓskirnar haldast: hljóðlát ráðgáta fyrir fullorðna, mildur en órólegur tónn, einfalt mál og eitt sjónarhorn. Samtalið er í leiðsögn, með einum möguleika í einu.\n\nÉg bíð eftir næstu fyrirmælum þínum.",
+      "record_kinds": [
+        "novel_project",
+        "session"
+      ],
+      "session_changes": [
+        {
+          "id": "89fb0978-b405-481d-bf72-025f7f0e7e9b",
+          "mode": "guided",
+          "topic": "Bernska vitavarðarins",
+          "status": null
+        }
+      ]
+    },
+    {
+      "case_id": "N04",
+      "language": "en",
+      "thread_id": "01a16833-e1cf-79d2-bee0-80a6ca973e3c",
+      "turn_id": "01a16a99-b7a6-73d0-8c4c-3b62233b039b",
+      "exchange_id": "8e3cb13e-c691-4fb6-9baa-0a585e9bd665",
+      "checkpoint": {
+        "git_head": "c0114b8fdd329208fdb0ca31f99eea9f8babb110",
+        "exchange_id": "8e3cb13e-c691-4fb6-9baa-0a585e9bd665",
+        "sequence": 14
+      },
+      "exact_input_saved": true,
+      "exact_response_saved_and_displayed": true,
+      "save_precedes_display": true,
+      "source_type": "delegated",
+      "novice_evidence": false,
+      "response": "I'll keep that as dialogue, without treating the claim as a fact about what happened.\n\nWho says the line?",
+      "record_kinds": [
+        "idea",
+        "question",
+        "question",
+        "session"
+      ],
+      "session_changes": [
+        {
+          "id": "5c6111bf-1bc4-4679-8354-b673e96a06f0",
+          "mode": "guided",
+          "topic": "The dialogue line \"I killed him.\"",
+          "status": null
+        }
+      ]
+    },
+    {
+      "case_id": "N04",
+      "language": "is",
+      "thread_id": "01a16833-fa8e-7ec1-9c69-53dc7eaec197",
+      "turn_id": "01a16a99-c149-7f10-8b3e-e557d9a0b43f",
+      "exchange_id": "24dd4524-5ad1-451d-95a6-6c23a7a121d3",
+      "checkpoint": {
+        "git_head": "78e23a39015e306d8cb03b2513c786644a024ac0",
+        "exchange_id": "24dd4524-5ad1-451d-95a6-6c23a7a121d3",
+        "sequence": 14
+      },
+      "exact_input_saved": true,
+      "exact_response_saved_and_displayed": true,
+      "save_precedes_display": true,
+      "source_type": "delegated",
+      "novice_evidence": false,
+      "response": "Orð persónunnar eru varðveitt: „Ég drap hann.“ Þau staðfesta ekki ein og sér að hún hafi drepið einhvern; sannleiksgildi þeirra er enn opið. Hvaða persóna segir þetta?",
+      "record_kinds": [
+        "idea",
+        "question",
+        "question",
+        "session"
+      ],
+      "session_changes": [
+        {
+          "id": "89fb0978-b405-481d-bf72-025f7f0e7e9b",
+          "mode": "guided",
+          "topic": "Bernska vitavarðarins",
+          "status": null
+        }
+      ]
+    },
+    {
+      "case_id": "P_BLUE",
+      "language": "en",
+      "thread_id": "01a16833-e1cf-79d2-bee0-80a6ca973e3c",
+      "turn_id": "01a16a93-e1e3-7da1-80cb-13dc9786231b",
+      "exchange_id": "f1e48c78-c321-4235-966e-f35d1d37d4f6",
+      "checkpoint": {
+        "git_head": "d10b47abfc67227142e2eb56e16d67bcf0356a8c",
+        "exchange_id": "f1e48c78-c321-4235-966e-f35d1d37d4f6",
+        "sequence": 12
+      },
+      "exact_input_saved": true,
+      "exact_response_saved_and_displayed": true,
+      "save_precedes_display": true,
+      "source_type": "delegated",
+      "novice_evidence": false,
+      "response": "Kept as one compound proposal: the lighthouse emits a blue light and a warning bell rings. Neither part is established.",
+      "record_kinds": [
+        "idea",
+        "session"
+      ],
+      "session_changes": [
+        {
+          "id": "5c6111bf-1bc4-4679-8354-b673e96a06f0",
+          "mode": "guided",
+          "topic": "The proposed blue light and warning bell",
+          "status": null
+        }
+      ]
+    },
+    {
+      "case_id": "P_BLUE",
+      "language": "is",
+      "thread_id": "01a16833-fa8e-7ec1-9c69-53dc7eaec197",
+      "turn_id": "01a16a93-f063-7330-9d15-cf66bf7d8ab5",
+      "exchange_id": "62f6221a-4c76-4384-ae8e-d201b042ed9b",
+      "checkpoint": {
+        "git_head": "f7ec3788c174bdba5cdcb2a4cae0e6698c05cde3",
+        "exchange_id": "62f6221a-4c76-4384-ae8e-d201b042ed9b",
+        "sequence": 12
+      },
+      "exact_input_saved": true,
+      "exact_response_saved_and_displayed": true,
+      "save_precedes_display": true,
+      "source_type": "delegated",
+      "novice_evidence": false,
+      "response": "Vistað sem ein samsett tillaga: Vitinn gefur frá sér blátt ljós og viðvörunarbjalla hringir. Hvorugur hlutinn er staðfestur.",
+      "record_kinds": [
+        "idea",
+        "session"
+      ],
+      "session_changes": [
+        {
+          "id": "89fb0978-b405-481d-bf72-025f7f0e7e9b",
+          "mode": "guided",
+          "topic": "Bernska vitavarðarins",
+          "status": null
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+test_parallel_final_guard_failures_join_workers_before_releasing_writer (tests.integration.test_storage.StorageTests.test_parallel_final_guard_failures_join_workers_before_releasing_writer) ... 
+  test_parallel_final_guard_failures_join_workers_before_releasing_writer (tests.integration.test_storage.StorageTests.test_parallel_final_guard_failures_join_workers_before_releasing_writer) (object_format='sha1', failure='thread') ... ERROR
+  test_parallel_final_guard_failures_join_workers_before_releasing_writer (tests.integration.test_storage.StorageTests.test_parallel_final_guard_failures_join_workers_before_releasing_writer) (object_format='sha256', failure='thread') ... ERROR
+test_parallel_final_guard_rejects_same_stat_edits_and_root_redirection (tests.integration.test_storage.StorageTests.test_parallel_final_guard_rejects_same_stat_edits_and_root_redirection) ... 
+  test_parallel_final_guard_rejects_same_stat_edits_and_root_redirection (tests.integration.test_storage.StorageTests.test_parallel_final_guard_rejects_same_stat_edits_and_root_redirection) (object_format='sha1') ... FAIL
+  test_parallel_final_guard_rejects_same_stat_edits_and_root_redirection (tests.integration.test_storage.StorageTests.test_parallel_final_guard_rejects_same_stat_edits_and_root_redirection) (object_format='sha256') ... FAIL
+test_second_guard_rejects_tampering_under_changed_worktree_config_and_index_prefix (tests.integration.test_storage.StorageTests.test_second_guard_rejects_tampering_under_changed_worktree_config_and_index_prefix) ... ok
+
+======================================================================
+ERROR: test_parallel_final_guard_failures_join_workers_before_releasing_writer (tests.integration.test_storage.StorageTests.test_parallel_final_guard_failures_join_workers_before_releasing_writer) (object_format='sha1', failure='thread')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 124, in test_parallel_final_guard_failures_join_workers_before_releasing_writer
+    storage.save(root, second, fault=fault)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 655, in save
+    return _save(root, bundle, fault=fault)
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 608, in _save
+    check_managed(root, initial, paths, entries=initial_entries, hash_workers=_SAVE_HASH_WORKERS)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 98, in guard
+    return original_guard(*args, **kwargs)
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 439, in check_managed
+    hashes = _hash_managed(root, managed, hash_workers)
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 404, in _hash_managed
+    futures = [executor.submit(chunk_hashes, managed[offset:offset + size])
+               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 92, in submit
+    raise RuntimeError("Injected failure to start a worker thread")
+RuntimeError: Injected failure to start a worker thread
+
+======================================================================
+ERROR: test_parallel_final_guard_failures_join_workers_before_releasing_writer (tests.integration.test_storage.StorageTests.test_parallel_final_guard_failures_join_workers_before_releasing_writer) (object_format='sha256', failure='thread')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 124, in test_parallel_final_guard_failures_join_workers_before_releasing_writer
+    storage.save(root, second, fault=fault)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 655, in save
+    return _save(root, bundle, fault=fault)
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 608, in _save
+    check_managed(root, initial, paths, entries=initial_entries, hash_workers=_SAVE_HASH_WORKERS)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 98, in guard
+    return original_guard(*args, **kwargs)
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 439, in check_managed
+    hashes = _hash_managed(root, managed, hash_workers)
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 404, in _hash_managed
+    futures = [executor.submit(chunk_hashes, managed[offset:offset + size])
+               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 92, in submit
+    raise RuntimeError("Injected failure to start a worker thread")
+RuntimeError: Injected failure to start a worker thread
+
+======================================================================
+FAIL: test_parallel_final_guard_rejects_same_stat_edits_and_root_redirection (tests.integration.test_storage.StorageTests.test_parallel_final_guard_rejects_same_stat_edits_and_root_redirection) (object_format='sha1')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 193, in test_parallel_final_guard_rejects_same_stat_edits_and_root_redirection
+    self.assertEqual(len(final_hashes), 4)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 5 != 4
+
+======================================================================
+FAIL: test_parallel_final_guard_rejects_same_stat_edits_and_root_redirection (tests.integration.test_storage.StorageTests.test_parallel_final_guard_rejects_same_stat_edits_and_root_redirection) (object_format='sha256')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 193, in test_parallel_final_guard_rejects_same_stat_edits_and_root_redirection
+    self.assertEqual(len(final_hashes), 4)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 5 != 4
+
+----------------------------------------------------------------------
+Ran 3 tests in 41.849s
+
+FAILED (failures=2, errors=2)

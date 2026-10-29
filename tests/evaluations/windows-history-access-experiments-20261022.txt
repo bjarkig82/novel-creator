@@ -1,0 +1,24 @@
+{"fixture": {"sessions": 100, "exchanges": 5000, "active_assertions": 10000, "json_bytes": 26215716, "synthetic": true, "fully_validated": true}}
+{"operation": "object-order", "changed": false, "seconds": 0.977681600023061}
+{"operation": "object-order", "changed": true, "seconds": 0.6351149999536574}
+{"operation": "object-order", "changed": true, "seconds": 0.5963427000679076}
+{"operation": "object-order", "changed": false, "seconds": 0.5793200000189245}
+{"operation": "object-order", "changed": false, "seconds": 0.5813565000426024}
+{"operation": "object-order", "changed": true, "seconds": 0.7012227000668645}
+{"operation": "object-order", "changed": true, "seconds": 0.5764555999776348}
+{"operation": "object-order", "changed": false, "seconds": 0.5934667999390513}
+{"operation": "object-order", "medians": {"False": 0.5874116499908268, "True": 0.6157288500107825}}
+{"operation": "git-fscache", "changed": false, "seconds": 0.6679570999694988}
+{"operation": "git-fscache", "changed": true, "seconds": 0.6658770999638364}
+{"operation": "git-fscache", "changed": true, "seconds": 0.818154799984768}
+{"operation": "git-fscache", "changed": false, "seconds": 0.8647041999502108}
+{"operation": "git-fscache", "changed": false, "seconds": 0.8258709999499843}
+{"operation": "git-fscache", "changed": true, "seconds": 1.8248286000452936}
+{"operation": "git-fscache", "changed": true, "seconds": 0.7101699000922963}
+{"operation": "git-fscache", "changed": false, "seconds": 0.5252729000058025}
+{"operation": "git-fscache", "medians": {"False": 0.7469140499597415, "True": 0.7641623500385322}}
+{"operation": "packed-object-read", "seconds": 0.30670469999313354}
+{"operation": "packed-object-read", "seconds": 0.27689859992824495}
+{"operation": "packed-object-read", "seconds": 0.27190260007046163}
+{"operation": "packed-object-read", "seconds": 0.2761775000253692}
+{"packed_median": 0.2765380499768071}

@@ -1,0 +1,51 @@
+{
+  "classification": "retained source verified; Windows p95 gates unmet",
+  "source_sha256": {
+    "src/novel_creator/storage.py": "6ec58b45314b7a99877220452367f6b89b532bed2fe3b3c842f0272a9aba1f5a",
+    "src/novel_creator/validation.py": "7e4c75ada3c3eaf3c196066ff657e5e5d9084abdd14a97b6e07c4f5d3b6bf517",
+    "tests/performance/benchmark_records.py": "7f69593cbee6330af1cb67261f662db8d186cc6d00787d3710d002a8430650f2",
+    "tests/integration/test_storage.py": "7536bdfbba465f85f8113cadf5aa674e2893a33cb28a053aa6be8c20a468cf1e",
+    "tests/helpers.py": "b6ddda217adb87a43d14dcd7be46e3cab76b5aa4023ec41b6e4eb509d8ed9be5"
+  },
+  "matched_save_medians": {
+    "False": 6.313554449996445,
+    "True": 5.400350250012707
+  },
+  "matched_first_history_git_medians": {
+    "False": 2.1164400500128977,
+    "True": 1.9948844499886036
+  },
+  "diagnostic_sample_count": 8,
+  "evidence_sha256": {
+    "linux-parallel-hash-full-tests-20261022.txt": "733d0676212267326447ed62b27c91a622a202e2c943b8bf93c9e7922f594b4c",
+    "linux-parallel-hash-verification-20261022.json": "5767ba6778a7db1cf5e3e88d9d001d318924ff71c2c06ce428c73fcf91dace54",
+    "linux-parallel-hash-verification-source-20261022.txt": "91903760935ef2db2d786f8d814786e0c59320b3f3a49c823f17c8187148eef5",
+    "windows-parallel-hash-20261022.md": "76ceb4769c6e9bd0583aaf4447e77bccaf4f03111793841e1a9f810dc968791d",
+    "windows-parallel-hash-candidate-checks-20261022.txt": "3afb3e95271c7102459fce30310c7dee6364162362f35fdb2cb1912ff0210da7",
+    "windows-parallel-hash-candidate-checks-final-20261022.txt": "ac19f62860132e6a26343df396903874799a1cc54f66ec16b8be1e51877ff0aa",
+    "windows-parallel-hash-candidate-checks-source-20261022.txt": "b795df2ecbdce6603d607e10d3979f71953c5a2900ce330aba30e45b8c515a1c",
+    "windows-parallel-hash-default-30-20261022.json": "f573d5b17a62d2fd92dcfee196bd4066529a70e80b88e0a7d4a4ca6f5987275a",
+    "windows-parallel-hash-default-progress-20261022.txt": "3487a33496d867d9a6566ef4c01607a59dae9268ce9bf678285b4f8d8a70d9c1",
+    "windows-parallel-hash-diagnostics-manifest-20261022.json": "af325af3b622d47bfc68a6005598d567b949392bb00ededf46b3909edb88ac71",
+    "windows-parallel-hash-full-tests-20261022.txt": "30cfea2a79fbb89bea5301fbbae99c6df4c6654a5ab9317f4976fbfa0d2e9537",
+    "windows-parallel-hash-full-tests-nonutf8-20261022.txt": "fe4fe55cc08069f3a038f212b331d72e0cf9172dc78146a675c2a0154e0b0be5",
+    "windows-parallel-hash-installation-recheck-20261022.txt": "2295b62daf4b2fe2655e992f2fd7674b7f90b412c72f8b5f8951580f52cd796d",
+    "windows-parallel-hash-installation-utf8-recheck-20261022.txt": "f9677a0f483d037bff750b3219cfd06a835913c332913eb2e9e14a1843607896",
+    "windows-parallel-hash-production-final-focused-20261022.txt": "34fe5472ff038626b70f78552fa96a80fce339746942526ecc1a4028b4dfdb25",
+    "windows-parallel-hash-production-focused-20261022.txt": "4e8edde5db79b5c02cda9ac2adb043aa531215679a457260677b49908b027418",
+    "windows-parallel-hash-production-red-20261022.txt": "667549211fff80476fb417ccc0bec4d439dd4bb79f76a3b09c0b75bbdfb47bab",
+    "windows-parallel-hash-production-resource-red-20261022.txt": "62513f18ad8d9b8e05297861ec42a3dcbb7c7968a48896bbd20f01623c2e9609",
+    "windows-parallel-hash-retained-comparison-20261022.txt": "ed31a10619753a67ba145cad372d32dfa24b3f7f8f3262ef148bb918b718fdd9",
+    "windows-parallel-hash-retained-comparison-source-20261022.txt": "45cac4e4c70111291d8e50170976883f9a5998711d355f617446e46ecc6d2de1",
+    "windows-parallel-hash-retained-source-20261022.txt": "6ec58b45314b7a99877220452367f6b89b532bed2fe3b3c842f0272a9aba1f5a",
+    "windows-parallel-hash-saves-diagnostic-20261022.txt": "ca320ac71c20f5dbdaefb359505e8a4f5def9893d5d0d93023067dbf6a4bdc6f",
+    "windows-parallel-hash-saves-source-20261022.txt": "9cd2b3b74f89b265db5e57b02273b9be5bf31ba9022709a4027b5134e4902355",
+    "windows-parallel-hash-threshold-20261022.txt": "16689d8448b0bf1c65f935b10edc221f15d9a309cd5451118490a652e0f2c84c",
+    "windows-parallel-hash-threshold-source-20261022.txt": "046f114c1f8e4b4393562815e22b02acda86adadd5df353c727137232728d923",
+    "windows-parallel-hash-verification-20261022.json": "c03139be0090f1c8f7e3c4c8dd0e41c3fc065848610455b15f94b01c73ea6f77",
+    "windows-parallel-hash-verification-nonutf8-20261022.json": "8c3719bc32872952464d9fa79c9b8852b88f6a8b8adc4f0a55c6fc26b55d1b29",
+    "windows-parallel-hash-verification-source-20261022.txt": "92f14472e5a309d26db3f64523ead6cf40027f67787172b85937d92da6ad36e9",
+    "windows-parallel-hashes-diagnostic-20261022.txt": "8c498eeb898fb0634386bdf3fe72dae51864b1e2621d55d61f478261236081e5",
+    "windows-parallel-hashes-source-20261022.txt": "f3d8608baff0509a6dd0508288f8679b0f7f9b1ad33f29a0fafc828044d2b6ab"
+  }
+}

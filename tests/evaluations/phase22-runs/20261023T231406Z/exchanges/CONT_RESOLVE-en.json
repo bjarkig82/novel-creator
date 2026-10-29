@@ -1,0 +1,1068 @@
+{
+  "schema_version": "1.0",
+  "novel_id": "cb66f60c-4b08-4aea-9616-a2fc168a09eb",
+  "exchange_id": "d3acdbe1-665b-4454-87ac-7a8cb27b938f",
+  "sequence": 18,
+  "previous_exchange_id": "46f0702f-537e-4cca-930e-125e1df0326f",
+  "previous_digest": "82a244be806ca6fcf2e625f7290335df11b2cf14ca6ca814f940a893fe41babc",
+  "session_id": "7b956f0b-12a9-4a91-9568-f76844ea690e",
+  "expected_git_head": "16c12550e4cf1c1ebaac9f17cdc08bcb4fe1d333",
+  "recorded_at": "2026-10-28T10:44:25.775507Z",
+  "operation": "conversation",
+  "messages": [
+    {
+      "message_id": "f03385cc-cfaf-42f2-a22a-d481770cf7a5",
+      "role": "user",
+      "text": "Case CONT_RESOLVE. Resolve the deferred relationship issue this way: the apparent shared childhood memory is intentionally a dream imagined by Freyja, not a real shared experience. Freyja and Sigrún still never met before the reunion. Preserve that author truth and the dream’s separate viewpoint. Also mark the advisory brass-seal foreshadowing finding resolved: I understand that suggestion and need no further advice about it. This disposition does not accept the foreshadowing proposal. Close the review and pause."
+    },
+    {
+      "message_id": "ddebfd05-d6d3-4ec1-8376-e3ae65ece7c0",
+      "role": "assistant",
+      "text": "The deferred relationship issue is resolved as an intentional dream (69b768af r3; resolution cb322bf4 r1). Freyja imagines the shared childhood in a dream; it is not a real shared experience (72157a31 r1; dream event b55e98b1 r1; author-truth assertions 301b0343 r1 and 1a723534 r1).\n\nThe dream content is stored separately with Freyja as its viewpoint holder (24e4f2e9 r1). This does not establish an earlier meeting, shared childhood in author truth, or a belief that the dream is real. Freyja and Sigrún still never met before the reunion (20ec7fd0 r1; reaffirmation dce8df27 r1). The old real-memory proposal and its versions remain inspectable; its current version is superseded (42cd4d30 r3). The deferred relationship hold is released by this sourced intentional resolution.\n\nThe advisory brass-seal foreshadowing finding is resolved (cefb035a r2; disposition decision 82d0d795 r1). Its proposal remains unaccepted and unchanged (ef0b727a r1); I will give no further advice about that suggestion unless you ask.\n\nContinuity review is closed (7b956f0b r6), retaining its saved open-ended mode. The unrelated floating-bridge uncertainty remains open (c8ddb813 r1), and all unanswered questions remain open. Routine checkpoints remain on request. Paused here."
+    }
+  ],
+  "input_artifacts": [
+    {
+      "artifact_id": "121fbc43-0773-42cd-b5c9-19d7d01469bc",
+      "original_text": "{\"kind\":\"host_input\",\"source_type\":\"delegated\",\"thread_id\":\"01a16af9-f289-73c1-8151-55f50ace05d9\",\"turn_id\":\"01a1821b-2c68-7f32-b757-c213ade05cf1\",\"event_id\":\"fco_01a1821b-2c68-7f32-b757-c221d1a005c1\",\"event_type\":\"functionCallOutput\",\"source_thread_id\":\"01a16af6-0d9b-7173-a5f5-c8775f37df18\",\"native_user_input\":false,\"novice_evidence\":false,\"evaluation_only\":true,\"text\":\"Case CONT_RESOLVE. Resolve the deferred relationship issue this way: the apparent shared childhood memory is intentionally a dream imagined by Freyja, not a real shared experience. Freyja and Sigrún still never met before the reunion. Preserve that author truth and the dream’s separate viewpoint. Also mark the advisory brass-seal foreshadowing finding resolved: I understand that suggestion and need no further advice about it. This disposition does not accept the foreshadowing proposal. Close the review and pause.\",\"public_event\":{\"type\":\"functionCallOutput\",\"id\":\"fco_01a1821b-2c68-7f32-b757-c221d1a005c1\",\"namespace\":\"codex_app\",\"name\":\"send_message_to_thread\",\"output\":{\"text\":\"<codex_delegation>\\n  <source_thread_id>01a16af6-0d9b-7173-a5f5-c8775f37df18</source_thread_id>\\n  <input>Case CONT_RESOLVE. Resolve the deferred relationship issue this way: the apparent shared childhood memory is intentionally a dream imagined by Freyja, not a real shared experience. Freyja and Sigrún still never met before the reunion. Preserve that author truth and the dream’s separate viewpoint. Also mark the advisory brass-seal foreshadowing finding resolved: I understand that suggestion and need no further advice about it. This disposition does not accept the foreshadowing proposal. Close the review and pause.</input>\\n</codex_delegation>\",\"truncated\":false}}}",
+      "parsed_value": {
+        "kind": "host_input",
+        "source_type": "delegated",
+        "thread_id": "01a16af9-f289-73c1-8151-55f50ace05d9",
+        "turn_id": "01a1821b-2c68-7f32-b757-c213ade05cf1",
+        "event_id": "fco_01a1821b-2c68-7f32-b757-c221d1a005c1",
+        "event_type": "functionCallOutput",
+        "source_thread_id": "01a16af6-0d9b-7173-a5f5-c8775f37df18",
+        "native_user_input": false,
+        "novice_evidence": false,
+        "evaluation_only": true,
+        "text": "Case CONT_RESOLVE. Resolve the deferred relationship issue this way: the apparent shared childhood memory is intentionally a dream imagined by Freyja, not a real shared experience. Freyja and Sigrún still never met before the reunion. Preserve that author truth and the dream’s separate viewpoint. Also mark the advisory brass-seal foreshadowing finding resolved: I understand that suggestion and need no further advice about it. This disposition does not accept the foreshadowing proposal. Close the review and pause.",
+        "public_event": {
+          "type": "functionCallOutput",
+          "id": "fco_01a1821b-2c68-7f32-b757-c221d1a005c1",
+          "namespace": "codex_app",
+          "name": "send_message_to_thread",
+          "output": {
+            "text": "<codex_delegation>\n  <source_thread_id>01a16af6-0d9b-7173-a5f5-c8775f37df18</source_thread_id>\n  <input>Case CONT_RESOLVE. Resolve the deferred relationship issue this way: the apparent shared childhood memory is intentionally a dream imagined by Freyja, not a real shared experience. Freyja and Sigrún still never met before the reunion. Preserve that author truth and the dream’s separate viewpoint. Also mark the advisory brass-seal foreshadowing finding resolved: I understand that suggestion and need no further advice about it. This disposition does not accept the foreshadowing proposal. Close the review and pause.</input>\n</codex_delegation>",
+            "truncated": false
+          }
+        }
+      },
+      "digest": "97acf5e50caeb203c69c6a7a5c731ee7f5cc0ea759aa0bb3fac3c006643072de"
+    }
+  ],
+  "record_versions": [
+    {
+      "id": "42cd4d30-12e8-41e6-8435-d6446b09104d",
+      "kind": "idea",
+      "revision": 3,
+      "previous_revision": 2,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "2b515dae-bb19-4e96-8a2f-2550ae7a6980",
+          "message_id": "94f1548f-3c89-48f1-8ad0-016f6d0c8df4",
+          "range": {
+            "start": 456,
+            "end": 535
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "a24f43cb-db0a-42b6-af10-147502f98ae0",
+          "message_id": "a0bddc6e-48be-40c5-bee0-1cf3d6a395c6",
+          "range": {
+            "start": 531,
+            "end": 613
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "d3acdbe1-665b-4454-87ac-7a8cb27b938f",
+          "message_id": "f03385cc-cfaf-42f2-a22a-d481770cf7a5",
+          "range": {
+            "start": 69,
+            "end": 180
+          }
+        }
+      ],
+      "created_exchange_id": "2b515dae-bb19-4e96-8a2f-2550ae7a6980",
+      "origin": "supplied",
+      "statement": "Freyja and Sigrún’s real shared childhood memory motivates their first reunion.",
+      "status": "superseded",
+      "related_element_ids": [
+        "6d6e2baf-4ef0-4d2e-ab2b-f6177db2dad1",
+        "9cf4bd1e-668a-404d-b52b-fcc36442d35a",
+        "5f9d9c2d-c08e-4ccc-8ace-20b7e6bd161c",
+        "7e466350-3fdf-421d-9961-0dfc47665cb5"
+      ],
+      "alternative_group_id": null,
+      "selected_parts": [],
+      "decision_ids": [
+        "f7b15a21-66b0-474e-87c5-d9226beba605",
+        "badfce8a-dce1-49f3-b21e-7c151205edec"
+      ],
+      "resulting_assertion_ids": []
+    },
+    {
+      "id": "6d6e2baf-4ef0-4d2e-ab2b-f6177db2dad1",
+      "kind": "story_element",
+      "revision": 3,
+      "previous_revision": 2,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "2b515dae-bb19-4e96-8a2f-2550ae7a6980",
+          "message_id": "94f1548f-3c89-48f1-8ad0-016f6d0c8df4",
+          "range": {
+            "start": 456,
+            "end": 535
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "a24f43cb-db0a-42b6-af10-147502f98ae0",
+          "message_id": "a0bddc6e-48be-40c5-bee0-1cf3d6a395c6",
+          "range": {
+            "start": 531,
+            "end": 613
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "d3acdbe1-665b-4454-87ac-7a8cb27b938f",
+          "message_id": "f03385cc-cfaf-42f2-a22a-d481770cf7a5",
+          "range": {
+            "start": 69,
+            "end": 180
+          }
+        }
+      ],
+      "created_exchange_id": "2b515dae-bb19-4e96-8a2f-2550ae7a6980",
+      "origin": "supplied",
+      "element_type": "event",
+      "display_name": "Real shared childhood memory",
+      "aliases": [],
+      "status": "superseded",
+      "assertion_ids": [],
+      "relationship_ids": [],
+      "dependency_refs": [
+        {
+          "id": "9cf4bd1e-668a-404d-b52b-fcc36442d35a",
+          "revision": 1
+        },
+        {
+          "id": "5f9d9c2d-c08e-4ccc-8ace-20b7e6bd161c",
+          "revision": 1
+        },
+        {
+          "id": "7e466350-3fdf-421d-9961-0dfc47665cb5",
+          "revision": 1
+        }
+      ],
+      "time_ref": {
+        "chronology": {
+          "precision": "partial",
+          "event_anchor": null,
+          "start": "childhood",
+          "end": null,
+          "before_refs": [
+            {
+              "id": "7e466350-3fdf-421d-9961-0dfc47665cb5",
+              "revision": 1
+            }
+          ],
+          "after_refs": []
+        },
+        "narrative": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        }
+      },
+      "decision_ids": [
+        "f7b15a21-66b0-474e-87c5-d9226beba605",
+        "badfce8a-dce1-49f3-b21e-7c151205edec"
+      ]
+    },
+    {
+      "id": "b55e98b1-e3c0-4fb6-bb86-75e96f124766",
+      "kind": "story_element",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "d3acdbe1-665b-4454-87ac-7a8cb27b938f",
+          "message_id": "f03385cc-cfaf-42f2-a22a-d481770cf7a5",
+          "range": {
+            "start": 69,
+            "end": 180
+          }
+        }
+      ],
+      "created_exchange_id": "d3acdbe1-665b-4454-87ac-7a8cb27b938f",
+      "origin": "supplied",
+      "element_type": "event",
+      "display_name": "Freyja’s imagined shared-childhood dream",
+      "aliases": [],
+      "status": "accepted",
+      "assertion_ids": [
+        "301b0343-3b91-424b-8c64-44285531efb1",
+        "1a723534-7575-4df8-b454-ccc8f14b7edd",
+        "24e4f2e9-71f1-4793-8435-9f99127edd57"
+      ],
+      "relationship_ids": [],
+      "dependency_refs": [
+        {
+          "id": "9cf4bd1e-668a-404d-b52b-fcc36442d35a",
+          "revision": 1
+        }
+      ],
+      "time_ref": {
+        "chronology": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        },
+        "narrative": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        }
+      },
+      "decision_ids": [
+        "badfce8a-dce1-49f3-b21e-7c151205edec"
+      ]
+    },
+    {
+      "id": "301b0343-3b91-424b-8c64-44285531efb1",
+      "kind": "assertion",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "d3acdbe1-665b-4454-87ac-7a8cb27b938f",
+          "message_id": "f03385cc-cfaf-42f2-a22a-d481770cf7a5",
+          "range": {
+            "start": 69,
+            "end": 180
+          }
+        }
+      ],
+      "created_exchange_id": "d3acdbe1-665b-4454-87ac-7a8cb27b938f",
+      "origin": "supplied",
+      "subject_element_id": "9cf4bd1e-668a-404d-b52b-fcc36442d35a",
+      "predicate": "imagines_in_dream",
+      "value": "a shared childhood with Sigrún",
+      "perspective": "author_truth",
+      "holder_id": null,
+      "reader_audience": null,
+      "time_ref": {
+        "chronology": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        },
+        "narrative": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        }
+      },
+      "truth_state": "affirmed",
+      "status": "accepted",
+      "decision_ids": [
+        "badfce8a-dce1-49f3-b21e-7c151205edec"
+      ],
+      "supersedes": null
+    },
+    {
+      "id": "1a723534-7575-4df8-b454-ccc8f14b7edd",
+      "kind": "assertion",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "d3acdbe1-665b-4454-87ac-7a8cb27b938f",
+          "message_id": "f03385cc-cfaf-42f2-a22a-d481770cf7a5",
+          "range": {
+            "start": 69,
+            "end": 180
+          }
+        }
+      ],
+      "created_exchange_id": "d3acdbe1-665b-4454-87ac-7a8cb27b938f",
+      "origin": "supplied",
+      "subject_element_id": "b55e98b1-e3c0-4fb6-bb86-75e96f124766",
+      "predicate": "is_real_shared_experience",
+      "value": false,
+      "perspective": "author_truth",
+      "holder_id": null,
+      "reader_audience": null,
+      "time_ref": {
+        "chronology": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        },
+        "narrative": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        }
+      },
+      "truth_state": "affirmed",
+      "status": "accepted",
+      "decision_ids": [
+        "badfce8a-dce1-49f3-b21e-7c151205edec"
+      ],
+      "supersedes": null
+    },
+    {
+      "id": "24e4f2e9-71f1-4793-8435-9f99127edd57",
+      "kind": "assertion",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "d3acdbe1-665b-4454-87ac-7a8cb27b938f",
+          "message_id": "f03385cc-cfaf-42f2-a22a-d481770cf7a5",
+          "range": {
+            "start": 69,
+            "end": 180
+          }
+        }
+      ],
+      "created_exchange_id": "d3acdbe1-665b-4454-87ac-7a8cb27b938f",
+      "origin": "supplied",
+      "subject_element_id": "b55e98b1-e3c0-4fb6-bb86-75e96f124766",
+      "predicate": "imagined_shared_childhood_with",
+      "value": {
+        "id": "5f9d9c2d-c08e-4ccc-8ace-20b7e6bd161c",
+        "revision": 1
+      },
+      "perspective": "character_belief",
+      "holder_id": "9cf4bd1e-668a-404d-b52b-fcc36442d35a",
+      "reader_audience": null,
+      "time_ref": {
+        "chronology": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        },
+        "narrative": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        }
+      },
+      "truth_state": "affirmed",
+      "status": "accepted",
+      "decision_ids": [
+        "badfce8a-dce1-49f3-b21e-7c151205edec"
+      ],
+      "supersedes": null
+    },
+    {
+      "id": "72157a31-6fcc-445b-b154-af8339ee73f5",
+      "kind": "idea",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "d3acdbe1-665b-4454-87ac-7a8cb27b938f",
+          "message_id": "f03385cc-cfaf-42f2-a22a-d481770cf7a5",
+          "range": {
+            "start": 69,
+            "end": 180
+          }
+        }
+      ],
+      "created_exchange_id": "d3acdbe1-665b-4454-87ac-7a8cb27b938f",
+      "origin": "supplied",
+      "statement": "The apparent shared childhood memory is a dream imagined by Freyja, not a real shared experience.",
+      "status": "accepted",
+      "related_element_ids": [
+        "b55e98b1-e3c0-4fb6-bb86-75e96f124766",
+        "9cf4bd1e-668a-404d-b52b-fcc36442d35a",
+        "5f9d9c2d-c08e-4ccc-8ace-20b7e6bd161c"
+      ],
+      "alternative_group_id": null,
+      "selected_parts": [
+        "The apparent shared childhood memory is a dream imagined by Freyja, not a real shared experience."
+      ],
+      "decision_ids": [
+        "badfce8a-dce1-49f3-b21e-7c151205edec"
+      ],
+      "resulting_assertion_ids": [
+        "301b0343-3b91-424b-8c64-44285531efb1",
+        "1a723534-7575-4df8-b454-ccc8f14b7edd",
+        "24e4f2e9-71f1-4793-8435-9f99127edd57"
+      ]
+    },
+    {
+      "id": "badfce8a-dce1-49f3-b21e-7c151205edec",
+      "kind": "decision",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "d3acdbe1-665b-4454-87ac-7a8cb27b938f",
+          "message_id": "f03385cc-cfaf-42f2-a22a-d481770cf7a5",
+          "range": {
+            "start": 69,
+            "end": 180
+          }
+        }
+      ],
+      "created_exchange_id": "d3acdbe1-665b-4454-87ac-7a8cb27b938f",
+      "origin": "supplied",
+      "action": "revise",
+      "user_message_ref": {
+        "type": "message",
+        "exchange_id": "d3acdbe1-665b-4454-87ac-7a8cb27b938f",
+        "message_id": "f03385cc-cfaf-42f2-a22a-d481770cf7a5",
+        "range": {
+          "start": 69,
+          "end": 180
+        }
+      },
+      "span": {
+        "start": 69,
+        "end": 180
+      },
+      "target_refs": [
+        {
+          "id": "42cd4d30-12e8-41e6-8435-d6446b09104d",
+          "revision": 2
+        },
+        {
+          "id": "6d6e2baf-4ef0-4d2e-ab2b-f6177db2dad1",
+          "revision": 2
+        }
+      ],
+      "selected_parts": [
+        "The apparent shared childhood memory is a dream imagined by Freyja, not a real shared experience."
+      ],
+      "prior_refs": [
+        {
+          "id": "42cd4d30-12e8-41e6-8435-d6446b09104d",
+          "revision": 2
+        },
+        {
+          "id": "6d6e2baf-4ef0-4d2e-ab2b-f6177db2dad1",
+          "revision": 2
+        }
+      ],
+      "result_refs": [
+        {
+          "id": "42cd4d30-12e8-41e6-8435-d6446b09104d",
+          "revision": 3
+        },
+        {
+          "id": "6d6e2baf-4ef0-4d2e-ab2b-f6177db2dad1",
+          "revision": 3
+        },
+        {
+          "id": "b55e98b1-e3c0-4fb6-bb86-75e96f124766",
+          "revision": 1
+        },
+        {
+          "id": "301b0343-3b91-424b-8c64-44285531efb1",
+          "revision": 1
+        },
+        {
+          "id": "1a723534-7575-4df8-b454-ccc8f14b7edd",
+          "revision": 1
+        },
+        {
+          "id": "24e4f2e9-71f1-4793-8435-9f99127edd57",
+          "revision": 1
+        },
+        {
+          "id": "72157a31-6fcc-445b-b154-af8339ee73f5",
+          "revision": 1
+        }
+      ],
+      "reason": "Replace the real shared-experience proposal with an explicitly intentional dream, keeping its viewpoint distinct from author truth.",
+      "affected_refs": [
+        {
+          "id": "42cd4d30-12e8-41e6-8435-d6446b09104d",
+          "revision": 3
+        },
+        {
+          "id": "6d6e2baf-4ef0-4d2e-ab2b-f6177db2dad1",
+          "revision": 3
+        },
+        {
+          "id": "b55e98b1-e3c0-4fb6-bb86-75e96f124766",
+          "revision": 1
+        },
+        {
+          "id": "301b0343-3b91-424b-8c64-44285531efb1",
+          "revision": 1
+        },
+        {
+          "id": "1a723534-7575-4df8-b454-ccc8f14b7edd",
+          "revision": 1
+        },
+        {
+          "id": "24e4f2e9-71f1-4793-8435-9f99127edd57",
+          "revision": 1
+        },
+        {
+          "id": "72157a31-6fcc-445b-b154-af8339ee73f5",
+          "revision": 1
+        }
+      ],
+      "review_required_refs": []
+    },
+    {
+      "id": "69b768af-bfe2-494a-bb99-c37c5cb7daf6",
+      "kind": "finding",
+      "revision": 3,
+      "previous_revision": 2,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "2b515dae-bb19-4e96-8a2f-2550ae7a6980",
+          "message_id": "94f1548f-3c89-48f1-8ad0-016f6d0c8df4",
+          "range": {
+            "start": 456,
+            "end": 535
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+          "message_id": "6a634120-a28f-48cb-9bfa-156c295a6e7b",
+          "range": {
+            "start": 395,
+            "end": 449
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+          "message_id": "6a634120-a28f-48cb-9bfa-156c295a6e7b",
+          "range": {
+            "start": 395,
+            "end": 449
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "a24f43cb-db0a-42b6-af10-147502f98ae0",
+          "message_id": "a0bddc6e-48be-40c5-bee0-1cf3d6a395c6",
+          "range": {
+            "start": 531,
+            "end": 613
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "d3acdbe1-665b-4454-87ac-7a8cb27b938f",
+          "message_id": "f03385cc-cfaf-42f2-a22a-d481770cf7a5",
+          "range": {
+            "start": 69,
+            "end": 180
+          }
+        }
+      ],
+      "created_exchange_id": "2b515dae-bb19-4e96-8a2f-2550ae7a6980",
+      "origin": "supplied",
+      "category": "relationship",
+      "assessment": "conflict",
+      "severity": "significant",
+      "affected_refs": [
+        {
+          "id": "42cd4d30-12e8-41e6-8435-d6446b09104d",
+          "revision": 1
+        },
+        {
+          "id": "6d6e2baf-4ef0-4d2e-ab2b-f6177db2dad1",
+          "revision": 1
+        },
+        {
+          "id": "20ec7fd0-c681-4ec1-aeb4-bbbac37b43e2",
+          "revision": 1
+        },
+        {
+          "id": "7e466350-3fdf-421d-9961-0dfc47665cb5",
+          "revision": 1
+        }
+      ],
+      "explanation": "A real shared childhood encounter or shared personal history before their first reunion contradicts the established relationship that Freyja and Sigrún had never met before that reunion. A different meaning of shared has not been supplied.",
+      "consequences": [
+        "Do not invent an earlier meeting or silently reinterpret a real memory as a lie or false memory.",
+        "The relationship history or meaning of the memory must be clarified before promotion."
+      ],
+      "resolution_options": [
+        "Reject or revise this proposal.",
+        "Explicitly revise the affected canon, subject to protected directions.",
+        "Provide an intentional narrative explanation and clarify how the affected facts relate.",
+        "Defer resolution and retain the affected promotion hold."
+      ],
+      "disposition": "intentional",
+      "decision_ids": [
+        "f7b15a21-66b0-474e-87c5-d9226beba605",
+        "cb322bf4-03d8-42fa-b4b9-655a1504c042"
+      ],
+      "narrative_explanation": "The apparent shared childhood is intentionally Freyja’s imagined dream content, not a real shared experience or earlier meeting. Freyja and Sigrún still never met before the reunion. The dream viewpoint does not establish a genuine prior relationship or a belief that the dream is real."
+    },
+    {
+      "id": "cb322bf4-03d8-42fa-b4b9-655a1504c042",
+      "kind": "decision",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "d3acdbe1-665b-4454-87ac-7a8cb27b938f",
+          "message_id": "f03385cc-cfaf-42f2-a22a-d481770cf7a5",
+          "range": {
+            "start": 69,
+            "end": 180
+          }
+        }
+      ],
+      "created_exchange_id": "d3acdbe1-665b-4454-87ac-7a8cb27b938f",
+      "origin": "supplied",
+      "action": "resolve",
+      "user_message_ref": {
+        "type": "message",
+        "exchange_id": "d3acdbe1-665b-4454-87ac-7a8cb27b938f",
+        "message_id": "f03385cc-cfaf-42f2-a22a-d481770cf7a5",
+        "range": {
+          "start": 69,
+          "end": 180
+        }
+      },
+      "span": {
+        "start": 69,
+        "end": 180
+      },
+      "target_refs": [
+        {
+          "id": "69b768af-bfe2-494a-bb99-c37c5cb7daf6",
+          "revision": 2
+        }
+      ],
+      "selected_parts": [],
+      "prior_refs": [
+        {
+          "id": "69b768af-bfe2-494a-bb99-c37c5cb7daf6",
+          "revision": 2
+        }
+      ],
+      "result_refs": [
+        {
+          "id": "69b768af-bfe2-494a-bb99-c37c5cb7daf6",
+          "revision": 3
+        }
+      ],
+      "reason": "Resolve the deferred relationship conflict through the writer’s explicit intentional-dream technique while preserving the never-met author truth.",
+      "affected_refs": [
+        {
+          "id": "69b768af-bfe2-494a-bb99-c37c5cb7daf6",
+          "revision": 3
+        }
+      ],
+      "review_required_refs": []
+    },
+    {
+      "id": "dce8df27-14ae-4d4b-990e-ee815b569747",
+      "kind": "decision",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "d3acdbe1-665b-4454-87ac-7a8cb27b938f",
+          "message_id": "f03385cc-cfaf-42f2-a22a-d481770cf7a5",
+          "range": {
+            "start": 181,
+            "end": 234
+          }
+        }
+      ],
+      "created_exchange_id": "d3acdbe1-665b-4454-87ac-7a8cb27b938f",
+      "origin": "supplied",
+      "action": "accept",
+      "user_message_ref": {
+        "type": "message",
+        "exchange_id": "d3acdbe1-665b-4454-87ac-7a8cb27b938f",
+        "message_id": "f03385cc-cfaf-42f2-a22a-d481770cf7a5",
+        "range": {
+          "start": 181,
+          "end": 234
+        }
+      },
+      "span": {
+        "start": 181,
+        "end": 234
+      },
+      "target_refs": [
+        {
+          "id": "20ec7fd0-c681-4ec1-aeb4-bbbac37b43e2",
+          "revision": 1
+        }
+      ],
+      "selected_parts": [
+        "Freyja and Sigrún never met before the reunion."
+      ],
+      "prior_refs": [
+        {
+          "id": "20ec7fd0-c681-4ec1-aeb4-bbbac37b43e2",
+          "revision": 1
+        }
+      ],
+      "result_refs": [
+        {
+          "id": "20ec7fd0-c681-4ec1-aeb4-bbbac37b43e2",
+          "revision": 1
+        }
+      ],
+      "reason": "Reaffirm the existing author truth without revising it.",
+      "affected_refs": [
+        {
+          "id": "20ec7fd0-c681-4ec1-aeb4-bbbac37b43e2",
+          "revision": 1
+        }
+      ],
+      "review_required_refs": []
+    },
+    {
+      "id": "cefb035a-922d-4968-9c3e-b9bf7f5b0b89",
+      "kind": "finding",
+      "revision": 2,
+      "previous_revision": 1,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "a24f43cb-db0a-42b6-af10-147502f98ae0",
+          "message_id": "a0bddc6e-48be-40c5-bee0-1cf3d6a395c6",
+          "range": {
+            "start": 626,
+            "end": 686
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "0c0dd85d-7244-4ed4-91b4-652a854d2edf",
+          "message_id": "98d455a4-1267-4a37-a2ad-4319793eefc4",
+          "range": {
+            "start": 112,
+            "end": 141
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "e8153db8-c478-484a-ada7-468d732944f5",
+          "message_id": "c4e20dc4-f782-4c06-b7be-eddf85aecf6d",
+          "range": {
+            "start": 142,
+            "end": 183
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "d3acdbe1-665b-4454-87ac-7a8cb27b938f",
+          "message_id": "f03385cc-cfaf-42f2-a22a-d481770cf7a5",
+          "range": {
+            "start": 298,
+            "end": 429
+          }
+        }
+      ],
+      "created_exchange_id": "a24f43cb-db0a-42b6-af10-147502f98ae0",
+      "origin": "supplied",
+      "category": "plot_dependency",
+      "assessment": "opportunity",
+      "severity": "advisory",
+      "affected_refs": [
+        {
+          "id": "ef0b727a-8642-4060-b495-cbdd9f1f1198",
+          "revision": 1
+        },
+        {
+          "id": "8913530c-0c5d-4a5f-a795-db0ceeca8d40",
+          "revision": 1
+        },
+        {
+          "id": "bd51f70d-7f05-4875-a9fb-119c26e7f4b1",
+          "revision": 1
+        }
+      ],
+      "explanation": "The established brass seal and sender can support a foreshadowing connection. How the seal points to Bjarni remains unchosen.",
+      "consequences": [],
+      "resolution_options": [
+        "Explore the seal as a clue without inferring ownership or a chosen mechanism."
+      ],
+      "disposition": "resolved",
+      "decision_ids": [
+        "82d0d795-0e36-4af8-a17e-7df279d4a215"
+      ],
+      "narrative_explanation": null
+    },
+    {
+      "id": "82d0d795-0e36-4af8-a17e-7df279d4a215",
+      "kind": "decision",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "d3acdbe1-665b-4454-87ac-7a8cb27b938f",
+          "message_id": "f03385cc-cfaf-42f2-a22a-d481770cf7a5",
+          "range": {
+            "start": 298,
+            "end": 429
+          }
+        }
+      ],
+      "created_exchange_id": "d3acdbe1-665b-4454-87ac-7a8cb27b938f",
+      "origin": "supplied",
+      "action": "resolve",
+      "user_message_ref": {
+        "type": "message",
+        "exchange_id": "d3acdbe1-665b-4454-87ac-7a8cb27b938f",
+        "message_id": "f03385cc-cfaf-42f2-a22a-d481770cf7a5",
+        "range": {
+          "start": 298,
+          "end": 429
+        }
+      },
+      "span": {
+        "start": 298,
+        "end": 429
+      },
+      "target_refs": [
+        {
+          "id": "cefb035a-922d-4968-9c3e-b9bf7f5b0b89",
+          "revision": 1
+        }
+      ],
+      "selected_parts": [],
+      "prior_refs": [
+        {
+          "id": "cefb035a-922d-4968-9c3e-b9bf7f5b0b89",
+          "revision": 1
+        }
+      ],
+      "result_refs": [
+        {
+          "id": "cefb035a-922d-4968-9c3e-b9bf7f5b0b89",
+          "revision": 2
+        }
+      ],
+      "reason": "Close the advisory suggestion finding because the user understands it and requests no further advice. This does not accept its proposal.",
+      "affected_refs": [
+        {
+          "id": "cefb035a-922d-4968-9c3e-b9bf7f5b0b89",
+          "revision": 2
+        }
+      ],
+      "review_required_refs": []
+    },
+    {
+      "id": "7b956f0b-12a9-4a91-9568-f76844ea690e",
+      "kind": "session",
+      "revision": 6,
+      "previous_revision": 5,
+      "created_exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "d3acdbe1-665b-4454-87ac-7a8cb27b938f",
+          "message_id": "f03385cc-cfaf-42f2-a22a-d481770cf7a5",
+          "range": {
+            "start": 491,
+            "end": 518
+          }
+        }
+      ],
+      "topic": "Continuity review",
+      "mode": "open",
+      "state": "closed",
+      "started_exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+      "last_exchange_id": "d3acdbe1-665b-4454-87ac-7a8cb27b938f",
+      "related_record_ids": [
+        "36c107d0-448e-4ec8-8acf-0bbd1a80e624",
+        "f0f4d12b-e666-4d1c-9f86-271a75ea134c",
+        "a20b0b76-e180-44db-85ce-e5158bb4d186",
+        "455a9689-b8eb-42fe-9c72-03063d226753",
+        "e82c4150-a3f3-41c6-8bea-8139ab892e51",
+        "481b0e24-125e-49bd-a932-2d5694ee5d7b",
+        "2497fdcb-e3bd-4af7-b1a9-9452719b43ba",
+        "8b2e30d5-9ccf-4f6f-a2ae-f97e76f3ec0b",
+        "4355d4e9-a670-4136-accf-7ee9e44d7c9a",
+        "c37ada40-5047-46bb-8d91-45b1e363517b",
+        "12c209e1-49a3-4b8d-bbca-845729395f9b",
+        "bfcbbdff-35cc-425c-8670-c722ff6b4bca",
+        "9428530a-3d9a-4705-8b93-30a534bb99b3",
+        "e7860735-5143-462d-8358-727436f2376f",
+        "da98ac0d-9394-437b-a84e-b58340400e68",
+        "82dc2970-0fc0-44fb-a904-242c882e0eb5",
+        "b379a543-162e-428d-b7a1-e95b331d4937",
+        "a264da48-d66f-41c8-a418-be835131c5f3",
+        "ccc7f13e-7414-4828-8baa-ccaa54c66545",
+        "1cc55999-9d0c-44d0-b5a5-16d59789838c",
+        "0accdfbe-bd95-4d34-83e6-ef2b71154d92",
+        "b6de28b4-5b48-422c-97a0-327241b7e417",
+        "39813baf-380a-41fe-82d7-28371fbf1526",
+        "47964b12-7a25-4ea5-9296-b273bc670b0f",
+        "b8dce011-5cbb-41ad-976d-7d739db40ced",
+        "d148a2a0-f588-48a5-853b-7864fa9ee505",
+        "2f049d07-42ed-45ed-82f6-c2898f2d1635",
+        "e10e3e70-64e2-4458-90ae-0ad638c6e6f0",
+        "7e466350-3fdf-421d-9961-0dfc47665cb5",
+        "20ec7fd0-c681-4ec1-aeb4-bbbac37b43e2",
+        "a4aa58cb-28d1-42c9-9daf-9a206c8ece8e",
+        "a5480c17-770d-422a-acdc-f5833c13bfe7",
+        "ba58b0dd-8d4e-402a-a41e-4adbabd0bcf0",
+        "83c818af-8c1a-4871-beca-eb354753ab30",
+        "9cf4bd1e-668a-404d-b52b-fcc36442d35a",
+        "5f9d9c2d-c08e-4ccc-8ace-20b7e6bd161c",
+        "e7ebe0ce-980f-44c9-bf1a-8eae7e0d4df9",
+        "ca37ee5a-4d3c-49cc-ab84-1c70bfadff6b",
+        "336c0a14-2e41-4c96-9c37-c4e3747f836a",
+        "a59cef3c-52be-4ca8-bed6-ea0f2ad683f3",
+        "69b1fceb-c281-4264-9ef6-394ab5435da5",
+        "42774683-64c0-4b27-9ded-fd1ed3cec0db",
+        "ad9dd3f6-9656-406f-ac77-4690c770c08b",
+        "fe6fa08b-35f0-4e26-abf6-9659fe5c61af",
+        "d0614c62-ba76-46ed-9f38-2514585ed35a",
+        "ee861f63-8079-47da-89fb-102de1b58ce3",
+        "bfef12dd-42fc-49c6-8b3e-686dedc131bf",
+        "04d94072-e6f5-437e-950c-24051f04a904",
+        "1312e021-4019-487f-ae79-5088de5dd51f",
+        "d43f629f-24e8-420b-8439-b18e58b708fa",
+        "c8bed026-b7e6-4da6-b1b0-9020357ac34d",
+        "6d6e2baf-4ef0-4d2e-ab2b-f6177db2dad1",
+        "42cd4d30-12e8-41e6-8435-d6446b09104d",
+        "69b768af-bfe2-494a-bb99-c37c5cb7daf6",
+        "6b8f2dc8-8705-4fd6-8793-4c2a58296f81",
+        "602d93fa-9c78-4432-810d-06a007de66d7",
+        "a153fa04-d0d2-4ff1-a397-dec8cf77f714",
+        "39fc465b-3c82-40ef-9de6-aea330b9ee42",
+        "89357784-4354-4935-9c58-c4a6b4155ad9",
+        "b00f3432-61ac-44cd-aaa1-6f85761ec80c",
+        "7063c495-cb08-4980-b302-38b9305ac2e2",
+        "06d97456-b26a-4866-847d-684e22cecf8b",
+        "4e630db6-5258-4ae8-8724-81aa7d3260d3",
+        "1251fe58-bb3f-45be-974e-beaab7398a5a",
+        "82980897-fe23-42d3-b888-66a208b7eb4e",
+        "1f6f5c8d-38d9-4bc6-a0b3-89a46b996f21",
+        "a4acd395-a443-407a-af06-88563cf8e2f6",
+        "f7b15a21-66b0-474e-87c5-d9226beba605",
+        "ef0b727a-8642-4060-b495-cbdd9f1f1198",
+        "cefb035a-922d-4968-9c3e-b9bf7f5b0b89",
+        "2619c8e9-4a43-4a7f-9727-59d3fc5622f6",
+        "7bbe66fa-53ff-480e-9572-ada288bf9e63",
+        "acc2c929-b415-4202-9bf4-912154080faf",
+        "6b550ade-f9e9-4bdf-8070-9cdc8a99dc2f",
+        "d45aee58-0014-4ec4-b6ec-628031adadb5",
+        "03ddca22-3e19-4679-8a21-a71b980e5890",
+        "e5c3a12c-0b10-46c5-b912-15f31bf93f38",
+        "39607300-6a79-4cdd-ae2c-158a3093af9f",
+        "cf68a5b3-c2b3-4dfe-beac-c9368075c01f",
+        "c43e7af6-1b88-4b0f-aed0-b25b90249980",
+        "c1671e5f-ac8b-470f-bcfb-76843688ac4e",
+        "8415e40e-a407-47bb-962d-4b3bccd476ab",
+        "b55e98b1-e3c0-4fb6-bb86-75e96f124766",
+        "301b0343-3b91-424b-8c64-44285531efb1",
+        "1a723534-7575-4df8-b454-ccc8f14b7edd",
+        "24e4f2e9-71f1-4793-8435-9f99127edd57",
+        "72157a31-6fcc-445b-b154-af8339ee73f5",
+        "badfce8a-dce1-49f3-b21e-7c151205edec",
+        "cb322bf4-03d8-42fa-b4b9-655a1504c042",
+        "dce8df27-14ae-4d4b-990e-ee815b569747",
+        "82d0d795-0e36-4af8-a17e-7df279d4a215"
+      ],
+      "unresolved_question_ids": [
+        "acc2c929-b415-4202-9bf4-912154080faf"
+      ],
+      "derived_context_ref": null
+    }
+  ],
+  "continuity_review": {
+    "coverage": "complete",
+    "reviewed_record_refs": [
+      {
+        "id": "69b768af-bfe2-494a-bb99-c37c5cb7daf6",
+        "revision": 2
+      },
+      {
+        "id": "42cd4d30-12e8-41e6-8435-d6446b09104d",
+        "revision": 2
+      },
+      {
+        "id": "6d6e2baf-4ef0-4d2e-ab2b-f6177db2dad1",
+        "revision": 2
+      },
+      {
+        "id": "20ec7fd0-c681-4ec1-aeb4-bbbac37b43e2",
+        "revision": 1
+      },
+      {
+        "id": "9cf4bd1e-668a-404d-b52b-fcc36442d35a",
+        "revision": 1
+      },
+      {
+        "id": "5f9d9c2d-c08e-4ccc-8ace-20b7e6bd161c",
+        "revision": 1
+      },
+      {
+        "id": "cefb035a-922d-4968-9c3e-b9bf7f5b0b89",
+        "revision": 1
+      },
+      {
+        "id": "ef0b727a-8642-4060-b495-cbdd9f1f1198",
+        "revision": 1
+      }
+    ],
+    "unavailable_refs": [],
+    "canon_hold_refs": [],
+    "finding_ids": [
+      "69b768af-bfe2-494a-bb99-c37c5cb7daf6",
+      "cefb035a-922d-4968-9c3e-b9bf7f5b0b89"
+    ],
+    "summary": "The current user supplies an intentional dream explanation, resolving the deferred relationship conflict while preserving never-met author truth. Dream content has its own Freyja-held perspective and does not imply a genuine prior meeting or a waking conviction. The advisory finding is resolved without accepting the separate foreshadowing proposal. Only these requested dispositions and the review closure are made; unrelated findings and unanswered questions are preserved."
+  },
+  "payload_digest": "095cbba6ca7394ca263577499d5b4b66a2cdabcab8c65b690f86ef8519bde149"
+}

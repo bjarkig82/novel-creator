@@ -1,0 +1,21 @@
+{
+  "failure": "Story conclusions disclosed in progress commentary before confirmed save",
+  "source_ref": [
+    "FR-009",
+    "FR-014",
+    "US3/AC1",
+    "SC-009"
+  ],
+  "evidence": [
+    "CAPTURE3-en-public.json",
+    "CAPTURE3-is-public.json",
+    "CAPTURE3-en-commentary-review.json",
+    "CAPTURE3-is-commentary-review.json",
+    "observation-verification-CAPTURE3.json"
+  ],
+  "root_cause_hypothesis": "The shared entry protocol described the prepared reply/final display but did not explicitly constrain story-bearing progress commentary. The model applied general progress-update guidance outside the saved assistant-message boundary. Runtime cannot prevent pre-save host emissions.",
+  "minimal_repair": "Clarify all display channels and exact whitespace in workflows/entry.md; do not change schemas, storage, source labels, authority rules or existing installed novels.",
+  "baseline_verifier_red": "A matching final incorrectly passed despite an agent-classified story comment before the save. Regression test first failed with ValueError not raised.",
+  "verifier_green": "Seven test methods now pass, including missing commentary review and pre-save creative commentary. Semantic classification remains separately labeled agent judgment.",
+  "host_regression": "Pending current freshly installed copies in 20261023T231406Z; no fix claim from instruction text alone."
+}

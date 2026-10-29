@@ -1,0 +1,22 @@
+{
+  "en": {
+    "current_head": "65eab6f4ebfdb319a53c29e1dc581132dedeadeb",
+    "last_committed_exchange_id": "d83026c5-c29f-42e9-a520-7eb10c16138a",
+    "last_sequence": 8,
+    "public_final_display_verified": false,
+    "reported_authority_save_confirmed_in_git": true,
+    "authority_checkpoint": {
+      "git_head": "65eab6f4ebfdb319a53c29e1dc581132dedeadeb",
+      "exchange_id": "d83026c5-c29f-42e9-a520-7eb10c16138a",
+      "sequence": 8
+    }
+  },
+  "is": {
+    "current_head": "d9282b7298e42a1c11963019ed7e7c09690ef0d1",
+    "last_committed_exchange_id": "58e71b32-6511-48a6-b064-b13f6939964c",
+    "last_sequence": 7,
+    "public_final_display_verified": false,
+    "head_remains_recorded_fresh_checkpoint": true,
+    "authority_exchange_committed": false
+  }
+}

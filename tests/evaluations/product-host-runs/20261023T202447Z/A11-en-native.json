@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "thread": {
+    "id": "01a16833-e1cf-79d2-bee0-80a6ca973e3c",
+    "kind": "codex",
+    "hostId": "local"
+  },
+  "turns": [
+    {
+      "id": "01a16a98-040e-7782-8c7b-7f943146aa3e",
+      "status": "completed",
+      "items": [
+        {
+          "type": "functionCallOutput",
+          "id": "fco_01a16a98-0410-7503-8f00-bfa7e4ba58e3",
+          "name": "send_message_to_thread",
+          "namespace": "codex_app",
+          "output": {
+            "text": "<codex_delegation>\n  <source_thread_id>01a167df-036b-7c71-b306-9d7021046c01</source_thread_id>\n  <input>I accept the blue light, not the warning bell.</input>\n</codex_delegation>",
+            "truncated": false
+          }
+        },
+        {
+          "type": "agentMessage",
+          "id": "msg_06d2f81bda1c6b72016adbccdffaf481918603de0ad275ee66",
+          "phase": "commentary",
+          "text": "I’ll establish only the blue light, separate the two parts for tracking, and leave the warning bell as a proposal."
+        },
+        {
+          "type": "commandExecution",
+          "id": "exec-6fc6e108-a24c-490c-8d09-d21712143134",
+          "status": "completed",
+          "exitCode": 0,
+          "output": {
+            "text": "01a16833-e1cf-79d2-bee0-80a6ca973e3c\r\n",
+            "truncated": false
+          }
+        },
+        {
+          "type": "commandExecution",
+          "id": "exec-d5e1a4bb-11c6-4835-baf3-1cc2b5727fde",
+          "status": "completed",
+          "exitCode": 0
+        },
+        {
+          "type": "commandExecution",
+          "id": "exec-66b7257a-4555-4c63-a10d-e2b2bd5b8cf7",
+          "status": "completed",
+          "exitCode": 0,
+          "output": {
+            "text": "{\"exchange_id\": \"bb36f7ee-da2b-427c-830e-7060b5950c68\"}\r\n{\"ok\": true, \"operation\": \"exchange.save\", \"novel_id\": \"adfafe79-ad44-4097-8fc2-305095c3e4ec\", \"data\": {\"saved\": true, \"already_saved\": false, \"cleanup_required\": false}, \"warnings\": [], \"checkpoint\": {\"git_head\": \"e26bf5f125011322c6040ddc325ebb0421f3d88a\", \"exchange_id\": \"bb36f7ee-da2b-427c-830e-7060b5950c68\", \"sequence\": 13}}\r\n",
+            "truncated": false
+          }
+        },
+        {
+          "type": "commandExecution",
+          "id": "exec-9f53b821-41e3-4544-af75-d2de5168ddd9",
+          "status": "completed",
+          "exitCode": 0,
+          "output": {
+            "text": "{\"saved\": true, \"exchange_id\": \"bb36f7ee-da2b-427c-830e-7060b5950c68\", \"checkpoint\": {\"git_head\": \"e26bf5f125011322c6040ddc325ebb0421f3d88a\", \"exchange_id\": \"bb36f7ee-da2b-427c-830e-7060b5950c68\", \"sequence\": 13}}\r\n",
+            "truncated": false
+          }
+        },
+        {
+          "type": "agentMessage",
+          "id": "msg_06d2f81bda1c6b72016adbcd12cff48191a60f9bfeb3cce0bd",
+          "phase": "final_answer",
+          "text": "Established: the lighthouse emits a blue light.\n\nThe warning bell remains a proposal; it is not established."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+test_balanced_save_selects_bounded_readers_and_keeps_small_bootstrap_retry_serial (tests.integration.test_storage.StorageTests.test_balanced_save_selects_bounded_readers_and_keeps_small_bootstrap_retry_serial) ... FAIL
+
+======================================================================
+FAIL: test_balanced_save_selects_bounded_readers_and_keeps_small_bootstrap_retry_serial (tests.integration.test_storage.StorageTests.test_balanced_save_selects_bounded_readers_and_keeps_small_bootstrap_retry_serial)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 33, in test_balanced_save_selects_bounded_readers_and_keeps_small_bootstrap_retry_serial
+    self.assertEqual(storage._SAVE_HISTORY_WORKERS, 4 if os.name == 'nt' else 1)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 2 != 4
+
+----------------------------------------------------------------------
+Ran 1 test in 0.001s
+
+FAILED (failures=1)

@@ -1,0 +1,19 @@
+{
+  "authorization": {
+    "parent_thread_id": "01a167df-036b-7c71-b306-9d7021046c01",
+    "scope": "Owner-authorized single-user POC with automated testing, novice testers out of scope, manual tests after delivery"
+  },
+  "tasks": {
+    "en": {
+      "thread_id": "01a16aa5-4c4c-7a52-89d0-26df804faaf0",
+      "novel_path": "C:/Users/BjarkiGunnarsson/Documents/Codex/2026-10-23/novel-fresh-resume-en-20261023/work/poc-novel-01"
+    },
+    "is": {
+      "thread_id": "01a16aa7-60f4-74e1-9efe-d132eed653e4",
+      "novel_path": "C:/Users/BjarkiGunnarsson/Documents/Codex/2026-10-23/novel-fresh-resume-is-20261023/work/poc-novel-01"
+    }
+  },
+  "source_type": "delegated",
+  "native_user_input": false,
+  "novice_evidence": false
+}

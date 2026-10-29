@@ -1,0 +1,30 @@
+"""Small/large context-only policy diagnostic for corrected candidate."""
+import argparse,hashlib,json,statistics,subprocess,sys,time
+from pathlib import Path
+from unittest.mock import patch
+sys.path.insert(0,str(Path.cwd()))
+from novel_creator import records,storage
+from novel_creator.context import read
+from tests.helpers import repository,git
+from tests.performance import benchmark_records as benchmark
+import history_partition_candidate as candidate
+p=argparse.ArgumentParser();p.add_argument('--worker',action='store_true');p.add_argument('--root',type=Path);p.add_argument('--workers',type=int,default=0);a=p.parse_args()
+if a.worker:
+ original=storage._batch_blobs
+ def selected(root,entries,paths):return candidate.partitioned_blobs(root,entries,paths,workers=4) if a.workers else original(root,entries,paths)
+ with patch.object(storage,'_batch_blobs',selected):
+  started=time.perf_counter();result=read(a.root);elapsed=time.perf_counter()-started
+ print(json.dumps({'seconds':elapsed,'records':len(result['data']['records'])}));raise SystemExit(0)
+with benchmark.benchmark_key(True):
+ for size in (256,1024):
+  with repository() as root:
+   novel_id=records.loads((root/'.novel-creator/manifest.json').read_bytes())['novel_id'];history,fixture=benchmark.generate(novel_id,exchanges=size,sessions=100,assertions=size*2,minimum_bytes=0)
+   for exchange in history:
+    target=root/storage.bundle_path(exchange);target.parent.mkdir(parents=True,exist_ok=True);target.write_bytes(benchmark.serialized(exchange))
+   git(root,'add','story/exchanges');git(root,'commit','-m','Corrected history read threshold fixture');del history,exchange
+   expected=len(read(root)['data']['records']);fixture['fully_validated']=True
+   samples={0:[],4:[]}
+   for workers in [0,4,4,0]*2:
+    result=subprocess.run([sys.executable,'-B',__file__,'--worker','--root',str(root),'--workers',str(workers)],capture_output=True,text=True,encoding='utf-8',timeout=30)
+    assert result.returncode==0,result.stderr[-1000:];row=json.loads(result.stdout);assert row['records']==expected;samples[workers].append(row['seconds'])
+   print(json.dumps({'fixture':fixture,'storage_sha256':hashlib.sha256(Path(storage.__file__).read_bytes()).hexdigest(),'candidate_sha256':hashlib.sha256(Path(candidate.__file__).read_bytes()).hexdigest(),'method':'Four fresh-worker complete context reads/configuration, balanced order; no p95 claim','samples':samples,'medians':{str(w):statistics.median(values) for w,values in samples.items()}}),flush=True)

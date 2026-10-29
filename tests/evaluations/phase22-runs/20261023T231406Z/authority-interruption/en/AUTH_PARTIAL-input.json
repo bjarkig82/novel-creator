@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "thread": {
+    "id": "01a16af9-f289-73c1-8151-55f50ace05d9"
+  },
+  "turns": [
+    {
+      "id": "01a16b2b-6fdf-7aa0-a42d-5de800d58169",
+      "items": [
+        {
+          "type": "functionCallOutput",
+          "id": "fco_01a16b2b-6fe0-7343-a17a-492b418548d0",
+          "name": "send_message_to_thread",
+          "namespace": "codex_app",
+          "output": {
+            "text": "<codex_delegation>\n  <source_thread_id>01a16af6-0d9b-7173-a5f5-c8775f37df18</source_thread_id>\n  <input>Case AUTH_PARTIAL. Return to Events in open mode. Keep the storm, but leave the shipwreck as a possibility; clear weather is unselected, not rejected. I accept the blue light, not the warning bell. For the compound possibility “Rúna is the sender and the murderer”, only the sender part is accepted; leave the murder undecided. Set routine checkpoints to every exchange. Summarize captured proposals, established decisions and open questions, then pause.</input>\n</codex_delegation>",
+            "truncated": false
+          }
+        }
+      ]
+    }
+  ]
+}

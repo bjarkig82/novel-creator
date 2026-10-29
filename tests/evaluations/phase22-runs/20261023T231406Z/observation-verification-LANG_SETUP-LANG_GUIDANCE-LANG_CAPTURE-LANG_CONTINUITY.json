@@ -1,0 +1,267 @@
+{
+  "ok": true,
+  "scope": "Public delegated persistence/display/source checks only",
+  "case_filter": [
+    "LANG_CAPTURE",
+    "LANG_CONTINUITY",
+    "LANG_GUIDANCE",
+    "LANG_SETUP"
+  ],
+  "language_filter": null,
+  "all_submitted_cases_checked": false,
+  "semantic_assessment": "Separate agent judgments required; no human/native result inferred",
+  "cases": [
+    {
+      "case_id": "LANG_CAPTURE",
+      "language": "en",
+      "thread_id": "01a16af9-f289-73c1-8151-55f50ace05d9",
+      "turn_id": "01a18223-d08e-7db2-bec6-2947b7b7d9f2",
+      "exchange_id": "cd8b9ee7-19e0-4e76-a4da-1a474809fc33",
+      "checkpoint": {
+        "git_head": "7c9db9defc0b3a5dc0eab40c4f86fce9a623d559",
+        "exchange_id": "cd8b9ee7-19e0-4e76-a4da-1a474809fc33",
+        "sequence": 4
+      },
+      "exact_input_saved": true,
+      "exact_response_saved_and_displayed": true,
+      "save_precedes_display": true,
+      "source_type": "delegated",
+      "native_user_input": false,
+      "novice_evidence": false,
+      "installed_bundle_verified": true,
+      "installed_bundle_matches_current_source": true,
+      "commentary_agent_reviewed": true,
+      "record_kinds": [
+        "story_element",
+        "assertion",
+        "idea",
+        "decision",
+        "idea",
+        "assertion",
+        "story_element",
+        "idea",
+        "session"
+      ],
+      "response": "Established author truth: Þóra is married (010a1c3d r1; decision f250ede0 r1).\n\nÞóra sending the letter remains an unaccepted possibility (a3e1a84d r1); I have not established her as the sender.\n\n“I am married” is captured only as possible dialogue or a possible lie (c05518bd r1). It does not establish a speaker’s marital status, identify the speaker, or overturn Þóra’s marriage fact. Ægir’s earlier childhood question remains open.\n\nPaused here."
+    },
+    {
+      "case_id": "LANG_CAPTURE",
+      "language": "is",
+      "thread_id": "01a16afa-1197-7650-8189-9365687429ee",
+      "turn_id": "01a18223-db94-7202-bd68-7612e69d99f7",
+      "exchange_id": "a5b50d12-fd7f-4e43-961f-b87b82202b7d",
+      "checkpoint": {
+        "git_head": "dc0423dae5cf4e323399215243196d1dff6536b8",
+        "exchange_id": "a5b50d12-fd7f-4e43-961f-b87b82202b7d",
+        "sequence": 4
+      },
+      "exact_input_saved": true,
+      "exact_response_saved_and_displayed": true,
+      "save_precedes_display": true,
+      "source_type": "delegated",
+      "native_user_input": false,
+      "novice_evidence": false,
+      "installed_bundle_verified": true,
+      "installed_bundle_matches_current_source": true,
+      "commentary_agent_reviewed": true,
+      "record_kinds": [
+        "story_element",
+        "assertion",
+        "idea",
+        "decision",
+        "story_element",
+        "assertion",
+        "idea",
+        "story_element",
+        "assertion",
+        "idea",
+        "session"
+      ],
+      "response": "Staðfest: Þóra er gift.\n\nAð Þóra hafi sent bréfið er aðeins tillaga — „eventúellt“ staðfestir það ekki. Hún er ekki staðfest sem sendandinn.\n\nTilvitnunin „Ég er gift.“ er varðveitt sem möguleg persónuorð og lygi, ekki ný staðreynd eða afturköllun á hjúskaparstöðu Þóru.\n\nÉg staldra við."
+    },
+    {
+      "case_id": "LANG_CONTINUITY",
+      "language": "en",
+      "thread_id": "01a16af9-f289-73c1-8151-55f50ace05d9",
+      "turn_id": "01a18226-a1c7-7902-bb02-c6f36e5bf512",
+      "exchange_id": "fe93d295-9197-46ac-be71-fc0cc2ea1aeb",
+      "checkpoint": {
+        "git_head": "0219fef998608eb191b66dce4557c6a7de99821a",
+        "exchange_id": "fe93d295-9197-46ac-be71-fc0cc2ea1aeb",
+        "sequence": 5
+      },
+      "exact_input_saved": true,
+      "exact_response_saved_and_displayed": true,
+      "save_precedes_display": true,
+      "source_type": "delegated",
+      "native_user_input": false,
+      "novice_evidence": false,
+      "installed_bundle_verified": true,
+      "installed_bundle_matches_current_source": true,
+      "commentary_agent_reviewed": true,
+      "record_kinds": [
+        "idea",
+        "assertion",
+        "finding",
+        "idea",
+        "assertion",
+        "decision",
+        "idea",
+        "question",
+        "session"
+      ],
+      "response": "No. “Gaseous fuel, not petrol” conflicts with the established rule that the engine runs exclusively on petrol (2d9d1a12 r1). The fuel change remains proposed (b16e682d r1), with a significant unresolved conflict (2069408e r1); I have not changed the rule.\n\nÞóra is now established as the sender (cbc84f52 r2; decision e8d71f1e r1). “en morðið er enn óákveðið” leaves the murder undecided (100e9a66 r1); no murderer is established. Her marriage fact remains unchanged (010a1c3d r1).\n\nWould you like to revise the petrol-only rule, or keep it and change the gaseous-fuel proposal? (d30cccd8 r1).\n\nPaused here."
+    },
+    {
+      "case_id": "LANG_CONTINUITY",
+      "language": "is",
+      "thread_id": "01a16afa-1197-7650-8189-9365687429ee",
+      "turn_id": "01a18226-ab98-7c30-b897-c9dd2969265d",
+      "exchange_id": "bd11e7dd-41a7-4ef9-978e-578cce235e83",
+      "checkpoint": {
+        "git_head": "88f256604cddbc6a77507753be50c8d93adc8778",
+        "exchange_id": "bd11e7dd-41a7-4ef9-978e-578cce235e83",
+        "sequence": 5
+      },
+      "exact_input_saved": true,
+      "exact_response_saved_and_displayed": true,
+      "save_precedes_display": true,
+      "source_type": "delegated",
+      "native_user_input": false,
+      "novice_evidence": false,
+      "installed_bundle_verified": true,
+      "installed_bundle_matches_current_source": true,
+      "commentary_agent_reviewed": true,
+      "record_kinds": [
+        "assertion",
+        "idea",
+        "finding",
+        "question",
+        "idea",
+        "assertion",
+        "story_element",
+        "decision",
+        "story_element",
+        "idea",
+        "decision",
+        "session"
+      ],
+      "response": "Nei. Gas er ekki það sama og bensín í þessari reglu. Staðfest er að „Vélin gengur eingöngu fyrir bensíni.“ Gasnotkun án bensíns stangast því á við regluna. Ég held þeirri breytingu óstaðfestri.\n\nViltu halda bensínreglunni eða endurskoða hana til að leyfa gas?\n\nÞóra er nú staðfest sem sendandi bréfsins. Morðið helst óákveðið; enginn morðingi er valinn. Hjúskaparstaða Þóru stendur óbreytt.\n\nÉg staldra við."
+    },
+    {
+      "case_id": "LANG_GUIDANCE",
+      "language": "en",
+      "thread_id": "01a16af9-f289-73c1-8151-55f50ace05d9",
+      "turn_id": "01a18220-e86d-7453-8e6a-5d9955480a88",
+      "exchange_id": "4146312e-8b9a-4739-bab5-55407e45623a",
+      "checkpoint": {
+        "git_head": "95ffe5a5e534560af07d38f62ce83f517a56b079",
+        "exchange_id": "4146312e-8b9a-4739-bab5-55407e45623a",
+        "sequence": 3
+      },
+      "exact_input_saved": true,
+      "exact_response_saved_and_displayed": true,
+      "save_precedes_display": true,
+      "source_type": "delegated",
+      "native_user_input": false,
+      "novice_evidence": false,
+      "installed_bundle_verified": true,
+      "installed_bundle_matches_current_source": true,
+      "commentary_agent_reviewed": true,
+      "record_kinds": [
+        "novel_project",
+        "session",
+        "story_element",
+        "question"
+      ],
+      "response": "We’ll focus on Ægir’s childhood, with fewer suggestions.\n\nWhat is one childhood experience that shaped Ægir?"
+    },
+    {
+      "case_id": "LANG_GUIDANCE",
+      "language": "is",
+      "thread_id": "01a16afa-1197-7650-8189-9365687429ee",
+      "turn_id": "01a18220-f7e0-71d2-82cc-183a32c5f485",
+      "exchange_id": "de615514-949a-4a42-b03d-a5da69e45b89",
+      "checkpoint": {
+        "git_head": "ad55ace37f6bca5bc98bfdb59bd23f7d0aba3601",
+        "exchange_id": "de615514-949a-4a42-b03d-a5da69e45b89",
+        "sequence": 3
+      },
+      "exact_input_saved": true,
+      "exact_response_saved_and_displayed": true,
+      "save_precedes_display": true,
+      "source_type": "delegated",
+      "native_user_input": false,
+      "novice_evidence": false,
+      "installed_bundle_verified": true,
+      "installed_bundle_matches_current_source": true,
+      "commentary_agent_reviewed": true,
+      "record_kinds": [
+        "novel_project",
+        "story_element",
+        "question",
+        "session"
+      ],
+      "response": "Ég svara á íslensku og held tillögum í lágmarki.\n\nVið getum byrjað á einni upplifun og látið aðra þætti æskunnar vera opna.\n\nHvaða eina upplifun úr æsku Ægis viltu kanna fyrst?"
+    },
+    {
+      "case_id": "LANG_SETUP",
+      "language": "en",
+      "thread_id": "01a16af9-f289-73c1-8151-55f50ace05d9",
+      "turn_id": "01a1821e-c740-7890-af0f-0827f53d7c83",
+      "exchange_id": "9ded8930-92ba-4ab6-8e42-4d71833ed365",
+      "checkpoint": {
+        "git_head": "d1f9fcb1305e81ca4fe4016ec7c2c468d13d9c6c",
+        "exchange_id": "9ded8930-92ba-4ab6-8e42-4d71833ed365",
+        "sequence": 2
+      },
+      "exact_input_saved": true,
+      "exact_response_saved_and_displayed": true,
+      "save_precedes_display": true,
+      "source_type": "delegated",
+      "native_user_input": false,
+      "novice_evidence": false,
+      "installed_bundle_verified": true,
+      "installed_bundle_matches_current_source": true,
+      "commentary_agent_reviewed": true,
+      "record_kinds": [
+        "novel_project",
+        "story_element",
+        "assertion",
+        "idea",
+        "decision"
+      ],
+      "response": "The manuscript language is Icelandic; I’ll respond in English. Genre remains unknown (42754ded r2).\n\nEstablished author truth: The engine runs exclusively on petrol (2d9d1a12 r1; decision 2e9fcc93 r1).\n\nPaused here."
+    },
+    {
+      "case_id": "LANG_SETUP",
+      "language": "is",
+      "thread_id": "01a16afa-1197-7650-8189-9365687429ee",
+      "turn_id": "01a1821e-d0fc-7971-b031-2659684926db",
+      "exchange_id": "49ab0fda-40cd-4521-8744-64af31134614",
+      "checkpoint": {
+        "git_head": "8399084dafac10d480c4aff076305537b2393b25",
+        "exchange_id": "49ab0fda-40cd-4521-8744-64af31134614",
+        "sequence": 2
+      },
+      "exact_input_saved": true,
+      "exact_response_saved_and_displayed": true,
+      "save_precedes_display": true,
+      "source_type": "delegated",
+      "native_user_input": false,
+      "novice_evidence": false,
+      "installed_bundle_verified": true,
+      "installed_bundle_matches_current_source": true,
+      "commentary_agent_reviewed": true,
+      "record_kinds": [
+        "novel_project",
+        "story_element",
+        "assertion",
+        "idea",
+        "decision"
+      ],
+      "response": "The manuscript language is Icelandic, and I’ll reply in English. Genre remains undecided.\n\nEstablished author truth: “Vélin gengur eingöngu fyrir bensíni.” The engine runs exclusively on petrol (gasoline).\n\nI’ll pause here."
+    }
+  ],
+  "failures": []
+}

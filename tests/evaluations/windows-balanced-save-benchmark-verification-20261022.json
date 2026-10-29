@@ -1,0 +1,34 @@
+{
+  "before": {
+    "src/novel_creator/storage.py": "9bbcb0acb6442ef45ce564d4b9980abe5889fbd0373d14acb2387ae429bf2a44",
+    "src/novel_creator/validation.py": "7e4c75ada3c3eaf3c196066ff657e5e5d9084abdd14a97b6e07c4f5d3b6bf517",
+    "tests/performance/benchmark_records.py": "7f69593cbee6330af1cb67261f662db8d186cc6d00787d3710d002a8430650f2",
+    "tests/integration/test_storage.py": "45f49d8b22d6cddd4023769782bef5ffba5ed2370df9edab4e548255c085ff6c",
+    "tests/helpers.py": "b6ddda217adb87a43d14dcd7be46e3cab76b5aa4023ec41b6e4eb509d8ed9be5"
+  },
+  "environment": {
+    "PYTHONUTF8": "1",
+    "PYTHONPATH": "src",
+    "PYTHONDONTWRITEBYTECODE": "1"
+  },
+  "argv": [
+    "C:\\Users\\BjarkiGunnarsson\\source\\repos\\Personal\\novel-creator\\.venv\\Scripts\\python.exe",
+    "-B",
+    "-m",
+    "tests.performance.benchmark_records",
+    "--runs",
+    "30",
+    "--progress",
+    "--output",
+    "tests\\evaluations\\windows-balanced-save-default-30-20261022.json"
+  ],
+  "exit": 1,
+  "after": {
+    "src/novel_creator/storage.py": "9bbcb0acb6442ef45ce564d4b9980abe5889fbd0373d14acb2387ae429bf2a44",
+    "src/novel_creator/validation.py": "7e4c75ada3c3eaf3c196066ff657e5e5d9084abdd14a97b6e07c4f5d3b6bf517",
+    "tests/performance/benchmark_records.py": "7f69593cbee6330af1cb67261f662db8d186cc6d00787d3710d002a8430650f2",
+    "tests/integration/test_storage.py": "45f49d8b22d6cddd4023769782bef5ffba5ed2370df9edab4e548255c085ff6c",
+    "tests/helpers.py": "b6ddda217adb87a43d14dcd7be46e3cab76b5aa4023ec41b6e4eb509d8ed9be5"
+  },
+  "unchanged": true
+}

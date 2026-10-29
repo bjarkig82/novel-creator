@@ -1,0 +1,74 @@
+{
+  "ok": true,
+  "observations": {
+    "component": {
+      "False": {
+        "samples": 8,
+        "median_seconds": 0.6021026999223977,
+        "range_seconds": [
+          0.5129152999725193,
+          0.9893507999368012
+        ],
+        "cpu_percent_range": [
+          27.364864864864863,
+          88.4765625
+        ]
+      },
+      "True": {
+        "samples": 8,
+        "median_seconds": 0.5382495000958443,
+        "range_seconds": [
+          0.4988675999920815,
+          0.690217100083828
+        ],
+        "cpu_percent_range": [
+          32.720588235294116,
+          65.05681818181819
+        ]
+      }
+    },
+    "save": {
+      "False": {
+        "samples": 4,
+        "median_seconds": 6.261266499990597,
+        "range_seconds": [
+          3.6502581001259387,
+          10.006145000224933
+        ],
+        "cpu_percent_range": [
+          79.27316293929712,
+          99.68905472636816
+        ]
+      },
+      "True": {
+        "samples": 4,
+        "median_seconds": 6.255118250148371,
+        "range_seconds": [
+          4.688200399978086,
+          15.132966300006956
+        ],
+        "cpu_percent_range": [
+          89.55570291777188,
+          99.94932860400304
+        ]
+      }
+    },
+    "retained_qualification": {
+      "read": 1.028736700071022,
+      "save": 3.067419500090182
+    }
+  },
+  "qualification_rerun": false,
+  "artifacts": {
+    "C:\\Users\\BjarkiGunnarsson\\source\\repos\\Personal\\novel-creator\\tests\\evaluations\\verify-phase23-stderr-pipe-20261028.py": "6d3c067dfddb9bece758b424a4ffcade2db305dd94e06571de6e8376985051a0",
+    "tests\\evaluations\\phase23-stderr-pipe-20261028.py": "bec111bc0c39975280db03a90f56f7f4230169b5749ce510e01501e486fc7067",
+    "tests\\evaluations\\windows-phase23-stderr-component-20261028.jsonl": "70731dbcf3ab66aad33da80610fe5e9c74d5d16c40ddf0a4cc4db9aca81394c3",
+    "tests\\evaluations\\windows-phase23-stderr-component-assumption-20261028.jsonl": "ee6799d4a75b30163349963f021f15baa7d031b05034187927022ddffaeccbab",
+    "tests\\evaluations\\windows-phase23-stderr-component-assumption-stderr-20261028.txt": "5640c916d44096a7f53038ec2b968b2a34334fc6f43e1ab9a2133ca1937a71aa",
+    "tests\\evaluations\\windows-phase23-stderr-component-stderr-20261028.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "tests\\evaluations\\windows-phase23-stderr-save-20261028.jsonl": "f355bcbabab9609f5635be5fd095f3435dd74b55fbb45c12e7e735f25e0d5393",
+    "tests\\evaluations\\windows-phase23-stderr-save-normal-20261028.jsonl": "8a03dfc27accb89c85daee51ca5d2dcca7c8d1a63151b45074929106866455a4",
+    "tests\\evaluations\\windows-phase23-stderr-save-normal-stderr-20261028.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "tests\\evaluations\\windows-phase23-stderr-save-stderr-20261028.txt": "e060b2b5a2486a9a20300e917398de340d79093fc803668a3f99f478b7c22fd7"
+  }
+}

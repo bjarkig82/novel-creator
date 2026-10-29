@@ -1,0 +1,168 @@
+Fixture ready; measuring cold read.
+read 1/30: {'status': 'ok', 'seconds': 1.3255253999959677, 'observed_count': 15101}
+read 2/30: {'status': 'ok', 'seconds': 1.109583199955523, 'observed_count': 15101}
+read 3/30: {'status': 'ok', 'seconds': 1.1487969000590965, 'observed_count': 15101}
+read 4/30: {'status': 'ok', 'seconds': 1.145076800021343, 'observed_count': 15101}
+read 5/30: {'status': 'ok', 'seconds': 1.1265766998985782, 'observed_count': 15101}
+read 6/30: {'status': 'ok', 'seconds': 1.103168800007552, 'observed_count': 15101}
+read 7/30: {'status': 'ok', 'seconds': 1.1171771000372246, 'observed_count': 15101}
+read 8/30: {'status': 'ok', 'seconds': 1.1739261000184342, 'observed_count': 15101}
+read 9/30: {'status': 'ok', 'seconds': 1.1329492999939248, 'observed_count': 15101}
+read 10/30: {'status': 'ok', 'seconds': 1.1715724000241607, 'observed_count': 15101}
+read 11/30: {'status': 'ok', 'seconds': 1.1234825000865385, 'observed_count': 15101}
+read 12/30: {'status': 'ok', 'seconds': 1.1482894000364468, 'observed_count': 15101}
+read 13/30: {'status': 'ok', 'seconds': 1.0970166999613866, 'observed_count': 15101}
+read 14/30: {'status': 'ok', 'seconds': 1.0984163000248373, 'observed_count': 15101}
+read 15/30: {'status': 'ok', 'seconds': 1.1845754999667406, 'observed_count': 15101}
+read 16/30: {'status': 'ok', 'seconds': 1.1224627000046894, 'observed_count': 15101}
+read 17/30: {'status': 'ok', 'seconds': 1.148229599930346, 'observed_count': 15101}
+read 18/30: {'status': 'ok', 'seconds': 1.1685833000810817, 'observed_count': 15101}
+read 19/30: {'status': 'ok', 'seconds': 1.1432036999613047, 'observed_count': 15101}
+read 20/30: {'status': 'ok', 'seconds': 1.1219927999190986, 'observed_count': 15101}
+read 21/30: {'status': 'ok', 'seconds': 1.122344100032933, 'observed_count': 15101}
+read 22/30: {'status': 'ok', 'seconds': 1.171033599996008, 'observed_count': 15101}
+read 23/30: {'status': 'ok', 'seconds': 1.13561060000211, 'observed_count': 15101}
+read 24/30: {'status': 'ok', 'seconds': 1.192562700016424, 'observed_count': 15101}
+read 25/30: {'status': 'ok', 'seconds': 1.21685880003497, 'observed_count': 15101}
+read 26/30: {'status': 'ok', 'seconds': 1.219028800027445, 'observed_count': 15101}
+read 27/30: {'status': 'ok', 'seconds': 1.3209751999238506, 'observed_count': 15101}
+read 28/30: {'status': 'ok', 'seconds': 1.1560616999631748, 'observed_count': 15101}
+read 29/30: {'status': 'ok', 'seconds': 1.1998525999952108, 'observed_count': 15101}
+read 30/30: {'status': 'ok', 'seconds': 1.1995446999790147, 'observed_count': 15101}
+save 1/30: {'status': 'ok', 'seconds': 3.0901182000525296, 'observed_count': 5001}
+save 2/30: {'status': 'ok', 'seconds': 3.061192399938591, 'observed_count': 5002}
+save 3/30: {'status': 'ok', 'seconds': 2.9598517999984324, 'observed_count': 5003}
+save 4/30: {'status': 'ok', 'seconds': 2.455584099981934, 'observed_count': 5004}
+save 5/30: {'status': 'ok', 'seconds': 2.5495792999863625, 'observed_count': 5005}
+save 6/30: {'status': 'ok', 'seconds': 2.5102605000138283, 'observed_count': 5006}
+save 7/30: {'status': 'ok', 'seconds': 2.4251762999920174, 'observed_count': 5007}
+save 8/30: {'status': 'ok', 'seconds': 3.1756617999635637, 'observed_count': 5008}
+save 9/30: {'status': 'ok', 'seconds': 2.9600175000960007, 'observed_count': 5009}
+save 10/30: {'status': 'ok', 'seconds': 3.2836714999284595, 'observed_count': 5010}
+save 11/30: {'status': 'ok', 'seconds': 2.796710400027223, 'observed_count': 5011}
+save 12/30: {'status': 'ok', 'seconds': 3.210405500023626, 'observed_count': 5012}
+save 13/30: {'status': 'ok', 'seconds': 2.706114900065586, 'observed_count': 5013}
+save 14/30: {'status': 'ok', 'seconds': 2.422321300022304, 'observed_count': 5014}
+save 15/30: {'status': 'ok', 'seconds': 2.6511151999002323, 'observed_count': 5015}
+save 16/30: {'status': 'ok', 'seconds': 2.846191400079988, 'observed_count': 5016}
+save 17/30: {'status': 'ok', 'seconds': 3.292486499994993, 'observed_count': 5017}
+save 18/30: {'status': 'ok', 'seconds': 2.7822692999616265, 'observed_count': 5018}
+save 19/30: {'status': 'ok', 'seconds': 2.727116600028239, 'observed_count': 5019}
+save 20/30: {'status': 'ok', 'seconds': 2.617718000081368, 'observed_count': 5020}
+save 21/30: {'status': 'ok', 'seconds': 2.645695099956356, 'observed_count': 5021}
+save 22/30: {'status': 'ok', 'seconds': 2.696094200015068, 'observed_count': 5022}
+save 23/30: {'status': 'ok', 'seconds': 3.511391600011848, 'observed_count': 5023}
+save 24/30: {'status': 'ok', 'seconds': 2.4544011999387294, 'observed_count': 5024}
+save 25/30: {'status': 'ok', 'seconds': 2.7889577999012545, 'observed_count': 5025}
+save 26/30: {'status': 'ok', 'seconds': 2.7227084999904037, 'observed_count': 5026}
+save 27/30: {'status': 'ok', 'seconds': 2.5515527999959886, 'observed_count': 5027}
+save 28/30: {'status': 'ok', 'seconds': 2.454250399954617, 'observed_count': 5028}
+save 29/30: {'status': 'ok', 'seconds': 2.418098699999973, 'observed_count': 5029}
+save 30/30: {'status': 'ok', 'seconds': 2.4384624999947846, 'observed_count': 5030}
+{
+  "environment": {
+    "os": "Windows-11-10.0.26300-SP0",
+    "python": "3.13.13",
+    "processor": "Intel64 Family 6 Model 189 Stepping 1, GenuineIntel",
+    "logical_cpus": 8,
+    "git_executable": "C:\\Program Files\\Git\\cmd\\git.EXE",
+    "git": "git version 2.53.0.windows.3"
+  },
+  "method": "Fresh subprocess per operation; filesystem-warm runs; interpreter import time excluded. Timeout deadlines include worker startup/imports. Cold means first fixture read, not a guaranteed OS page-cache flush. Save includes committed-history reads, validation, local Git publication and cleanup. Fixture generated in one harness snapshot; each warm save appends one exchange.",
+  "requested_warm_runs": 30,
+  "timeout_seconds": 30,
+  "model_latency": "excluded",
+  "fixture_git_maintenance": "none explicitly requested",
+  "validation_cache": "opt-in; temporary private key outside novel",
+  "fixture": {
+    "sessions": 100,
+    "exchanges": 5000,
+    "active_assertions": 10000,
+    "json_bytes": 26215716,
+    "synthetic": true,
+    "fully_validated": true
+  },
+  "cold_read": {
+    "status": "ok",
+    "seconds": 1.9985049999086186,
+    "observed_count": 15101
+  },
+  "read": {
+    "samples_seconds": [
+      1.3255253999959677,
+      1.109583199955523,
+      1.1487969000590965,
+      1.145076800021343,
+      1.1265766998985782,
+      1.103168800007552,
+      1.1171771000372246,
+      1.1739261000184342,
+      1.1329492999939248,
+      1.1715724000241607,
+      1.1234825000865385,
+      1.1482894000364468,
+      1.0970166999613866,
+      1.0984163000248373,
+      1.1845754999667406,
+      1.1224627000046894,
+      1.148229599930346,
+      1.1685833000810817,
+      1.1432036999613047,
+      1.1219927999190986,
+      1.122344100032933,
+      1.171033599996008,
+      1.13561060000211,
+      1.192562700016424,
+      1.21685880003497,
+      1.219028800027445,
+      1.3209751999238506,
+      1.1560616999631748,
+      1.1998525999952108,
+      1.1995446999790147
+    ],
+    "completed_runs": 30,
+    "failure": null,
+    "p95_seconds": 1.3209751999238506,
+    "target_seconds": 2.0,
+    "passes": true
+  },
+  "save": {
+    "samples_seconds": [
+      3.0901182000525296,
+      3.061192399938591,
+      2.9598517999984324,
+      2.455584099981934,
+      2.5495792999863625,
+      2.5102605000138283,
+      2.4251762999920174,
+      3.1756617999635637,
+      2.9600175000960007,
+      3.2836714999284595,
+      2.796710400027223,
+      3.210405500023626,
+      2.706114900065586,
+      2.422321300022304,
+      2.6511151999002323,
+      2.846191400079988,
+      3.292486499994993,
+      2.7822692999616265,
+      2.727116600028239,
+      2.617718000081368,
+      2.645695099956356,
+      2.696094200015068,
+      3.511391600011848,
+      2.4544011999387294,
+      2.7889577999012545,
+      2.7227084999904037,
+      2.5515527999959886,
+      2.454250399954617,
+      2.418098699999973,
+      2.4384624999947846
+    ],
+    "completed_runs": 30,
+    "failure": null,
+    "p95_seconds": 3.292486499994993,
+    "target_seconds": 1.0,
+    "passes": false
+  }
+}

@@ -1,0 +1,41 @@
+**********************************************************************
+** Visual Studio 2026 Developer Command Prompt v18.10.0
+** Copyright (c) 2026 Microsoft Corporation
+**********************************************************************
+[vcvarsall.bat] Environment initialized for: 'x64'
+[  0%] Building C object CMakeFiles/libgit.dir/C_/Users/BjarkiGunnarsson/source/repos/Personal/novel-creator/.tools/t172-git-native-20261028/source/cache-tree.c.obj
+cache-tree.c
+C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\.tools\t172-git-native-20261028\source\git-compat-util.h(998): warning C4267: '=': conversion from 'size_t' to 'regoff_t', possible loss of data
+C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\.tools\t172-git-native-20261028\source\gettext.h(42): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\.tools\t172-git-native-20261028\source\hash.h(359): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\.tools\t172-git-native-20261028\source\cache-tree.c(109): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\.tools\t172-git-native-20261028\source\cache-tree.c(463): warning C4267: 'function': conversion from 'size_t' to 'unsigned long', possible loss of data
+C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\.tools\t172-git-native-20261028\source\cache-tree.c(686): warning C4267: 'initializing': conversion from 'size_t' to 'const unsigned int', possible loss of data
+C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\.tools\t172-git-native-20261028\source\cache-tree.c(938): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\.tools\t172-git-native-20261028\source\cache-tree.c(1049): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\.tools\t172-git-native-20261028\source\cache-tree.c(1103): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\.tools\t172-git-native-20261028\source\cache-tree.c(1021): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+[  1%] Building C object CMakeFiles/libgit.dir/C_/Users/BjarkiGunnarsson/source/repos/Personal/novel-creator/.tools/t172-git-native-20261028/source/git-zlib.c.obj
+git-zlib.c
+C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\.tools\t172-git-native-20261028\source\git-compat-util.h(998): warning C4267: '=': conversion from 'size_t' to 'regoff_t', possible loss of data
+[  1%] Building C object CMakeFiles/libgit.dir/C_/Users/BjarkiGunnarsson/source/repos/Personal/novel-creator/.tools/t172-git-native-20261028/source/odb.c.obj
+odb.c
+C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\.tools\t172-git-native-20261028\source\git-compat-util.h(998): warning C4267: '=': conversion from 'size_t' to 'regoff_t', possible loss of data
+C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\.tools\t172-git-native-20261028\source\hash.h(359): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\.tools\t172-git-native-20261028\source\gettext.h(42): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\.tools\t172-git-native-20261028\source\odb.c(664): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\.tools\t172-git-native-20261028\source\odb.c(816): warning C4267: '=': conversion from 'size_t' to 'unsigned long', possible loss of data
+C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\.tools\t172-git-native-20261028\source\odb.c(952): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+[  2%] Building C object CMakeFiles/libgit.dir/C_/Users/BjarkiGunnarsson/source/repos/Personal/novel-creator/.tools/t172-git-native-20261028/source/wrapper.c.obj
+wrapper.c
+C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\.tools\t172-git-native-20261028\source\git-compat-util.h(998): warning C4267: '=': conversion from 'size_t' to 'regoff_t', possible loss of data
+C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\.tools\t172-git-native-20261028\source\gettext.h(42): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\.tools\t172-git-native-20261028\source\wrapper.c(235): warning C4267: 'function': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\.tools\t172-git-native-20261028\source\wrapper.c(719): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\.tools\t172-git-native-20261028\source\wrapper.c(817): warning C4267: 'function': conversion from 'size_t' to 'ULONG', possible loss of data
+[  2%] Linking C static library libgit.lib
+[ 68%] Built target libgit
+[ 69%] Built target git-rc
+[ 69%] Built target common-main
+[ 71%] Linking C executable git.exe
+[100%] Built target git

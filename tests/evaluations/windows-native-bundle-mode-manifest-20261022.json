@@ -1,0 +1,24 @@
+{
+  "production_source": {
+    "src/novel_creator/storage.py": "9bbcb0acb6442ef45ce564d4b9980abe5889fbd0373d14acb2387ae429bf2a44",
+    "src/novel_creator/validation.py": "7e4c75ada3c3eaf3c196066ff657e5e5d9084abdd14a97b6e07c4f5d3b6bf517",
+    "tests/performance/benchmark_records.py": "7f69593cbee6330af1cb67261f662db8d186cc6d00787d3710d002a8430650f2",
+    "tests/integration/test_storage.py": "45f49d8b22d6cddd4023769782bef5ffba5ed2370df9edab4e548255c085ff6c",
+    "tests/helpers.py": "b6ddda217adb87a43d14dcd7be46e3cab76b5aa4023ec41b6e4eb509d8ed9be5"
+  },
+  "adopted": false,
+  "save_medians": {
+    "0": 4.413188450038433,
+    "1": 3.816763249982614
+  },
+  "artifacts": {
+    "windows-native-bundle-mode-20261022.md": "017ff684618531b3412d2b57ce65285c44df046e1c68448060c399994aa6caa0",
+    "windows-native-bundle-mode-20261022.txt": "c7702b35bdb5f6897979e5fbf46535addbf6764fe2078f5152b66cd7204a4b18",
+    "windows-native-bundle-mode-candidate-source-20261022.txt": "f941509a353fda489b614adb2421f244c3e4aa0bda30a2bec8e4ab17b1fecfcb",
+    "windows-native-bundle-mode-candidate-v1-source-20261022.txt": "b06bda9d2957c3c2cb32aa14bc7351f35347801caca0535b5937371d7faecc52",
+    "windows-native-bundle-mode-normal-red-20261022.txt": "b5a4dda3b3374df26eaf3e3b48272043257eca1d2b424d46846457a46e9c80ce",
+    "windows-native-bundle-mode-save-comparison-20261022.txt": "3845c3c9b18c9f144419d9bb4f5cf84dd81dc21303a9e91265fd81e0c741c115",
+    "windows-native-bundle-mode-save-comparison-source-20261022.txt": "96d9bc80cb484dbb6b798440a2cb7989132855368e11e97e4f0dfbfeb7c42b8f",
+    "windows-native-bundle-mode-source-20261022.txt": "adff865291379e38be34fbb56a4f600821e069942f1deb47aba8dbfa372b25c0"
+  }
+}

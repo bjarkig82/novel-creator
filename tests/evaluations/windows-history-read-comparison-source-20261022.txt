@@ -1,0 +1,36 @@
+import argparse,hashlib,json,statistics,subprocess,sys,time
+from pathlib import Path
+from unittest.mock import patch
+sys.path.insert(0,str(Path.cwd()))
+from novel_creator import records,storage,validation_cache
+from novel_creator.context import read
+from tests.helpers import repository,git
+from tests.performance import benchmark_records as benchmark
+p=argparse.ArgumentParser();p.add_argument('--root',type=Path);p.add_argument('--workers',type=int);args=p.parse_args()
+if args.root:
+    cache=[];trusted=validation_cache.trusted
+    def capture(*a,**kw):
+        result=trusted(*a,**kw);cache.append(result);return result
+    with patch.object(storage,'_READ_HISTORY_WORKERS',args.workers),patch.object(validation_cache,'trusted',capture):
+        start=time.perf_counter();data=read(args.root);elapsed=time.perf_counter()-start
+    assert cache==[True],cache
+    count=len(data['data']['records']);assert count==15101,count
+    print(json.dumps({'history_workers':args.workers,'seconds':elapsed,'observed_count':count,'cache_hits':cache}))
+    raise SystemExit(0)
+source=hashlib.sha256(Path(storage.__file__).read_bytes()).hexdigest()
+with benchmark.benchmark_key(True),repository() as root:
+    novel=records.loads((root/'.novel-creator/manifest.json').read_bytes())['novel_id']
+    history,fixture=benchmark.generate(novel)
+    for exchange in history:
+        target=root/storage.bundle_path(exchange);target.parent.mkdir(parents=True,exist_ok=True);target.write_bytes(benchmark.serialized(exchange))
+    git(root,'add','story/exchanges');git(root,'commit','-m','Final-source history policy comparison')
+    del history,exchange
+    read(root);fixture['fully_validated']=True
+    print(json.dumps({'fixture':fixture,'storage_sha256':source,'method':'Fresh process complete context reads, four balanced samples per serial/four-worker policy, ordinary layout, opt-in external private key; diagnostic not p95'}),flush=True)
+    samples={1:[],4:[]}
+    for workers in [1,4,4,1]*2:
+        result=subprocess.run([sys.executable,'-B',__file__,'--root',str(root),'--workers',str(workers)],capture_output=True,text=True,encoding='utf-8',timeout=30)
+        if result.returncode:raise RuntimeError(result.stderr[-3000:])
+        row=json.loads(result.stdout);samples[workers].append(row['seconds']);print(json.dumps(row),flush=True)
+    print(json.dumps({'medians':{str(k):statistics.median(v) for k,v in samples.items()},'source_unchanged':source==hashlib.sha256(Path(storage.__file__).read_bytes()).hexdigest()}),flush=True)
+    assert source==hashlib.sha256(Path(storage.__file__).read_bytes()).hexdigest()

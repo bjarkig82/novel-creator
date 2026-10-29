@@ -1,0 +1,23 @@
+12:11:31.530570 common-init.c:57             | d0 | main                     | version      |     |           |           |              | 2.53.0.windows.3
+12:11:31.531753 common-init.c:58             | d0 | main                     | start        |     |  0.020485 |           |              | git.exe -C 'C:\Users\BjarkiGunnarsson\AppData\Local\Temp\novel write-tree xs9zh6st' -c core.fscache=true write-tree
+12:11:31.634882 ..._win32_process_info.c:122 | d0 | main                     | data_json    | r0  |  0.123218 |  0.123218 | process      | windows/ancestry:["git.exe","python.exe","python.exe","python.exe","python.exe","pwsh.exe","codex.exe","ChatGPT.exe","sihost.exe","svchost.exe","(truncated)"]
+12:11:31.639351 repository.c:237             | d0 | main                     | def_repo     | r1  |           |           |              | worktree:'C:/Users/BjarkiGunnarsson/AppData/Local/Temp/novel write-tree xs9zh6st'
+12:11:31.641506 git.c:503                    | d0 | main                     | cmd_name     |     |           |           |              | write-tree (write-tree)
+12:11:31.644152 read-cache.c:2366            | d0 | main                     | region_enter | r1  |  0.132984 |           | index        | label:do_read_index C:\Users\BjarkiGunnarsson\AppData\Local\Temp\novel write-tree xs9zh6st\.novel-creator\local\candidate-vo62z_fp\index
+12:11:31.645653 cache-tree.c:667             | d0 | main                     | region_enter | r1  |  0.134068 |           | cache_tree   | ..label:read
+12:11:31.645653 cache-tree.c:669             | d0 | main                     | region_leave | r1  |  0.134151 |  0.000083 | cache_tree   | ..label:read
+12:11:31.645653 read-cache.c:2315            | d0 | main                     | data         | r1  |  0.134257 |  0.001273 | index        | ..read/version:2
+12:11:31.645653 read-cache.c:2317            | d0 | main                     | data         | r1  |  0.134277 |  0.001293 | index        | ..read/cache_nr:5005
+12:11:31.645653 read-cache.c:2371            | d0 | main                     | region_leave | r1  |  0.134291 |  0.001307 | index        | label:do_read_index C:\Users\BjarkiGunnarsson\AppData\Local\Temp\novel write-tree xs9zh6st\.novel-creator\local\candidate-vo62z_fp\index
+12:11:31.645653 cache-tree.c:491             | d0 | main                     | region_enter | r1  |  0.134368 |           | cache_tree   | label:update
+12:11:31.895816 cache-tree.c:496             | d0 | main                     | region_leave | r1  |  0.385040 |  0.250672 | cache_tree   | label:update
+12:11:31.895816 read-cache.c:3150            | d0 | main                     | region_enter | r1  |  0.385100 |           | index        | label:do_write_index C:\Users\BjarkiGunnarsson\AppData\Local\Temp\novel write-tree xs9zh6st\.novel-creator\local\candidate-vo62z_fp\index.lock
+12:11:31.898113 cache-tree.c:546             | d0 | main                     | region_enter | r1  |  0.386905 |           | cache_tree   | ..label:write
+12:11:31.898113 cache-tree.c:548             | d0 | main                     | region_leave | r1  |  0.386948 |  0.000043 | cache_tree   | ..label:write
+12:11:31.899113 read-cache.c:3102            | d0 | main                     | data         | r1  |  0.387590 |  0.002490 | index        | ..write/version:2
+12:11:31.899113 read-cache.c:3104            | d0 | main                     | data         | r1  |  0.387613 |  0.002513 | index        | ..write/cache_nr:5005
+12:11:31.899113 read-cache.c:3153            | d0 | main                     | region_leave | r1  |  0.387622 |  0.002522 | index        | label:do_write_index C:\Users\BjarkiGunnarsson\AppData\Local\Temp\novel write-tree xs9zh6st\.novel-creator\local\candidate-vo62z_fp\index.lock
+12:11:31.901117 ..._win32_process_info.c:170 | d0 | main                     | data_json    | r1  |  0.389365 |  0.389365 | process      | windows/memory:{"PageFaultCount":20907,"PeakWorkingSetSize":13447168,"PeakPagefileUsage":37310464}
+12:11:31.901117 git.c:783                    | d0 | main                     | exit         |     |  0.389398 |           |              | code:0
+12:11:31.901117 trace2/tr2_tgt_perf.c:596    | d0 | main                     | counter      |     |           |           | fsync        | name:hardware-flush value:3
+12:11:31.901117 trace2/tr2_tgt_perf.c:219    | d0 | main                     | atexit       |     |  0.389528 |           |              | code:0

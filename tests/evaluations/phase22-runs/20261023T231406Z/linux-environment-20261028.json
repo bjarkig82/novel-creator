@@ -1,0 +1,10 @@
+{
+  "os": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "python": "3.12.3 (main, Mar 23 2026, 19:04:32) [GCC 13.3.0]",
+  "git_executable": "/usr/bin/git",
+  "git": "git version 2.43.0",
+  "dependencies": {
+    "jsonschema": "4.26.0",
+    "jsonschema-rs": "0.59.0"
+  }
+}

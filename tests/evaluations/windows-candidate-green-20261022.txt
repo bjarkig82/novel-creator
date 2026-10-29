@@ -1,0 +1,6 @@
+test_candidate_checks_full_tree_parent_and_exact_exchange_for_both_object_formats (tests.integration.test_candidate.CandidateTests.test_candidate_checks_full_tree_parent_and_exact_exchange_for_both_object_formats) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 7.428s
+
+OK

@@ -1,0 +1,32 @@
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\evaluations\phase23-stderr-pipe-20261028.py", line 176, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\evaluations\phase23-stderr-pipe-20261028.py", line 169, in main
+    assert result.returncode == 0, result.stderr
+           ^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 680, in _save
+    os.link(temporary, final)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\BjarkiGunnarsson\\source\\repos\\Personal\\novel-creator\\.tools\\t174-pipe-temp\\novel stderr pipe exh4x8k3\\story\\exchanges\\prepare-lnku4tp2' -> 'C:\\Users\\BjarkiGunnarsson\\source\\repos\\Personal\\novel-creator\\.tools\\t174-pipe-temp\\novel stderr pipe exh4x8k3\\story\\exchanges\\005001-92102aef-03b5-42e6-932f-2df7fef871ca.json'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\evaluations\phase23-stderr-pipe-20261028.py", line 176, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\evaluations\phase23-stderr-pipe-20261028.py", line 139, in main
+    emit(worker(args.worker, args.candidate))
+         ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\evaluations\phase23-stderr-pipe-20261028.py", line 122, in worker
+    result = benchmark.worker(root, 'save')
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\performance\benchmark_records.py", line 102, in worker
+    result = storage.save(root, exchange)
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 752, in save
+    return _save(root, bundle, fault=fault)
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 746, in _save
+    raise ToolError(5, 'Exchange save failed; pending work is not confirmed', checkpoint=confirmed, pending=pending_id) from error
+novel_creator.cli.ToolError: Exchange save failed; pending work is not confirmed
+

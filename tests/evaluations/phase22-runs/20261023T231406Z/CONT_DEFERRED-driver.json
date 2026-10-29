@@ -1,0 +1,10 @@
+{
+  "case_id": "CONT_DEFERRED",
+  "task": "T170",
+  "inputs": {
+    "en": "Case CONT_DEFERRED. Resume the saved review. Report the deferred relationship issue and its affected scope without resolving it. Explore only the separate possibility of a brass reflection in the tunnel. Do not establish it. Pause.",
+    "is": "Tilvik CONT_DEFERRED. Höldum áfram með vistuðu yfirferðina. Greindu frá frestaða tengslaálitamálinu og umfangi áhrifa þess án þess að útkljá það. Skoðum aðeins aðskilinn möguleika á látúnsspeglun í göngunum. Ekki staðfesta hann. Staldraðu við."
+  },
+  "submitted": true,
+  "require_commentary_review": true
+}

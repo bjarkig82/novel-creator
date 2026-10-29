@@ -1,0 +1,42 @@
+{
+  "ok": true,
+  "scope": "Actual original input and separate completed continuation display only",
+  "results": [
+    {
+      "language": "en",
+      "source_turn": "01a18209-19fb-7b51-aa29-ddd51487e88e",
+      "source_turn_observed_status": "inProgress",
+      "completed_display_turn": "01a1820c-0bd3-7bd3-8b32-5cb1636f7390",
+      "checkpoint": {
+        "git_head": "25334610aa304ecedc0bec2a327ebf2b653b09a5",
+        "exchange_id": "a24f43cb-db0a-42b6-af10-147502f98ae0",
+        "sequence": 14
+      },
+      "original_source_preserved": true,
+      "exact_saved_display": true,
+      "one_original_exchange": true,
+      "separate_continuation_has_no_new_input": true,
+      "source_type": "delegated",
+      "native_user_input": false,
+      "novice_evidence": false
+    },
+    {
+      "language": "is",
+      "source_turn": "01a18209-227f-7872-8a0b-4eca2fd5f562",
+      "source_turn_observed_status": "inProgress",
+      "completed_display_turn": "01a1820c-0bac-7c03-b813-d67b1ea4e07f",
+      "checkpoint": {
+        "git_head": "5ada39dd94db629f747dd8ad25ecd2d6b7e88fda",
+        "exchange_id": "3c08a608-1279-42ce-a953-750fc34c065c",
+        "sequence": 14
+      },
+      "original_source_preserved": true,
+      "exact_saved_display": true,
+      "one_original_exchange": true,
+      "separate_continuation_has_no_new_input": true,
+      "source_type": "delegated",
+      "native_user_input": false,
+      "novice_evidence": false
+    }
+  ]
+}

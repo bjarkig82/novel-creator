@@ -1,0 +1,36 @@
+test_rejects_wrong_stale_ambiguous_truncated_and_malformed_sources (tests.unit.test_host_input.HostInputTests.test_rejects_wrong_stale_ambiguous_truncated_and_malformed_sources) ... 
+  test_rejects_wrong_stale_ambiguous_truncated_and_malformed_sources (tests.unit.test_host_input.HostInputTests.test_rejects_wrong_stale_ambiguous_truncated_and_malformed_sources) (value={'thread': {'id': 'current'}, 'turns': [{'id': 'turn', 'items': [{'type': 'functionCallOutput', 'id': 'event', 'namespace': 'codex_app', 'name': 'send_message_to_thread', 'output': {'truncated': False, 'text': '<codex_delegation>\n  <source_thread_id>parent</source_thread_id>\n  <input>  Þóra\r\n東京 🌒\n\n</input>\n</codex_delegation>'}}]}, {'id': 'newer', 'items': []}]}) ... FAIL
+  test_rejects_wrong_stale_ambiguous_truncated_and_malformed_sources (tests.unit.test_host_input.HostInputTests.test_rejects_wrong_stale_ambiguous_truncated_and_malformed_sources) (value={'thread': {'id': 'current'}, 'turns': [{'id': 'turn', 'items': [{'type': 'functionCallOutput', 'id': 'event', 'namespace': 'codex_app', 'name': 'send_message_to_thread', 'output': {'truncated': False, 'text': '<codex_delegation>\n  <source_thread_id>parent</source_thread_id>\n  <input>  Þóra\r\n東京 🌒\n\n</input>\n</codex_delegation>'}}]}], 'truncated': True}) ... FAIL
+  test_rejects_wrong_stale_ambiguous_truncated_and_malformed_sources (tests.unit.test_host_input.HostInputTests.test_rejects_wrong_stale_ambiguous_truncated_and_malformed_sources) (value={'thread': {'id': 'current'}, 'turns': [{'id': 'turn', 'items': [{'type': 'functionCallOutput', 'id': 'event', 'namespace': 'codex_app', 'name': 'send_message_to_thread', 'output': {'truncated': False, 'text': '<codex_delegation>\n  <source_thread_id>parent</source_thread_id>\n  <input>  Þóra\r\n東京 🌒\n\n</input>\n</codex_delegation>'}}], 'truncated': True}]}) ... FAIL
+
+======================================================================
+FAIL: test_rejects_wrong_stale_ambiguous_truncated_and_malformed_sources (tests.unit.test_host_input.HostInputTests.test_rejects_wrong_stale_ambiguous_truncated_and_malformed_sources) (value={'thread': {'id': 'current'}, 'turns': [{'id': 'turn', 'items': [{'type': 'functionCallOutput', 'id': 'event', 'namespace': 'codex_app', 'name': 'send_message_to_thread', 'output': {'truncated': False, 'text': '<codex_delegation>\n  <source_thread_id>parent</source_thread_id>\n  <input>  Þóra\r\n東京 🌒\n\n</input>\n</codex_delegation>'}}]}, {'id': 'newer', 'items': []}]})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\unit\test_host_input.py", line 71, in test_rejects_wrong_stale_ambiguous_truncated_and_malformed_sources
+    with self.assertRaises(ValueError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_rejects_wrong_stale_ambiguous_truncated_and_malformed_sources (tests.unit.test_host_input.HostInputTests.test_rejects_wrong_stale_ambiguous_truncated_and_malformed_sources) (value={'thread': {'id': 'current'}, 'turns': [{'id': 'turn', 'items': [{'type': 'functionCallOutput', 'id': 'event', 'namespace': 'codex_app', 'name': 'send_message_to_thread', 'output': {'truncated': False, 'text': '<codex_delegation>\n  <source_thread_id>parent</source_thread_id>\n  <input>  Þóra\r\n東京 🌒\n\n</input>\n</codex_delegation>'}}]}], 'truncated': True})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\unit\test_host_input.py", line 71, in test_rejects_wrong_stale_ambiguous_truncated_and_malformed_sources
+    with self.assertRaises(ValueError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_rejects_wrong_stale_ambiguous_truncated_and_malformed_sources (tests.unit.test_host_input.HostInputTests.test_rejects_wrong_stale_ambiguous_truncated_and_malformed_sources) (value={'thread': {'id': 'current'}, 'turns': [{'id': 'turn', 'items': [{'type': 'functionCallOutput', 'id': 'event', 'namespace': 'codex_app', 'name': 'send_message_to_thread', 'output': {'truncated': False, 'text': '<codex_delegation>\n  <source_thread_id>parent</source_thread_id>\n  <input>  Þóra\r\n東京 🌒\n\n</input>\n</codex_delegation>'}}], 'truncated': True}]})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\unit\test_host_input.py", line 71, in test_rejects_wrong_stale_ambiguous_truncated_and_malformed_sources
+    with self.assertRaises(ValueError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+----------------------------------------------------------------------
+Ran 1 test in 0.020s
+
+FAILED (failures=3)

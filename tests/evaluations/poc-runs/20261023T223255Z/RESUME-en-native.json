@@ -1,0 +1,96 @@
+{
+  "schemaVersion": 1,
+  "thread": {
+    "id": "01a16aa5-4c4c-7a52-89d0-26df804faaf0",
+    "kind": "codex",
+    "hostId": "local"
+  },
+  "turns": [
+    {
+      "id": "01a16aee-68b3-76b3-9dc8-25d47a67cb27",
+      "status": "completed",
+      "items": [
+        {
+          "type": "functionCallOutput",
+          "id": "fco_01a16aee-68b5-7a90-8f36-a15c27316c4a",
+          "name": "send_message_to_thread",
+          "namespace": "codex_app",
+          "output": {
+            "text": "<codex_delegation>\n  <source_thread_id>01a167df-036b-7c71-b306-9d7021046c01</source_thread_id>\n  <input>$novel-resume Resume this session and summarize the saved proposals and open questions. Pause after the summary; don't add new exploration.</input>\n</codex_delegation>",
+            "truncated": false
+          }
+        },
+        {
+          "type": "agentMessage",
+          "id": "msg_094d7d7fe09eab80016adbe2ec97ec8191871af1b702ec7499",
+          "phase": "commentary",
+          "text": "I’ll load the saved session, summarize its proposals and open questions, and preserve the pause after the summary."
+        },
+        {
+          "type": "commandExecution",
+          "id": "exec-0581e5f9-f157-4561-8262-18a2d18da375",
+          "status": "completed",
+          "exitCode": 0,
+          "output": {
+            "text": "01a16aa5-4c4c-7a52-89d0-26df804faaf0\r\n---\r\nname: novel-resume\r\ndescription: Resume a saved novel session without retelling the story.\r\n---\r\n\r\nLoad `.novel-creator/workflows/entry.md` and `resume.md`. Use the installed\r\nlauncher for `session list` and `context --session ID`. Recover saved mode,\r\nfocus, canon, decisions and questions. Never infer display or acceptance of a\r\nsaved reply. Continue with brainstorm.md's save-before-display protocol.\r\n# Resume and inspect\r\n\r\nRead committed context and session list using the installed local launcher.\r\nList stable session IDs, topic, mode and open/closed state. Duplicate names do\r\nnot merge sessions. Select the requested ID; ask a focused selection question\r\nonly when ambiguity remains. Restore saved mode, focus, decisions, canon, ideas\r\nand open questions without asking the writer to retell recorded information.\r\nAn explicit request is required to reopen a closed session; preserve its ID and\r\nstarted_exchange_id. Session changes are typed revisions in the next conversation.\r\n\r\nExpose last_saved_response with display marked unconfirmed. Offer its exact\r\nsaved text when recovering after interruption; never infer it was seen, agreed\r\nwith or accepted. Save any new conversation before showing its prepared reply.\r\n\r\nUse `inspect --kind KIND --id ID --revision N` to retrieve current or historical\r\nversions and sources. Derived summaries cite record revisions and checkpoint\r\nand cannot override authoritative versions, omit unresolved conflicts or\r\nconceal incomplete coverage. Missing/damaged/unsupported records are unavailable,\r\nnever empty context. Explain only recorded connections with sources. New\r\nforeshadowing or motivation opportunities remain non-blocking proposals.\r\n\r\nIn the visible saved summary cite the supporting record IDs and revisions plus\r\nthe checkpoint for established facts, proposal/question groups and findings.\r\nSession ID and checkpoint alone do not identify which record versions support\r\nthose claims. A compact reference list is sufficient; use full IDs or unambiguous\r\nprefixes from the recovered state. Include all saved open questions, including\r\npreference questions, without treating them as newly asked questions or adding\r\nnew creative exploration when a checkpoint pause applies.\r\n[\r\n  {\r\n    \"id\": \"e048107e-e089-4082-8ebe-b15cad9a85da\",\r\n    \"kind\": \"novel_project\",\r\n    \"revision\": 3,\r\n    \"previous_revision\": 2,\r\n    \"created_exchange_id\": \"178a9ae7-c0d9-49f5-942d-c9dbfd930a09\",\r\n    \"source_refs\": [\r\n      {\r\n        \"type\": \"message\",\r\n        \"exchange_id\": \"5dc2cd92-fd0e-412c-b9d1-02d3004bbfea\",\r\n        \"message_id\": \"2e345864-05b4-43a5-8268-71d1ebfa5d34\"\r\n      }\r\n    ],\r\n    \"origin\": \"supplied\",\r\n    \"title\": {\r\n      \"state\": \"default\",\r\n      \"original_text\": \"Untitled novel\",\r\n      \"interpretation\": null,\r\n      \"origin\": \"system_default\",\r\n      \"source_refs\": []\r\n    },\r\n    \"original_concept\": {\r\n      \"state\": \"unknown\",\r\n      \"original_text\": null,\r\n      \"interpretation\": null,\r\n      \"origin\": \"system_default\",\r\n      \"source_refs\": []\r\n    },\r\n    \"creative_brief\": {\r\n      \"genre\": {\r\n        \"state\": \"unknown\",\r\n        \"original_text\": null,\r\n        \"interpretation\": null,\r\n        \"origin\": \"system_default\",\r\n        \"source_refs\": []\r\n      },\r\n      \"subgenres\": {\r\n        \"state\": \"unknown\",\r\n        \"original_text\": null,\r\n        \"interpretation\": null,\r\n        \"origin\": \"system_default\",\r\n        \"source_refs\": []\r\n      },\r\n      \"audience\": {\r\n        \"state\": \"unknown\",\r\n        \"original_text\": null,\r\n        \"interpretation\": null,\r\n        \"origin\": \"system_default\",\r\n        \"source_refs\": []\r\n      },\r\n      \"tone\": {\r\n        \"state\": \"unknown\",\r\n        \"original_text\": null,\r\n        \"interpretation\": null,\r\n        \"origin\": \"system_default\",\r\n        \"source_refs\": []\r\n      },\r\n      \"style\": {\r\n        \"state\": \"unknown\",\r\n        \"original_text\": null,\r\n        \"interpretation\": null,\r\n        \"origin\": \"system_default\",\r\n        \"source_refs\": []\r\n      },\r\n      \"perspective\": {\r\n        \"state\": \"unknown\",\r\n        \"original_text\": null,\r\n        \"interpretation\": null,\r\n        \"origin\": \"system_default\",\r\n        \"source_refs\": []\r\n      },\r\n      \"complexity\": {\r\n        \"state\": \"unknown\",\r\n        \"original_text\": null,\r\n        \"interpretation\": null,\r\n        \"origin\": \"system_default\",\r\n        \"source_refs\": []\r\n      }\r\n    },\r\n    \"manuscript_language\": \"en\",\r\n    \"workflow_preferences\": {\r\n      \"question_frequency\": {\r\n        \"state\": \"supplied\",\r\n        \"original_text\": \"one question at a time\",\r\n        \"interpretation\": null,\r\n        \"origin\": \"supplied\",\r\n        \"source_refs\": [\r\n          {\r\n            \"type\": \"message\",\r\n            \"exchange_id\": \"fa6eb054-c261-4d7f-b61e-e8899001ba6b\",\r\n            \"message_id\": \"bbcc5a51-c267-4745-8b0f-53bedb3e337a\"\r\n          }\r\n        ]\r\n      },\r\n      \"suggestion_frequency\": {\r\n        \"state\": \"supplied\",\r\n        \"original_text\": \"Offer one possibility at a time.\",\r\n        \"interpretation\": null,\r\n        \"origin\": \"supplied\",\r\n        \"source_refs\": [\r\n          {\r\n            \"type\": \"message\",\r\n            \"exchange_id\": \"5dc2cd92-fd0e-412c-b9d1-02d3004bbfea\",\r\n            \"message_id\": \"2e345864-05b4-43a5-8268-71d1ebfa5d34\"\r\n          }\r\n        ]\r\n      }\r\n    },\r\n    \"review_preferences\": {\r\n      \"routine_checkpoint\": \"on_request\"\r\n    },\r\n    \"creative_directions\": []\r\n  },\r\n  {\r\n    \"id\": \"36be3954-58f7-4a35-a95f-ee040d969ce8\",\r\n    \"kind\": \"session\",\r\n    \"revision\": 2,\r\n    \"previous_revision\": 1,\r\n    \"created_exchange_id\": \"fa6eb054-c261-4d7f-b61e-e8899001ba6b\",\r\n    \"origin\": \"supplied\",\r\n    \"source_refs\": [\r\n      {\r\n        \"type\": \"message\",\r\n        \"exchange_id\": \"5dc2cd92-fd0e-412c-b9d1-02d3004bbfea\",\r\n        \"message_id\": \"2e345864-05b4-43a5-8268-71d1ebfa5d34\"\r\n      }\r\n    ],\r\n    \"topic\": \"A lighthouse keeper's childhood\",\r\n    \"mode\": \"guided\",\r\n    \"state\": \"open\",\r\n    \"started_exchange_id\": \"fa6eb054-c261-4d7f-b61e-e8899001ba6b\",\r\n    \"last_exchange_id\": \"5dc2cd92-fd0e-412c-b9d1-02d3004bbfea\",\r\n    \"related_record_ids\": [\r\n      \"96071e74-7204-44ac-a6db-6018b573b300\",\r\n      \"02139b09-cd31-4f54-9f12-61a3ec7391d1\",\r\n      \"c9f1bced-dcf2-472b-ac34-a23d0099fa4d\"\r\n    ],\r\n    \"unresolved_question_ids\": [\r\n      \"96071e74-7204-44ac-a6db-6018b573b300\",\r\n      \"c9f1bced-dcf2-472b-ac34-a23d0099fa4d\"\r\n    ],\r\n    \"derived_context_ref\": null\r\n  },\r\n  {\r\n    \"id\": \"96071e74-7204-44ac-a6db-6018b573b300\",\r\n    \"kind\": \"question\",\r\n    \"revision\": 1,\r\n    \"previous_revision\": null,\r\n    \"created_exchange_id\": \"fa6eb054-c261-4d7f-b61e-e8899001ba6b\",\r\n    \"origin\": \"interpreted\",\r\n    \"source_refs\": [\r\n      {\r\n        \"type\": \"message\",\r\n        \"exchange_id\": \"fa6eb054-c261-4d7f-b61e-e8899001ba6b\",\r\n        \"message_id\": \"08255ee1-f292-43a4-8f83-14fb7904dab4\",\r\n        \"range\": {\r\n          \"start\": 50,\r\n          \"end\": 114\r\n        }\r\n      }\r\n    ],\r\n    \"text\": \"What feeling would you like your story to leave with its reader?\",\r\n    \"related_refs\": [],\r\n    \"alternative_ids\": [],\r\n    \"state\": \"open\",\r\n    \"resolution_decision_id\": null\r\n  },\r\n  {\r\n    \"revision\": 1,\r\n    \"previous_revision\": null,\r\n    \"created_exchange_id\": \"5dc2cd92-fd0e-412c-b9d1-02d3004bbfea\",\r\n    \"origin\": \"interpreted\",\r\n    \"id\": \"02139b09-cd31-4f54-9f12-61a3ec7391d1\",\r\n    \"kind\": \"idea\",\r\n    \"source_refs\": [\r\n      {\r\n        \"type\": \"message\",\r\n        \"exchange_id\": \"5dc2cd92-fd0e-412c-b9d1-02d3004bbfea\",\r\n        \"message_id\": \"65f9e3c6-10d2-46a9-ba52-8c93b6327b73\",\r\n        \"range\": {\r\n          \"start\": 17,\r\n          \"end\": 85\r\n        }\r\n      }\r\n    ],\r\n    \"statement\": \"as a child, the future keeper was forbidden to enter the lighthouse.\",\r\n    \"status\": \"proposed\",\r\n    \"related_element_ids\": [],\r\n    \"alternative_group_id\": null,\r\n    \"selected_parts\": [],\r\n    \"decision_ids\": [],\r\n    \"resulting_assertion_ids\": []\r\n  },\r\n  {\r\n    \"revision\": 1,\r\n    \"previous_revision\": null,\r\n    \"created_exchange_id\": \"5dc2cd92-fd0e-412c-b9d1-02d3004bbfea\",\r\n    \"origin\": \"interpreted\",\r\n    \"id\": \"c9f1bced-dcf2-472b-ac34-a23d0099fa4d\",\r\n    \"kind\": \"question\",\r\n    \"source_refs\": [\r\n      {\r\n        \"type\": \"message\",\r\n        \"exchange_id\": \"5dc2cd92-fd0e-412c-b9d1-02d3004bbfea\",\r\n        \"message_id\": \"65f9e3c6-10d2-46a9-ba52-8c93b6327b73\",\r\n        \"range\": {\r\n          \"start\": 168,\r\n          \"end\": 199\r\n        }\r\n      }\r\n    ],\r\n    \"text\": \"Does that feel worth exploring?\",\r\n    \"related_refs\": [\r\n      {\r\n        \"id\": \"02139b09-cd31-4f54-9f12-61a3ec7391d1\",\r\n        \"revision\": 1\r\n      }\r\n    ],\r\n    \"alternative_ids\": [],\r\n    \"state\": \"open\",\r\n    \"resolution_decision_id\": null\r\n  }\r\n]\r\n{\"git_head\":\"0e00627932c2daf616db5a1f5ea491d43cae34e8\",\"exchange_id\":\"5dc2cd92-fd0e-412c-b9d1-02d3004bbfea\",\"sequence\":4}\r\nunconfirmed\r\n",
+            "truncated": false
+          }
+        },
+        {
+          "type": "agentMessage",
+          "id": "msg_094d7d7fe09eab80016adbe2fa98c08191a26a853b258b4ade",
+          "phase": "commentary",
+          "text": "I’m using the installed novel-resume skill. The session has one unaccepted childhood proposal and two open questions, including the earlier reader-feeling question. I’ll include both without adding new exploration."
+        },
+        {
+          "type": "commandExecution",
+          "id": "exec-5e4c4f9a-d8b3-459c-8064-045c28b9e3e9",
+          "status": "completed",
+          "exitCode": 0
+        },
+        {
+          "type": "commandExecution",
+          "id": "exec-f616f189-82a5-40fe-bb3f-77af12382172",
+          "status": "completed",
+          "exitCode": 0,
+          "output": {
+            "text": "{\"prepared\": true, \"exchange_id\": \"273286f7-8665-44f6-a832-0f5985578d89\", \"sequence\": 5, \"session_id\": \"36be3954-58f7-4a35-a95f-ee040d969ce8\", \"pause\": true}\r\nExchange save failed; pending work is not confirmed\r\n{\"ok\": false, \"error\": {\"code\": 5, \"message\": \"Exchange save failed; pending work is not confirmed\", \"affected_refs\": [], \"retryable\": true}, \"last_confirmed_checkpoint\": {\"git_head\": \"0e00627932c2daf616db5a1f5ea491d43cae34e8\", \"exchange_id\": \"5dc2cd92-fd0e-412c-b9d1-02d3004bbfea\", \"sequence\": 4}, \"pending_exchange_id\": \"273286f7-8665-44f6-a832-0f5985578d89\"}\r\n",
+            "truncated": false
+          }
+        },
+        {
+          "type": "agentMessage",
+          "id": "msg_094d7d7fe09eab80016adbe3184e488191be2e9b9e4d6fb2f9",
+          "phase": "commentary",
+          "text": "The summary is prepared, with references to the saved proposal and both open questions. Its save is pending at checkpoint 4 under the same sandbox restriction; I’ll retry the unchanged payload."
+        },
+        {
+          "type": "commandExecution",
+          "id": "exec-d7421082-f8d9-48a6-8b98-403e096d1bfa",
+          "status": "completed",
+          "exitCode": 0,
+          "output": {
+            "text": "{\"ok\": true, \"operation\": \"exchange.save\", \"novel_id\": \"e048107e-e089-4082-8ebe-b15cad9a85da\", \"data\": {\"saved\": true, \"already_saved\": false, \"cleanup_required\": false}, \"warnings\": [], \"checkpoint\": {\"git_head\": \"aa7f79938c19282c3e6039aec9d7319559dc845d\", \"exchange_id\": \"273286f7-8665-44f6-a832-0f5985578d89\", \"sequence\": 5}}\r\n",
+            "truncated": false
+          }
+        },
+        {
+          "type": "commandExecution",
+          "id": "exec-6b76addd-d984-4031-b062-32bfd6083d78",
+          "status": "completed",
+          "exitCode": 0,
+          "output": {
+            "text": "{\"open_question_count\":2,\"verified\":true,\"checkpoint\":{\"git_head\":\"aa7f79938c19282c3e6039aec9d7319559dc845d\",\"exchange_id\":\"273286f7-8665-44f6-a832-0f5985578d89\",\"sequence\":5},\"proposal_count\":1,\"paused\":true}\r\n",
+            "truncated": false
+          }
+        },
+        {
+          "type": "agentMessage",
+          "id": "msg_094d7d7fe09eab80016adbe327f88c8191a3252025484c8bc1",
+          "phase": "final_answer",
+          "text": "Resumed “A lighthouse keeper's childhood” in guided mode. The session remains open with the same ID, `36be3954-58f7-4a35-a95f-ee040d969ce8`.\n\nSaved proposal:\n\n- As a child, the future keeper was forbidden to enter the lighthouse. This remains an unaccepted possibility. The reason for the prohibition is undecided. [Idea `02139b09` r1]\n\nSaved open questions:\n\n- “What feeling would you like your story to leave with its reader?” [Question `96071e74` r1]\n- “Does that feel worth exploring?” This refers to the childhood prohibition. [Question `c9f1bced` r1]\n\nNeither question has a recorded answer. Changing the topic to the keeper's childhood did not resolve the reader-feeling question.\n\nNo creative decisions or accepted story facts are recorded, and no continuity findings are recorded. Your preferences remain one question and one possibility at a time. [Project `e048107e` r3; session `36be3954` r2]\n\nThis summary derives from checkpoint 4, exchange `5dc2cd92-fd0e-412c-b9d1-02d3004bbfea`. References above use unambiguous record ID prefixes. The previous saved reply's display is unconfirmed; no acceptance is inferred.\n\nI'll pause here."
+        }
+      ]
+    }
+  ]
+}

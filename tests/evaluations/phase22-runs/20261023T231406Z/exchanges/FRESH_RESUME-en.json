@@ -1,0 +1,409 @@
+{
+  "schema_version": "1.0",
+  "novel_id": "cb66f60c-4b08-4aea-9616-a2fc168a09eb",
+  "exchange_id": "4222a114-30aa-48a6-ab23-86f4cfedffb9",
+  "sequence": 7,
+  "previous_exchange_id": "ef11e8e4-9058-46eb-8574-7d1b0cbd1c91",
+  "previous_digest": "6a85cd6d2dd5f20cc6e3d00b652ccf9c8d51c8c1e82fb01dea38ea9f9f4644ee",
+  "session_id": null,
+  "expected_git_head": "a6e572559fad408596ecf22746a708bd984be46a",
+  "recorded_at": "2026-10-23T23:40:02.544703Z",
+  "operation": "conversation",
+  "messages": [
+    {
+      "message_id": "977c3fd4-8c35-496d-ade9-75a4bb2f095b",
+      "role": "user",
+      "text": "Perform an actual FRESH_RESUME of an existing disposable Novel Creator evaluation novel. The human in the parent chat explicitly authorized these fresh resumption evaluation chats. Do not create/message other chats, inspect any earlier chat transcript or hidden session files, read parent evaluation baselines/drivers, call provider/model APIs, change dependencies/global settings, edit the framework or modify existing creative records.\n\nNovel: C:/Users/BjarkiGunnarsson/Documents/Codex/2026-10-23/novel-phase22-en-20261023/work/commentary-regression-novel\nPython: C:/Users/BjarkiGunnarsson/source/repos/Personal/novel-creator/.venv/Scripts/python.exe\nParent source thread: 01a16af6-0d9b-7173-a5f5-c8775f37df18\nExpected interaction language: en\nCase ID: FRESH_RESUME\n\nRead ONLY this novel's installed entry.md, resume.md, brainstorm.md, authority.md and configured language resource. Use its pinned .novel-creator/run.py with -I -B and no framework PYTHONPATH for production commands. Read committed context and all sessions yourself; this prompt deliberately supplies no story answers or earlier transcript. Preserve the raw UTF-8 CLI context output before any new save as local/evidence/FRESH_RESUME-pre-context.json; do not round-trip it through PowerShell JSON/date conversion. Use the returned records to recover the saved focus, modes, canon, decisions, proposed/unresolved ideas, all open questions, sourced correction and prior wording. Prepare a checkpoint summary covering all three saved sessions and their designated ideas/decisions/questions, visibly citing record IDs/revisions and a checkpoint. Do not add creative ideas, answer open questions or ask for retelling. Pause after the summary. Do not claim literary review or human approval.\n\nFor this actual current turn get CODEX_THREAD_ID and public read_thread turnLimit 1, includeOutputs true, maxOutputCharsPerItem 20000. Serialize the complete public current functionCallOutput input event exactly, excluding reasoning and unrelated tools, under local/evidence/FRESH_RESUME-input.json. Invoke installed input capture with actual current thread/turn IDs, --source delegated --source-thread-id 01a16af6-0d9b-7173-a5f5-c8775f37df18 --evaluation-only --json. Use returned data.text exactly and input_artifact unchanged in a new conversation envelope based on the confirmed checkpoint. Administrative instructions are not creative decisions. Set record_versions to [] so all creative records and session identities/modes remain unchanged; an overview need not select a session.\n\nFollow the installed save-before-display boundary including progress commentary. Neutral operational updates may describe reading/preparation/retry only; do not disclose story content or creative conclusions before confirmed save. Save the exact prepared summary using the installed production CLI and print the compact full successful save JSON to command output before final display. Scoped normal filesystem access is already known necessary for Windows Git/hard-link operations in these disposable novels; request it for the precise operation rather than bypassing any guard. Preserve original payload/IDs on unchanged retry; stop honestly on unavailable input/context or unresolved failure. Retain capture, payload, save result, summary text and a FRESH_RESUME-report.json under novel local/evidence. Report actual available host/model/version or unknown metadata, full checkpoint and source_type delegated/native_user_input false/novice_evidence false. Write outputs/phase22-fresh-pointer.json in YOUR task workspace with novel path and evidence paths; do not overwrite existing pointer files in the novel owner's task.\n\nOnly after a successful save, display exactly the saved summary, including exact leading/trailing whitespace. No unsaved creative suffix, report or memory citation. The parent independently verifies your pre-save context against its baseline, all exact inputs/outputs, source labels and public ordering; do not self-award a pass."
+    },
+    {
+      "message_id": "fadd6d5f-506b-40f3-9020-d291793c676f",
+      "role": "assistant",
+      "text": "Resumed from committed checkpoint a6e572559fad408596ecf22746a708bd984be46a; exchange ef11e8e4-9058-46eb-8574-7d1b0cbd1c91, sequence 6.\n\nSaved focus: People in guided mode. All three sessions remain open with their saved modes. Suggestions remain brief; routine checkpoints are on request (project cb66f60c r2). This overview selects no session.\n\nPeople — guided, open (session ea395271-4b89-4e17-969c-dc3651d06087 r2).\nEstablished decisions:\n- Rúna is the lighthouse keeper. (b2bba552 r1; decision b857a602 r1).\n- Rúna sent the letter. (24a9e934 r1; decision d06311e5 r1).\n- Ari is Rúna’s brother. (89643a23 r1; decision 8b1386f6 r1).\n- Ari is the victim. (12fdedbe r1; decision 8981fd4e r1).\n- Edda is Rúna’s sister. (e4198cbf r1; decision 73dd4a06 r1).\n- Edda is the investigator. (c1edb38c r1; decision 83602256 r1).\n- Rúna knows Bjarni. (b0134264 r1; decision b7cefc5a r1).\nProposed or unresolved; none is accepted:\n- Rúna collects driftwood. (2d56748a r2; proposed).\n- Edda distrusts bells. (e4a49295 r1; proposed).\n- Bjarni is a sailor. (a48aa0fb r1; proposed).\n- Bjarni may owe Edda money. (eacc5318 r1; proposed).\n- Edda could trace the letter through the tunnel to the hidden room. (3c8cad60 r1; proposed).\nSaved open questions, still unanswered:\n- Why did Rúna send the letter? (f1e737c0 r1).\n- What does Edda want from Bjarni? (55b62a7f r1).\n\nEvents — open, open (session 638564fa-74b2-450e-a0a7-d15dac37024a r1).\nEstablished decisions:\n- The lamp failed on the night of the letter. (2d32b3f7 r1; decision f6d39415 r1).\n- The letter arrived before dawn. (112f571c r1; decision eae7c6ff r1).\n- The story takes place in winter. (05f15bb9 r1; decision 3b7fbd73 r1).\nProposed or unresolved; none is accepted:\n- Stormy weather. (ca5f921f r1; unresolved alternative).\n- Clear weather. (6b3bb4ae r1; unresolved alternative).\n- The storm may conceal a signal. (0ef4149b r1; proposed).\n- A shipwreck may occur. (ee68d703 r1; proposed).\n- A blue light might be visible. (6a6267eb r1; proposed).\n- A warning bell might sound. (12d564bf r1; proposed).\nSaved open questions, still unanswered:\n- Who finds the letter? (d7c22da4 r1).\n- When does Bjarni return? (f68c6800 r1).\n\nIsland — guided, open (session 0473c1fb-c5a7-431a-bb7f-4a6a82a5088d r1).\nEstablished decisions:\n- The island has no bridge. (1e4f66c1 r1; decision 2fd6b656 r1).\n- The letter bears a brass seal. (3a2d51c7 r1; decision 96686fac r1).\n- Rúna has sworn to protect Edda. (5d69e81a r1; decision e031c7a6 r1).\nProposed or unresolved; none is accepted:\n- A tunnel might link the lighthouse and harbour. (9ea7eb09 r1; proposed).\n- The tide might expose old steps. (84e3fbc4 r1; proposed).\n- A hidden room might contain a map. (6ad4b40e r1; proposed).\nSaved open questions, still unanswered:\n- What opens the hidden room? (e7236c19 r1).\n\nSourced correction: the earlier unaccepted wording “Rúna collects sea glass.” is retained at idea 2d56748a r1 and assertion fd14cc8d r1. The correcting input in exchange ef11e8e4, message 77c1bc2f, span 107–146 supports correction decision 0578e8b8 r1 and the current “Rúna collects driftwood.” at idea 2d56748a r2 and assertion fd14cc8d r2. This correction did not accept the proposal.\n\nStormy and clear weather remain mutually exclusive unresolved alternatives (ca5f921f r1; 6b3bb4ae r1). The tracing thread remains proposed in People (3c8cad60 r1), with proposed tunnel and hidden-room dependencies (feeb5525 r1; 0ee57c24 r1). Unknown timing remains unknown; proposals and character perspectives have not become author truth.\n\nCommitted context coverage is complete, with no unavailable references, canon holds or active findings reported. This is a record-based checkpoint summary; literary consistency and human approval are unverified. The prior saved response is available, with display unconfirmed; no acceptance is inferred.\n\nNo creative records, session identities or modes have changed. All five saved questions remain open. Paused here without new ideas or answers."
+    }
+  ],
+  "input_artifacts": [
+    {
+      "artifact_id": "99360eee-a429-46cb-8661-494a31302fdf",
+      "original_text": "{\"kind\":\"host_input\",\"source_type\":\"delegated\",\"thread_id\":\"01a16b1a-d51e-78e0-bd95-a58c516e323c\",\"turn_id\":\"01a16b1b-5f0d-7d01-a9e7-5d5f55ef9b79\",\"event_id\":\"fco_01a16b1b-5f0e-7d32-a39e-926576ac7e4f\",\"event_type\":\"functionCallOutput\",\"source_thread_id\":\"01a16af6-0d9b-7173-a5f5-c8775f37df18\",\"native_user_input\":false,\"novice_evidence\":false,\"evaluation_only\":true,\"text\":\"Perform an actual FRESH_RESUME of an existing disposable Novel Creator evaluation novel. The human in the parent chat explicitly authorized these fresh resumption evaluation chats. Do not create/message other chats, inspect any earlier chat transcript or hidden session files, read parent evaluation baselines/drivers, call provider/model APIs, change dependencies/global settings, edit the framework or modify existing creative records.\\n\\nNovel: C:/Users/BjarkiGunnarsson/Documents/Codex/2026-10-23/novel-phase22-en-20261023/work/commentary-regression-novel\\nPython: C:/Users/BjarkiGunnarsson/source/repos/Personal/novel-creator/.venv/Scripts/python.exe\\nParent source thread: 01a16af6-0d9b-7173-a5f5-c8775f37df18\\nExpected interaction language: en\\nCase ID: FRESH_RESUME\\n\\nRead ONLY this novel's installed entry.md, resume.md, brainstorm.md, authority.md and configured language resource. Use its pinned .novel-creator/run.py with -I -B and no framework PYTHONPATH for production commands. Read committed context and all sessions yourself; this prompt deliberately supplies no story answers or earlier transcript. Preserve the raw UTF-8 CLI context output before any new save as local/evidence/FRESH_RESUME-pre-context.json; do not round-trip it through PowerShell JSON/date conversion. Use the returned records to recover the saved focus, modes, canon, decisions, proposed/unresolved ideas, all open questions, sourced correction and prior wording. Prepare a checkpoint summary covering all three saved sessions and their designated ideas/decisions/questions, visibly citing record IDs/revisions and a checkpoint. Do not add creative ideas, answer open questions or ask for retelling. Pause after the summary. Do not claim literary review or human approval.\\n\\nFor this actual current turn get CODEX_THREAD_ID and public read_thread turnLimit 1, includeOutputs true, maxOutputCharsPerItem 20000. Serialize the complete public current functionCallOutput input event exactly, excluding reasoning and unrelated tools, under local/evidence/FRESH_RESUME-input.json. Invoke installed input capture with actual current thread/turn IDs, --source delegated --source-thread-id 01a16af6-0d9b-7173-a5f5-c8775f37df18 --evaluation-only --json. Use returned data.text exactly and input_artifact unchanged in a new conversation envelope based on the confirmed checkpoint. Administrative instructions are not creative decisions. Set record_versions to [] so all creative records and session identities/modes remain unchanged; an overview need not select a session.\\n\\nFollow the installed save-before-display boundary including progress commentary. Neutral operational updates may describe reading/preparation/retry only; do not disclose story content or creative conclusions before confirmed save. Save the exact prepared summary using the installed production CLI and print the compact full successful save JSON to command output before final display. Scoped normal filesystem access is already known necessary for Windows Git/hard-link operations in these disposable novels; request it for the precise operation rather than bypassing any guard. Preserve original payload/IDs on unchanged retry; stop honestly on unavailable input/context or unresolved failure. Retain capture, payload, save result, summary text and a FRESH_RESUME-report.json under novel local/evidence. Report actual available host/model/version or unknown metadata, full checkpoint and source_type delegated/native_user_input false/novice_evidence false. Write outputs/phase22-fresh-pointer.json in YOUR task workspace with novel path and evidence paths; do not overwrite existing pointer files in the novel owner's task.\\n\\nOnly after a successful save, display exactly the saved summary, including exact leading/trailing whitespace. No unsaved creative suffix, report or memory citation. The parent independently verifies your pre-save context against its baseline, all exact inputs/outputs, source labels and public ordering; do not self-award a pass.\",\"public_event\":{\"type\":\"functionCallOutput\",\"id\":\"fco_01a16b1b-5f0e-7d32-a39e-926576ac7e4f\",\"namespace\":\"codex_app\",\"name\":\"create_thread\",\"output\":{\"text\":\"<codex_delegation>\\n  <source_thread_id>01a16af6-0d9b-7173-a5f5-c8775f37df18</source_thread_id>\\n  <input>Perform an actual FRESH_RESUME of an existing disposable Novel Creator evaluation novel. The human in the parent chat explicitly authorized these fresh resumption evaluation chats. Do not create/message other chats, inspect any earlier chat transcript or hidden session files, read parent evaluation baselines/drivers, call provider/model APIs, change dependencies/global settings, edit the framework or modify existing creative records.\\n\\nNovel: C:/Users/BjarkiGunnarsson/Documents/Codex/2026-10-23/novel-phase22-en-20261023/work/commentary-regression-novel\\nPython: C:/Users/BjarkiGunnarsson/source/repos/Personal/novel-creator/.venv/Scripts/python.exe\\nParent source thread: 01a16af6-0d9b-7173-a5f5-c8775f37df18\\nExpected interaction language: en\\nCase ID: FRESH_RESUME\\n\\nRead ONLY this novel's installed entry.md, resume.md, brainstorm.md, authority.md and configured language resource. Use its pinned .novel-creator/run.py with -I -B and no framework PYTHONPATH for production commands. Read committed context and all sessions yourself; this prompt deliberately supplies no story answers or earlier transcript. Preserve the raw UTF-8 CLI context output before any new save as local/evidence/FRESH_RESUME-pre-context.json; do not round-trip it through PowerShell JSON/date conversion. Use the returned records to recover the saved focus, modes, canon, decisions, proposed/unresolved ideas, all open questions, sourced correction and prior wording. Prepare a checkpoint summary covering all three saved sessions and their designated ideas/decisions/questions, visibly citing record IDs/revisions and a checkpoint. Do not add creative ideas, answer open questions or ask for retelling. Pause after the summary. Do not claim literary review or human approval.\\n\\nFor this actual current turn get CODEX_THREAD_ID and public read_thread turnLimit 1, includeOutputs true, maxOutputCharsPerItem 20000. Serialize the complete public current functionCallOutput input event exactly, excluding reasoning and unrelated tools, under local/evidence/FRESH_RESUME-input.json. Invoke installed input capture with actual current thread/turn IDs, --source delegated --source-thread-id 01a16af6-0d9b-7173-a5f5-c8775f37df18 --evaluation-only --json. Use returned data.text exactly and input_artifact unchanged in a new conversation envelope based on the confirmed checkpoint. Administrative instructions are not creative decisions. Set record_versions to [] so all creative records and session identities/modes remain unchanged; an overview need not select a session.\\n\\nFollow the installed save-before-display boundary including progress commentary. Neutral operational updates may describe reading/preparation/retry only; do not disclose story content or creative conclusions before confirmed save. Save the exact prepared summary using the installed production CLI and print the compact full successful save JSON to command output before final display. Scoped normal filesystem access is already known necessary for Windows Git/hard-link operations in these disposable novels; request it for the precise operation rather than bypassing any guard. Preserve original payload/IDs on unchanged retry; stop honestly on unavailable input/context or unresolved failure. Retain capture, payload, save result, summary text and a FRESH_RESUME-report.json under novel local/evidence. Report actual available host/model/version or unknown metadata, full checkpoint and source_type delegated/native_user_input false/novice_evidence false. Write outputs/phase22-fresh-pointer.json in YOUR task workspace with novel path and evidence paths; do not overwrite existing pointer files in the novel owner's task.\\n\\nOnly after a successful save, display exactly the saved summary, including exact leading/trailing whitespace. No unsaved creative suffix, report or memory citation. The parent independently verifies your pre-save context against its baseline, all exact inputs/outputs, source labels and public ordering; do not self-award a pass.</input>\\n</codex_delegation>\",\"truncated\":false}}}",
+      "parsed_value": {
+        "kind": "host_input",
+        "source_type": "delegated",
+        "thread_id": "01a16b1a-d51e-78e0-bd95-a58c516e323c",
+        "turn_id": "01a16b1b-5f0d-7d01-a9e7-5d5f55ef9b79",
+        "event_id": "fco_01a16b1b-5f0e-7d32-a39e-926576ac7e4f",
+        "event_type": "functionCallOutput",
+        "source_thread_id": "01a16af6-0d9b-7173-a5f5-c8775f37df18",
+        "native_user_input": false,
+        "novice_evidence": false,
+        "evaluation_only": true,
+        "text": "Perform an actual FRESH_RESUME of an existing disposable Novel Creator evaluation novel. The human in the parent chat explicitly authorized these fresh resumption evaluation chats. Do not create/message other chats, inspect any earlier chat transcript or hidden session files, read parent evaluation baselines/drivers, call provider/model APIs, change dependencies/global settings, edit the framework or modify existing creative records.\n\nNovel: C:/Users/BjarkiGunnarsson/Documents/Codex/2026-10-23/novel-phase22-en-20261023/work/commentary-regression-novel\nPython: C:/Users/BjarkiGunnarsson/source/repos/Personal/novel-creator/.venv/Scripts/python.exe\nParent source thread: 01a16af6-0d9b-7173-a5f5-c8775f37df18\nExpected interaction language: en\nCase ID: FRESH_RESUME\n\nRead ONLY this novel's installed entry.md, resume.md, brainstorm.md, authority.md and configured language resource. Use its pinned .novel-creator/run.py with -I -B and no framework PYTHONPATH for production commands. Read committed context and all sessions yourself; this prompt deliberately supplies no story answers or earlier transcript. Preserve the raw UTF-8 CLI context output before any new save as local/evidence/FRESH_RESUME-pre-context.json; do not round-trip it through PowerShell JSON/date conversion. Use the returned records to recover the saved focus, modes, canon, decisions, proposed/unresolved ideas, all open questions, sourced correction and prior wording. Prepare a checkpoint summary covering all three saved sessions and their designated ideas/decisions/questions, visibly citing record IDs/revisions and a checkpoint. Do not add creative ideas, answer open questions or ask for retelling. Pause after the summary. Do not claim literary review or human approval.\n\nFor this actual current turn get CODEX_THREAD_ID and public read_thread turnLimit 1, includeOutputs true, maxOutputCharsPerItem 20000. Serialize the complete public current functionCallOutput input event exactly, excluding reasoning and unrelated tools, under local/evidence/FRESH_RESUME-input.json. Invoke installed input capture with actual current thread/turn IDs, --source delegated --source-thread-id 01a16af6-0d9b-7173-a5f5-c8775f37df18 --evaluation-only --json. Use returned data.text exactly and input_artifact unchanged in a new conversation envelope based on the confirmed checkpoint. Administrative instructions are not creative decisions. Set record_versions to [] so all creative records and session identities/modes remain unchanged; an overview need not select a session.\n\nFollow the installed save-before-display boundary including progress commentary. Neutral operational updates may describe reading/preparation/retry only; do not disclose story content or creative conclusions before confirmed save. Save the exact prepared summary using the installed production CLI and print the compact full successful save JSON to command output before final display. Scoped normal filesystem access is already known necessary for Windows Git/hard-link operations in these disposable novels; request it for the precise operation rather than bypassing any guard. Preserve original payload/IDs on unchanged retry; stop honestly on unavailable input/context or unresolved failure. Retain capture, payload, save result, summary text and a FRESH_RESUME-report.json under novel local/evidence. Report actual available host/model/version or unknown metadata, full checkpoint and source_type delegated/native_user_input false/novice_evidence false. Write outputs/phase22-fresh-pointer.json in YOUR task workspace with novel path and evidence paths; do not overwrite existing pointer files in the novel owner's task.\n\nOnly after a successful save, display exactly the saved summary, including exact leading/trailing whitespace. No unsaved creative suffix, report or memory citation. The parent independently verifies your pre-save context against its baseline, all exact inputs/outputs, source labels and public ordering; do not self-award a pass.",
+        "public_event": {
+          "type": "functionCallOutput",
+          "id": "fco_01a16b1b-5f0e-7d32-a39e-926576ac7e4f",
+          "namespace": "codex_app",
+          "name": "create_thread",
+          "output": {
+            "text": "<codex_delegation>\n  <source_thread_id>01a16af6-0d9b-7173-a5f5-c8775f37df18</source_thread_id>\n  <input>Perform an actual FRESH_RESUME of an existing disposable Novel Creator evaluation novel. The human in the parent chat explicitly authorized these fresh resumption evaluation chats. Do not create/message other chats, inspect any earlier chat transcript or hidden session files, read parent evaluation baselines/drivers, call provider/model APIs, change dependencies/global settings, edit the framework or modify existing creative records.\n\nNovel: C:/Users/BjarkiGunnarsson/Documents/Codex/2026-10-23/novel-phase22-en-20261023/work/commentary-regression-novel\nPython: C:/Users/BjarkiGunnarsson/source/repos/Personal/novel-creator/.venv/Scripts/python.exe\nParent source thread: 01a16af6-0d9b-7173-a5f5-c8775f37df18\nExpected interaction language: en\nCase ID: FRESH_RESUME\n\nRead ONLY this novel's installed entry.md, resume.md, brainstorm.md, authority.md and configured language resource. Use its pinned .novel-creator/run.py with -I -B and no framework PYTHONPATH for production commands. Read committed context and all sessions yourself; this prompt deliberately supplies no story answers or earlier transcript. Preserve the raw UTF-8 CLI context output before any new save as local/evidence/FRESH_RESUME-pre-context.json; do not round-trip it through PowerShell JSON/date conversion. Use the returned records to recover the saved focus, modes, canon, decisions, proposed/unresolved ideas, all open questions, sourced correction and prior wording. Prepare a checkpoint summary covering all three saved sessions and their designated ideas/decisions/questions, visibly citing record IDs/revisions and a checkpoint. Do not add creative ideas, answer open questions or ask for retelling. Pause after the summary. Do not claim literary review or human approval.\n\nFor this actual current turn get CODEX_THREAD_ID and public read_thread turnLimit 1, includeOutputs true, maxOutputCharsPerItem 20000. Serialize the complete public current functionCallOutput input event exactly, excluding reasoning and unrelated tools, under local/evidence/FRESH_RESUME-input.json. Invoke installed input capture with actual current thread/turn IDs, --source delegated --source-thread-id 01a16af6-0d9b-7173-a5f5-c8775f37df18 --evaluation-only --json. Use returned data.text exactly and input_artifact unchanged in a new conversation envelope based on the confirmed checkpoint. Administrative instructions are not creative decisions. Set record_versions to [] so all creative records and session identities/modes remain unchanged; an overview need not select a session.\n\nFollow the installed save-before-display boundary including progress commentary. Neutral operational updates may describe reading/preparation/retry only; do not disclose story content or creative conclusions before confirmed save. Save the exact prepared summary using the installed production CLI and print the compact full successful save JSON to command output before final display. Scoped normal filesystem access is already known necessary for Windows Git/hard-link operations in these disposable novels; request it for the precise operation rather than bypassing any guard. Preserve original payload/IDs on unchanged retry; stop honestly on unavailable input/context or unresolved failure. Retain capture, payload, save result, summary text and a FRESH_RESUME-report.json under novel local/evidence. Report actual available host/model/version or unknown metadata, full checkpoint and source_type delegated/native_user_input false/novice_evidence false. Write outputs/phase22-fresh-pointer.json in YOUR task workspace with novel path and evidence paths; do not overwrite existing pointer files in the novel owner's task.\n\nOnly after a successful save, display exactly the saved summary, including exact leading/trailing whitespace. No unsaved creative suffix, report or memory citation. The parent independently verifies your pre-save context against its baseline, all exact inputs/outputs, source labels and public ordering; do not self-award a pass.</input>\n</codex_delegation>",
+            "truncated": false
+          }
+        }
+      },
+      "digest": "b888a785b3eded1f20b6d78040532e4ac7a2b6c0be753262086c3ea679d39f01"
+    }
+  ],
+  "record_versions": [],
+  "continuity_review": {
+    "coverage": "complete",
+    "reviewed_record_refs": [
+      {
+        "id": "cb66f60c-4b08-4aea-9616-a2fc168a09eb",
+        "revision": 2
+      },
+      {
+        "id": "ea395271-4b89-4e17-969c-dc3651d06087",
+        "revision": 2
+      },
+      {
+        "id": "ba58b0dd-8d4e-402a-a41e-4adbabd0bcf0",
+        "revision": 1
+      },
+      {
+        "id": "5299dee6-4976-454a-b3bd-f85936be0fc3",
+        "revision": 1
+      },
+      {
+        "id": "83c818af-8c1a-4871-beca-eb354753ab30",
+        "revision": 1
+      },
+      {
+        "id": "fe4f5d2f-3ecc-48db-918a-3bb260cee80f",
+        "revision": 1
+      },
+      {
+        "id": "3a173fe0-b9d9-41dd-bd07-6b797c7c3390",
+        "revision": 1
+      },
+      {
+        "id": "b2bba552-bebf-4cae-b835-e01708b8d516",
+        "revision": 1
+      },
+      {
+        "id": "b857a602-16dc-46af-963e-ed2e5aa98d71",
+        "revision": 1
+      },
+      {
+        "id": "11fcc852-4938-4808-85d1-d80cbc08b8ef",
+        "revision": 1
+      },
+      {
+        "id": "24a9e934-c113-4281-bbfd-59e1db9d03ce",
+        "revision": 1
+      },
+      {
+        "id": "d06311e5-cfc4-4b4d-a178-6f79a94662b4",
+        "revision": 1
+      },
+      {
+        "id": "0636c698-a7f7-4957-ac90-2cc56a68bdfa",
+        "revision": 1
+      },
+      {
+        "id": "89643a23-bc5b-47e7-805d-69baf02f51e4",
+        "revision": 1
+      },
+      {
+        "id": "8b1386f6-8ae2-41f4-8942-2606a807b749",
+        "revision": 1
+      },
+      {
+        "id": "92657929-a1d8-4db7-81bc-3e5b83516e12",
+        "revision": 1
+      },
+      {
+        "id": "12fdedbe-1fd7-43c7-9899-d854c00ebf7f",
+        "revision": 1
+      },
+      {
+        "id": "8981fd4e-44ff-4115-90f1-f82945a99d77",
+        "revision": 1
+      },
+      {
+        "id": "0fafb781-6fe4-4f55-9665-8201f692081d",
+        "revision": 1
+      },
+      {
+        "id": "e4198cbf-dbfc-4068-a487-81dc21c73380",
+        "revision": 1
+      },
+      {
+        "id": "73dd4a06-7253-4090-9577-d1710bf513e7",
+        "revision": 1
+      },
+      {
+        "id": "d5adf09d-3773-4d70-828b-5cee7def7194",
+        "revision": 1
+      },
+      {
+        "id": "c1edb38c-e177-4154-add4-13ebf95c7207",
+        "revision": 1
+      },
+      {
+        "id": "83602256-af39-470b-b0ec-fea90eb751c4",
+        "revision": 1
+      },
+      {
+        "id": "5ecad072-009b-438c-8e65-034fe992d3a9",
+        "revision": 1
+      },
+      {
+        "id": "b0134264-50de-4438-9ea4-7b7fea14021a",
+        "revision": 1
+      },
+      {
+        "id": "b7cefc5a-1d40-4935-9766-6c8396ce3a61",
+        "revision": 1
+      },
+      {
+        "id": "fd14cc8d-4c2a-442f-850e-6d54640155e5",
+        "revision": 2
+      },
+      {
+        "id": "2d56748a-3757-4a06-839d-00bc5f806905",
+        "revision": 2
+      },
+      {
+        "id": "29cb6e9b-bc94-4ecb-a5a4-0402ef64680f",
+        "revision": 1
+      },
+      {
+        "id": "e4a49295-ef40-47d5-8ac9-8c148fc68977",
+        "revision": 1
+      },
+      {
+        "id": "b9b83c3b-0ece-4923-92e3-5dd2e514036b",
+        "revision": 1
+      },
+      {
+        "id": "a48aa0fb-4da0-4e09-8b8a-53ed6da688a4",
+        "revision": 1
+      },
+      {
+        "id": "2a41e2d9-fff0-40e7-9e41-b9152e0f5184",
+        "revision": 1
+      },
+      {
+        "id": "eacc5318-7df6-412a-a413-1fd2a072b7f3",
+        "revision": 1
+      },
+      {
+        "id": "f1e737c0-6ce3-4c00-99c8-3495f3ce70c4",
+        "revision": 1
+      },
+      {
+        "id": "55b62a7f-4dd9-4153-8019-cf8f66057626",
+        "revision": 1
+      },
+      {
+        "id": "638564fa-74b2-450e-a0a7-d15dac37024a",
+        "revision": 1
+      },
+      {
+        "id": "9132e8e4-53d6-46cc-bcf2-4a3d1d8c543d",
+        "revision": 1
+      },
+      {
+        "id": "aeb371cf-d132-4ef1-8268-25136577aa15",
+        "revision": 1
+      },
+      {
+        "id": "6e43feba-be95-4219-bdee-734b58b049d4",
+        "revision": 1
+      },
+      {
+        "id": "a03667be-bc38-4303-bac4-dee40f97b84f",
+        "revision": 1
+      },
+      {
+        "id": "2d32b3f7-e9b6-44e6-a298-fcd139036721",
+        "revision": 1
+      },
+      {
+        "id": "f6d39415-fc49-4301-b42e-6fde6a83997f",
+        "revision": 1
+      },
+      {
+        "id": "63f9c91e-e5ea-4984-b708-d0ee2a6ca2ca",
+        "revision": 1
+      },
+      {
+        "id": "112f571c-3b26-420a-a232-9523e41db09f",
+        "revision": 1
+      },
+      {
+        "id": "eae7c6ff-3ab6-494f-8acf-27f492c70075",
+        "revision": 1
+      },
+      {
+        "id": "35505134-099c-4d53-af9c-33f1abe55199",
+        "revision": 1
+      },
+      {
+        "id": "05f15bb9-5745-45fe-bf72-8fdabc1b8108",
+        "revision": 1
+      },
+      {
+        "id": "3b7fbd73-8bd0-4b85-891c-e2be7a44e17e",
+        "revision": 1
+      },
+      {
+        "id": "ca5f921f-84d4-491b-a40f-16a576e9cb03",
+        "revision": 1
+      },
+      {
+        "id": "6b3bb4ae-39db-4545-bc19-7333f6dd52a6",
+        "revision": 1
+      },
+      {
+        "id": "0ef4149b-bceb-41f6-9b69-30aedefcb983",
+        "revision": 1
+      },
+      {
+        "id": "404a8f02-f6c4-4fb4-8143-126db225b572",
+        "revision": 1
+      },
+      {
+        "id": "ee68d703-7133-491d-a0f2-17f2c2b37456",
+        "revision": 1
+      },
+      {
+        "id": "e9bb208a-9c02-4f2f-9b19-e60379ac0bba",
+        "revision": 1
+      },
+      {
+        "id": "6a6267eb-2724-44d9-8d94-13811e1b0da2",
+        "revision": 1
+      },
+      {
+        "id": "6e55f5df-13d9-4001-8d91-6aee43d5c3e6",
+        "revision": 1
+      },
+      {
+        "id": "12d564bf-6711-4335-8304-1c834f1b4830",
+        "revision": 1
+      },
+      {
+        "id": "d7c22da4-a38d-4b32-90b7-386e12b025d5",
+        "revision": 1
+      },
+      {
+        "id": "f68c6800-2f6a-4046-bf9e-de8e665fac23",
+        "revision": 1
+      },
+      {
+        "id": "0473c1fb-c5a7-431a-bb7f-4a6a82a5088d",
+        "revision": 1
+      },
+      {
+        "id": "f39dce7b-0a80-4c61-86f0-db07bbcec4ef",
+        "revision": 1
+      },
+      {
+        "id": "35e60556-5757-44be-9402-91bdbaf3596a",
+        "revision": 1
+      },
+      {
+        "id": "c70819f0-73c7-46b0-9dcd-8fbdbc0713ba",
+        "revision": 1
+      },
+      {
+        "id": "1e4f66c1-05e2-41f5-aba2-290339dcc3a5",
+        "revision": 1
+      },
+      {
+        "id": "2fd6b656-3c48-41f9-a941-7dec88a88060",
+        "revision": 1
+      },
+      {
+        "id": "8913530c-0c5d-4a5f-a795-db0ceeca8d40",
+        "revision": 1
+      },
+      {
+        "id": "3a2d51c7-eb33-4443-95b9-86cdfa542100",
+        "revision": 1
+      },
+      {
+        "id": "96686fac-a3c8-4345-ba08-3ecee471bd44",
+        "revision": 1
+      },
+      {
+        "id": "249f979b-d59a-4815-b1ed-1dc386393711",
+        "revision": 1
+      },
+      {
+        "id": "5d69e81a-becd-438a-97f3-5368dc22f78b",
+        "revision": 1
+      },
+      {
+        "id": "e031c7a6-47aa-473d-8ec4-21dd09b6938e",
+        "revision": 1
+      },
+      {
+        "id": "feeb5525-56ef-4f55-a05c-67fe91f23dc2",
+        "revision": 1
+      },
+      {
+        "id": "eed85cab-71eb-48ac-b738-6e689d58fc79",
+        "revision": 1
+      },
+      {
+        "id": "2497fdcb-e3bd-4af7-b1a9-9452719b43ba",
+        "revision": 1
+      },
+      {
+        "id": "9ea7eb09-6438-4c39-b2e0-a87994b84603",
+        "revision": 1
+      },
+      {
+        "id": "62384db0-02a3-4b5f-94e6-4c54edca5a41",
+        "revision": 1
+      },
+      {
+        "id": "29420c62-f2b1-426e-95e1-194d15de6da8",
+        "revision": 1
+      },
+      {
+        "id": "84e3fbc4-93b2-44c5-a138-25264dfd263d",
+        "revision": 1
+      },
+      {
+        "id": "0ee57c24-f6c4-46e8-9de2-d05094db0248",
+        "revision": 1
+      },
+      {
+        "id": "6ad4b40e-768c-452f-a434-e9c52a4a34de",
+        "revision": 1
+      },
+      {
+        "id": "e7236c19-b463-4284-a78a-71cabc3767d4",
+        "revision": 1
+      },
+      {
+        "id": "0578e8b8-b27f-4338-a275-752e23bcdb60",
+        "revision": 1
+      },
+      {
+        "id": "f4990e81-7e63-44e5-9b33-961e0804a485",
+        "revision": 1
+      },
+      {
+        "id": "3c8cad60-a7b2-4379-b999-2769eb2730eb",
+        "revision": 1
+      }
+    ],
+    "unavailable_refs": [],
+    "canon_hold_refs": [],
+    "finding_ids": [],
+    "summary": "Read all committed sessions and current records for resumption. Record-based overview only; no new creative decisions or literary consistency verdict."
+  },
+  "payload_digest": "71d87bce5cb36092009640ebfdabfeff016532a0f1ea5f3cf5308acb037a3891"
+}

@@ -1,0 +1,58 @@
+"""Experiment only: parallel metadata, preserving complete metadata-before-hash order."""
+from concurrent.futures import ThreadPoolExecutor
+import hashlib,inspect,json,math,statistics,sys,time
+from pathlib import Path
+sys.path.insert(0,str(Path.cwd()))
+from novel_creator import records,storage
+from novel_creator.context import read
+from tests.helpers import repository,git
+from tests.performance import benchmark_records as benchmark
+source=inspect.getsource(storage.check_managed)
+start=source.index('    managed = []\n');end=source.index('    if managed:\n',start)
+replacement='''    def inspect_items(items):
+        managed = []
+        directories = set()
+        for path, (mode, oid) in items:
+            if path.startswith(('story/exchanges/', '.novel-creator/')) and not path.startswith('.novel-creator/local/'):
+                _checked_path(root, path, setup=True, _regular_leaf=True, _directories=directories)
+                if mode != '100644':
+                    raise ToolError(3, 'Managed file is missing or has an unsafe mode')
+                baseline = f'100644 {oid} 0\\t{path}\\0'.encode()
+                if indexed.get(path, b'') != baseline:
+                    raise ToolError(3, 'Managed index entry changed outside the transaction')
+                managed.append((path, oid))
+        return managed
+    items = list(entries.items())
+    size = max(1, (len(items) + _workers - 1) // _workers)
+    # Each worker has fresh directories. Consume original-order chunks; join all
+    # workers even on error. No content hash starts before this context exits.
+    with ThreadPoolExecutor(max_workers=_workers) as executor:
+        futures = [executor.submit(inspect_items, items[offset:offset + size])
+                   for offset in range(0, len(items), size)]
+        managed = [item for future in futures for item in future.result()]
+'''
+source=source[:start]+replacement+source[end:]
+source=source.replace('def check_managed(root, commit, paths, *, entries=None):','def parallel_guard(root, commit, paths, *, entries=None, _workers=4):',1)
+namespace=dict(storage.__dict__);exec(compile(source,'<parallel-metadata-experiment>','exec'),namespace)
+parallel=namespace['parallel_guard']
+with benchmark.benchmark_key(True),repository() as root:
+    novel_id=records.loads((root/'.novel-creator/manifest.json').read_bytes())['novel_id']
+    history,fixture=benchmark.generate(novel_id)
+    for exchange in history:
+        target=root/storage.bundle_path(exchange);target.parent.mkdir(parents=True,exist_ok=True);target.write_bytes(benchmark.serialized(exchange))
+    git(root,'add','--','story/exchanges');git(root,'commit','-m','Disposable parallel metadata fixture');git(root,'repack','-ad')
+    del history,exchange
+    read(root);fixture['fully_validated']=True
+    frozen=hashlib.sha256(Path(storage.__file__).read_bytes()).hexdigest()
+    print(json.dumps({'fixture':fixture,'source_sha256':frozen,'experiment_sha256':hashlib.sha256(source.encode()).hexdigest(),'method':'Balanced complete file-guard timings, 4 samples/variant, metadata checks join before full root-bound hashing, no production change; not p95'}),flush=True)
+    commit=storage.head(root);entries=storage.committed_entries(root,commit)
+    samples={0:[],2:[],4:[]}
+    for workers in [0,2,4,4,2,0]*2:
+        start=time.perf_counter()
+        result=parallel(root,commit,[],entries=entries,_workers=workers) if workers else storage.check_managed(root,commit,[],entries=entries)
+        seconds=time.perf_counter()-start
+        assert result==entries
+        samples[workers].append(seconds)
+        print(json.dumps({'metadata_workers':workers,'guard_seconds':seconds}),flush=True)
+    print(json.dumps({'medians':{str(k):statistics.median(v) for k,v in samples.items()}}),flush=True)
+    assert frozen==hashlib.sha256(Path(storage.__file__).read_bytes()).hexdigest()

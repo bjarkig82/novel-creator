@@ -4,11 +4,34 @@
 
 **Created**: 2026-10-21
 
-**Status**: Draft — validated for planning
+**Status**: Functional single-user POC delivered — qualified 2026-10-28
 
 **Input**: User description: "Initialize an independent novel, brainstorm across sessions, automatically capture ideas and accepted canon, and guard continuity while preserving human creative authority and platform independence."
 
 ## Clarifications
+
+### Functional delivery and deferred optimization - 2026-10-28
+
+The owner withdrew all time-related performance targets and requested functional
+completion before further optimization. Read/save latency is informational, not
+an acceptance or release gate. Preserve historical timings and original outcomes;
+withdrawal does not turn an old failed target into a passing measurement. Keep
+all persistence, creative-authority, integrity, recovery and failure-disclosure
+requirements. Operational test timeouts prevent hangs rather than promise response
+speed. All six stories and SC-001-SC-009 retain their functional obligations under
+the single-user POC scope below.
+
+### Single-user POC scope - 2026-10-23
+
+The owner will be the sole initial user and explicitly excludes novice testers.
+Deliver a working POC using automated verification; owner/manual testing follows
+delivery and is not a prerequisite. SC-001 and SC-007 below reflect this decision.
+Native user input and delegated evaluation input retain their distinct labels;
+automated evidence is never called a human/native interaction or a human rating.
+The native save/display and subjective literary evaluations remain unmeasured
+where unavailable, but do not block this POC. No manuscript, authority, storage,
+source-provenance or failure-disclosure safeguard is waived. Later scale/release
+qualification remains distinct from functional POC readiness.
 
 ### Session 2026-10-21
 
@@ -188,13 +211,13 @@ As a creative director, I can develop an English or Icelandic novel and retain u
 
 ### Measurable Outcomes
 
-- **SC-001**: At least 4 of 5 novice evaluators can initialize from no concept, skip uncertain preferences, and reach the brainstorming invitation within 10 minutes without outside assistance (Story 1).
+- **SC-001**: Automated installed-tool journeys initialize from no concept, retain skipped preferences as unknown, offer optional brainstorming, and reopen the saved project without invented creative details. Novice recruitment, timed novice trials and human ratings are out of scope for this single-user POC (Story 1).
 - **SC-002**: In both languages, all supplied preferences and original concept statements in acceptance examples survive reopening unchanged in meaning, and no skipped detail is invented as canon (Stories 1, 6).
 - **SC-003**: Across three sessions and a fresh interaction, all 20 designated ideas, 10 explicit decisions, and 5 unresolved questions are recoverable with correct state and source without manual note-taking (Story 3).
 - **SC-004**: Across at least 12 clear-acceptance and 12 non-acceptance examples covering partial selections and both languages, every unambiguous, non-conflicting acceptance establishes intended facts without repeated approval; no ambiguous, rejected, or hypothetical item becomes canon (Story 4).
 - **SC-005**: Every designated significant conflict in a review set covering the six contradiction categories interrupts conflicting development in the next response with evidence and resolutions. All designated intentional mysteries, lies, and unreliable viewpoints remain distinguishable from accidental contradictions (Story 5).
 - **SC-006**: For five deliberate canon revisions, current and previous facts, decision origins, and all directly linked affected elements remain inspectable; no approved manuscript text changes (Story 4).
-- **SC-007**: Mode switches and topic redirections take effect in the next response in every acceptance example. At least 4 of 5 novice evaluators rate guidance at least 4 out of 5 for usefulness and creative control (Story 2).
+- **SC-007**: Mode switches and topic redirections take effect in the next response in the automated acceptance examples, with saved preferences and prior ideas preserved. Subjective usefulness/control assessment is left to the owner after POC delivery; no novice ratings are required or inferred (Story 2).
 - **SC-008**: Without the original agent or dashboard, an independent reader or consumer can recover every designated entity, relationship, event ordering, knowledge perspective, and decision origin in a representative saved novel without restructuring records or interpreting conversation prose (Story 6).
 - **SC-009**: Interruption, unavailable-context, failed-save, duplicate-processing, and overlapping-edit exercises each preserve the last confirmed authoritative state and disclose incomplete work; none reports unsaved work or incomplete continuity review as successfully completed. In the unavailable-context exercise, proposals may be explored, but no affected canon change is applied until the relevant records are readable (Story 3; Edge Cases).
 

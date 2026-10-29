@@ -1,0 +1,10 @@
+{"fixture": {"sessions": 100, "exchanges": 5000, "active_assertions": 10000, "json_bytes": 26215716, "synthetic": true, "fully_validated": true}, "storage_sha256": "9b9092130ff0ee2768ba739cdb9ae28613010ed82b4a9eeb70bb9b342b080ffc", "method": "Fresh process complete context reads, four balanced samples per serial/four-worker policy, ordinary layout, opt-in external private key; diagnostic not p95"}
+{"history_workers": 1, "seconds": 4.91066569997929, "observed_count": 15101, "cache_hits": [true]}
+{"history_workers": 4, "seconds": 2.401170000084676, "observed_count": 15101, "cache_hits": [true]}
+{"history_workers": 4, "seconds": 2.463874200009741, "observed_count": 15101, "cache_hits": [true]}
+{"history_workers": 1, "seconds": 5.08258940000087, "observed_count": 15101, "cache_hits": [true]}
+{"history_workers": 1, "seconds": 5.402978700003587, "observed_count": 15101, "cache_hits": [true]}
+{"history_workers": 4, "seconds": 8.170850099995732, "observed_count": 15101, "cache_hits": [true]}
+{"history_workers": 4, "seconds": 3.1867441000649706, "observed_count": 15101, "cache_hits": [true]}
+{"history_workers": 1, "seconds": 5.168452900019474, "observed_count": 15101, "cache_hits": [true]}
+{"medians": {"1": 5.125521150010172, "4": 2.8253091500373557}, "source_unchanged": true}

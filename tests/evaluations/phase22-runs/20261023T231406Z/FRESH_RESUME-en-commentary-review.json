@@ -1,0 +1,20 @@
+[
+  {
+    "id": "msg_0e591d3b9ebe710a016adbeea3c25c8191808c72ea1a9594b1",
+    "text": "I’ll read the installed resumption instructions and saved context, capture this turn’s input, and save the checkpoint summary before displaying it.",
+    "classification": "administrative",
+    "reason": "Read/preparation/confirmed-context availability update; does not disclose story conclusions or summary contents."
+  },
+  {
+    "id": "msg_0e591d3b9ebe710a016adbef9a7fb88191b39af44f75caa285",
+    "text": "The installed instructions and committed context are available. I’m preserving the raw context and preparing the input capture and summary without changing the saved records.",
+    "classification": "administrative",
+    "reason": "Read/preparation/confirmed-context availability update; does not disclose story conclusions or summary contents."
+  },
+  {
+    "id": "msg_0e591d3b9ebe710a016adbf055350081918fd203da8fbd663a",
+    "text": "The input capture and summary envelope are prepared. I’m saving the exact summary through the pinned launcher with scoped filesystem access for the disposable novel.",
+    "classification": "administrative",
+    "reason": "Read/preparation/confirmed-context availability update; does not disclose story conclusions or summary contents."
+  }
+]

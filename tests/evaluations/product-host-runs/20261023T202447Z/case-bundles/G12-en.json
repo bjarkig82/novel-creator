@@ -1,0 +1,435 @@
+{
+  "schema_version": "1.0",
+  "novel_id": "adfafe79-ad44-4097-8fc2-305095c3e4ec",
+  "exchange_id": "07e34fe4-c829-4200-98ef-f683a9b81094",
+  "sequence": 17,
+  "previous_exchange_id": "10962cd8-6ec8-4e74-9a0c-2fe49aca70d9",
+  "previous_digest": "d78754fec4d5e48b8b89c30b9bc82769540c8e4c1bb41acc8e28e48cbe651119",
+  "session_id": "5c6111bf-1bc4-4679-8354-b673e96a06f0",
+  "expected_git_head": "8b47e1b06595b61086b34448adfd60d45dcf404d",
+  "recorded_at": "2026-10-23T21:19:33.640374Z",
+  "operation": "conversation",
+  "messages": [
+    {
+      "message_id": "c52fb172-da76-400a-96b2-423efb07bd98",
+      "role": "user",
+      "text": "From now on, summarize the captured proposals, established decisions and open questions after every exchange, and then pause without adding new exploration. Give me that checkpoint now."
+    },
+    {
+      "message_id": "960d3261-c8cf-4a79-849d-f72865e94795",
+      "role": "assistant",
+      "text": "I'll give this checkpoint after every exchange, then pause for your direction.\n\n**Established decisions:**\n\n- The keeper sent the letter. He wrongly believes someone else sent it; that misunderstanding is intentional. Its cause and the reader's discovery of the truth remain undecided.\n- A new storm occurs at the lighthouse; its timing and details remain open.\n- The lighthouse emits a blue light. Only that part of the light-and-bell proposal was accepted.\n\n**Captured proposals, still unestablished:**\n\n- The keeper receives a letter addressed to someone who died.\n- The letter could be an apology, or the dead person's name could help it reach someone else.\n- A forbidden childhood drawer, with an early scene hinting at a later discovery inside it. Neither the drawer nor its contents are established.\n- A life-risking retrieval, motivated by boredom or a chance to repair harm he caused. Neither motive is selected; boredom alone was judged weak for that sacrifice.\n- A shipwreck and a warning bell, each still only possible. The original compound light-and-bell proposal is preserved without establishing the bell.\n- The dialogue line, \"I killed him.\" It does not establish a killing.\n\n**Open questions:**\n\n- What feeling should remain with the reader?\n- Why does the letter matter personally to the keeper?\n- Is the childhood drawer worth developing, and what does he feel near it?\n- Who says \"I killed him,\" and who is \"him\"?\n\nYour preferences remain: an adult quiet mystery, gentle but unsettling tone, plain language, one viewpoint, guided mode, and one possibility at a time. I'll pause here."
+    }
+  ],
+  "input_artifacts": [
+    {
+      "artifact_id": "bc5278a5-cc69-4877-9348-896a6d85adc6",
+      "original_text": "{\"kind\":\"host_input\",\"source_type\":\"delegated\",\"thread_id\":\"01a16833-e1cf-79d2-bee0-80a6ca973e3c\",\"turn_id\":\"01a16aa1-0988-7d40-a092-196c64ac148f\",\"event_id\":\"fco_01a16aa1-0989-7272-afc2-90d1a6e571af\",\"event_type\":\"functionCallOutput\",\"source_thread_id\":\"01a167df-036b-7c71-b306-9d7021046c01\",\"native_user_input\":false,\"novice_evidence\":false,\"evaluation_only\":true,\"text\":\"From now on, summarize the captured proposals, established decisions and open questions after every exchange, and then pause without adding new exploration. Give me that checkpoint now.\",\"public_event\":{\"type\":\"functionCallOutput\",\"id\":\"fco_01a16aa1-0989-7272-afc2-90d1a6e571af\",\"namespace\":\"codex_app\",\"name\":\"send_message_to_thread\",\"output\":{\"text\":\"<codex_delegation>\\n  <source_thread_id>01a167df-036b-7c71-b306-9d7021046c01</source_thread_id>\\n  <input>From now on, summarize the captured proposals, established decisions and open questions after every exchange, and then pause without adding new exploration. Give me that checkpoint now.</input>\\n</codex_delegation>\",\"truncated\":false}}}",
+      "parsed_value": {
+        "kind": "host_input",
+        "source_type": "delegated",
+        "thread_id": "01a16833-e1cf-79d2-bee0-80a6ca973e3c",
+        "turn_id": "01a16aa1-0988-7d40-a092-196c64ac148f",
+        "event_id": "fco_01a16aa1-0989-7272-afc2-90d1a6e571af",
+        "event_type": "functionCallOutput",
+        "source_thread_id": "01a167df-036b-7c71-b306-9d7021046c01",
+        "native_user_input": false,
+        "novice_evidence": false,
+        "evaluation_only": true,
+        "text": "From now on, summarize the captured proposals, established decisions and open questions after every exchange, and then pause without adding new exploration. Give me that checkpoint now.",
+        "public_event": {
+          "type": "functionCallOutput",
+          "id": "fco_01a16aa1-0989-7272-afc2-90d1a6e571af",
+          "namespace": "codex_app",
+          "name": "send_message_to_thread",
+          "output": {
+            "text": "<codex_delegation>\n  <source_thread_id>01a167df-036b-7c71-b306-9d7021046c01</source_thread_id>\n  <input>From now on, summarize the captured proposals, established decisions and open questions after every exchange, and then pause without adding new exploration. Give me that checkpoint now.</input>\n</codex_delegation>",
+            "truncated": false
+          }
+        }
+      },
+      "digest": "f227937aadf49ad681b0b8614feebaf11b751f2c3c5948b4d267086bcde087e9"
+    }
+  ],
+  "record_versions": [
+    {
+      "id": "adfafe79-ad44-4097-8fc2-305095c3e4ec",
+      "kind": "novel_project",
+      "revision": 4,
+      "previous_revision": 3,
+      "created_exchange_id": "a124446d-6603-4f53-8a40-02c9d3f3ae91",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "07e34fe4-c829-4200-98ef-f683a9b81094",
+          "message_id": "c52fb172-da76-400a-96b2-423efb07bd98"
+        }
+      ],
+      "origin": "supplied",
+      "title": {
+        "state": "default",
+        "original_text": "Untitled novel",
+        "interpretation": null,
+        "origin": "system_default",
+        "source_refs": []
+      },
+      "original_concept": {
+        "state": "unknown",
+        "original_text": null,
+        "interpretation": null,
+        "origin": "system_default",
+        "source_refs": []
+      },
+      "creative_brief": {
+        "genre": {
+          "state": "supplied",
+          "original_text": "quiet mystery",
+          "interpretation": null,
+          "origin": "supplied",
+          "source_refs": [
+            {
+              "type": "message",
+              "exchange_id": "e1adc0ee-d02f-4f73-bbb4-d64e2988848d",
+              "message_id": "0bc091de-0716-419d-9cb9-313cb1cc5bc9"
+            }
+          ]
+        },
+        "subgenres": {
+          "state": "unknown",
+          "original_text": null,
+          "interpretation": null,
+          "origin": "system_default",
+          "source_refs": []
+        },
+        "audience": {
+          "state": "supplied",
+          "original_text": "adults",
+          "interpretation": null,
+          "origin": "supplied",
+          "source_refs": [
+            {
+              "type": "message",
+              "exchange_id": "e1adc0ee-d02f-4f73-bbb4-d64e2988848d",
+              "message_id": "0bc091de-0716-419d-9cb9-313cb1cc5bc9"
+            }
+          ]
+        },
+        "tone": {
+          "state": "supplied",
+          "original_text": "gentle but unsettling",
+          "interpretation": null,
+          "origin": "supplied",
+          "source_refs": [
+            {
+              "type": "message",
+              "exchange_id": "e1adc0ee-d02f-4f73-bbb4-d64e2988848d",
+              "message_id": "0bc091de-0716-419d-9cb9-313cb1cc5bc9"
+            }
+          ]
+        },
+        "style": {
+          "state": "supplied",
+          "original_text": "plain language",
+          "interpretation": null,
+          "origin": "supplied",
+          "source_refs": [
+            {
+              "type": "message",
+              "exchange_id": "e1adc0ee-d02f-4f73-bbb4-d64e2988848d",
+              "message_id": "0bc091de-0716-419d-9cb9-313cb1cc5bc9"
+            }
+          ]
+        },
+        "perspective": {
+          "state": "supplied",
+          "original_text": "one viewpoint",
+          "interpretation": null,
+          "origin": "supplied",
+          "source_refs": [
+            {
+              "type": "message",
+              "exchange_id": "e1adc0ee-d02f-4f73-bbb4-d64e2988848d",
+              "message_id": "0bc091de-0716-419d-9cb9-313cb1cc5bc9"
+            }
+          ]
+        },
+        "complexity": {
+          "state": "unknown",
+          "original_text": null,
+          "interpretation": null,
+          "origin": "system_default",
+          "source_refs": []
+        }
+      },
+      "manuscript_language": "en",
+      "workflow_preferences": {
+        "suggestion_frequency": {
+          "state": "supplied",
+          "original_text": "Fewer suggestions, please—one possibility at a time.",
+          "interpretation": null,
+          "origin": "supplied",
+          "source_refs": [
+            {
+              "type": "message",
+              "exchange_id": "03a9f9ef-4389-4f77-b9fb-e55dbd9dbf55",
+              "message_id": "9656fa43-9347-4cf4-8719-178eee020ff1"
+            }
+          ]
+        }
+      },
+      "review_preferences": {
+        "routine_checkpoint": "every_exchange"
+      },
+      "creative_directions": []
+    },
+    {
+      "id": "5c6111bf-1bc4-4679-8354-b673e96a06f0",
+      "kind": "session",
+      "revision": 15,
+      "previous_revision": 14,
+      "created_exchange_id": "9896c9bc-f75e-4d6a-a647-b0566945556c",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "07e34fe4-c829-4200-98ef-f683a9b81094",
+          "message_id": "c52fb172-da76-400a-96b2-423efb07bd98"
+        }
+      ],
+      "topic": "The keeper's mistaken belief about the sender",
+      "mode": "guided",
+      "state": "open",
+      "started_exchange_id": "9896c9bc-f75e-4d6a-a647-b0566945556c",
+      "last_exchange_id": "07e34fe4-c829-4200-98ef-f683a9b81094",
+      "related_record_ids": [
+        "38b18f31-c7ae-4760-a384-3fa08f0a1ec6",
+        "3cba38aa-8ee9-4854-bb47-45a5b8ced813",
+        "a6c49204-ce89-40f0-a54a-41844154a6b7",
+        "1606e3ed-dbab-4fa6-82d8-971f7dfe6ad0",
+        "464a598d-0dfd-49f2-87a6-271c94550f03",
+        "20799974-2bd1-427b-a102-7e85b5fa477c",
+        "fd528242-9507-4420-a4a7-57ea3712e72d",
+        "dcd993b3-5a8b-4898-8540-12c49374b38d",
+        "408313cd-3e4b-4d22-9e28-80600c0f97d1",
+        "897ed57a-291b-4d48-af85-939feeaaf924",
+        "bb4999c5-634d-43e4-b2a7-37f3ab5ad2dd",
+        "a992a5c7-ec3b-4918-b08e-77908bc2d614",
+        "ccc9d5ae-8a26-4c24-929d-4bba90963755",
+        "d49c27a0-e7b7-414c-bb39-5711599c215d",
+        "9fb4a720-5cf2-48ae-b65c-e0cd5fad17f0",
+        "f172b29a-f555-42a4-8539-ffc7b5a00849",
+        "a6044c6f-a41c-4ba9-ae7c-2927b6bf8928",
+        "e1dc5be0-fcd1-43da-8697-fed4d694e0e6",
+        "3959f543-138b-492e-a47b-ec2c0db70892",
+        "2951b497-1f28-48a9-9189-83d96483644a",
+        "70455499-77c8-4f9a-a2a0-ad4d3832738b",
+        "e21697b4-80bf-4abc-9255-632234771841",
+        "118ccc29-7c28-4463-b909-659b91f17bf1",
+        "412516ed-599d-42cc-b52a-db7837404479",
+        "4a7ccfbb-97a3-4ad7-a6f6-da42a796e0df",
+        "7ff05091-02d2-4e73-8812-95f76fa69968",
+        "b20ac4e8-8e7b-495b-b276-b63ec0ff5309",
+        "f3290145-15c5-498e-a06d-3f46d61f636f",
+        "1bdb1bd5-ba93-4ba1-b050-851f2af75257",
+        "d77721ac-23f0-4c90-8509-c247e22f69c6",
+        "64d90715-e4a7-4aad-adf1-2a1684122756",
+        "b4af8497-8504-4533-8292-8db3a7ec2aad",
+        "d31d9f27-8172-4893-ab2e-46d0c7f208d6",
+        "410cc3f0-8dd6-47e1-87be-5c156656efe6",
+        "0d5b62ec-ebcf-49d9-a919-64c688449e92",
+        "28e945d8-8d06-4266-80a7-a9975dfce813",
+        "4319309a-949a-4545-a450-6aaf92c80ac9",
+        "f492c797-957d-48c6-a20e-a7050796091a",
+        "bf607043-4804-422e-87a6-9d7c4df8b64f",
+        "37c41720-3022-46f9-8b32-bb814e134db8"
+      ],
+      "unresolved_question_ids": [
+        "38b18f31-c7ae-4760-a384-3fa08f0a1ec6",
+        "1606e3ed-dbab-4fa6-82d8-971f7dfe6ad0",
+        "408313cd-3e4b-4d22-9e28-80600c0f97d1",
+        "bb4999c5-634d-43e4-b2a7-37f3ab5ad2dd",
+        "b4af8497-8504-4533-8292-8db3a7ec2aad",
+        "d31d9f27-8172-4893-ab2e-46d0c7f208d6"
+      ],
+      "derived_context_ref": null
+    }
+  ],
+  "continuity_review": {
+    "coverage": "complete",
+    "reviewed_record_refs": [
+      {
+        "id": "adfafe79-ad44-4097-8fc2-305095c3e4ec",
+        "revision": 3
+      },
+      {
+        "id": "5c6111bf-1bc4-4679-8354-b673e96a06f0",
+        "revision": 14
+      },
+      {
+        "id": "38b18f31-c7ae-4760-a384-3fa08f0a1ec6",
+        "revision": 1
+      },
+      {
+        "id": "3cba38aa-8ee9-4854-bb47-45a5b8ced813",
+        "revision": 1
+      },
+      {
+        "id": "a6c49204-ce89-40f0-a54a-41844154a6b7",
+        "revision": 2
+      },
+      {
+        "id": "1606e3ed-dbab-4fa6-82d8-971f7dfe6ad0",
+        "revision": 1
+      },
+      {
+        "id": "464a598d-0dfd-49f2-87a6-271c94550f03",
+        "revision": 2
+      },
+      {
+        "id": "20799974-2bd1-427b-a102-7e85b5fa477c",
+        "revision": 1
+      },
+      {
+        "id": "fd528242-9507-4420-a4a7-57ea3712e72d",
+        "revision": 1
+      },
+      {
+        "id": "dcd993b3-5a8b-4898-8540-12c49374b38d",
+        "revision": 1
+      },
+      {
+        "id": "408313cd-3e4b-4d22-9e28-80600c0f97d1",
+        "revision": 1
+      },
+      {
+        "id": "897ed57a-291b-4d48-af85-939feeaaf924",
+        "revision": 1
+      },
+      {
+        "id": "bb4999c5-634d-43e4-b2a7-37f3ab5ad2dd",
+        "revision": 1
+      },
+      {
+        "id": "a992a5c7-ec3b-4918-b08e-77908bc2d614",
+        "revision": 1
+      },
+      {
+        "id": "ccc9d5ae-8a26-4c24-929d-4bba90963755",
+        "revision": 1
+      },
+      {
+        "id": "d49c27a0-e7b7-414c-bb39-5711599c215d",
+        "revision": 1
+      },
+      {
+        "id": "9fb4a720-5cf2-48ae-b65c-e0cd5fad17f0",
+        "revision": 1
+      },
+      {
+        "id": "f172b29a-f555-42a4-8539-ffc7b5a00849",
+        "revision": 1
+      },
+      {
+        "id": "a6044c6f-a41c-4ba9-ae7c-2927b6bf8928",
+        "revision": 1
+      },
+      {
+        "id": "e1dc5be0-fcd1-43da-8697-fed4d694e0e6",
+        "revision": 2
+      },
+      {
+        "id": "3959f543-138b-492e-a47b-ec2c0db70892",
+        "revision": 2
+      },
+      {
+        "id": "2951b497-1f28-48a9-9189-83d96483644a",
+        "revision": 1
+      },
+      {
+        "id": "70455499-77c8-4f9a-a2a0-ad4d3832738b",
+        "revision": 1
+      },
+      {
+        "id": "e21697b4-80bf-4abc-9255-632234771841",
+        "revision": 1
+      },
+      {
+        "id": "118ccc29-7c28-4463-b909-659b91f17bf1",
+        "revision": 1
+      },
+      {
+        "id": "412516ed-599d-42cc-b52a-db7837404479",
+        "revision": 1
+      },
+      {
+        "id": "4a7ccfbb-97a3-4ad7-a6f6-da42a796e0df",
+        "revision": 2
+      },
+      {
+        "id": "7ff05091-02d2-4e73-8812-95f76fa69968",
+        "revision": 1
+      },
+      {
+        "id": "b20ac4e8-8e7b-495b-b276-b63ec0ff5309",
+        "revision": 1
+      },
+      {
+        "id": "f3290145-15c5-498e-a06d-3f46d61f636f",
+        "revision": 1
+      },
+      {
+        "id": "1bdb1bd5-ba93-4ba1-b050-851f2af75257",
+        "revision": 1
+      },
+      {
+        "id": "d77721ac-23f0-4c90-8509-c247e22f69c6",
+        "revision": 1
+      },
+      {
+        "id": "64d90715-e4a7-4aad-adf1-2a1684122756",
+        "revision": 1
+      },
+      {
+        "id": "b4af8497-8504-4533-8292-8db3a7ec2aad",
+        "revision": 1
+      },
+      {
+        "id": "d31d9f27-8172-4893-ab2e-46d0c7f208d6",
+        "revision": 1
+      },
+      {
+        "id": "410cc3f0-8dd6-47e1-87be-5c156656efe6",
+        "revision": 2
+      },
+      {
+        "id": "0d5b62ec-ebcf-49d9-a919-64c688449e92",
+        "revision": 2
+      },
+      {
+        "id": "28e945d8-8d06-4266-80a7-a9975dfce813",
+        "revision": 2
+      },
+      {
+        "id": "4319309a-949a-4545-a450-6aaf92c80ac9",
+        "revision": 2
+      },
+      {
+        "id": "f492c797-957d-48c6-a20e-a7050796091a",
+        "revision": 1
+      },
+      {
+        "id": "bf607043-4804-422e-87a6-9d7c4df8b64f",
+        "revision": 1
+      },
+      {
+        "id": "37c41720-3022-46f9-8b32-bb814e134db8",
+        "revision": 1
+      }
+    ],
+    "unavailable_refs": [],
+    "canon_hold_refs": [],
+    "finding_ids": [],
+    "summary": "Derived checkpoint only, using records.checkpoint_summary and complete saved context. Preserved distinctions among accepted author truth, accepted mistaken character belief, partially selected compound proposal, superseded discovery wording, unaccepted proposals and open questions. Intentional misunderstanding is resolved. New every_exchange preference is sourced to current message; no new story development or canon changes. Paused for user direction."
+  },
+  "payload_digest": "b1b9044ce8ab695a0430602494c6581287983453448e283b5e9513a3ec6f6ceb"
+}

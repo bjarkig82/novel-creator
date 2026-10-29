@@ -1,0 +1,10 @@
+test_parallel_hash_guard_checks_every_path_after_all_metadata (tests.integration.test_storage.StorageTests.test_parallel_hash_guard_checks_every_path_after_all_metadata) ... ok
+test_parallel_hash_guard_preserves_serial_small_fixture_policy (tests.integration.test_storage.StorageTests.test_parallel_hash_guard_preserves_serial_small_fixture_policy) ... ok
+test_parallel_final_guard_failures_join_workers_before_releasing_writer (tests.integration.test_storage.StorageTests.test_parallel_final_guard_failures_join_workers_before_releasing_writer) ... ok
+test_parallel_final_guard_rejects_same_stat_edits_and_root_redirection (tests.integration.test_storage.StorageTests.test_parallel_final_guard_rejects_same_stat_edits_and_root_redirection) ... ok
+test_second_guard_rejects_tampering_under_changed_worktree_config_and_index_prefix (tests.integration.test_storage.StorageTests.test_second_guard_rejects_tampering_under_changed_worktree_config_and_index_prefix) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 54.214s
+
+OK

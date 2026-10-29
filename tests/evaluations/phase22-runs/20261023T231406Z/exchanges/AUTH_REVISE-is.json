@@ -1,0 +1,1870 @@
+{
+  "schema_version": "1.0",
+  "novel_id": "711ac5fd-eb25-4a33-89ca-fc62260cb0a2",
+  "exchange_id": "49dd2603-f922-4446-a6f9-fca97c8b8d16",
+  "sequence": 10,
+  "previous_exchange_id": "5e11c9f3-aa9d-494e-9914-fcfdf5d40eb9",
+  "previous_digest": "685eb6798b8c2e7cc723625601ef5fa12e9289460d1f66217a4a534b74e4f3a8",
+  "session_id": "17356bdd-0b04-475d-9fc8-9ea8ba0d8d0b",
+  "expected_git_head": "464a3b2bce000f1b0772b992f6831d9f188a87d1",
+  "recorded_at": "2026-10-28T10:10:24.969744Z",
+  "operation": "conversation",
+  "messages": [
+    {
+      "message_id": "b3d1bb9d-c337-4ee4-adb7-68cf67911ad2",
+      "role": "user",
+      "text": "Tilvik AUTH_REVISE. Endurskoðum vísvitandi þessar fimm staðfestu staðreyndir; varðveittu fyrri útgáfur þeirra og sýndu færslur sem verða fyrir beinum áhrifum: Bjarni, en ekki Rúna, sendi bréfið; Sigrún, en ekki Ari, er fórnarlambið; Freyja, en ekki Edda, er rannsakandinn; sagan gerist að hausti en ekki vetri; bréfið kom síðdegis en ekki fyrir dögun. Ari er áfram bróðir Rúnu og Edda systir hennar. Gerðu þetta að verndaðri skapandi stefnu: Edda verður að vera saklaus af morðinu. Stilltu reglulega yfirferð við lok lotu, ljúktu Atburðum núna, taktu saman ákvarðanir, eftirstandandi tillögur og ósvaraðar spurningar og staldraðu svo við."
+    },
+    {
+      "message_id": "939f6ffc-57dd-43a2-afaa-241f29c71211",
+      "role": "assistant",
+      "text": "Atburðum er lokið. Regluleg yfirferð er nú við lok lotu.\n\nEndurskoðaðar ákvarðanir:\n- Bjarni sendi bréfið (7329912f v2; hugmynd 500cb7e7 v2; endurskoðun 46964f35 v1). Fyrri v1 er varðveitt í sögu.\n- Sigrún er fórnarlambið (d85445c0 v2; hugmynd 1a1d9bcc v2; endurskoðun d2555a08 v1). Fyrri v1 er varðveitt í sögu.\n- Freyja er rannsakandinn (0d70cc7f v2; hugmynd 90ddf826 v2; endurskoðun f1581433 v1). Fyrri v1 er varðveitt í sögu.\n- sagan gerist að hausti (756e32ca v2; hugmynd 646ced87 v2; endurskoðun f0c9c761 v1). Fyrri v1 er varðveitt í sögu.\n- bréfið kom síðdegis (85612da9 v2; hugmynd 8954dff5 v2; endurskoðun 4fbb9867 v1). Fyrri v1 er varðveitt í sögu.\nAri er áfram bróðir Rúnu (f351ee38 v1; samband 46838eca v1), og Edda systir hennar (a594b87b v1; samband 27211402 v1).\nEndurtekin eldri sendandaskráning Rúnu er tekin úr gildandi staðreyndum (81a44c03 v2; staða superseded).\nVernduð skapandi stefna: „Edda verður að vera saklaus af morðinu.“ (711ac5fd v4).\n\nBein áhrif samkvæmt skráðum tilvísunum:\n- Bjarni, en ekki Rúna, sendi bréfið: 792fbf4b v1, c8c55438 v1, f2def862 v1, 987d8385 v1, a65358cf v1, 8ed04638 v1.\n- Sigrún, en ekki Ari, er fórnarlambið: 5a01d331 v1, da79f6a2 v1.\n- Freyja, en ekki Edda, er rannsakandinn: c86ca859 v1, a65358cf v1, d9215850 v1, ed991523 v1.\n- sagan gerist að hausti en ekki vetri: c030d800 v1.\n- bréfið kom síðdegis en ekki fyrir dögun: 17c4de0d v1.\nÞessar tilvísanir eru varðveittar til yfirferðar; eldri ákvarðanir halda sögulegu gildi sínu. Óskráðar afleiðingar er ekki hægt að tryggja að finnist.\nSpurningin um hvers vegna Rúna sendi bréfið hefur nú úrelta forsendu og er áfram opin til endurskoðunar. Tillöguna um að Edda reki bréfið þarf einnig að yfirfara; breyting rannsakandans hafnar henni ekki sjálfkrafa.\n\nAðrar staðfestar ákvarðanir sem standa:\n- Rúna er vitavörður (e19f2739 v1).\n- Ari er bróðir Rúnu (f351ee38 v1).\n- Edda er systir Rúnu (a594b87b v1).\n- Rúna þekkir Bjarna (515f2c3b v1).\n- ljósið bilaði nóttina sem bréfið kom (82eba284 v1).\n- blátt ljós gæti sést (60c1be74 v2).\n- engin brú er á eyjuna (c33e9f0b v1).\n- bréfið ber látúnsinnsigli (36444d2f v1).\n- Rúna hefur svarið að vernda Eddu (811ce9aa v1).\n\nEftirstandandi tillögur og óútkljáðir valkostir:\n- Rúna safnar rekaviði (29fd0678 v2).\n- Edda vantreystir bjöllum (45553df8 v1).\n- Bjarni skuldar Eddu hugsanlega peninga (8a81444f v1).\n- stormur gæti falið merki (27765347 v1).\n- Stormur (da566d49 v3).\n- Heiðskírt veður (3ee9968a v1).\n- skipbrot gæti orðið (37d7b9b9 v1).\n- viðvörunarbjalla gæti hljómað (e37f88d3 v1).\n- göng gætu tengt vitann og höfnina (9b4ec66f v1).\n- fjara gæti afhjúpað gamlar tröppur (ffbf3c57 v1).\n- leynilegt herbergi gæti geymt kort (54443716 v1).\n- Edda gæti rakið bréfið um göngin að leyniherberginu (a14330f1 v1).\n- Rúna er morðinginn (e6deaac1 v1).\n- Bjarni gæti átt rauðan frakka (0bae9007 v1).\n- Edda gæti hafa fundið kortið (59e59791 v1).\n- Ari gæti átt dóttur (12368f8d v1).\n- Möguleg persónuorð: „Ég drap hann.“ Mælandi og fórnarlamb óauðkennd (5f135481 v1).\n- Brún bryggja (f65265b4 v1).\n- Svört bryggja (2306571e v1).\n- Báturinn gæti lekið (44703877 v1).\n- Gólfhleri sem inngangur í leyniherbergið (bf1352af v1).\n- Veggdyr sem inngangur í leyniherbergið (1dd11de7 v1).\n- Mögulegur flóðbúnaður; gæti gengið einhvern daginn (b0d516a0 v1).\n- Segjum að flotbrú lægi að eyjunni (a5a37507 v1).\n- Tilvitnun í mögulega dagbókarfærslu: „Edda stal innsiglinu.“ (aefc91c6 v1).\n- Bjarni sem sjómaður er óstaðfest skráning (1ccc30a9 v1).\nFlotbrúarálitamálið er enn opið (f1fcc75e v1); brúarleysið hefur ekki verið endurskoðað. Höfnunin á tillögu um að Bjarni hafi falið kortið stendur (4982f4a1 v1; aa43248a v1).\n\nÓsvaraðar spurningar:\n- Hvers vegna sendi Rúna bréfið? (f2def862 v1).\n- Hvað vill Edda frá Bjarna? (a65358cf v1).\n- Hver finnur bréfið? (5d72fc12 v1).\n- Hvenær kemur Bjarni aftur? (8ed04638 v1).\n- Hvað opnar leyniherbergið? (7d3570e2 v1).\n- Hvað ef Ari á dóttur? (da79f6a2 v1).\n- Gæti báturinn lekið? (8f56ec6e v1).\n- Á „Já“ við gólfhlerann, veggdyrnar eða að halda báðum inngöngum til skoðunar? (20822d29 v1).\n\nYfirlitið er afleitt af heimildafærslum. Fyrri vistunarpunktur: 464a3b2bce000f1b0772b992f6831d9f188a87d1, röð 9. Þessi færsla: 49dd2603-f922-4446-a6f9-fca97c8b8d16, röð 10; lokuð lota 17356bdd v4.\nÉg staldra við án frekari þróunar."
+    }
+  ],
+  "input_artifacts": [
+    {
+      "artifact_id": "353936e4-11ec-476c-ac71-3c2e9ea48d87",
+      "original_text": "{\"kind\":\"host_input\",\"source_type\":\"delegated\",\"thread_id\":\"01a16afa-1197-7650-8189-9365687429ee\",\"turn_id\":\"01a181fb-d019-7dc3-bafa-4adb292aa9f4\",\"event_id\":\"fco_01a181fb-d01a-7132-8035-b58391db06a0\",\"event_type\":\"functionCallOutput\",\"source_thread_id\":\"01a16af6-0d9b-7173-a5f5-c8775f37df18\",\"native_user_input\":false,\"novice_evidence\":false,\"evaluation_only\":true,\"text\":\"Tilvik AUTH_REVISE. Endurskoðum vísvitandi þessar fimm staðfestu staðreyndir; varðveittu fyrri útgáfur þeirra og sýndu færslur sem verða fyrir beinum áhrifum: Bjarni, en ekki Rúna, sendi bréfið; Sigrún, en ekki Ari, er fórnarlambið; Freyja, en ekki Edda, er rannsakandinn; sagan gerist að hausti en ekki vetri; bréfið kom síðdegis en ekki fyrir dögun. Ari er áfram bróðir Rúnu og Edda systir hennar. Gerðu þetta að verndaðri skapandi stefnu: Edda verður að vera saklaus af morðinu. Stilltu reglulega yfirferð við lok lotu, ljúktu Atburðum núna, taktu saman ákvarðanir, eftirstandandi tillögur og ósvaraðar spurningar og staldraðu svo við.\",\"public_event\":{\"type\":\"functionCallOutput\",\"id\":\"fco_01a181fb-d01a-7132-8035-b58391db06a0\",\"namespace\":\"codex_app\",\"name\":\"send_message_to_thread\",\"output\":{\"text\":\"<codex_delegation>\\n  <source_thread_id>01a16af6-0d9b-7173-a5f5-c8775f37df18</source_thread_id>\\n  <input>Tilvik AUTH_REVISE. Endurskoðum vísvitandi þessar fimm staðfestu staðreyndir; varðveittu fyrri útgáfur þeirra og sýndu færslur sem verða fyrir beinum áhrifum: Bjarni, en ekki Rúna, sendi bréfið; Sigrún, en ekki Ari, er fórnarlambið; Freyja, en ekki Edda, er rannsakandinn; sagan gerist að hausti en ekki vetri; bréfið kom síðdegis en ekki fyrir dögun. Ari er áfram bróðir Rúnu og Edda systir hennar. Gerðu þetta að verndaðri skapandi stefnu: Edda verður að vera saklaus af morðinu. Stilltu reglulega yfirferð við lok lotu, ljúktu Atburðum núna, taktu saman ákvarðanir, eftirstandandi tillögur og ósvaraðar spurningar og staldraðu svo við.</input>\\n</codex_delegation>\",\"truncated\":false}}}",
+      "parsed_value": {
+        "kind": "host_input",
+        "source_type": "delegated",
+        "thread_id": "01a16afa-1197-7650-8189-9365687429ee",
+        "turn_id": "01a181fb-d019-7dc3-bafa-4adb292aa9f4",
+        "event_id": "fco_01a181fb-d01a-7132-8035-b58391db06a0",
+        "event_type": "functionCallOutput",
+        "source_thread_id": "01a16af6-0d9b-7173-a5f5-c8775f37df18",
+        "native_user_input": false,
+        "novice_evidence": false,
+        "evaluation_only": true,
+        "text": "Tilvik AUTH_REVISE. Endurskoðum vísvitandi þessar fimm staðfestu staðreyndir; varðveittu fyrri útgáfur þeirra og sýndu færslur sem verða fyrir beinum áhrifum: Bjarni, en ekki Rúna, sendi bréfið; Sigrún, en ekki Ari, er fórnarlambið; Freyja, en ekki Edda, er rannsakandinn; sagan gerist að hausti en ekki vetri; bréfið kom síðdegis en ekki fyrir dögun. Ari er áfram bróðir Rúnu og Edda systir hennar. Gerðu þetta að verndaðri skapandi stefnu: Edda verður að vera saklaus af morðinu. Stilltu reglulega yfirferð við lok lotu, ljúktu Atburðum núna, taktu saman ákvarðanir, eftirstandandi tillögur og ósvaraðar spurningar og staldraðu svo við.",
+        "public_event": {
+          "type": "functionCallOutput",
+          "id": "fco_01a181fb-d01a-7132-8035-b58391db06a0",
+          "namespace": "codex_app",
+          "name": "send_message_to_thread",
+          "output": {
+            "text": "<codex_delegation>\n  <source_thread_id>01a16af6-0d9b-7173-a5f5-c8775f37df18</source_thread_id>\n  <input>Tilvik AUTH_REVISE. Endurskoðum vísvitandi þessar fimm staðfestu staðreyndir; varðveittu fyrri útgáfur þeirra og sýndu færslur sem verða fyrir beinum áhrifum: Bjarni, en ekki Rúna, sendi bréfið; Sigrún, en ekki Ari, er fórnarlambið; Freyja, en ekki Edda, er rannsakandinn; sagan gerist að hausti en ekki vetri; bréfið kom síðdegis en ekki fyrir dögun. Ari er áfram bróðir Rúnu og Edda systir hennar. Gerðu þetta að verndaðri skapandi stefnu: Edda verður að vera saklaus af morðinu. Stilltu reglulega yfirferð við lok lotu, ljúktu Atburðum núna, taktu saman ákvarðanir, eftirstandandi tillögur og ósvaraðar spurningar og staldraðu svo við.</input>\n</codex_delegation>",
+            "truncated": false
+          }
+        }
+      },
+      "digest": "d10443e4b6b947e75e26d8109ee6227457e59367f732b1a08fabb3464a17e6ab"
+    }
+  ],
+  "record_versions": [
+    {
+      "id": "7329912f-a403-4c50-958d-19ae373249e3",
+      "kind": "assertion",
+      "revision": 2,
+      "previous_revision": 1,
+      "created_exchange_id": "2f8666f6-9e21-4a15-af6b-cfeff1904bd6",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "2f8666f6-9e21-4a15-af6b-cfeff1904bd6",
+          "message_id": "c46b3942-0b17-41f2-b97b-21bb6b05ae14",
+          "range": {
+            "start": 99,
+            "end": 141
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "49dd2603-f922-4446-a6f9-fca97c8b8d16",
+          "message_id": "b3d1bb9d-c337-4ee4-adb7-68cf67911ad2",
+          "range": {
+            "start": 159,
+            "end": 193
+          }
+        }
+      ],
+      "subject_element_id": "4937b5e5-d88f-46ea-904e-f5b3f86ca30d",
+      "predicate": "sendandi",
+      "value": "bréfið",
+      "perspective": "author_truth",
+      "holder_id": null,
+      "reader_audience": null,
+      "time_ref": {
+        "chronology": {
+          "start": null,
+          "end": null,
+          "precision": "unknown",
+          "event_anchor": null,
+          "before_refs": [],
+          "after_refs": []
+        },
+        "narrative": {
+          "start": null,
+          "end": null,
+          "precision": "unknown",
+          "event_anchor": null,
+          "before_refs": [],
+          "after_refs": []
+        }
+      },
+      "truth_state": "affirmed",
+      "status": "accepted",
+      "decision_ids": [
+        "792fbf4b-2835-4324-b4f7-8f99f784818d",
+        "46964f35-84c1-4456-bf09-6c1d3b74fb20"
+      ],
+      "supersedes": {
+        "id": "7329912f-a403-4c50-958d-19ae373249e3",
+        "revision": 1
+      }
+    },
+    {
+      "id": "500cb7e7-4b11-4b6c-adbf-efc84d0f8ba0",
+      "kind": "idea",
+      "revision": 2,
+      "previous_revision": 1,
+      "created_exchange_id": "2f8666f6-9e21-4a15-af6b-cfeff1904bd6",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "2f8666f6-9e21-4a15-af6b-cfeff1904bd6",
+          "message_id": "c46b3942-0b17-41f2-b97b-21bb6b05ae14",
+          "range": {
+            "start": 99,
+            "end": 141
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "49dd2603-f922-4446-a6f9-fca97c8b8d16",
+          "message_id": "b3d1bb9d-c337-4ee4-adb7-68cf67911ad2",
+          "range": {
+            "start": 159,
+            "end": 193
+          }
+        }
+      ],
+      "statement": "Bjarni sendi bréfið.",
+      "status": "accepted",
+      "related_element_ids": [
+        "4937b5e5-d88f-46ea-904e-f5b3f86ca30d"
+      ],
+      "alternative_group_id": null,
+      "selected_parts": [],
+      "decision_ids": [
+        "792fbf4b-2835-4324-b4f7-8f99f784818d",
+        "46964f35-84c1-4456-bf09-6c1d3b74fb20"
+      ],
+      "resulting_assertion_ids": [
+        "7329912f-a403-4c50-958d-19ae373249e3"
+      ]
+    },
+    {
+      "id": "230b68ca-fa8b-45d3-8e31-de9d44027b6b",
+      "kind": "story_element",
+      "revision": 2,
+      "previous_revision": 1,
+      "created_exchange_id": "2f8666f6-9e21-4a15-af6b-cfeff1904bd6",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "2f8666f6-9e21-4a15-af6b-cfeff1904bd6",
+          "message_id": "c46b3942-0b17-41f2-b97b-21bb6b05ae14",
+          "range": {
+            "start": 99,
+            "end": 141
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "49dd2603-f922-4446-a6f9-fca97c8b8d16",
+          "message_id": "b3d1bb9d-c337-4ee4-adb7-68cf67911ad2",
+          "range": {
+            "start": 159,
+            "end": 193
+          }
+        }
+      ],
+      "element_type": "character",
+      "display_name": "Rúna",
+      "aliases": [],
+      "status": "accepted",
+      "assertion_ids": [
+        "c8123df5-8424-40be-9c44-0256033457c5",
+        "bba91255-fc0d-422c-a491-7366a6df704e"
+      ],
+      "relationship_ids": [
+        "46838eca-aced-4d1a-ac7d-8e180f31a0a0",
+        "27211402-c351-44c5-ba24-f68a936310d4",
+        "4710621c-1174-46f1-9ee0-926a995db608"
+      ],
+      "dependency_refs": [],
+      "time_ref": null,
+      "decision_ids": [
+        "792fbf4b-2835-4324-b4f7-8f99f784818d",
+        "46964f35-84c1-4456-bf09-6c1d3b74fb20"
+      ]
+    },
+    {
+      "id": "4937b5e5-d88f-46ea-904e-f5b3f86ca30d",
+      "kind": "story_element",
+      "revision": 2,
+      "previous_revision": 1,
+      "created_exchange_id": "2f8666f6-9e21-4a15-af6b-cfeff1904bd6",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "2f8666f6-9e21-4a15-af6b-cfeff1904bd6",
+          "message_id": "c46b3942-0b17-41f2-b97b-21bb6b05ae14",
+          "range": {
+            "start": 219,
+            "end": 248
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "49dd2603-f922-4446-a6f9-fca97c8b8d16",
+          "message_id": "b3d1bb9d-c337-4ee4-adb7-68cf67911ad2",
+          "range": {
+            "start": 159,
+            "end": 193
+          }
+        }
+      ],
+      "element_type": "character",
+      "display_name": "Bjarni",
+      "aliases": [],
+      "status": "accepted",
+      "assertion_ids": [
+        "1ccc30a9-a91b-482e-8af4-b02a8d2c1a97",
+        "7329912f-a403-4c50-958d-19ae373249e3"
+      ],
+      "relationship_ids": [
+        "4710621c-1174-46f1-9ee0-926a995db608",
+        "80ebbf87-f2b6-4856-b9a2-1e99e64fde3a"
+      ],
+      "dependency_refs": [],
+      "time_ref": null,
+      "decision_ids": [
+        "987d8385-a921-48cb-8482-ac5a79d25eda",
+        "46964f35-84c1-4456-bf09-6c1d3b74fb20"
+      ]
+    },
+    {
+      "id": "81a44c03-3029-49bf-a82f-41481255d083",
+      "kind": "idea",
+      "revision": 2,
+      "previous_revision": 1,
+      "created_exchange_id": "f785cc17-4d49-438c-878c-118229fddc0d",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "f785cc17-4d49-438c-878c-118229fddc0d",
+          "message_id": "f885340b-45b0-4048-b153-a1d0eedc281d",
+          "range": {
+            "start": 203,
+            "end": 322
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "49dd2603-f922-4446-a6f9-fca97c8b8d16",
+          "message_id": "b3d1bb9d-c337-4ee4-adb7-68cf67911ad2",
+          "range": {
+            "start": 159,
+            "end": 193
+          }
+        }
+      ],
+      "statement": "Rúna er sendandinn.",
+      "status": "superseded",
+      "related_element_ids": [
+        "230b68ca-fa8b-45d3-8e31-de9d44027b6b"
+      ],
+      "alternative_group_id": null,
+      "selected_parts": [
+        "sendandahlutinn"
+      ],
+      "decision_ids": [
+        "c8c55438-b9dc-4534-aed4-515d6d7e7193",
+        "46964f35-84c1-4456-bf09-6c1d3b74fb20"
+      ],
+      "resulting_assertion_ids": [
+        "7329912f-a403-4c50-958d-19ae373249e3"
+      ]
+    },
+    {
+      "id": "46964f35-84c1-4456-bf09-6c1d3b74fb20",
+      "kind": "decision",
+      "revision": 1,
+      "previous_revision": null,
+      "created_exchange_id": "49dd2603-f922-4446-a6f9-fca97c8b8d16",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "49dd2603-f922-4446-a6f9-fca97c8b8d16",
+          "message_id": "b3d1bb9d-c337-4ee4-adb7-68cf67911ad2",
+          "range": {
+            "start": 159,
+            "end": 193
+          }
+        }
+      ],
+      "action": "revise",
+      "user_message_ref": {
+        "type": "message",
+        "exchange_id": "49dd2603-f922-4446-a6f9-fca97c8b8d16",
+        "message_id": "b3d1bb9d-c337-4ee4-adb7-68cf67911ad2",
+        "range": {
+          "start": 159,
+          "end": 193
+        }
+      },
+      "span": {
+        "start": 159,
+        "end": 193
+      },
+      "target_refs": [
+        {
+          "id": "7329912f-a403-4c50-958d-19ae373249e3",
+          "revision": 1
+        },
+        {
+          "id": "500cb7e7-4b11-4b6c-adbf-efc84d0f8ba0",
+          "revision": 1
+        },
+        {
+          "id": "230b68ca-fa8b-45d3-8e31-de9d44027b6b",
+          "revision": 1
+        },
+        {
+          "id": "4937b5e5-d88f-46ea-904e-f5b3f86ca30d",
+          "revision": 1
+        },
+        {
+          "id": "81a44c03-3029-49bf-a82f-41481255d083",
+          "revision": 1
+        }
+      ],
+      "selected_parts": [],
+      "prior_refs": [
+        {
+          "id": "7329912f-a403-4c50-958d-19ae373249e3",
+          "revision": 1
+        },
+        {
+          "id": "500cb7e7-4b11-4b6c-adbf-efc84d0f8ba0",
+          "revision": 1
+        },
+        {
+          "id": "230b68ca-fa8b-45d3-8e31-de9d44027b6b",
+          "revision": 1
+        },
+        {
+          "id": "4937b5e5-d88f-46ea-904e-f5b3f86ca30d",
+          "revision": 1
+        },
+        {
+          "id": "81a44c03-3029-49bf-a82f-41481255d083",
+          "revision": 1
+        }
+      ],
+      "result_refs": [
+        {
+          "id": "7329912f-a403-4c50-958d-19ae373249e3",
+          "revision": 2
+        },
+        {
+          "id": "500cb7e7-4b11-4b6c-adbf-efc84d0f8ba0",
+          "revision": 2
+        },
+        {
+          "id": "230b68ca-fa8b-45d3-8e31-de9d44027b6b",
+          "revision": 2
+        },
+        {
+          "id": "4937b5e5-d88f-46ea-904e-f5b3f86ca30d",
+          "revision": 2
+        },
+        {
+          "id": "81a44c03-3029-49bf-a82f-41481255d083",
+          "revision": 2
+        }
+      ],
+      "reason": "Bjarni, en ekki Rúna, sendi bréfið",
+      "affected_refs": [
+        {
+          "id": "792fbf4b-2835-4324-b4f7-8f99f784818d",
+          "revision": 1
+        },
+        {
+          "id": "c8c55438-b9dc-4534-aed4-515d6d7e7193",
+          "revision": 1
+        },
+        {
+          "id": "f2def862-942a-4821-9d61-c0a26c2097de",
+          "revision": 1
+        },
+        {
+          "id": "987d8385-a921-48cb-8482-ac5a79d25eda",
+          "revision": 1
+        },
+        {
+          "id": "a65358cf-d245-4ec6-9d4f-f81d2241cd59",
+          "revision": 1
+        },
+        {
+          "id": "8ed04638-c72b-4756-a528-f877afadf788",
+          "revision": 1
+        }
+      ],
+      "review_required_refs": [
+        {
+          "id": "792fbf4b-2835-4324-b4f7-8f99f784818d",
+          "revision": 1
+        },
+        {
+          "id": "c8c55438-b9dc-4534-aed4-515d6d7e7193",
+          "revision": 1
+        },
+        {
+          "id": "f2def862-942a-4821-9d61-c0a26c2097de",
+          "revision": 1
+        },
+        {
+          "id": "987d8385-a921-48cb-8482-ac5a79d25eda",
+          "revision": 1
+        },
+        {
+          "id": "a65358cf-d245-4ec6-9d4f-f81d2241cd59",
+          "revision": 1
+        },
+        {
+          "id": "8ed04638-c72b-4756-a528-f877afadf788",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "id": "99c51fea-b976-497a-b8c3-5d3b5aacffea",
+      "kind": "story_element",
+      "revision": 1,
+      "previous_revision": null,
+      "created_exchange_id": "49dd2603-f922-4446-a6f9-fca97c8b8d16",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "49dd2603-f922-4446-a6f9-fca97c8b8d16",
+          "message_id": "b3d1bb9d-c337-4ee4-adb7-68cf67911ad2",
+          "range": {
+            "start": 195,
+            "end": 231
+          }
+        }
+      ],
+      "element_type": "character",
+      "display_name": "Sigrún",
+      "aliases": [],
+      "status": "accepted",
+      "assertion_ids": [
+        "d85445c0-a59a-48be-891d-62f6b3069651"
+      ],
+      "relationship_ids": [],
+      "dependency_refs": [],
+      "time_ref": null,
+      "decision_ids": [
+        "d2555a08-17a6-4f2b-bd07-cc4c3b37f619"
+      ]
+    },
+    {
+      "id": "d85445c0-a59a-48be-891d-62f6b3069651",
+      "kind": "assertion",
+      "revision": 2,
+      "previous_revision": 1,
+      "created_exchange_id": "2f8666f6-9e21-4a15-af6b-cfeff1904bd6",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "2f8666f6-9e21-4a15-af6b-cfeff1904bd6",
+          "message_id": "c46b3942-0b17-41f2-b97b-21bb6b05ae14",
+          "range": {
+            "start": 143,
+            "end": 178
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "49dd2603-f922-4446-a6f9-fca97c8b8d16",
+          "message_id": "b3d1bb9d-c337-4ee4-adb7-68cf67911ad2",
+          "range": {
+            "start": 195,
+            "end": 231
+          }
+        }
+      ],
+      "subject_element_id": "99c51fea-b976-497a-b8c3-5d3b5aacffea",
+      "predicate": "hlutverk",
+      "value": "fórnarlambið",
+      "perspective": "author_truth",
+      "holder_id": null,
+      "reader_audience": null,
+      "time_ref": {
+        "chronology": {
+          "start": null,
+          "end": null,
+          "precision": "unknown",
+          "event_anchor": null,
+          "before_refs": [],
+          "after_refs": []
+        },
+        "narrative": {
+          "start": null,
+          "end": null,
+          "precision": "unknown",
+          "event_anchor": null,
+          "before_refs": [],
+          "after_refs": []
+        }
+      },
+      "truth_state": "affirmed",
+      "status": "accepted",
+      "decision_ids": [
+        "5a01d331-f41c-4304-928e-992847f870a7",
+        "d2555a08-17a6-4f2b-bd07-cc4c3b37f619"
+      ],
+      "supersedes": {
+        "id": "d85445c0-a59a-48be-891d-62f6b3069651",
+        "revision": 1
+      }
+    },
+    {
+      "id": "1a1d9bcc-8c1a-467e-ad5b-1dd3d37c8637",
+      "kind": "idea",
+      "revision": 2,
+      "previous_revision": 1,
+      "created_exchange_id": "2f8666f6-9e21-4a15-af6b-cfeff1904bd6",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "2f8666f6-9e21-4a15-af6b-cfeff1904bd6",
+          "message_id": "c46b3942-0b17-41f2-b97b-21bb6b05ae14",
+          "range": {
+            "start": 143,
+            "end": 178
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "49dd2603-f922-4446-a6f9-fca97c8b8d16",
+          "message_id": "b3d1bb9d-c337-4ee4-adb7-68cf67911ad2",
+          "range": {
+            "start": 195,
+            "end": 231
+          }
+        }
+      ],
+      "statement": "Sigrún er fórnarlambið.",
+      "status": "accepted",
+      "related_element_ids": [
+        "99c51fea-b976-497a-b8c3-5d3b5aacffea"
+      ],
+      "alternative_group_id": null,
+      "selected_parts": [],
+      "decision_ids": [
+        "5a01d331-f41c-4304-928e-992847f870a7",
+        "d2555a08-17a6-4f2b-bd07-cc4c3b37f619"
+      ],
+      "resulting_assertion_ids": [
+        "d85445c0-a59a-48be-891d-62f6b3069651"
+      ]
+    },
+    {
+      "id": "8d4abc77-ebc9-40ed-a753-65b5c161419b",
+      "kind": "story_element",
+      "revision": 2,
+      "previous_revision": 1,
+      "created_exchange_id": "2f8666f6-9e21-4a15-af6b-cfeff1904bd6",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "2f8666f6-9e21-4a15-af6b-cfeff1904bd6",
+          "message_id": "c46b3942-0b17-41f2-b97b-21bb6b05ae14",
+          "range": {
+            "start": 143,
+            "end": 178
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "49dd2603-f922-4446-a6f9-fca97c8b8d16",
+          "message_id": "b3d1bb9d-c337-4ee4-adb7-68cf67911ad2",
+          "range": {
+            "start": 195,
+            "end": 231
+          }
+        }
+      ],
+      "element_type": "character",
+      "display_name": "Ari",
+      "aliases": [],
+      "status": "accepted",
+      "assertion_ids": [],
+      "relationship_ids": [
+        "46838eca-aced-4d1a-ac7d-8e180f31a0a0"
+      ],
+      "dependency_refs": [],
+      "time_ref": null,
+      "decision_ids": [
+        "5a01d331-f41c-4304-928e-992847f870a7",
+        "d2555a08-17a6-4f2b-bd07-cc4c3b37f619"
+      ]
+    },
+    {
+      "id": "d2555a08-17a6-4f2b-bd07-cc4c3b37f619",
+      "kind": "decision",
+      "revision": 1,
+      "previous_revision": null,
+      "created_exchange_id": "49dd2603-f922-4446-a6f9-fca97c8b8d16",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "49dd2603-f922-4446-a6f9-fca97c8b8d16",
+          "message_id": "b3d1bb9d-c337-4ee4-adb7-68cf67911ad2",
+          "range": {
+            "start": 195,
+            "end": 231
+          }
+        }
+      ],
+      "action": "revise",
+      "user_message_ref": {
+        "type": "message",
+        "exchange_id": "49dd2603-f922-4446-a6f9-fca97c8b8d16",
+        "message_id": "b3d1bb9d-c337-4ee4-adb7-68cf67911ad2",
+        "range": {
+          "start": 195,
+          "end": 231
+        }
+      },
+      "span": {
+        "start": 195,
+        "end": 231
+      },
+      "target_refs": [
+        {
+          "id": "d85445c0-a59a-48be-891d-62f6b3069651",
+          "revision": 1
+        },
+        {
+          "id": "1a1d9bcc-8c1a-467e-ad5b-1dd3d37c8637",
+          "revision": 1
+        },
+        {
+          "id": "8d4abc77-ebc9-40ed-a753-65b5c161419b",
+          "revision": 1
+        }
+      ],
+      "selected_parts": [],
+      "prior_refs": [
+        {
+          "id": "d85445c0-a59a-48be-891d-62f6b3069651",
+          "revision": 1
+        },
+        {
+          "id": "1a1d9bcc-8c1a-467e-ad5b-1dd3d37c8637",
+          "revision": 1
+        },
+        {
+          "id": "8d4abc77-ebc9-40ed-a753-65b5c161419b",
+          "revision": 1
+        }
+      ],
+      "result_refs": [
+        {
+          "id": "d85445c0-a59a-48be-891d-62f6b3069651",
+          "revision": 2
+        },
+        {
+          "id": "1a1d9bcc-8c1a-467e-ad5b-1dd3d37c8637",
+          "revision": 2
+        },
+        {
+          "id": "8d4abc77-ebc9-40ed-a753-65b5c161419b",
+          "revision": 2
+        },
+        {
+          "id": "99c51fea-b976-497a-b8c3-5d3b5aacffea",
+          "revision": 1
+        }
+      ],
+      "reason": "Sigrún, en ekki Ari, er fórnarlambið",
+      "affected_refs": [
+        {
+          "id": "5a01d331-f41c-4304-928e-992847f870a7",
+          "revision": 1
+        },
+        {
+          "id": "da79f6a2-6b80-44d8-b67d-9d0bb7731c5f",
+          "revision": 1
+        }
+      ],
+      "review_required_refs": [
+        {
+          "id": "5a01d331-f41c-4304-928e-992847f870a7",
+          "revision": 1
+        },
+        {
+          "id": "da79f6a2-6b80-44d8-b67d-9d0bb7731c5f",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "id": "cc940f23-5d36-46aa-8542-2de56ae91078",
+      "kind": "story_element",
+      "revision": 1,
+      "previous_revision": null,
+      "created_exchange_id": "49dd2603-f922-4446-a6f9-fca97c8b8d16",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "49dd2603-f922-4446-a6f9-fca97c8b8d16",
+          "message_id": "b3d1bb9d-c337-4ee4-adb7-68cf67911ad2",
+          "range": {
+            "start": 233,
+            "end": 271
+          }
+        }
+      ],
+      "element_type": "character",
+      "display_name": "Freyja",
+      "aliases": [],
+      "status": "accepted",
+      "assertion_ids": [
+        "0d70cc7f-690e-4c72-98e4-788893c2d277"
+      ],
+      "relationship_ids": [],
+      "dependency_refs": [],
+      "time_ref": null,
+      "decision_ids": [
+        "f1581433-3922-4247-befa-a4647976ec71"
+      ]
+    },
+    {
+      "id": "0d70cc7f-690e-4c72-98e4-788893c2d277",
+      "kind": "assertion",
+      "revision": 2,
+      "previous_revision": 1,
+      "created_exchange_id": "2f8666f6-9e21-4a15-af6b-cfeff1904bd6",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "2f8666f6-9e21-4a15-af6b-cfeff1904bd6",
+          "message_id": "c46b3942-0b17-41f2-b97b-21bb6b05ae14",
+          "range": {
+            "start": 180,
+            "end": 217
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "49dd2603-f922-4446-a6f9-fca97c8b8d16",
+          "message_id": "b3d1bb9d-c337-4ee4-adb7-68cf67911ad2",
+          "range": {
+            "start": 233,
+            "end": 271
+          }
+        }
+      ],
+      "subject_element_id": "cc940f23-5d36-46aa-8542-2de56ae91078",
+      "predicate": "hlutverk",
+      "value": "rannsakandinn",
+      "perspective": "author_truth",
+      "holder_id": null,
+      "reader_audience": null,
+      "time_ref": {
+        "chronology": {
+          "start": null,
+          "end": null,
+          "precision": "unknown",
+          "event_anchor": null,
+          "before_refs": [],
+          "after_refs": []
+        },
+        "narrative": {
+          "start": null,
+          "end": null,
+          "precision": "unknown",
+          "event_anchor": null,
+          "before_refs": [],
+          "after_refs": []
+        }
+      },
+      "truth_state": "affirmed",
+      "status": "accepted",
+      "decision_ids": [
+        "c86ca859-8d22-4199-a988-a96d1c8edc6e",
+        "f1581433-3922-4247-befa-a4647976ec71"
+      ],
+      "supersedes": {
+        "id": "0d70cc7f-690e-4c72-98e4-788893c2d277",
+        "revision": 1
+      }
+    },
+    {
+      "id": "90ddf826-91ec-4b56-8976-3dfb1e0a922c",
+      "kind": "idea",
+      "revision": 2,
+      "previous_revision": 1,
+      "created_exchange_id": "2f8666f6-9e21-4a15-af6b-cfeff1904bd6",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "2f8666f6-9e21-4a15-af6b-cfeff1904bd6",
+          "message_id": "c46b3942-0b17-41f2-b97b-21bb6b05ae14",
+          "range": {
+            "start": 180,
+            "end": 217
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "49dd2603-f922-4446-a6f9-fca97c8b8d16",
+          "message_id": "b3d1bb9d-c337-4ee4-adb7-68cf67911ad2",
+          "range": {
+            "start": 233,
+            "end": 271
+          }
+        }
+      ],
+      "statement": "Freyja er rannsakandinn.",
+      "status": "accepted",
+      "related_element_ids": [
+        "cc940f23-5d36-46aa-8542-2de56ae91078"
+      ],
+      "alternative_group_id": null,
+      "selected_parts": [],
+      "decision_ids": [
+        "c86ca859-8d22-4199-a988-a96d1c8edc6e",
+        "f1581433-3922-4247-befa-a4647976ec71"
+      ],
+      "resulting_assertion_ids": [
+        "0d70cc7f-690e-4c72-98e4-788893c2d277"
+      ]
+    },
+    {
+      "id": "3086ba61-669d-4800-b65a-9c7253334c91",
+      "kind": "story_element",
+      "revision": 2,
+      "previous_revision": 1,
+      "created_exchange_id": "2f8666f6-9e21-4a15-af6b-cfeff1904bd6",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "2f8666f6-9e21-4a15-af6b-cfeff1904bd6",
+          "message_id": "c46b3942-0b17-41f2-b97b-21bb6b05ae14",
+          "range": {
+            "start": 180,
+            "end": 217
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "49dd2603-f922-4446-a6f9-fca97c8b8d16",
+          "message_id": "b3d1bb9d-c337-4ee4-adb7-68cf67911ad2",
+          "range": {
+            "start": 233,
+            "end": 271
+          }
+        }
+      ],
+      "element_type": "character",
+      "display_name": "Edda",
+      "aliases": [],
+      "status": "accepted",
+      "assertion_ids": [
+        "bf6a5ed8-e726-457e-95fd-1214bdd6faaa"
+      ],
+      "relationship_ids": [
+        "27211402-c351-44c5-ba24-f68a936310d4",
+        "80ebbf87-f2b6-4856-b9a2-1e99e64fde3a"
+      ],
+      "dependency_refs": [],
+      "time_ref": null,
+      "decision_ids": [
+        "c86ca859-8d22-4199-a988-a96d1c8edc6e",
+        "f1581433-3922-4247-befa-a4647976ec71"
+      ]
+    },
+    {
+      "id": "f1581433-3922-4247-befa-a4647976ec71",
+      "kind": "decision",
+      "revision": 1,
+      "previous_revision": null,
+      "created_exchange_id": "49dd2603-f922-4446-a6f9-fca97c8b8d16",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "49dd2603-f922-4446-a6f9-fca97c8b8d16",
+          "message_id": "b3d1bb9d-c337-4ee4-adb7-68cf67911ad2",
+          "range": {
+            "start": 233,
+            "end": 271
+          }
+        }
+      ],
+      "action": "revise",
+      "user_message_ref": {
+        "type": "message",
+        "exchange_id": "49dd2603-f922-4446-a6f9-fca97c8b8d16",
+        "message_id": "b3d1bb9d-c337-4ee4-adb7-68cf67911ad2",
+        "range": {
+          "start": 233,
+          "end": 271
+        }
+      },
+      "span": {
+        "start": 233,
+        "end": 271
+      },
+      "target_refs": [
+        {
+          "id": "0d70cc7f-690e-4c72-98e4-788893c2d277",
+          "revision": 1
+        },
+        {
+          "id": "90ddf826-91ec-4b56-8976-3dfb1e0a922c",
+          "revision": 1
+        },
+        {
+          "id": "3086ba61-669d-4800-b65a-9c7253334c91",
+          "revision": 1
+        }
+      ],
+      "selected_parts": [],
+      "prior_refs": [
+        {
+          "id": "0d70cc7f-690e-4c72-98e4-788893c2d277",
+          "revision": 1
+        },
+        {
+          "id": "90ddf826-91ec-4b56-8976-3dfb1e0a922c",
+          "revision": 1
+        },
+        {
+          "id": "3086ba61-669d-4800-b65a-9c7253334c91",
+          "revision": 1
+        }
+      ],
+      "result_refs": [
+        {
+          "id": "0d70cc7f-690e-4c72-98e4-788893c2d277",
+          "revision": 2
+        },
+        {
+          "id": "90ddf826-91ec-4b56-8976-3dfb1e0a922c",
+          "revision": 2
+        },
+        {
+          "id": "3086ba61-669d-4800-b65a-9c7253334c91",
+          "revision": 2
+        },
+        {
+          "id": "cc940f23-5d36-46aa-8542-2de56ae91078",
+          "revision": 1
+        }
+      ],
+      "reason": "Freyja, en ekki Edda, er rannsakandinn",
+      "affected_refs": [
+        {
+          "id": "c86ca859-8d22-4199-a988-a96d1c8edc6e",
+          "revision": 1
+        },
+        {
+          "id": "a65358cf-d245-4ec6-9d4f-f81d2241cd59",
+          "revision": 1
+        },
+        {
+          "id": "d9215850-dcc4-4cb1-b999-e838039e2371",
+          "revision": 1
+        },
+        {
+          "id": "ed991523-8d1a-4be6-a53b-7d704d195854",
+          "revision": 1
+        }
+      ],
+      "review_required_refs": [
+        {
+          "id": "c86ca859-8d22-4199-a988-a96d1c8edc6e",
+          "revision": 1
+        },
+        {
+          "id": "a65358cf-d245-4ec6-9d4f-f81d2241cd59",
+          "revision": 1
+        },
+        {
+          "id": "d9215850-dcc4-4cb1-b999-e838039e2371",
+          "revision": 1
+        },
+        {
+          "id": "ed991523-8d1a-4be6-a53b-7d704d195854",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "id": "756e32ca-3cfe-4b3a-9701-6af2aba49f93",
+      "kind": "assertion",
+      "revision": 2,
+      "previous_revision": 1,
+      "created_exchange_id": "56478ddf-a40a-4913-abc1-715834d24168",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "56478ddf-a40a-4913-abc1-715834d24168",
+          "message_id": "38f9853d-22aa-461d-a0f7-d760d4fabd64",
+          "range": {
+            "start": 175,
+            "end": 196
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "49dd2603-f922-4446-a6f9-fca97c8b8d16",
+          "message_id": "b3d1bb9d-c337-4ee4-adb7-68cf67911ad2",
+          "range": {
+            "start": 273,
+            "end": 309
+          }
+        }
+      ],
+      "subject_element_id": "81a06bea-6106-4acf-a8bd-0ee974ad2a29",
+      "predicate": "árstími",
+      "value": "haust",
+      "perspective": "author_truth",
+      "holder_id": null,
+      "reader_audience": null,
+      "time_ref": {
+        "chronology": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        },
+        "narrative": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        }
+      },
+      "truth_state": "affirmed",
+      "status": "accepted",
+      "decision_ids": [
+        "c030d800-4f31-4afd-b073-a3adf7961b05",
+        "f0c9c761-3fdb-4db7-ba28-dac6587cf553"
+      ],
+      "supersedes": {
+        "id": "756e32ca-3cfe-4b3a-9701-6af2aba49f93",
+        "revision": 1
+      }
+    },
+    {
+      "id": "646ced87-a708-4061-91df-3cfdc5a3e6b3",
+      "kind": "idea",
+      "revision": 2,
+      "previous_revision": 1,
+      "created_exchange_id": "56478ddf-a40a-4913-abc1-715834d24168",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "56478ddf-a40a-4913-abc1-715834d24168",
+          "message_id": "38f9853d-22aa-461d-a0f7-d760d4fabd64",
+          "range": {
+            "start": 175,
+            "end": 196
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "49dd2603-f922-4446-a6f9-fca97c8b8d16",
+          "message_id": "b3d1bb9d-c337-4ee4-adb7-68cf67911ad2",
+          "range": {
+            "start": 273,
+            "end": 309
+          }
+        }
+      ],
+      "statement": "sagan gerist að hausti",
+      "status": "accepted",
+      "related_element_ids": [
+        "81a06bea-6106-4acf-a8bd-0ee974ad2a29"
+      ],
+      "alternative_group_id": null,
+      "selected_parts": [],
+      "decision_ids": [
+        "c030d800-4f31-4afd-b073-a3adf7961b05",
+        "f0c9c761-3fdb-4db7-ba28-dac6587cf553"
+      ],
+      "resulting_assertion_ids": [
+        "756e32ca-3cfe-4b3a-9701-6af2aba49f93"
+      ]
+    },
+    {
+      "id": "f0c9c761-3fdb-4db7-ba28-dac6587cf553",
+      "kind": "decision",
+      "revision": 1,
+      "previous_revision": null,
+      "created_exchange_id": "49dd2603-f922-4446-a6f9-fca97c8b8d16",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "49dd2603-f922-4446-a6f9-fca97c8b8d16",
+          "message_id": "b3d1bb9d-c337-4ee4-adb7-68cf67911ad2",
+          "range": {
+            "start": 273,
+            "end": 309
+          }
+        }
+      ],
+      "action": "revise",
+      "user_message_ref": {
+        "type": "message",
+        "exchange_id": "49dd2603-f922-4446-a6f9-fca97c8b8d16",
+        "message_id": "b3d1bb9d-c337-4ee4-adb7-68cf67911ad2",
+        "range": {
+          "start": 273,
+          "end": 309
+        }
+      },
+      "span": {
+        "start": 273,
+        "end": 309
+      },
+      "target_refs": [
+        {
+          "id": "756e32ca-3cfe-4b3a-9701-6af2aba49f93",
+          "revision": 1
+        },
+        {
+          "id": "646ced87-a708-4061-91df-3cfdc5a3e6b3",
+          "revision": 1
+        }
+      ],
+      "selected_parts": [],
+      "prior_refs": [
+        {
+          "id": "756e32ca-3cfe-4b3a-9701-6af2aba49f93",
+          "revision": 1
+        },
+        {
+          "id": "646ced87-a708-4061-91df-3cfdc5a3e6b3",
+          "revision": 1
+        }
+      ],
+      "result_refs": [
+        {
+          "id": "756e32ca-3cfe-4b3a-9701-6af2aba49f93",
+          "revision": 2
+        },
+        {
+          "id": "646ced87-a708-4061-91df-3cfdc5a3e6b3",
+          "revision": 2
+        }
+      ],
+      "reason": "sagan gerist að hausti en ekki vetri",
+      "affected_refs": [
+        {
+          "id": "c030d800-4f31-4afd-b073-a3adf7961b05",
+          "revision": 1
+        }
+      ],
+      "review_required_refs": [
+        {
+          "id": "c030d800-4f31-4afd-b073-a3adf7961b05",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "id": "85612da9-7c6c-4185-8191-83e0325eee2a",
+      "kind": "assertion",
+      "revision": 2,
+      "previous_revision": 1,
+      "created_exchange_id": "56478ddf-a40a-4913-abc1-715834d24168",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "56478ddf-a40a-4913-abc1-715834d24168",
+          "message_id": "38f9853d-22aa-461d-a0f7-d760d4fabd64",
+          "range": {
+            "start": 151,
+            "end": 173
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "49dd2603-f922-4446-a6f9-fca97c8b8d16",
+          "message_id": "b3d1bb9d-c337-4ee4-adb7-68cf67911ad2",
+          "range": {
+            "start": 311,
+            "end": 350
+          }
+        }
+      ],
+      "subject_element_id": "4a1c2ec9-6efd-4269-a413-ec2838e2bcac",
+      "predicate": "tímasetning",
+      "value": "síðdegis",
+      "perspective": "author_truth",
+      "holder_id": null,
+      "reader_audience": null,
+      "time_ref": {
+        "chronology": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        },
+        "narrative": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        }
+      },
+      "truth_state": "affirmed",
+      "status": "accepted",
+      "decision_ids": [
+        "17c4de0d-c4bd-46f5-ab1f-1893db0e5ebc",
+        "4fbb9867-6a9f-4441-9725-6f01d568a9c2"
+      ],
+      "supersedes": {
+        "id": "85612da9-7c6c-4185-8191-83e0325eee2a",
+        "revision": 1
+      }
+    },
+    {
+      "id": "8954dff5-7de8-47af-b033-365f7e3fe060",
+      "kind": "idea",
+      "revision": 2,
+      "previous_revision": 1,
+      "created_exchange_id": "56478ddf-a40a-4913-abc1-715834d24168",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "56478ddf-a40a-4913-abc1-715834d24168",
+          "message_id": "38f9853d-22aa-461d-a0f7-d760d4fabd64",
+          "range": {
+            "start": 151,
+            "end": 173
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "49dd2603-f922-4446-a6f9-fca97c8b8d16",
+          "message_id": "b3d1bb9d-c337-4ee4-adb7-68cf67911ad2",
+          "range": {
+            "start": 311,
+            "end": 350
+          }
+        }
+      ],
+      "statement": "bréfið kom síðdegis",
+      "status": "accepted",
+      "related_element_ids": [
+        "4a1c2ec9-6efd-4269-a413-ec2838e2bcac"
+      ],
+      "alternative_group_id": null,
+      "selected_parts": [],
+      "decision_ids": [
+        "17c4de0d-c4bd-46f5-ab1f-1893db0e5ebc",
+        "4fbb9867-6a9f-4441-9725-6f01d568a9c2"
+      ],
+      "resulting_assertion_ids": [
+        "85612da9-7c6c-4185-8191-83e0325eee2a"
+      ]
+    },
+    {
+      "id": "4fbb9867-6a9f-4441-9725-6f01d568a9c2",
+      "kind": "decision",
+      "revision": 1,
+      "previous_revision": null,
+      "created_exchange_id": "49dd2603-f922-4446-a6f9-fca97c8b8d16",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "49dd2603-f922-4446-a6f9-fca97c8b8d16",
+          "message_id": "b3d1bb9d-c337-4ee4-adb7-68cf67911ad2",
+          "range": {
+            "start": 311,
+            "end": 350
+          }
+        }
+      ],
+      "action": "revise",
+      "user_message_ref": {
+        "type": "message",
+        "exchange_id": "49dd2603-f922-4446-a6f9-fca97c8b8d16",
+        "message_id": "b3d1bb9d-c337-4ee4-adb7-68cf67911ad2",
+        "range": {
+          "start": 311,
+          "end": 350
+        }
+      },
+      "span": {
+        "start": 311,
+        "end": 350
+      },
+      "target_refs": [
+        {
+          "id": "85612da9-7c6c-4185-8191-83e0325eee2a",
+          "revision": 1
+        },
+        {
+          "id": "8954dff5-7de8-47af-b033-365f7e3fe060",
+          "revision": 1
+        }
+      ],
+      "selected_parts": [],
+      "prior_refs": [
+        {
+          "id": "85612da9-7c6c-4185-8191-83e0325eee2a",
+          "revision": 1
+        },
+        {
+          "id": "8954dff5-7de8-47af-b033-365f7e3fe060",
+          "revision": 1
+        }
+      ],
+      "result_refs": [
+        {
+          "id": "85612da9-7c6c-4185-8191-83e0325eee2a",
+          "revision": 2
+        },
+        {
+          "id": "8954dff5-7de8-47af-b033-365f7e3fe060",
+          "revision": 2
+        }
+      ],
+      "reason": "bréfið kom síðdegis en ekki fyrir dögun",
+      "affected_refs": [
+        {
+          "id": "17c4de0d-c4bd-46f5-ab1f-1893db0e5ebc",
+          "revision": 1
+        }
+      ],
+      "review_required_refs": [
+        {
+          "id": "17c4de0d-c4bd-46f5-ab1f-1893db0e5ebc",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "id": "711ac5fd-eb25-4a33-89ca-fc62260cb0a2",
+      "kind": "novel_project",
+      "revision": 4,
+      "previous_revision": 3,
+      "created_exchange_id": "43ed849f-fd03-4df8-9d89-f2a3dab9c81f",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "49dd2603-f922-4446-a6f9-fca97c8b8d16",
+          "message_id": "b3d1bb9d-c337-4ee4-adb7-68cf67911ad2",
+          "range": {
+            "start": 442,
+            "end": 481
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "49dd2603-f922-4446-a6f9-fca97c8b8d16",
+          "message_id": "b3d1bb9d-c337-4ee4-adb7-68cf67911ad2",
+          "range": {
+            "start": 482,
+            "end": 521
+          }
+        }
+      ],
+      "origin": "supplied",
+      "title": {
+        "state": "default",
+        "original_text": "Untitled novel",
+        "interpretation": null,
+        "origin": "system_default",
+        "source_refs": []
+      },
+      "original_concept": {
+        "state": "unknown",
+        "original_text": null,
+        "interpretation": null,
+        "origin": "system_default",
+        "source_refs": []
+      },
+      "creative_brief": {
+        "genre": {
+          "state": "unknown",
+          "original_text": null,
+          "interpretation": null,
+          "origin": "system_default",
+          "source_refs": []
+        },
+        "subgenres": {
+          "state": "unknown",
+          "original_text": null,
+          "interpretation": null,
+          "origin": "system_default",
+          "source_refs": []
+        },
+        "audience": {
+          "state": "unknown",
+          "original_text": null,
+          "interpretation": null,
+          "origin": "system_default",
+          "source_refs": []
+        },
+        "tone": {
+          "state": "unknown",
+          "original_text": null,
+          "interpretation": null,
+          "origin": "system_default",
+          "source_refs": []
+        },
+        "style": {
+          "state": "unknown",
+          "original_text": null,
+          "interpretation": null,
+          "origin": "system_default",
+          "source_refs": []
+        },
+        "perspective": {
+          "state": "unknown",
+          "original_text": null,
+          "interpretation": null,
+          "origin": "system_default",
+          "source_refs": []
+        },
+        "complexity": {
+          "state": "unknown",
+          "original_text": null,
+          "interpretation": null,
+          "origin": "system_default",
+          "source_refs": []
+        }
+      },
+      "manuscript_language": "is",
+      "workflow_preferences": {
+        "suggestion_length": {
+          "state": "supplied",
+          "original_text": "Hafðu tillögur stuttar.",
+          "interpretation": null,
+          "origin": "supplied",
+          "source_refs": [
+            {
+              "type": "message",
+              "exchange_id": "2f8666f6-9e21-4a15-af6b-cfeff1904bd6",
+              "message_id": "c46b3942-0b17-41f2-b97b-21bb6b05ae14",
+              "range": {
+                "start": 654,
+                "end": 677
+              }
+            }
+          ]
+        }
+      },
+      "review_preferences": {
+        "routine_checkpoint": "session_close"
+      },
+      "creative_directions": [
+        {
+          "text": "Edda verður að vera saklaus af morðinu.",
+          "source_refs": [
+            {
+              "type": "message",
+              "exchange_id": "49dd2603-f922-4446-a6f9-fca97c8b8d16",
+              "message_id": "b3d1bb9d-c337-4ee4-adb7-68cf67911ad2",
+              "range": {
+                "start": 442,
+                "end": 481
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "17356bdd-0b04-475d-9fc8-9ea8ba0d8d0b",
+      "kind": "session",
+      "revision": 4,
+      "previous_revision": 3,
+      "created_exchange_id": "56478ddf-a40a-4913-abc1-715834d24168",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "49dd2603-f922-4446-a6f9-fca97c8b8d16",
+          "message_id": "b3d1bb9d-c337-4ee4-adb7-68cf67911ad2",
+          "range": {
+            "start": 523,
+            "end": 543
+          }
+        }
+      ],
+      "topic": "Atburðir",
+      "mode": "open",
+      "state": "closed",
+      "started_exchange_id": "56478ddf-a40a-4913-abc1-715834d24168",
+      "last_exchange_id": "49dd2603-f922-4446-a6f9-fca97c8b8d16",
+      "related_record_ids": [
+        "d0c71de1-f1cc-44dd-bc6f-f10a9ee49d31",
+        "f98be7cf-b9e5-4ac8-b43e-230997f7d655",
+        "82eba284-22cc-4742-97df-4a2153d4f937",
+        "2047d58e-565b-428a-8626-6cfd46c7403c",
+        "4a1c2ec9-6efd-4269-a413-ec2838e2bcac",
+        "85612da9-7c6c-4185-8191-83e0325eee2a",
+        "8954dff5-7de8-47af-b033-365f7e3fe060",
+        "17c4de0d-c4bd-46f5-ab1f-1893db0e5ebc",
+        "81a06bea-6106-4acf-a8bd-0ee974ad2a29",
+        "756e32ca-3cfe-4b3a-9701-6af2aba49f93",
+        "646ced87-a708-4061-91df-3cfdc5a3e6b3",
+        "c030d800-4f31-4afd-b073-a3adf7961b05",
+        "61a23fe1-8ea3-42fe-9b31-09604f6268db",
+        "64f45da6-3d7f-4e55-93b5-45b88f361597",
+        "27765347-973d-45d7-85e2-53dd8622037a",
+        "da566d49-b54b-4646-8ccc-aef7616d0857",
+        "4f435b04-0392-4275-87e7-45c343b8bd5a",
+        "3ee9968a-3414-49cd-88df-16dfb6547136",
+        "cf3c2149-33ea-42c9-8847-fcc5748c3cbf",
+        "37d7b9b9-6d2e-4c73-830a-ba8732201fe2",
+        "7970f44c-3f47-49a7-8757-74b20a489b1e",
+        "60c1be74-63ec-4454-bed0-c6695d073414",
+        "090fb16e-c32b-40a1-8687-41daa03fd689",
+        "e37f88d3-c3bb-487f-a096-7ff44fd15d61",
+        "5d72fc12-fade-47cf-8175-0a0b3c69b58b",
+        "8ed04638-c72b-4756-a528-f877afadf788",
+        "a1fcf866-ca24-4fee-bcd8-66fc64781877",
+        "00fc1f94-7b76-4cfe-bab4-55eb9ac545be",
+        "81a44c03-3029-49bf-a82f-41481255d083",
+        "e6deaac1-a758-4d7a-a611-03ef8820496a",
+        "c8c55438-b9dc-4534-aed4-515d6d7e7193",
+        "0bae9007-2726-4bfa-8259-79a971ada180",
+        "13860c29-c960-4d69-9666-7a94c9018558",
+        "59e59791-5a37-49e3-9ede-76ed282ecabf",
+        "a160b2aa-261a-4f08-b910-f846d4307617",
+        "12368f8d-343d-4a4b-8633-e2e0401b713b",
+        "da79f6a2-6b80-44d8-b67d-9d0bb7731c5f",
+        "a38bb3b1-d7dd-4a63-870e-c860ae84bfb5",
+        "a7a34ee8-8784-4ef3-a817-dc916d4b78d5",
+        "5f135481-ba1f-4c2e-ba05-a2071833c651",
+        "f9daed09-59ae-4a1d-8b62-145be8a8568c",
+        "9aa1ad1f-e60b-4e5a-94cd-7f6159f8b8db",
+        "f65265b4-c009-4399-8e29-9d1fdc6feb56",
+        "2306571e-600d-4d5a-8e30-27e0a84045be",
+        "4982f4a1-abbf-477c-8c16-ac7aced52996",
+        "aa43248a-fd41-4ec9-9a25-8d3722396422",
+        "7e8fb11e-32f4-461e-a855-4c8983131b69",
+        "44703877-7966-4bf6-b4d0-3cb7ff1eb3e3",
+        "8f56ec6e-fee6-45e2-97b7-8fdee180825b",
+        "d30df53b-debd-4ed6-9a7b-e3eda1590945",
+        "92096719-1d87-4305-8e28-d33f659edc69",
+        "bf1352af-3e47-483f-b259-c529b677b530",
+        "1dd11de7-e7c2-493b-8982-c3d5ae249d0d",
+        "d8256557-8656-455c-b36c-10eaf63bdf73",
+        "b0d516a0-4739-450b-92e6-6986c1f0d716",
+        "c2a328d6-9474-4b20-81e2-f57327efa071",
+        "a5a37507-baff-4ad3-87c0-5a405dae0262",
+        "f1fcc75e-8c7d-44a7-aed2-d68e860db715",
+        "97b7eb78-b576-45bb-8d0f-83cb23ca1be6",
+        "426af09a-7ab7-4cfa-b718-be7d1631ec58",
+        "aefc91c6-b5b5-48cf-8697-820ccdb40f6c",
+        "20822d29-b08a-4f77-b2e3-e6bf5907b07b",
+        "7329912f-a403-4c50-958d-19ae373249e3",
+        "500cb7e7-4b11-4b6c-adbf-efc84d0f8ba0",
+        "230b68ca-fa8b-45d3-8e31-de9d44027b6b",
+        "4937b5e5-d88f-46ea-904e-f5b3f86ca30d",
+        "46964f35-84c1-4456-bf09-6c1d3b74fb20",
+        "99c51fea-b976-497a-b8c3-5d3b5aacffea",
+        "d85445c0-a59a-48be-891d-62f6b3069651",
+        "1a1d9bcc-8c1a-467e-ad5b-1dd3d37c8637",
+        "8d4abc77-ebc9-40ed-a753-65b5c161419b",
+        "d2555a08-17a6-4f2b-bd07-cc4c3b37f619",
+        "cc940f23-5d36-46aa-8542-2de56ae91078",
+        "0d70cc7f-690e-4c72-98e4-788893c2d277",
+        "90ddf826-91ec-4b56-8976-3dfb1e0a922c",
+        "3086ba61-669d-4800-b65a-9c7253334c91",
+        "f1581433-3922-4247-befa-a4647976ec71",
+        "f0c9c761-3fdb-4db7-ba28-dac6587cf553",
+        "4fbb9867-6a9f-4441-9725-6f01d568a9c2"
+      ],
+      "unresolved_question_ids": [
+        "5d72fc12-fade-47cf-8175-0a0b3c69b58b",
+        "8ed04638-c72b-4756-a528-f877afadf788",
+        "da79f6a2-6b80-44d8-b67d-9d0bb7731c5f",
+        "8f56ec6e-fee6-45e2-97b7-8fdee180825b",
+        "20822d29-b08a-4f77-b2e3-e6bf5907b07b"
+      ],
+      "derived_context_ref": null
+    }
+  ],
+  "continuity_review": {
+    "coverage": "incomplete",
+    "reviewed_record_refs": [
+      {
+        "id": "230b68ca-fa8b-45d3-8e31-de9d44027b6b",
+        "revision": 1
+      },
+      {
+        "id": "8d4abc77-ebc9-40ed-a753-65b5c161419b",
+        "revision": 1
+      },
+      {
+        "id": "3086ba61-669d-4800-b65a-9c7253334c91",
+        "revision": 1
+      },
+      {
+        "id": "4937b5e5-d88f-46ea-904e-f5b3f86ca30d",
+        "revision": 1
+      },
+      {
+        "id": "c8123df5-8424-40be-9c44-0256033457c5",
+        "revision": 1
+      },
+      {
+        "id": "7329912f-a403-4c50-958d-19ae373249e3",
+        "revision": 1
+      },
+      {
+        "id": "e19f2739-2527-4846-bb3b-1d240f0abf78",
+        "revision": 1
+      },
+      {
+        "id": "500cb7e7-4b11-4b6c-adbf-efc84d0f8ba0",
+        "revision": 1
+      },
+      {
+        "id": "46838eca-aced-4d1a-ac7d-8e180f31a0a0",
+        "revision": 1
+      },
+      {
+        "id": "d85445c0-a59a-48be-891d-62f6b3069651",
+        "revision": 1
+      },
+      {
+        "id": "f351ee38-3956-47ee-aa75-73b05234d57e",
+        "revision": 1
+      },
+      {
+        "id": "1a1d9bcc-8c1a-467e-ad5b-1dd3d37c8637",
+        "revision": 1
+      },
+      {
+        "id": "27211402-c351-44c5-ba24-f68a936310d4",
+        "revision": 1
+      },
+      {
+        "id": "0d70cc7f-690e-4c72-98e4-788893c2d277",
+        "revision": 1
+      },
+      {
+        "id": "a594b87b-3178-4b67-a2b6-262f00cfcddc",
+        "revision": 1
+      },
+      {
+        "id": "90ddf826-91ec-4b56-8976-3dfb1e0a922c",
+        "revision": 1
+      },
+      {
+        "id": "4710621c-1174-46f1-9ee0-926a995db608",
+        "revision": 1
+      },
+      {
+        "id": "515f2c3b-3bf9-4134-9b49-d95d5fce74b3",
+        "revision": 1
+      },
+      {
+        "id": "d0c71de1-f1cc-44dd-bc6f-f10a9ee49d31",
+        "revision": 1
+      },
+      {
+        "id": "f98be7cf-b9e5-4ac8-b43e-230997f7d655",
+        "revision": 1
+      },
+      {
+        "id": "82eba284-22cc-4742-97df-4a2153d4f937",
+        "revision": 1
+      },
+      {
+        "id": "4a1c2ec9-6efd-4269-a413-ec2838e2bcac",
+        "revision": 1
+      },
+      {
+        "id": "85612da9-7c6c-4185-8191-83e0325eee2a",
+        "revision": 1
+      },
+      {
+        "id": "8954dff5-7de8-47af-b033-365f7e3fe060",
+        "revision": 1
+      },
+      {
+        "id": "81a06bea-6106-4acf-a8bd-0ee974ad2a29",
+        "revision": 1
+      },
+      {
+        "id": "756e32ca-3cfe-4b3a-9701-6af2aba49f93",
+        "revision": 1
+      },
+      {
+        "id": "646ced87-a708-4061-91df-3cfdc5a3e6b3",
+        "revision": 1
+      },
+      {
+        "id": "7970f44c-3f47-49a7-8757-74b20a489b1e",
+        "revision": 2
+      },
+      {
+        "id": "60c1be74-63ec-4454-bed0-c6695d073414",
+        "revision": 2
+      },
+      {
+        "id": "86ed5418-0570-496d-92ce-7090e6b9dde1",
+        "revision": 1
+      },
+      {
+        "id": "69059156-f3a0-4d96-820c-b342bbedc157",
+        "revision": 1
+      },
+      {
+        "id": "c33e9f0b-9220-4478-bac9-45b3a1cdcaad",
+        "revision": 1
+      },
+      {
+        "id": "cfc45be6-0360-4549-9e99-171f6296e14c",
+        "revision": 1
+      },
+      {
+        "id": "e49f9a76-ac1d-4b6c-8a86-ae3eec006fa8",
+        "revision": 1
+      },
+      {
+        "id": "36444d2f-130a-4d73-824b-6c6e124f1a22",
+        "revision": 1
+      },
+      {
+        "id": "ae958945-4549-49de-af7e-dd3fc760fc8b",
+        "revision": 1
+      },
+      {
+        "id": "d9215850-dcc4-4cb1-b999-e838039e2371",
+        "revision": 1
+      },
+      {
+        "id": "811ce9aa-ab20-4f4c-aa50-14ad476962cb",
+        "revision": 1
+      },
+      {
+        "id": "81a44c03-3029-49bf-a82f-41481255d083",
+        "revision": 1
+      },
+      {
+        "id": "7329912f-a403-4c50-958d-19ae373249e3",
+        "revision": 2
+      },
+      {
+        "id": "500cb7e7-4b11-4b6c-adbf-efc84d0f8ba0",
+        "revision": 2
+      },
+      {
+        "id": "230b68ca-fa8b-45d3-8e31-de9d44027b6b",
+        "revision": 2
+      },
+      {
+        "id": "4937b5e5-d88f-46ea-904e-f5b3f86ca30d",
+        "revision": 2
+      },
+      {
+        "id": "99c51fea-b976-497a-b8c3-5d3b5aacffea",
+        "revision": 1
+      },
+      {
+        "id": "d85445c0-a59a-48be-891d-62f6b3069651",
+        "revision": 2
+      },
+      {
+        "id": "1a1d9bcc-8c1a-467e-ad5b-1dd3d37c8637",
+        "revision": 2
+      },
+      {
+        "id": "8d4abc77-ebc9-40ed-a753-65b5c161419b",
+        "revision": 2
+      },
+      {
+        "id": "cc940f23-5d36-46aa-8542-2de56ae91078",
+        "revision": 1
+      },
+      {
+        "id": "0d70cc7f-690e-4c72-98e4-788893c2d277",
+        "revision": 2
+      },
+      {
+        "id": "90ddf826-91ec-4b56-8976-3dfb1e0a922c",
+        "revision": 2
+      },
+      {
+        "id": "3086ba61-669d-4800-b65a-9c7253334c91",
+        "revision": 2
+      },
+      {
+        "id": "756e32ca-3cfe-4b3a-9701-6af2aba49f93",
+        "revision": 2
+      },
+      {
+        "id": "646ced87-a708-4061-91df-3cfdc5a3e6b3",
+        "revision": 2
+      },
+      {
+        "id": "85612da9-7c6c-4185-8191-83e0325eee2a",
+        "revision": 2
+      },
+      {
+        "id": "8954dff5-7de8-47af-b033-365f7e3fe060",
+        "revision": 2
+      }
+    ],
+    "unavailable_refs": [],
+    "canon_hold_refs": [
+      "c2a328d6-9474-4b20-81e2-f57327efa071",
+      "a5a37507-baff-4ad3-87c0-5a405dae0262",
+      "69059156-f3a0-4d96-820c-b342bbedc157"
+    ],
+    "finding_ids": [
+      "f1fcc75e-8c7d-44a7-aed2-d68e860db715"
+    ],
+    "summary": "Fimm skýrar endurskoðanir varðveita fyrri útgáfur og beinar tilvísanir. Systkinatengsl óbreytt. Næturljósbilun og síðdegiskoma sama dags útiloka ekki hvor aðra; nákvæm dagsetning óþekkt. Spurning um ástæðu sendingar Rúnu er áfram opin en byggir á úreltri forsendu. Tillögu um að Edda reki bréfið þarf að yfirfara eftir breytingu rannsakanda, án ályktunar um að aðeins rannsakandi geti rakið bréf. Fyrri flotbrúarmótsögn óleyst og afmörkuð haldsvæði varðveitt. Skapandi stefna verndar sakleysi Eddu af morðinu."
+  },
+  "payload_digest": "0b1dc41e75d32457031f2f57e89afb3db04dd50bcee152af449a29ec8387843f"
+}

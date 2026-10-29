@@ -1,0 +1,188 @@
+test_parallel_hash_guard_checks_every_path_after_all_metadata (tests.integration.test_storage.StorageTests.test_parallel_hash_guard_checks_every_path_after_all_metadata) ... 
+  test_parallel_hash_guard_checks_every_path_after_all_metadata (tests.integration.test_storage.StorageTests.test_parallel_hash_guard_checks_every_path_after_all_metadata) (object_format='sha1') ... ERROR
+  test_parallel_hash_guard_checks_every_path_after_all_metadata (tests.integration.test_storage.StorageTests.test_parallel_hash_guard_checks_every_path_after_all_metadata) (object_format='sha256') ... ERROR
+test_parallel_hash_guard_preserves_serial_small_fixture_policy (tests.integration.test_storage.StorageTests.test_parallel_hash_guard_preserves_serial_small_fixture_policy) ... ERROR
+test_parallel_final_guard_failures_join_workers_before_releasing_writer (tests.integration.test_storage.StorageTests.test_parallel_final_guard_failures_join_workers_before_releasing_writer) ... 
+  test_parallel_final_guard_failures_join_workers_before_releasing_writer (tests.integration.test_storage.StorageTests.test_parallel_final_guard_failures_join_workers_before_releasing_writer) (object_format='sha1', failure='incomplete') ... ERROR
+  test_parallel_final_guard_failures_join_workers_before_releasing_writer (tests.integration.test_storage.StorageTests.test_parallel_final_guard_failures_join_workers_before_releasing_writer) (object_format='sha1', failure='process') ... ERROR
+  test_parallel_final_guard_failures_join_workers_before_releasing_writer (tests.integration.test_storage.StorageTests.test_parallel_final_guard_failures_join_workers_before_releasing_writer) (object_format='sha1', failure='launch') ... ERROR
+  test_parallel_final_guard_failures_join_workers_before_releasing_writer (tests.integration.test_storage.StorageTests.test_parallel_final_guard_failures_join_workers_before_releasing_writer) (object_format='sha256', failure='incomplete') ... ERROR
+  test_parallel_final_guard_failures_join_workers_before_releasing_writer (tests.integration.test_storage.StorageTests.test_parallel_final_guard_failures_join_workers_before_releasing_writer) (object_format='sha256', failure='process') ... ERROR
+  test_parallel_final_guard_failures_join_workers_before_releasing_writer (tests.integration.test_storage.StorageTests.test_parallel_final_guard_failures_join_workers_before_releasing_writer) (object_format='sha256', failure='launch') ... ERROR
+test_parallel_final_guard_rejects_same_stat_edits_and_root_redirection (tests.integration.test_storage.StorageTests.test_parallel_final_guard_rejects_same_stat_edits_and_root_redirection) ... 
+  test_parallel_final_guard_rejects_same_stat_edits_and_root_redirection (tests.integration.test_storage.StorageTests.test_parallel_final_guard_rejects_same_stat_edits_and_root_redirection) (object_format='sha1') ... ERROR
+  test_parallel_final_guard_rejects_same_stat_edits_and_root_redirection (tests.integration.test_storage.StorageTests.test_parallel_final_guard_rejects_same_stat_edits_and_root_redirection) (object_format='sha256') ... ERROR
+
+======================================================================
+ERROR: test_parallel_hash_guard_checks_every_path_after_all_metadata (tests.integration.test_storage.StorageTests.test_parallel_hash_guard_checks_every_path_after_all_metadata) (object_format='sha1')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 43, in test_parallel_hash_guard_checks_every_path_after_all_metadata
+    with patch.object(storage, '_PARALLEL_HASH_MINIMUM', 1), \
+         ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\unittest\mock.py", line 1503, in __enter__
+    original, local = self.get_original()
+                      ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\unittest\mock.py", line 1473, in get_original
+    raise AttributeError(
+        "%s does not have the attribute %r" % (target, name)
+    )
+AttributeError: <module 'novel_creator.storage' from 'C:\\Users\\BjarkiGunnarsson\\source\\repos\\Personal\\novel-creator\\src\\novel_creator\\storage.py'> does not have the attribute '_PARALLEL_HASH_MINIMUM'
+
+======================================================================
+ERROR: test_parallel_hash_guard_checks_every_path_after_all_metadata (tests.integration.test_storage.StorageTests.test_parallel_hash_guard_checks_every_path_after_all_metadata) (object_format='sha256')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 43, in test_parallel_hash_guard_checks_every_path_after_all_metadata
+    with patch.object(storage, '_PARALLEL_HASH_MINIMUM', 1), \
+         ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\unittest\mock.py", line 1503, in __enter__
+    original, local = self.get_original()
+                      ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\unittest\mock.py", line 1473, in get_original
+    raise AttributeError(
+        "%s does not have the attribute %r" % (target, name)
+    )
+AttributeError: <module 'novel_creator.storage' from 'C:\\Users\\BjarkiGunnarsson\\source\\repos\\Personal\\novel-creator\\src\\novel_creator\\storage.py'> does not have the attribute '_PARALLEL_HASH_MINIMUM'
+
+======================================================================
+ERROR: test_parallel_hash_guard_preserves_serial_small_fixture_policy (tests.integration.test_storage.StorageTests.test_parallel_hash_guard_preserves_serial_small_fixture_policy)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 68, in test_parallel_hash_guard_preserves_serial_small_fixture_policy
+    storage.check_managed(root, storage.head(root), [], hash_workers=4)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: check_managed() got an unexpected keyword argument 'hash_workers'
+
+======================================================================
+ERROR: test_parallel_final_guard_failures_join_workers_before_releasing_writer (tests.integration.test_storage.StorageTests.test_parallel_final_guard_failures_join_workers_before_releasing_writer) (object_format='sha1', failure='incomplete')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 112, in test_parallel_final_guard_failures_join_workers_before_releasing_writer
+    with patch.object(storage, '_PARALLEL_HASH_MINIMUM', 1), \
+         ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\unittest\mock.py", line 1503, in __enter__
+    original, local = self.get_original()
+                      ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\unittest\mock.py", line 1473, in get_original
+    raise AttributeError(
+        "%s does not have the attribute %r" % (target, name)
+    )
+AttributeError: <module 'novel_creator.storage' from 'C:\\Users\\BjarkiGunnarsson\\source\\repos\\Personal\\novel-creator\\src\\novel_creator\\storage.py'> does not have the attribute '_PARALLEL_HASH_MINIMUM'
+
+======================================================================
+ERROR: test_parallel_final_guard_failures_join_workers_before_releasing_writer (tests.integration.test_storage.StorageTests.test_parallel_final_guard_failures_join_workers_before_releasing_writer) (object_format='sha1', failure='process')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 112, in test_parallel_final_guard_failures_join_workers_before_releasing_writer
+    with patch.object(storage, '_PARALLEL_HASH_MINIMUM', 1), \
+         ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\unittest\mock.py", line 1503, in __enter__
+    original, local = self.get_original()
+                      ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\unittest\mock.py", line 1473, in get_original
+    raise AttributeError(
+        "%s does not have the attribute %r" % (target, name)
+    )
+AttributeError: <module 'novel_creator.storage' from 'C:\\Users\\BjarkiGunnarsson\\source\\repos\\Personal\\novel-creator\\src\\novel_creator\\storage.py'> does not have the attribute '_PARALLEL_HASH_MINIMUM'
+
+======================================================================
+ERROR: test_parallel_final_guard_failures_join_workers_before_releasing_writer (tests.integration.test_storage.StorageTests.test_parallel_final_guard_failures_join_workers_before_releasing_writer) (object_format='sha1', failure='launch')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 112, in test_parallel_final_guard_failures_join_workers_before_releasing_writer
+    with patch.object(storage, '_PARALLEL_HASH_MINIMUM', 1), \
+         ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\unittest\mock.py", line 1503, in __enter__
+    original, local = self.get_original()
+                      ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\unittest\mock.py", line 1473, in get_original
+    raise AttributeError(
+        "%s does not have the attribute %r" % (target, name)
+    )
+AttributeError: <module 'novel_creator.storage' from 'C:\\Users\\BjarkiGunnarsson\\source\\repos\\Personal\\novel-creator\\src\\novel_creator\\storage.py'> does not have the attribute '_PARALLEL_HASH_MINIMUM'
+
+======================================================================
+ERROR: test_parallel_final_guard_failures_join_workers_before_releasing_writer (tests.integration.test_storage.StorageTests.test_parallel_final_guard_failures_join_workers_before_releasing_writer) (object_format='sha256', failure='incomplete')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 112, in test_parallel_final_guard_failures_join_workers_before_releasing_writer
+    with patch.object(storage, '_PARALLEL_HASH_MINIMUM', 1), \
+         ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\unittest\mock.py", line 1503, in __enter__
+    original, local = self.get_original()
+                      ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\unittest\mock.py", line 1473, in get_original
+    raise AttributeError(
+        "%s does not have the attribute %r" % (target, name)
+    )
+AttributeError: <module 'novel_creator.storage' from 'C:\\Users\\BjarkiGunnarsson\\source\\repos\\Personal\\novel-creator\\src\\novel_creator\\storage.py'> does not have the attribute '_PARALLEL_HASH_MINIMUM'
+
+======================================================================
+ERROR: test_parallel_final_guard_failures_join_workers_before_releasing_writer (tests.integration.test_storage.StorageTests.test_parallel_final_guard_failures_join_workers_before_releasing_writer) (object_format='sha256', failure='process')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 112, in test_parallel_final_guard_failures_join_workers_before_releasing_writer
+    with patch.object(storage, '_PARALLEL_HASH_MINIMUM', 1), \
+         ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\unittest\mock.py", line 1503, in __enter__
+    original, local = self.get_original()
+                      ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\unittest\mock.py", line 1473, in get_original
+    raise AttributeError(
+        "%s does not have the attribute %r" % (target, name)
+    )
+AttributeError: <module 'novel_creator.storage' from 'C:\\Users\\BjarkiGunnarsson\\source\\repos\\Personal\\novel-creator\\src\\novel_creator\\storage.py'> does not have the attribute '_PARALLEL_HASH_MINIMUM'
+
+======================================================================
+ERROR: test_parallel_final_guard_failures_join_workers_before_releasing_writer (tests.integration.test_storage.StorageTests.test_parallel_final_guard_failures_join_workers_before_releasing_writer) (object_format='sha256', failure='launch')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 112, in test_parallel_final_guard_failures_join_workers_before_releasing_writer
+    with patch.object(storage, '_PARALLEL_HASH_MINIMUM', 1), \
+         ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\unittest\mock.py", line 1503, in __enter__
+    original, local = self.get_original()
+                      ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\unittest\mock.py", line 1473, in get_original
+    raise AttributeError(
+        "%s does not have the attribute %r" % (target, name)
+    )
+AttributeError: <module 'novel_creator.storage' from 'C:\\Users\\BjarkiGunnarsson\\source\\repos\\Personal\\novel-creator\\src\\novel_creator\\storage.py'> does not have the attribute '_PARALLEL_HASH_MINIMUM'
+
+======================================================================
+ERROR: test_parallel_final_guard_rejects_same_stat_edits_and_root_redirection (tests.integration.test_storage.StorageTests.test_parallel_final_guard_rejects_same_stat_edits_and_root_redirection) (object_format='sha1')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 160, in test_parallel_final_guard_rejects_same_stat_edits_and_root_redirection
+    with patch.object(storage, '_PARALLEL_HASH_MINIMUM', 1), \
+         ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\unittest\mock.py", line 1503, in __enter__
+    original, local = self.get_original()
+                      ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\unittest\mock.py", line 1473, in get_original
+    raise AttributeError(
+        "%s does not have the attribute %r" % (target, name)
+    )
+AttributeError: <module 'novel_creator.storage' from 'C:\\Users\\BjarkiGunnarsson\\source\\repos\\Personal\\novel-creator\\src\\novel_creator\\storage.py'> does not have the attribute '_PARALLEL_HASH_MINIMUM'
+
+======================================================================
+ERROR: test_parallel_final_guard_rejects_same_stat_edits_and_root_redirection (tests.integration.test_storage.StorageTests.test_parallel_final_guard_rejects_same_stat_edits_and_root_redirection) (object_format='sha256')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 160, in test_parallel_final_guard_rejects_same_stat_edits_and_root_redirection
+    with patch.object(storage, '_PARALLEL_HASH_MINIMUM', 1), \
+         ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\unittest\mock.py", line 1503, in __enter__
+    original, local = self.get_original()
+                      ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\unittest\mock.py", line 1473, in get_original
+    raise AttributeError(
+        "%s does not have the attribute %r" % (target, name)
+    )
+AttributeError: <module 'novel_creator.storage' from 'C:\\Users\\BjarkiGunnarsson\\source\\repos\\Personal\\novel-creator\\src\\novel_creator\\storage.py'> does not have the attribute '_PARALLEL_HASH_MINIMUM'
+
+----------------------------------------------------------------------
+Ran 4 tests in 24.780s
+
+FAILED (errors=11)

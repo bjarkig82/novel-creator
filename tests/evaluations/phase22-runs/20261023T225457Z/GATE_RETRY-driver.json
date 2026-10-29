@@ -1,0 +1,7 @@
+{
+  "case_id": "GATE_RETRY",
+  "submitted": true,
+  "inputs": {
+    "en": "Administrative case GATE_RETRY. The parent independently observed that your previous final reply contained TWO trailing newline characters, while your saved assistant message had none. Preserve the previous failed observation and exchange unchanged. Repeat only the administrative capture/save/display gate with the exact prepared assistant text Evaluation workspace is ready. and NO leading or trailing whitespace. Retrieve this actual public current delegation with includeOutputs true, maxOutputCharsPerItem 20000. Use its data.text and input_artifact unchanged, production installed save, and print compact full save JSON to command output. Save a GATE_RETRY report and prepared payload before display. Do not add a creative record or start brainstorming. Display only the saved text with no trailing newline, report, Markdown, or unsaved suffix."
+  }
+}

@@ -1,0 +1,10 @@
+{"fixture": {"sessions": 100, "exchanges": 5000, "active_assertions": 10000, "json_bytes": 26215716, "synthetic": true, "fully_validated": true}, "source_sha256": "47c6eac0122d1076a91f21caeb253bf6721678f4e626fc0630ab069557e55304", "validation_sha256": "7e4c75ada3c3eaf3c196066ff657e5e5d9084abdd14a97b6e07c4f5d3b6bf517", "method": "ABBA/ABBA reconstruction from identical fully validated owned objects; four samples each, default GC; excludes JSON/Git/full save; no product change"}
+{"direct": false, "seconds": 0.020988200092688203, "records": 15101, "versions": 15101}
+{"direct": true, "seconds": 0.013664499972946942, "records": 15101, "versions": 15101}
+{"direct": true, "seconds": 0.009030699962750077, "records": 15101, "versions": 15101}
+{"direct": false, "seconds": 0.017755300039425492, "records": 15101, "versions": 15101}
+{"direct": false, "seconds": 0.01751110004261136, "records": 15101, "versions": 15101}
+{"direct": true, "seconds": 0.00892240006942302, "records": 15101, "versions": 15101}
+{"direct": true, "seconds": 0.00941440009046346, "records": 15101, "versions": 15101}
+{"direct": false, "seconds": 0.021183400065638125, "records": 15101, "versions": 15101}
+{"medians": {"False": 0.019371750066056848, "True": 0.009222550026606768}}

@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\evaluations\product-host-runs\20261023T202447Z\verify_resumption.py", line 31, in <module>
+    assert before == baseline, language
+           ^^^^^^^^^^^^^^^^^^
+AssertionError: en

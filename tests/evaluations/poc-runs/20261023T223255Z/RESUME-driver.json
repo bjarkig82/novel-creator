@@ -1,0 +1,7 @@
+{
+  "case_id": "RESUME",
+  "inputs": {
+    "en": "$novel-resume Resume this session and summarize the saved proposals and open questions. Pause after the summary; don't add new exploration.",
+    "is": "$novel-resume Taktu aftur upp þessa lotu og dragðu saman vistaðar tillögur og opnar spurningar. Staldraðu við eftir yfirlitið; ekki bæta við nýrri könnun."
+  }
+}

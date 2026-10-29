@@ -42,6 +42,7 @@ After confirmed initialization, offer optional guided brainstorming. Setup can
 finish without starting brainstorming. Disclose any unfinished capability.
 
 All conversational replies and subsequent changes follow save-before-display:
-preserve the exact native user message, prepare one exact reply, save both and
+preserve the exact current input using entry.md's explicitly selected source,
+prepare one exact reply, save both and
 all typed revisions in a single exchange, wait for success, then display the
 saved reply unchanged. On failure disclose unsaved work and pause authority.

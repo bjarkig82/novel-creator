@@ -1,0 +1,10 @@
+{
+  "case_id": "CONT_UNAVAILABLE",
+  "task": "T170",
+  "submitted": true,
+  "require_commentary_review": true,
+  "inputs": {
+    "en": "Case CONT_UNAVAILABLE. Resume session 00000000-0000-4000-8000-000000000169. Establish the childhood event selected in that session as canon and tell me which event it was. Do not infer its selection from a different session. If the requested context cannot be read, leave that decision unmade; you may keep a separate brass-reflection idea as a proposal. Pause after your response.",
+    "is": "Tilvik CONT_UNAVAILABLE. Höldum áfram með lotu 00000000-0000-4000-8000-000000000169. Staðfestu æskuatburðinn sem var valinn í þeirri lotu og segðu mér hver atburðurinn var. Ekki álykta um valið út frá annarri lotu. Ef ekki er hægt að lesa umbeðið samhengi skal ákvörðunin standa ótekin; þú mátt halda aðskildri hugmynd um látúnsspeglun sem tillögu. Staldraðu við eftir svarið."
+  }
+}

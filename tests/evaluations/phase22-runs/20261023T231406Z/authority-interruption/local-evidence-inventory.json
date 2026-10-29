@@ -1,0 +1,48 @@
+{
+  "en": [
+    {
+      "file": "AUTH_PARTIAL-report.json",
+      "sha256": "9b09a8bc29858160bb8a919856ec23444b7345f7da55838213d7e038e0e58d70"
+    },
+    {
+      "file": "AUTH_PARTIAL-payload.json",
+      "sha256": "6cc81574f3826b1243c610fdce47a2d245d033c4bb0b05ceaa3328b8ebd7150e",
+      "user_text_matches_submitted_driver": true,
+      "user_text_length": 454
+    },
+    {
+      "file": "AUTH_PARTIAL-input.json",
+      "sha256": "f60e160bca0d38b59cbd90d3e1f58786d49754febdecec07d112c1bd0df4ef9d",
+      "supplied_snapshot_text_matches_driver": true
+    },
+    {
+      "file": "AUTH_PARTIAL-capture.json",
+      "sha256": "766b44176eb417bc15760dbf336db8f8e0a25beb779b8a00b59e561e268960e6"
+    },
+    {
+      "file": "AUTH_PARTIAL-save.json",
+      "sha256": "a2a5cfdea002955d4432248c1a8439d2b60b6193e7a7aed86cb703d26f4e0b64"
+    }
+  ],
+  "is": [
+    {
+      "file": "AUTH_PARTIAL-interruption-report.json",
+      "sha256": "3647859ff135fee531633f826f44ebf496d224e6d3d56e7e3ef963b19cdac739"
+    },
+    {
+      "file": "AUTH_PARTIAL-payload.json",
+      "sha256": "9c9162e3fe60a0cd8ae0f0934072eb0ca7789fbff26614a551b06167042d333d",
+      "user_text_matches_submitted_driver": true,
+      "user_text_length": 465
+    },
+    {
+      "file": "AUTH_PARTIAL-input.json",
+      "sha256": "04a56cb5e0ee435286769d9143750c221c7dc8d50b04edbd5b3c9467c2291ec5",
+      "supplied_snapshot_text_matches_driver": true
+    },
+    {
+      "file": "AUTH_PARTIAL-capture.json",
+      "sha256": "1e6983c98cd71adc829ad1d61763b29829aea16aede0d8d67905927010d80692"
+    }
+  ]
+}

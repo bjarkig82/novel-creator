@@ -1,0 +1,32 @@
+{
+  "ok": true,
+  "scope": "Public delegated persistence/display/source checks only",
+  "case_filter": [
+    "GATE_RETRY"
+  ],
+  "all_submitted_cases_checked": false,
+  "semantic_assessment": "Separate agent judgments required; no human/native result inferred",
+  "cases": [
+    {
+      "case_id": "GATE_RETRY",
+      "language": "en",
+      "thread_id": "01a16af9-f289-73c1-8151-55f50ace05d9",
+      "turn_id": "01a16aff-455c-7d13-a700-cf777ecbfc76",
+      "exchange_id": "1cea29d6-e2c2-4e17-8a2c-b225b8f6eed6",
+      "checkpoint": {
+        "git_head": "ffb8757c5b8ad503b5682c0cb1460aa70bd0fd4e",
+        "exchange_id": "1cea29d6-e2c2-4e17-8a2c-b225b8f6eed6",
+        "sequence": 3
+      },
+      "exact_input_saved": true,
+      "exact_response_saved_and_displayed": true,
+      "save_precedes_display": true,
+      "source_type": "delegated",
+      "native_user_input": false,
+      "novice_evidence": false,
+      "current_installed_bundle_verified": true,
+      "record_kinds": [],
+      "response": "Evaluation workspace is ready."
+    }
+  ]
+}

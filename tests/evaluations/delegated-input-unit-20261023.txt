@@ -1,0 +1,10 @@
+test_delegated_text_and_committable_provenance_are_exact (tests.unit.test_host_input.HostInputTests.test_delegated_text_and_committable_provenance_are_exact) ... ok
+test_native_mode_remains_explicit_and_does_not_fall_back (tests.unit.test_host_input.HostInputTests.test_native_mode_remains_explicit_and_does_not_fall_back) ... ok
+test_provenance_cannot_mismatch_current_message_or_source_labels (tests.unit.test_host_input.HostInputTests.test_provenance_cannot_mismatch_current_message_or_source_labels) ... ok
+test_rejects_wrong_stale_ambiguous_truncated_and_malformed_sources (tests.unit.test_host_input.HostInputTests.test_rejects_wrong_stale_ambiguous_truncated_and_malformed_sources) ... ok
+test_replays_four_observed_public_events_without_reclassifying_them (tests.unit.test_host_input.HostInputTests.test_replays_four_observed_public_events_without_reclassifying_them) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.594s
+
+OK

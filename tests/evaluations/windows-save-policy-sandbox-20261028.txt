@@ -1,0 +1,249 @@
+test_read_target_is_still_required (tests.contract.test_benchmark_policy.BenchmarkPolicyTests.test_read_target_is_still_required) ... ERROR
+test_save_operation_failure_cannot_become_success (tests.contract.test_benchmark_policy.BenchmarkPolicyTests.test_save_operation_failure_cannot_become_success) ... ERROR
+test_save_timeout_cannot_become_success (tests.contract.test_benchmark_policy.BenchmarkPolicyTests.test_save_timeout_cannot_become_success) ... ERROR
+test_successful_slow_saves_are_measured_without_a_latency_pass_claim (tests.contract.test_benchmark_policy.BenchmarkPolicyTests.test_successful_slow_saves_are_measured_without_a_latency_pass_claim) ... ERROR
+
+======================================================================
+ERROR: test_read_target_is_still_required (tests.contract.test_benchmark_policy.BenchmarkPolicyTests.test_read_target_is_still_required)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\performance\benchmark_records.py", line 133, in benchmark_key
+    descriptor = os.open(key, os.O_CREAT | os.O_EXCL | os.O_WRONLY, 0o600)
+PermissionError: [Errno 13] Permission denied: 'C:\\Users\\BjarkiGunnarsson\\AppData\\Local\\Packages\\sandbox.{2956dc3d-993b-4946-8515-80c5d8a4ae66}\\AC\\Temp\\novel-benchmark-key-gwplqqix\\key'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\shutil.py", line 631, in _rmtree_unsafe
+    os.rmdir(path)
+    ~~~~~~~~^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\BjarkiGunnarsson\\AppData\\Local\\Packages\\sandbox.{2956dc3d-993b-4946-8515-80c5d8a4ae66}\\AC\\Temp\\novel-benchmark-key-gwplqqix'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\contract\test_benchmark_policy.py", line 34, in test_read_target_is_still_required
+    code, result = self.run_benchmark(warm_read=2.5)
+                   ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\contract\test_benchmark_policy.py", line 22, in run_benchmark
+    code = benchmark.main()
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\performance\benchmark_records.py", line 221, in main
+    result = worker(args.novel, args.worker) if args.worker else run(args)
+                                                                 ~~~^^^^^^
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\performance\benchmark_records.py", line 158, in run
+    with benchmark_key(not args.no_validation_cache), repository() as root:
+         ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\contextlib.py", line 141, in __enter__
+    return next(self.gen)
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\performance\benchmark_records.py", line 131, in benchmark_key
+    with tempfile.TemporaryDirectory(prefix='novel-benchmark-key-') as folder:
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\tempfile.py", line 951, in __exit__
+    self.cleanup()
+    ~~~~~~~~~~~~^^
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\tempfile.py", line 955, in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\tempfile.py", line 935, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\shutil.py", line 790, in rmtree
+    return _rmtree_unsafe(path, onexc)
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\shutil.py", line 635, in _rmtree_unsafe
+    onexc(os.rmdir, path, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\tempfile.py", line 907, in onexc
+    _resetperms(path)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\tempfile.py", line 283, in _resetperms
+    _dont_follow_symlinks(_os.chmod, path, 0o700)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\tempfile.py", line 272, in _dont_follow_symlinks
+    func(path, *args, follow_symlinks=False)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\BjarkiGunnarsson\\AppData\\Local\\Packages\\sandbox.{2956dc3d-993b-4946-8515-80c5d8a4ae66}\\AC\\Temp\\novel-benchmark-key-gwplqqix'
+
+======================================================================
+ERROR: test_save_operation_failure_cannot_become_success (tests.contract.test_benchmark_policy.BenchmarkPolicyTests.test_save_operation_failure_cannot_become_success)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\performance\benchmark_records.py", line 133, in benchmark_key
+    descriptor = os.open(key, os.O_CREAT | os.O_EXCL | os.O_WRONLY, 0o600)
+PermissionError: [Errno 13] Permission denied: 'C:\\Users\\BjarkiGunnarsson\\AppData\\Local\\Packages\\sandbox.{2956dc3d-993b-4946-8515-80c5d8a4ae66}\\AC\\Temp\\novel-benchmark-key-1zylmnqh\\key'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\shutil.py", line 631, in _rmtree_unsafe
+    os.rmdir(path)
+    ~~~~~~~~^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\BjarkiGunnarsson\\AppData\\Local\\Packages\\sandbox.{2956dc3d-993b-4946-8515-80c5d8a4ae66}\\AC\\Temp\\novel-benchmark-key-1zylmnqh'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\contract\test_benchmark_policy.py", line 45, in test_save_operation_failure_cannot_become_success
+    code, result = self.run_benchmark(save=dict(status='error', returncode=5))
+                   ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\contract\test_benchmark_policy.py", line 22, in run_benchmark
+    code = benchmark.main()
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\performance\benchmark_records.py", line 221, in main
+    result = worker(args.novel, args.worker) if args.worker else run(args)
+                                                                 ~~~^^^^^^
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\performance\benchmark_records.py", line 158, in run
+    with benchmark_key(not args.no_validation_cache), repository() as root:
+         ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\contextlib.py", line 141, in __enter__
+    return next(self.gen)
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\performance\benchmark_records.py", line 131, in benchmark_key
+    with tempfile.TemporaryDirectory(prefix='novel-benchmark-key-') as folder:
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\tempfile.py", line 951, in __exit__
+    self.cleanup()
+    ~~~~~~~~~~~~^^
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\tempfile.py", line 955, in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\tempfile.py", line 935, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\shutil.py", line 790, in rmtree
+    return _rmtree_unsafe(path, onexc)
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\shutil.py", line 635, in _rmtree_unsafe
+    onexc(os.rmdir, path, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\tempfile.py", line 907, in onexc
+    _resetperms(path)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\tempfile.py", line 283, in _resetperms
+    _dont_follow_symlinks(_os.chmod, path, 0o700)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\tempfile.py", line 272, in _dont_follow_symlinks
+    func(path, *args, follow_symlinks=False)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\BjarkiGunnarsson\\AppData\\Local\\Packages\\sandbox.{2956dc3d-993b-4946-8515-80c5d8a4ae66}\\AC\\Temp\\novel-benchmark-key-1zylmnqh'
+
+======================================================================
+ERROR: test_save_timeout_cannot_become_success (tests.contract.test_benchmark_policy.BenchmarkPolicyTests.test_save_timeout_cannot_become_success)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\performance\benchmark_records.py", line 133, in benchmark_key
+    descriptor = os.open(key, os.O_CREAT | os.O_EXCL | os.O_WRONLY, 0o600)
+PermissionError: [Errno 13] Permission denied: 'C:\\Users\\BjarkiGunnarsson\\AppData\\Local\\Packages\\sandbox.{2956dc3d-993b-4946-8515-80c5d8a4ae66}\\AC\\Temp\\novel-benchmark-key-fwy61w9y\\key'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\shutil.py", line 631, in _rmtree_unsafe
+    os.rmdir(path)
+    ~~~~~~~~^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\BjarkiGunnarsson\\AppData\\Local\\Packages\\sandbox.{2956dc3d-993b-4946-8515-80c5d8a4ae66}\\AC\\Temp\\novel-benchmark-key-fwy61w9y'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\contract\test_benchmark_policy.py", line 39, in test_save_timeout_cannot_become_success
+    code, result = self.run_benchmark(save=dict(status='timeout', elapsed_lower_bound_seconds=30))
+                   ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\contract\test_benchmark_policy.py", line 22, in run_benchmark
+    code = benchmark.main()
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\performance\benchmark_records.py", line 221, in main
+    result = worker(args.novel, args.worker) if args.worker else run(args)
+                                                                 ~~~^^^^^^
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\performance\benchmark_records.py", line 158, in run
+    with benchmark_key(not args.no_validation_cache), repository() as root:
+         ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\contextlib.py", line 141, in __enter__
+    return next(self.gen)
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\performance\benchmark_records.py", line 131, in benchmark_key
+    with tempfile.TemporaryDirectory(prefix='novel-benchmark-key-') as folder:
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\tempfile.py", line 951, in __exit__
+    self.cleanup()
+    ~~~~~~~~~~~~^^
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\tempfile.py", line 955, in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\tempfile.py", line 935, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\shutil.py", line 790, in rmtree
+    return _rmtree_unsafe(path, onexc)
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\shutil.py", line 635, in _rmtree_unsafe
+    onexc(os.rmdir, path, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\tempfile.py", line 907, in onexc
+    _resetperms(path)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\tempfile.py", line 283, in _resetperms
+    _dont_follow_symlinks(_os.chmod, path, 0o700)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\tempfile.py", line 272, in _dont_follow_symlinks
+    func(path, *args, follow_symlinks=False)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\BjarkiGunnarsson\\AppData\\Local\\Packages\\sandbox.{2956dc3d-993b-4946-8515-80c5d8a4ae66}\\AC\\Temp\\novel-benchmark-key-fwy61w9y'
+
+======================================================================
+ERROR: test_successful_slow_saves_are_measured_without_a_latency_pass_claim (tests.contract.test_benchmark_policy.BenchmarkPolicyTests.test_successful_slow_saves_are_measured_without_a_latency_pass_claim)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\performance\benchmark_records.py", line 133, in benchmark_key
+    descriptor = os.open(key, os.O_CREAT | os.O_EXCL | os.O_WRONLY, 0o600)
+PermissionError: [Errno 13] Permission denied: 'C:\\Users\\BjarkiGunnarsson\\AppData\\Local\\Packages\\sandbox.{2956dc3d-993b-4946-8515-80c5d8a4ae66}\\AC\\Temp\\novel-benchmark-key-bxyxlzat\\key'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\shutil.py", line 631, in _rmtree_unsafe
+    os.rmdir(path)
+    ~~~~~~~~^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\BjarkiGunnarsson\\AppData\\Local\\Packages\\sandbox.{2956dc3d-993b-4946-8515-80c5d8a4ae66}\\AC\\Temp\\novel-benchmark-key-bxyxlzat'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\contract\test_benchmark_policy.py", line 26, in test_successful_slow_saves_are_measured_without_a_latency_pass_claim
+    code, result = self.run_benchmark()
+                   ~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\contract\test_benchmark_policy.py", line 22, in run_benchmark
+    code = benchmark.main()
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\performance\benchmark_records.py", line 221, in main
+    result = worker(args.novel, args.worker) if args.worker else run(args)
+                                                                 ~~~^^^^^^
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\performance\benchmark_records.py", line 158, in run
+    with benchmark_key(not args.no_validation_cache), repository() as root:
+         ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\contextlib.py", line 141, in __enter__
+    return next(self.gen)
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\performance\benchmark_records.py", line 131, in benchmark_key
+    with tempfile.TemporaryDirectory(prefix='novel-benchmark-key-') as folder:
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\tempfile.py", line 951, in __exit__
+    self.cleanup()
+    ~~~~~~~~~~~~^^
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\tempfile.py", line 955, in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\tempfile.py", line 935, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\shutil.py", line 790, in rmtree
+    return _rmtree_unsafe(path, onexc)
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\shutil.py", line 635, in _rmtree_unsafe
+    onexc(os.rmdir, path, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\tempfile.py", line 907, in onexc
+    _resetperms(path)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\tempfile.py", line 283, in _resetperms
+    _dont_follow_symlinks(_os.chmod, path, 0o700)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\tempfile.py", line 272, in _dont_follow_symlinks
+    func(path, *args, follow_symlinks=False)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\BjarkiGunnarsson\\AppData\\Local\\Packages\\sandbox.{2956dc3d-993b-4946-8515-80c5d8a4ae66}\\AC\\Temp\\novel-benchmark-key-bxyxlzat'
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.521s
+
+FAILED (errors=4)

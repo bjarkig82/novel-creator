@@ -98,7 +98,8 @@ class ExchangeValidator:
     def _append_certified(self, owned):
         """Only the committed reader may use this after authenticating exact blobs."""
         messages = {(owned['exchange_id'], m['message_id']): m for m in owned['messages']}
-        artifacts = {(owned['exchange_id'], a['artifact_id']): a for a in owned['input_artifacts']}
+        artifacts = ({(owned['exchange_id'], a['artifact_id']): a for a in owned['input_artifacts']}
+                     if owned['operation'] == 'bootstrap' else {})
         identifiers = {owned['exchange_id'], *(m['message_id'] for m in owned['messages']),
                        *(a['artifact_id'] for a in owned['input_artifacts'])}
         self._remember(owned, {r['id']: r for r in owned['record_versions']}, messages, artifacts, identifiers)
@@ -137,7 +138,15 @@ def _sources(exchange, occupied, *, include_exchange=True):
             records.loads(artifact['original_text']) != artifact['parsed_value']):
             raise ValueError('Bootstrap artifact content/digest mismatch')
         if exchange['operation'] != 'bootstrap':
-            raise ValueError('Input artifacts belong to bootstrap')
+            from .host_input import validate_provenance
+            if len(exchange['input_artifacts']) != 1:
+                raise ValueError('Conversation accepts only one host-input evidence artifact')
+            users = [m for m in exchange['messages'] if m['role'] == 'user']
+            if len(users) != 1:
+                raise ValueError('Host-input evidence requires exactly one current user message')
+            validate_provenance(artifact['parsed_value'], users[0]['text'])
+            # Evidence is retained, but never registered as a bootstrap source.
+            continue
         artifacts[(exchange['exchange_id'], artifact['artifact_id'])] = artifact
     return messages, artifacts, identifiers
 

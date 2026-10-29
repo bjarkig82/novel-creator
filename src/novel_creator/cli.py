@@ -32,6 +32,14 @@ def parser():
     init = commands.add_parser("init")
     init.add_argument("--path", required=True)
     init.add_argument("--brief-file", required=True)
+    capture = commands.add_parser('input').add_subparsers(dest='action', required=True).add_parser('capture')
+    capture.add_argument('--capture-file', required=True)
+    capture.add_argument('--source', choices=('native_user', 'delegated'), required=True)
+    capture.add_argument('--thread-id', required=True)
+    capture.add_argument('--turn-id', required=True)
+    capture.add_argument('--source-thread-id')
+    capture.add_argument('--evaluation-only', action='store_true')
+    capture.add_argument('--json', action='store_true')
     exchange = commands.add_parser("exchange").add_subparsers(dest="action", required=True)
     save = exchange.add_parser("save")
     save.add_argument("--input", required=True)
@@ -58,8 +66,25 @@ def parser():
 
 
 def main(argv=None):
+    # JSON is a UTF-8 interface regardless of terminal locale or Python's
+    # UTF-8 mode (which isolated interpreters ignore in the environment).
+    # Embedded callers may supply StringIO streams without reconfigure.
+    for stream in (sys.stdout, sys.stderr):
+        if hasattr(stream, 'reconfigure'):
+            stream.reconfigure(encoding='utf-8')
     try:
         args = parser().parse_args(argv)
+        if args.command == 'input':
+            from pathlib import Path
+            from . import host_input, records
+            try:
+                data = host_input.capture(records.loads(Path(args.capture_file).read_bytes()),
+                    thread_id=args.thread_id, turn_id=args.turn_id, source=args.source,
+                    source_thread_id=args.source_thread_id, evaluation_only=args.evaluation_only)
+            except (ValueError, TypeError) as error:
+                raise ToolError(2, str(error)) from error
+            print(json.dumps({'ok': True, 'data': data}, ensure_ascii=False, allow_nan=False))
+            return 0
         if args.command == 'init':
             from pathlib import Path
             from .install import initialize

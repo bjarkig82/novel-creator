@@ -1,0 +1,14 @@
+[
+  {
+    "id": "msg_077138367b8a5910016ae1cd43a60081918480a4a9bc927ab6",
+    "text": "Ég sæki vistað samhengi og heimildir og undirbý ákvarðanirnar og yfirferðina til vistunar.",
+    "classification": "administrative",
+    "reason": "Reviewed operational context, preparation, reference checks and save/retry status; no story disclosed before confirmed save."
+  },
+  {
+    "id": "msg_077138367b8a5910016ae1cd7e17548191b782026c6de10c82",
+    "text": "Ég vinn áfram við undirbúninginn og sannreyni tilvísanir og fyrri útgáfur áður en ég reyni vistun.",
+    "classification": "administrative",
+    "reason": "Reviewed operational context, preparation, reference checks and save/retry status; no story disclosed before confirmed save."
+  }
+]

@@ -1,0 +1,47 @@
+test_candidate_rejects_corrupt_blob_with_equivalent_json_for_both_object_formats (tests.integration.test_candidate.CandidateTests.test_candidate_rejects_corrupt_blob_with_equivalent_json_for_both_object_formats) ... 
+  test_candidate_rejects_corrupt_blob_with_equivalent_json_for_both_object_formats (tests.integration.test_candidate.CandidateTests.test_candidate_rejects_corrupt_blob_with_equivalent_json_for_both_object_formats) (object_format='sha1') ... FAIL
+  test_candidate_rejects_corrupt_blob_with_equivalent_json_for_both_object_formats (tests.integration.test_candidate.CandidateTests.test_candidate_rejects_corrupt_blob_with_equivalent_json_for_both_object_formats) (object_format='sha256') ... FAIL
+test_save_rejects_corrupt_new_blob_without_publication_then_retries_once (tests.integration.test_candidate.CandidateTests.test_save_rejects_corrupt_new_blob_without_publication_then_retries_once) ... 
+  test_save_rejects_corrupt_new_blob_without_publication_then_retries_once (tests.integration.test_candidate.CandidateTests.test_save_rejects_corrupt_new_blob_without_publication_then_retries_once) (object_format='sha1') ... FAIL
+  test_save_rejects_corrupt_new_blob_without_publication_then_retries_once (tests.integration.test_candidate.CandidateTests.test_save_rejects_corrupt_new_blob_without_publication_then_retries_once) (object_format='sha256') ... FAIL
+
+======================================================================
+FAIL: test_candidate_rejects_corrupt_blob_with_equivalent_json_for_both_object_formats (tests.integration.test_candidate.CandidateTests.test_candidate_rejects_corrupt_blob_with_equivalent_json_for_both_object_formats) (object_format='sha1')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_candidate.py", line 65, in test_candidate_rejects_corrupt_blob_with_equivalent_json_for_both_object_formats
+    with self.assertRaises(ToolError) as error:
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+AssertionError: ToolError not raised
+
+======================================================================
+FAIL: test_candidate_rejects_corrupt_blob_with_equivalent_json_for_both_object_formats (tests.integration.test_candidate.CandidateTests.test_candidate_rejects_corrupt_blob_with_equivalent_json_for_both_object_formats) (object_format='sha256')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_candidate.py", line 65, in test_candidate_rejects_corrupt_blob_with_equivalent_json_for_both_object_formats
+    with self.assertRaises(ToolError) as error:
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+AssertionError: ToolError not raised
+
+======================================================================
+FAIL: test_save_rejects_corrupt_new_blob_without_publication_then_retries_once (tests.integration.test_candidate.CandidateTests.test_save_rejects_corrupt_new_blob_without_publication_then_retries_once) (object_format='sha1')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_candidate.py", line 91, in test_save_rejects_corrupt_new_blob_without_publication_then_retries_once
+    with self.assertRaises(ToolError) as error:
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+AssertionError: ToolError not raised
+
+======================================================================
+FAIL: test_save_rejects_corrupt_new_blob_without_publication_then_retries_once (tests.integration.test_candidate.CandidateTests.test_save_rejects_corrupt_new_blob_without_publication_then_retries_once) (object_format='sha256')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_candidate.py", line 91, in test_save_rejects_corrupt_new_blob_without_publication_then_retries_once
+    with self.assertRaises(ToolError) as error:
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+AssertionError: ToolError not raised
+
+----------------------------------------------------------------------
+Ran 2 tests in 6.842s
+
+FAILED (failures=4)

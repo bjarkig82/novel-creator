@@ -1,0 +1,7 @@
+PASS: installed recover help exposes documented flags
+PASS: pending inspection is read-only and reports an unborn checkpoint
+PASS: retry requires an explicit matching checkpoint
+PASS: unchanged unborn retry publishes bootstrap exactly once
+PASS: published cleanup and repeated retry retain the commit without replay
+PASS: changed pending contents conflict and remain untouched
+All documented recovery command checks passed; no host/human judgment asserted.

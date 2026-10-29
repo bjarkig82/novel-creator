@@ -1,0 +1,58 @@
+{
+  "ok": true,
+  "scope": "Public delegated persistence/display/source checks only",
+  "case_filter": [
+    "GATE_R2"
+  ],
+  "all_submitted_cases_checked": false,
+  "semantic_assessment": "Separate agent judgments required; no human/native result inferred",
+  "cases": [
+    {
+      "case_id": "GATE_R2",
+      "language": "en",
+      "thread_id": "01a16af9-f289-73c1-8151-55f50ace05d9",
+      "turn_id": "01a16b0b-a34e-7b90-9302-bd01057f8914",
+      "exchange_id": "35427a40-8dd1-4a2b-97de-05095d3f7599",
+      "checkpoint": {
+        "git_head": "9a175545c6a94e1362e415acd58acbd159a85f1c",
+        "exchange_id": "35427a40-8dd1-4a2b-97de-05095d3f7599",
+        "sequence": 2
+      },
+      "exact_input_saved": true,
+      "exact_response_saved_and_displayed": true,
+      "save_precedes_display": true,
+      "source_type": "delegated",
+      "native_user_input": false,
+      "novice_evidence": false,
+      "installed_bundle_verified": true,
+      "installed_bundle_matches_current_source": true,
+      "commentary_agent_reviewed": true,
+      "record_kinds": [],
+      "response": "Evaluation workspace is ready."
+    },
+    {
+      "case_id": "GATE_R2",
+      "language": "is",
+      "thread_id": "01a16afa-1197-7650-8189-9365687429ee",
+      "turn_id": "01a16b0b-b2e7-7b00-b686-faedead405fa",
+      "exchange_id": "153c9eeb-6424-4e44-9703-98e9708d1773",
+      "checkpoint": {
+        "git_head": "ec6166d763cdacc10468919e4e7769ef55820cf2",
+        "exchange_id": "153c9eeb-6424-4e44-9703-98e9708d1773",
+        "sequence": 2
+      },
+      "exact_input_saved": true,
+      "exact_response_saved_and_displayed": true,
+      "save_precedes_display": true,
+      "source_type": "delegated",
+      "native_user_input": false,
+      "novice_evidence": false,
+      "installed_bundle_verified": true,
+      "installed_bundle_matches_current_source": true,
+      "commentary_agent_reviewed": true,
+      "record_kinds": [],
+      "response": "Evaluation workspace is ready."
+    }
+  ],
+  "failures": []
+}

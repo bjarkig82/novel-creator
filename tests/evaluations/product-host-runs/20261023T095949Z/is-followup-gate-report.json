@@ -1,0 +1,29 @@
+{
+  "status": "gate_unavailable",
+  "task_thread_id": "01a16833-fa8e-7ec1-9c69-53dc7eaec197",
+  "native_turn_id": "01a16835-30a7-7ee1-9421-c444c993dd51",
+  "request": {
+    "threadId": "01a16833-fa8e-7ec1-9c69-53dc7eaec197",
+    "turnLimit": 1,
+    "includeOutputs": false,
+    "maxOutputCharsPerItem": 20000
+  },
+  "observed_public_items": [
+    {
+      "type": "functionCallOutput",
+      "id": "fco_01a16835-30a8-7030-a405-fbdf8eada5d9"
+    },
+    {
+      "type": "agentMessage",
+      "id": "msg_03f28ef340572410016adb30727328819185b296695d5eeba0"
+    },
+    {
+      "type": "commandExecution",
+      "id": "exec-ac1b5d4b-0927-48d1-8e88-52187a9f61c1"
+    }
+  ],
+  "reason": "Current turn contains a delegated functionCallOutput and no native userMessage. No preview, quoted prompt, driver string or tool output was interpreted as native user input.",
+  "novel_initialized": false,
+  "conversation_saved": false,
+  "initial_report_preserved": true
+}

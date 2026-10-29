@@ -1,0 +1,13 @@
+{
+  "source_sha256": "16de2fab76922e9252924eada706c7a8d5071875c68e155279192edd749b5828",
+  "source_layout": "copied runtime and schema bytes on /tmp ext4; no framework Git authority copied",
+  "fixture_location": "/tmp ext4",
+  "python": "/home/bjarki/.cache/novel-creator-verification/run.I6IApw/.venv/bin/python",
+  "selected_runtime": {
+    "runtime": "/tmp/novel-overlap-reference-source-x8ttdd2o/src/novel_creator/storage.py",
+    "schemas": "/tmp/novel-overlap-reference-source-x8ttdd2o/src/novel_creator/schemas/v1"
+  },
+  "exit_code": 1,
+  "wall_seconds": 84.266477476,
+  "source_unchanged": true
+}

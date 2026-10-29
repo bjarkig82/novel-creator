@@ -1,0 +1,12 @@
+import hashlib,json,subprocess
+from pathlib import Path
+paths=['src/novel_creator/storage.py','src/novel_creator/validation.py','tests/performance/benchmark_records.py','tests/integration/test_storage.py','tests/helpers.py']
+def hashes():return {p:hashlib.sha256(Path(p).read_bytes()).hexdigest() for p in paths}
+manifest={'before':hashes()}
+command=['wsl.exe','--cd','/mnt/c/Users/BjarkiGunnarsson/source/repos/Personal/novel-creator','/usr/bin/env','PYTHONPATH=src','PYTHONDONTWRITEBYTECODE=1','TMPDIR=/tmp','/home/bjarki/.cache/novel-creator-verification/run.I6IApw/.venv/bin/python','-B','-m','unittest','discover','-v']
+with Path('tests/evaluations/linux-history-read-full-tests-20261022.txt').open('w',encoding='utf-8') as log:
+ result=subprocess.run(command,stdout=log,stderr=subprocess.STDOUT)
+manifest.update(argv=command,exit=result.returncode,after=hashes());manifest['unchanged']=manifest['before']==manifest['after']
+Path('tests/evaluations/linux-history-read-verification-20261022.json').write_text(json.dumps(manifest,indent=2)+'\n')
+assert manifest['unchanged']
+raise SystemExit(result.returncode)

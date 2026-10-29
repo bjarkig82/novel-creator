@@ -1,0 +1,21 @@
+{
+  "case_id": "LANG_GUIDANCE",
+  "task": "T171",
+  "submitted": false,
+  "require_commentary_review": true,
+  "inputs": {
+    "en": "Case LANG_GUIDANCE. Fewer suggestions, please. Beinum sjónum að æsku Ægis.\n\nPause after your response.",
+    "is": "Case LANG_GUIDANCE. Færri tillögur, please. Beinum sjónum að æsku Ægis.\n\nPause after your response."
+  },
+  "task_overrides": {
+    "en": {
+      "novel_path": "C:\\Users\\BjarkiGunnarsson\\Documents\\Codex\\2026-10-23\\novel-phase22-en-20261023\\language-pitfalls-novel"
+    },
+    "is": {
+      "novel_path": "C:\\Users\\BjarkiGunnarsson\\Documents\\Codex\\2026-10-23\\novel-phase22-is-20261023\\language-pitfalls-novel"
+    }
+  },
+  "fixture_ids": [
+    "L06"
+  ]
+}

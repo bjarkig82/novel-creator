@@ -1,0 +1,66 @@
+"""Full-guard experiment: all metadata remains before full-byte hashes."""
+import hashlib,inspect,json,statistics,sys,time
+from pathlib import Path
+sys.path.insert(0,str(Path.cwd()))
+from novel_creator import records,storage
+from novel_creator.context import read
+from tests.helpers import repository,git
+from tests.performance import benchmark_records as benchmark
+source=inspect.getsource(storage.check_managed)
+start=source.index('        payload = ')
+end=source.index('        if any(current != oid',start)
+replacement='''        def hash_chunk(chunk):
+            payload = ''.join(json.dumps(path, ensure_ascii=False) + '\\n' for path, _ in chunk).encode()
+            values = git(root, 'hash-object', '--no-filters', '--stdin-paths', input=payload,
+                         env={'GIT_WORK_TREE': str(root)}).decode().splitlines()
+            if len(values) != len(chunk):
+                raise ToolError(5, 'Managed file hashing returned an incomplete result')
+            return values
+        size = max(1, (len(managed) + _workers - 1) // _workers)
+        # The complete original metadata loop precedes process submission.
+        with ThreadPoolExecutor(max_workers=_workers) as executor:
+            futures = [executor.submit(hash_chunk, managed[offset:offset + size])
+                       for offset in range(0, len(managed), size)]
+            hashes = [oid for future in futures for oid in future.result()]
+'''
+source=source[:start]+replacement+source[end:]
+source=source.replace('def check_managed(root, commit, paths, *, entries=None):','def parallel_hash_guard(root, commit, paths, *, entries=None, _workers=2):',1)
+namespace=dict(storage.__dict__);exec(compile(source,'<parallel-hash-experiment>','exec'),namespace)
+parallel=namespace['parallel_hash_guard']
+import threading
+from unittest.mock import patch
+with benchmark.benchmark_key(True),repository() as root:
+    novel_id=records.loads((root/'.novel-creator/manifest.json').read_bytes())['novel_id']
+    history,fixture=benchmark.generate(novel_id)
+    for exchange in history:
+        target=root/storage.bundle_path(exchange);target.parent.mkdir(parents=True,exist_ok=True);target.write_bytes(benchmark.serialized(exchange))
+    git(root,'add','--','story/exchanges');git(root,'commit','-m','Disposable parallel hash save comparison');git(root,'repack','-ad')
+    del history,exchange
+    read(root);fixture['fully_validated']=True
+    frozen=hashlib.sha256(Path(storage.__file__).read_bytes()).hexdigest()
+    print(json.dumps({'fixture':fixture,'source_sha256':frozen,'method':'Balanced complete saves; parallel hashes only in final guard; four samples/configuration; not p95'}),flush=True)
+    samples={0:[],2:[],4:[]}
+    original_guard=storage.check_managed
+    original_git=storage.git
+    for workers in [0,2,4,4,2,0]*2:
+        prior=storage.read_history(root)
+        exchange=records.new_exchange(prior[0]['novel_id'],previous=prior[-1],expected_head=storage.head(root),messages=[{'message_id':benchmark.uid(),'role':'user','text':'Continue the benchmark.'},{'message_id':benchmark.uid(),'role':'assistant','text':'Benchmark continuation.'}])
+        exchange['payload_digest']=records.digest(exchange)
+        events=[];guards=[]
+        def traced(root,*args,**kwargs):
+            started=time.perf_counter()
+            try:return original_git(root,*args,**kwargs)
+            finally:events.append({'command':args[0],'seconds':time.perf_counter()-started})
+        def guarded(*args,**kwargs):
+            selected=workers if threading.current_thread() is threading.main_thread() else 0
+            guards.append(selected)
+            return parallel(*args,**kwargs,_workers=selected) if selected else original_guard(*args,**kwargs)
+        namespace['git']=traced
+        with patch.object(storage,'git',traced),patch.object(storage,'check_managed',guarded):
+            started=time.perf_counter();result=storage.save(root,exchange);elapsed=time.perf_counter()-started
+        assert not result['data']['cleanup_required']
+        assert guards==[0,workers],guards
+        samples[workers].append(elapsed)
+        print(json.dumps({'workers':workers,'seconds':elapsed,'guards':guards,'sequence':result['checkpoint']['sequence'],'git':events}),flush=True)
+    print(json.dumps({'medians':{str(k):statistics.median(v) for k,v in samples.items()}}),flush=True)
+    assert frozen==hashlib.sha256(Path(storage.__file__).read_bytes()).hexdigest()

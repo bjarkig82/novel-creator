@@ -1,0 +1,6 @@
+@echo off
+call "C:\Program Files\Microsoft Visual Studio\18\Professional\VC\Auxiliary\Build\vcvars64.bat"
+if errorlevel 1 exit /b 1
+set "PATH=%VCToolsInstallDir%bin\Hostx64\x64;C:\Program Files\Git\usr\bin;%PATH%"
+"%~dp0tools\cmake-4.4.4-windows-x86_64\bin\cmake.exe" --build "%~dp0git-build-v2" --target git
+exit /b %errorlevel%

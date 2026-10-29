@@ -1,0 +1,16 @@
+test_success_and_error_json_remain_utf8_with_legacy_stdio (tests.contract.test_cli_encoding.CliEncodingContract.test_success_and_error_json_remain_utf8_with_legacy_stdio) ... ok
+test_held_lock_json_discloses_pending_id_and_only_verifiable_checkpoint (tests.contract.test_cli.CliContract.test_held_lock_json_discloses_pending_id_and_only_verifiable_checkpoint) ... ok
+test_help (tests.contract.test_cli.CliContract.test_help) ... ok
+test_invalid_arguments_are_single_json_error (tests.contract.test_cli.CliContract.test_invalid_arguments_are_single_json_error) ... ok
+test_malformed_input_is_json_error_not_traceback (tests.contract.test_cli.CliContract.test_malformed_input_is_json_error_not_traceback) ... ok
+test_malformed_stored_data_returns_one_unavailable_json_error (tests.contract.test_cli.CliContract.test_malformed_stored_data_returns_one_unavailable_json_error) ... ok
+test_published_save_with_lock_cleanup_failure_is_cli_success (tests.contract.test_cli.CliContract.test_published_save_with_lock_cleanup_failure_is_cli_success) ... ok
+test_save_and_retry_through_subprocess (tests.contract.test_cli.CliContract.test_save_and_retry_through_subprocess) ... ok
+test_stale_write_json_includes_expected_and_actual_heads (tests.contract.test_cli.CliContract.test_stale_write_json_includes_expected_and_actual_heads) ... ok
+test_unavailable_journal_error_discloses_last_valid_checkpoint (tests.contract.test_cli.CliContract.test_unavailable_journal_error_discloses_last_valid_checkpoint) ... ok
+test_isolated_interpreter_loads_every_product_module_from_novel_bundle (tests.integration.test_portable_install.PortableInstallTests.test_isolated_interpreter_loads_every_product_module_from_novel_bundle) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 44.697s
+
+OK

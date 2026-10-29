@@ -1,0 +1,19 @@
+{"fixture": {"sessions": 100, "exchanges": 5000, "active_assertions": 10000, "json_bytes": 26215716, "synthetic": true, "fully_validated": true}, "source_sha256": "f1d19709666eba8678ba496c0ec7418c723e4211d0e96a4b819549b2aa809e90"}
+{"operation": "bulk-read", "wide_pipe": false, "seconds": 0.5865669000195339}
+{"operation": "bulk-read", "wide_pipe": true, "seconds": 0.5596639000577852}
+{"operation": "bulk-read", "wide_pipe": true, "seconds": 0.5246783000184223}
+{"operation": "bulk-read", "wide_pipe": false, "seconds": 0.5994517999934033}
+{"operation": "bulk-read", "wide_pipe": false, "seconds": 0.6136532000964507}
+{"operation": "bulk-read", "wide_pipe": true, "seconds": 0.5510068000294268}
+{"operation": "bulk-read", "wide_pipe": true, "seconds": 0.5358626999659464}
+{"operation": "bulk-read", "wide_pipe": false, "seconds": 0.5947113999864087}
+{"bulk_read_medians": {"False": 0.597081599989906, "True": 0.5434347499976866}}
+{"operation": "full-file-guard", "relative_paths": false, "seconds": 0.7133140999358147}
+{"operation": "full-file-guard", "relative_paths": true, "seconds": 0.39982470008544624}
+{"operation": "full-file-guard", "relative_paths": true, "seconds": 0.3849835000000894}
+{"operation": "full-file-guard", "relative_paths": false, "seconds": 0.4510440999874845}
+{"operation": "full-file-guard", "relative_paths": false, "seconds": 0.45283520000521094}
+{"operation": "full-file-guard", "relative_paths": true, "seconds": 0.409542299923487}
+{"operation": "full-file-guard", "relative_paths": true, "seconds": 0.41553759993985295}
+{"operation": "full-file-guard", "relative_paths": false, "seconds": 0.44217629998456687}
+{"guard_medians": {"False": 0.4519396499963477, "True": 0.4046835000044666}}

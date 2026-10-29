@@ -1,0 +1,24 @@
+{
+  "runtime_test_harness_sha256_unchanged": {
+    "src/novel_creator/storage.py": "69ff00ee3e3a864a458f8c26074e241932911f58c654551afb1b22285eba3035",
+    "tests/performance/benchmark_records.py": "7f69593cbee6330af1cb67261f662db8d186cc6d00787d3710d002a8430650f2",
+    "tests/integration/test_storage.py": "a76de5ee18e7083b4dc8eb94af12311eb591a06b5a2a89ea6f989acba5fb658f",
+    "tests/helpers.py": "b6ddda217adb87a43d14dcd7be46e3cab76b5aa4023ec41b6e4eb509d8ed9be5"
+  },
+  "diagnostic_process_exit_codes": {
+    "parser": 0,
+    "stage_timings": 0,
+    "parallel_metadata": 0
+  },
+  "evidence_sha256": {
+    "windows-json-batch-parser-diagnostic-20261022.txt": "179aa8f29f478ac1368f62624a0c5a7bce9d416200099f2c69637d89ef9ba9c5",
+    "windows-json-batch-parser-source-20261022.txt": "5f1befb543a85bfb7194bd99d5f532138367866a8c8e97d885c128042ab25567",
+    "windows-current-save-stages-20261022.jsonl": "0baa4fb4cb16f39d4a205663e0c720497d4a4ceacd477138b2f8ded890bef2f0",
+    "windows-current-save-stages-source-20261022.txt": "998acaf3f1671accb096fe17ca34250f9ade5d46ddd190694986975d78a7c549",
+    "windows-parallel-metadata-diagnostic-20261022.txt": "3eede714909fecc75a4458eda02e1b1df35e0a0da641548ef6e86d12468f3e4c",
+    "windows-parallel-metadata-source-20261022.txt": "8f1a774f30010e8551dd67fe9f282b494cc2a8d6b0a434192a467c832357a736",
+    "windows-path-allocation-retained-source-20261022.txt": "69ff00ee3e3a864a458f8c26074e241932911f58c654551afb1b22285eba3035",
+    "windows-save-critical-path-20261022.md": "e7929199318630b750478be18b5e29c8d0b7f7ea994da826b845d10d7ee48214"
+  },
+  "scope": "diagnostic evidence only; no new source/test/harness change or p95 claim"
+}

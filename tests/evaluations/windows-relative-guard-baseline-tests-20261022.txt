@@ -1,0 +1,6 @@
+test_full_file_guard_uses_novel_root_and_fresh_bytes_and_index (tests.integration.test_storage.StorageTests.test_full_file_guard_uses_novel_root_and_fresh_bytes_and_index) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 3.885s
+
+OK

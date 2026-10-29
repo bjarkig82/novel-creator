@@ -1,0 +1,20 @@
+[
+  {
+    "id": "msg_077138367b8a5910016ae1ca94ecec8191be5e67e515bcbff0",
+    "text": "Ég sæki vistað samhengi og undirbý svar samkvæmt uppsettu verklagi.",
+    "classification": "administrative",
+    "reason": "Operational context, provenance, preparation or save status only; no story content disclosed."
+  },
+  {
+    "id": "msg_077138367b8a5910016ae1caad40248191b54aaacf39f265b4",
+    "text": "Ég setti rangt turn-auðkenni í fyrstu inntaksskipunina og hún hafnaði því. Ég varðveiti villuna og nota nú raunverulega auðkennið úr opinbera lestrinum.",
+    "classification": "administrative",
+    "reason": "Operational context, provenance, preparation or save status only; no story content disclosed."
+  },
+  {
+    "id": "msg_077138367b8a5910016ae1cad257f481919162db4ea57e9305",
+    "text": "Vistunin er í bið eftir skráakerfisvillu. Ég endurtek hana með óbreyttu auðkenni og óbreyttum gögnum.",
+    "classification": "administrative",
+    "reason": "Operational context, provenance, preparation or save status only; no story content disclosed."
+  }
+]

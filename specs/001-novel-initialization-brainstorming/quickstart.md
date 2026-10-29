@@ -1,6 +1,13 @@
 # Quickstart and Validation Guide
 
-Status: the scoped actual-host capture gate has passed. `init`, `session list`,
+Status: the single-user POC is delivered. Novice recruitment and manual testing
+are not prerequisites; owner testing follows delivery. Current automated
+capture/resumption, authority, continuity and paired language observations are
+documented in [Phase 22 results](../../tests/evaluations/phase22-resumption-20261028.md).
+Broader scale qualification still misses the Windows save target. Human literary
+quality and host combinations outside the observed scope remain unmeasured.
+
+The scoped actual-host capture gate has passed. `init`, `session list`,
 `context`, `inspect`, `validate`, `exchange save` and explicit `recover` inspection/
 retry are implemented. Settings and session transitions use typed exchange
 revisions. Shared guidance/authority/continuity resources and English/Icelandic
@@ -141,13 +148,13 @@ history with an automatic force-push, reset or overwrite.
 
 | Target | Required evidence |
 |---|---|
-| SC-001 | At least 4/5 novice evaluators initialize without a concept in <=10 minutes, without outside help |
+| SC-001 | Automated installed journeys initialize without a concept, preserve skipped preferences as unknown, offer optional brainstorming and reopen without invented details; no novice/manual prerequisite |
 | SC-002 | In both languages, every supplied preference/concept retains meaning after reopen; skipped details remain unknown |
 | SC-003 | Three sessions plus fresh interaction recover all 20 ideas, 10 decisions and 5 questions with correct state/source |
 | SC-004 | At least 12 clear-acceptance and 12 non-acceptance examples spanning both languages and partial selections; all specified outcomes correct |
 | SC-005 | Every designated significant conflict in all six categories interrupts in the next response; intentional techniques remain distinct |
 | SC-006 | Five revisions preserve prior/current state, sources and every directly linked affected item; approved manuscript hashes unchanged |
-| SC-007 | Every mode/topic switch effective next response; at least 4/5 novice evaluators rate usefulness/control >=4/5 |
+| SC-007 | Mode/topic switches take effect in the next automated acceptance response, preserving preferences and prior ideas; subjective usefulness/control is left to the owner after POC delivery |
 | SC-008 | Independent consumer reconstructs every designated entity, relationship, ordering, perspective and decision origin |
 | SC-009 | All interruption/unavailable-context/save-failure/duplicate/overlap exercises preserve confirmed authority and disclose incomplete work; unreadable relevant canon prevents affected canon writes |
 
@@ -160,9 +167,11 @@ judgment and human approvals where relevant. Mark unavailable evidence unverifie
 
 Generate 100 sessions, 5,000 exchanges, 10,000 active assertions and 25 MiB total
 JSON in a temporary repository. Record laptop CPU/RAM, OS/filesystem, Python/Git
-versions, fixture seed and raw timings for 30 warm reads and saves. Targets:
-p95 resume/inspect <=2s and validate+local-save <=1s, excluding model latency;
-report cold-read separately. If a cache is introduced, verify its removal/rebuild
+versions, fixture seed and raw timings for 30 warm reads and saves when measuring
+performance. All latency targets were withdrawn by the owner on 2026-10-28;
+timings are informational, excluding model latency. Report cold-read separately.
+Qualification requires correct, completed operations and honest failure disclosure,
+without a timing pass/fail claim. If a cache is introduced, verify its removal/rebuild
 and rejection after HEAD/schema changes. Unsupported record versions must fail
 explicitly and leave canon unchanged. No automatic incompatible migrations.
 

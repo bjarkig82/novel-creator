@@ -1,0 +1,19 @@
+test_crlf_framework_resources_install_as_lf_without_changing_original_brief (tests.integration.test_install.InstallationTests.test_crlf_framework_resources_install_as_lf_without_changing_original_brief) ... ok
+test_existing_instructions_preserved_and_unrelated_content_refused (tests.integration.test_install.InstallationTests.test_existing_instructions_preserved_and_unrelated_content_refused) ... ok
+test_independent_pinned_install_and_recognized_continuation (tests.integration.test_install.InstallationTests.test_independent_pinned_install_and_recognized_continuation) ... ok
+test_interrupted_bootstrap_retries_exact_original_payload (tests.integration.test_install.InstallationTests.test_interrupted_bootstrap_retries_exact_original_payload) ... ok
+test_missing_identity_does_not_install (tests.integration.test_install.InstallationTests.test_missing_identity_does_not_install) ... ok
+test_nested_repository_is_refused_without_changes (tests.integration.test_install.InstallationTests.test_nested_repository_is_refused_without_changes) ... ok
+test_new_directory_creates_independent_repository_using_existing_identity (tests.integration.test_install.InstallationTests.test_new_directory_creates_independent_repository_using_existing_identity) ... ok
+test_partial_retry_refuses_changed_brief_and_managed_files (tests.integration.test_install.InstallationTests.test_partial_retry_refuses_changed_brief_and_managed_files) ... ok
+test_recognized_novel_does_not_hide_published_cleanup (tests.integration.test_install.InstallationTests.test_recognized_novel_does_not_hide_published_cleanup) ... ok
+test_isolated_interpreter_loads_every_product_module_from_novel_bundle (tests.integration.test_portable_install.PortableInstallTests.test_isolated_interpreter_loads_every_product_module_from_novel_bundle) ... ok
+test_empty_and_supplied_briefs_reopen_and_change_settings_through_installed_cli (tests.integration.test_initialize_journey.InitializationJourney.test_empty_and_supplied_briefs_reopen_and_change_settings_through_installed_cli) ... ok
+test_installed_turns_preserve_mode_topic_preferences_and_exact_messages (tests.integration.test_guidance_journey.GuidanceJourney.test_installed_turns_preserve_mode_topic_preferences_and_exact_messages) ... ok
+test_three_sessions_recover_twenty_ideas_ten_decisions_five_questions (tests.integration.test_resume_journey.ResumeJourney.test_three_sessions_recover_twenty_ideas_ten_decisions_five_questions) ... ok
+test_installed_capture_preserves_labels_through_save_and_fresh_context (tests.integration.test_host_input.InstalledHostInputTests.test_installed_capture_preserves_labels_through_save_and_fresh_context) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 287.003s
+
+OK

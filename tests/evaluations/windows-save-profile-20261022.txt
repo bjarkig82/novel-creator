@@ -1,0 +1,19 @@
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 475, in _save
+    os.link(temporary, final)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\BjarkiGunnarsson\\.codex\\visualizations\\2026\\10\\22\\01a162a8-be88-7893-a0be-eb3ecfe7620c\\novel-test-44sr1l7d\\story\\exchanges\\prepare-7fcln0y9' -> 'C:\\Users\\BjarkiGunnarsson\\.codex\\visualizations\\2026\\10\\22\\01a162a8-be88-7893-a0be-eb3ecfe7620c\\novel-test-44sr1l7d\\story\\exchanges\\005001-5c0a23a4-9bfb-436c-b2c1-51e5fffaa87b.json'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\.codex\visualizations\2026\10\22\01a162a8-be88-7893-a0be-eb3ecfe7620c\profile_save.py", line 23, in <module>
+    print(json.dumps({'fixture': fixture, 'baseline': worker(root, 'save')}), flush=True)
+                                                      ~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\performance\benchmark_records.py", line 101, in worker
+    result = storage.save(root, exchange)
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 557, in save
+    return _save(root, bundle, fault=fault)
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py", line 551, in _save
+    raise ToolError(5, 'Exchange save failed; pending work is not confirmed', checkpoint=confirmed, pending=pending_id) from error
+novel_creator.cli.ToolError: Exchange save failed; pending work is not confirmed

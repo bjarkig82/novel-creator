@@ -1,0 +1,14 @@
+[
+  {
+    "id": "msg_077138367b8a5910016adbe95016ec81918ded07b2c475f373",
+    "text": "Ég sæki vistað samhengi og stofna leiðsögðu lotuna Eyjan. Ég skrái ákvarðanirnar þrjár, varðveiti tillögurnar og læt spurninguna standa opna.",
+    "classification": "administrative",
+    "reason": "Announces the requested operation without a new creative conclusion."
+  },
+  {
+    "id": "msg_077138367b8a5910016adbe9894ca08191980c401ccadcbfd9",
+    "text": "Brúarleysið, látúnsinnsiglið og verndareiðurinn eru skráð sem samþykkt; hin atriðin eru tillögur. Ég endurtek óbreytta vistun eftir skráakerfisvillu.",
+    "classification": "story",
+    "reason": "Declares current creative conclusions before the successful save; the English comment also declares a continuity judgment."
+  }
+]

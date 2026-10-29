@@ -1,0 +1,545 @@
+{
+  "schema_version": "1.0",
+  "novel_id": "cb66f60c-4b08-4aea-9616-a2fc168a09eb",
+  "exchange_id": "ef11e8e4-9058-46eb-8574-7d1b0cbd1c91",
+  "sequence": 6,
+  "previous_exchange_id": "0c0dd85d-7244-4ed4-91b4-652a854d2edf",
+  "previous_digest": "8e3035f07221f73dbf3b547b0a9713b5ba2622eacb000f8360112a396c5dae23",
+  "session_id": "ea395271-4b89-4e17-969c-dc3651d06087",
+  "expected_git_head": "29d9d52474b94958c8b15dcb833fc6dd0ba6833b",
+  "recorded_at": "2026-10-23T23:28:17.372491Z",
+  "operation": "conversation",
+  "messages": [
+    {
+      "message_id": "77c1bc2f-eb39-483e-bbf3-bf388cd16749",
+      "role": "user",
+      "text": "Case CORRECTION. Return to People, retaining its guided mode. Correction to my earlier unaccepted capture: Rúna collects driftwood, not sea glass. This is a correction of that proposal, not acceptance. Keep its prior erroneous wording inspectable. One further possible plot thread: Edda could trace the letter through the tunnel to the hidden room. Keep that thread proposed and do not develop it yet. Leave all five earlier unanswered questions open. Give a checkpoint summary of the saved proposals, established decisions and open questions, with source record revisions and checkpoint; pause after it."
+    },
+    {
+      "message_id": "4938bef2-c9a3-48a5-8987-ecde206ee9a2",
+      "role": "assistant",
+      "text": "People resumed in guided mode. Events and Island are preserved. Suggestions remain brief.\n\nCorrection: “sea glass” is now “driftwood”; the proposal remains unaccepted (2d56748a r2; assertion fd14cc8d r2; correction decision 0578e8b8 r1). The erroneous wording remains inspectable at 2d56748a r1 and fd14cc8d r1.\n\nCheckpoint summary: exchange ef11e8e4-9058-46eb-8574-7d1b0cbd1c91, sequence 6; predecessor Git checkpoint 29d9d52474b94958c8b15dcb833fc6dd0ba6833b (sequence 5). References below identify the record revisions represented in this summary.\n\nEstablished decisions:\n- Rúna is the lighthouse keeper. (b2bba552 r1; decision b857a602 r1).\n- Rúna sent the letter. (24a9e934 r1; decision d06311e5 r1).\n- Ari is Rúna’s brother. (89643a23 r1; decision 8b1386f6 r1).\n- Ari is the victim. (12fdedbe r1; decision 8981fd4e r1).\n- Edda is Rúna’s sister. (e4198cbf r1; decision 73dd4a06 r1).\n- Edda is the investigator. (c1edb38c r1; decision 83602256 r1).\n- Rúna knows Bjarni. (b0134264 r1; decision b7cefc5a r1).\n- The lamp failed on the night of the letter. (2d32b3f7 r1; decision f6d39415 r1).\n- The letter arrived before dawn. (112f571c r1; decision eae7c6ff r1).\n- The story takes place in winter. (05f15bb9 r1; decision 3b7fbd73 r1).\n- The island has no bridge. (1e4f66c1 r1; decision 2fd6b656 r1).\n- The letter bears a brass seal. (3a2d51c7 r1; decision 96686fac r1).\n- Rúna has sworn to protect Edda. (5d69e81a r1; decision e031c7a6 r1).\n\nProposed or unresolved; none of these is accepted:\n- Rúna collects driftwood. (2d56748a r2; proposed).\n- Edda distrusts bells. (e4a49295 r1; proposed).\n- Bjarni is a sailor. (a48aa0fb r1; proposed).\n- Bjarni may owe Edda money. (eacc5318 r1; proposed).\n- Stormy weather. (ca5f921f r1; unresolved alternative).\n- Clear weather. (6b3bb4ae r1; unresolved alternative).\n- The storm may conceal a signal. (0ef4149b r1; proposed).\n- A shipwreck may occur. (ee68d703 r1; proposed).\n- A blue light might be visible. (6a6267eb r1; proposed).\n- A warning bell might sound. (12d564bf r1; proposed).\n- A tunnel might link the lighthouse and harbour. (9ea7eb09 r1; proposed).\n- The tide might expose old steps. (84e3fbc4 r1; proposed).\n- A hidden room might contain a map. (6ad4b40e r1; proposed).\n- Edda could trace the letter through the tunnel to the hidden room. (3c8cad60 r1; proposed).\n\nAll five questions remain open and unanswered:\n- Why did Rúna send the letter? (f1e737c0 r1).\n- What does Edda want from Bjarni? (55b62a7f r1).\n- Who finds the letter? (d7c22da4 r1).\n- When does Bjarni return? (f68c6800 r1).\n- What opens the hidden room? (e7236c19 r1).\n\nThe new tracing thread is recorded only as a proposal. No development or answers have been added. Paused here until your next direction."
+    }
+  ],
+  "input_artifacts": [
+    {
+      "artifact_id": "5988f40c-cc7a-4190-aff0-e59cc70e20f1",
+      "original_text": "{\"kind\":\"host_input\",\"source_type\":\"delegated\",\"thread_id\":\"01a16af9-f289-73c1-8151-55f50ace05d9\",\"turn_id\":\"01a16b16-df79-7721-b425-e1ab5055d2c0\",\"event_id\":\"fco_01a16b16-df79-7721-b425-e1b4157bbc37\",\"event_type\":\"functionCallOutput\",\"source_thread_id\":\"01a16af6-0d9b-7173-a5f5-c8775f37df18\",\"native_user_input\":false,\"novice_evidence\":false,\"evaluation_only\":true,\"text\":\"Case CORRECTION. Return to People, retaining its guided mode. Correction to my earlier unaccepted capture: Rúna collects driftwood, not sea glass. This is a correction of that proposal, not acceptance. Keep its prior erroneous wording inspectable. One further possible plot thread: Edda could trace the letter through the tunnel to the hidden room. Keep that thread proposed and do not develop it yet. Leave all five earlier unanswered questions open. Give a checkpoint summary of the saved proposals, established decisions and open questions, with source record revisions and checkpoint; pause after it.\",\"public_event\":{\"type\":\"functionCallOutput\",\"id\":\"fco_01a16b16-df79-7721-b425-e1b4157bbc37\",\"namespace\":\"codex_app\",\"name\":\"send_message_to_thread\",\"output\":{\"text\":\"<codex_delegation>\\n  <source_thread_id>01a16af6-0d9b-7173-a5f5-c8775f37df18</source_thread_id>\\n  <input>Case CORRECTION. Return to People, retaining its guided mode. Correction to my earlier unaccepted capture: Rúna collects driftwood, not sea glass. This is a correction of that proposal, not acceptance. Keep its prior erroneous wording inspectable. One further possible plot thread: Edda could trace the letter through the tunnel to the hidden room. Keep that thread proposed and do not develop it yet. Leave all five earlier unanswered questions open. Give a checkpoint summary of the saved proposals, established decisions and open questions, with source record revisions and checkpoint; pause after it.</input>\\n</codex_delegation>\",\"truncated\":false}}}",
+      "parsed_value": {
+        "kind": "host_input",
+        "source_type": "delegated",
+        "thread_id": "01a16af9-f289-73c1-8151-55f50ace05d9",
+        "turn_id": "01a16b16-df79-7721-b425-e1ab5055d2c0",
+        "event_id": "fco_01a16b16-df79-7721-b425-e1b4157bbc37",
+        "event_type": "functionCallOutput",
+        "source_thread_id": "01a16af6-0d9b-7173-a5f5-c8775f37df18",
+        "native_user_input": false,
+        "novice_evidence": false,
+        "evaluation_only": true,
+        "text": "Case CORRECTION. Return to People, retaining its guided mode. Correction to my earlier unaccepted capture: Rúna collects driftwood, not sea glass. This is a correction of that proposal, not acceptance. Keep its prior erroneous wording inspectable. One further possible plot thread: Edda could trace the letter through the tunnel to the hidden room. Keep that thread proposed and do not develop it yet. Leave all five earlier unanswered questions open. Give a checkpoint summary of the saved proposals, established decisions and open questions, with source record revisions and checkpoint; pause after it.",
+        "public_event": {
+          "type": "functionCallOutput",
+          "id": "fco_01a16b16-df79-7721-b425-e1b4157bbc37",
+          "namespace": "codex_app",
+          "name": "send_message_to_thread",
+          "output": {
+            "text": "<codex_delegation>\n  <source_thread_id>01a16af6-0d9b-7173-a5f5-c8775f37df18</source_thread_id>\n  <input>Case CORRECTION. Return to People, retaining its guided mode. Correction to my earlier unaccepted capture: Rúna collects driftwood, not sea glass. This is a correction of that proposal, not acceptance. Keep its prior erroneous wording inspectable. One further possible plot thread: Edda could trace the letter through the tunnel to the hidden room. Keep that thread proposed and do not develop it yet. Leave all five earlier unanswered questions open. Give a checkpoint summary of the saved proposals, established decisions and open questions, with source record revisions and checkpoint; pause after it.</input>\n</codex_delegation>",
+            "truncated": false
+          }
+        }
+      },
+      "digest": "d01f081f8fb24f65252d28f0e40176ecdfe2a1450ea256e17f60a52fc4780c62"
+    }
+  ],
+  "record_versions": [
+    {
+      "id": "2d56748a-3757-4a06-839d-00bc5f806905",
+      "kind": "idea",
+      "revision": 2,
+      "previous_revision": 1,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "8581fdd2-2b30-43d5-9cff-9a702319e29d",
+          "message_id": "d4250dfa-e7c0-453d-a2d6-4808c6e338b3",
+          "range": {
+            "start": 249,
+            "end": 272
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "ef11e8e4-9058-46eb-8574-7d1b0cbd1c91",
+          "message_id": "77c1bc2f-eb39-483e-bbf3-bf388cd16749",
+          "range": {
+            "start": 107,
+            "end": 146
+          }
+        }
+      ],
+      "created_exchange_id": "8581fdd2-2b30-43d5-9cff-9a702319e29d",
+      "origin": "supplied",
+      "statement": "Rúna collects driftwood.",
+      "status": "proposed",
+      "related_element_ids": [
+        "ba58b0dd-8d4e-402a-a41e-4adbabd0bcf0"
+      ],
+      "alternative_group_id": null,
+      "selected_parts": [],
+      "decision_ids": [
+        "0578e8b8-b27f-4338-a275-752e23bcdb60"
+      ],
+      "resulting_assertion_ids": [
+        "fd14cc8d-4c2a-442f-850e-6d54640155e5"
+      ]
+    },
+    {
+      "id": "fd14cc8d-4c2a-442f-850e-6d54640155e5",
+      "kind": "assertion",
+      "revision": 2,
+      "previous_revision": 1,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "8581fdd2-2b30-43d5-9cff-9a702319e29d",
+          "message_id": "d4250dfa-e7c0-453d-a2d6-4808c6e338b3",
+          "range": {
+            "start": 249,
+            "end": 272
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "ef11e8e4-9058-46eb-8574-7d1b0cbd1c91",
+          "message_id": "77c1bc2f-eb39-483e-bbf3-bf388cd16749",
+          "range": {
+            "start": 107,
+            "end": 146
+          }
+        }
+      ],
+      "created_exchange_id": "8581fdd2-2b30-43d5-9cff-9a702319e29d",
+      "origin": "supplied",
+      "subject_element_id": "ba58b0dd-8d4e-402a-a41e-4adbabd0bcf0",
+      "predicate": "collects",
+      "value": "driftwood",
+      "perspective": "author_truth",
+      "holder_id": null,
+      "reader_audience": null,
+      "time_ref": {
+        "chronology": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        },
+        "narrative": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        }
+      },
+      "truth_state": "affirmed",
+      "status": "proposed",
+      "decision_ids": [
+        "0578e8b8-b27f-4338-a275-752e23bcdb60"
+      ],
+      "supersedes": null
+    },
+    {
+      "id": "0578e8b8-b27f-4338-a275-752e23bcdb60",
+      "kind": "decision",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "ef11e8e4-9058-46eb-8574-7d1b0cbd1c91",
+          "message_id": "77c1bc2f-eb39-483e-bbf3-bf388cd16749",
+          "range": {
+            "start": 107,
+            "end": 146
+          }
+        }
+      ],
+      "created_exchange_id": "ef11e8e4-9058-46eb-8574-7d1b0cbd1c91",
+      "origin": "supplied",
+      "action": "correct",
+      "user_message_ref": {
+        "type": "message",
+        "exchange_id": "ef11e8e4-9058-46eb-8574-7d1b0cbd1c91",
+        "message_id": "77c1bc2f-eb39-483e-bbf3-bf388cd16749",
+        "range": {
+          "start": 107,
+          "end": 146
+        }
+      },
+      "span": {
+        "start": 107,
+        "end": 146
+      },
+      "target_refs": [
+        {
+          "id": "2d56748a-3757-4a06-839d-00bc5f806905",
+          "revision": 1
+        },
+        {
+          "id": "fd14cc8d-4c2a-442f-850e-6d54640155e5",
+          "revision": 1
+        }
+      ],
+      "selected_parts": [
+        "Rúna collects driftwood."
+      ],
+      "prior_refs": [
+        {
+          "id": "2d56748a-3757-4a06-839d-00bc5f806905",
+          "revision": 1
+        },
+        {
+          "id": "fd14cc8d-4c2a-442f-850e-6d54640155e5",
+          "revision": 1
+        }
+      ],
+      "result_refs": [
+        {
+          "id": "2d56748a-3757-4a06-839d-00bc5f806905",
+          "revision": 2
+        },
+        {
+          "id": "fd14cc8d-4c2a-442f-850e-6d54640155e5",
+          "revision": 2
+        }
+      ],
+      "reason": "Correct the earlier unaccepted proposal from sea glass to driftwood; this is not acceptance.",
+      "affected_refs": [
+        {
+          "id": "2d56748a-3757-4a06-839d-00bc5f806905",
+          "revision": 2
+        },
+        {
+          "id": "fd14cc8d-4c2a-442f-850e-6d54640155e5",
+          "revision": 2
+        }
+      ],
+      "review_required_refs": []
+    },
+    {
+      "id": "f4990e81-7e63-44e5-9b33-961e0804a485",
+      "kind": "story_element",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "ef11e8e4-9058-46eb-8574-7d1b0cbd1c91",
+          "message_id": "77c1bc2f-eb39-483e-bbf3-bf388cd16749",
+          "range": {
+            "start": 282,
+            "end": 348
+          }
+        }
+      ],
+      "created_exchange_id": "ef11e8e4-9058-46eb-8574-7d1b0cbd1c91",
+      "origin": "supplied",
+      "element_type": "plot_thread",
+      "display_name": "Edda tracing the letter through the tunnel to the hidden room",
+      "aliases": [],
+      "status": "proposed",
+      "assertion_ids": [],
+      "relationship_ids": [],
+      "dependency_refs": [
+        {
+          "id": "83c818af-8c1a-4871-beca-eb354753ab30",
+          "revision": 1
+        },
+        {
+          "id": "35e60556-5757-44be-9402-91bdbaf3596a",
+          "revision": 1
+        },
+        {
+          "id": "feeb5525-56ef-4f55-a05c-67fe91f23dc2",
+          "revision": 1
+        },
+        {
+          "id": "0ee57c24-f6c4-46e8-9de2-d05094db0248",
+          "revision": 1
+        }
+      ],
+      "time_ref": null,
+      "decision_ids": []
+    },
+    {
+      "id": "3c8cad60-a7b2-4379-b999-2769eb2730eb",
+      "kind": "idea",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "ef11e8e4-9058-46eb-8574-7d1b0cbd1c91",
+          "message_id": "77c1bc2f-eb39-483e-bbf3-bf388cd16749",
+          "range": {
+            "start": 282,
+            "end": 348
+          }
+        }
+      ],
+      "created_exchange_id": "ef11e8e4-9058-46eb-8574-7d1b0cbd1c91",
+      "origin": "supplied",
+      "statement": "Edda could trace the letter through the tunnel to the hidden room.",
+      "status": "proposed",
+      "related_element_ids": [
+        "f4990e81-7e63-44e5-9b33-961e0804a485",
+        "83c818af-8c1a-4871-beca-eb354753ab30",
+        "35e60556-5757-44be-9402-91bdbaf3596a",
+        "feeb5525-56ef-4f55-a05c-67fe91f23dc2",
+        "0ee57c24-f6c4-46e8-9de2-d05094db0248"
+      ],
+      "alternative_group_id": null,
+      "selected_parts": [],
+      "decision_ids": [],
+      "resulting_assertion_ids": []
+    },
+    {
+      "id": "ea395271-4b89-4e17-969c-dc3651d06087",
+      "kind": "session",
+      "revision": 2,
+      "previous_revision": 1,
+      "created_exchange_id": "8581fdd2-2b30-43d5-9cff-9a702319e29d",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "ef11e8e4-9058-46eb-8574-7d1b0cbd1c91",
+          "message_id": "77c1bc2f-eb39-483e-bbf3-bf388cd16749",
+          "range": {
+            "start": 17,
+            "end": 61
+          }
+        }
+      ],
+      "topic": "People",
+      "mode": "guided",
+      "state": "open",
+      "started_exchange_id": "8581fdd2-2b30-43d5-9cff-9a702319e29d",
+      "last_exchange_id": "ef11e8e4-9058-46eb-8574-7d1b0cbd1c91",
+      "related_record_ids": [
+        "ba58b0dd-8d4e-402a-a41e-4adbabd0bcf0",
+        "5299dee6-4976-454a-b3bd-f85936be0fc3",
+        "83c818af-8c1a-4871-beca-eb354753ab30",
+        "fe4f5d2f-3ecc-48db-918a-3bb260cee80f",
+        "3a173fe0-b9d9-41dd-bd07-6b797c7c3390",
+        "b2bba552-bebf-4cae-b835-e01708b8d516",
+        "b857a602-16dc-46af-963e-ed2e5aa98d71",
+        "11fcc852-4938-4808-85d1-d80cbc08b8ef",
+        "24a9e934-c113-4281-bbfd-59e1db9d03ce",
+        "d06311e5-cfc4-4b4d-a178-6f79a94662b4",
+        "0636c698-a7f7-4957-ac90-2cc56a68bdfa",
+        "89643a23-bc5b-47e7-805d-69baf02f51e4",
+        "8b1386f6-8ae2-41f4-8942-2606a807b749",
+        "92657929-a1d8-4db7-81bc-3e5b83516e12",
+        "12fdedbe-1fd7-43c7-9899-d854c00ebf7f",
+        "8981fd4e-44ff-4115-90f1-f82945a99d77",
+        "0fafb781-6fe4-4f55-9665-8201f692081d",
+        "e4198cbf-dbfc-4068-a487-81dc21c73380",
+        "73dd4a06-7253-4090-9577-d1710bf513e7",
+        "d5adf09d-3773-4d70-828b-5cee7def7194",
+        "c1edb38c-e177-4154-add4-13ebf95c7207",
+        "83602256-af39-470b-b0ec-fea90eb751c4",
+        "5ecad072-009b-438c-8e65-034fe992d3a9",
+        "b0134264-50de-4438-9ea4-7b7fea14021a",
+        "b7cefc5a-1d40-4935-9766-6c8396ce3a61",
+        "fd14cc8d-4c2a-442f-850e-6d54640155e5",
+        "2d56748a-3757-4a06-839d-00bc5f806905",
+        "29cb6e9b-bc94-4ecb-a5a4-0402ef64680f",
+        "e4a49295-ef40-47d5-8ac9-8c148fc68977",
+        "b9b83c3b-0ece-4923-92e3-5dd2e514036b",
+        "a48aa0fb-4da0-4e09-8b8a-53ed6da688a4",
+        "2a41e2d9-fff0-40e7-9e41-b9152e0f5184",
+        "eacc5318-7df6-412a-a413-1fd2a072b7f3",
+        "f1e737c0-6ce3-4c00-99c8-3495f3ce70c4",
+        "55b62a7f-4dd9-4153-8019-cf8f66057626",
+        "0578e8b8-b27f-4338-a275-752e23bcdb60",
+        "f4990e81-7e63-44e5-9b33-961e0804a485",
+        "3c8cad60-a7b2-4379-b999-2769eb2730eb"
+      ],
+      "unresolved_question_ids": [
+        "f1e737c0-6ce3-4c00-99c8-3495f3ce70c4",
+        "55b62a7f-4dd9-4153-8019-cf8f66057626"
+      ],
+      "derived_context_ref": null
+    }
+  ],
+  "continuity_review": {
+    "coverage": "complete",
+    "reviewed_record_refs": [
+      {
+        "id": "ba58b0dd-8d4e-402a-a41e-4adbabd0bcf0",
+        "revision": 1
+      },
+      {
+        "id": "5299dee6-4976-454a-b3bd-f85936be0fc3",
+        "revision": 1
+      },
+      {
+        "id": "83c818af-8c1a-4871-beca-eb354753ab30",
+        "revision": 1
+      },
+      {
+        "id": "fe4f5d2f-3ecc-48db-918a-3bb260cee80f",
+        "revision": 1
+      },
+      {
+        "id": "3a173fe0-b9d9-41dd-bd07-6b797c7c3390",
+        "revision": 1
+      },
+      {
+        "id": "b2bba552-bebf-4cae-b835-e01708b8d516",
+        "revision": 1
+      },
+      {
+        "id": "11fcc852-4938-4808-85d1-d80cbc08b8ef",
+        "revision": 1
+      },
+      {
+        "id": "24a9e934-c113-4281-bbfd-59e1db9d03ce",
+        "revision": 1
+      },
+      {
+        "id": "0636c698-a7f7-4957-ac90-2cc56a68bdfa",
+        "revision": 1
+      },
+      {
+        "id": "89643a23-bc5b-47e7-805d-69baf02f51e4",
+        "revision": 1
+      },
+      {
+        "id": "92657929-a1d8-4db7-81bc-3e5b83516e12",
+        "revision": 1
+      },
+      {
+        "id": "12fdedbe-1fd7-43c7-9899-d854c00ebf7f",
+        "revision": 1
+      },
+      {
+        "id": "0fafb781-6fe4-4f55-9665-8201f692081d",
+        "revision": 1
+      },
+      {
+        "id": "e4198cbf-dbfc-4068-a487-81dc21c73380",
+        "revision": 1
+      },
+      {
+        "id": "d5adf09d-3773-4d70-828b-5cee7def7194",
+        "revision": 1
+      },
+      {
+        "id": "c1edb38c-e177-4154-add4-13ebf95c7207",
+        "revision": 1
+      },
+      {
+        "id": "5ecad072-009b-438c-8e65-034fe992d3a9",
+        "revision": 1
+      },
+      {
+        "id": "b0134264-50de-4438-9ea4-7b7fea14021a",
+        "revision": 1
+      },
+      {
+        "id": "9132e8e4-53d6-46cc-bcf2-4a3d1d8c543d",
+        "revision": 1
+      },
+      {
+        "id": "aeb371cf-d132-4ef1-8268-25136577aa15",
+        "revision": 1
+      },
+      {
+        "id": "6e43feba-be95-4219-bdee-734b58b049d4",
+        "revision": 1
+      },
+      {
+        "id": "a03667be-bc38-4303-bac4-dee40f97b84f",
+        "revision": 1
+      },
+      {
+        "id": "2d32b3f7-e9b6-44e6-a298-fcd139036721",
+        "revision": 1
+      },
+      {
+        "id": "63f9c91e-e5ea-4984-b708-d0ee2a6ca2ca",
+        "revision": 1
+      },
+      {
+        "id": "112f571c-3b26-420a-a232-9523e41db09f",
+        "revision": 1
+      },
+      {
+        "id": "35505134-099c-4d53-af9c-33f1abe55199",
+        "revision": 1
+      },
+      {
+        "id": "05f15bb9-5745-45fe-bf72-8fdabc1b8108",
+        "revision": 1
+      },
+      {
+        "id": "f39dce7b-0a80-4c61-86f0-db07bbcec4ef",
+        "revision": 1
+      },
+      {
+        "id": "35e60556-5757-44be-9402-91bdbaf3596a",
+        "revision": 1
+      },
+      {
+        "id": "c70819f0-73c7-46b0-9dcd-8fbdbc0713ba",
+        "revision": 1
+      },
+      {
+        "id": "1e4f66c1-05e2-41f5-aba2-290339dcc3a5",
+        "revision": 1
+      },
+      {
+        "id": "8913530c-0c5d-4a5f-a795-db0ceeca8d40",
+        "revision": 1
+      },
+      {
+        "id": "3a2d51c7-eb33-4443-95b9-86cdfa542100",
+        "revision": 1
+      },
+      {
+        "id": "249f979b-d59a-4815-b1ed-1dc386393711",
+        "revision": 1
+      },
+      {
+        "id": "5d69e81a-becd-438a-97f3-5368dc22f78b",
+        "revision": 1
+      },
+      {
+        "id": "2d56748a-3757-4a06-839d-00bc5f806905",
+        "revision": 1
+      },
+      {
+        "id": "fd14cc8d-4c2a-442f-850e-6d54640155e5",
+        "revision": 1
+      },
+      {
+        "id": "feeb5525-56ef-4f55-a05c-67fe91f23dc2",
+        "revision": 1
+      },
+      {
+        "id": "0ee57c24-f6c4-46e8-9de2-d05094db0248",
+        "revision": 1
+      }
+    ],
+    "unavailable_refs": [],
+    "canon_hold_refs": [],
+    "finding_ids": [],
+    "summary": "Reviewed the correction and proposed thread against available sources and accepted records. Driftwood remains a corrected proposal. The tunnel and hidden room dependencies are proposed, so the tracing thread is not established canon. No new canon or question resolutions; no significant conflict identified."
+  },
+  "payload_digest": "6a85cd6d2dd5f20cc6e3d00b652ccf9c8d51c8c1e82fb01dea38ea9f9f4644ee"
+}

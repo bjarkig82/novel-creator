@@ -1,0 +1,6 @@
+test_managed_path_canonical_spelling_and_allowlist (tests.integration.test_storage.StorageTests.test_managed_path_canonical_spelling_and_allowlist) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.009s
+
+OK

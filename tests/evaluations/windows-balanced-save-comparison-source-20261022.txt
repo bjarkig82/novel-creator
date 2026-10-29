@@ -1,0 +1,52 @@
+"""Matched final-source balanced-history/first-guard policy diagnostic."""
+import argparse,hashlib,json,statistics,subprocess,sys,time
+from pathlib import Path
+from unittest.mock import patch
+sys.path.insert(0,str(Path.cwd()))
+from novel_creator import records,storage
+from novel_creator.context import read
+from tests.helpers import repository,git
+from tests.performance import benchmark_records as benchmark
+p=argparse.ArgumentParser();p.add_argument('--root',type=Path);p.add_argument('--balanced',type=int,default=0);a=p.parse_args()
+if a.root:
+    history=storage.read_history(a.root)
+    exchange=records.new_exchange(history[0]['novel_id'],previous=history[-1],expected_head=storage.head(a.root),messages=[{'message_id':benchmark.uid(),'role':'user','text':'Continue the benchmark.'},{'message_id':benchmark.uid(),'role':'assistant','text':'Benchmark continuation.'}])
+    exchange['payload_digest']=records.digest(exchange)
+    snapshot=storage._read_snapshot;guard=storage.check_managed;original_git=storage.git
+    counts={'git':0,'history_workers':[],'guard_workers':[]}
+    def selected_history(*args,**kwargs):
+        # Payload preparation above keeps the normal public-read policy for both.
+        counts['history_workers'].append(kwargs['history_workers'])
+        return snapshot(*args,**kwargs)
+    def selected_guard(*args,**kwargs):
+        # Only the first guard changes; the final guard retains its explicit four.
+        counts['guard_workers'].append(kwargs['hash_workers'])
+        return guard(*args,**kwargs)
+    def counted_git(*args,**kwargs):
+        counts['git']+=1
+        return original_git(*args,**kwargs)
+    with patch.object(storage,'_SAVE_HISTORY_WORKERS',2 if a.balanced else 1),patch.object(storage,'_INITIAL_HASH_WORKERS',2 if a.balanced else 1),patch.object(storage,'_read_snapshot',selected_history),patch.object(storage,'check_managed',selected_guard),patch.object(storage,'git',counted_git):
+        start=time.perf_counter();result=storage.save(a.root,exchange);elapsed=time.perf_counter()-start
+    assert result['ok'] and not result['data']['cleanup_required']
+    assert counts['history_workers']==[2 if a.balanced else 1],counts
+    assert counts['guard_workers']==[2 if a.balanced else 1,4],counts
+    assert counts['git']==(27 if a.balanced else 25),counts
+    print(json.dumps({'balanced':a.balanced,'seconds':elapsed,'sequence':result['checkpoint']['sequence'],'cleanup_required':result['data']['cleanup_required'],'counts':counts}))
+    raise SystemExit(0)
+source=hashlib.sha256(Path(storage.__file__).read_bytes()).hexdigest()
+with benchmark.benchmark_key(True),repository() as root:
+    novel=records.loads((root/'.novel-creator/manifest.json').read_bytes())['novel_id']
+    history,fixture=benchmark.generate(novel)
+    for exchange in history:
+        target=root/storage.bundle_path(exchange);target.parent.mkdir(parents=True,exist_ok=True);target.write_bytes(benchmark.serialized(exchange))
+    git(root,'add','story/exchanges');git(root,'commit','-m','Balanced history and first-guard diagnostic fixture')
+    del history,exchange
+    read(root);fixture['fully_validated']=True
+    print(json.dumps({'fixture':fixture,'source_sha256':source,'method':'Eight complete fresh-worker saves, balanced ABBA/ABBA, four samples per variant. Original payload preparation/public reads retained, final guard stays four. Balanced policy uses two history plus two first-guard hash readers; every original check active. Ordinary fixture; opt-in external private key; diagnostic not p95.'}),flush=True)
+    samples={0:[],1:[]}
+    for balanced in [0,1,1,0]*2:
+        result=subprocess.run([sys.executable,'-B',__file__,'--root',str(root),'--balanced',str(balanced)],capture_output=True,text=True,encoding='utf-8',timeout=45)
+        if result.returncode:raise RuntimeError(result.stderr[-3000:])
+        row=json.loads(result.stdout);samples[balanced].append(row['seconds']);print(json.dumps(row),flush=True)
+    print(json.dumps({'medians':{str(k):statistics.median(v) for k,v in samples.items()},'source_unchanged':source==hashlib.sha256(Path(storage.__file__).read_bytes()).hexdigest()}),flush=True)
+    assert source==hashlib.sha256(Path(storage.__file__).read_bytes()).hexdigest()

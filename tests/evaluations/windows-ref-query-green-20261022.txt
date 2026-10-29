@@ -1,0 +1,8 @@
+test_branch_head_query_preserves_git_reference_states (tests.integration.test_storage.StorageTests.test_branch_head_query_preserves_git_reference_states) ... ok
+test_branch_head_query_falls_back_for_failed_or_malformed_results (tests.integration.test_storage.StorageTests.test_branch_head_query_falls_back_for_failed_or_malformed_results) ... ok
+test_switch_to_same_oid_branch_preserves_publication_and_cleanup_boundaries (tests.integration.test_storage.StorageTests.test_switch_to_same_oid_branch_preserves_publication_and_cleanup_boundaries) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 24.872s
+
+OK

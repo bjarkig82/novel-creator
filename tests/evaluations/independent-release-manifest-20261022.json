@@ -1,0 +1,38 @@
+{
+  "source": {
+    "src/novel_creator/cli.py": "4b1d4c73aefc0f983a82ba51ac30625e5f6101a17878aa99e2dec6f13aef1eb6",
+    "src/novel_creator/context.py": "ce1a7819457b7dd700cf5478fed1746337d80efd38825c4d69c90d77711a1e54",
+    "src/novel_creator/install.py": "fe55d057d08361d52eb3c46f2ee006bef1f8c14c3c52ab8bbc25e6738cc69b79",
+    "src/novel_creator/records.py": "a13dc0ba0b94e32a010571f48ee34d304e1c79fa11bffcce2733583ba81bac1e",
+    "src/novel_creator/storage.py": "2563aa5a257971a264d2a36094a818a528a561509e4f48d47ad24c6c708f4fb3",
+    "src/novel_creator/validation.py": "7e4c75ada3c3eaf3c196066ff657e5e5d9084abdd14a97b6e07c4f5d3b6bf517",
+    "src/novel_creator/validation_cache.py": "db43c3c1e480122a27f39d14a890fbbfa9f8c20eac426e323c613422e9a7fd55",
+    "src/novel_creator/__init__.py": "277031de0bb8a6cf825d6f25829addaefcdee170a24613786fe6cdc561c2738a",
+    "src/novel_creator/__main__.py": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+    "tests/contract/test_cli_encoding.py": "dbb05a5a03e1bc7ea441d157c3a90ce1608b02dde1a2b5b76d611088d61079a6",
+    "tests/verify_wheel.py": "7abd59d409a99142fe46158547dad7ee1747c031d89c5cba488d3c73854299bd"
+  },
+  "artifacts": {
+    "tests/evaluations/cli-utf8-red-20261022.txt": "ea110c616d58f06acffaf0060a86e137076ae090df6cc69117c4a3c49837ecef",
+    "tests/evaluations/cli-utf8-green-20261022.txt": "6c3f3555e167cec2f45de91e1b103d8c274c4e53697c82121b45ff5cdbb711ad",
+    "tests/evaluations/windows-cli-utf8-full-tests-20261022.txt": "1f928baad96a53c3db4edad7d060345c3182b438c726d744a16e29e6bde4eae8",
+    "tests/evaluations/linux-cli-utf8-full-tests-20261022.txt": "e9667be2c876a21907f71df326b3138209f5b509ba404d65c2f6b970fe719e01",
+    "tests/evaluations/windows-wheel-verification-20261022.json": "4699b25cacaa8c1a94305fc0a80d8f4ab9dfd64b22e5361a93497beba10451ba",
+    "tests/evaluations/linux-wheel-verification-20261022.json": "45dd858b75da3ced018ce350717aa469ee426ec47e290a7d943d9be7416b9273",
+    "tests/evaluations/bash-independent-release-smoke-20261022.txt": "6ecc25f9ff428c98cb5a5539c2f308d9b304091f737d398e6015a88c55a975bd",
+    "tests/evaluations/linux-independent-release-smoke-20261022.txt": "d3c0ef81d372292fa5db35525c1fd20d5d10ff006bca9771e481cfefefa7355f",
+    "tests/evaluations/independent-release-verification-20261022.md": "39e8712b0e05669e81e169a8e89656603c6db76bb03b2a9a08d9a3045f7c4c10"
+  },
+  "wheel": {
+    "dist/novel_creator-0.1.0-py3-none-any.whl": "9d65691505d0bc102f1ce47dc82df199ee193fb2fb5052aa3c70a23bcbab6880"
+  },
+  "results": {
+    "windows_suite_exit": 0,
+    "linux_suite_exit": 0,
+    "windows_tests": 151,
+    "windows_skips": 2,
+    "linux_tests": 151,
+    "linux_skips": 0,
+    "release_complete": false
+  }
+}

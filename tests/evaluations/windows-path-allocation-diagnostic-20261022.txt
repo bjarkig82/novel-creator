@@ -1,0 +1,19 @@
+{"fixture": {"sessions": 100, "exchanges": 5000, "active_assertions": 10000, "json_bytes": 26215716, "synthetic": true, "fully_validated": true}, "source_sha256": "16de2fab76922e9252924eada706c7a8d5071875c68e155279192edd749b5828", "candidate_sha256": "7a582f109473c0e9715027854dc59e6aef107cd0ca1c4779d21d1c75934d7219", "method": "ABBA full guards and saves; 4 samples each; diagnostic only, not p95"}
+{"operation": "guard", "optimized": false, "seconds": 1.2914058999158442}
+{"operation": "guard", "optimized": true, "seconds": 0.6781095000915229}
+{"operation": "guard", "optimized": true, "seconds": 0.5828243000432849}
+{"operation": "guard", "optimized": false, "seconds": 0.7326642000116408}
+{"operation": "guard", "optimized": false, "seconds": 0.7208742999937385}
+{"operation": "guard", "optimized": true, "seconds": 0.5582540999166667}
+{"operation": "guard", "optimized": true, "seconds": 0.5683923000469804}
+{"operation": "guard", "optimized": false, "seconds": 0.7009249000111595}
+{"operation": "guard", "medians": {"False": 0.7267692500026897, "True": 0.5756083000451326}}
+{"operation": "save", "optimized": false, "seconds": 2.131374999997206}
+{"operation": "save", "optimized": true, "seconds": 2.4894947999855503}
+{"operation": "save", "optimized": true, "seconds": 3.6821355000138283}
+{"operation": "save", "optimized": false, "seconds": 3.3700203000335023}
+{"operation": "save", "optimized": false, "seconds": 2.887985299923457}
+{"operation": "save", "optimized": true, "seconds": 2.197450799983926}
+{"operation": "save", "optimized": true, "seconds": 2.404322599992156}
+{"operation": "save", "optimized": false, "seconds": 3.1438970000017434}
+{"operation": "save", "medians": {"False": 3.0159411499626003, "True": 2.446908699988853}}

@@ -1,0 +1,8 @@
+[
+  {
+    "id": "msg_02f80cb399e0759d016adbebc39d648191a23b6898cc7a5d17",
+    "text": "I’ll read the saved context, prepare the exchange, and save it before displaying the reply.",
+    "classification": "administrative",
+    "reason": "Operational context-read/preparation/retry only; no story-state conclusion."
+  }
+]

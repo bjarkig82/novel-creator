@@ -1,0 +1,15 @@
+{
+  "source_sha256": {
+    "src/novel_creator/storage.py": "593b46960df2316ea058f03840bb8ac011a716e3c3dd516c8297d0fc91265322",
+    "tests/helpers.py": "b6ddda217adb87a43d14dcd7be46e3cab76b5aa4023ec41b6e4eb509d8ed9be5",
+    "tests/integration/test_storage.py": "229a1784c932300637f29ccba2d6afca68e694813f27aa6bd9b584023c2ee334",
+    "tests/performance/benchmark_records.py": "0130b52a323d4b955f0f66ebb42e93464cac6e8de314b9fe185e8d7227171656"
+  },
+  "windows_tests": {
+    "exit_code": 0,
+    "wall_seconds": 327.1428839999717
+  },
+  "linux_final_focused_exit": 0,
+  "performance_runner_exit": 1,
+  "inputs_unchanged_after_measurements": true
+}

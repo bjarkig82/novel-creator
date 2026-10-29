@@ -1,0 +1,1438 @@
+{
+  "schema_version": "1.0",
+  "novel_id": "711ac5fd-eb25-4a33-89ca-fc62260cb0a2",
+  "exchange_id": "5e11c9f3-aa9d-494e-9914-fcfdf5d40eb9",
+  "sequence": 9,
+  "previous_exchange_id": "f785cc17-4d49-438c-878c-118229fddc0d",
+  "previous_digest": "656bb943c8cf601a8d1cf7ae826d3476be232cb58875a0ff3f0b4a86d879b603",
+  "session_id": "17356bdd-0b04-475d-9fc8-9ea8ba0d8d0b",
+  "expected_git_head": "2306b38efa3d597f3715ffe32a0b86bb1466b07f",
+  "recorded_at": "2026-10-28T10:07:13.409000Z",
+  "operation": "conversation",
+  "messages": [
+    {
+      "message_id": "c528e043-1283-4e66-be7b-d4ca6ed14280",
+      "role": "user",
+      "text": "Tilvik AUTH_NONACCEPT. Hér eru tólf aðskildar könnunarnótur, hver um sinn möguleika. Haltu samhengi þeirra aðskildu í svarinu.\n\n1. Um möguleikann að Bjarni eigi rauðan frakka eru viðbrögð mín: Áhugavert.\n2. Kannski fann Edda kortið.\n3. Hvað ef Ari á dóttur?\n4. Persóna segir: „Ég drap hann.“ Hvorki mælandinn né fórnarlambið hafa verið auðkennd.\n5. Um möguleikana á brúnni bryggju eða svartri bryggju: Mér líkar þessir möguleikar.\n6. Nei, höfnum tillögunni að Bjarni hafi falið kortið.\n7. Gæti báturinn lekið?\n8. Fyrir tvo mögulega innganga í leyniherbergið, gólfhlera eða veggdyr, er svar mitt: Já.\n9. Um mögulegan flóðbúnað: Þetta gæti gengið einhvern daginn.\n10. Segjum að flotbrú lægi að eyjunni.\n11. Um veðurvalkostina okkar: Höldum báðum valkostum opnum.\n12. Ég vitna í mögulega dagbókarfærslu: „Edda stal innsiglinu.“\n\nNotaðu stilltan yfirferðarpunkt og staldraðu við eftir svarið."
+    },
+    {
+      "message_id": "fbf62409-7769-4b1d-a76d-0e9fe8cf402f",
+      "role": "assistant",
+      "text": "Yfirferðarpunktur — nóturnar tólf eru aðskildar:\n\n1. „Áhugavert“ velur ekki rauðan frakka. Tillaga um frakka Bjarna stendur óstaðfest (0bae9007 v1).\n2. „Kannski“ staðfestir ekki að Edda hafi fundið kortið (59e59791 v1).\n3. Dóttir Ara er tilgáta, ekki staðfest fjölskyldutengsl. Spurningin stendur opin (12368f8d v1; da79f6a2 v1).\n4. „Ég drap hann“ eru möguleg persónuorð. Hvorki mælandi, fórnarlamb né morð hafa verið staðfest (5f135481 v1).\n5. Hrifning af báðum bryggjum velur hvoruga. Brúna og svarta bryggjan eru aðskildir valkostir (f65265b4 v1; 2306571e v1).\n6. Tillögunni að Bjarni hafi falið kortið er hafnað (4982f4a1 v1; höfnun aa43248a v1).\n7. Leki bátsins er opin könnunarspurning og tillaga (44703877 v1; 8f56ec6e v1).\n8. „Já“ auðkennir ekki inngang. Gólfhleri og veggdyr eru óútkljáðir valkostir (bf1352af v1; 1dd11de7 v1). Á „Já“ við gólfhlerann, veggdyrnar eða að halda báðum inngöngum til skoðunar?\n9. Flóðbúnaðurinn er óútkljáður möguleiki; „gæti gengið einhvern daginn“ er ekki samþykki (b0d516a0 v1).\n10. Flotbrúin er tilgáta (a5a37507 v1), en myndi stangast á við staðfest brúarleysi (69059156 v1). Hún er ekki þróuð áfram. Valkostir eru að endurskoða tilgátuna, breyta brúarleysisstaðreyndinni með skýrri ákvörðun, skýra viljandi aðgreiningu eða fresta henni. Álitamálið helst opið (f1fcc75e v1).\n11. Báðir veðurvalkostir eru opnir. Fyrra stormval er enduropnað, ekki eytt úr sögu; heiðskírt veður er áfram óvalið og hvorugum er hafnað (da566d49 v3; 3ee9968a v1; endurskoðun 97b7eb78 v1).\n12. „Edda stal innsiglinu“ er tilvitnun í mögulega dagbókarfærslu, ekki staðfestur þjófnaður Eddu (aefc91c6 v1).\n\nStaðfestar ákvarðanir sem standa:\n- Rúna er vitavörður (e19f2739 v1).\n- Rúna er sendandi bréfsins (500cb7e7 v1).\n- Ari er bróðir Rúnu (f351ee38 v1).\n- Ari er fórnarlambið (1a1d9bcc v1).\n- Edda er systir Rúnu (a594b87b v1).\n- Edda er rannsakandinn (90ddf826 v1).\n- Rúna þekkir Bjarna (515f2c3b v1).\n- ljósið bilaði nóttina sem bréfið kom (82eba284 v1).\n- bréfið kom fyrir dögun (8954dff5 v1).\n- sagan gerist að vetri (646ced87 v1).\n- blátt ljós gæti sést (60c1be74 v2).\n- engin brú er á eyjuna (c33e9f0b v1).\n- bréfið ber látúnsinnsigli (36444d2f v1).\n- Rúna hefur svarið að vernda Eddu (811ce9aa v1).\n- Rúna er sendandinn (81a44c03 v1).\n\nFyrri tillögur og óútkljáð atriði sem standa einnig:\n- Rúna safnar rekaviði (29fd0678 v2).\n- Edda vantreystir bjöllum (45553df8 v1).\n- Bjarni skuldar Eddu hugsanlega peninga (8a81444f v1).\n- stormur gæti falið merki (27765347 v1).\n- skipbrot gæti orðið (37d7b9b9 v1).\n- viðvörunarbjalla gæti hljómað (e37f88d3 v1).\n- göng gætu tengt vitann og höfnina (9b4ec66f v1).\n- fjara gæti afhjúpað gamlar tröppur (ffbf3c57 v1).\n- leynilegt herbergi gæti geymt kort (54443716 v1).\n- Edda gæti rakið bréfið um göngin að leyniherberginu (a14330f1 v1).\n- Rúna er morðinginn (e6deaac1 v1).\n- Bjarni sem sjómaður er óstaðfest skráning (1ccc30a9 v1).\n\nOpnar spurningar, án svara:\n- Hvers vegna sendi Rúna bréfið? (f2def862 v1).\n- Hvað vill Edda frá Bjarna? (a65358cf v1).\n- Hver finnur bréfið? (5d72fc12 v1).\n- Hvenær kemur Bjarni aftur? (8ed04638 v1).\n- Hvað opnar leyniherbergið? (7d3570e2 v1).\n- Hvað ef Ari á dóttur? (da79f6a2 v1).\n- Gæti báturinn lekið? (8f56ec6e v1).\n- Á „Já“ við gólfhlerann, veggdyrnar eða að halda báðum inngöngum til skoðunar? (20822d29 v1).\n\nYfirlitið er afleitt af heimildafærslum. Fyrri vistunarpunktur: 2306b38efa3d597f3715ffe32a0b86bb1466b07f, röð 8. Þessi færsla: 5e11c9f3-aa9d-494e-9914-fcfdf5d40eb9, röð 9; lota 17356bdd v3.\nÉg staldra við án frekari þróunar."
+    }
+  ],
+  "input_artifacts": [
+    {
+      "artifact_id": "83b860a2-fec1-4064-aa19-64ec8e7bdb41",
+      "original_text": "{\"kind\":\"host_input\",\"source_type\":\"delegated\",\"thread_id\":\"01a16afa-1197-7650-8189-9365687429ee\",\"turn_id\":\"01a181f8-7310-7010-9f41-90602c8ea7de\",\"event_id\":\"fco_01a181f8-7313-7e22-a36d-e7b18d84b4d2\",\"event_type\":\"functionCallOutput\",\"source_thread_id\":\"01a16af6-0d9b-7173-a5f5-c8775f37df18\",\"native_user_input\":false,\"novice_evidence\":false,\"evaluation_only\":true,\"text\":\"Tilvik AUTH_NONACCEPT. Hér eru tólf aðskildar könnunarnótur, hver um sinn möguleika. Haltu samhengi þeirra aðskildu í svarinu.\\n\\n1. Um möguleikann að Bjarni eigi rauðan frakka eru viðbrögð mín: Áhugavert.\\n2. Kannski fann Edda kortið.\\n3. Hvað ef Ari á dóttur?\\n4. Persóna segir: „Ég drap hann.“ Hvorki mælandinn né fórnarlambið hafa verið auðkennd.\\n5. Um möguleikana á brúnni bryggju eða svartri bryggju: Mér líkar þessir möguleikar.\\n6. Nei, höfnum tillögunni að Bjarni hafi falið kortið.\\n7. Gæti báturinn lekið?\\n8. Fyrir tvo mögulega innganga í leyniherbergið, gólfhlera eða veggdyr, er svar mitt: Já.\\n9. Um mögulegan flóðbúnað: Þetta gæti gengið einhvern daginn.\\n10. Segjum að flotbrú lægi að eyjunni.\\n11. Um veðurvalkostina okkar: Höldum báðum valkostum opnum.\\n12. Ég vitna í mögulega dagbókarfærslu: „Edda stal innsiglinu.“\\n\\nNotaðu stilltan yfirferðarpunkt og staldraðu við eftir svarið.\",\"public_event\":{\"type\":\"functionCallOutput\",\"id\":\"fco_01a181f8-7313-7e22-a36d-e7b18d84b4d2\",\"namespace\":\"codex_app\",\"name\":\"send_message_to_thread\",\"output\":{\"text\":\"<codex_delegation>\\n  <source_thread_id>01a16af6-0d9b-7173-a5f5-c8775f37df18</source_thread_id>\\n  <input>Tilvik AUTH_NONACCEPT. Hér eru tólf aðskildar könnunarnótur, hver um sinn möguleika. Haltu samhengi þeirra aðskildu í svarinu.\\n\\n1. Um möguleikann að Bjarni eigi rauðan frakka eru viðbrögð mín: Áhugavert.\\n2. Kannski fann Edda kortið.\\n3. Hvað ef Ari á dóttur?\\n4. Persóna segir: „Ég drap hann.“ Hvorki mælandinn né fórnarlambið hafa verið auðkennd.\\n5. Um möguleikana á brúnni bryggju eða svartri bryggju: Mér líkar þessir möguleikar.\\n6. Nei, höfnum tillögunni að Bjarni hafi falið kortið.\\n7. Gæti báturinn lekið?\\n8. Fyrir tvo mögulega innganga í leyniherbergið, gólfhlera eða veggdyr, er svar mitt: Já.\\n9. Um mögulegan flóðbúnað: Þetta gæti gengið einhvern daginn.\\n10. Segjum að flotbrú lægi að eyjunni.\\n11. Um veðurvalkostina okkar: Höldum báðum valkostum opnum.\\n12. Ég vitna í mögulega dagbókarfærslu: „Edda stal innsiglinu.“\\n\\nNotaðu stilltan yfirferðarpunkt og staldraðu við eftir svarið.</input>\\n</codex_delegation>\",\"truncated\":false}}}",
+      "parsed_value": {
+        "kind": "host_input",
+        "source_type": "delegated",
+        "thread_id": "01a16afa-1197-7650-8189-9365687429ee",
+        "turn_id": "01a181f8-7310-7010-9f41-90602c8ea7de",
+        "event_id": "fco_01a181f8-7313-7e22-a36d-e7b18d84b4d2",
+        "event_type": "functionCallOutput",
+        "source_thread_id": "01a16af6-0d9b-7173-a5f5-c8775f37df18",
+        "native_user_input": false,
+        "novice_evidence": false,
+        "evaluation_only": true,
+        "text": "Tilvik AUTH_NONACCEPT. Hér eru tólf aðskildar könnunarnótur, hver um sinn möguleika. Haltu samhengi þeirra aðskildu í svarinu.\n\n1. Um möguleikann að Bjarni eigi rauðan frakka eru viðbrögð mín: Áhugavert.\n2. Kannski fann Edda kortið.\n3. Hvað ef Ari á dóttur?\n4. Persóna segir: „Ég drap hann.“ Hvorki mælandinn né fórnarlambið hafa verið auðkennd.\n5. Um möguleikana á brúnni bryggju eða svartri bryggju: Mér líkar þessir möguleikar.\n6. Nei, höfnum tillögunni að Bjarni hafi falið kortið.\n7. Gæti báturinn lekið?\n8. Fyrir tvo mögulega innganga í leyniherbergið, gólfhlera eða veggdyr, er svar mitt: Já.\n9. Um mögulegan flóðbúnað: Þetta gæti gengið einhvern daginn.\n10. Segjum að flotbrú lægi að eyjunni.\n11. Um veðurvalkostina okkar: Höldum báðum valkostum opnum.\n12. Ég vitna í mögulega dagbókarfærslu: „Edda stal innsiglinu.“\n\nNotaðu stilltan yfirferðarpunkt og staldraðu við eftir svarið.",
+        "public_event": {
+          "type": "functionCallOutput",
+          "id": "fco_01a181f8-7313-7e22-a36d-e7b18d84b4d2",
+          "namespace": "codex_app",
+          "name": "send_message_to_thread",
+          "output": {
+            "text": "<codex_delegation>\n  <source_thread_id>01a16af6-0d9b-7173-a5f5-c8775f37df18</source_thread_id>\n  <input>Tilvik AUTH_NONACCEPT. Hér eru tólf aðskildar könnunarnótur, hver um sinn möguleika. Haltu samhengi þeirra aðskildu í svarinu.\n\n1. Um möguleikann að Bjarni eigi rauðan frakka eru viðbrögð mín: Áhugavert.\n2. Kannski fann Edda kortið.\n3. Hvað ef Ari á dóttur?\n4. Persóna segir: „Ég drap hann.“ Hvorki mælandinn né fórnarlambið hafa verið auðkennd.\n5. Um möguleikana á brúnni bryggju eða svartri bryggju: Mér líkar þessir möguleikar.\n6. Nei, höfnum tillögunni að Bjarni hafi falið kortið.\n7. Gæti báturinn lekið?\n8. Fyrir tvo mögulega innganga í leyniherbergið, gólfhlera eða veggdyr, er svar mitt: Já.\n9. Um mögulegan flóðbúnað: Þetta gæti gengið einhvern daginn.\n10. Segjum að flotbrú lægi að eyjunni.\n11. Um veðurvalkostina okkar: Höldum báðum valkostum opnum.\n12. Ég vitna í mögulega dagbókarfærslu: „Edda stal innsiglinu.“\n\nNotaðu stilltan yfirferðarpunkt og staldraðu við eftir svarið.</input>\n</codex_delegation>",
+            "truncated": false
+          }
+        }
+      },
+      "digest": "e43c9a6e947d23eeed52a54a3adb526a5a69a24b20d5c8bf63114a5dd8859cdd"
+    }
+  ],
+  "record_versions": [
+    {
+      "id": "0bae9007-2726-4bfa-8259-79a971ada180",
+      "kind": "idea",
+      "revision": 1,
+      "previous_revision": null,
+      "created_exchange_id": "5e11c9f3-aa9d-494e-9914-fcfdf5d40eb9",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "5e11c9f3-aa9d-494e-9914-fcfdf5d40eb9",
+          "message_id": "c528e043-1283-4e66-be7b-d4ca6ed14280",
+          "range": {
+            "start": 128,
+            "end": 203
+          }
+        }
+      ],
+      "statement": "Bjarni gæti átt rauðan frakka.",
+      "status": "proposed",
+      "related_element_ids": [
+        "4937b5e5-d88f-46ea-904e-f5b3f86ca30d"
+      ],
+      "alternative_group_id": null,
+      "selected_parts": [],
+      "decision_ids": [],
+      "resulting_assertion_ids": []
+    },
+    {
+      "id": "13860c29-c960-4d69-9666-7a94c9018558",
+      "kind": "story_element",
+      "revision": 1,
+      "previous_revision": null,
+      "created_exchange_id": "5e11c9f3-aa9d-494e-9914-fcfdf5d40eb9",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "5e11c9f3-aa9d-494e-9914-fcfdf5d40eb9",
+          "message_id": "c528e043-1283-4e66-be7b-d4ca6ed14280",
+          "range": {
+            "start": 204,
+            "end": 232
+          }
+        }
+      ],
+      "element_type": "event",
+      "display_name": "Mögulegur fundur Eddu á kortinu",
+      "aliases": [],
+      "status": "proposed",
+      "assertion_ids": [],
+      "relationship_ids": [],
+      "dependency_refs": [],
+      "time_ref": null,
+      "decision_ids": []
+    },
+    {
+      "id": "59e59791-5a37-49e3-9ede-76ed282ecabf",
+      "kind": "idea",
+      "revision": 1,
+      "previous_revision": null,
+      "created_exchange_id": "5e11c9f3-aa9d-494e-9914-fcfdf5d40eb9",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "5e11c9f3-aa9d-494e-9914-fcfdf5d40eb9",
+          "message_id": "c528e043-1283-4e66-be7b-d4ca6ed14280",
+          "range": {
+            "start": 204,
+            "end": 232
+          }
+        }
+      ],
+      "statement": "Edda gæti hafa fundið kortið.",
+      "status": "proposed",
+      "related_element_ids": [
+        "3086ba61-669d-4800-b65a-9c7253334c91",
+        "13860c29-c960-4d69-9666-7a94c9018558"
+      ],
+      "alternative_group_id": null,
+      "selected_parts": [],
+      "decision_ids": [],
+      "resulting_assertion_ids": []
+    },
+    {
+      "id": "a160b2aa-261a-4f08-b910-f846d4307617",
+      "kind": "story_element",
+      "revision": 1,
+      "previous_revision": null,
+      "created_exchange_id": "5e11c9f3-aa9d-494e-9914-fcfdf5d40eb9",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "5e11c9f3-aa9d-494e-9914-fcfdf5d40eb9",
+          "message_id": "c528e043-1283-4e66-be7b-d4ca6ed14280",
+          "range": {
+            "start": 233,
+            "end": 257
+          }
+        }
+      ],
+      "element_type": "character",
+      "display_name": "Möguleg ónefnd dóttir Ara",
+      "aliases": [],
+      "status": "proposed",
+      "assertion_ids": [],
+      "relationship_ids": [],
+      "dependency_refs": [],
+      "time_ref": null,
+      "decision_ids": []
+    },
+    {
+      "id": "12368f8d-343d-4a4b-8633-e2e0401b713b",
+      "kind": "idea",
+      "revision": 1,
+      "previous_revision": null,
+      "created_exchange_id": "5e11c9f3-aa9d-494e-9914-fcfdf5d40eb9",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "5e11c9f3-aa9d-494e-9914-fcfdf5d40eb9",
+          "message_id": "c528e043-1283-4e66-be7b-d4ca6ed14280",
+          "range": {
+            "start": 233,
+            "end": 257
+          }
+        }
+      ],
+      "statement": "Ari gæti átt dóttur.",
+      "status": "proposed",
+      "related_element_ids": [
+        "8d4abc77-ebc9-40ed-a753-65b5c161419b",
+        "a160b2aa-261a-4f08-b910-f846d4307617"
+      ],
+      "alternative_group_id": null,
+      "selected_parts": [],
+      "decision_ids": [],
+      "resulting_assertion_ids": []
+    },
+    {
+      "id": "da79f6a2-6b80-44d8-b67d-9d0bb7731c5f",
+      "kind": "question",
+      "revision": 1,
+      "previous_revision": null,
+      "created_exchange_id": "5e11c9f3-aa9d-494e-9914-fcfdf5d40eb9",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "5e11c9f3-aa9d-494e-9914-fcfdf5d40eb9",
+          "message_id": "c528e043-1283-4e66-be7b-d4ca6ed14280",
+          "range": {
+            "start": 233,
+            "end": 257
+          }
+        }
+      ],
+      "text": "Hvað ef Ari á dóttur?",
+      "related_refs": [
+        {
+          "id": "8d4abc77-ebc9-40ed-a753-65b5c161419b",
+          "revision": 1
+        },
+        {
+          "id": "a160b2aa-261a-4f08-b910-f846d4307617",
+          "revision": 1
+        }
+      ],
+      "alternative_ids": [],
+      "state": "open",
+      "resolution_decision_id": null
+    },
+    {
+      "id": "a38bb3b1-d7dd-4a63-870e-c860ae84bfb5",
+      "kind": "story_element",
+      "revision": 1,
+      "previous_revision": null,
+      "created_exchange_id": "5e11c9f3-aa9d-494e-9914-fcfdf5d40eb9",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "5e11c9f3-aa9d-494e-9914-fcfdf5d40eb9",
+          "message_id": "c528e043-1283-4e66-be7b-d4ca6ed14280",
+          "range": {
+            "start": 258,
+            "end": 345
+          }
+        }
+      ],
+      "element_type": "character",
+      "display_name": "Óauðkennd persóna tilvitnunar",
+      "aliases": [],
+      "status": "proposed",
+      "assertion_ids": [],
+      "relationship_ids": [],
+      "dependency_refs": [],
+      "time_ref": null,
+      "decision_ids": []
+    },
+    {
+      "id": "a7a34ee8-8784-4ef3-a817-dc916d4b78d5",
+      "kind": "story_element",
+      "revision": 1,
+      "previous_revision": null,
+      "created_exchange_id": "5e11c9f3-aa9d-494e-9914-fcfdf5d40eb9",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "5e11c9f3-aa9d-494e-9914-fcfdf5d40eb9",
+          "message_id": "c528e043-1283-4e66-be7b-d4ca6ed14280",
+          "range": {
+            "start": 258,
+            "end": 345
+          }
+        }
+      ],
+      "element_type": "character",
+      "display_name": "Óauðkennt fórnarlamb tilvitnunar",
+      "aliases": [],
+      "status": "proposed",
+      "assertion_ids": [],
+      "relationship_ids": [],
+      "dependency_refs": [],
+      "time_ref": null,
+      "decision_ids": []
+    },
+    {
+      "id": "5f135481-ba1f-4c2e-ba05-a2071833c651",
+      "kind": "idea",
+      "revision": 1,
+      "previous_revision": null,
+      "created_exchange_id": "5e11c9f3-aa9d-494e-9914-fcfdf5d40eb9",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "5e11c9f3-aa9d-494e-9914-fcfdf5d40eb9",
+          "message_id": "c528e043-1283-4e66-be7b-d4ca6ed14280",
+          "range": {
+            "start": 258,
+            "end": 345
+          }
+        }
+      ],
+      "statement": "Möguleg persónuorð: „Ég drap hann.“ Mælandi og fórnarlamb óauðkennd.",
+      "status": "proposed",
+      "related_element_ids": [
+        "a38bb3b1-d7dd-4a63-870e-c860ae84bfb5",
+        "a7a34ee8-8784-4ef3-a817-dc916d4b78d5"
+      ],
+      "alternative_group_id": null,
+      "selected_parts": [],
+      "decision_ids": [],
+      "resulting_assertion_ids": []
+    },
+    {
+      "id": "f9daed09-59ae-4a1d-8b62-145be8a8568c",
+      "kind": "story_element",
+      "revision": 1,
+      "previous_revision": null,
+      "created_exchange_id": "5e11c9f3-aa9d-494e-9914-fcfdf5d40eb9",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "5e11c9f3-aa9d-494e-9914-fcfdf5d40eb9",
+          "message_id": "c528e043-1283-4e66-be7b-d4ca6ed14280",
+          "range": {
+            "start": 346,
+            "end": 430
+          }
+        }
+      ],
+      "element_type": "location",
+      "display_name": "Möguleg brún bryggja",
+      "aliases": [],
+      "status": "proposed",
+      "assertion_ids": [],
+      "relationship_ids": [],
+      "dependency_refs": [],
+      "time_ref": null,
+      "decision_ids": []
+    },
+    {
+      "id": "9aa1ad1f-e60b-4e5a-94cd-7f6159f8b8db",
+      "kind": "story_element",
+      "revision": 1,
+      "previous_revision": null,
+      "created_exchange_id": "5e11c9f3-aa9d-494e-9914-fcfdf5d40eb9",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "5e11c9f3-aa9d-494e-9914-fcfdf5d40eb9",
+          "message_id": "c528e043-1283-4e66-be7b-d4ca6ed14280",
+          "range": {
+            "start": 346,
+            "end": 430
+          }
+        }
+      ],
+      "element_type": "location",
+      "display_name": "Möguleg svört bryggja",
+      "aliases": [],
+      "status": "proposed",
+      "assertion_ids": [],
+      "relationship_ids": [],
+      "dependency_refs": [],
+      "time_ref": null,
+      "decision_ids": []
+    },
+    {
+      "id": "f65265b4-c009-4399-8e29-9d1fdc6feb56",
+      "kind": "idea",
+      "revision": 1,
+      "previous_revision": null,
+      "created_exchange_id": "5e11c9f3-aa9d-494e-9914-fcfdf5d40eb9",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "5e11c9f3-aa9d-494e-9914-fcfdf5d40eb9",
+          "message_id": "c528e043-1283-4e66-be7b-d4ca6ed14280",
+          "range": {
+            "start": 346,
+            "end": 430
+          }
+        }
+      ],
+      "statement": "Brún bryggja.",
+      "status": "proposed",
+      "related_element_ids": [
+        "f9daed09-59ae-4a1d-8b62-145be8a8568c"
+      ],
+      "alternative_group_id": "3216d7b7-e619-49fd-87a5-714de0df5551",
+      "selected_parts": [],
+      "decision_ids": [],
+      "resulting_assertion_ids": []
+    },
+    {
+      "id": "2306571e-600d-4d5a-8e30-27e0a84045be",
+      "kind": "idea",
+      "revision": 1,
+      "previous_revision": null,
+      "created_exchange_id": "5e11c9f3-aa9d-494e-9914-fcfdf5d40eb9",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "5e11c9f3-aa9d-494e-9914-fcfdf5d40eb9",
+          "message_id": "c528e043-1283-4e66-be7b-d4ca6ed14280",
+          "range": {
+            "start": 346,
+            "end": 430
+          }
+        }
+      ],
+      "statement": "Svört bryggja.",
+      "status": "proposed",
+      "related_element_ids": [
+        "9aa1ad1f-e60b-4e5a-94cd-7f6159f8b8db"
+      ],
+      "alternative_group_id": "3216d7b7-e619-49fd-87a5-714de0df5551",
+      "selected_parts": [],
+      "decision_ids": [],
+      "resulting_assertion_ids": []
+    },
+    {
+      "id": "4982f4a1-abbf-477c-8c16-ac7aced52996",
+      "kind": "idea",
+      "revision": 1,
+      "previous_revision": null,
+      "created_exchange_id": "5e11c9f3-aa9d-494e-9914-fcfdf5d40eb9",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "5e11c9f3-aa9d-494e-9914-fcfdf5d40eb9",
+          "message_id": "c528e043-1283-4e66-be7b-d4ca6ed14280",
+          "range": {
+            "start": 431,
+            "end": 485
+          }
+        }
+      ],
+      "statement": "Bjarni hafi falið kortið.",
+      "status": "rejected",
+      "related_element_ids": [
+        "4937b5e5-d88f-46ea-904e-f5b3f86ca30d"
+      ],
+      "alternative_group_id": null,
+      "selected_parts": [],
+      "decision_ids": [
+        "aa43248a-fd41-4ec9-9a25-8d3722396422"
+      ],
+      "resulting_assertion_ids": []
+    },
+    {
+      "id": "aa43248a-fd41-4ec9-9a25-8d3722396422",
+      "kind": "decision",
+      "revision": 1,
+      "previous_revision": null,
+      "created_exchange_id": "5e11c9f3-aa9d-494e-9914-fcfdf5d40eb9",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "5e11c9f3-aa9d-494e-9914-fcfdf5d40eb9",
+          "message_id": "c528e043-1283-4e66-be7b-d4ca6ed14280",
+          "range": {
+            "start": 431,
+            "end": 485
+          }
+        }
+      ],
+      "action": "reject",
+      "user_message_ref": {
+        "type": "message",
+        "exchange_id": "5e11c9f3-aa9d-494e-9914-fcfdf5d40eb9",
+        "message_id": "c528e043-1283-4e66-be7b-d4ca6ed14280",
+        "range": {
+          "start": 431,
+          "end": 485
+        }
+      },
+      "span": {
+        "start": 431,
+        "end": 485
+      },
+      "target_refs": [
+        {
+          "id": "4982f4a1-abbf-477c-8c16-ac7aced52996",
+          "revision": 1
+        }
+      ],
+      "selected_parts": [],
+      "prior_refs": [],
+      "result_refs": [
+        {
+          "id": "4982f4a1-abbf-477c-8c16-ac7aced52996",
+          "revision": 1
+        }
+      ],
+      "reason": "Skýr höfnun þessarar tillögu; felur ekki í sér staðfestingu á öðrum möguleika.",
+      "affected_refs": [],
+      "review_required_refs": []
+    },
+    {
+      "id": "7e8fb11e-32f4-461e-a855-4c8983131b69",
+      "kind": "story_element",
+      "revision": 1,
+      "previous_revision": null,
+      "created_exchange_id": "5e11c9f3-aa9d-494e-9914-fcfdf5d40eb9",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "5e11c9f3-aa9d-494e-9914-fcfdf5d40eb9",
+          "message_id": "c528e043-1283-4e66-be7b-d4ca6ed14280",
+          "range": {
+            "start": 486,
+            "end": 509
+          }
+        }
+      ],
+      "element_type": "location",
+      "display_name": "Mögulegur bátur",
+      "aliases": [],
+      "status": "proposed",
+      "assertion_ids": [],
+      "relationship_ids": [],
+      "dependency_refs": [],
+      "time_ref": null,
+      "decision_ids": []
+    },
+    {
+      "id": "44703877-7966-4bf6-b4d0-3cb7ff1eb3e3",
+      "kind": "idea",
+      "revision": 1,
+      "previous_revision": null,
+      "created_exchange_id": "5e11c9f3-aa9d-494e-9914-fcfdf5d40eb9",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "5e11c9f3-aa9d-494e-9914-fcfdf5d40eb9",
+          "message_id": "c528e043-1283-4e66-be7b-d4ca6ed14280",
+          "range": {
+            "start": 486,
+            "end": 509
+          }
+        }
+      ],
+      "statement": "Báturinn gæti lekið.",
+      "status": "proposed",
+      "related_element_ids": [
+        "7e8fb11e-32f4-461e-a855-4c8983131b69"
+      ],
+      "alternative_group_id": null,
+      "selected_parts": [],
+      "decision_ids": [],
+      "resulting_assertion_ids": []
+    },
+    {
+      "id": "8f56ec6e-fee6-45e2-97b7-8fdee180825b",
+      "kind": "question",
+      "revision": 1,
+      "previous_revision": null,
+      "created_exchange_id": "5e11c9f3-aa9d-494e-9914-fcfdf5d40eb9",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "5e11c9f3-aa9d-494e-9914-fcfdf5d40eb9",
+          "message_id": "c528e043-1283-4e66-be7b-d4ca6ed14280",
+          "range": {
+            "start": 486,
+            "end": 509
+          }
+        }
+      ],
+      "text": "Gæti báturinn lekið?",
+      "related_refs": [
+        {
+          "id": "7e8fb11e-32f4-461e-a855-4c8983131b69",
+          "revision": 1
+        }
+      ],
+      "alternative_ids": [],
+      "state": "open",
+      "resolution_decision_id": null
+    },
+    {
+      "id": "d30df53b-debd-4ed6-9a7b-e3eda1590945",
+      "kind": "story_element",
+      "revision": 1,
+      "previous_revision": null,
+      "created_exchange_id": "5e11c9f3-aa9d-494e-9914-fcfdf5d40eb9",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "5e11c9f3-aa9d-494e-9914-fcfdf5d40eb9",
+          "message_id": "c528e043-1283-4e66-be7b-d4ca6ed14280",
+          "range": {
+            "start": 510,
+            "end": 599
+          }
+        }
+      ],
+      "element_type": "location",
+      "display_name": "Mögulegur gólfhleri",
+      "aliases": [],
+      "status": "proposed",
+      "assertion_ids": [],
+      "relationship_ids": [],
+      "dependency_refs": [],
+      "time_ref": null,
+      "decision_ids": []
+    },
+    {
+      "id": "92096719-1d87-4305-8e28-d33f659edc69",
+      "kind": "story_element",
+      "revision": 1,
+      "previous_revision": null,
+      "created_exchange_id": "5e11c9f3-aa9d-494e-9914-fcfdf5d40eb9",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "5e11c9f3-aa9d-494e-9914-fcfdf5d40eb9",
+          "message_id": "c528e043-1283-4e66-be7b-d4ca6ed14280",
+          "range": {
+            "start": 510,
+            "end": 599
+          }
+        }
+      ],
+      "element_type": "location",
+      "display_name": "Mögulegar veggdyr",
+      "aliases": [],
+      "status": "proposed",
+      "assertion_ids": [],
+      "relationship_ids": [],
+      "dependency_refs": [],
+      "time_ref": null,
+      "decision_ids": []
+    },
+    {
+      "id": "bf1352af-3e47-483f-b259-c529b677b530",
+      "kind": "idea",
+      "revision": 1,
+      "previous_revision": null,
+      "created_exchange_id": "5e11c9f3-aa9d-494e-9914-fcfdf5d40eb9",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "5e11c9f3-aa9d-494e-9914-fcfdf5d40eb9",
+          "message_id": "c528e043-1283-4e66-be7b-d4ca6ed14280",
+          "range": {
+            "start": 510,
+            "end": 599
+          }
+        }
+      ],
+      "statement": "Gólfhleri sem inngangur í leyniherbergið.",
+      "status": "unresolved",
+      "related_element_ids": [
+        "d30df53b-debd-4ed6-9a7b-e3eda1590945",
+        "7984d4ed-acda-4940-b567-971592bb0507"
+      ],
+      "alternative_group_id": "db2c93de-f6fd-468b-9e13-126be00e9873",
+      "selected_parts": [],
+      "decision_ids": [],
+      "resulting_assertion_ids": []
+    },
+    {
+      "id": "1dd11de7-e7c2-493b-8982-c3d5ae249d0d",
+      "kind": "idea",
+      "revision": 1,
+      "previous_revision": null,
+      "created_exchange_id": "5e11c9f3-aa9d-494e-9914-fcfdf5d40eb9",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "5e11c9f3-aa9d-494e-9914-fcfdf5d40eb9",
+          "message_id": "c528e043-1283-4e66-be7b-d4ca6ed14280",
+          "range": {
+            "start": 510,
+            "end": 599
+          }
+        }
+      ],
+      "statement": "Veggdyr sem inngangur í leyniherbergið.",
+      "status": "unresolved",
+      "related_element_ids": [
+        "92096719-1d87-4305-8e28-d33f659edc69",
+        "7984d4ed-acda-4940-b567-971592bb0507"
+      ],
+      "alternative_group_id": "db2c93de-f6fd-468b-9e13-126be00e9873",
+      "selected_parts": [],
+      "decision_ids": [],
+      "resulting_assertion_ids": []
+    },
+    {
+      "id": "d8256557-8656-455c-b36c-10eaf63bdf73",
+      "kind": "story_element",
+      "revision": 1,
+      "previous_revision": null,
+      "created_exchange_id": "5e11c9f3-aa9d-494e-9914-fcfdf5d40eb9",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "5e11c9f3-aa9d-494e-9914-fcfdf5d40eb9",
+          "message_id": "c528e043-1283-4e66-be7b-d4ca6ed14280",
+          "range": {
+            "start": 600,
+            "end": 661
+          }
+        }
+      ],
+      "element_type": "plot_thread",
+      "display_name": "Mögulegur flóðbúnaður",
+      "aliases": [],
+      "status": "proposed",
+      "assertion_ids": [],
+      "relationship_ids": [],
+      "dependency_refs": [],
+      "time_ref": null,
+      "decision_ids": []
+    },
+    {
+      "id": "b0d516a0-4739-450b-92e6-6986c1f0d716",
+      "kind": "idea",
+      "revision": 1,
+      "previous_revision": null,
+      "created_exchange_id": "5e11c9f3-aa9d-494e-9914-fcfdf5d40eb9",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "5e11c9f3-aa9d-494e-9914-fcfdf5d40eb9",
+          "message_id": "c528e043-1283-4e66-be7b-d4ca6ed14280",
+          "range": {
+            "start": 600,
+            "end": 661
+          }
+        }
+      ],
+      "statement": "Mögulegur flóðbúnaður; gæti gengið einhvern daginn.",
+      "status": "unresolved",
+      "related_element_ids": [
+        "d8256557-8656-455c-b36c-10eaf63bdf73"
+      ],
+      "alternative_group_id": null,
+      "selected_parts": [],
+      "decision_ids": [],
+      "resulting_assertion_ids": []
+    },
+    {
+      "id": "c2a328d6-9474-4b20-81e2-f57327efa071",
+      "kind": "story_element",
+      "revision": 1,
+      "previous_revision": null,
+      "created_exchange_id": "5e11c9f3-aa9d-494e-9914-fcfdf5d40eb9",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "5e11c9f3-aa9d-494e-9914-fcfdf5d40eb9",
+          "message_id": "c528e043-1283-4e66-be7b-d4ca6ed14280",
+          "range": {
+            "start": 662,
+            "end": 700
+          }
+        }
+      ],
+      "element_type": "location",
+      "display_name": "Tilgáta um flotbrú að eyjunni",
+      "aliases": [],
+      "status": "proposed",
+      "assertion_ids": [],
+      "relationship_ids": [],
+      "dependency_refs": [
+        {
+          "id": "86ed5418-0570-496d-92ce-7090e6b9dde1",
+          "revision": 1
+        }
+      ],
+      "time_ref": null,
+      "decision_ids": []
+    },
+    {
+      "id": "a5a37507-baff-4ad3-87c0-5a405dae0262",
+      "kind": "idea",
+      "revision": 1,
+      "previous_revision": null,
+      "created_exchange_id": "5e11c9f3-aa9d-494e-9914-fcfdf5d40eb9",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "5e11c9f3-aa9d-494e-9914-fcfdf5d40eb9",
+          "message_id": "c528e043-1283-4e66-be7b-d4ca6ed14280",
+          "range": {
+            "start": 662,
+            "end": 700
+          }
+        }
+      ],
+      "statement": "Segjum að flotbrú lægi að eyjunni.",
+      "status": "proposed",
+      "related_element_ids": [
+        "c2a328d6-9474-4b20-81e2-f57327efa071",
+        "86ed5418-0570-496d-92ce-7090e6b9dde1"
+      ],
+      "alternative_group_id": null,
+      "selected_parts": [],
+      "decision_ids": [],
+      "resulting_assertion_ids": []
+    },
+    {
+      "id": "f1fcc75e-8c7d-44a7-aed2-d68e860db715",
+      "kind": "finding",
+      "revision": 1,
+      "previous_revision": null,
+      "created_exchange_id": "5e11c9f3-aa9d-494e-9914-fcfdf5d40eb9",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "5e11c9f3-aa9d-494e-9914-fcfdf5d40eb9",
+          "message_id": "c528e043-1283-4e66-be7b-d4ca6ed14280",
+          "range": {
+            "start": 662,
+            "end": 700
+          }
+        }
+      ],
+      "category": "world_rule",
+      "assessment": "conflict",
+      "severity": "significant",
+      "affected_refs": [
+        {
+          "id": "c2a328d6-9474-4b20-81e2-f57327efa071",
+          "revision": 1
+        },
+        {
+          "id": "a5a37507-baff-4ad3-87c0-5a405dae0262",
+          "revision": 1
+        },
+        {
+          "id": "69059156-f3a0-4d96-820c-b342bbedc157",
+          "revision": 1
+        }
+      ],
+      "explanation": "Ef flotbrúartilgátan er gerð að staðreynd stangast hún á við staðfest brúarleysi eyjarinnar; tilgáta ein breytir ekki þeirri staðreynd.",
+      "consequences": [
+        "Flotbrú sem liggur að eyjunni myndi fella almenna fullyrðingu um að engin brú sé á eyjuna."
+      ],
+      "resolution_options": [
+        "Endurskoða flotbrúartilgátuna.",
+        "Breyta brúarleysisstaðreyndinni með skýrri ákvörðun.",
+        "Skýra viljandi aðgreiningu eða fresta tilgátunni."
+      ],
+      "disposition": "open",
+      "decision_ids": [],
+      "narrative_explanation": null
+    },
+    {
+      "id": "da566d49-b54b-4646-8ccc-aef7616d0857",
+      "kind": "idea",
+      "revision": 3,
+      "previous_revision": 2,
+      "created_exchange_id": "56478ddf-a40a-4913-abc1-715834d24168",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "56478ddf-a40a-4913-abc1-715834d24168",
+          "message_id": "38f9853d-22aa-461d-a0f7-d760d4fabd64",
+          "range": {
+            "start": 409,
+            "end": 461
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "f785cc17-4d49-438c-878c-118229fddc0d",
+          "message_id": "f885340b-45b0-4048-b153-a1d0eedc281d",
+          "range": {
+            "start": 59,
+            "end": 152
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "5e11c9f3-aa9d-494e-9914-fcfdf5d40eb9",
+          "message_id": "c528e043-1283-4e66-be7b-d4ca6ed14280",
+          "range": {
+            "start": 701,
+            "end": 760
+          }
+        }
+      ],
+      "statement": "Stormur",
+      "status": "unresolved",
+      "related_element_ids": [
+        "61a23fe1-8ea3-42fe-9b31-09604f6268db"
+      ],
+      "alternative_group_id": "1552135f-71f3-4545-a1f6-976d8a0c196a",
+      "selected_parts": [],
+      "decision_ids": [
+        "a1fcf866-ca24-4fee-bcd8-66fc64781877",
+        "97b7eb78-b576-45bb-8d0f-83cb23ca1be6"
+      ],
+      "resulting_assertion_ids": []
+    },
+    {
+      "id": "61a23fe1-8ea3-42fe-9b31-09604f6268db",
+      "kind": "story_element",
+      "revision": 3,
+      "previous_revision": 2,
+      "created_exchange_id": "56478ddf-a40a-4913-abc1-715834d24168",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "56478ddf-a40a-4913-abc1-715834d24168",
+          "message_id": "38f9853d-22aa-461d-a0f7-d760d4fabd64",
+          "range": {
+            "start": 198,
+            "end": 222
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "f785cc17-4d49-438c-878c-118229fddc0d",
+          "message_id": "f885340b-45b0-4048-b153-a1d0eedc281d",
+          "range": {
+            "start": 59,
+            "end": 152
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "5e11c9f3-aa9d-494e-9914-fcfdf5d40eb9",
+          "message_id": "c528e043-1283-4e66-be7b-d4ca6ed14280",
+          "range": {
+            "start": 701,
+            "end": 760
+          }
+        }
+      ],
+      "element_type": "event",
+      "display_name": "Stormur",
+      "aliases": [],
+      "status": "unresolved",
+      "assertion_ids": [
+        "64f45da6-3d7f-4e55-93b5-45b88f361597"
+      ],
+      "relationship_ids": [],
+      "dependency_refs": [],
+      "time_ref": null,
+      "decision_ids": [
+        "a1fcf866-ca24-4fee-bcd8-66fc64781877",
+        "97b7eb78-b576-45bb-8d0f-83cb23ca1be6"
+      ]
+    },
+    {
+      "id": "97b7eb78-b576-45bb-8d0f-83cb23ca1be6",
+      "kind": "decision",
+      "revision": 1,
+      "previous_revision": null,
+      "created_exchange_id": "5e11c9f3-aa9d-494e-9914-fcfdf5d40eb9",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "5e11c9f3-aa9d-494e-9914-fcfdf5d40eb9",
+          "message_id": "c528e043-1283-4e66-be7b-d4ca6ed14280",
+          "range": {
+            "start": 701,
+            "end": 760
+          }
+        }
+      ],
+      "action": "revise",
+      "user_message_ref": {
+        "type": "message",
+        "exchange_id": "5e11c9f3-aa9d-494e-9914-fcfdf5d40eb9",
+        "message_id": "c528e043-1283-4e66-be7b-d4ca6ed14280",
+        "range": {
+          "start": 701,
+          "end": 760
+        }
+      },
+      "span": {
+        "start": 701,
+        "end": 760
+      },
+      "target_refs": [
+        {
+          "id": "da566d49-b54b-4646-8ccc-aef7616d0857",
+          "revision": 2
+        },
+        {
+          "id": "61a23fe1-8ea3-42fe-9b31-09604f6268db",
+          "revision": 2
+        },
+        {
+          "id": "3ee9968a-3414-49cd-88df-16dfb6547136",
+          "revision": 1
+        }
+      ],
+      "selected_parts": [],
+      "prior_refs": [
+        {
+          "id": "da566d49-b54b-4646-8ccc-aef7616d0857",
+          "revision": 2
+        },
+        {
+          "id": "61a23fe1-8ea3-42fe-9b31-09604f6268db",
+          "revision": 2
+        },
+        {
+          "id": "3ee9968a-3414-49cd-88df-16dfb6547136",
+          "revision": 1
+        }
+      ],
+      "result_refs": [
+        {
+          "id": "da566d49-b54b-4646-8ccc-aef7616d0857",
+          "revision": 3
+        },
+        {
+          "id": "61a23fe1-8ea3-42fe-9b31-09604f6268db",
+          "revision": 3
+        },
+        {
+          "id": "3ee9968a-3414-49cd-88df-16dfb6547136",
+          "revision": 1
+        }
+      ],
+      "reason": "Beiðni um að hafa báða veðurvalkosti opna enduropnar fyrra stormval; hvorugum valkosti er hafnað.",
+      "affected_refs": [],
+      "review_required_refs": []
+    },
+    {
+      "id": "426af09a-7ab7-4cfa-b718-be7d1631ec58",
+      "kind": "story_element",
+      "revision": 1,
+      "previous_revision": null,
+      "created_exchange_id": "5e11c9f3-aa9d-494e-9914-fcfdf5d40eb9",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "5e11c9f3-aa9d-494e-9914-fcfdf5d40eb9",
+          "message_id": "c528e043-1283-4e66-be7b-d4ca6ed14280",
+          "range": {
+            "start": 761,
+            "end": 824
+          }
+        }
+      ],
+      "element_type": "plot_thread",
+      "display_name": "Möguleg dagbókarfærsla",
+      "aliases": [],
+      "status": "proposed",
+      "assertion_ids": [],
+      "relationship_ids": [],
+      "dependency_refs": [],
+      "time_ref": null,
+      "decision_ids": []
+    },
+    {
+      "id": "aefc91c6-b5b5-48cf-8697-820ccdb40f6c",
+      "kind": "idea",
+      "revision": 1,
+      "previous_revision": null,
+      "created_exchange_id": "5e11c9f3-aa9d-494e-9914-fcfdf5d40eb9",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "5e11c9f3-aa9d-494e-9914-fcfdf5d40eb9",
+          "message_id": "c528e043-1283-4e66-be7b-d4ca6ed14280",
+          "range": {
+            "start": 761,
+            "end": 824
+          }
+        }
+      ],
+      "statement": "Tilvitnun í mögulega dagbókarfærslu: „Edda stal innsiglinu.“",
+      "status": "proposed",
+      "related_element_ids": [
+        "426af09a-7ab7-4cfa-b718-be7d1631ec58",
+        "3086ba61-669d-4800-b65a-9c7253334c91"
+      ],
+      "alternative_group_id": null,
+      "selected_parts": [],
+      "decision_ids": [],
+      "resulting_assertion_ids": []
+    },
+    {
+      "id": "20822d29-b08a-4f77-b2e3-e6bf5907b07b",
+      "kind": "question",
+      "revision": 1,
+      "previous_revision": null,
+      "created_exchange_id": "5e11c9f3-aa9d-494e-9914-fcfdf5d40eb9",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "5e11c9f3-aa9d-494e-9914-fcfdf5d40eb9",
+          "message_id": "c528e043-1283-4e66-be7b-d4ca6ed14280",
+          "range": {
+            "start": 510,
+            "end": 599
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "5e11c9f3-aa9d-494e-9914-fcfdf5d40eb9",
+          "message_id": "fbf62409-7769-4b1d-a76d-0e9fe8cf402f",
+          "range": {
+            "start": 837,
+            "end": 914
+          }
+        }
+      ],
+      "text": "Á „Já“ við gólfhlerann, veggdyrnar eða að halda báðum inngöngum til skoðunar?",
+      "related_refs": [
+        {
+          "id": "7984d4ed-acda-4940-b567-971592bb0507",
+          "revision": 1
+        }
+      ],
+      "alternative_ids": [
+        "bf1352af-3e47-483f-b259-c529b677b530",
+        "1dd11de7-e7c2-493b-8982-c3d5ae249d0d"
+      ],
+      "state": "open",
+      "resolution_decision_id": null
+    },
+    {
+      "id": "17356bdd-0b04-475d-9fc8-9ea8ba0d8d0b",
+      "kind": "session",
+      "revision": 3,
+      "previous_revision": 2,
+      "created_exchange_id": "56478ddf-a40a-4913-abc1-715834d24168",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "5e11c9f3-aa9d-494e-9914-fcfdf5d40eb9",
+          "message_id": "c528e043-1283-4e66-be7b-d4ca6ed14280"
+        }
+      ],
+      "topic": "Atburðir",
+      "mode": "open",
+      "state": "open",
+      "started_exchange_id": "56478ddf-a40a-4913-abc1-715834d24168",
+      "last_exchange_id": "5e11c9f3-aa9d-494e-9914-fcfdf5d40eb9",
+      "related_record_ids": [
+        "d0c71de1-f1cc-44dd-bc6f-f10a9ee49d31",
+        "f98be7cf-b9e5-4ac8-b43e-230997f7d655",
+        "82eba284-22cc-4742-97df-4a2153d4f937",
+        "2047d58e-565b-428a-8626-6cfd46c7403c",
+        "4a1c2ec9-6efd-4269-a413-ec2838e2bcac",
+        "85612da9-7c6c-4185-8191-83e0325eee2a",
+        "8954dff5-7de8-47af-b033-365f7e3fe060",
+        "17c4de0d-c4bd-46f5-ab1f-1893db0e5ebc",
+        "81a06bea-6106-4acf-a8bd-0ee974ad2a29",
+        "756e32ca-3cfe-4b3a-9701-6af2aba49f93",
+        "646ced87-a708-4061-91df-3cfdc5a3e6b3",
+        "c030d800-4f31-4afd-b073-a3adf7961b05",
+        "61a23fe1-8ea3-42fe-9b31-09604f6268db",
+        "64f45da6-3d7f-4e55-93b5-45b88f361597",
+        "27765347-973d-45d7-85e2-53dd8622037a",
+        "da566d49-b54b-4646-8ccc-aef7616d0857",
+        "4f435b04-0392-4275-87e7-45c343b8bd5a",
+        "3ee9968a-3414-49cd-88df-16dfb6547136",
+        "cf3c2149-33ea-42c9-8847-fcc5748c3cbf",
+        "37d7b9b9-6d2e-4c73-830a-ba8732201fe2",
+        "7970f44c-3f47-49a7-8757-74b20a489b1e",
+        "60c1be74-63ec-4454-bed0-c6695d073414",
+        "090fb16e-c32b-40a1-8687-41daa03fd689",
+        "e37f88d3-c3bb-487f-a096-7ff44fd15d61",
+        "5d72fc12-fade-47cf-8175-0a0b3c69b58b",
+        "8ed04638-c72b-4756-a528-f877afadf788",
+        "a1fcf866-ca24-4fee-bcd8-66fc64781877",
+        "00fc1f94-7b76-4cfe-bab4-55eb9ac545be",
+        "81a44c03-3029-49bf-a82f-41481255d083",
+        "e6deaac1-a758-4d7a-a611-03ef8820496a",
+        "c8c55438-b9dc-4534-aed4-515d6d7e7193",
+        "0bae9007-2726-4bfa-8259-79a971ada180",
+        "13860c29-c960-4d69-9666-7a94c9018558",
+        "59e59791-5a37-49e3-9ede-76ed282ecabf",
+        "a160b2aa-261a-4f08-b910-f846d4307617",
+        "12368f8d-343d-4a4b-8633-e2e0401b713b",
+        "da79f6a2-6b80-44d8-b67d-9d0bb7731c5f",
+        "a38bb3b1-d7dd-4a63-870e-c860ae84bfb5",
+        "a7a34ee8-8784-4ef3-a817-dc916d4b78d5",
+        "5f135481-ba1f-4c2e-ba05-a2071833c651",
+        "f9daed09-59ae-4a1d-8b62-145be8a8568c",
+        "9aa1ad1f-e60b-4e5a-94cd-7f6159f8b8db",
+        "f65265b4-c009-4399-8e29-9d1fdc6feb56",
+        "2306571e-600d-4d5a-8e30-27e0a84045be",
+        "4982f4a1-abbf-477c-8c16-ac7aced52996",
+        "aa43248a-fd41-4ec9-9a25-8d3722396422",
+        "7e8fb11e-32f4-461e-a855-4c8983131b69",
+        "44703877-7966-4bf6-b4d0-3cb7ff1eb3e3",
+        "8f56ec6e-fee6-45e2-97b7-8fdee180825b",
+        "d30df53b-debd-4ed6-9a7b-e3eda1590945",
+        "92096719-1d87-4305-8e28-d33f659edc69",
+        "bf1352af-3e47-483f-b259-c529b677b530",
+        "1dd11de7-e7c2-493b-8982-c3d5ae249d0d",
+        "d8256557-8656-455c-b36c-10eaf63bdf73",
+        "b0d516a0-4739-450b-92e6-6986c1f0d716",
+        "c2a328d6-9474-4b20-81e2-f57327efa071",
+        "a5a37507-baff-4ad3-87c0-5a405dae0262",
+        "f1fcc75e-8c7d-44a7-aed2-d68e860db715",
+        "97b7eb78-b576-45bb-8d0f-83cb23ca1be6",
+        "426af09a-7ab7-4cfa-b718-be7d1631ec58",
+        "aefc91c6-b5b5-48cf-8697-820ccdb40f6c",
+        "20822d29-b08a-4f77-b2e3-e6bf5907b07b"
+      ],
+      "unresolved_question_ids": [
+        "5d72fc12-fade-47cf-8175-0a0b3c69b58b",
+        "8ed04638-c72b-4756-a528-f877afadf788",
+        "da79f6a2-6b80-44d8-b67d-9d0bb7731c5f",
+        "8f56ec6e-fee6-45e2-97b7-8fdee180825b",
+        "20822d29-b08a-4f77-b2e3-e6bf5907b07b"
+      ],
+      "derived_context_ref": null
+    }
+  ],
+  "continuity_review": {
+    "coverage": "incomplete",
+    "reviewed_record_refs": [
+      {
+        "id": "230b68ca-fa8b-45d3-8e31-de9d44027b6b",
+        "revision": 1
+      },
+      {
+        "id": "8d4abc77-ebc9-40ed-a753-65b5c161419b",
+        "revision": 1
+      },
+      {
+        "id": "3086ba61-669d-4800-b65a-9c7253334c91",
+        "revision": 1
+      },
+      {
+        "id": "4937b5e5-d88f-46ea-904e-f5b3f86ca30d",
+        "revision": 1
+      },
+      {
+        "id": "c8123df5-8424-40be-9c44-0256033457c5",
+        "revision": 1
+      },
+      {
+        "id": "7329912f-a403-4c50-958d-19ae373249e3",
+        "revision": 1
+      },
+      {
+        "id": "e19f2739-2527-4846-bb3b-1d240f0abf78",
+        "revision": 1
+      },
+      {
+        "id": "500cb7e7-4b11-4b6c-adbf-efc84d0f8ba0",
+        "revision": 1
+      },
+      {
+        "id": "46838eca-aced-4d1a-ac7d-8e180f31a0a0",
+        "revision": 1
+      },
+      {
+        "id": "d85445c0-a59a-48be-891d-62f6b3069651",
+        "revision": 1
+      },
+      {
+        "id": "f351ee38-3956-47ee-aa75-73b05234d57e",
+        "revision": 1
+      },
+      {
+        "id": "1a1d9bcc-8c1a-467e-ad5b-1dd3d37c8637",
+        "revision": 1
+      },
+      {
+        "id": "27211402-c351-44c5-ba24-f68a936310d4",
+        "revision": 1
+      },
+      {
+        "id": "0d70cc7f-690e-4c72-98e4-788893c2d277",
+        "revision": 1
+      },
+      {
+        "id": "a594b87b-3178-4b67-a2b6-262f00cfcddc",
+        "revision": 1
+      },
+      {
+        "id": "90ddf826-91ec-4b56-8976-3dfb1e0a922c",
+        "revision": 1
+      },
+      {
+        "id": "4710621c-1174-46f1-9ee0-926a995db608",
+        "revision": 1
+      },
+      {
+        "id": "515f2c3b-3bf9-4134-9b49-d95d5fce74b3",
+        "revision": 1
+      },
+      {
+        "id": "d0c71de1-f1cc-44dd-bc6f-f10a9ee49d31",
+        "revision": 1
+      },
+      {
+        "id": "f98be7cf-b9e5-4ac8-b43e-230997f7d655",
+        "revision": 1
+      },
+      {
+        "id": "82eba284-22cc-4742-97df-4a2153d4f937",
+        "revision": 1
+      },
+      {
+        "id": "4a1c2ec9-6efd-4269-a413-ec2838e2bcac",
+        "revision": 1
+      },
+      {
+        "id": "85612da9-7c6c-4185-8191-83e0325eee2a",
+        "revision": 1
+      },
+      {
+        "id": "8954dff5-7de8-47af-b033-365f7e3fe060",
+        "revision": 1
+      },
+      {
+        "id": "81a06bea-6106-4acf-a8bd-0ee974ad2a29",
+        "revision": 1
+      },
+      {
+        "id": "756e32ca-3cfe-4b3a-9701-6af2aba49f93",
+        "revision": 1
+      },
+      {
+        "id": "646ced87-a708-4061-91df-3cfdc5a3e6b3",
+        "revision": 1
+      },
+      {
+        "id": "61a23fe1-8ea3-42fe-9b31-09604f6268db",
+        "revision": 2
+      },
+      {
+        "id": "da566d49-b54b-4646-8ccc-aef7616d0857",
+        "revision": 2
+      },
+      {
+        "id": "7970f44c-3f47-49a7-8757-74b20a489b1e",
+        "revision": 2
+      },
+      {
+        "id": "60c1be74-63ec-4454-bed0-c6695d073414",
+        "revision": 2
+      },
+      {
+        "id": "86ed5418-0570-496d-92ce-7090e6b9dde1",
+        "revision": 1
+      },
+      {
+        "id": "69059156-f3a0-4d96-820c-b342bbedc157",
+        "revision": 1
+      },
+      {
+        "id": "c33e9f0b-9220-4478-bac9-45b3a1cdcaad",
+        "revision": 1
+      },
+      {
+        "id": "cfc45be6-0360-4549-9e99-171f6296e14c",
+        "revision": 1
+      },
+      {
+        "id": "e49f9a76-ac1d-4b6c-8a86-ae3eec006fa8",
+        "revision": 1
+      },
+      {
+        "id": "36444d2f-130a-4d73-824b-6c6e124f1a22",
+        "revision": 1
+      },
+      {
+        "id": "ae958945-4549-49de-af7e-dd3fc760fc8b",
+        "revision": 1
+      },
+      {
+        "id": "d9215850-dcc4-4cb1-b999-e838039e2371",
+        "revision": 1
+      },
+      {
+        "id": "811ce9aa-ab20-4f4c-aa50-14ad476962cb",
+        "revision": 1
+      },
+      {
+        "id": "81a44c03-3029-49bf-a82f-41481255d083",
+        "revision": 1
+      },
+      {
+        "id": "c2a328d6-9474-4b20-81e2-f57327efa071",
+        "revision": 1
+      },
+      {
+        "id": "a5a37507-baff-4ad3-87c0-5a405dae0262",
+        "revision": 1
+      },
+      {
+        "id": "da566d49-b54b-4646-8ccc-aef7616d0857",
+        "revision": 3
+      },
+      {
+        "id": "3ee9968a-3414-49cd-88df-16dfb6547136",
+        "revision": 1
+      }
+    ],
+    "unavailable_refs": [],
+    "canon_hold_refs": [
+      "c2a328d6-9474-4b20-81e2-f57327efa071",
+      "a5a37507-baff-4ad3-87c0-5a405dae0262",
+      "69059156-f3a0-4d96-820c-b342bbedc157"
+    ],
+    "finding_ids": [
+      "f1fcc75e-8c7d-44a7-aed2-d68e860db715"
+    ],
+    "summary": "Nóturnar tólf metnar aðskildar. Engin ný samþykkt staðreynd úr áhuga, kannski, hvað ef, tilvitnun eða óljósu já-i. Flotbrú er tilgáta í verulegri mótsögn við samþykkt brúarleysi ef hún yrði staðfest. Báðir veðurvalkostir enduropnaðir samkvæmt núverandi fyrirmælum, með fyrra stormvali varðveittu í sögu. Samræmi flotbrúartilgátunnar er óútkljáð og samþykki þess umfangs í bið."
+  },
+  "payload_digest": "685eb6798b8c2e7cc723625601ef5fa12e9289460d1f66217a4a534b74e4f3a8"
+}

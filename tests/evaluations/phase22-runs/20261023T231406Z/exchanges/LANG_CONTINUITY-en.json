@@ -1,0 +1,520 @@
+{
+  "schema_version": "1.0",
+  "novel_id": "42754ded-2ba3-42d4-98b4-3e30663c4e76",
+  "exchange_id": "fe93d295-9197-46ac-be71-fc0cc2ea1aeb",
+  "sequence": 5,
+  "previous_exchange_id": "cd8b9ee7-19e0-4e76-a4da-1a474809fc33",
+  "previous_digest": "aca1737551c2537fff14f0ee01dffb85582ca37efccef69bc68cef36d5d25478",
+  "session_id": "3a4a9d59-c811-4c3c-ab96-438872a1add6",
+  "expected_git_head": "7c9db9defc0b3a5dc0eab40c4f86fce9a623d559",
+  "recorded_at": "2026-10-28T10:56:56.465162Z",
+  "operation": "conversation",
+  "messages": [
+    {
+      "message_id": "13b68493-fde7-431c-a987-d08374a877e6",
+      "role": "user",
+      "text": "Case LANG_CONTINUITY. The engine uses gaseous fuel, not petrol. Does that fit the rule?\n\nKeep Þóra as sender, en morðið er enn óákveðið.\n\nPause after your response."
+    },
+    {
+      "message_id": "6834b5fa-f6f4-4a68-a934-f18b43f81107",
+      "role": "assistant",
+      "text": "No. “Gaseous fuel, not petrol” conflicts with the established rule that the engine runs exclusively on petrol (2d9d1a12 r1). The fuel change remains proposed (b16e682d r1), with a significant unresolved conflict (2069408e r1); I have not changed the rule.\n\nÞóra is now established as the sender (cbc84f52 r2; decision e8d71f1e r1). “en morðið er enn óákveðið” leaves the murder undecided (100e9a66 r1); no murderer is established. Her marriage fact remains unchanged (010a1c3d r1).\n\nWould you like to revise the petrol-only rule, or keep it and change the gaseous-fuel proposal? (d30cccd8 r1).\n\nPaused here."
+    }
+  ],
+  "input_artifacts": [
+    {
+      "artifact_id": "641568e3-44ec-4c3d-a479-2fd8f946d83a",
+      "original_text": "{\"kind\":\"host_input\",\"source_type\":\"delegated\",\"thread_id\":\"01a16af9-f289-73c1-8151-55f50ace05d9\",\"turn_id\":\"01a18226-a1c7-7902-bb02-c6f36e5bf512\",\"event_id\":\"fco_01a18226-a1c8-7d60-8071-e08426ec5533\",\"event_type\":\"functionCallOutput\",\"source_thread_id\":\"01a16af6-0d9b-7173-a5f5-c8775f37df18\",\"native_user_input\":false,\"novice_evidence\":false,\"evaluation_only\":true,\"text\":\"Case LANG_CONTINUITY. The engine uses gaseous fuel, not petrol. Does that fit the rule?\\n\\nKeep Þóra as sender, en morðið er enn óákveðið.\\n\\nPause after your response.\",\"public_event\":{\"type\":\"functionCallOutput\",\"id\":\"fco_01a18226-a1c8-7d60-8071-e08426ec5533\",\"namespace\":\"codex_app\",\"name\":\"send_message_to_thread\",\"output\":{\"text\":\"<codex_delegation>\\n  <source_thread_id>01a16af6-0d9b-7173-a5f5-c8775f37df18</source_thread_id>\\n  <input>Case LANG_CONTINUITY. The engine uses gaseous fuel, not petrol. Does that fit the rule?\\n\\nKeep Þóra as sender, en morðið er enn óákveðið.\\n\\nPause after your response.</input>\\n</codex_delegation>\",\"truncated\":false}}}",
+      "parsed_value": {
+        "kind": "host_input",
+        "source_type": "delegated",
+        "thread_id": "01a16af9-f289-73c1-8151-55f50ace05d9",
+        "turn_id": "01a18226-a1c7-7902-bb02-c6f36e5bf512",
+        "event_id": "fco_01a18226-a1c8-7d60-8071-e08426ec5533",
+        "event_type": "functionCallOutput",
+        "source_thread_id": "01a16af6-0d9b-7173-a5f5-c8775f37df18",
+        "native_user_input": false,
+        "novice_evidence": false,
+        "evaluation_only": true,
+        "text": "Case LANG_CONTINUITY. The engine uses gaseous fuel, not petrol. Does that fit the rule?\n\nKeep Þóra as sender, en morðið er enn óákveðið.\n\nPause after your response.",
+        "public_event": {
+          "type": "functionCallOutput",
+          "id": "fco_01a18226-a1c8-7d60-8071-e08426ec5533",
+          "namespace": "codex_app",
+          "name": "send_message_to_thread",
+          "output": {
+            "text": "<codex_delegation>\n  <source_thread_id>01a16af6-0d9b-7173-a5f5-c8775f37df18</source_thread_id>\n  <input>Case LANG_CONTINUITY. The engine uses gaseous fuel, not petrol. Does that fit the rule?\n\nKeep Þóra as sender, en morðið er enn óákveðið.\n\nPause after your response.</input>\n</codex_delegation>",
+            "truncated": false
+          }
+        }
+      },
+      "digest": "870f37362feaa1953ed994008bff944f764d95742b50e7c08eeaeabf91799213"
+    }
+  ],
+  "record_versions": [
+    {
+      "id": "b16e682d-4924-4702-9152-6181930dac72",
+      "kind": "idea",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "fe93d295-9197-46ac-be71-fc0cc2ea1aeb",
+          "message_id": "13b68493-fde7-431c-a987-d08374a877e6",
+          "range": {
+            "start": 22,
+            "end": 63
+          }
+        }
+      ],
+      "created_exchange_id": "fe93d295-9197-46ac-be71-fc0cc2ea1aeb",
+      "origin": "supplied",
+      "statement": "The engine uses gaseous fuel, not petrol.",
+      "status": "proposed",
+      "related_element_ids": [
+        "535a64d5-f560-4c5c-9bde-cf235f3b42e3"
+      ],
+      "alternative_group_id": null,
+      "selected_parts": [],
+      "decision_ids": [],
+      "resulting_assertion_ids": [
+        "6d1da506-453b-4c98-a8ed-51ea8f6abe06"
+      ]
+    },
+    {
+      "id": "6d1da506-453b-4c98-a8ed-51ea8f6abe06",
+      "kind": "assertion",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "fe93d295-9197-46ac-be71-fc0cc2ea1aeb",
+          "message_id": "13b68493-fde7-431c-a987-d08374a877e6",
+          "range": {
+            "start": 22,
+            "end": 63
+          }
+        }
+      ],
+      "created_exchange_id": "fe93d295-9197-46ac-be71-fc0cc2ea1aeb",
+      "origin": "supplied",
+      "subject_element_id": "535a64d5-f560-4c5c-9bde-cf235f3b42e3",
+      "predicate": "fuel_rule",
+      "value": "uses gaseous fuel, not petrol",
+      "perspective": "author_truth",
+      "holder_id": null,
+      "reader_audience": null,
+      "time_ref": {
+        "chronology": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        },
+        "narrative": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        }
+      },
+      "truth_state": "affirmed",
+      "status": "proposed",
+      "decision_ids": [],
+      "supersedes": null
+    },
+    {
+      "id": "2069408e-0c59-4273-846f-50ad84776c74",
+      "kind": "finding",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "fe93d295-9197-46ac-be71-fc0cc2ea1aeb",
+          "message_id": "13b68493-fde7-431c-a987-d08374a877e6",
+          "range": {
+            "start": 22,
+            "end": 63
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "9ded8930-92ba-4ab6-8e42-4d71833ed365",
+          "message_id": "e362f85e-1738-4d4d-bdfe-87ea5cc7d855",
+          "range": {
+            "start": 785,
+            "end": 823
+          }
+        }
+      ],
+      "created_exchange_id": "fe93d295-9197-46ac-be71-fc0cc2ea1aeb",
+      "origin": "interpreted",
+      "category": "world_rule",
+      "assessment": "conflict",
+      "severity": "significant",
+      "affected_refs": [
+        {
+          "id": "b16e682d-4924-4702-9152-6181930dac72",
+          "revision": 1
+        },
+        {
+          "id": "6d1da506-453b-4c98-a8ed-51ea8f6abe06",
+          "revision": 1
+        },
+        {
+          "id": "2d9d1a12-afd9-4ed4-baa3-4851f12cfd29",
+          "revision": 1
+        },
+        {
+          "id": "535a64d5-f560-4c5c-9bde-cf235f3b42e3",
+          "revision": 1
+        }
+      ],
+      "explanation": "Gaseous fuel explicitly distinguished from petrol is incompatible with the accepted rule that the engine runs exclusively on petrol. The current question asks about compatibility and does not settle whether to revise the existing rule.",
+      "consequences": [
+        "Do not promote the gaseous-fuel proposal while preserving the exclusive petrol rule.",
+        "Keep the established rule in force pending a sourced choice of resolution."
+      ],
+      "resolution_options": [
+        "Revise or reject the gaseous-fuel proposal.",
+        "Explicitly revise the petrol-only rule.",
+        "Supply an intentional narrative explanation or defer the conflict."
+      ],
+      "disposition": "open",
+      "decision_ids": [],
+      "narrative_explanation": null
+    },
+    {
+      "id": "a3e1a84d-497e-45e8-b195-7347cd755cea",
+      "kind": "idea",
+      "revision": 2,
+      "previous_revision": 1,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "cd8b9ee7-19e0-4e76-a4da-1a474809fc33",
+          "message_id": "8d366c6b-90fc-44aa-ae35-2c20eba92d5a",
+          "range": {
+            "start": 19,
+            "end": 49
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "fe93d295-9197-46ac-be71-fc0cc2ea1aeb",
+          "message_id": "13b68493-fde7-431c-a987-d08374a877e6",
+          "range": {
+            "start": 89,
+            "end": 108
+          }
+        }
+      ],
+      "created_exchange_id": "cd8b9ee7-19e0-4e76-a4da-1a474809fc33",
+      "origin": "supplied",
+      "statement": "Þóra sent the letter.",
+      "status": "accepted",
+      "related_element_ids": [
+        "08f2bfd7-199a-4de6-b6da-39c5bce8ce94"
+      ],
+      "alternative_group_id": null,
+      "selected_parts": [
+        "Þóra sent the letter."
+      ],
+      "decision_ids": [
+        "e8d71f1e-0925-4435-af4d-e9cd416e87d7"
+      ],
+      "resulting_assertion_ids": [
+        "cbc84f52-ea8a-4bb6-a2e5-58acf50dfc33"
+      ]
+    },
+    {
+      "id": "cbc84f52-ea8a-4bb6-a2e5-58acf50dfc33",
+      "kind": "assertion",
+      "revision": 2,
+      "previous_revision": 1,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "cd8b9ee7-19e0-4e76-a4da-1a474809fc33",
+          "message_id": "8d366c6b-90fc-44aa-ae35-2c20eba92d5a",
+          "range": {
+            "start": 19,
+            "end": 49
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "fe93d295-9197-46ac-be71-fc0cc2ea1aeb",
+          "message_id": "13b68493-fde7-431c-a987-d08374a877e6",
+          "range": {
+            "start": 89,
+            "end": 108
+          }
+        }
+      ],
+      "created_exchange_id": "cd8b9ee7-19e0-4e76-a4da-1a474809fc33",
+      "origin": "supplied",
+      "subject_element_id": "08f2bfd7-199a-4de6-b6da-39c5bce8ce94",
+      "predicate": "sent",
+      "value": "the letter",
+      "perspective": "author_truth",
+      "holder_id": null,
+      "reader_audience": null,
+      "time_ref": {
+        "chronology": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        },
+        "narrative": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        }
+      },
+      "truth_state": "affirmed",
+      "status": "accepted",
+      "decision_ids": [
+        "e8d71f1e-0925-4435-af4d-e9cd416e87d7"
+      ],
+      "supersedes": null
+    },
+    {
+      "id": "e8d71f1e-0925-4435-af4d-e9cd416e87d7",
+      "kind": "decision",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "fe93d295-9197-46ac-be71-fc0cc2ea1aeb",
+          "message_id": "13b68493-fde7-431c-a987-d08374a877e6",
+          "range": {
+            "start": 89,
+            "end": 108
+          }
+        }
+      ],
+      "created_exchange_id": "fe93d295-9197-46ac-be71-fc0cc2ea1aeb",
+      "origin": "supplied",
+      "action": "accept",
+      "user_message_ref": {
+        "type": "message",
+        "exchange_id": "fe93d295-9197-46ac-be71-fc0cc2ea1aeb",
+        "message_id": "13b68493-fde7-431c-a987-d08374a877e6",
+        "range": {
+          "start": 89,
+          "end": 108
+        }
+      },
+      "span": {
+        "start": 89,
+        "end": 108
+      },
+      "target_refs": [
+        {
+          "id": "a3e1a84d-497e-45e8-b195-7347cd755cea",
+          "revision": 1
+        },
+        {
+          "id": "cbc84f52-ea8a-4bb6-a2e5-58acf50dfc33",
+          "revision": 1
+        }
+      ],
+      "selected_parts": [
+        "Þóra sent the letter."
+      ],
+      "prior_refs": [
+        {
+          "id": "a3e1a84d-497e-45e8-b195-7347cd755cea",
+          "revision": 1
+        },
+        {
+          "id": "cbc84f52-ea8a-4bb6-a2e5-58acf50dfc33",
+          "revision": 1
+        }
+      ],
+      "result_refs": [
+        {
+          "id": "a3e1a84d-497e-45e8-b195-7347cd755cea",
+          "revision": 2
+        },
+        {
+          "id": "cbc84f52-ea8a-4bb6-a2e5-58acf50dfc33",
+          "revision": 2
+        }
+      ],
+      "reason": "The current instruction explicitly selects Þóra as sender. The adjoining Icelandic clause leaves the murder undecided and does not accept a murderer.",
+      "affected_refs": [
+        {
+          "id": "a3e1a84d-497e-45e8-b195-7347cd755cea",
+          "revision": 2
+        },
+        {
+          "id": "cbc84f52-ea8a-4bb6-a2e5-58acf50dfc33",
+          "revision": 2
+        }
+      ],
+      "review_required_refs": []
+    },
+    {
+      "id": "100e9a66-7f32-4a29-913a-36df7cc1b42f",
+      "kind": "idea",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "fe93d295-9197-46ac-be71-fc0cc2ea1aeb",
+          "message_id": "13b68493-fde7-431c-a987-d08374a877e6",
+          "range": {
+            "start": 110,
+            "end": 136
+          }
+        }
+      ],
+      "created_exchange_id": "fe93d295-9197-46ac-be71-fc0cc2ea1aeb",
+      "origin": "supplied",
+      "statement": "The murder remains undecided.",
+      "status": "unresolved",
+      "related_element_ids": [],
+      "alternative_group_id": null,
+      "selected_parts": [],
+      "decision_ids": [],
+      "resulting_assertion_ids": []
+    },
+    {
+      "id": "d30cccd8-b676-4f33-a605-ca0857fbcb01",
+      "kind": "question",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "fe93d295-9197-46ac-be71-fc0cc2ea1aeb",
+          "message_id": "6834b5fa-f6f4-4a68-a934-f18b43f81107",
+          "range": {
+            "start": 483,
+            "end": 578
+          }
+        }
+      ],
+      "created_exchange_id": "fe93d295-9197-46ac-be71-fc0cc2ea1aeb",
+      "origin": "interpreted",
+      "text": "Would you like to revise the petrol-only rule, or keep it and change the gaseous-fuel proposal?",
+      "related_refs": [
+        {
+          "id": "2069408e-0c59-4273-846f-50ad84776c74",
+          "revision": 1
+        },
+        {
+          "id": "b16e682d-4924-4702-9152-6181930dac72",
+          "revision": 1
+        },
+        {
+          "id": "2d9d1a12-afd9-4ed4-baa3-4851f12cfd29",
+          "revision": 1
+        }
+      ],
+      "alternative_ids": [],
+      "state": "open",
+      "resolution_decision_id": null
+    },
+    {
+      "id": "3a4a9d59-c811-4c3c-ab96-438872a1add6",
+      "kind": "session",
+      "revision": 3,
+      "previous_revision": 2,
+      "created_exchange_id": "4146312e-8b9a-4739-bab5-55407e45623a",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "fe93d295-9197-46ac-be71-fc0cc2ea1aeb",
+          "message_id": "13b68493-fde7-431c-a987-d08374a877e6",
+          "range": {
+            "start": 64,
+            "end": 87
+          }
+        }
+      ],
+      "topic": "Þóra",
+      "mode": "guided",
+      "state": "open",
+      "started_exchange_id": "4146312e-8b9a-4739-bab5-55407e45623a",
+      "last_exchange_id": "fe93d295-9197-46ac-be71-fc0cc2ea1aeb",
+      "related_record_ids": [
+        "3e7cfe68-ceea-486f-b6e8-0e27cffd8057",
+        "27f89d03-dd4a-40a3-8afd-9b0036a15895",
+        "08f2bfd7-199a-4de6-b6da-39c5bce8ce94",
+        "010a1c3d-e88d-4792-b9e7-82e9cf9a7089",
+        "cc598574-fe29-425f-b3a3-2d80d241aebe",
+        "f250ede0-1c17-4a29-a953-7c8cf512204d",
+        "a3e1a84d-497e-45e8-b195-7347cd755cea",
+        "cbc84f52-ea8a-4bb6-a2e5-58acf50dfc33",
+        "0e3c365a-843f-46d2-b47c-dbfbf3e38f9d",
+        "c05518bd-5c60-4021-ae99-7dcf79ac8680",
+        "b16e682d-4924-4702-9152-6181930dac72",
+        "6d1da506-453b-4c98-a8ed-51ea8f6abe06",
+        "2069408e-0c59-4273-846f-50ad84776c74",
+        "e8d71f1e-0925-4435-af4d-e9cd416e87d7",
+        "100e9a66-7f32-4a29-913a-36df7cc1b42f",
+        "d30cccd8-b676-4f33-a605-ca0857fbcb01"
+      ],
+      "unresolved_question_ids": [
+        "27f89d03-dd4a-40a3-8afd-9b0036a15895",
+        "d30cccd8-b676-4f33-a605-ca0857fbcb01"
+      ],
+      "derived_context_ref": null
+    }
+  ],
+  "continuity_review": {
+    "coverage": "complete",
+    "reviewed_record_refs": [
+      {
+        "id": "2d9d1a12-afd9-4ed4-baa3-4851f12cfd29",
+        "revision": 1
+      },
+      {
+        "id": "535a64d5-f560-4c5c-9bde-cf235f3b42e3",
+        "revision": 1
+      },
+      {
+        "id": "42754ded-2ba3-42d4-98b4-3e30663c4e76",
+        "revision": 3
+      },
+      {
+        "id": "010a1c3d-e88d-4792-b9e7-82e9cf9a7089",
+        "revision": 1
+      },
+      {
+        "id": "a3e1a84d-497e-45e8-b195-7347cd755cea",
+        "revision": 1
+      },
+      {
+        "id": "cbc84f52-ea8a-4bb6-a2e5-58acf50dfc33",
+        "revision": 1
+      }
+    ],
+    "unavailable_refs": [],
+    "canon_hold_refs": [],
+    "finding_ids": [
+      "2069408e-0c59-4273-846f-50ad84776c74"
+    ],
+    "summary": "The explicit gaseous-fuel-versus-petrol proposal conflicts with exclusive petrol canon and remains held by a significant open finding. The separate mixed-language direction clearly selects Þóra as sender while leaving the murder undecided. Preserve the marriage fact, unknown genre, Icelandic manuscript language and saved English interaction preference; no quoted lie is promoted to author truth."
+  },
+  "payload_digest": "d5af107b9220982d30904bedfc4d534567b02446930e451b7b60eaf4e4c410af"
+}

@@ -1,0 +1,48 @@
+{
+  "source_sha256": {
+    "src/novel_creator/storage.py": "16de2fab76922e9252924eada706c7a8d5071875c68e155279192edd749b5828",
+    "tests/integration/test_storage.py": "49b646e9f20b001aa8e986d662dea9144e39a1254727b5f25287695b7528d546",
+    "tests/helpers.py": "b6ddda217adb87a43d14dcd7be46e3cab76b5aa4023ec41b6e4eb509d8ed9be5",
+    "tests/performance/benchmark_records.py": "7f69593cbee6330af1cb67261f662db8d186cc6d00787d3710d002a8430650f2"
+  },
+  "windows_tests": {
+    "exit_code": 0,
+    "wall_seconds": 319.06721180002205
+  },
+  "linux_tests": {
+    "exit_code": 0,
+    "wall_seconds": 42.278079899959266
+  },
+  "matched_diagnostic": {
+    "exit_code": 0,
+    "wall_seconds": 62.32214540010318
+  },
+  "default": {
+    "exit_code": 1,
+    "wall_seconds": 204.32964849995915,
+    "cold_read_seconds": 2.672013800009154,
+    "read_p95_seconds": 2.0149261000333354,
+    "save_p95_seconds": 2.73324179998599,
+    "maintenance_seconds": null,
+    "git_executable": "C:\\Program Files\\Git\\cmd\\git.EXE"
+  },
+  "packed": {
+    "exit_code": 1,
+    "wall_seconds": 158.27792570006568,
+    "cold_read_seconds": 1.9777503000805154,
+    "read_p95_seconds": 1.0451057000318542,
+    "save_p95_seconds": 2.2093144999817014,
+    "maintenance_seconds": 4.524228099966422,
+    "git_executable": "C:\\Program Files\\Git\\cmd\\git.EXE"
+  },
+  "git-bash-packed": {
+    "exit_code": 1,
+    "wall_seconds": 139.2274778999854,
+    "cold_read_seconds": 2.2259432000573725,
+    "read_p95_seconds": 0.9429101999849081,
+    "save_p95_seconds": 1.719383699935861,
+    "maintenance_seconds": 2.9713722999440506,
+    "git_executable": "C:\\Program Files\\Git\\mingw64\\bin\\git.EXE"
+  },
+  "inputs_unchanged_after_measurements": true
+}

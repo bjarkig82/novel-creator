@@ -1,0 +1,19 @@
+{"fixture": {"sessions": 100, "exchanges": 5000, "active_assertions": 10000, "json_bytes": 26215716, "synthetic": true, "fully_validated": true}, "source_sha256": "593b46960df2316ea058f03840bb8ac011a716e3c3dd516c8297d0fc91265322", "variant": "cat-file --batch-command --buffer, contents requests then flush"}
+{"operation": "bulk-blobs", "queued": false, "seconds": 0.6983896000310779, "bulk_digest": [5000, "0346fdc0702cca6060594dcfd5137f9aaa5151e4ee44a28c539ac46fe105ef89"]}
+{"operation": "bulk-blobs", "queued": true, "seconds": 0.6638296000892296, "bulk_digest": [5000, "0346fdc0702cca6060594dcfd5137f9aaa5151e4ee44a28c539ac46fe105ef89"]}
+{"operation": "bulk-blobs", "queued": true, "seconds": 0.7012583999894559, "bulk_digest": [5000, "0346fdc0702cca6060594dcfd5137f9aaa5151e4ee44a28c539ac46fe105ef89"]}
+{"operation": "bulk-blobs", "queued": false, "seconds": 0.6745222000172362, "bulk_digest": [5000, "0346fdc0702cca6060594dcfd5137f9aaa5151e4ee44a28c539ac46fe105ef89"]}
+{"operation": "bulk-blobs", "queued": false, "seconds": 0.6371780000627041, "bulk_digest": [5000, "0346fdc0702cca6060594dcfd5137f9aaa5151e4ee44a28c539ac46fe105ef89"]}
+{"operation": "bulk-blobs", "queued": true, "seconds": 0.6355414000572637, "bulk_digest": [5000, "0346fdc0702cca6060594dcfd5137f9aaa5151e4ee44a28c539ac46fe105ef89"]}
+{"operation": "bulk-blobs", "queued": true, "seconds": 0.6228953000390902, "bulk_digest": [5000, "0346fdc0702cca6060594dcfd5137f9aaa5151e4ee44a28c539ac46fe105ef89"]}
+{"operation": "bulk-blobs", "queued": false, "seconds": 0.6396311999997124, "bulk_digest": [5000, "0346fdc0702cca6060594dcfd5137f9aaa5151e4ee44a28c539ac46fe105ef89"]}
+{"operation": "bulk-blobs", "median": {"False": 0.6570767000084743, "True": 0.6496855000732467}}
+{"operation": "save", "queued": false, "seconds": 7.70116469997447, "bulk_digest": [5000, "0346fdc0702cca6060594dcfd5137f9aaa5151e4ee44a28c539ac46fe105ef89"]}
+{"operation": "save", "queued": true, "seconds": 6.087698000017554, "bulk_digest": [5000, "0346fdc0702cca6060594dcfd5137f9aaa5151e4ee44a28c539ac46fe105ef89"]}
+{"operation": "save", "queued": true, "seconds": 5.084272300009616, "bulk_digest": [5000, "0346fdc0702cca6060594dcfd5137f9aaa5151e4ee44a28c539ac46fe105ef89"]}
+{"operation": "save", "queued": false, "seconds": 4.719004099955782, "bulk_digest": [5000, "0346fdc0702cca6060594dcfd5137f9aaa5151e4ee44a28c539ac46fe105ef89"]}
+{"operation": "save", "queued": false, "seconds": 3.8751850000116974, "bulk_digest": [5000, "0346fdc0702cca6060594dcfd5137f9aaa5151e4ee44a28c539ac46fe105ef89"]}
+{"operation": "save", "queued": true, "seconds": 3.682084299973212, "bulk_digest": [5000, "0346fdc0702cca6060594dcfd5137f9aaa5151e4ee44a28c539ac46fe105ef89"]}
+{"operation": "save", "queued": true, "seconds": 3.6042059999890625, "bulk_digest": [5000, "0346fdc0702cca6060594dcfd5137f9aaa5151e4ee44a28c539ac46fe105ef89"]}
+{"operation": "save", "queued": false, "seconds": 5.909172200015746, "bulk_digest": [5000, "0346fdc0702cca6060594dcfd5137f9aaa5151e4ee44a28c539ac46fe105ef89"]}
+{"operation": "save", "median": {"False": 5.314088149985764, "True": 4.383178299991414}}

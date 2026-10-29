@@ -1,0 +1,18 @@
+{
+  "source": {
+    "src/novel_creator/storage.py": "9bbcb0acb6442ef45ce564d4b9980abe5889fbd0373d14acb2387ae429bf2a44",
+    "src/novel_creator/validation.py": "7e4c75ada3c3eaf3c196066ff657e5e5d9084abdd14a97b6e07c4f5d3b6bf517",
+    "tests/performance/benchmark_records.py": "7f69593cbee6330af1cb67261f662db8d186cc6d00787d3710d002a8430650f2",
+    "tests/integration/test_storage.py": "45f49d8b22d6cddd4023769782bef5ffba5ed2370df9edab4e548255c085ff6c",
+    "tests/helpers.py": "b6ddda217adb87a43d14dcd7be46e3cab76b5aa4023ec41b6e4eb509d8ed9be5"
+  },
+  "status": "focused pass; full suites and benchmark pending",
+  "artifacts": {
+    "windows-balanced-save-pending-20261022.md": "e5b71e50ca4aaf210b6958563cef793bf52e7c9351cc61e7791d4983b8b218eb",
+    "windows-balanced-save-production-red-20261022.txt": "b4038aa753090bc16f6b7cec721831d10243b5f37ccc15c94ad541564fdfb8de",
+    "windows-balanced-save-production-focused-20261022.txt": "34c7ff2ea6e0682d70d0728dae84dcc914f2a0b1c09392c94588ad9da64bfd26",
+    "windows-balanced-save-pending-storage-source-20261022.txt": "9bbcb0acb6442ef45ce564d4b9980abe5889fbd0373d14acb2387ae429bf2a44",
+    "windows-balanced-save-pending-tests-source-20261022.txt": "45f49d8b22d6cddd4023769782bef5ffba5ed2370df9edab4e548255c085ff6c",
+    "windows-balanced-save-readers-manifest-20261022.json": "641d94597e7672187353edf225ee785ef21c7d89cb1f3183f20d22de624a798f"
+  }
+}

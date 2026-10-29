@@ -1,4 +1,9 @@
-# SC-007 novice guidance — UNVERIFIED
+# Historical novice guidance - out of scope for the single-user POC
+
+On 2026-10-23 the owner explicitly excluded novice testers and chose personal
+testing after POC delivery. SC-007 retains automated mode/topic checks; novice
+ratings are no longer required. The original unexecuted worksheet below is
+historical, not a POC gate. No human rating is inferred from automated evidence.
 
 Required: five actual novice evaluators try the guidance workflow and rate its
 usefulness and creative control. At least four ratings must be >=4/5. Preserve

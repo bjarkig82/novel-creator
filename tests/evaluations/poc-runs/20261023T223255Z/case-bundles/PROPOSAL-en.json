@@ -1,0 +1,276 @@
+{
+  "schema_version": "1.0",
+  "novel_id": "e048107e-e089-4082-8ebe-b15cad9a85da",
+  "exchange_id": "5dc2cd92-fd0e-412c-b9d1-02d3004bbfea",
+  "sequence": 4,
+  "previous_exchange_id": "fa6eb054-c261-4d7f-b61e-e8899001ba6b",
+  "previous_digest": "fa445bf5247d42b04b3751f266aca40acb8d5002a070fbb5030848bb9031170d",
+  "session_id": "36be3954-58f7-4a35-a95f-ee040d969ce8",
+  "expected_git_head": "3419348535e430fdc019c19988a983eb68cff0ab",
+  "recorded_at": "2026-10-23T22:41:12.148770Z",
+  "operation": "conversation",
+  "messages": [
+    {
+      "message_id": "2e345864-05b4-43a5-8268-71d1ebfa5d34",
+      "role": "user",
+      "text": "Let's explore a lighthouse keeper's childhood. Offer one possibility at a time."
+    },
+    {
+      "message_id": "65f9e3c6-10d2-46a9-ba52-8c93b6327b73",
+      "role": "assistant",
+      "text": "One possibility: as a child, the future keeper was forbidden to enter the lighthouse. That could give us a childhood rule to explore, without deciding its reason yet.\n\nDoes that feel worth exploring?"
+    }
+  ],
+  "input_artifacts": [
+    {
+      "artifact_id": "cd206939-7dda-42f9-9eee-08e97f3caeb4",
+      "original_text": "{\"kind\":\"host_input\",\"source_type\":\"delegated\",\"thread_id\":\"01a16aa5-4c4c-7a52-89d0-26df804faaf0\",\"turn_id\":\"01a16aec-4a41-7721-ad69-4ed036be86c0\",\"event_id\":\"fco_01a16aec-4a43-7a81-89a1-05f44bb0bcf0\",\"event_type\":\"functionCallOutput\",\"source_thread_id\":\"01a167df-036b-7c71-b306-9d7021046c01\",\"native_user_input\":false,\"novice_evidence\":false,\"evaluation_only\":true,\"text\":\"Let's explore a lighthouse keeper's childhood. Offer one possibility at a time.\",\"public_event\":{\"type\":\"functionCallOutput\",\"id\":\"fco_01a16aec-4a43-7a81-89a1-05f44bb0bcf0\",\"namespace\":\"codex_app\",\"name\":\"send_message_to_thread\",\"output\":{\"text\":\"<codex_delegation>\\n  <source_thread_id>01a167df-036b-7c71-b306-9d7021046c01</source_thread_id>\\n  <input>Let's explore a lighthouse keeper's childhood. Offer one possibility at a time.</input>\\n</codex_delegation>\",\"truncated\":false}}}",
+      "parsed_value": {
+        "kind": "host_input",
+        "source_type": "delegated",
+        "thread_id": "01a16aa5-4c4c-7a52-89d0-26df804faaf0",
+        "turn_id": "01a16aec-4a41-7721-ad69-4ed036be86c0",
+        "event_id": "fco_01a16aec-4a43-7a81-89a1-05f44bb0bcf0",
+        "event_type": "functionCallOutput",
+        "source_thread_id": "01a167df-036b-7c71-b306-9d7021046c01",
+        "native_user_input": false,
+        "novice_evidence": false,
+        "evaluation_only": true,
+        "text": "Let's explore a lighthouse keeper's childhood. Offer one possibility at a time.",
+        "public_event": {
+          "type": "functionCallOutput",
+          "id": "fco_01a16aec-4a43-7a81-89a1-05f44bb0bcf0",
+          "namespace": "codex_app",
+          "name": "send_message_to_thread",
+          "output": {
+            "text": "<codex_delegation>\n  <source_thread_id>01a167df-036b-7c71-b306-9d7021046c01</source_thread_id>\n  <input>Let's explore a lighthouse keeper's childhood. Offer one possibility at a time.</input>\n</codex_delegation>",
+            "truncated": false
+          }
+        }
+      },
+      "digest": "5c2387408ec365d4719bcd71f3a750a6d69199e38869818a0a0d242a45946e8e"
+    }
+  ],
+  "record_versions": [
+    {
+      "id": "e048107e-e089-4082-8ebe-b15cad9a85da",
+      "kind": "novel_project",
+      "revision": 3,
+      "previous_revision": 2,
+      "created_exchange_id": "178a9ae7-c0d9-49f5-942d-c9dbfd930a09",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "5dc2cd92-fd0e-412c-b9d1-02d3004bbfea",
+          "message_id": "2e345864-05b4-43a5-8268-71d1ebfa5d34"
+        }
+      ],
+      "origin": "supplied",
+      "title": {
+        "state": "default",
+        "original_text": "Untitled novel",
+        "interpretation": null,
+        "origin": "system_default",
+        "source_refs": []
+      },
+      "original_concept": {
+        "state": "unknown",
+        "original_text": null,
+        "interpretation": null,
+        "origin": "system_default",
+        "source_refs": []
+      },
+      "creative_brief": {
+        "genre": {
+          "state": "unknown",
+          "original_text": null,
+          "interpretation": null,
+          "origin": "system_default",
+          "source_refs": []
+        },
+        "subgenres": {
+          "state": "unknown",
+          "original_text": null,
+          "interpretation": null,
+          "origin": "system_default",
+          "source_refs": []
+        },
+        "audience": {
+          "state": "unknown",
+          "original_text": null,
+          "interpretation": null,
+          "origin": "system_default",
+          "source_refs": []
+        },
+        "tone": {
+          "state": "unknown",
+          "original_text": null,
+          "interpretation": null,
+          "origin": "system_default",
+          "source_refs": []
+        },
+        "style": {
+          "state": "unknown",
+          "original_text": null,
+          "interpretation": null,
+          "origin": "system_default",
+          "source_refs": []
+        },
+        "perspective": {
+          "state": "unknown",
+          "original_text": null,
+          "interpretation": null,
+          "origin": "system_default",
+          "source_refs": []
+        },
+        "complexity": {
+          "state": "unknown",
+          "original_text": null,
+          "interpretation": null,
+          "origin": "system_default",
+          "source_refs": []
+        }
+      },
+      "manuscript_language": "en",
+      "workflow_preferences": {
+        "question_frequency": {
+          "state": "supplied",
+          "original_text": "one question at a time",
+          "interpretation": null,
+          "origin": "supplied",
+          "source_refs": [
+            {
+              "type": "message",
+              "exchange_id": "fa6eb054-c261-4d7f-b61e-e8899001ba6b",
+              "message_id": "bbcc5a51-c267-4745-8b0f-53bedb3e337a"
+            }
+          ]
+        },
+        "suggestion_frequency": {
+          "state": "supplied",
+          "original_text": "Offer one possibility at a time.",
+          "interpretation": null,
+          "origin": "supplied",
+          "source_refs": [
+            {
+              "type": "message",
+              "exchange_id": "5dc2cd92-fd0e-412c-b9d1-02d3004bbfea",
+              "message_id": "2e345864-05b4-43a5-8268-71d1ebfa5d34"
+            }
+          ]
+        }
+      },
+      "review_preferences": {
+        "routine_checkpoint": "on_request"
+      },
+      "creative_directions": []
+    },
+    {
+      "id": "36be3954-58f7-4a35-a95f-ee040d969ce8",
+      "kind": "session",
+      "revision": 2,
+      "previous_revision": 1,
+      "created_exchange_id": "fa6eb054-c261-4d7f-b61e-e8899001ba6b",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "5dc2cd92-fd0e-412c-b9d1-02d3004bbfea",
+          "message_id": "2e345864-05b4-43a5-8268-71d1ebfa5d34"
+        }
+      ],
+      "topic": "A lighthouse keeper's childhood",
+      "mode": "guided",
+      "state": "open",
+      "started_exchange_id": "fa6eb054-c261-4d7f-b61e-e8899001ba6b",
+      "last_exchange_id": "5dc2cd92-fd0e-412c-b9d1-02d3004bbfea",
+      "related_record_ids": [
+        "96071e74-7204-44ac-a6db-6018b573b300",
+        "02139b09-cd31-4f54-9f12-61a3ec7391d1",
+        "c9f1bced-dcf2-472b-ac34-a23d0099fa4d"
+      ],
+      "unresolved_question_ids": [
+        "96071e74-7204-44ac-a6db-6018b573b300",
+        "c9f1bced-dcf2-472b-ac34-a23d0099fa4d"
+      ],
+      "derived_context_ref": null
+    },
+    {
+      "revision": 1,
+      "previous_revision": null,
+      "created_exchange_id": "5dc2cd92-fd0e-412c-b9d1-02d3004bbfea",
+      "origin": "interpreted",
+      "id": "02139b09-cd31-4f54-9f12-61a3ec7391d1",
+      "kind": "idea",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "5dc2cd92-fd0e-412c-b9d1-02d3004bbfea",
+          "message_id": "65f9e3c6-10d2-46a9-ba52-8c93b6327b73",
+          "range": {
+            "start": 17,
+            "end": 85
+          }
+        }
+      ],
+      "statement": "as a child, the future keeper was forbidden to enter the lighthouse.",
+      "status": "proposed",
+      "related_element_ids": [],
+      "alternative_group_id": null,
+      "selected_parts": [],
+      "decision_ids": [],
+      "resulting_assertion_ids": []
+    },
+    {
+      "revision": 1,
+      "previous_revision": null,
+      "created_exchange_id": "5dc2cd92-fd0e-412c-b9d1-02d3004bbfea",
+      "origin": "interpreted",
+      "id": "c9f1bced-dcf2-472b-ac34-a23d0099fa4d",
+      "kind": "question",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "5dc2cd92-fd0e-412c-b9d1-02d3004bbfea",
+          "message_id": "65f9e3c6-10d2-46a9-ba52-8c93b6327b73",
+          "range": {
+            "start": 168,
+            "end": 199
+          }
+        }
+      ],
+      "text": "Does that feel worth exploring?",
+      "related_refs": [
+        {
+          "id": "02139b09-cd31-4f54-9f12-61a3ec7391d1",
+          "revision": 1
+        }
+      ],
+      "alternative_ids": [],
+      "state": "open",
+      "resolution_decision_id": null
+    }
+  ],
+  "continuity_review": {
+    "coverage": "complete",
+    "reviewed_record_refs": [
+      {
+        "id": "e048107e-e089-4082-8ebe-b15cad9a85da",
+        "revision": 2
+      },
+      {
+        "id": "36be3954-58f7-4a35-a95f-ee040d969ce8",
+        "revision": 1
+      },
+      {
+        "id": "96071e74-7204-44ac-a6db-6018b573b300",
+        "revision": 1
+      }
+    ],
+    "unavailable_refs": [],
+    "canon_hold_refs": [],
+    "finding_ids": [],
+    "summary": "Reviewed all available committed records before offering one childhood possibility. No accepted narrative canon, motives, chronology, character knowledge, world rules or relationships are recorded to contradict it. The childhood prohibition is proposed only; its reason, timing and consequences remain undecided. User topic direction does not accept the proposed childhood fact. Existing reader-feeling question remains open, without inferred answer from the topic change. New worth-exploring question is captured and linked to the same guided session. One possibility at a time saved as a preference; no canon or creative acceptance decision added. Review covers available records and is not proof of complete literary consistency. Delegated automated evidence only."
+  },
+  "payload_digest": "7e0ea74f03cd929021c44cc32238430978ade76cb07835578aa1929632b6b411"
+}

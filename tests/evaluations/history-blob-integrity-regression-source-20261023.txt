@@ -1,0 +1,59 @@
+"""Real-object regression: every cache policy must reject wrong Git blob identity."""
+import json
+import os
+from pathlib import Path
+import sys
+import unittest
+from unittest.mock import patch
+
+sys.path.insert(0, str(Path.cwd()))
+from novel_creator import storage, validation_cache
+from novel_creator.cli import ToolError
+from tests.helpers import envelope, repository
+from tests.integration.test_candidate import corrupt_loose_blob
+from tests.performance.benchmark_records import benchmark_key
+
+
+class HistoryBlobIntegrity(unittest.TestCase):
+    def test_equivalent_corrupt_history_is_rejected_without_certifying_it(self):
+        with benchmark_key(True):
+            for object_format in ('sha1', 'sha256'):
+                with repository(object_format=object_format) as root:
+                    first = envelope(root)
+                    first_saved = storage.save(root, first)
+                    second = envelope(root, previous=first)
+                    storage.save(root, second)
+                    head = storage.head(root)
+                    index = (root / '.git/index').read_bytes()
+                    entries = storage.committed_entries(root, head)
+                    path = storage.bundle_path(second)
+                    oid = entries[path][1]
+                    proof = root / '.novel-creator/local/cache/validation.json'
+                    original_proof = proof.read_bytes()
+                    self.assertTrue(validation_cache.trusted(root, head, entries))
+                    equivalent = json.dumps(second, ensure_ascii=False, separators=(',', ':')).encode('utf-8')
+                    with corrupt_loose_blob(root, oid, equivalent):
+                        for policy in ('disabled', 'missing', 'invalid', 'certified'):
+                            with self.subTest(object_format=object_format, policy=policy):
+                                proof.write_bytes(original_proof)
+                                if policy == 'missing':
+                                    proof.unlink()
+                                elif policy == 'invalid':
+                                    proof.write_bytes(b'{"invalid":true}')
+                                before = proof.read_bytes() if proof.exists() else None
+                                environment = {validation_cache.KEY_ENV: ''} if policy == 'disabled' else {}
+                                with patch.dict(os.environ, environment):
+                                    with self.assertRaises(ToolError) as error:
+                                        storage.read_snapshot(root)
+                                self.assertEqual(error.exception.code, 4)
+                                self.assertEqual(error.exception.affected_refs, [path])
+                                self.assertEqual(error.exception.checkpoint, first_saved['checkpoint'])
+                                self.assertEqual(storage.head(root), head)
+                                self.assertEqual((root / '.git/index').read_bytes(), index)
+                                self.assertEqual(proof.read_bytes() if proof.exists() else None, before)
+                    proof.write_bytes(original_proof)
+                    self.assertEqual(storage.read_history(root), [first, second])
+
+
+if __name__ == '__main__':
+    unittest.main(verbosity=2)

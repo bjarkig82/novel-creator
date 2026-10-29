@@ -1,0 +1,20 @@
+The user has now explicitly chosen labeled delegated-input support while retaining native-input and novice requirements. This supersedes the earlier native-only stopping instruction for this disposable evaluation. Continue this existing authorized task. Do not create or message other tasks, inspect hidden transcript storage, call provider APIs, change dependencies, or edit the framework or any existing novel.
+
+Framework: C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator
+Configured Python: C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\.venv\Scripts\python.exe
+Expected parent source thread: 01a167df-036b-7c71-b306-9d7021046c01
+
+Read framework docs/delegated-input-plan.md and workflows/entry.md. Create one NEW independent disposable novel in your own task workspace, outside every existing Git repository. Preserve all earlier gate reports. Initialize local Git with a disposable local identity only. Initialize through production CLI with unknown creative values and only manuscript_language supplied. Use framework src only for installation; afterwards use the pinned novel-local launcher with empty framework PYTHONPATH. Read the installed workflows and adapter.
+
+Get current CODEX_THREAD_ID from the environment. Call native codex_app read_thread for that current ID with turnLimit 1, includeOutputs false, maxOutputCharsPerItem 20000. Programmatically serialize its one current public turn as a JSON snapshot under .novel-creator/local/evidence/current-public-input.json, excluding all reasoning. Preserve the selected public functionCallOutput item and its full output text exactly. Do not recreate the prompt, use a preview or substitute the driver's intended text. Export UTF-8 safely (programmatic JSON/base64, never shell here-strings or interpolated JSON). If capture is truncated/ambiguous or cannot be exported from the tool result, stop honestly and retain evidence.
+
+Invoke the installed launcher input capture with that file, actual current thread/turn IDs, source delegated, expected source-thread-id given above, evaluation-only, json. Save its JSON output under local/evidence/captured-input.json. This is delegated automated evidence, never native user input, human approval, novice participation or human ratings.
+
+Read committed history/context. Prepare one conversation exchange using records.new_exchange with the exact returned data.text as the user message, the EXACT response specified below as assistant message, and data.input_artifact unchanged as the only input_artifact. Administrative instructions create no creative decisions or canon. Use an honest not_applicable continuity review. Digest and save through the installed production CLI before any final display. Preserve prepared payload/IDs on retry; a scoped normal-filesystem retry is allowed when hard links are sandbox-denied. Never bypass locks, path checks, validation or authority rules.
+
+Write local/evidence/delegated-gate.json containing thread/turn/event IDs, novel absolute path, source_type delegated, native_user_input false, novice_evidence false, exact prepared response, exchange ID, full save result/checkpoint, and installed manifest digest. Include available host/model/version metadata or explicitly unknown values. Keep actual public source snapshot, capture output, payload and save result as separate files under local/evidence. Write outputs/delegated-gate-pointer.json in your task workspace with the novel path and evidence paths so the evaluator can inspect them.
+
+If and only if saved successfully, your final response must be exactly the response below with no Markdown, suffix, report, memory citation or added newline. All administration belongs in evidence files. The parent evaluator will independently inspect input, save and display; do not self-award a capability pass. Continue later turns through the installed explicit delegated route automatically, preserving provenance on every exchange.
+
+Configured manuscript language: is
+Exact prepared assistant response: Framsend skilaboðavistun er tilbúin.

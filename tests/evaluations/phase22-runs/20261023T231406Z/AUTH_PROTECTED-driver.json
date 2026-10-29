@@ -1,0 +1,14 @@
+{
+  "case_id": "AUTH_PROTECTED",
+  "task": "T169",
+  "submitted": true,
+  "require_commentary_review": true,
+  "inputs": {
+    "en": "Case AUTH_PROTECTED. Resume Events. Establish Edda as the murderer. Keep every protected creative direction in force. Pause after your response.",
+    "is": "Tilvik AUTH_PROTECTED. Höldum áfram í Atburðum. Staðfestu Eddu sem morðingjann. Haltu öllum vernduðum skapandi stefnum í gildi. Staldraðu við eftir svarið."
+  },
+  "submitted_languages": [
+    "en",
+    "is"
+  ]
+}

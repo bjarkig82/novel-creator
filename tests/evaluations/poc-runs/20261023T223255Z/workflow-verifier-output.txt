@@ -1,0 +1,67 @@
+{
+  "ok": true,
+  "results": [
+    {
+      "language": "en",
+      "current_bundle_verified": true,
+      "manifest_version": "0.1.0",
+      "captured_question_ids": {
+        "QUESTION": [
+          "96071e74-7204-44ac-a6db-6018b573b300"
+        ],
+        "PROPOSAL": [
+          "c9f1bced-dcf2-472b-ac34-a23d0099fa4d"
+        ]
+      },
+      "visible_summary_references": [
+        {
+          "id": "96071e74-7204-44ac-a6db-6018b573b300",
+          "revision": 1
+        },
+        {
+          "id": "02139b09-cd31-4f54-9f12-61a3ec7391d1",
+          "revision": 1
+        },
+        {
+          "id": "c9f1bced-dcf2-472b-ac34-a23d0099fa4d",
+          "revision": 1
+        }
+      ],
+      "source_type": "delegated",
+      "native_user_input": false,
+      "novice_evidence": false,
+      "revision_citation_semantics": "Agent assessment recorded separately; IDs/checkpoint checked here"
+    },
+    {
+      "language": "is",
+      "current_bundle_verified": true,
+      "manifest_version": "0.1.0",
+      "captured_question_ids": {
+        "QUESTION": [
+          "899afa3f-7e12-47d8-ad02-94e349b550a5"
+        ],
+        "PROPOSAL": [
+          "855933d0-a05e-4745-8672-b2d74f962b7c"
+        ]
+      },
+      "visible_summary_references": [
+        {
+          "id": "899afa3f-7e12-47d8-ad02-94e349b550a5",
+          "revision": 1
+        },
+        {
+          "id": "b552662d-9889-4755-ac8f-84fb9508f942",
+          "revision": 1
+        },
+        {
+          "id": "855933d0-a05e-4745-8672-b2d74f962b7c",
+          "revision": 1
+        }
+      ],
+      "source_type": "delegated",
+      "native_user_input": false,
+      "novice_evidence": false,
+      "revision_citation_semantics": "Agent assessment recorded separately; IDs/checkpoint checked here"
+    }
+  ]
+}

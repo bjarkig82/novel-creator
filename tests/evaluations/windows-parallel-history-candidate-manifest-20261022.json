@@ -1,0 +1,20 @@
+{
+  "classification": "initial history-read candidate not retained; error/framing correction and whole-save benefit unproven",
+  "source_sha256": "6ec58b45314b7a99877220452367f6b89b532bed2fe3b3c842f0272a9aba1f5a",
+  "read_medians": {
+    "0": 3.8533493500435725,
+    "2": 1.856889299931936,
+    "4": 1.4743334500235505
+  },
+  "save_medians": {
+    "False": 5.399026300001424,
+    "True": 5.505927299964242
+  },
+  "evidence_sha256": {
+    "windows-parallel-history-diagnostic-20261022.txt": "de3e03d96cddec641aebb2fac9b209bdd66f5df8b2f9eb130fd7586bdd6e043d",
+    "windows-parallel-history-diagnostic-source-20261022.txt": "a1116cc8e25927cd42b071ce7d3c66e73af3e98a7925f94eaf416053615c21a0",
+    "windows-parallel-history-save-comparison-20261022.txt": "7fe3ba4781e6d0e9b0127416f2aed3191e6da450164e78f4786d835af4d0be90",
+    "windows-parallel-history-save-comparison-source-20261022.txt": "687f24743d692798b6b1fe72437d03ab24cd85ab125f688b567447fe6cdce4bc",
+    "windows-parallel-history-candidate-20261022.md": "70ef209fa517272c89ea8dfb51916a79f92edfa91fc943d6a06050c5cadb023e"
+  }
+}

@@ -132,10 +132,11 @@ from exchange payloads and managed writes.
 
 **Decision:** Benchmark a generated novel with 100 sessions, 5,000 exchanges,
 10,000 active assertions and 25 MiB total JSON. On a documented reference laptop,
-target p95 <=2 seconds for deterministic resume/inspection and <=1 second for
-validation plus local save (excluding model response time), over 30 warm runs.
-Report cold read separately. Optimize with disposable caches only if measured
-need warrants it; no latency promise for host model generation.
+measure deterministic resume/inspection and validation plus local save (excluding
+model response time), over 30 warm runs when profiling. The owner withdrew all
+latency targets on 2026-10-28 and deferred optimization until after functional
+delivery. Keep historical results and failed targets as historical evidence.
+Report cold read separately; no latency promise for host model generation.
 
 **Decision:** Separate structural automated tests, recorded bilingual host/model
 judgments and novice human evaluation. Use all SC-001–009 counts and acceptance

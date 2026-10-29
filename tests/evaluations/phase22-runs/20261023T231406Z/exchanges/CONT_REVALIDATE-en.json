@@ -1,0 +1,538 @@
+{
+  "schema_version": "1.0",
+  "novel_id": "cb66f60c-4b08-4aea-9616-a2fc168a09eb",
+  "exchange_id": "46f0702f-537e-4cca-930e-125e1df0326f",
+  "sequence": 17,
+  "previous_exchange_id": "d63a8f2d-7679-4002-bab1-3b078b5fb993",
+  "previous_digest": "2ec72999a7530c3f59c69d3f8748dfa9170721db03edb03ec77802009e15f8c0",
+  "session_id": "7b956f0b-12a9-4a91-9568-f76844ea690e",
+  "expected_git_head": "1ba0ed159b344c69085af8e367c88860122cc9d2",
+  "recorded_at": "2026-10-28T10:41:16.232767Z",
+  "operation": "conversation",
+  "messages": [
+    {
+      "message_id": "9c3fc243-ffda-49ca-b9e8-e6761f327798",
+      "role": "user",
+      "text": "Case CONT_REVALIDATE. I supplied the wrong session ID. Resume our actual saved Continuity review session 7b956f0b-12a9-4a91-9568-f76844ea690e. Withdraw the unidentified childhood-event canon request. Re-read the relevant saved context and run production validation before clearing any hold caused by the missing-session lookup. Once that context is available and validated, mark that unavailable-context issue resolved. Preserve the separate deferred relationship issue and every unrelated unresolved finding. Summarize the verified context and pause."
+    },
+    {
+      "message_id": "a7538233-16c2-46ea-a5b7-fa0f07fc5eaa",
+      "role": "assistant",
+      "text": "Continuity review resumed in its saved open-ended mode (7b956f0b r5). The unidentified childhood-event canon request is withdrawn; no childhood event has been selected or established from it.\n\nThe correct session and its relevant records were read successfully at Git checkpoint 1ba0ed159b344c69085af8e367c88860122cc9d2 (exchange d63a8f2d-7679-4002-bab1-3b078b5fb993, sequence 16). Production validation returned valid: true for all 16 committed exchanges and 227 current records before this save.\n\nThose pre-save results still carried the previous exchange’s inherited incomplete-coverage label and wildcard hold from the wrong-session lookup. I verified the requested session, its linked records and source messages; your correction and withdrawal remove the reason for that lookup hold. The unavailable-context issue is now recorded as resolved, with complete relevant-context coverage and that lookup hold cleared. This is structural and source-availability verification, not a claim of literary consistency or human approval.\n\nCheckpoint summary: exchange 46f0702f-537e-4cca-930e-125e1df0326f, sequence 17; predecessor Git checkpoint 1ba0ed159b344c69085af8e367c88860122cc9d2 (sequence 16). References identify the supporting record revisions.\n\nThe separate relationship finding remains significant and deferred (69b768af r2), with its disposition and affected references unchanged. Its held scope is 42cd4d30 r2, 6d6e2baf r2, 20ec7fd0 r1, 7e466350 r1. Neither the shared-childhood proposal nor the established never-met relationship has been resolved or revised.\n\nEvery unrelated unresolved finding is preserved: floating-bridge timing/intent uncertainty (c8ddb813 r1) and the advisory seal/sender foreshadowing opportunity (cefb035a r1). The brass-reflection proposals remain unaccepted (c1671e5f r1; 8415e40e r1). The rescue-code chronology is the revised before-sinking version (89357784 r1); the unreliable boundary-crossing account is a narrative technique rather than a true crossing (82980897 r1). Protected innocence and the boundary rule remain in force.\n\nAll other saved sessions and their modes are retained. No creative record or finding version has changed in this exchange. The older Rúna-sender question remains open with its outdated premise flagged for review (f1e737c0 r1).\n\nEstablished decisions:\n\n- Rúna is the lighthouse keeper. (b2bba552 r1; decision b857a602 r1).\n- Ari is Rúna’s brother. (89643a23 r1; decision 8b1386f6 r1).\n- Edda is Rúna’s sister. (e4198cbf r1; decision 73dd4a06 r1).\n- Rúna knows Bjarni. (b0134264 r1; decision b7cefc5a r1).\n- The lamp failed on the night of the letter. (2d32b3f7 r1; decision f6d39415 r1).\n- A blue light is visible. (6a6267eb r2; decision fd6e1431 r1).\n- The island has no bridge. (1e4f66c1 r1; decision 2fd6b656 r1).\n- The letter bears a brass seal. (3a2d51c7 r1; decision 96686fac r1).\n- Rúna has sworn to protect Edda. (5d69e81a r1; decision e031c7a6 r1).\n- Bjarni sent the letter. (40374e80 r1; decision 7fe89f79 r1).\n- Sigrún is the victim. (1bf3143e r1; decision a7619f5d r1).\n- Freyja is the investigator. (93d9cbfa r1; decision 0ae1d104 r1).\n- The story takes place in autumn. (6f666732 r1; decision 2e864c76 r1).\n- The letter arrived in the afternoon. (02cb9854 r1; decision 902c4083 r1).\n- Edda must remain innocent of the murder. (72d9ac2b r1; decision 538b8b03 r1).\n- Rúna arrives at the harbour after midnight. (c37ada40 r1; decision 12c209e1 r1).\n- The planned escape requires the only usable boat. (39813baf r1; decision 47964b12 r1).\n- No letter can cross the sealed boundary. (2f049d07 r1; decision e10e3e70 r1).\n- Freyja and Sigrún have never met before their reunion. (a4aa58cb r1; decision a5480c17 r1).\n- Rúna learned the rescue code before the ship sank. (89357784 r1; decision b00f3432 r1).\n- The apparent letter crossing is an unreliable witness’s false account, not an author-truth event. (82980897 r1; decision 1f6f5c8d r1).\n\nProposed or unresolved; none of these is accepted:\n\n- Rúna collects driftwood. (2d56748a r2; proposed).\n- Edda distrusts bells. (e4a49295 r1; proposed).\n- Bjarni is a sailor. (a48aa0fb r1; proposed).\n- Bjarni may owe Edda money. (eacc5318 r1; proposed).\n- Stormy weather. (ca5f921f r3; unresolved alternative).\n- Clear weather. (6b3bb4ae r1; unresolved alternative).\n- The storm may conceal a signal. (0ef4149b r1; proposed).\n- A shipwreck may occur. (ee68d703 r1; proposed).\n- A warning bell might sound. (12d564bf r1; proposed).\n- A tunnel might link the lighthouse and harbour. (9ea7eb09 r1; proposed).\n- The tide might expose old steps. (84e3fbc4 r1; proposed).\n- A hidden room might contain a map. (6ad4b40e r1; proposed).\n- Edda could trace the letter through the tunnel to the hidden room. (3c8cad60 r1; proposed).\n- Rúna is the murderer. (6e2f14e2 r1; unresolved).\n- Bjarni might own a red coat. (ee523c46 r1; proposed).\n- Edda might have found the map. (b9b74305 r1; proposed).\n- Ari might have a daughter. (c72be9b2 r1; proposed).\n- Possible dialogue: \"I killed him.\" Speaker and victim unidentified. (bb93a8e9 r1; proposed).\n- The dock might be brown. (a86ca6b8 r1; unresolved alternative).\n- The dock might be black. (2c8bdb38 r1; unresolved alternative).\n- The boat might have a leak. (decea5c4 r1; proposed).\n- The hidden-room entrance might be a floor hatch. (b265bcf2 r1; unresolved alternative).\n- The hidden-room entrance might be a wall door. (fb1bc34e r1; unresolved alternative).\n- A tidal mechanism might work someday. (5bcfbb3c r1; proposed).\n- The island might have a floating bridge. (96dee911 r1; proposed).\n- Possible diary wording: \"Edda stole the seal.\" (0128429a r1; proposed).\n- Rúna performs the harbour rescue at one in the morning, after arrival. (69b1fceb r2; proposed).\n- Rúna uses the rescue code to prevent that ship’s sinking. (fe6fa08b r1; proposed).\n- A different unusable boat is destroyed before the planned escape; the only usable escape boat remains intact. (bfef12dd r2; proposed).\n- Freyja and Sigrún’s real shared childhood memory motivates their first reunion. (42cd4d30 r2; unresolved).\n- The recorded brass seal could foreshadow the sender. (ef0b727a r1; proposed).\n- The time Freyja learned the hidden-room secret is unknown. (7bbe66fa r1; unresolved).\n- The reader may see the letter after delivery, while Rúna saw it earlier. (e5c3a12c r1; proposed).\n- Possible dialogue only: Rúna falsely claims she, rather than Bjarni, sent the letter. (cf68a5b3 r1; proposed).\n- A brass reflection might appear in the tunnel. (c1671e5f r1; proposed).\n- A small brass glint could draw attention in the tunnel while its source stays unidentified. (8415e40e r1; proposed).\n\nOpen and unanswered questions:\n\n- Why did Rúna send the letter? (f1e737c0 r1).\n- What does Edda want from Bjarni? (55b62a7f r1).\n- Who finds the letter? (d7c22da4 r1).\n- When does Bjarni return? (f68c6800 r1).\n- What opens the hidden room? (e7236c19 r1).\n- What if Ari has a daughter? (73f2747c r1).\n- Could the boat have a leak? (3c94b6c2 r1).\n- For the hidden-room entrance, does “Yes” select the floor hatch, the wall door, or neither yet? (bffb6141 r1).\n- When did Freyja learn the hidden-room secret? (acc2c929 r1).\n\nPaused here until your next direction."
+    }
+  ],
+  "input_artifacts": [
+    {
+      "artifact_id": "04e4b022-b1d1-4234-971d-5caec0cb8ac0",
+      "original_text": "{\"kind\":\"host_input\",\"source_type\":\"delegated\",\"thread_id\":\"01a16af9-f289-73c1-8151-55f50ace05d9\",\"turn_id\":\"01a18217-af65-7333-82ad-f8d08f0be073\",\"event_id\":\"fco_01a18217-af67-7c23-addf-8c4682f32798\",\"event_type\":\"functionCallOutput\",\"source_thread_id\":\"01a16af6-0d9b-7173-a5f5-c8775f37df18\",\"native_user_input\":false,\"novice_evidence\":false,\"evaluation_only\":true,\"text\":\"Case CONT_REVALIDATE. I supplied the wrong session ID. Resume our actual saved Continuity review session 7b956f0b-12a9-4a91-9568-f76844ea690e. Withdraw the unidentified childhood-event canon request. Re-read the relevant saved context and run production validation before clearing any hold caused by the missing-session lookup. Once that context is available and validated, mark that unavailable-context issue resolved. Preserve the separate deferred relationship issue and every unrelated unresolved finding. Summarize the verified context and pause.\",\"public_event\":{\"type\":\"functionCallOutput\",\"id\":\"fco_01a18217-af67-7c23-addf-8c4682f32798\",\"namespace\":\"codex_app\",\"name\":\"send_message_to_thread\",\"output\":{\"text\":\"<codex_delegation>\\n  <source_thread_id>01a16af6-0d9b-7173-a5f5-c8775f37df18</source_thread_id>\\n  <input>Case CONT_REVALIDATE. I supplied the wrong session ID. Resume our actual saved Continuity review session 7b956f0b-12a9-4a91-9568-f76844ea690e. Withdraw the unidentified childhood-event canon request. Re-read the relevant saved context and run production validation before clearing any hold caused by the missing-session lookup. Once that context is available and validated, mark that unavailable-context issue resolved. Preserve the separate deferred relationship issue and every unrelated unresolved finding. Summarize the verified context and pause.</input>\\n</codex_delegation>\",\"truncated\":false}}}",
+      "parsed_value": {
+        "kind": "host_input",
+        "source_type": "delegated",
+        "thread_id": "01a16af9-f289-73c1-8151-55f50ace05d9",
+        "turn_id": "01a18217-af65-7333-82ad-f8d08f0be073",
+        "event_id": "fco_01a18217-af67-7c23-addf-8c4682f32798",
+        "event_type": "functionCallOutput",
+        "source_thread_id": "01a16af6-0d9b-7173-a5f5-c8775f37df18",
+        "native_user_input": false,
+        "novice_evidence": false,
+        "evaluation_only": true,
+        "text": "Case CONT_REVALIDATE. I supplied the wrong session ID. Resume our actual saved Continuity review session 7b956f0b-12a9-4a91-9568-f76844ea690e. Withdraw the unidentified childhood-event canon request. Re-read the relevant saved context and run production validation before clearing any hold caused by the missing-session lookup. Once that context is available and validated, mark that unavailable-context issue resolved. Preserve the separate deferred relationship issue and every unrelated unresolved finding. Summarize the verified context and pause.",
+        "public_event": {
+          "type": "functionCallOutput",
+          "id": "fco_01a18217-af67-7c23-addf-8c4682f32798",
+          "namespace": "codex_app",
+          "name": "send_message_to_thread",
+          "output": {
+            "text": "<codex_delegation>\n  <source_thread_id>01a16af6-0d9b-7173-a5f5-c8775f37df18</source_thread_id>\n  <input>Case CONT_REVALIDATE. I supplied the wrong session ID. Resume our actual saved Continuity review session 7b956f0b-12a9-4a91-9568-f76844ea690e. Withdraw the unidentified childhood-event canon request. Re-read the relevant saved context and run production validation before clearing any hold caused by the missing-session lookup. Once that context is available and validated, mark that unavailable-context issue resolved. Preserve the separate deferred relationship issue and every unrelated unresolved finding. Summarize the verified context and pause.</input>\n</codex_delegation>",
+            "truncated": false
+          }
+        }
+      },
+      "digest": "26d5e13c7a78b336f8ef782b11806ebc1443c69a229b7a5accb4511d7c82979c"
+    }
+  ],
+  "record_versions": [
+    {
+      "id": "7b956f0b-12a9-4a91-9568-f76844ea690e",
+      "kind": "session",
+      "revision": 5,
+      "previous_revision": 4,
+      "created_exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "46f0702f-537e-4cca-930e-125e1df0326f",
+          "message_id": "9c3fc243-ffda-49ca-b9e8-e6761f327798",
+          "range": {
+            "start": 55,
+            "end": 142
+          }
+        }
+      ],
+      "topic": "Continuity review",
+      "mode": "open",
+      "state": "open",
+      "started_exchange_id": "191df416-f8c5-413e-bf4e-92bc2520c200",
+      "last_exchange_id": "46f0702f-537e-4cca-930e-125e1df0326f",
+      "related_record_ids": [
+        "36c107d0-448e-4ec8-8acf-0bbd1a80e624",
+        "f0f4d12b-e666-4d1c-9f86-271a75ea134c",
+        "a20b0b76-e180-44db-85ce-e5158bb4d186",
+        "455a9689-b8eb-42fe-9c72-03063d226753",
+        "e82c4150-a3f3-41c6-8bea-8139ab892e51",
+        "481b0e24-125e-49bd-a932-2d5694ee5d7b",
+        "2497fdcb-e3bd-4af7-b1a9-9452719b43ba",
+        "8b2e30d5-9ccf-4f6f-a2ae-f97e76f3ec0b",
+        "4355d4e9-a670-4136-accf-7ee9e44d7c9a",
+        "c37ada40-5047-46bb-8d91-45b1e363517b",
+        "12c209e1-49a3-4b8d-bbca-845729395f9b",
+        "bfcbbdff-35cc-425c-8670-c722ff6b4bca",
+        "9428530a-3d9a-4705-8b93-30a534bb99b3",
+        "e7860735-5143-462d-8358-727436f2376f",
+        "da98ac0d-9394-437b-a84e-b58340400e68",
+        "82dc2970-0fc0-44fb-a904-242c882e0eb5",
+        "b379a543-162e-428d-b7a1-e95b331d4937",
+        "a264da48-d66f-41c8-a418-be835131c5f3",
+        "ccc7f13e-7414-4828-8baa-ccaa54c66545",
+        "1cc55999-9d0c-44d0-b5a5-16d59789838c",
+        "0accdfbe-bd95-4d34-83e6-ef2b71154d92",
+        "b6de28b4-5b48-422c-97a0-327241b7e417",
+        "39813baf-380a-41fe-82d7-28371fbf1526",
+        "47964b12-7a25-4ea5-9296-b273bc670b0f",
+        "b8dce011-5cbb-41ad-976d-7d739db40ced",
+        "d148a2a0-f588-48a5-853b-7864fa9ee505",
+        "2f049d07-42ed-45ed-82f6-c2898f2d1635",
+        "e10e3e70-64e2-4458-90ae-0ad638c6e6f0",
+        "7e466350-3fdf-421d-9961-0dfc47665cb5",
+        "20ec7fd0-c681-4ec1-aeb4-bbbac37b43e2",
+        "a4aa58cb-28d1-42c9-9daf-9a206c8ece8e",
+        "a5480c17-770d-422a-acdc-f5833c13bfe7",
+        "ba58b0dd-8d4e-402a-a41e-4adbabd0bcf0",
+        "83c818af-8c1a-4871-beca-eb354753ab30",
+        "9cf4bd1e-668a-404d-b52b-fcc36442d35a",
+        "5f9d9c2d-c08e-4ccc-8ace-20b7e6bd161c",
+        "e7ebe0ce-980f-44c9-bf1a-8eae7e0d4df9",
+        "ca37ee5a-4d3c-49cc-ab84-1c70bfadff6b",
+        "336c0a14-2e41-4c96-9c37-c4e3747f836a",
+        "a59cef3c-52be-4ca8-bed6-ea0f2ad683f3",
+        "69b1fceb-c281-4264-9ef6-394ab5435da5",
+        "42774683-64c0-4b27-9ded-fd1ed3cec0db",
+        "ad9dd3f6-9656-406f-ac77-4690c770c08b",
+        "fe6fa08b-35f0-4e26-abf6-9659fe5c61af",
+        "d0614c62-ba76-46ed-9f38-2514585ed35a",
+        "ee861f63-8079-47da-89fb-102de1b58ce3",
+        "bfef12dd-42fc-49c6-8b3e-686dedc131bf",
+        "04d94072-e6f5-437e-950c-24051f04a904",
+        "1312e021-4019-487f-ae79-5088de5dd51f",
+        "d43f629f-24e8-420b-8439-b18e58b708fa",
+        "c8bed026-b7e6-4da6-b1b0-9020357ac34d",
+        "6d6e2baf-4ef0-4d2e-ab2b-f6177db2dad1",
+        "42cd4d30-12e8-41e6-8435-d6446b09104d",
+        "69b768af-bfe2-494a-bb99-c37c5cb7daf6",
+        "6b8f2dc8-8705-4fd6-8793-4c2a58296f81",
+        "602d93fa-9c78-4432-810d-06a007de66d7",
+        "a153fa04-d0d2-4ff1-a397-dec8cf77f714",
+        "39fc465b-3c82-40ef-9de6-aea330b9ee42",
+        "89357784-4354-4935-9c58-c4a6b4155ad9",
+        "b00f3432-61ac-44cd-aaa1-6f85761ec80c",
+        "7063c495-cb08-4980-b302-38b9305ac2e2",
+        "06d97456-b26a-4866-847d-684e22cecf8b",
+        "4e630db6-5258-4ae8-8724-81aa7d3260d3",
+        "1251fe58-bb3f-45be-974e-beaab7398a5a",
+        "82980897-fe23-42d3-b888-66a208b7eb4e",
+        "1f6f5c8d-38d9-4bc6-a0b3-89a46b996f21",
+        "a4acd395-a443-407a-af06-88563cf8e2f6",
+        "f7b15a21-66b0-474e-87c5-d9226beba605",
+        "ef0b727a-8642-4060-b495-cbdd9f1f1198",
+        "cefb035a-922d-4968-9c3e-b9bf7f5b0b89",
+        "2619c8e9-4a43-4a7f-9727-59d3fc5622f6",
+        "7bbe66fa-53ff-480e-9572-ada288bf9e63",
+        "acc2c929-b415-4202-9bf4-912154080faf",
+        "6b550ade-f9e9-4bdf-8070-9cdc8a99dc2f",
+        "d45aee58-0014-4ec4-b6ec-628031adadb5",
+        "03ddca22-3e19-4679-8a21-a71b980e5890",
+        "e5c3a12c-0b10-46c5-b912-15f31bf93f38",
+        "39607300-6a79-4cdd-ae2c-158a3093af9f",
+        "cf68a5b3-c2b3-4dfe-beac-c9368075c01f",
+        "c43e7af6-1b88-4b0f-aed0-b25b90249980",
+        "c1671e5f-ac8b-470f-bcfb-76843688ac4e",
+        "8415e40e-a407-47bb-962d-4b3bccd476ab"
+      ],
+      "unresolved_question_ids": [
+        "acc2c929-b415-4202-9bf4-912154080faf"
+      ],
+      "derived_context_ref": null
+    }
+  ],
+  "continuity_review": {
+    "coverage": "complete",
+    "reviewed_record_refs": [
+      {
+        "id": "03ddca22-3e19-4679-8a21-a71b980e5890",
+        "revision": 1
+      },
+      {
+        "id": "04d94072-e6f5-437e-950c-24051f04a904",
+        "revision": 2
+      },
+      {
+        "id": "06d97456-b26a-4866-847d-684e22cecf8b",
+        "revision": 1
+      },
+      {
+        "id": "0accdfbe-bd95-4d34-83e6-ef2b71154d92",
+        "revision": 1
+      },
+      {
+        "id": "1251fe58-bb3f-45be-974e-beaab7398a5a",
+        "revision": 1
+      },
+      {
+        "id": "12c209e1-49a3-4b8d-bbca-845729395f9b",
+        "revision": 1
+      },
+      {
+        "id": "1312e021-4019-487f-ae79-5088de5dd51f",
+        "revision": 2
+      },
+      {
+        "id": "1cc55999-9d0c-44d0-b5a5-16d59789838c",
+        "revision": 1
+      },
+      {
+        "id": "1f6f5c8d-38d9-4bc6-a0b3-89a46b996f21",
+        "revision": 1
+      },
+      {
+        "id": "20ec7fd0-c681-4ec1-aeb4-bbbac37b43e2",
+        "revision": 1
+      },
+      {
+        "id": "2497fdcb-e3bd-4af7-b1a9-9452719b43ba",
+        "revision": 2
+      },
+      {
+        "id": "2619c8e9-4a43-4a7f-9727-59d3fc5622f6",
+        "revision": 1
+      },
+      {
+        "id": "2f049d07-42ed-45ed-82f6-c2898f2d1635",
+        "revision": 1
+      },
+      {
+        "id": "336c0a14-2e41-4c96-9c37-c4e3747f836a",
+        "revision": 2
+      },
+      {
+        "id": "36c107d0-448e-4ec8-8acf-0bbd1a80e624",
+        "revision": 2
+      },
+      {
+        "id": "39607300-6a79-4cdd-ae2c-158a3093af9f",
+        "revision": 1
+      },
+      {
+        "id": "39813baf-380a-41fe-82d7-28371fbf1526",
+        "revision": 1
+      },
+      {
+        "id": "39fc465b-3c82-40ef-9de6-aea330b9ee42",
+        "revision": 1
+      },
+      {
+        "id": "42774683-64c0-4b27-9ded-fd1ed3cec0db",
+        "revision": 2
+      },
+      {
+        "id": "42cd4d30-12e8-41e6-8435-d6446b09104d",
+        "revision": 2
+      },
+      {
+        "id": "4355d4e9-a670-4136-accf-7ee9e44d7c9a",
+        "revision": 1
+      },
+      {
+        "id": "455a9689-b8eb-42fe-9c72-03063d226753",
+        "revision": 1
+      },
+      {
+        "id": "47964b12-7a25-4ea5-9296-b273bc670b0f",
+        "revision": 1
+      },
+      {
+        "id": "481b0e24-125e-49bd-a932-2d5694ee5d7b",
+        "revision": 1
+      },
+      {
+        "id": "4e630db6-5258-4ae8-8724-81aa7d3260d3",
+        "revision": 1
+      },
+      {
+        "id": "5f9d9c2d-c08e-4ccc-8ace-20b7e6bd161c",
+        "revision": 1
+      },
+      {
+        "id": "602d93fa-9c78-4432-810d-06a007de66d7",
+        "revision": 1
+      },
+      {
+        "id": "69b1fceb-c281-4264-9ef6-394ab5435da5",
+        "revision": 2
+      },
+      {
+        "id": "69b768af-bfe2-494a-bb99-c37c5cb7daf6",
+        "revision": 2
+      },
+      {
+        "id": "6b550ade-f9e9-4bdf-8070-9cdc8a99dc2f",
+        "revision": 1
+      },
+      {
+        "id": "6b8f2dc8-8705-4fd6-8793-4c2a58296f81",
+        "revision": 1
+      },
+      {
+        "id": "6d6e2baf-4ef0-4d2e-ab2b-f6177db2dad1",
+        "revision": 2
+      },
+      {
+        "id": "7063c495-cb08-4980-b302-38b9305ac2e2",
+        "revision": 1
+      },
+      {
+        "id": "7b956f0b-12a9-4a91-9568-f76844ea690e",
+        "revision": 4
+      },
+      {
+        "id": "7bbe66fa-53ff-480e-9572-ada288bf9e63",
+        "revision": 1
+      },
+      {
+        "id": "7e466350-3fdf-421d-9961-0dfc47665cb5",
+        "revision": 1
+      },
+      {
+        "id": "82980897-fe23-42d3-b888-66a208b7eb4e",
+        "revision": 1
+      },
+      {
+        "id": "82dc2970-0fc0-44fb-a904-242c882e0eb5",
+        "revision": 2
+      },
+      {
+        "id": "83c818af-8c1a-4871-beca-eb354753ab30",
+        "revision": 1
+      },
+      {
+        "id": "8415e40e-a407-47bb-962d-4b3bccd476ab",
+        "revision": 1
+      },
+      {
+        "id": "8913530c-0c5d-4a5f-a795-db0ceeca8d40",
+        "revision": 1
+      },
+      {
+        "id": "89357784-4354-4935-9c58-c4a6b4155ad9",
+        "revision": 1
+      },
+      {
+        "id": "8b2e30d5-9ccf-4f6f-a2ae-f97e76f3ec0b",
+        "revision": 1
+      },
+      {
+        "id": "9428530a-3d9a-4705-8b93-30a534bb99b3",
+        "revision": 2
+      },
+      {
+        "id": "96dee911-f682-49a3-8ec2-ffb27bb45b63",
+        "revision": 1
+      },
+      {
+        "id": "9cf4bd1e-668a-404d-b52b-fcc36442d35a",
+        "revision": 1
+      },
+      {
+        "id": "9d3b498f-f81c-4884-9d7f-6fea2c53b248",
+        "revision": 1
+      },
+      {
+        "id": "a153fa04-d0d2-4ff1-a397-dec8cf77f714",
+        "revision": 1
+      },
+      {
+        "id": "a20b0b76-e180-44db-85ce-e5158bb4d186",
+        "revision": 2
+      },
+      {
+        "id": "a264da48-d66f-41c8-a418-be835131c5f3",
+        "revision": 1
+      },
+      {
+        "id": "a4aa58cb-28d1-42c9-9daf-9a206c8ece8e",
+        "revision": 1
+      },
+      {
+        "id": "a4acd395-a443-407a-af06-88563cf8e2f6",
+        "revision": 1
+      },
+      {
+        "id": "a5480c17-770d-422a-acdc-f5833c13bfe7",
+        "revision": 1
+      },
+      {
+        "id": "a59cef3c-52be-4ca8-bed6-ea0f2ad683f3",
+        "revision": 2
+      },
+      {
+        "id": "acc2c929-b415-4202-9bf4-912154080faf",
+        "revision": 1
+      },
+      {
+        "id": "ad9dd3f6-9656-406f-ac77-4690c770c08b",
+        "revision": 1
+      },
+      {
+        "id": "b00f3432-61ac-44cd-aaa1-6f85761ec80c",
+        "revision": 1
+      },
+      {
+        "id": "b379a543-162e-428d-b7a1-e95b331d4937",
+        "revision": 2
+      },
+      {
+        "id": "b6de28b4-5b48-422c-97a0-327241b7e417",
+        "revision": 1
+      },
+      {
+        "id": "b8dce011-5cbb-41ad-976d-7d739db40ced",
+        "revision": 1
+      },
+      {
+        "id": "ba58b0dd-8d4e-402a-a41e-4adbabd0bcf0",
+        "revision": 1
+      },
+      {
+        "id": "bd51f70d-7f05-4875-a9fb-119c26e7f4b1",
+        "revision": 1
+      },
+      {
+        "id": "bfcbbdff-35cc-425c-8670-c722ff6b4bca",
+        "revision": 1
+      },
+      {
+        "id": "bfef12dd-42fc-49c6-8b3e-686dedc131bf",
+        "revision": 2
+      },
+      {
+        "id": "c1671e5f-ac8b-470f-bcfb-76843688ac4e",
+        "revision": 1
+      },
+      {
+        "id": "c37ada40-5047-46bb-8d91-45b1e363517b",
+        "revision": 1
+      },
+      {
+        "id": "c43e7af6-1b88-4b0f-aed0-b25b90249980",
+        "revision": 1
+      },
+      {
+        "id": "c70819f0-73c7-46b0-9dcd-8fbdbc0713ba",
+        "revision": 1
+      },
+      {
+        "id": "c8bed026-b7e6-4da6-b1b0-9020357ac34d",
+        "revision": 2
+      },
+      {
+        "id": "c8ddb813-589e-43f7-8ba4-b04829943346",
+        "revision": 1
+      },
+      {
+        "id": "ca37ee5a-4d3c-49cc-ab84-1c70bfadff6b",
+        "revision": 2
+      },
+      {
+        "id": "ccc7f13e-7414-4828-8baa-ccaa54c66545",
+        "revision": 2
+      },
+      {
+        "id": "cefb035a-922d-4968-9c3e-b9bf7f5b0b89",
+        "revision": 1
+      },
+      {
+        "id": "cf68a5b3-c2b3-4dfe-beac-c9368075c01f",
+        "revision": 1
+      },
+      {
+        "id": "d0614c62-ba76-46ed-9f38-2514585ed35a",
+        "revision": 2
+      },
+      {
+        "id": "d148a2a0-f588-48a5-853b-7864fa9ee505",
+        "revision": 1
+      },
+      {
+        "id": "d43f629f-24e8-420b-8439-b18e58b708fa",
+        "revision": 2
+      },
+      {
+        "id": "d45aee58-0014-4ec4-b6ec-628031adadb5",
+        "revision": 1
+      },
+      {
+        "id": "da98ac0d-9394-437b-a84e-b58340400e68",
+        "revision": 2
+      },
+      {
+        "id": "e10e3e70-64e2-4458-90ae-0ad638c6e6f0",
+        "revision": 1
+      },
+      {
+        "id": "e5c3a12c-0b10-46c5-b912-15f31bf93f38",
+        "revision": 1
+      },
+      {
+        "id": "e7860735-5143-462d-8358-727436f2376f",
+        "revision": 2
+      },
+      {
+        "id": "e7ebe0ce-980f-44c9-bf1a-8eae7e0d4df9",
+        "revision": 2
+      },
+      {
+        "id": "e82c4150-a3f3-41c6-8bea-8139ab892e51",
+        "revision": 2
+      },
+      {
+        "id": "ee861f63-8079-47da-89fb-102de1b58ce3",
+        "revision": 2
+      },
+      {
+        "id": "ef0b727a-8642-4060-b495-cbdd9f1f1198",
+        "revision": 1
+      },
+      {
+        "id": "f0f4d12b-e666-4d1c-9f86-271a75ea134c",
+        "revision": 2
+      },
+      {
+        "id": "f7b15a21-66b0-474e-87c5-d9226beba605",
+        "revision": 1
+      },
+      {
+        "id": "fe6fa08b-35f0-4e26-abf6-9659fe5c61af",
+        "revision": 1
+      }
+    ],
+    "unavailable_refs": [],
+    "canon_hold_refs": [],
+    "finding_ids": [
+      "c8ddb813-589e-43f7-8ba4-b04829943346",
+      "69b768af-bfe2-494a-bb99-c37c5cb7daf6",
+      "cefb035a-922d-4968-9c3e-b9bf7f5b0b89"
+    ],
+    "summary": "Resolved only the missing-session availability issue after explicit correction and withdrawal, successful production read of the actual session and its relevant linked records/sources, and production validation of the unchanged predecessor checkpoint. The prior incomplete label was inherited from the wrong-session lookup, not missing relevant records in the corrected selection. Clear that lookup-only wildcard hold. Preserve every active finding byte-for-byte, including the separate deferred significant relationship hold. No creative canon or question resolution is inferred."
+  },
+  "payload_digest": "82a244be806ca6fcf2e625f7290335df11b2cf14ca6ca814f940a893fe41babc"
+}

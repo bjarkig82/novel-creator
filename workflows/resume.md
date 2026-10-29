@@ -18,3 +18,11 @@ and cannot override authoritative versions, omit unresolved conflicts or
 conceal incomplete coverage. Missing/damaged/unsupported records are unavailable,
 never empty context. Explain only recorded connections with sources. New
 foreshadowing or motivation opportunities remain non-blocking proposals.
+
+In the visible saved summary cite the supporting record IDs and revisions plus
+the checkpoint for established facts, proposal/question groups and findings.
+Session ID and checkpoint alone do not identify which record versions support
+those claims. A compact reference list is sufficient; use full IDs or unambiguous
+prefixes from the recovered state. Include all saved open questions, including
+preference questions, without treating them as newly asked questions or adding
+new creative exploration when a checkpoint pause applies.

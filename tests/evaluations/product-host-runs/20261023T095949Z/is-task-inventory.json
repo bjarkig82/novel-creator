@@ -1,0 +1,18 @@
+[
+  {
+    "relative_path": "outputs",
+    "directory": true
+  },
+  {
+    "relative_path": "work",
+    "directory": true
+  },
+  {
+    "relative_path": "outputs\\gate-followup-unavailable.json",
+    "directory": false
+  },
+  {
+    "relative_path": "outputs\\gate-unavailable.json",
+    "directory": false
+  }
+]

@@ -1,0 +1,19 @@
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\evaluations\windows-buffered-history-experiment-20261022.py", line 54, in <module>
+    history, fixture = benchmark.generate(novel_id)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\performance\benchmark_records.py", line 32, in generate
+    initial = bootstrap('{"title":"Þóra: scale fixture","manuscript_language":"is"}', novel_id)
+              ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\install.py", line 24, in bootstrap
+    validation.validate_exchange(result, [])
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\validation.py", line 151, in validate_exchange
+    state, _, _, _ = _validate_exchange(bundle, ExchangeValidator(history))
+                     ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\validation.py", line 157, in _validate_exchange
+    if not compiled_validator().is_valid(bundle):
+           ~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\validation.py", line 27, in compiled_validator
+    from jsonschema_rs import Draft202012Validator as CompiledValidator, Registry as CompiledRegistry
+ModuleNotFoundError: No module named 'jsonschema_rs'

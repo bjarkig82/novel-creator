@@ -1,0 +1,72 @@
+{
+  "ok": true,
+  "scope": "Public delegated persistence/display/source checks only",
+  "case_filter": [
+    "CORRECTION"
+  ],
+  "all_submitted_cases_checked": false,
+  "semantic_assessment": "Separate agent judgments required; no human/native result inferred",
+  "cases": [
+    {
+      "case_id": "CORRECTION",
+      "language": "en",
+      "thread_id": "01a16af9-f289-73c1-8151-55f50ace05d9",
+      "turn_id": "01a16b16-df79-7721-b425-e1ab5055d2c0",
+      "exchange_id": "ef11e8e4-9058-46eb-8574-7d1b0cbd1c91",
+      "checkpoint": {
+        "git_head": "a6e572559fad408596ecf22746a708bd984be46a",
+        "exchange_id": "ef11e8e4-9058-46eb-8574-7d1b0cbd1c91",
+        "sequence": 6
+      },
+      "exact_input_saved": true,
+      "exact_response_saved_and_displayed": true,
+      "save_precedes_display": true,
+      "source_type": "delegated",
+      "native_user_input": false,
+      "novice_evidence": false,
+      "installed_bundle_verified": true,
+      "installed_bundle_matches_current_source": true,
+      "commentary_agent_reviewed": true,
+      "record_kinds": [
+        "idea",
+        "assertion",
+        "decision",
+        "story_element",
+        "idea",
+        "session"
+      ],
+      "response": "People resumed in guided mode. Events and Island are preserved. Suggestions remain brief.\n\nCorrection: “sea glass” is now “driftwood”; the proposal remains unaccepted (2d56748a r2; assertion fd14cc8d r2; correction decision 0578e8b8 r1). The erroneous wording remains inspectable at 2d56748a r1 and fd14cc8d r1.\n\nCheckpoint summary: exchange ef11e8e4-9058-46eb-8574-7d1b0cbd1c91, sequence 6; predecessor Git checkpoint 29d9d52474b94958c8b15dcb833fc6dd0ba6833b (sequence 5). References below identify the record revisions represented in this summary.\n\nEstablished decisions:\n- Rúna is the lighthouse keeper. (b2bba552 r1; decision b857a602 r1).\n- Rúna sent the letter. (24a9e934 r1; decision d06311e5 r1).\n- Ari is Rúna’s brother. (89643a23 r1; decision 8b1386f6 r1).\n- Ari is the victim. (12fdedbe r1; decision 8981fd4e r1).\n- Edda is Rúna’s sister. (e4198cbf r1; decision 73dd4a06 r1).\n- Edda is the investigator. (c1edb38c r1; decision 83602256 r1).\n- Rúna knows Bjarni. (b0134264 r1; decision b7cefc5a r1).\n- The lamp failed on the night of the letter. (2d32b3f7 r1; decision f6d39415 r1).\n- The letter arrived before dawn. (112f571c r1; decision eae7c6ff r1).\n- The story takes place in winter. (05f15bb9 r1; decision 3b7fbd73 r1).\n- The island has no bridge. (1e4f66c1 r1; decision 2fd6b656 r1).\n- The letter bears a brass seal. (3a2d51c7 r1; decision 96686fac r1).\n- Rúna has sworn to protect Edda. (5d69e81a r1; decision e031c7a6 r1).\n\nProposed or unresolved; none of these is accepted:\n- Rúna collects driftwood. (2d56748a r2; proposed).\n- Edda distrusts bells. (e4a49295 r1; proposed).\n- Bjarni is a sailor. (a48aa0fb r1; proposed).\n- Bjarni may owe Edda money. (eacc5318 r1; proposed).\n- Stormy weather. (ca5f921f r1; unresolved alternative).\n- Clear weather. (6b3bb4ae r1; unresolved alternative).\n- The storm may conceal a signal. (0ef4149b r1; proposed).\n- A shipwreck may occur. (ee68d703 r1; proposed).\n- A blue light might be visible. (6a6267eb r1; proposed).\n- A warning bell might sound. (12d564bf r1; proposed).\n- A tunnel might link the lighthouse and harbour. (9ea7eb09 r1; proposed).\n- The tide might expose old steps. (84e3fbc4 r1; proposed).\n- A hidden room might contain a map. (6ad4b40e r1; proposed).\n- Edda could trace the letter through the tunnel to the hidden room. (3c8cad60 r1; proposed).\n\nAll five questions remain open and unanswered:\n- Why did Rúna send the letter? (f1e737c0 r1).\n- What does Edda want from Bjarni? (55b62a7f r1).\n- Who finds the letter? (d7c22da4 r1).\n- When does Bjarni return? (f68c6800 r1).\n- What opens the hidden room? (e7236c19 r1).\n\nThe new tracing thread is recorded only as a proposal. No development or answers have been added. Paused here until your next direction."
+    },
+    {
+      "case_id": "CORRECTION",
+      "language": "is",
+      "thread_id": "01a16afa-1197-7650-8189-9365687429ee",
+      "turn_id": "01a16b16-e6fd-7022-8939-37fa4e220e4f",
+      "exchange_id": "db2bf4d1-2c82-4a83-a8a8-cb8ebf0e9229",
+      "checkpoint": {
+        "git_head": "a38204283e99955f9e3c78ab1e3d4b8efbf8728c",
+        "exchange_id": "db2bf4d1-2c82-4a83-a8a8-cb8ebf0e9229",
+        "sequence": 6
+      },
+      "exact_input_saved": true,
+      "exact_response_saved_and_displayed": true,
+      "save_precedes_display": true,
+      "source_type": "delegated",
+      "native_user_input": false,
+      "novice_evidence": false,
+      "installed_bundle_verified": true,
+      "installed_bundle_matches_current_source": true,
+      "commentary_agent_reviewed": true,
+      "record_kinds": [
+        "decision",
+        "idea",
+        "assertion",
+        "story_element",
+        "idea",
+        "session"
+      ],
+      "response": "Fólk er aftur virk lota í leiðsögðum ham.\n\nLeiðrétt tillaga: Rúna safnar rekaviði, ekki sjógleri (29fd0678 v2; fullyrðing bba91255 v2). Þetta er ekki samþykki. Fyrra orðalag helst í v1 sömu færslna; leiðrétting 7d30691d v1.\n\nStaðfestar ákvarðanir:\n- Rúna er vitavörður; Rúna er sendandi bréfsins (ákvörðun 792fbf4b v1).\n- Ari er bróðir Rúnu; Ari er fórnarlambið (ákvörðun 5a01d331 v1).\n- Edda er systir Rúnu; Edda er rannsakandinn (ákvörðun c86ca859 v1).\n- Rúna þekkir Bjarna (ákvörðun 987d8385 v1).\n- ljósið bilaði nóttina sem bréfið kom (ákvörðun 2047d58e v1).\n- bréfið kom fyrir dögun (ákvörðun 17c4de0d v1).\n- sagan gerist að vetri (ákvörðun c030d800 v1).\n- engin brú er á eyjuna (ákvörðun 656637ea v1).\n- bréfið ber látúnsinnsigli (ákvörðun 577ab9b9 v1).\n- Rúna hefur svarið að vernda Eddu (ákvörðun b57469ef v1).\n\nSkráðar tillögur og óútkljáðir valkostir:\n- Rúna safnar rekaviði (29fd0678 v2).\n- Edda vantreystir bjöllum (45553df8 v1).\n- Bjarni skuldar Eddu hugsanlega peninga (8a81444f v1).\n- stormur gæti falið merki (27765347 v1).\n- Stormur (da566d49 v1).\n- Heiðskírt veður (3ee9968a v1).\n- skipbrot gæti orðið (37d7b9b9 v1).\n- blátt ljós gæti sést (60c1be74 v1).\n- viðvörunarbjalla gæti hljómað (e37f88d3 v1).\n- göng gætu tengt vitann og höfnina (9b4ec66f v1).\n- fjara gæti afhjúpað gamlar tröppur (ffbf3c57 v1).\n- leynilegt herbergi gæti geymt kort (54443716 v1).\n- Edda gæti rakið bréfið um göngin að leyniherberginu (a14330f1 v1).\n- Bjarni sem sjómaður er einnig óstaðfest skráning (1ccc30a9 v1).\n\nAllar fimm spurningarnar eru áfram opnar, án svara:\n- Hvers vegna sendi Rúna bréfið? (f2def862 v1).\n- Hvað vill Edda frá Bjarna? (a65358cf v1).\n- Hver finnur bréfið? (5d72fc12 v1).\n- Hvenær kemur Bjarni aftur? (8ed04638 v1).\n- Hvað opnar leyniherbergið? (7d3570e2 v1).\n\nHeimildastaða fyrri færslna: vistunarpunktur 07ad1ee9980d168695fa3cf791c60970718c3f84, röð 5. Leiðréttingin og nýi þráðurinn tilheyra þessari færslu db2bf4d1-2c82-4a83-a8a8-cb8ebf0e9229, röð 6; lota 501375af v2.\nYfirlitið er afleitt af þessum heimildafærslum. Ég staldra við án frekari þróunar."
+    }
+  ],
+  "failures": []
+}

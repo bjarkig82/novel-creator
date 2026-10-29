@@ -1,0 +1,14 @@
+{"fixture": {"sessions": 100, "exchanges": 5000, "active_assertions": 10000, "json_bytes": 26215716, "synthetic": true, "fully_validated": true}, "source_sha256": "6ec58b45314b7a99877220452367f6b89b532bed2fe3b3c842f0272a9aba1f5a", "method": "Four balanced full-history snapshot reads/configuration; original JSON, blob hashing and authenticated validation logic; ordinary Windows PowerShell fixture; not p95 or full saves; no runtime source change"}
+{"history_read_workers": 0, "seconds": 2.925294099957682, "exchanges": 5000, "records": 15101, "cache_hit": true}
+{"history_read_workers": 2, "seconds": 1.5771041000261903, "exchanges": 5000, "records": 15101, "cache_hit": true}
+{"history_read_workers": 4, "seconds": 1.1990985999582335, "exchanges": 5000, "records": 15101, "cache_hit": true}
+{"history_read_workers": 4, "seconds": 1.7386717000044882, "exchanges": 5000, "records": 15101, "cache_hit": true}
+{"history_read_workers": 2, "seconds": 1.9953394999029115, "exchanges": 5000, "records": 15101, "cache_hit": true}
+{"history_read_workers": 0, "seconds": 3.898560700006783, "exchanges": 5000, "records": 15101, "cache_hit": true}
+{"history_read_workers": 0, "seconds": 4.8270815999712795, "exchanges": 5000, "records": 15101, "cache_hit": true}
+{"history_read_workers": 2, "seconds": 2.8682235999731347, "exchanges": 5000, "records": 15101, "cache_hit": true}
+{"history_read_workers": 4, "seconds": 1.6451107000466436, "exchanges": 5000, "records": 15101, "cache_hit": true}
+{"history_read_workers": 4, "seconds": 1.3035562000004575, "exchanges": 5000, "records": 15101, "cache_hit": true}
+{"history_read_workers": 2, "seconds": 1.7184390999609604, "exchanges": 5000, "records": 15101, "cache_hit": true}
+{"history_read_workers": 0, "seconds": 3.808138000080362, "exchanges": 5000, "records": 15101, "cache_hit": true}
+{"medians": {"0": 3.8533493500435725, "2": 1.856889299931936, "4": 1.4743334500235505}}

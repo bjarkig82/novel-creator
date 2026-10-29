@@ -1,0 +1,33 @@
+{
+  "ok": true,
+  "wheel": "novel_creator-0.1.0-py3-none-any.whl",
+  "wheel_sha256": "9d65691505d0bc102f1ce47dc82df199ee193fb2fb5052aa3c70a23bcbab6880",
+  "verified_source_files": 25,
+  "package": {
+    "modules": [
+      "C:\\Users\\BjarkiGunnarsson\\AppData\\Local\\Temp\\novel-wheel-2mk5ki4p\\environment\\Lib\\site-packages\\novel_creator\\__init__.py",
+      "C:\\Users\\BjarkiGunnarsson\\AppData\\Local\\Temp\\novel-wheel-2mk5ki4p\\environment\\Lib\\site-packages\\novel_creator\\records.py",
+      "C:\\Users\\BjarkiGunnarsson\\AppData\\Local\\Temp\\novel-wheel-2mk5ki4p\\environment\\Lib\\site-packages\\novel_creator\\validation.py",
+      "C:\\Users\\BjarkiGunnarsson\\AppData\\Local\\Temp\\novel-wheel-2mk5ki4p\\environment\\Lib\\site-packages\\novel_creator\\cli.py",
+      "C:\\Users\\BjarkiGunnarsson\\AppData\\Local\\Temp\\novel-wheel-2mk5ki4p\\environment\\Lib\\site-packages\\novel_creator\\validation_cache.py",
+      "C:\\Users\\BjarkiGunnarsson\\AppData\\Local\\Temp\\novel-wheel-2mk5ki4p\\environment\\Lib\\site-packages\\novel_creator\\storage.py",
+      "C:\\Users\\BjarkiGunnarsson\\AppData\\Local\\Temp\\novel-wheel-2mk5ki4p\\environment\\Lib\\site-packages\\novel_creator\\install.py",
+      "C:\\Users\\BjarkiGunnarsson\\AppData\\Local\\Temp\\novel-wheel-2mk5ki4p\\environment\\Lib\\site-packages\\novel_creator\\context.py"
+    ],
+    "bundle_file_count": 26
+  },
+  "cases": [
+    {
+      "case": "unknown",
+      "initialized": true,
+      "pinned_save_and_reopen": true
+    },
+    {
+      "case": "icelandic",
+      "initialized": true,
+      "pinned_save_and_reopen": true
+    }
+  ],
+  "dependency_isolation": "calling environment package directories reused; product module origins checked",
+  "semantic_host_or_human_evidence": false
+}

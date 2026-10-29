@@ -1,0 +1,10 @@
+{
+  "case_id": "AUTH_PARTIAL",
+  "task": "T169",
+  "submitted": true,
+  "require_commentary_review": true,
+  "inputs": {
+    "en": "Case AUTH_PARTIAL. Return to Events in open mode. Keep the storm, but leave the shipwreck as a possibility; clear weather is unselected, not rejected. I accept the blue light, not the warning bell. For the compound possibility “Rúna is the sender and the murderer”, only the sender part is accepted; leave the murder undecided. Set routine checkpoints to every exchange. Summarize captured proposals, established decisions and open questions, then pause.",
+    "is": "Tilvik AUTH_PARTIAL. Förum aftur í Atburði í frjálsum ham. Höldum storminum en látum skipskaðann vera möguleika; heiðskírt veður er óvalið, ekki hafnað. Ég samþykki bláa ljósið, ekki viðvörunarbjölluna. Fyrir samsetta möguleikann „Rúna er sendandinn og morðinginn“ er aðeins sendandahlutinn samþykktur; morðið er óákveðið. Stillum reglulega yfirferð eftir hver samskipti. Taktu saman skráðar tillögur, staðfestar ákvarðanir og opnar spurningar og staldraðu svo við."
+  }
+}

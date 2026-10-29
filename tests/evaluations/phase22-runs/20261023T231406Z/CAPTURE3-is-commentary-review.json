@@ -1,0 +1,14 @@
+[
+  {
+    "id": "msg_077138367b8a5910016adbec53a2288191b71084bd41e93d2e",
+    "text": "Ég sæki vistað samhengi úr nýja vinnusvæðinu og undirbý næstu vistun.",
+    "classification": "administrative",
+    "reason": "Operational context-read/preparation/retry only; no story-state or continuity conclusion."
+  },
+  {
+    "id": "msg_077138367b8a5910016adbec68785c8191a43025e315088a89",
+    "text": "Vistunin er í bið eftir skráakerfisvillu. Ég endurtek hana með óbreyttu auðkenni og óbreyttum gögnum.",
+    "classification": "failure_disclosure",
+    "reason": "Operational context-read/preparation/retry only; no story-state or continuity conclusion."
+  }
+]

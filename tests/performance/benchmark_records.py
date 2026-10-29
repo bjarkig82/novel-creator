@@ -10,6 +10,7 @@ import math
 import os
 from pathlib import Path
 import platform
+import shutil
 import subprocess
 import sys
 import tempfile
@@ -144,6 +145,7 @@ def benchmark_key(enabled):
 def run(args):
     result = {'environment': {'os': platform.platform(), 'python': platform.python_version(),
         'processor': platform.processor(), 'logical_cpus': os.cpu_count(),
+        'git_executable': shutil.which('git'),
         'git': subprocess.run(['git', '--version'], capture_output=True, text=True, check=True).stdout.strip()},
         'method': 'Fresh subprocess per operation; filesystem-warm runs; interpreter import time excluded. '
                   'Timeout deadlines include worker startup/imports. '
@@ -151,6 +153,7 @@ def run(args):
                   'Save includes committed-history reads, validation, local Git publication and cleanup. '
                   'Fixture generated in one harness snapshot; each warm save appends one exchange.',
         'requested_warm_runs': args.runs, 'timeout_seconds': args.timeout, 'model_latency': 'excluded',
+        'fixture_git_maintenance': 'git repack -ad before cold read' if args.pack_fixture else 'none explicitly requested',
         'validation_cache': 'disabled' if args.no_validation_cache else 'opt-in; temporary private key outside novel'}
     with benchmark_key(not args.no_validation_cache), repository() as root:
         novel_id = records.loads((root / '.novel-creator/manifest.json').read_bytes())['novel_id']
@@ -162,12 +165,23 @@ def run(args):
             path.write_bytes(serialized(exchange))
         git(root, 'add', '--', 'story/exchanges')
         git(root, 'commit', '-m', 'Generated scale fixture snapshot')
+        if args.pack_fixture:
+            original_head = storage.head(root)
+            original_entries = storage.committed_entries(root, original_head)
+            maintenance_started = time.perf_counter()
+            git(root, 'repack', '-ad')
+            result['fixture_git_maintenance_seconds'] = time.perf_counter() - maintenance_started
+            if (storage.head(root) != original_head or
+                    storage.committed_entries(root, original_head) != original_entries):
+                raise RuntimeError('Fixture maintenance changed the authoritative snapshot')
         result['fixture'] = fixture
         if args.progress:
             print('Fixture ready; measuring cold read.', file=sys.stderr, flush=True)
         result['cold_read'] = measure(root, 'read', args.timeout)
         fixture['fully_validated'] = result['cold_read']['status'] == 'ok'
-        for operation, target in [('read', 2.0), ('save', 1.0)]:
+        # Owner decision 2026-10-28: timings are informational for both
+        # operations. Errors and incomplete runs still fail qualification.
+        for operation in ('read', 'save'):
             samples = []
             failure = None
             if not fixture['fully_validated']:
@@ -183,8 +197,9 @@ def run(args):
                     samples.append(observed['seconds'])
             p95 = sorted(samples)[math.ceil(len(samples) * .95) - 1] if len(samples) == args.runs else None
             result[operation] = {'samples_seconds': samples, 'completed_runs': len(samples), 'failure': failure,
-                'p95_seconds': p95, 'target_seconds': target,
-                'passes': p95 is not None and p95 <= target}
+                'p95_seconds': p95, 'target_seconds': None,
+                'completed_successfully': len(samples) == args.runs and failure is None,
+                'passes': None}
     return result
 
 
@@ -199,6 +214,8 @@ def main():
     parser.add_argument('--output', type=Path)
     parser.add_argument('--progress', action='store_true')
     parser.add_argument('--no-validation-cache', action='store_true')
+    parser.add_argument('--pack-fixture', action='store_true',
+        help='Explicitly pack disposable Git objects before the cold read; default fixture layout is unchanged')
     parser.add_argument('--worker', choices=['read', 'save'])
     parser.add_argument('--novel', type=Path)
     args = parser.parse_args()
@@ -209,7 +226,7 @@ def main():
     if args.output:
         args.output.write_text(rendered + '\n', encoding='utf-8')
     print(rendered)
-    return 0 if args.worker or (result['read']['passes'] and result['save']['passes']) else 1
+    return 0 if args.worker or all(result[op]['completed_successfully'] for op in ('read', 'save')) else 1
 
 
 if __name__ == '__main__':

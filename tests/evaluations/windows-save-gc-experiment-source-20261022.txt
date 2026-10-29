@@ -1,0 +1,82 @@
+"""Packed native-Windows diagnostics; product source and all guards unchanged."""
+import cProfile
+import gc
+import hashlib
+import json
+from pathlib import Path
+import pstats
+import shutil
+import statistics
+import sys
+import time
+sys.path.insert(0,str(Path.cwd()))
+from novel_creator import records, storage
+from novel_creator.context import read
+from tests.helpers import repository, git
+from tests.performance import benchmark_records as benchmark
+
+def measured(root, retain, once, profile=False):
+    history = storage.read_history(root)
+    exchange = records.new_exchange(history[0]['novel_id'], previous=history[-1], expected_head=storage.head(root),
+        messages=[{'message_id':benchmark.uid(),'role':'user','text':'Continue the benchmark.'},
+                  {'message_id':benchmark.uid(),'role':'assistant','text':'Benchmark continuation.'}])
+    exchange['payload_digest'] = records.digest(exchange)
+    if not retain:
+        del history
+    before = gc.get_stats()
+    enabled = gc.isenabled()
+    profiler = cProfile.Profile() if profile else None
+    started = time.perf_counter()
+    if profiler:
+        profiler.enable()
+    if once:
+        gc.disable()
+    try:
+        result = storage.save(root, exchange)
+    finally:
+        if once:
+            if enabled:
+                gc.enable()
+            # Include the deferred collection in the timer: no cost hidden
+            # after a reported save. Preserve initially-disabled GC state.
+            gc.collect()
+    seconds = time.perf_counter() - started
+    if profiler:
+        profiler.disable()
+    assert gc.isenabled() == enabled and not result['data']['cleanup_required']
+    after = gc.get_stats()
+    data = {'retained_preparation':retain,'one_collection':once,'seconds':seconds,
+            'sequence':result['checkpoint']['sequence'],
+            'collections':[after[i]['collections']-before[i]['collections'] for i in range(3)]}
+    print(json.dumps(data),flush=True)
+    if profiler:
+        pstats.Stats(profiler).sort_stats('cumulative').print_stats(35)
+    return seconds
+
+with benchmark.benchmark_key(True), repository() as root:
+    novel_id = records.loads((root/'.novel-creator/manifest.json').read_bytes())['novel_id']
+    history,fixture=benchmark.generate(novel_id)
+    for exchange in history:
+        target=root/storage.bundle_path(exchange)
+        target.parent.mkdir(parents=True,exist_ok=True)
+        target.write_bytes(benchmark.serialized(exchange))
+    git(root,'add','--','story/exchanges')
+    git(root,'commit','-m','Disposable GC and preparation diagnostic fixture')
+    git(root,'repack','-ad')
+    # Do not retain the fixture generator graph in any variant.
+    del history,exchange
+    read(root)
+    fixture['fully_validated']=True
+    print(json.dumps({'fixture':fixture,'source_sha256':hashlib.sha256(Path(storage.__file__).read_bytes()).hexdigest(),
+                      'git_executable':shutil.which('git'),'layout':'explicitly packed disposable fixture',
+                      'method':'Balanced same-process save diagnostics, deferred GC collection included, not p95'}),flush=True)
+    variants=[(True,False),(False,False),(False,True),(True,True)]
+    samples={str(v):[] for v in variants}
+    for index in [0,1,2,3,3,2,1,0]*2:
+        variant=variants[index]
+        samples[str(variant)].append(measured(root,*variant))
+    print(json.dumps({'medians':{k:statistics.median(v) for k,v in samples.items()}}),flush=True)
+    print('PROFILE retained preparation / normal GC',flush=True)
+    measured(root,True,False,True)
+    print('PROFILE released preparation / deferred collection',flush=True)
+    measured(root,False,True,True)

@@ -1,0 +1,14 @@
+[
+  {
+    "id": "msg_02f80cb399e0759d016ae1cb9f2ef881918a6e86c4b7de9027",
+    "text": "I’ll load the saved context and review records, prepare this turn, and save the response before displaying it.",
+    "classification": "administrative",
+    "reason": "Reviewed operational context/preparation/save status; no creative content disclosed before save."
+  },
+  {
+    "id": "msg_02f80cb399e0759d016ae1cbffd9cc819181143472b32993ab",
+    "text": "The exchange is prepared. I’m saving it through the installed launcher, then verifying the persisted response and writing the report.",
+    "classification": "administrative",
+    "reason": "Reviewed operational context/preparation/save status; no creative content disclosed before save."
+  }
+]

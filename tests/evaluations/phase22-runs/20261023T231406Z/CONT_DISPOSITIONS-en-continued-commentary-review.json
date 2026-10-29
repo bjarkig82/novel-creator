@@ -1,0 +1,14 @@
+[
+  {
+    "id": "msg_03411d8f27e999d1016ae1cdf483608191a5b79eee78fa2ff1",
+    "text": "I’m preparing the sourced record changes and requested checkpoint. I’ll save them together before displaying the response.",
+    "classification": "administrative",
+    "reason": "Reviewed operational context, preparation, reference checks and save/retry status; no story disclosed before confirmed save."
+  },
+  {
+    "id": "msg_03411d8f27e999d1016ae1ce87184481918721d7868676b2be",
+    "text": "The exchange is prepared. I’m running the production save, then checking the persisted reply and writing the evidence report.",
+    "classification": "administrative",
+    "reason": "Reviewed operational context, preparation, reference checks and save/retry status; no story disclosed before confirmed save."
+  }
+]

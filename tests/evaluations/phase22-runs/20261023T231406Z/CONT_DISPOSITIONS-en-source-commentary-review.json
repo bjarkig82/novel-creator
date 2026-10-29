@@ -1,0 +1,8 @@
+[
+  {
+    "id": "msg_02f80cb399e0759d016ae1cd439f6c8191845c1a5e3e1d6b7e",
+    "text": "I’ll read the saved findings and their sources, prepare the requested dispositions and checkpoint, and save the response before displaying it.",
+    "classification": "administrative",
+    "reason": "Reviewed operational context, preparation, reference checks and save/retry status; no story disclosed before confirmed save."
+  }
+]

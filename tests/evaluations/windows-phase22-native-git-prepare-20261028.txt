@@ -1,0 +1,17 @@
+{
+  "upstream_commit": "f8165afd89b0c190677a093f20894f5fce12f97a",
+  "before_sha256": {
+    "cache-tree.c": "616abaa4236c6363404dd9e8fdb50693e86e9cb8508726d16a7a30bddbefb2d0",
+    "odb.c": "bbae31cb019f3ef833ef8db77bc8e85dc0b902b19874f7990f992b0eb25f8b2a",
+    "git-zlib.c": "12659850680a6c565dd3a051936752a65fe766b50ea4b97ed572a2ff2fad62f1",
+    "wrapper.c": "d02f58ebe55eb237682ac0f9ca9f8d22f106fba207c363f59104d6304bd17260"
+  },
+  "after_sha256": {
+    "cache-tree.c": "ac64408de27de9e3dae7da889e03ad15a3518fe8d0d33d8c519f1d8dfcdb4a6f",
+    "odb.c": "a5d9782f5306cd9632f58b3c8134c9145d16897eb183e35b45d621351c55a264",
+    "git-zlib.c": "380956ecaf2af50ab8cca0aa9f667bdf0c1581869dff4b5e0d9f24d2e50a18a1",
+    "wrapper.c": "a7843c7353d7c65022154dc9e3b3ed38fdbf1c100e3c03349cbff481c928efe6",
+    "t172-profile.h": "edd2ac1bdd212aa455060ad96205a52d6b044366cb0ddc93a119c915e46c454f"
+  },
+  "scope": "Diagnostic-only opt-in owner-thread timers; original return values, calls and errno retained. Exclusive timings exclude nested instrumented operations; native clock overhead is not subtracted."
+}

@@ -1,0 +1,108 @@
+{"fixture": {"sessions": 100, "exchanges": 5000, "active_assertions": 10000, "json_bytes": 26215716, "synthetic": true, "fully_validated": true}, "source_sha256": "16de2fab76922e9252924eada706c7a8d5071875c68e155279192edd749b5828", "git_executable": "C:\\Program Files\\Git\\mingw64\\bin\\git.EXE", "layout": "explicitly packed disposable fixture", "method": "Balanced same-process save diagnostics, deferred GC collection included, not p95"}
+{"retained_preparation": true, "one_collection": false, "seconds": 3.2264269000152126, "sequence": 5001, "collections": [131, 12, 1]}
+{"retained_preparation": false, "one_collection": false, "seconds": 5.814651600085199, "sequence": 5002, "collections": [131, 12, 1]}
+{"retained_preparation": false, "one_collection": true, "seconds": 3.3238834999501705, "sequence": 5003, "collections": [0, 0, 1]}
+{"retained_preparation": true, "one_collection": true, "seconds": 3.3383876000298187, "sequence": 5004, "collections": [0, 0, 1]}
+{"retained_preparation": true, "one_collection": true, "seconds": 3.944232900044881, "sequence": 5005, "collections": [0, 0, 1]}
+{"retained_preparation": false, "one_collection": true, "seconds": 3.368718500016257, "sequence": 5006, "collections": [0, 0, 1]}
+{"retained_preparation": false, "one_collection": false, "seconds": 3.7889738000230864, "sequence": 5007, "collections": [131, 12, 1]}
+{"retained_preparation": true, "one_collection": false, "seconds": 3.9435887000290677, "sequence": 5008, "collections": [131, 12, 1]}
+{"retained_preparation": true, "one_collection": false, "seconds": 3.143675099941902, "sequence": 5009, "collections": [132, 11, 1]}
+{"retained_preparation": false, "one_collection": false, "seconds": 2.9404616999672726, "sequence": 5010, "collections": [131, 12, 1]}
+{"retained_preparation": false, "one_collection": true, "seconds": 3.302392899990082, "sequence": 5011, "collections": [0, 0, 1]}
+{"retained_preparation": true, "one_collection": true, "seconds": 4.54003059992101, "sequence": 5012, "collections": [0, 0, 1]}
+{"retained_preparation": true, "one_collection": true, "seconds": 5.707721599959768, "sequence": 5013, "collections": [0, 0, 1]}
+{"retained_preparation": false, "one_collection": true, "seconds": 5.975640399963595, "sequence": 5014, "collections": [0, 0, 1]}
+{"retained_preparation": false, "one_collection": false, "seconds": 3.3004077000077814, "sequence": 5015, "collections": [131, 12, 1]}
+{"retained_preparation": true, "one_collection": false, "seconds": 3.7593050999566913, "sequence": 5016, "collections": [131, 12, 1]}
+{"medians": {"(True, False)": 3.492865999985952, "(False, False)": 3.544690750015434, "(False, True)": 3.346300999983214, "(True, True)": 4.242131749982946}}
+PROFILE retained preparation / normal GC
+{"retained_preparation": true, "one_collection": false, "seconds": 4.042487500002608, "sequence": 5017, "collections": [132, 11, 1]}
+         1372931 function calls (1372450 primitive calls) in 4.042 seconds
+
+   Ordered by: cumulative time
+   List reduced from 402 to 35 due to restriction <35>
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+    54/52    0.000    0.000    5.714    0.110 C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\threading.py:1059(join)
+    54/52    0.004    0.000    5.711    0.110 {method 'join' of '_thread._ThreadHandle' objects}
+        1    0.042    0.042    4.042    4.042 C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py:597(save)
+        1    0.000    0.000    4.000    4.000 C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py:438(_save)
+     54/5    0.003    0.000    3.950    0.790 C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\threading.py:1001(_bootstrap)
+        1    0.000    0.000    3.791    3.791 C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\concurrent\futures\_base.py:646(__exit__)
+        1    0.000    0.000    3.791    3.791 C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\concurrent\futures\thread.py:220(shutdown)
+     5017    0.013    0.000    3.600    0.001 C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\hashlib.py:152(__hash_new)
+    10059    0.146    0.000    3.214    0.000 C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py:68(safe_path)
+    24/23    0.002    0.000    3.096    0.135 C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py:29(git)
+    24/23    0.002    0.000    3.087    0.134 C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\subprocess.py:512(run)
+        2    0.042    0.021    3.046    1.523 C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py:351(check_managed)
+    24/23    0.000    0.000    2.884    0.125 C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\subprocess.py:1178(communicate)
+    24/23    0.001    0.000    2.852    0.124 C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\subprocess.py:1623(_communicate)
+    10117    0.513    0.000    2.585    0.000 {built-in method nt.lstat}
+    48/23    0.001    0.000    2.109    0.092 C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\subprocess.py:1614(_readerthread)
+        5    0.073    0.015    2.058    0.412 C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\subprocess.py:1619(_writerthread)
+  144/123    0.003    0.000    2.034    0.017 {method 'close' of '_io.BufferedReader' objects}
+        1    0.003    0.003    1.859    1.859 C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py:223(_read_snapshot)
+        1    0.000    0.000    1.850    1.850 C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\concurrent\futures\thread.py:54(run)
+     5017    0.098    0.000    1.725    0.000 {built-in method _hashlib.new}
+     5017    0.010    0.000    0.772    0.000 C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py:170(_batch_blobs)
+     5035    0.016    0.000    0.607    0.000 C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\json\__init__.py:304(loads)
+       12    0.597    0.050    0.597    0.050 {method 'write' of '_io.BufferedWriter' objects}
+        5    0.000    0.000    0.597    0.119 C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\subprocess.py:1153(_stdin_write)
+     5035    0.024    0.000    0.553    0.000 C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\json\decoder.py:340(decode)
+     5035    0.510    0.000    0.510    0.000 C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\json\decoder.py:351(raw_decode)
+       24    0.003    0.000    0.222    0.009 C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\subprocess.py:817(__init__)
+       24    0.004    0.000    0.164    0.007 C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\subprocess.py:1452(_execute_child)
+    20119    0.022    0.000    0.160    0.000 C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\pathlib\_local.py:320(parts)
+     54/5    0.060    0.001    0.160    0.032 C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\threading.py:1028(_bootstrap_inner)
+     54/5    0.002    0.000    0.152    0.030 C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\threading.py:984(run)
+       24    0.150    0.006    0.150    0.006 {built-in method _winapi.CreateProcess}
+    30264    0.044    0.000    0.134    0.000 C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\pathlib\_local.py:289(drive)
+        4    0.000    0.000    0.131    0.033 C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py:347(index_entries)
+
+
+PROFILE released preparation / deferred collection
+{"retained_preparation": false, "one_collection": true, "seconds": 3.6685419999994338, "sequence": 5018, "collections": [0, 0, 1]}
+         1373494 function calls (1372993 primitive calls) in 3.668 seconds
+
+   Ordered by: cumulative time
+   List reduced from 407 to 35 due to restriction <35>
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+    54/52    0.000    0.000    7.067    0.136 C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\threading.py:1059(join)
+    54/52    0.005    0.000    7.065    0.136 {method 'join' of '_thread._ThreadHandle' objects}
+        1    0.002    0.002    3.484    3.484 C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py:597(save)
+        1    0.000    0.000    3.482    3.482 C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py:438(_save)
+     54/5    0.008    0.000    3.439    0.688 C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\threading.py:1001(_bootstrap)
+        1    0.000    0.000    3.331    3.331 C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\concurrent\futures\_base.py:646(__exit__)
+        1    0.000    0.000    3.331    3.331 C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\concurrent\futures\thread.py:220(shutdown)
+    24/23    0.002    0.000    2.736    0.119 C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py:29(git)
+    24/23    0.004    0.000    2.727    0.119 C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\subprocess.py:512(run)
+        2    0.037    0.018    2.580    1.290 C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py:351(check_managed)
+    24/23    0.000    0.000    2.564    0.111 C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\subprocess.py:1178(communicate)
+    24/23    0.000    0.000    2.531    0.110 C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\subprocess.py:1623(_communicate)
+    48/23    0.000    0.000    2.491    0.108 C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\subprocess.py:1614(_readerthread)
+  144/128    0.002    0.000    1.694    0.013 {method 'close' of '_io.BufferedReader' objects}
+    10062    0.126    0.000    1.565    0.000 C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py:68(safe_path)
+       56    0.000    0.000    1.499    0.027 C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\threading.py:327(wait)
+        1    0.000    0.000    1.497    1.497 C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\concurrent\futures\_base.py:428(result)
+        1    0.000    0.000    1.497    1.497 C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\concurrent\futures\thread.py:54(run)
+        5    0.025    0.005    1.391    0.278 C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\subprocess.py:1619(_writerthread)
+    10122    0.427    0.000    1.031    0.000 {built-in method nt.lstat}
+    70/27    0.632    0.009    0.797    0.030 {method 'read' of '_io.BufferedReader' objects}
+       12    0.795    0.066    0.795    0.066 {method 'write' of '_io.BufferedWriter' objects}
+        5    0.000    0.000    0.795    0.159 C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\subprocess.py:1153(_stdin_write)
+     5018    0.009    0.000    0.682    0.000 C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py:170(_batch_blobs)
+        1    0.034    0.034    0.384    0.384 C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py:223(_read_snapshot)
+     5037    0.017    0.000    0.247    0.000 C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\json\__init__.py:304(loads)
+     5037    0.013    0.000    0.202    0.000 C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\json\decoder.py:340(decode)
+        1    0.185    0.185    0.185    0.185 {built-in method gc.collect}
+     5037    0.175    0.000    0.175    0.000 C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\json\decoder.py:351(raw_decode)
+       24    0.001    0.000    0.173    0.007 C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\subprocess.py:817(__init__)
+       24    0.002    0.000    0.157    0.007 C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\subprocess.py:1452(_execute_child)
+       24    0.146    0.006    0.146    0.006 {built-in method _winapi.CreateProcess}
+        4    0.000    0.000    0.142    0.035 C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py:347(index_entries)
+    20125    0.021    0.000    0.131    0.000 C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\pathlib\_local.py:320(parts)
+        1    0.000    0.000    0.130    0.130 C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\src\novel_creator\storage.py:394(sync_index)
+
+

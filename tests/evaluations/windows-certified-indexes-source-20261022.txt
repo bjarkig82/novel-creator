@@ -1,0 +1,50 @@
+"""Certified-index reconstruction only; no cache authentication or validation change."""
+import hashlib,json,statistics,sys,time
+from pathlib import Path
+sys.path.insert(0,str(Path.cwd()))
+from novel_creator import records,storage,validation
+from tests.performance import benchmark_records as benchmark
+
+class DirectIndexes(validation.ExchangeValidator):
+    def _append_certified(self, owned):
+        identifier=owned['exchange_id']
+        self._ids.add(identifier)
+        for message in owned['messages']:
+            message_id=message['message_id']
+            self._messages[(identifier,message_id)]=message
+            self._ids.add(message_id)
+        for artifact in owned['input_artifacts']:
+            artifact_id=artifact['artifact_id']
+            self._artifacts[(identifier,artifact_id)]=artifact
+            self._ids.add(artifact_id)
+        for record in owned['record_versions']:
+            record_id=record['id']
+            self._state[record_id]=record
+            self._versions[(record_id,record['revision'])]=record
+            if record['kind']=='novel_project':self._projects.add(record_id)
+            if record['kind']=='finding':self._findings[record_id]=record
+        self._exchanges[identifier]=owned
+        self._history.append(owned)
+
+history,fixture=benchmark.generate(benchmark.uid())
+validated=validation.ExchangeValidator()
+for exchange in history:validated._append_owned(exchange)
+fixture['fully_validated']=True
+del validated,exchange
+classes={False:validation.ExchangeValidator,True:DirectIndexes}
+samples={False:[],True:[]}
+expected=None
+attributes=('_history','_state','_exchanges','_ids','_messages','_artifacts','_versions','_projects','_findings')
+print(json.dumps({'fixture':fixture,'source_sha256':hashlib.sha256(Path(storage.__file__).read_bytes()).hexdigest(),'validation_sha256':hashlib.sha256(Path(validation.__file__).read_bytes()).hexdigest(),'method':'ABBA/ABBA reconstruction from identical fully validated owned objects; four samples each, default GC; excludes JSON/Git/full save; no product change'}),flush=True)
+for direct in [False,True,True,False]*2:
+    started=time.perf_counter();chain=classes[direct]()
+    for exchange in history:chain._append_certified(exchange)
+    seconds=time.perf_counter()-started
+    if expected is None:expected=chain
+    else:
+        assert all(getattr(expected,a)==getattr(chain,a) for a in attributes)
+        assert all(chain._state[r['id']] is r for r in chain._state.values())
+    samples[direct].append(seconds)
+    print(json.dumps({'direct':direct,'seconds':seconds,'records':len(chain._state),'versions':len(chain._versions)}),flush=True)
+    del chain
+print(json.dumps({'medians':{str(k):statistics.median(v) for k,v in samples.items()}}),flush=True)

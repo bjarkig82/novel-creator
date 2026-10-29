@@ -1,0 +1,10 @@
+{"fixture": {"sessions": 100, "exchanges": 5000, "active_assertions": 10000, "json_bytes": 26215716, "synthetic": true, "fully_validated": true}, "source_sha256": "2563aa5a257971a264d2a36094a818a528a561509e4f48d47ad24c6c708f4fb3", "method": "Eight fresh-worker complete saves, ABBA/ABBA, four per two/four save-history readers with native file checks unchanged. Ordinary layout, optional external private cache key, original public payload preparation retained. All native queries and six complete root-bound hash partitions counted. Diagnostic, not p95 or release compliance."}
+{"native": 0, "seconds": 2.58601730002556, "sequence": 5001, "cleanup_required": false, "git_calls": 27, "complete_hash_files": 10002, "native_leaf_queries": 10000}
+{"native": 1, "seconds": 2.315992199932225, "sequence": 5002, "cleanup_required": false, "git_calls": 29, "complete_hash_files": 10004, "native_leaf_queries": 10002}
+{"native": 1, "seconds": 2.4017431000247598, "sequence": 5003, "cleanup_required": false, "git_calls": 29, "complete_hash_files": 10006, "native_leaf_queries": 10004}
+{"native": 0, "seconds": 2.4656747999833897, "sequence": 5004, "cleanup_required": false, "git_calls": 27, "complete_hash_files": 10008, "native_leaf_queries": 10006}
+{"native": 0, "seconds": 2.3666817999910563, "sequence": 5005, "cleanup_required": false, "git_calls": 27, "complete_hash_files": 10010, "native_leaf_queries": 10008}
+{"native": 1, "seconds": 2.4132015999639407, "sequence": 5006, "cleanup_required": false, "git_calls": 29, "complete_hash_files": 10012, "native_leaf_queries": 10010}
+{"native": 1, "seconds": 2.224352499935776, "sequence": 5007, "cleanup_required": false, "git_calls": 29, "complete_hash_files": 10014, "native_leaf_queries": 10012}
+{"native": 0, "seconds": 2.381510299979709, "sequence": 5008, "cleanup_required": false, "git_calls": 27, "complete_hash_files": 10016, "native_leaf_queries": 10014}
+{"medians": {"0": 2.4235925499815494, "1": 2.3588676499784924}, "source_unchanged": true}

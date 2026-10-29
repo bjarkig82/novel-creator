@@ -1,0 +1,174 @@
+import hashlib,json
+from pathlib import Path
+base=Path('tests/evaluations')
+def load(name):return json.loads((base/name).read_text(encoding='utf-8-sig'))
+def write(path,text):Path(path).write_text(text,encoding='utf-8',newline='\n')
+b=load('windows-history-read-default-30-20261022.json')
+v=load('windows-history-read-benchmark-verification-20261022.json')
+assert v['unchanged']
+for path,sha in v['before'].items():assert hashlib.sha256(Path(path).read_bytes()).hexdigest()==sha,path
+for platform in ['windows','linux']:
+    checked=load(f'{platform}-history-read-verification-20261022.json')
+    assert checked['unchanged'] and checked['before']==v['before']
+    assert (checked['commands'][0]['exit'] if platform=='windows' else checked['exit'])==0
+    log=(base/f'{platform}-history-read-full-tests-20261022.txt').read_text(encoding='utf-8')
+    assert 'Ran 138 tests' in log and ('OK (skipped=2)' if platform=='windows' else '\nOK\n') in log
+assert b['fixture']['sessions']==100 and b['fixture']['exchanges']==5000 and b['fixture']['active_assertions']==10000
+assert b['fixture']['json_bytes']>=25*1024*1024 and b['fixture']['fully_validated'] and b['cold_read']['status']=='ok'
+for kind in ['read','save']:
+    assert b[kind]['completed_runs']==30 and b[kind]['failure'] is None
+    assert len(b[kind]['samples_seconds'])==30 and b[kind]['p95_seconds']==sorted(b[kind]['samples_seconds'])[28]
+assert not b['save']['passes'],'Reaudit task completion if save passes'
+comparison=[json.loads(x) for x in (base/'windows-history-read-comparison-20261022.txt').read_text(encoding='utf-8').splitlines() if x.startswith('{')]
+assert len(comparison)==10 and comparison[-1]['source_unchanged']
+assert comparison[0]['storage_sha256']==v['before']['src/novel_creator/storage.py']
+m=comparison[-1]['medians'];gain=(1-m['4']/m['1'])*100
+stages=[json.loads(x) for x in (base/'windows-history-read-save-stages-20261022.jsonl').read_text(encoding='utf-8').splitlines() if x.startswith('{')]
+assert len(stages)==5 and sum(r['traced'] for r in stages[1:])==2
+assert stages[0]['source_sha256']==v['before']['src/novel_creator/storage.py']
+cold=b['cold_read']['seconds'];rd=b['read']['p95_seconds'];sv=b['save']['p95_seconds'];status='passes' if b['read']['passes'] else 'misses'
+summary=f'''Windows: 138 tests in 704.102s, 136 passed and two explicit real-symlink
+privilege skips, exit 0. Linux/WSL2: all 138 pass in 229.403s, zero skips,
+exit 0. All five runtime/test/harness/helper fingerprints match before and after
+both suites and the benchmark.
+
+Current-source ordinary-layout Windows PowerShell, optional authenticated cache:
+first read {cold:.9f}s; read p95 {rd:.9f}s; validation/local-save p95
+{sv:.9f}s. All 30 reads and 30 saves succeed without operation errors or
+timeouts. Read {status} its 2s target; save misses its 1s target. Exit 1
+records the unmet save threshold. No explicit Git packing/maintenance is requested.
+Linux performance has not been remeasured for this source; earlier reference
+results remain historical evidence.
+'''
+safety='''Large public Windows reads (>=1,024 exchanges) fetch captured immutable blob
+OIDs in at most four contiguous requests using the existing Git wrapper. Every
+worker joins before parsing or returning. Successful outputs form one original-order
+binary stream. Any worker/submission exception or nonzero child exit triggers one
+full original serial request before parsing, preserving partial stdout, earlier
+damaged-history errors and verified-prefix checkpoints. Small public reads and
+non-Windows runtime stay serial. Save history remains serial: measured parallel
+save variants provided no gain. All history/blob/schema/digest/authority/hold,
+path/symlink/mode/live-index, both complete root-bound byte guards, private
+candidate, fresh branch/CAS, receipt and recovery safeguards remain. The
+previous parallel final-byte guard is unchanged.
+'''
+report=f'''# Large public Windows history reads — 2026-10-22
+
+T149 continuation. Storage SHA-256:
+`{v['before']['src/novel_creator/storage.py']}`.
+Novice evaluations remain deferred/unverified. T149 stays unchecked.
+
+## Behavior and safeguards
+
+{safety}
+## Complete verification and required measurement
+
+{summary}
+Fixture: 100 sessions, 5,000 exchanges, 10,000 active assertions,
+{b['fixture']['json_bytes']:,} JSON bytes. Fresh process per sample; interpreter
+imports and save payload preparation excluded; complete save validation/history,
+local publication and cleanup included. First read is fixture-cold, not a
+controlled OS page-cache flush. Cache key is temporary/private/outside the novel.
+Hardware: Lenovo 22AWS00800, Intel Core Ultra 7 268V, eight logical CPUs,
+33,847,832,576 physical-memory bytes, C: NTFS. {b['environment']['os']},
+Python {b['environment']['python']}, {b['environment']['git']}.
+Git executable: `{b['environment']['git_executable']}`.
+Windows runner: PYTHONUTF8=1, PYTHONPATH=src, PYTHONDONTWRITEBYTECODE=1.
+Full suites ran concurrently; benchmark and subsequent diagnostics ran separately
+after both suites finished. Other machine activity is uncontrolled. Historical
+p95 differences do not isolate source effects or establish a regression/gain.
+
+[Windows suite](windows-history-read-full-tests-20261022.txt),
+[Linux suite](linux-history-read-full-tests-20261022.txt),
+[raw 30-run result](windows-history-read-default-30-20261022.json),
+[progress](windows-history-read-default-progress-20261022.txt),
+[hardware](windows-history-read-hardware-20261022.json).
+
+## Matched final-source read comparison
+
+Four balanced fresh-process context reads per policy use identical final source
+and an ordinary complete fixture, switching only public-read workers one/four.
+All eight return 15,101 records and an authenticated cache hit. Serial median
+{m['1']:.9f}s versus four-worker {m['4']:.9f}s ({gain:.2f}% lower).
+The samples are variable; this small comparison does not establish a portable
+speedup, p95 compliance or save improvement.
+[Matched samples](windows-history-read-comparison-20261022.txt).
+
+Earlier corrected-prototype context medians were 2.052871050s / 1.586789600s /
+1.432398200s with one/two/four readers; saves were 4.529989250s / 4.567219250s /
+5.588813600s (four samples each). Threshold checks showed no benefit at 256
+exchanges; at 1,024, serial/four medians were 0.648670600s/0.565530500s.
+That prototype predates the nonzero chunk-boundary fallback correction. Its
+valid-data timings informed policy, not current failure-behavior verification.
+[Earlier pending checkpoint](windows-history-partition-pending-20261022.md).
+
+## Current save-stage diagnosis
+
+Two untraced controls surround two lightly traced complete saves on one ordinary
+full-scale validated fixture. Preparation history remains retained as in the
+benchmark. Timings overlap across threads and cannot be added as serial costs.
+This is diagnostic evidence, not a replacement for the save p95 above.
+[All stage events](windows-history-read-save-stages-20261022.jsonl).
+
+'''
+for row in stages[1:]:
+    if not row['traced']:report+=f"Untraced save {row['sequence']}: {row['seconds']:.9f}s.\n\n"
+    else:
+        h=next(e for e in row['events'] if e['stage']=='_read_snapshot')
+        g=sorted([e for e in row['events'] if e['stage']=='check_managed'],key=lambda e:e['start'])
+        report+=f"Traced save {row['sequence']}: {row['seconds']:.9f}s; history {h['seconds']:.9f}s; first guard {g[0]['seconds']:.9f}s; final guard {g[1]['seconds']:.9f}s; first-guard/history overlap {row['first_guard_history_overlap_seconds']:.9f}s.\n\n"
+report+='''## Regression coverage and boundaries
+
+Five focused methods pass in 31.152s. Both full suites include SHA-1/SHA-256
+cached/uncached equality, captured snapshots after HEAD advances, binary framing,
+missing/truncated/header errors, complete/partial nonzero exits on chunk boundaries,
+earlier damaged history versus later worker/guard errors, partial submission
+cleanup, small-read fallback and serial-save policy. Review caught six failing
+nonzero-boundary cases; final focused and full runs include the correction.
+Final read-only review found no remaining actionable issue.
+
+The failed disk-full run is preserved separately from its passing retry. After
+the user freed space, verification resumed with about 9.9 GB available. An editing
+helper's temporary Unicode recoding was reversed: the original test body was
+reconstructed exactly to baseline SHA-256 7536bdfb... before verification.
+
+The pending runtime verification is finished; T149's save gate remains unmet.
+The original Windows 3.845654300s miss remains historical unmet evidence. No
+threshold is lowered; no Linux result substitutes for Windows. Host, human,
+bilingual semantic, physical durability and final release gates stay separate.
+No provider call, commit or push is performed.
+
+All current artifacts and executed scripts are hashed in the
+[evidence manifest](windows-history-read-evidence-manifest-20261022.json).
+'''
+write(base/'windows-history-read-20261022.md',report)
+entry=f'''\n\n### T149 public history reads — full verification after disk cleanup\n\n{summary}
+{safety}
+Matched final-source read medians {m['1']:.9f}s serial / {m['4']:.9f}s four\nworkers ({gain:.2f}% lower; four samples/policy) are diagnostic, not p95.\nSource, complete logs, raw measurements, hardware and stage events:\ntests/evaluations/windows-history-read-20261022.md. T149 stays unchecked;\nnovice evaluations remain deferred/unverified and other release gates remain open.\n'''
+for name in ['tasks.md','implementation-ledger.md']:
+    with (Path('specs/001-novel-initialization-brainstorming')/name).open('a',encoding='utf-8',newline='\n') as f:f.write(entry)
+p=base/'performance.md';text=p.read_text(encoding='utf-8')
+anchor='| [Windows, parallel final hashes/cache, ordinary PowerShell fixture](windows-parallel-hash-default-30-20261022.json) | 5.185 | 5.110 | 6.566 | UNMET |'
+assert anchor in text
+text=text.replace(anchor,anchor+f'\n| [Windows, partitioned public history/cache, ordinary PowerShell fixture](windows-history-read-default-30-20261022.json) | {cold:.3f} | {rd:.3f} | {sv:.3f} | UNMET |',1)
+text=text.replace('The current parallel-hash source passes all 133 Linux tests,','The current public-history-read source passes all 138 Linux tests,',1)
+text=text.replace('[parallel-hash report](windows-parallel-hash-20261022.md) records current-source','[public-history-read report](windows-history-read-20261022.md) records current-source',1)
+text+='\n\n## Partitioned public history reads — 2026-10-22\n\n'+summary+'\n'+safety+'\nSee [source and diagnostic evidence](windows-history-read-20261022.md). Novice evaluations remain deferred/unverified.\n'
+write(p,text)
+p=base/'platform-results.md';text=p.read_text(encoding='utf-8');head='# Platform verification\n';assert text.startswith(head)
+section='\n## Partitioned public Windows history reads — 2026-10-22\n\n'+summary+'\n'+safety+'\n[Current evidence](windows-history-read-20261022.md). T149 remains open; novice evaluations remain deferred/unverified.\n\nFollowing sections preserve source-specific historical checkpoints.\n'
+write(p,head+section+text[len(head):])
+p=base/'release-readiness.md';text=p.read_text(encoding='utf-8');end=text.index('The T103 capture capability gate')
+text='# Release readiness — incomplete\n\nLatest continuation — 2026-10-22: novice evaluations remain deferred/unverified.\nT149 retains its unmet save gate; no safeguard or threshold is waived.\n\n'+summary+'\n'+safety+'\n[Source-specific verification](windows-history-read-20261022.md).\n\n'+text[end:]
+text=text.replace('Linux structural installation and all 133 tests pass','Linux structural installation and all 138 tests pass');write(p,text)
+p=Path('docs/development.md');text=p.read_text(encoding='utf-8')
+text=text.replace('The parallel-hash source passes all 133 Linux tests. Its Linux performance','The public-history-read source passes all 138 Linux tests. Its Linux performance')
+text=text.replace('[latest verification](../tests/evaluations/windows-parallel-hash-20261022.md)','[latest verification](../tests/evaluations/windows-history-read-20261022.md)')
+text=text.replace('current Windows and Linux save p95 remain above one second','latest recorded Windows and Linux save p95 remain above one second')
+text+='\n\n'+safety+'\nBoth full suites cover 138 tests. See [current source and measurements](../tests/evaluations/windows-history-read-20261022.md).\n';write(p,text)
+artifacts=set(base.glob('*history-read*-20261022.*'));artifacts.discard(base/'windows-history-read-evidence-manifest-20261022.json')
+artifacts.update(base.glob('windows-history-partition-*-20261022.txt'));artifacts.add(base/'windows-history-partition-pending-manifest-20261022.json')
+manifest={'source':v['before'],'artifacts':{p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(artifacts)}}
+write(base/'windows-history-read-evidence-manifest-20261022.json',json.dumps(manifest,indent=2)+'\n')
+for name,sha in manifest['artifacts'].items():assert hashlib.sha256((base/name).read_bytes()).hexdigest()==sha,name
+print(json.dumps({'cold':cold,'read_p95':rd,'save_p95':sv,'artifacts_verified':len(artifacts),'matched_medians':m,'matched_gain_percent':gain}))

@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\.codex\visualizations\2026\10\22\01a162a8-be88-7893-a0be-eb3ecfe7620c\check_parallel_hash_candidate.py", line 63, in <module>
+    try:parallel(root,storage.head(root),[],entries=entries,_workers=4)
+        ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<parallel-hash-experiment>", line 43, in parallel_hash_guard
+novel_creator.cli.ToolError: Managed working file changed outside the exchange transaction
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\.codex\visualizations\2026\10\22\01a162a8-be88-7893-a0be-eb3ecfe7620c\check_parallel_hash_candidate.py", line 64, in <module>
+    except ToolError as error:assert error.code==5,(failure,error.code)
+                                     ^^^^^^^^^^^^^
+AssertionError: ('incomplete', 3)

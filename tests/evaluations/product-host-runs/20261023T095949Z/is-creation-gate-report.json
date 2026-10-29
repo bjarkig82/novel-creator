@@ -1,0 +1,32 @@
+{
+  "status": "gate_unavailable",
+  "task_thread_id": "01a16833-fa8e-7ec1-9c69-53dc7eaec197",
+  "native_turn_id": "01a16833-fe8e-70a0-afb2-cc6d57b46085",
+  "reason": "Native codex_app read_thread returned no userMessage item in the current turn. The administrative prompt is available only as thread preview; it cannot substitute for a complete native userMessage object containing exactly one text item.",
+  "native_tool": "codex_app.read_thread",
+  "request": {
+    "threadId": "01a16833-fa8e-7ec1-9c69-53dc7eaec197",
+    "turnLimit": 1,
+    "includeOutputs": false,
+    "maxOutputCharsPerItem": 20000
+  },
+  "available_current_item_types": [
+    "functionCallOutput",
+    "agentMessage",
+    "commandExecution",
+    "mcpToolCall",
+    "commandExecution"
+  ],
+  "native_input_evidence_filename": null,
+  "saved_exchange_id": null,
+  "git_checkpoint": null,
+  "novel_absolute_root": null,
+  "configured_language": "is",
+  "host": {
+    "id": "local",
+    "kind": "codex"
+  },
+  "model": null,
+  "package_version": null,
+  "actions": "Read initialization workflow and adapter; verified task workspace is outside a Git repository. No novel initialized and no conversation prepared or saved. No replacement input manufactured."
+}

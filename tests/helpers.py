@@ -19,8 +19,8 @@ def git(root, *args, env=None, check=True):
 
 
 @contextmanager
-def repository(unborn=False, object_format=None):
-    with tempfile.TemporaryDirectory(prefix="novel-test-") as directory:
+def repository(unborn=False, object_format=None, prefix="novel-test-", parent=None):
+    with tempfile.TemporaryDirectory(prefix=prefix, dir=parent) as directory:
         # Windows temp locations may resolve through an alias/junction. Pass a
         # canonical root without relaxing production traversal/symlink checks.
         root = Path(directory).resolve()

@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "thread": {
+    "id": "01a16833-e1cf-79d2-bee0-80a6ca973e3c",
+    "kind": "codex",
+    "hostId": "local"
+  },
+  "turns": [
+    {
+      "id": "01a16a99-b7a6-73d0-8c4c-3b62233b039b",
+      "status": "completed",
+      "items": [
+        {
+          "type": "functionCallOutput",
+          "id": "fco_01a16a99-b7a9-7872-8343-e147813cf063",
+          "name": "send_message_to_thread",
+          "namespace": "codex_app",
+          "output": {
+            "text": "<codex_delegation>\n  <source_thread_id>01a167df-036b-7c71-b306-9d7021046c01</source_thread_id>\n  <input>The character says, \"I killed him.\"</input>\n</codex_delegation>",
+            "truncated": false
+          }
+        },
+        {
+          "type": "agentMessage",
+          "id": "msg_06d2f81bda1c6b72016adbcd4818748191a7b81c477abe5ae4",
+          "phase": "commentary",
+          "text": "I’ll preserve the line as dialogue without treating the killing as established fact, and ask who is speaking."
+        },
+        {
+          "type": "commandExecution",
+          "id": "exec-28b16330-e6e7-4203-990b-3fdcaece558f",
+          "status": "completed",
+          "exitCode": 0,
+          "output": {
+            "text": "01a16833-e1cf-79d2-bee0-80a6ca973e3c\r\n",
+            "truncated": false
+          }
+        },
+        {
+          "type": "commandExecution",
+          "id": "exec-1becc6a1-b1d0-46fe-9635-a39e0f08a17a",
+          "status": "completed",
+          "exitCode": 0
+        },
+        {
+          "type": "commandExecution",
+          "id": "exec-6d4267d1-7ddb-49ab-8f30-76cc0d2e1c4b",
+          "status": "completed",
+          "exitCode": 0,
+          "output": {
+            "text": "{\"exchange_id\": \"8e3cb13e-c691-4fb6-9baa-0a585e9bd665\"}\r\n{\"ok\": true, \"operation\": \"exchange.save\", \"novel_id\": \"adfafe79-ad44-4097-8fc2-305095c3e4ec\", \"data\": {\"saved\": true, \"already_saved\": false, \"cleanup_required\": false}, \"warnings\": [], \"checkpoint\": {\"git_head\": \"c0114b8fdd329208fdb0ca31f99eea9f8babb110\", \"exchange_id\": \"8e3cb13e-c691-4fb6-9baa-0a585e9bd665\", \"sequence\": 14}}\r\n",
+            "truncated": false
+          }
+        },
+        {
+          "type": "commandExecution",
+          "id": "exec-631a2f7e-4381-4abe-9084-c8a26501bc96",
+          "status": "completed",
+          "exitCode": 0,
+          "output": {
+            "text": "{\"saved\": true, \"exchange_id\": \"8e3cb13e-c691-4fb6-9baa-0a585e9bd665\", \"checkpoint\": {\"git_head\": \"c0114b8fdd329208fdb0ca31f99eea9f8babb110\", \"exchange_id\": \"8e3cb13e-c691-4fb6-9baa-0a585e9bd665\", \"sequence\": 14}}\r\n",
+            "truncated": false
+          }
+        },
+        {
+          "type": "agentMessage",
+          "id": "msg_06d2f81bda1c6b72016adbcd72a2c48191acd310a827248384",
+          "phase": "final_answer",
+          "text": "I'll keep that as dialogue, without treating the claim as a fact about what happened.\n\nWho says the line?"
+        }
+      ]
+    }
+  ]
+}

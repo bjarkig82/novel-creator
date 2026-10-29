@@ -1,0 +1,33 @@
+test_byte_hash_guard_rejects_same_size_same_timestamp_edits_for_both_git_formats (tests.integration.test_storage.StorageTests.test_byte_hash_guard_rejects_same_size_same_timestamp_edits_for_both_git_formats) ... ok
+test_clean_save_continuation_and_retry_leave_managed_index_synchronized (tests.integration.test_storage.StorageTests.test_clean_save_continuation_and_retry_leave_managed_index_synchronized) ... ok
+test_competing_commit_before_publication_never_contains_candidate (tests.integration.test_storage.StorageTests.test_competing_commit_before_publication_never_contains_candidate) ... ok
+test_fault_windows_preserve_authority_and_pending_payload (tests.integration.test_storage.StorageTests.test_fault_windows_preserve_authority_and_pending_payload) ... ok
+test_held_lock_reports_failure_context_without_mutating_owner_or_saved_work (tests.integration.test_storage.StorageTests.test_held_lock_reports_failure_context_without_mutating_owner_or_saved_work) ... ok
+test_lock_cleanup_error_after_publication_still_returns_saved (tests.integration.test_storage.StorageTests.test_lock_cleanup_error_after_publication_still_returns_saved) ... ok
+test_lock_stale_parent_and_managed_changes (tests.integration.test_storage.StorageTests.test_lock_stale_parent_and_managed_changes) ... ok
+test_lost_receipt_after_cleanup_remains_clean_identical_success (tests.integration.test_storage.StorageTests.test_lost_receipt_after_cleanup_remains_clean_identical_success) ... ok
+test_lost_receipt_after_publication_detects_index_cleanup (tests.integration.test_storage.StorageTests.test_lost_receipt_after_publication_detects_index_cleanup) ... ok
+test_malformed_receipts_block_retry_and_further_saves (tests.integration.test_storage.StorageTests.test_malformed_receipts_block_retry_and_further_saves) ... ok
+test_managed_staged_change_during_save_reports_conflict (tests.integration.test_storage.StorageTests.test_managed_staged_change_during_save_reports_conflict) ... ok
+test_missing_git_identity_leaves_pending_and_authority_unchanged (tests.integration.test_storage.StorageTests.test_missing_git_identity_leaves_pending_and_authority_unchanged) ... ok
+test_nonobject_committed_json_is_unavailable (tests.integration.test_storage.StorageTests.test_nonobject_committed_json_is_unavailable) ... ok
+test_pending_bundle_change_after_candidate_is_rejected (tests.integration.test_storage.StorageTests.test_pending_bundle_change_after_candidate_is_rejected) ... ok
+test_post_ref_interruption_returns_saved_cleanup_warning (tests.integration.test_storage.StorageTests.test_post_ref_interruption_returns_saved_cleanup_warning) ... ok
+test_private_index_preserves_unrelated_staged_and_manuscript (tests.integration.test_storage.StorageTests.test_private_index_preserves_unrelated_staged_and_manuscript) ... ok
+test_published_cleanup_failure_is_saved_and_pauses_writes (tests.integration.test_storage.StorageTests.test_published_cleanup_failure_is_saved_and_pauses_writes) ... ok
+test_real_symlink_path_rejected_when_creation_is_available (tests.integration.test_storage.StorageTests.test_real_symlink_path_rejected_when_creation_is_available) ... skipped 'Real symlink rejection unverified: Windows symlink privilege unavailable (1314)'
+test_receipt_failure_returns_published_checkpoint_without_replay (tests.integration.test_storage.StorageTests.test_receipt_failure_returns_published_checkpoint_without_replay) ... ok
+test_second_guard_rejects_same_stat_byte_change_after_candidate (tests.integration.test_storage.StorageTests.test_second_guard_rejects_same_stat_byte_change_after_candidate) ... ok
+test_shared_directory_checks_are_fresh_for_each_guard_pass (tests.integration.test_storage.StorageTests.test_shared_directory_checks_are_fresh_for_each_guard_pass) ... skipped 'Real symlink rejection unverified: Windows symlink privilege unavailable (1314)'
+test_stale_checkpoint_diagnostics_include_expected_and_actual_heads (tests.integration.test_storage.StorageTests.test_stale_checkpoint_diagnostics_include_expected_and_actual_heads) ... ok
+test_traversal_and_payload_paths_rejected (tests.integration.test_storage.StorageTests.test_traversal_and_payload_paths_rejected) ... ok
+test_unborn_bootstrap_and_identical_changed_retry (tests.integration.test_storage.StorageTests.test_unborn_bootstrap_and_identical_changed_retry) ... ok
+test_unreadable_successor_retains_last_verifiable_checkpoint (tests.integration.test_storage.StorageTests.test_unreadable_successor_retains_last_verifiable_checkpoint) ... ok
+test_unrelated_index_change_during_save_survives_cleanup (tests.integration.test_storage.StorageTests.test_unrelated_index_change_during_save_survives_cleanup) ... ok
+test_unsupported_committed_schema_is_unavailable (tests.integration.test_storage.StorageTests.test_unsupported_committed_schema_is_unavailable) ... ok
+test_valid_prefix_never_labels_a_damaged_commit_as_a_checkpoint (tests.integration.test_storage.StorageTests.test_valid_prefix_never_labels_a_damaged_commit_as_a_checkpoint) ... ok
+
+----------------------------------------------------------------------
+Ran 28 tests in 68.510s
+
+OK (skipped=2)

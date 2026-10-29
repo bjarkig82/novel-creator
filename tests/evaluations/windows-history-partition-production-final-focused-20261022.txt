@@ -1,0 +1,33 @@
+test_partitioned_history_preserves_cached_uncached_and_captured_snapshots (tests.integration.test_storage.StorageTests.test_partitioned_history_preserves_cached_uncached_and_captured_snapshots) ... 
+  test_partitioned_history_preserves_cached_uncached_and_captured_snapshots (tests.integration.test_storage.StorageTests.test_partitioned_history_preserves_cached_uncached_and_captured_snapshots) (fmt='sha1') ... ERROR
+  test_partitioned_history_preserves_cached_uncached_and_captured_snapshots (tests.integration.test_storage.StorageTests.test_partitioned_history_preserves_cached_uncached_and_captured_snapshots) (fmt='sha256') ... ERROR
+test_partitioned_history_preserves_binary_framing_and_nonzero_outputs (tests.integration.test_storage.StorageTests.test_partitioned_history_preserves_binary_framing_and_nonzero_outputs) ... 
+  test_partitioned_history_preserves_binary_framing_and_nonzero_outputs (tests.integration.test_storage.StorageTests.test_partitioned_history_preserves_binary_framing_and_nonzero_outputs) (fmt='sha1') ... ERROR
+  test_partitioned_history_preserves_binary_framing_and_nonzero_outputs (tests.integration.test_storage.StorageTests.test_partitioned_history_preserves_binary_framing_and_nonzero_outputs) (fmt='sha256') ... ERROR
+test_partitioned_history_preserves_earlier_damage_and_guard_precedence (tests.integration.test_storage.StorageTests.test_partitioned_history_preserves_earlier_damage_and_guard_precedence) ... ok
+test_partitioned_history_joins_partial_submission_before_single_fallback (tests.integration.test_storage.StorageTests.test_partitioned_history_joins_partial_submission_before_single_fallback) ... 
+  test_partitioned_history_joins_partial_submission_before_single_fallback (tests.integration.test_storage.StorageTests.test_partitioned_history_joins_partial_submission_before_single_fallback) (fmt='sha256') ... ERROR
+test_partitioned_history_keeps_small_reads_and_save_history_serial (tests.integration.test_storage.StorageTests.test_partitioned_history_keeps_small_reads_and_save_history_serial) ... ERROR
+
+======================================================================
+ERROR: test_partitioned_history_preserves_cached_uncached_and_captured_snapshots (tests.integration.test_storage.StorageTests.test_partitioned_history_preserves_cached_uncached_and_captured_snapshots) (fmt='sha1')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 52, in test_partitioned_history_preserves_cached_uncached_and_captured_snapshots
+    history, commit, entries = self._partition_fixture(root)
+                               ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 32, in _partition_fixture
+    target.write_bytes(benchmark.serialized(bundle))
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\pathlib\_abc.py", line 641, in write_bytes
+    with self.open(mode='wb') as f:
+         ~~~~~~~~~^^^^^^^^^^^
+OSError: [Errno 28] No space left on device
+
+======================================================================
+ERROR: test_partitioned_history_preserves_cached_uncached_and_captured_snapshots (tests.integration.test_storage.StorageTests.test_partitioned_history_preserves_cached_uncached_and_captured_snapshots) (fmt='sha256')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 51, in test_partitioned_history_preserves_cached_uncached_and_captured_snapshots
+    with self.subTest(fmt=fmt), self._partition_key(), repository(object_format=fmt) as root:
+                                                       ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^

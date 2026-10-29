@@ -1,0 +1,435 @@
+test_balanced_save_selects_bounded_readers_and_keeps_small_bootstrap_retry_serial (tests.integration.test_storage.StorageTests.test_balanced_save_selects_bounded_readers_and_keeps_small_bootstrap_retry_serial) ... ERROR
+test_balanced_save_preserves_damaged_prefix_over_nested_worker_failures (tests.integration.test_storage.StorageTests.test_balanced_save_preserves_damaged_prefix_over_nested_worker_failures) ... 
+  test_balanced_save_preserves_damaged_prefix_over_nested_worker_failures (tests.integration.test_storage.StorageTests.test_balanced_save_preserves_damaged_prefix_over_nested_worker_failures) (fmt='sha1', failure='launch') ... ERROR
+  test_balanced_save_preserves_damaged_prefix_over_nested_worker_failures (tests.integration.test_storage.StorageTests.test_balanced_save_preserves_damaged_prefix_over_nested_worker_failures) (fmt='sha1', failure='nonzero') ... ERROR
+  test_balanced_save_preserves_damaged_prefix_over_nested_worker_failures (tests.integration.test_storage.StorageTests.test_balanced_save_preserves_damaged_prefix_over_nested_worker_failures) (fmt='sha256', failure='launch') ... ERROR
+  test_balanced_save_preserves_damaged_prefix_over_nested_worker_failures (tests.integration.test_storage.StorageTests.test_balanced_save_preserves_damaged_prefix_over_nested_worker_failures) (fmt='sha256', failure='nonzero') ... ERROR
+test_balanced_first_guard_failures_join_before_unlock_without_pending_work (tests.integration.test_storage.StorageTests.test_balanced_first_guard_failures_join_before_unlock_without_pending_work) ... 
+  test_balanced_first_guard_failures_join_before_unlock_without_pending_work (tests.integration.test_storage.StorageTests.test_balanced_first_guard_failures_join_before_unlock_without_pending_work) (fmt='sha1', failure='launch') ... ERROR
+  test_balanced_first_guard_failures_join_before_unlock_without_pending_work (tests.integration.test_storage.StorageTests.test_balanced_first_guard_failures_join_before_unlock_without_pending_work) (fmt='sha1', failure='process') ... ERROR
+  test_balanced_first_guard_failures_join_before_unlock_without_pending_work (tests.integration.test_storage.StorageTests.test_balanced_first_guard_failures_join_before_unlock_without_pending_work) (fmt='sha1', failure='count') ... ERROR
+  test_balanced_first_guard_failures_join_before_unlock_without_pending_work (tests.integration.test_storage.StorageTests.test_balanced_first_guard_failures_join_before_unlock_without_pending_work) (fmt='sha1', failure='thread') ... ERROR
+  test_balanced_first_guard_failures_join_before_unlock_without_pending_work (tests.integration.test_storage.StorageTests.test_balanced_first_guard_failures_join_before_unlock_without_pending_work) (fmt='sha256', failure='launch') ... ERROR
+  test_balanced_first_guard_failures_join_before_unlock_without_pending_work (tests.integration.test_storage.StorageTests.test_balanced_first_guard_failures_join_before_unlock_without_pending_work) (fmt='sha256', failure='process') ... ERROR
+  test_balanced_first_guard_failures_join_before_unlock_without_pending_work (tests.integration.test_storage.StorageTests.test_balanced_first_guard_failures_join_before_unlock_without_pending_work) (fmt='sha256', failure='count') ... ERROR
+  test_balanced_first_guard_failures_join_before_unlock_without_pending_work (tests.integration.test_storage.StorageTests.test_balanced_first_guard_failures_join_before_unlock_without_pending_work) (fmt='sha256', failure='thread') ... ERROR
+test_balanced_first_guard_hashes_real_root_after_metadata_despite_same_stat_decoy (tests.integration.test_storage.StorageTests.test_balanced_first_guard_hashes_real_root_after_metadata_despite_same_stat_decoy) ... 
+  test_balanced_first_guard_hashes_real_root_after_metadata_despite_same_stat_decoy (tests.integration.test_storage.StorageTests.test_balanced_first_guard_hashes_real_root_after_metadata_despite_same_stat_decoy) (fmt='sha1') ... ERROR
+  test_balanced_first_guard_hashes_real_root_after_metadata_despite_same_stat_decoy (tests.integration.test_storage.StorageTests.test_balanced_first_guard_hashes_real_root_after_metadata_despite_same_stat_decoy) (fmt='sha256') ... ERROR
+test_balanced_edit_after_first_guard_is_caught_then_unchanged_retry_publishes_once (tests.integration.test_storage.StorageTests.test_balanced_edit_after_first_guard_is_caught_then_unchanged_retry_publishes_once) ... 
+  test_balanced_edit_after_first_guard_is_caught_then_unchanged_retry_publishes_once (tests.integration.test_storage.StorageTests.test_balanced_edit_after_first_guard_is_caught_then_unchanged_retry_publishes_once) (fmt='sha1') ... ERROR
+  test_balanced_edit_after_first_guard_is_caught_then_unchanged_retry_publishes_once (tests.integration.test_storage.StorageTests.test_balanced_edit_after_first_guard_is_caught_then_unchanged_retry_publishes_once) (fmt='sha256') ... ERROR
+
+======================================================================
+ERROR: test_balanced_save_selects_bounded_readers_and_keeps_small_bootstrap_retry_serial (tests.integration.test_storage.StorageTests.test_balanced_save_selects_bounded_readers_and_keeps_small_bootstrap_retry_serial)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 33, in test_balanced_save_selects_bounded_readers_and_keeps_small_bootstrap_retry_serial
+    self.assertEqual(storage._SAVE_HISTORY_WORKERS, 2 if os.name == 'nt' else 1)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'novel_creator.storage' has no attribute '_SAVE_HISTORY_WORKERS'. Did you mean: '_READ_HISTORY_WORKERS'?
+
+======================================================================
+ERROR: test_balanced_save_preserves_damaged_prefix_over_nested_worker_failures (tests.integration.test_storage.StorageTests.test_balanced_save_preserves_damaged_prefix_over_nested_worker_failures) (fmt='sha1', failure='launch')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 114, in test_balanced_save_preserves_damaged_prefix_over_nested_worker_failures
+    with self._balanced_save_policy(), patch.object(storage, 'git', flaky), patch.object(storage, 'check_managed', checked):
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\contextlib.py", line 141, in __enter__
+    return next(self.gen)
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 26, in _balanced_save_policy
+    stack.enter_context(patch.object(storage, name, value))
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\contextlib.py", line 530, in enter_context
+    result = _enter(cm)
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\unittest\mock.py", line 1503, in __enter__
+    original, local = self.get_original()
+                      ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\unittest\mock.py", line 1473, in get_original
+    raise AttributeError(
+        "%s does not have the attribute %r" % (target, name)
+    )
+AttributeError: <module 'novel_creator.storage' from 'C:\\Users\\BjarkiGunnarsson\\source\\repos\\Personal\\novel-creator\\src\\novel_creator\\storage.py'> does not have the attribute '_SAVE_HISTORY_WORKERS'
+
+======================================================================
+ERROR: test_balanced_save_preserves_damaged_prefix_over_nested_worker_failures (tests.integration.test_storage.StorageTests.test_balanced_save_preserves_damaged_prefix_over_nested_worker_failures) (fmt='sha1', failure='nonzero')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 114, in test_balanced_save_preserves_damaged_prefix_over_nested_worker_failures
+    with self._balanced_save_policy(), patch.object(storage, 'git', flaky), patch.object(storage, 'check_managed', checked):
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\contextlib.py", line 141, in __enter__
+    return next(self.gen)
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 26, in _balanced_save_policy
+    stack.enter_context(patch.object(storage, name, value))
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\contextlib.py", line 530, in enter_context
+    result = _enter(cm)
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\unittest\mock.py", line 1503, in __enter__
+    original, local = self.get_original()
+                      ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\unittest\mock.py", line 1473, in get_original
+    raise AttributeError(
+        "%s does not have the attribute %r" % (target, name)
+    )
+AttributeError: <module 'novel_creator.storage' from 'C:\\Users\\BjarkiGunnarsson\\source\\repos\\Personal\\novel-creator\\src\\novel_creator\\storage.py'> does not have the attribute '_SAVE_HISTORY_WORKERS'
+
+======================================================================
+ERROR: test_balanced_save_preserves_damaged_prefix_over_nested_worker_failures (tests.integration.test_storage.StorageTests.test_balanced_save_preserves_damaged_prefix_over_nested_worker_failures) (fmt='sha256', failure='launch')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 114, in test_balanced_save_preserves_damaged_prefix_over_nested_worker_failures
+    with self._balanced_save_policy(), patch.object(storage, 'git', flaky), patch.object(storage, 'check_managed', checked):
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\contextlib.py", line 141, in __enter__
+    return next(self.gen)
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 26, in _balanced_save_policy
+    stack.enter_context(patch.object(storage, name, value))
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\contextlib.py", line 530, in enter_context
+    result = _enter(cm)
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\unittest\mock.py", line 1503, in __enter__
+    original, local = self.get_original()
+                      ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\unittest\mock.py", line 1473, in get_original
+    raise AttributeError(
+        "%s does not have the attribute %r" % (target, name)
+    )
+AttributeError: <module 'novel_creator.storage' from 'C:\\Users\\BjarkiGunnarsson\\source\\repos\\Personal\\novel-creator\\src\\novel_creator\\storage.py'> does not have the attribute '_SAVE_HISTORY_WORKERS'
+
+======================================================================
+ERROR: test_balanced_save_preserves_damaged_prefix_over_nested_worker_failures (tests.integration.test_storage.StorageTests.test_balanced_save_preserves_damaged_prefix_over_nested_worker_failures) (fmt='sha256', failure='nonzero')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 114, in test_balanced_save_preserves_damaged_prefix_over_nested_worker_failures
+    with self._balanced_save_policy(), patch.object(storage, 'git', flaky), patch.object(storage, 'check_managed', checked):
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\contextlib.py", line 141, in __enter__
+    return next(self.gen)
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 26, in _balanced_save_policy
+    stack.enter_context(patch.object(storage, name, value))
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\contextlib.py", line 530, in enter_context
+    result = _enter(cm)
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\unittest\mock.py", line 1503, in __enter__
+    original, local = self.get_original()
+                      ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\unittest\mock.py", line 1473, in get_original
+    raise AttributeError(
+        "%s does not have the attribute %r" % (target, name)
+    )
+AttributeError: <module 'novel_creator.storage' from 'C:\\Users\\BjarkiGunnarsson\\source\\repos\\Personal\\novel-creator\\src\\novel_creator\\storage.py'> does not have the attribute '_SAVE_HISTORY_WORKERS'
+
+======================================================================
+ERROR: test_balanced_first_guard_failures_join_before_unlock_without_pending_work (tests.integration.test_storage.StorageTests.test_balanced_first_guard_failures_join_before_unlock_without_pending_work) (fmt='sha1', failure='launch')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 158, in test_balanced_first_guard_failures_join_before_unlock_without_pending_work
+    with self._balanced_save_policy(), patch.object(storage, 'git', flaky), patch.object(storage, 'ThreadPoolExecutor', FailSecondHashSubmit if failure == 'thread' else real_pool):
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\contextlib.py", line 141, in __enter__
+    return next(self.gen)
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 26, in _balanced_save_policy
+    stack.enter_context(patch.object(storage, name, value))
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\contextlib.py", line 530, in enter_context
+    result = _enter(cm)
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\unittest\mock.py", line 1503, in __enter__
+    original, local = self.get_original()
+                      ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\unittest\mock.py", line 1473, in get_original
+    raise AttributeError(
+        "%s does not have the attribute %r" % (target, name)
+    )
+AttributeError: <module 'novel_creator.storage' from 'C:\\Users\\BjarkiGunnarsson\\source\\repos\\Personal\\novel-creator\\src\\novel_creator\\storage.py'> does not have the attribute '_SAVE_HISTORY_WORKERS'
+
+======================================================================
+ERROR: test_balanced_first_guard_failures_join_before_unlock_without_pending_work (tests.integration.test_storage.StorageTests.test_balanced_first_guard_failures_join_before_unlock_without_pending_work) (fmt='sha1', failure='process')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 158, in test_balanced_first_guard_failures_join_before_unlock_without_pending_work
+    with self._balanced_save_policy(), patch.object(storage, 'git', flaky), patch.object(storage, 'ThreadPoolExecutor', FailSecondHashSubmit if failure == 'thread' else real_pool):
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\contextlib.py", line 141, in __enter__
+    return next(self.gen)
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 26, in _balanced_save_policy
+    stack.enter_context(patch.object(storage, name, value))
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\contextlib.py", line 530, in enter_context
+    result = _enter(cm)
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\unittest\mock.py", line 1503, in __enter__
+    original, local = self.get_original()
+                      ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\unittest\mock.py", line 1473, in get_original
+    raise AttributeError(
+        "%s does not have the attribute %r" % (target, name)
+    )
+AttributeError: <module 'novel_creator.storage' from 'C:\\Users\\BjarkiGunnarsson\\source\\repos\\Personal\\novel-creator\\src\\novel_creator\\storage.py'> does not have the attribute '_SAVE_HISTORY_WORKERS'
+
+======================================================================
+ERROR: test_balanced_first_guard_failures_join_before_unlock_without_pending_work (tests.integration.test_storage.StorageTests.test_balanced_first_guard_failures_join_before_unlock_without_pending_work) (fmt='sha1', failure='count')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 158, in test_balanced_first_guard_failures_join_before_unlock_without_pending_work
+    with self._balanced_save_policy(), patch.object(storage, 'git', flaky), patch.object(storage, 'ThreadPoolExecutor', FailSecondHashSubmit if failure == 'thread' else real_pool):
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\contextlib.py", line 141, in __enter__
+    return next(self.gen)
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 26, in _balanced_save_policy
+    stack.enter_context(patch.object(storage, name, value))
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\contextlib.py", line 530, in enter_context
+    result = _enter(cm)
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\unittest\mock.py", line 1503, in __enter__
+    original, local = self.get_original()
+                      ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\unittest\mock.py", line 1473, in get_original
+    raise AttributeError(
+        "%s does not have the attribute %r" % (target, name)
+    )
+AttributeError: <module 'novel_creator.storage' from 'C:\\Users\\BjarkiGunnarsson\\source\\repos\\Personal\\novel-creator\\src\\novel_creator\\storage.py'> does not have the attribute '_SAVE_HISTORY_WORKERS'
+
+======================================================================
+ERROR: test_balanced_first_guard_failures_join_before_unlock_without_pending_work (tests.integration.test_storage.StorageTests.test_balanced_first_guard_failures_join_before_unlock_without_pending_work) (fmt='sha1', failure='thread')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 158, in test_balanced_first_guard_failures_join_before_unlock_without_pending_work
+    with self._balanced_save_policy(), patch.object(storage, 'git', flaky), patch.object(storage, 'ThreadPoolExecutor', FailSecondHashSubmit if failure == 'thread' else real_pool):
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\contextlib.py", line 141, in __enter__
+    return next(self.gen)
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 26, in _balanced_save_policy
+    stack.enter_context(patch.object(storage, name, value))
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\contextlib.py", line 530, in enter_context
+    result = _enter(cm)
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\unittest\mock.py", line 1503, in __enter__
+    original, local = self.get_original()
+                      ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\unittest\mock.py", line 1473, in get_original
+    raise AttributeError(
+        "%s does not have the attribute %r" % (target, name)
+    )
+AttributeError: <module 'novel_creator.storage' from 'C:\\Users\\BjarkiGunnarsson\\source\\repos\\Personal\\novel-creator\\src\\novel_creator\\storage.py'> does not have the attribute '_SAVE_HISTORY_WORKERS'
+
+======================================================================
+ERROR: test_balanced_first_guard_failures_join_before_unlock_without_pending_work (tests.integration.test_storage.StorageTests.test_balanced_first_guard_failures_join_before_unlock_without_pending_work) (fmt='sha256', failure='launch')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 158, in test_balanced_first_guard_failures_join_before_unlock_without_pending_work
+    with self._balanced_save_policy(), patch.object(storage, 'git', flaky), patch.object(storage, 'ThreadPoolExecutor', FailSecondHashSubmit if failure == 'thread' else real_pool):
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\contextlib.py", line 141, in __enter__
+    return next(self.gen)
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 26, in _balanced_save_policy
+    stack.enter_context(patch.object(storage, name, value))
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\contextlib.py", line 530, in enter_context
+    result = _enter(cm)
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\unittest\mock.py", line 1503, in __enter__
+    original, local = self.get_original()
+                      ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\unittest\mock.py", line 1473, in get_original
+    raise AttributeError(
+        "%s does not have the attribute %r" % (target, name)
+    )
+AttributeError: <module 'novel_creator.storage' from 'C:\\Users\\BjarkiGunnarsson\\source\\repos\\Personal\\novel-creator\\src\\novel_creator\\storage.py'> does not have the attribute '_SAVE_HISTORY_WORKERS'
+
+======================================================================
+ERROR: test_balanced_first_guard_failures_join_before_unlock_without_pending_work (tests.integration.test_storage.StorageTests.test_balanced_first_guard_failures_join_before_unlock_without_pending_work) (fmt='sha256', failure='process')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 158, in test_balanced_first_guard_failures_join_before_unlock_without_pending_work
+    with self._balanced_save_policy(), patch.object(storage, 'git', flaky), patch.object(storage, 'ThreadPoolExecutor', FailSecondHashSubmit if failure == 'thread' else real_pool):
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\contextlib.py", line 141, in __enter__
+    return next(self.gen)
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 26, in _balanced_save_policy
+    stack.enter_context(patch.object(storage, name, value))
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\contextlib.py", line 530, in enter_context
+    result = _enter(cm)
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\unittest\mock.py", line 1503, in __enter__
+    original, local = self.get_original()
+                      ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\unittest\mock.py", line 1473, in get_original
+    raise AttributeError(
+        "%s does not have the attribute %r" % (target, name)
+    )
+AttributeError: <module 'novel_creator.storage' from 'C:\\Users\\BjarkiGunnarsson\\source\\repos\\Personal\\novel-creator\\src\\novel_creator\\storage.py'> does not have the attribute '_SAVE_HISTORY_WORKERS'
+
+======================================================================
+ERROR: test_balanced_first_guard_failures_join_before_unlock_without_pending_work (tests.integration.test_storage.StorageTests.test_balanced_first_guard_failures_join_before_unlock_without_pending_work) (fmt='sha256', failure='count')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 158, in test_balanced_first_guard_failures_join_before_unlock_without_pending_work
+    with self._balanced_save_policy(), patch.object(storage, 'git', flaky), patch.object(storage, 'ThreadPoolExecutor', FailSecondHashSubmit if failure == 'thread' else real_pool):
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\contextlib.py", line 141, in __enter__
+    return next(self.gen)
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 26, in _balanced_save_policy
+    stack.enter_context(patch.object(storage, name, value))
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\contextlib.py", line 530, in enter_context
+    result = _enter(cm)
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\unittest\mock.py", line 1503, in __enter__
+    original, local = self.get_original()
+                      ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\unittest\mock.py", line 1473, in get_original
+    raise AttributeError(
+        "%s does not have the attribute %r" % (target, name)
+    )
+AttributeError: <module 'novel_creator.storage' from 'C:\\Users\\BjarkiGunnarsson\\source\\repos\\Personal\\novel-creator\\src\\novel_creator\\storage.py'> does not have the attribute '_SAVE_HISTORY_WORKERS'
+
+======================================================================
+ERROR: test_balanced_first_guard_failures_join_before_unlock_without_pending_work (tests.integration.test_storage.StorageTests.test_balanced_first_guard_failures_join_before_unlock_without_pending_work) (fmt='sha256', failure='thread')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 158, in test_balanced_first_guard_failures_join_before_unlock_without_pending_work
+    with self._balanced_save_policy(), patch.object(storage, 'git', flaky), patch.object(storage, 'ThreadPoolExecutor', FailSecondHashSubmit if failure == 'thread' else real_pool):
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\contextlib.py", line 141, in __enter__
+    return next(self.gen)
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 26, in _balanced_save_policy
+    stack.enter_context(patch.object(storage, name, value))
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\contextlib.py", line 530, in enter_context
+    result = _enter(cm)
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\unittest\mock.py", line 1503, in __enter__
+    original, local = self.get_original()
+                      ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\unittest\mock.py", line 1473, in get_original
+    raise AttributeError(
+        "%s does not have the attribute %r" % (target, name)
+    )
+AttributeError: <module 'novel_creator.storage' from 'C:\\Users\\BjarkiGunnarsson\\source\\repos\\Personal\\novel-creator\\src\\novel_creator\\storage.py'> does not have the attribute '_SAVE_HISTORY_WORKERS'
+
+======================================================================
+ERROR: test_balanced_first_guard_hashes_real_root_after_metadata_despite_same_stat_decoy (tests.integration.test_storage.StorageTests.test_balanced_first_guard_hashes_real_root_after_metadata_despite_same_stat_decoy) (fmt='sha1')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 202, in test_balanced_first_guard_hashes_real_root_after_metadata_despite_same_stat_decoy
+    with self._balanced_save_policy(), patch.object(storage, '_hash_managed', redirected):
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\contextlib.py", line 141, in __enter__
+    return next(self.gen)
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 26, in _balanced_save_policy
+    stack.enter_context(patch.object(storage, name, value))
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\contextlib.py", line 530, in enter_context
+    result = _enter(cm)
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\unittest\mock.py", line 1503, in __enter__
+    original, local = self.get_original()
+                      ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\unittest\mock.py", line 1473, in get_original
+    raise AttributeError(
+        "%s does not have the attribute %r" % (target, name)
+    )
+AttributeError: <module 'novel_creator.storage' from 'C:\\Users\\BjarkiGunnarsson\\source\\repos\\Personal\\novel-creator\\src\\novel_creator\\storage.py'> does not have the attribute '_SAVE_HISTORY_WORKERS'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 213, in test_balanced_first_guard_hashes_real_root_after_metadata_despite_same_stat_decoy
+    git(root, 'config', '--unset', 'core.worktree')
+    ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\helpers.py", line 17, in git
+    return subprocess.run(["git", "-C", str(root), *args], env=env, check=check,
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                          capture_output=True, text=True).stdout.strip()
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\subprocess.py", line 577, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['git', '-C', 'C:\\Users\\BjarkiGunnarsson\\AppData\\Local\\Temp\\novel-test-7cwjrmmm', 'config', '--unset', 'core.worktree']' returned non-zero exit status 5.
+
+======================================================================
+ERROR: test_balanced_first_guard_hashes_real_root_after_metadata_despite_same_stat_decoy (tests.integration.test_storage.StorageTests.test_balanced_first_guard_hashes_real_root_after_metadata_despite_same_stat_decoy) (fmt='sha256')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 202, in test_balanced_first_guard_hashes_real_root_after_metadata_despite_same_stat_decoy
+    with self._balanced_save_policy(), patch.object(storage, '_hash_managed', redirected):
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\contextlib.py", line 141, in __enter__
+    return next(self.gen)
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 26, in _balanced_save_policy
+    stack.enter_context(patch.object(storage, name, value))
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\contextlib.py", line 530, in enter_context
+    result = _enter(cm)
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\unittest\mock.py", line 1503, in __enter__
+    original, local = self.get_original()
+                      ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\unittest\mock.py", line 1473, in get_original
+    raise AttributeError(
+        "%s does not have the attribute %r" % (target, name)
+    )
+AttributeError: <module 'novel_creator.storage' from 'C:\\Users\\BjarkiGunnarsson\\source\\repos\\Personal\\novel-creator\\src\\novel_creator\\storage.py'> does not have the attribute '_SAVE_HISTORY_WORKERS'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 213, in test_balanced_first_guard_hashes_real_root_after_metadata_despite_same_stat_decoy
+    git(root, 'config', '--unset', 'core.worktree')
+    ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\helpers.py", line 17, in git
+    return subprocess.run(["git", "-C", str(root), *args], env=env, check=check,
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                          capture_output=True, text=True).stdout.strip()
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\subprocess.py", line 577, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['git', '-C', 'C:\\Users\\BjarkiGunnarsson\\AppData\\Local\\Temp\\novel-test-95iwp7zv', 'config', '--unset', 'core.worktree']' returned non-zero exit status 5.
+
+======================================================================
+ERROR: test_balanced_edit_after_first_guard_is_caught_then_unchanged_retry_publishes_once (tests.integration.test_storage.StorageTests.test_balanced_edit_after_first_guard_is_caught_then_unchanged_retry_publishes_once) (fmt='sha1')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 242, in test_balanced_edit_after_first_guard_is_caught_then_unchanged_retry_publishes_once
+    with self._balanced_save_policy(), patch.object(storage, 'check_managed', checked), patch.object(storage, '_batch_blobs', wait_for_edit):
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\contextlib.py", line 141, in __enter__
+    return next(self.gen)
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 26, in _balanced_save_policy
+    stack.enter_context(patch.object(storage, name, value))
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\contextlib.py", line 530, in enter_context
+    result = _enter(cm)
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\unittest\mock.py", line 1503, in __enter__
+    original, local = self.get_original()
+                      ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\unittest\mock.py", line 1473, in get_original
+    raise AttributeError(
+        "%s does not have the attribute %r" % (target, name)
+    )
+AttributeError: <module 'novel_creator.storage' from 'C:\\Users\\BjarkiGunnarsson\\source\\repos\\Personal\\novel-creator\\src\\novel_creator\\storage.py'> does not have the attribute '_SAVE_HISTORY_WORKERS'
+
+======================================================================
+ERROR: test_balanced_edit_after_first_guard_is_caught_then_unchanged_retry_publishes_once (tests.integration.test_storage.StorageTests.test_balanced_edit_after_first_guard_is_caught_then_unchanged_retry_publishes_once) (fmt='sha256')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 242, in test_balanced_edit_after_first_guard_is_caught_then_unchanged_retry_publishes_once
+    with self._balanced_save_policy(), patch.object(storage, 'check_managed', checked), patch.object(storage, '_batch_blobs', wait_for_edit):
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\contextlib.py", line 141, in __enter__
+    return next(self.gen)
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\integration\test_storage.py", line 26, in _balanced_save_policy
+    stack.enter_context(patch.object(storage, name, value))
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\contextlib.py", line 530, in enter_context
+    result = _enter(cm)
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\unittest\mock.py", line 1503, in __enter__
+    original, local = self.get_original()
+                      ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\BjarkiGunnarsson\.pyenv\pyenv-win\versions\3.13.13\Lib\unittest\mock.py", line 1473, in get_original
+    raise AttributeError(
+        "%s does not have the attribute %r" % (target, name)
+    )
+AttributeError: <module 'novel_creator.storage' from 'C:\\Users\\BjarkiGunnarsson\\source\\repos\\Personal\\novel-creator\\src\\novel_creator\\storage.py'> does not have the attribute '_SAVE_HISTORY_WORKERS'
+
+----------------------------------------------------------------------
+Ran 5 tests in 27.856s
+
+FAILED (errors=17)

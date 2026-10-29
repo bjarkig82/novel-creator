@@ -1,0 +1,20 @@
+[
+  {
+    "id": "msg_077138367b8a5910016adbed4abf4081918f1df4563092ab82",
+    "text": "Ég sæki vistað samhengi og heimildir úr nýja vinnusvæðinu og undirbý vistun samkvæmt uppsettu verklagi.",
+    "classification": "administrative",
+    "reason": "Operational reading/reference validation/preparation/save-retry only; the new correction and creative summary are not disclosed here."
+  },
+  {
+    "id": "msg_077138367b8a5910016adbed64e6e0819198072cf510861d61",
+    "text": "Ég vinn áfram við undirbúninginn og sannreyni tilvísanir áður en ég reyni vistun.",
+    "classification": "administrative",
+    "reason": "Operational reading/reference validation/preparation/save-retry only; the new correction and creative summary are not disclosed here."
+  },
+  {
+    "id": "msg_077138367b8a5910016adbed8b04d481919ef78e272e66f015",
+    "text": "Vistunin er í bið eftir skráakerfisvillu. Ég endurtek hana með óbreyttu auðkenni og óbreyttum gögnum.",
+    "classification": "failure_disclosure",
+    "reason": "Operational reading/reference validation/preparation/save-retry only; the new correction and creative summary are not disclosed here."
+  }
+]

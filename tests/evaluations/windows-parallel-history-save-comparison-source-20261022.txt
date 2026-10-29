@@ -1,0 +1,61 @@
+"""External full-history partition experiment; no product source change."""
+import hashlib,io,json,statistics,sys,time
+from pathlib import Path
+from concurrent.futures import ThreadPoolExecutor
+from unittest.mock import patch
+sys.path.insert(0,str(Path.cwd()))
+from novel_creator import storage,records
+from novel_creator.cli import ToolError
+from novel_creator.context import read
+from tests.helpers import repository,git
+from tests.performance import benchmark_records as benchmark
+
+def partitioned_blobs(root,entries,paths,*,workers):
+    if not paths:return
+    size=(len(paths)+workers-1)//workers
+    parts=[paths[offset:offset+size] for offset in range(0,len(paths),size)]
+    def request(part):
+        return storage.git(root,'cat-file','--batch',input=''.join(entries[path][1]+'\n' for path in part).encode(),check=False)
+    # Preserve original parsing and error order; join every child before yielding.
+    with ThreadPoolExecutor(max_workers=workers) as pool:
+        futures=[pool.submit(request,part) for part in parts]
+        results=[future.result() for future in futures]
+    for part,result in zip(parts,results):
+        stream=io.BytesIO(result.stdout)
+        for path in part:
+            try:yield path,storage._read_batch_object(stream,entries[path][1],'blob')
+            except (UnicodeError,ValueError):
+                yield path,ToolError(4,'Committed exchange blob is unavailable',affected_refs=[path])
+
+original=storage._batch_blobs
+with benchmark.benchmark_key(True),repository() as root:
+    novel_id=records.loads((root/'.novel-creator/manifest.json').read_bytes())['novel_id']
+    history,fixture=benchmark.generate(novel_id)
+    for exchange in history:
+        target=root/storage.bundle_path(exchange);target.parent.mkdir(parents=True,exist_ok=True);target.write_bytes(benchmark.serialized(exchange))
+    git(root,'add','story/exchanges');git(root,'commit','-m','Disposable partitioned-history complete-save fixture')
+    del history,exchange
+    read(root);fixture['fully_validated']=True
+    frozen=hashlib.sha256(Path(storage.__file__).read_bytes()).hexdigest()
+    print(json.dumps({'fixture':fixture,'source_sha256':frozen,'method':'ABBA/ABBA complete ordinary Windows PowerShell saves; patch only history OID-request partitioning; original final full-byte guards stay active; preparation history retained for both; not p95; no product change'}),flush=True)
+    samples={False:[],True:[]}
+    original_git=storage.git
+    for optimized in [False,True,True,False]*2:
+        prior=storage.read_history(root)
+        exchange=records.new_exchange(prior[0]['novel_id'],previous=prior[-1],expected_head=storage.head(root),messages=[{'message_id':benchmark.uid(),'role':'user','text':'Continue the benchmark.'},{'message_id':benchmark.uid(),'role':'assistant','text':'Benchmark continuation.'}])
+        exchange['payload_digest']=records.digest(exchange)
+        events=[]
+        def traced(root,*args,**kwargs):
+            started=time.perf_counter()
+            try:return original_git(root,*args,**kwargs)
+            finally:events.append({'command':args[0],'seconds':time.perf_counter()-started})
+        def selected(root,entries,paths):
+            return partitioned_blobs(root,entries,paths,workers=4) if optimized else original(root,entries,paths)
+        with patch.object(storage,'_batch_blobs',selected),patch.object(storage,'git',traced):
+            started=time.perf_counter();result=storage.save(root,exchange);seconds=time.perf_counter()-started
+        assert not result['data']['cleanup_required']
+        assert len(events)==(28 if optimized else 25),len(events)
+        samples[optimized].append(seconds)
+        print(json.dumps({'optimized':optimized,'seconds':seconds,'sequence':result['checkpoint']['sequence'],'git':events}),flush=True)
+    print(json.dumps({'save_medians':{str(k):statistics.median(v) for k,v in samples.items()}}),flush=True)
+    assert frozen==hashlib.sha256(Path(storage.__file__).read_bytes()).hexdigest()

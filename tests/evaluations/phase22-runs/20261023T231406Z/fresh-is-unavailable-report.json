@@ -1,0 +1,25 @@
+{
+  "case_id": "FRESH_RESUME",
+  "status": "stopped_input_unavailable",
+  "reason": "Public read_thread tool unavailable in current tool inventory. No public current functionCallOutput event or actual turn ID can be captured. No input reconstructed from prompt or hidden files.",
+  "thread_id": "01a16b1c-c218-7e82-9551-8959a394369f",
+  "turn_id": null,
+  "source_type": "delegated",
+  "native_user_input": false,
+  "novice_evidence": false,
+  "checkpoint": null,
+  "save_attempted": false,
+  "creative_records_modified": false,
+  "host": {
+    "app": "Codex desktop",
+    "os": "Windows-11-10.0.26300-SP0",
+    "python": "3.13.13 (tags/v3.13.13:01104ce, Apr  7 2026, 19:25:48) [MSC v.1944 64 bit (AMD64)]",
+    "model": "unknown",
+    "app_version": "unknown"
+  },
+  "pre_context": null,
+  "input_capture": null,
+  "payload": null,
+  "save_result": null,
+  "summary_text": null
+}

@@ -1,0 +1,1770 @@
+{
+  "schema_version": "1.0",
+  "novel_id": "cb66f60c-4b08-4aea-9616-a2fc168a09eb",
+  "exchange_id": "26fac46a-e141-40ad-a03e-8c679c474d3a",
+  "sequence": 9,
+  "previous_exchange_id": "d83026c5-c29f-42e9-a520-7eb10c16138a",
+  "previous_digest": "c6800184710b8e788dbf8f53f0e1731b57222bf6f6cae3db1cc1e341c972805a",
+  "session_id": "638564fa-74b2-450e-a0a7-d15dac37024a",
+  "expected_git_head": "65eab6f4ebfdb319a53c29e1dc581132dedeadeb",
+  "recorded_at": "2026-10-28T10:06:29.458217Z",
+  "operation": "conversation",
+  "messages": [
+    {
+      "message_id": "8431c0f7-6ede-45a2-83c8-927d28dcbaec",
+      "role": "user",
+      "text": "Case AUTH_NONACCEPT. Here are twelve separate exploratory notes, each about its own possibility. Keep their contexts distinct in your response.\n\n1. For the possibility that Bjarni owns a red coat, my reaction is: Interesting.\n2. Maybe Edda found the map.\n3. What if Ari has a daughter?\n4. A character says, \"I killed him.\" The speaker and victim are not yet identified.\n5. For the possibilities of a brown dock or a black dock: I like the possibilities.\n6. No, reject the proposal that Bjarni hid the map.\n7. Could the boat have a leak?\n8. For two alternative entrances to the hidden room, a floor hatch or a wall door, my answer is: Yes.\n9. About a possible tidal mechanism: That might work someday.\n10. Suppose the island had a floating bridge.\n11. For our weather choices: Let's keep both alternatives open.\n12. I am quoting a possible diary note: \"Edda stole the seal.\"\n\nUse the configured checkpoint and pause after your response."
+    },
+    {
+      "message_id": "084ca06e-2a37-46ac-b497-7c5cb79d3f85",
+      "role": "assistant",
+      "text": "Events remains in open mode. Each note is captured in its own context; routine checkpoints remain every exchange.\n\n1. Red coat: “Interesting” is a reaction, so Bjarni owning a red coat remains proposed (ee523c46 r1).\n\n2. Map discovery: “Maybe” leaves Edda finding the map proposed (b9b74305 r1).\n\n3. Daughter: this is a what-if proposal, not an established family relationship (c72be9b2 r1; open question 73f2747c r1).\n\n4. Dialogue: “I killed him” is captured as possible dialogue. Neither the speaker nor victim is identified, and no killing is established (bb93a8e9 r1).\n\n5. Dock colours: liking the possibilities selects neither brown nor black. Both remain separate proposals in one alternative group (a86ca6b8 r1; 2c8bdb38 r1).\n\n6. Hidden map: Bjarni hiding the map is explicitly rejected (58d64833 r1; decision 8fb9d139 r1). No earlier saved version was found, so none has been invented. This rejection does not establish a separate fact about what Bjarni did.\n\n7. Boat leak: this remains a possibility and an unanswered question (decea5c4 r1; 3c94b6c2 r1).\n\n8. Entrances: “Yes” does not identify which alternative you mean; neither is accepted (b265bcf2 r1; fb1bc34e r1; clarification bffb6141 r1). For the hidden-room entrance, does “Yes” select the floor hatch, the wall door, or neither yet?\n\n9. Tidal mechanism: tentative future interest leaves it proposed; it is not an acceptance or a committed deferral decision (5bcfbb3c r1).\n\n10. Floating bridge: hypothetical only (96dee911 r1). In the same period it would conflict with the accepted no-bridge rule (c70819f0 r1); that rule is unchanged. Timing and intent remain uncertain (c8ddb813 r1).\n\n11. Weather: both alternatives are open again. The prior storm selection is retained in history; its current status is unresolved (ca5f921f r3; weather assertion 56d74b11 r2; revision decision 1f27742d r1). Clear weather remains unresolved and unselected (6b3bb4ae r1). Neither is rejected.\n\n12. Diary note: the quoted wording is proposed text, not author truth that Edda stole the seal (0128429a r1).\n\nCheckpoint summary: exchange 26fac46a-e141-40ad-a03e-8c679c474d3a, sequence 9; predecessor Git checkpoint 65eab6f4ebfdb319a53c29e1dc581132dedeadeb (sequence 8). References identify the supporting record revisions.\n\nThe explicit hidden-map rejection is recorded above. Reopening the weather alternatives is the only change to an earlier accepted story choice. All other exploratory reactions, hypotheses and quotations remain unaccepted. The floating-bridge uncertainty remains open (c8ddb813 r1).\n\nEstablished decisions:\n\n- Rúna is the lighthouse keeper. (b2bba552 r1; decision b857a602 r1).\n- Rúna sent the letter. (24a9e934 r1; decision d06311e5 r1).\n- Ari is Rúna’s brother. (89643a23 r1; decision 8b1386f6 r1).\n- Ari is the victim. (12fdedbe r1; decision 8981fd4e r1).\n- Edda is Rúna’s sister. (e4198cbf r1; decision 73dd4a06 r1).\n- Edda is the investigator. (c1edb38c r1; decision 83602256 r1).\n- Rúna knows Bjarni. (b0134264 r1; decision b7cefc5a r1).\n- The lamp failed on the night of the letter. (2d32b3f7 r1; decision f6d39415 r1).\n- The letter arrived before dawn. (112f571c r1; decision eae7c6ff r1).\n- The story takes place in winter. (05f15bb9 r1; decision 3b7fbd73 r1).\n- A blue light is visible. (6a6267eb r2; decision fd6e1431 r1).\n- The island has no bridge. (1e4f66c1 r1; decision 2fd6b656 r1).\n- The letter bears a brass seal. (3a2d51c7 r1; decision 96686fac r1).\n- Rúna has sworn to protect Edda. (5d69e81a r1; decision e031c7a6 r1).\n\nProposed or unresolved; none of these is accepted:\n\n- Rúna collects driftwood. (2d56748a r2; proposed).\n- Edda distrusts bells. (e4a49295 r1; proposed).\n- Bjarni is a sailor. (a48aa0fb r1; proposed).\n- Bjarni may owe Edda money. (eacc5318 r1; proposed).\n- Stormy weather. (ca5f921f r3; unresolved alternative).\n- Clear weather. (6b3bb4ae r1; unresolved alternative).\n- The storm may conceal a signal. (0ef4149b r1; proposed).\n- A shipwreck may occur. (ee68d703 r1; proposed).\n- A warning bell might sound. (12d564bf r1; proposed).\n- A tunnel might link the lighthouse and harbour. (9ea7eb09 r1; proposed).\n- The tide might expose old steps. (84e3fbc4 r1; proposed).\n- A hidden room might contain a map. (6ad4b40e r1; proposed).\n- Edda could trace the letter through the tunnel to the hidden room. (3c8cad60 r1; proposed).\n- Rúna is the murderer. (6e2f14e2 r1; unresolved).\n- Bjarni might own a red coat. (ee523c46 r1; proposed).\n- Edda might have found the map. (b9b74305 r1; proposed).\n- Ari might have a daughter. (c72be9b2 r1; proposed).\n- Possible dialogue: \"I killed him.\" Speaker and victim unidentified. (bb93a8e9 r1; proposed).\n- The dock might be brown. (a86ca6b8 r1; unresolved alternative).\n- The dock might be black. (2c8bdb38 r1; unresolved alternative).\n- The boat might have a leak. (decea5c4 r1; proposed).\n- The hidden-room entrance might be a floor hatch. (b265bcf2 r1; unresolved alternative).\n- The hidden-room entrance might be a wall door. (fb1bc34e r1; unresolved alternative).\n- A tidal mechanism might work someday. (5bcfbb3c r1; proposed).\n- The island might have a floating bridge. (96dee911 r1; proposed).\n- Possible diary wording: \"Edda stole the seal.\" (0128429a r1; proposed).\n\nOpen and unanswered questions:\n\n- Why did Rúna send the letter? (f1e737c0 r1).\n- What does Edda want from Bjarni? (55b62a7f r1).\n- Who finds the letter? (d7c22da4 r1).\n- When does Bjarni return? (f68c6800 r1).\n- What opens the hidden room? (e7236c19 r1).\n- What if Ari has a daughter? (73f2747c r1).\n- Could the boat have a leak? (3c94b6c2 r1).\n- For the hidden-room entrance, does “Yes” select the floor hatch, the wall door, or neither yet? (bffb6141 r1).\n\nPaused here until your next direction."
+    }
+  ],
+  "input_artifacts": [
+    {
+      "artifact_id": "021a2cd3-dcdb-4658-a8c1-eeb895939751",
+      "original_text": "{\"kind\":\"host_input\",\"source_type\":\"delegated\",\"thread_id\":\"01a16af9-f289-73c1-8151-55f50ace05d9\",\"turn_id\":\"01a181f7-55c5-77b3-8b7c-7f03c96f7de5\",\"event_id\":\"fco_01a181f7-55c6-7053-9b1a-aa44a1cb49b8\",\"event_type\":\"functionCallOutput\",\"source_thread_id\":\"01a16af6-0d9b-7173-a5f5-c8775f37df18\",\"native_user_input\":false,\"novice_evidence\":false,\"evaluation_only\":true,\"text\":\"Case AUTH_NONACCEPT. Here are twelve separate exploratory notes, each about its own possibility. Keep their contexts distinct in your response.\\n\\n1. For the possibility that Bjarni owns a red coat, my reaction is: Interesting.\\n2. Maybe Edda found the map.\\n3. What if Ari has a daughter?\\n4. A character says, \\\"I killed him.\\\" The speaker and victim are not yet identified.\\n5. For the possibilities of a brown dock or a black dock: I like the possibilities.\\n6. No, reject the proposal that Bjarni hid the map.\\n7. Could the boat have a leak?\\n8. For two alternative entrances to the hidden room, a floor hatch or a wall door, my answer is: Yes.\\n9. About a possible tidal mechanism: That might work someday.\\n10. Suppose the island had a floating bridge.\\n11. For our weather choices: Let's keep both alternatives open.\\n12. I am quoting a possible diary note: \\\"Edda stole the seal.\\\"\\n\\nUse the configured checkpoint and pause after your response.\",\"public_event\":{\"type\":\"functionCallOutput\",\"id\":\"fco_01a181f7-55c6-7053-9b1a-aa44a1cb49b8\",\"namespace\":\"codex_app\",\"name\":\"send_message_to_thread\",\"output\":{\"text\":\"<codex_delegation>\\n  <source_thread_id>01a16af6-0d9b-7173-a5f5-c8775f37df18</source_thread_id>\\n  <input>Case AUTH_NONACCEPT. Here are twelve separate exploratory notes, each about its own possibility. Keep their contexts distinct in your response.\\n\\n1. For the possibility that Bjarni owns a red coat, my reaction is: Interesting.\\n2. Maybe Edda found the map.\\n3. What if Ari has a daughter?\\n4. A character says, \\\"I killed him.\\\" The speaker and victim are not yet identified.\\n5. For the possibilities of a brown dock or a black dock: I like the possibilities.\\n6. No, reject the proposal that Bjarni hid the map.\\n7. Could the boat have a leak?\\n8. For two alternative entrances to the hidden room, a floor hatch or a wall door, my answer is: Yes.\\n9. About a possible tidal mechanism: That might work someday.\\n10. Suppose the island had a floating bridge.\\n11. For our weather choices: Let's keep both alternatives open.\\n12. I am quoting a possible diary note: \\\"Edda stole the seal.\\\"\\n\\nUse the configured checkpoint and pause after your response.</input>\\n</codex_delegation>\",\"truncated\":false}}}",
+      "parsed_value": {
+        "kind": "host_input",
+        "source_type": "delegated",
+        "thread_id": "01a16af9-f289-73c1-8151-55f50ace05d9",
+        "turn_id": "01a181f7-55c5-77b3-8b7c-7f03c96f7de5",
+        "event_id": "fco_01a181f7-55c6-7053-9b1a-aa44a1cb49b8",
+        "event_type": "functionCallOutput",
+        "source_thread_id": "01a16af6-0d9b-7173-a5f5-c8775f37df18",
+        "native_user_input": false,
+        "novice_evidence": false,
+        "evaluation_only": true,
+        "text": "Case AUTH_NONACCEPT. Here are twelve separate exploratory notes, each about its own possibility. Keep their contexts distinct in your response.\n\n1. For the possibility that Bjarni owns a red coat, my reaction is: Interesting.\n2. Maybe Edda found the map.\n3. What if Ari has a daughter?\n4. A character says, \"I killed him.\" The speaker and victim are not yet identified.\n5. For the possibilities of a brown dock or a black dock: I like the possibilities.\n6. No, reject the proposal that Bjarni hid the map.\n7. Could the boat have a leak?\n8. For two alternative entrances to the hidden room, a floor hatch or a wall door, my answer is: Yes.\n9. About a possible tidal mechanism: That might work someday.\n10. Suppose the island had a floating bridge.\n11. For our weather choices: Let's keep both alternatives open.\n12. I am quoting a possible diary note: \"Edda stole the seal.\"\n\nUse the configured checkpoint and pause after your response.",
+        "public_event": {
+          "type": "functionCallOutput",
+          "id": "fco_01a181f7-55c6-7053-9b1a-aa44a1cb49b8",
+          "namespace": "codex_app",
+          "name": "send_message_to_thread",
+          "output": {
+            "text": "<codex_delegation>\n  <source_thread_id>01a16af6-0d9b-7173-a5f5-c8775f37df18</source_thread_id>\n  <input>Case AUTH_NONACCEPT. Here are twelve separate exploratory notes, each about its own possibility. Keep their contexts distinct in your response.\n\n1. For the possibility that Bjarni owns a red coat, my reaction is: Interesting.\n2. Maybe Edda found the map.\n3. What if Ari has a daughter?\n4. A character says, \"I killed him.\" The speaker and victim are not yet identified.\n5. For the possibilities of a brown dock or a black dock: I like the possibilities.\n6. No, reject the proposal that Bjarni hid the map.\n7. Could the boat have a leak?\n8. For two alternative entrances to the hidden room, a floor hatch or a wall door, my answer is: Yes.\n9. About a possible tidal mechanism: That might work someday.\n10. Suppose the island had a floating bridge.\n11. For our weather choices: Let's keep both alternatives open.\n12. I am quoting a possible diary note: \"Edda stole the seal.\"\n\nUse the configured checkpoint and pause after your response.</input>\n</codex_delegation>",
+            "truncated": false
+          }
+        }
+      },
+      "digest": "3fd5df032e23565eb3279c08f57b8cc521da6247f485a43120509f5ae4039e37"
+    }
+  ],
+  "record_versions": [
+    {
+      "id": "ee523c46-e518-438d-8e7b-0d347021dd93",
+      "kind": "idea",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "26fac46a-e141-40ad-a03e-8c679c474d3a",
+          "message_id": "8431c0f7-6ede-45a2-83c8-927d28dcbaec",
+          "range": {
+            "start": 148,
+            "end": 225
+          }
+        }
+      ],
+      "created_exchange_id": "26fac46a-e141-40ad-a03e-8c679c474d3a",
+      "origin": "supplied",
+      "statement": "Bjarni might own a red coat.",
+      "status": "proposed",
+      "related_element_ids": [
+        "fe4f5d2f-3ecc-48db-918a-3bb260cee80f"
+      ],
+      "alternative_group_id": null,
+      "selected_parts": [],
+      "decision_ids": [],
+      "resulting_assertion_ids": [
+        "34392e8c-ffa9-41ad-b8ca-cc3f9fc01d6e"
+      ]
+    },
+    {
+      "id": "34392e8c-ffa9-41ad-b8ca-cc3f9fc01d6e",
+      "kind": "assertion",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "26fac46a-e141-40ad-a03e-8c679c474d3a",
+          "message_id": "8431c0f7-6ede-45a2-83c8-927d28dcbaec",
+          "range": {
+            "start": 148,
+            "end": 225
+          }
+        }
+      ],
+      "created_exchange_id": "26fac46a-e141-40ad-a03e-8c679c474d3a",
+      "origin": "supplied",
+      "subject_element_id": "fe4f5d2f-3ecc-48db-918a-3bb260cee80f",
+      "predicate": "owns",
+      "value": "a red coat",
+      "perspective": "author_truth",
+      "holder_id": null,
+      "reader_audience": null,
+      "time_ref": {
+        "chronology": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        },
+        "narrative": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        }
+      },
+      "truth_state": "affirmed",
+      "status": "proposed",
+      "decision_ids": [],
+      "supersedes": null
+    },
+    {
+      "id": "b9b74305-4a7a-40af-9cbb-5df8f5d32b52",
+      "kind": "idea",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "26fac46a-e141-40ad-a03e-8c679c474d3a",
+          "message_id": "8431c0f7-6ede-45a2-83c8-927d28dcbaec",
+          "range": {
+            "start": 229,
+            "end": 254
+          }
+        }
+      ],
+      "created_exchange_id": "26fac46a-e141-40ad-a03e-8c679c474d3a",
+      "origin": "supplied",
+      "statement": "Edda might have found the map.",
+      "status": "proposed",
+      "related_element_ids": [
+        "83c818af-8c1a-4871-beca-eb354753ab30"
+      ],
+      "alternative_group_id": null,
+      "selected_parts": [],
+      "decision_ids": [],
+      "resulting_assertion_ids": [
+        "8585a85b-f8ab-41c0-b851-a481f199c2bd"
+      ]
+    },
+    {
+      "id": "8585a85b-f8ab-41c0-b851-a481f199c2bd",
+      "kind": "assertion",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "26fac46a-e141-40ad-a03e-8c679c474d3a",
+          "message_id": "8431c0f7-6ede-45a2-83c8-927d28dcbaec",
+          "range": {
+            "start": 229,
+            "end": 254
+          }
+        }
+      ],
+      "created_exchange_id": "26fac46a-e141-40ad-a03e-8c679c474d3a",
+      "origin": "supplied",
+      "subject_element_id": "83c818af-8c1a-4871-beca-eb354753ab30",
+      "predicate": "found",
+      "value": "the map",
+      "perspective": "author_truth",
+      "holder_id": null,
+      "reader_audience": null,
+      "time_ref": {
+        "chronology": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        },
+        "narrative": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        }
+      },
+      "truth_state": "affirmed",
+      "status": "proposed",
+      "decision_ids": [],
+      "supersedes": null
+    },
+    {
+      "id": "80085c56-b3b8-441c-841d-dfff1f035569",
+      "kind": "story_element",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "26fac46a-e141-40ad-a03e-8c679c474d3a",
+          "message_id": "8431c0f7-6ede-45a2-83c8-927d28dcbaec",
+          "range": {
+            "start": 258,
+            "end": 285
+          }
+        }
+      ],
+      "created_exchange_id": "26fac46a-e141-40ad-a03e-8c679c474d3a",
+      "origin": "supplied",
+      "element_type": "character",
+      "display_name": "Ari’s possible daughter",
+      "aliases": [],
+      "status": "proposed",
+      "assertion_ids": [],
+      "relationship_ids": [
+        "138838ff-8d53-4251-8670-e8415b7a3c11"
+      ],
+      "dependency_refs": [],
+      "time_ref": null,
+      "decision_ids": []
+    },
+    {
+      "id": "138838ff-8d53-4251-8670-e8415b7a3c11",
+      "kind": "relationship",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "26fac46a-e141-40ad-a03e-8c679c474d3a",
+          "message_id": "8431c0f7-6ede-45a2-83c8-927d28dcbaec",
+          "range": {
+            "start": 258,
+            "end": 285
+          }
+        }
+      ],
+      "created_exchange_id": "26fac46a-e141-40ad-a03e-8c679c474d3a",
+      "origin": "supplied",
+      "from_element_id": "5299dee6-4976-454a-b3bd-f85936be0fc3",
+      "to_element_id": "80085c56-b3b8-441c-841d-dfff1f035569",
+      "meaning": "might be parent of",
+      "perspective": "author_truth",
+      "holder_id": null,
+      "reader_audience": null,
+      "time_ref": {
+        "chronology": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        },
+        "narrative": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        }
+      },
+      "status": "proposed",
+      "decision_ids": []
+    },
+    {
+      "id": "c72be9b2-3e76-4917-a3d5-e2f47c849753",
+      "kind": "idea",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "26fac46a-e141-40ad-a03e-8c679c474d3a",
+          "message_id": "8431c0f7-6ede-45a2-83c8-927d28dcbaec",
+          "range": {
+            "start": 258,
+            "end": 285
+          }
+        }
+      ],
+      "created_exchange_id": "26fac46a-e141-40ad-a03e-8c679c474d3a",
+      "origin": "supplied",
+      "statement": "Ari might have a daughter.",
+      "status": "proposed",
+      "related_element_ids": [
+        "5299dee6-4976-454a-b3bd-f85936be0fc3",
+        "80085c56-b3b8-441c-841d-dfff1f035569"
+      ],
+      "alternative_group_id": null,
+      "selected_parts": [],
+      "decision_ids": [],
+      "resulting_assertion_ids": []
+    },
+    {
+      "id": "73f2747c-a6e2-4e05-9c68-800164ce1c86",
+      "kind": "question",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "26fac46a-e141-40ad-a03e-8c679c474d3a",
+          "message_id": "8431c0f7-6ede-45a2-83c8-927d28dcbaec",
+          "range": {
+            "start": 258,
+            "end": 285
+          }
+        }
+      ],
+      "created_exchange_id": "26fac46a-e141-40ad-a03e-8c679c474d3a",
+      "origin": "supplied",
+      "text": "What if Ari has a daughter?",
+      "related_refs": [
+        {
+          "id": "5299dee6-4976-454a-b3bd-f85936be0fc3",
+          "revision": 1
+        },
+        {
+          "id": "80085c56-b3b8-441c-841d-dfff1f035569",
+          "revision": 1
+        },
+        {
+          "id": "c72be9b2-3e76-4917-a3d5-e2f47c849753",
+          "revision": 1
+        }
+      ],
+      "alternative_ids": [],
+      "state": "open",
+      "resolution_decision_id": null
+    },
+    {
+      "id": "4d04c405-9676-4724-a918-073670d901f9",
+      "kind": "story_element",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "26fac46a-e141-40ad-a03e-8c679c474d3a",
+          "message_id": "8431c0f7-6ede-45a2-83c8-927d28dcbaec",
+          "range": {
+            "start": 289,
+            "end": 369
+          }
+        }
+      ],
+      "created_exchange_id": "26fac46a-e141-40ad-a03e-8c679c474d3a",
+      "origin": "supplied",
+      "element_type": "plot_thread",
+      "display_name": "Unattributed possible dialogue",
+      "aliases": [],
+      "status": "proposed",
+      "assertion_ids": [],
+      "relationship_ids": [],
+      "dependency_refs": [],
+      "time_ref": null,
+      "decision_ids": []
+    },
+    {
+      "id": "bb93a8e9-f19d-4cd8-b408-f07dfecb327c",
+      "kind": "idea",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "26fac46a-e141-40ad-a03e-8c679c474d3a",
+          "message_id": "8431c0f7-6ede-45a2-83c8-927d28dcbaec",
+          "range": {
+            "start": 289,
+            "end": 369
+          }
+        }
+      ],
+      "created_exchange_id": "26fac46a-e141-40ad-a03e-8c679c474d3a",
+      "origin": "supplied",
+      "statement": "Possible dialogue: \"I killed him.\" Speaker and victim unidentified.",
+      "status": "proposed",
+      "related_element_ids": [
+        "4d04c405-9676-4724-a918-073670d901f9"
+      ],
+      "alternative_group_id": null,
+      "selected_parts": [],
+      "decision_ids": [],
+      "resulting_assertion_ids": []
+    },
+    {
+      "id": "ffe73a16-4020-48b0-bf0d-ebb0a3768bbb",
+      "kind": "story_element",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "26fac46a-e141-40ad-a03e-8c679c474d3a",
+          "message_id": "8431c0f7-6ede-45a2-83c8-927d28dcbaec",
+          "range": {
+            "start": 373,
+            "end": 453
+          }
+        }
+      ],
+      "created_exchange_id": "26fac46a-e141-40ad-a03e-8c679c474d3a",
+      "origin": "supplied",
+      "element_type": "location",
+      "display_name": "Possible dock",
+      "aliases": [],
+      "status": "proposed",
+      "assertion_ids": [],
+      "relationship_ids": [],
+      "dependency_refs": [],
+      "time_ref": null,
+      "decision_ids": []
+    },
+    {
+      "id": "a86ca6b8-0598-485a-b378-08320a08e2fa",
+      "kind": "idea",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "26fac46a-e141-40ad-a03e-8c679c474d3a",
+          "message_id": "8431c0f7-6ede-45a2-83c8-927d28dcbaec",
+          "range": {
+            "start": 373,
+            "end": 453
+          }
+        }
+      ],
+      "created_exchange_id": "26fac46a-e141-40ad-a03e-8c679c474d3a",
+      "origin": "supplied",
+      "statement": "The dock might be brown.",
+      "status": "proposed",
+      "related_element_ids": [
+        "ffe73a16-4020-48b0-bf0d-ebb0a3768bbb"
+      ],
+      "alternative_group_id": "e17aed78-2a82-4221-9e2e-6853297989af",
+      "selected_parts": [],
+      "decision_ids": [],
+      "resulting_assertion_ids": [
+        "cce33bff-e4f4-4636-9f21-8624d387bd10"
+      ]
+    },
+    {
+      "id": "cce33bff-e4f4-4636-9f21-8624d387bd10",
+      "kind": "assertion",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "26fac46a-e141-40ad-a03e-8c679c474d3a",
+          "message_id": "8431c0f7-6ede-45a2-83c8-927d28dcbaec",
+          "range": {
+            "start": 373,
+            "end": 453
+          }
+        }
+      ],
+      "created_exchange_id": "26fac46a-e141-40ad-a03e-8c679c474d3a",
+      "origin": "supplied",
+      "subject_element_id": "ffe73a16-4020-48b0-bf0d-ebb0a3768bbb",
+      "predicate": "colour",
+      "value": "brown",
+      "perspective": "author_truth",
+      "holder_id": null,
+      "reader_audience": null,
+      "time_ref": {
+        "chronology": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        },
+        "narrative": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        }
+      },
+      "truth_state": "affirmed",
+      "status": "proposed",
+      "decision_ids": [],
+      "supersedes": null
+    },
+    {
+      "id": "2c8bdb38-8cd7-4fc5-99a0-789dcea62e85",
+      "kind": "idea",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "26fac46a-e141-40ad-a03e-8c679c474d3a",
+          "message_id": "8431c0f7-6ede-45a2-83c8-927d28dcbaec",
+          "range": {
+            "start": 373,
+            "end": 453
+          }
+        }
+      ],
+      "created_exchange_id": "26fac46a-e141-40ad-a03e-8c679c474d3a",
+      "origin": "supplied",
+      "statement": "The dock might be black.",
+      "status": "proposed",
+      "related_element_ids": [
+        "ffe73a16-4020-48b0-bf0d-ebb0a3768bbb"
+      ],
+      "alternative_group_id": "e17aed78-2a82-4221-9e2e-6853297989af",
+      "selected_parts": [],
+      "decision_ids": [],
+      "resulting_assertion_ids": [
+        "4f1057ab-f7e4-4425-94ef-24d7af3a0533"
+      ]
+    },
+    {
+      "id": "4f1057ab-f7e4-4425-94ef-24d7af3a0533",
+      "kind": "assertion",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "26fac46a-e141-40ad-a03e-8c679c474d3a",
+          "message_id": "8431c0f7-6ede-45a2-83c8-927d28dcbaec",
+          "range": {
+            "start": 373,
+            "end": 453
+          }
+        }
+      ],
+      "created_exchange_id": "26fac46a-e141-40ad-a03e-8c679c474d3a",
+      "origin": "supplied",
+      "subject_element_id": "ffe73a16-4020-48b0-bf0d-ebb0a3768bbb",
+      "predicate": "colour",
+      "value": "black",
+      "perspective": "author_truth",
+      "holder_id": null,
+      "reader_audience": null,
+      "time_ref": {
+        "chronology": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        },
+        "narrative": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        }
+      },
+      "truth_state": "affirmed",
+      "status": "proposed",
+      "decision_ids": [],
+      "supersedes": null
+    },
+    {
+      "id": "58d64833-6a32-42b9-b3e8-682f53c1639a",
+      "kind": "idea",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "26fac46a-e141-40ad-a03e-8c679c474d3a",
+          "message_id": "8431c0f7-6ede-45a2-83c8-927d28dcbaec",
+          "range": {
+            "start": 457,
+            "end": 505
+          }
+        }
+      ],
+      "created_exchange_id": "26fac46a-e141-40ad-a03e-8c679c474d3a",
+      "origin": "supplied",
+      "statement": "Bjarni hid the map.",
+      "status": "rejected",
+      "related_element_ids": [
+        "fe4f5d2f-3ecc-48db-918a-3bb260cee80f"
+      ],
+      "alternative_group_id": null,
+      "selected_parts": [],
+      "decision_ids": [
+        "8fb9d139-cabd-4766-8df0-42258991f392"
+      ],
+      "resulting_assertion_ids": [
+        "153e1d18-33fa-455b-808b-164ddb6b08be"
+      ]
+    },
+    {
+      "id": "153e1d18-33fa-455b-808b-164ddb6b08be",
+      "kind": "assertion",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "26fac46a-e141-40ad-a03e-8c679c474d3a",
+          "message_id": "8431c0f7-6ede-45a2-83c8-927d28dcbaec",
+          "range": {
+            "start": 457,
+            "end": 505
+          }
+        }
+      ],
+      "created_exchange_id": "26fac46a-e141-40ad-a03e-8c679c474d3a",
+      "origin": "supplied",
+      "subject_element_id": "fe4f5d2f-3ecc-48db-918a-3bb260cee80f",
+      "predicate": "hid",
+      "value": "the map",
+      "perspective": "author_truth",
+      "holder_id": null,
+      "reader_audience": null,
+      "time_ref": {
+        "chronology": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        },
+        "narrative": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        }
+      },
+      "truth_state": "affirmed",
+      "status": "rejected",
+      "decision_ids": [
+        "8fb9d139-cabd-4766-8df0-42258991f392"
+      ],
+      "supersedes": null
+    },
+    {
+      "id": "8fb9d139-cabd-4766-8df0-42258991f392",
+      "kind": "decision",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "26fac46a-e141-40ad-a03e-8c679c474d3a",
+          "message_id": "8431c0f7-6ede-45a2-83c8-927d28dcbaec",
+          "range": {
+            "start": 457,
+            "end": 505
+          }
+        }
+      ],
+      "created_exchange_id": "26fac46a-e141-40ad-a03e-8c679c474d3a",
+      "origin": "supplied",
+      "action": "reject",
+      "user_message_ref": {
+        "type": "message",
+        "exchange_id": "26fac46a-e141-40ad-a03e-8c679c474d3a",
+        "message_id": "8431c0f7-6ede-45a2-83c8-927d28dcbaec",
+        "range": {
+          "start": 457,
+          "end": 505
+        }
+      },
+      "span": {
+        "start": 457,
+        "end": 505
+      },
+      "target_refs": [
+        {
+          "id": "58d64833-6a32-42b9-b3e8-682f53c1639a",
+          "revision": 1
+        },
+        {
+          "id": "153e1d18-33fa-455b-808b-164ddb6b08be",
+          "revision": 1
+        }
+      ],
+      "selected_parts": [
+        "Bjarni hid the map."
+      ],
+      "prior_refs": [],
+      "result_refs": [
+        {
+          "id": "58d64833-6a32-42b9-b3e8-682f53c1639a",
+          "revision": 1
+        },
+        {
+          "id": "153e1d18-33fa-455b-808b-164ddb6b08be",
+          "revision": 1
+        }
+      ],
+      "reason": "Explicitly reject this proposition. No prior saved version of this proposal was found; preserve the rejection without inventing prior history.",
+      "affected_refs": [
+        {
+          "id": "58d64833-6a32-42b9-b3e8-682f53c1639a",
+          "revision": 1
+        },
+        {
+          "id": "153e1d18-33fa-455b-808b-164ddb6b08be",
+          "revision": 1
+        }
+      ],
+      "review_required_refs": []
+    },
+    {
+      "id": "ccc7f13e-7414-4828-8baa-ccaa54c66545",
+      "kind": "story_element",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "26fac46a-e141-40ad-a03e-8c679c474d3a",
+          "message_id": "8431c0f7-6ede-45a2-83c8-927d28dcbaec",
+          "range": {
+            "start": 509,
+            "end": 536
+          }
+        }
+      ],
+      "created_exchange_id": "26fac46a-e141-40ad-a03e-8c679c474d3a",
+      "origin": "supplied",
+      "element_type": "location",
+      "display_name": "Possible boat",
+      "aliases": [],
+      "status": "proposed",
+      "assertion_ids": [],
+      "relationship_ids": [],
+      "dependency_refs": [],
+      "time_ref": null,
+      "decision_ids": []
+    },
+    {
+      "id": "decea5c4-356e-48a2-a166-566835edc5ad",
+      "kind": "idea",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "26fac46a-e141-40ad-a03e-8c679c474d3a",
+          "message_id": "8431c0f7-6ede-45a2-83c8-927d28dcbaec",
+          "range": {
+            "start": 509,
+            "end": 536
+          }
+        }
+      ],
+      "created_exchange_id": "26fac46a-e141-40ad-a03e-8c679c474d3a",
+      "origin": "supplied",
+      "statement": "The boat might have a leak.",
+      "status": "proposed",
+      "related_element_ids": [
+        "ccc7f13e-7414-4828-8baa-ccaa54c66545"
+      ],
+      "alternative_group_id": null,
+      "selected_parts": [],
+      "decision_ids": [],
+      "resulting_assertion_ids": [
+        "9170d2d2-7500-43cb-8eb2-17bf4c1ee61d"
+      ]
+    },
+    {
+      "id": "9170d2d2-7500-43cb-8eb2-17bf4c1ee61d",
+      "kind": "assertion",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "26fac46a-e141-40ad-a03e-8c679c474d3a",
+          "message_id": "8431c0f7-6ede-45a2-83c8-927d28dcbaec",
+          "range": {
+            "start": 509,
+            "end": 536
+          }
+        }
+      ],
+      "created_exchange_id": "26fac46a-e141-40ad-a03e-8c679c474d3a",
+      "origin": "supplied",
+      "subject_element_id": "ccc7f13e-7414-4828-8baa-ccaa54c66545",
+      "predicate": "has_leak",
+      "value": true,
+      "perspective": "author_truth",
+      "holder_id": null,
+      "reader_audience": null,
+      "time_ref": {
+        "chronology": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        },
+        "narrative": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        }
+      },
+      "truth_state": "affirmed",
+      "status": "proposed",
+      "decision_ids": [],
+      "supersedes": null
+    },
+    {
+      "id": "3c94b6c2-1b4d-4c48-b1f4-684add61260a",
+      "kind": "question",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "26fac46a-e141-40ad-a03e-8c679c474d3a",
+          "message_id": "8431c0f7-6ede-45a2-83c8-927d28dcbaec",
+          "range": {
+            "start": 509,
+            "end": 536
+          }
+        }
+      ],
+      "created_exchange_id": "26fac46a-e141-40ad-a03e-8c679c474d3a",
+      "origin": "supplied",
+      "text": "Could the boat have a leak?",
+      "related_refs": [
+        {
+          "id": "ccc7f13e-7414-4828-8baa-ccaa54c66545",
+          "revision": 1
+        },
+        {
+          "id": "decea5c4-356e-48a2-a166-566835edc5ad",
+          "revision": 1
+        }
+      ],
+      "alternative_ids": [],
+      "state": "open",
+      "resolution_decision_id": null
+    },
+    {
+      "id": "a7e45e2c-e567-41f9-9b04-5f2c31811b7e",
+      "kind": "story_element",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "26fac46a-e141-40ad-a03e-8c679c474d3a",
+          "message_id": "8431c0f7-6ede-45a2-83c8-927d28dcbaec",
+          "range": {
+            "start": 540,
+            "end": 638
+          }
+        }
+      ],
+      "created_exchange_id": "26fac46a-e141-40ad-a03e-8c679c474d3a",
+      "origin": "supplied",
+      "element_type": "location",
+      "display_name": "Possible floor hatch",
+      "aliases": [],
+      "status": "proposed",
+      "assertion_ids": [],
+      "relationship_ids": [],
+      "dependency_refs": [],
+      "time_ref": null,
+      "decision_ids": []
+    },
+    {
+      "id": "f995603a-10f7-4438-93cd-72242353a897",
+      "kind": "story_element",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "26fac46a-e141-40ad-a03e-8c679c474d3a",
+          "message_id": "8431c0f7-6ede-45a2-83c8-927d28dcbaec",
+          "range": {
+            "start": 540,
+            "end": 638
+          }
+        }
+      ],
+      "created_exchange_id": "26fac46a-e141-40ad-a03e-8c679c474d3a",
+      "origin": "supplied",
+      "element_type": "location",
+      "display_name": "Possible wall door",
+      "aliases": [],
+      "status": "proposed",
+      "assertion_ids": [],
+      "relationship_ids": [],
+      "dependency_refs": [],
+      "time_ref": null,
+      "decision_ids": []
+    },
+    {
+      "id": "b265bcf2-c984-4171-96bf-f4988f89c180",
+      "kind": "idea",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "26fac46a-e141-40ad-a03e-8c679c474d3a",
+          "message_id": "8431c0f7-6ede-45a2-83c8-927d28dcbaec",
+          "range": {
+            "start": 540,
+            "end": 638
+          }
+        }
+      ],
+      "created_exchange_id": "26fac46a-e141-40ad-a03e-8c679c474d3a",
+      "origin": "supplied",
+      "statement": "The hidden-room entrance might be a floor hatch.",
+      "status": "unresolved",
+      "related_element_ids": [
+        "0ee57c24-f6c4-46e8-9de2-d05094db0248",
+        "a7e45e2c-e567-41f9-9b04-5f2c31811b7e"
+      ],
+      "alternative_group_id": "9b4579c5-7ba0-4638-aa93-9f04f652d488",
+      "selected_parts": [],
+      "decision_ids": [],
+      "resulting_assertion_ids": []
+    },
+    {
+      "id": "fb1bc34e-3c5a-4821-9e70-6e1b113294f7",
+      "kind": "idea",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "26fac46a-e141-40ad-a03e-8c679c474d3a",
+          "message_id": "8431c0f7-6ede-45a2-83c8-927d28dcbaec",
+          "range": {
+            "start": 540,
+            "end": 638
+          }
+        }
+      ],
+      "created_exchange_id": "26fac46a-e141-40ad-a03e-8c679c474d3a",
+      "origin": "supplied",
+      "statement": "The hidden-room entrance might be a wall door.",
+      "status": "unresolved",
+      "related_element_ids": [
+        "0ee57c24-f6c4-46e8-9de2-d05094db0248",
+        "f995603a-10f7-4438-93cd-72242353a897"
+      ],
+      "alternative_group_id": "9b4579c5-7ba0-4638-aa93-9f04f652d488",
+      "selected_parts": [],
+      "decision_ids": [],
+      "resulting_assertion_ids": []
+    },
+    {
+      "id": "bffb6141-7668-4e36-8d7c-91036a59cb34",
+      "kind": "question",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "26fac46a-e141-40ad-a03e-8c679c474d3a",
+          "message_id": "084ca06e-2a37-46ac-b497-7c5cb79d3f85",
+          "range": {
+            "start": 1206,
+            "end": 1301
+          }
+        }
+      ],
+      "created_exchange_id": "26fac46a-e141-40ad-a03e-8c679c474d3a",
+      "origin": "interpreted",
+      "text": "For the hidden-room entrance, does “Yes” select the floor hatch, the wall door, or neither yet?",
+      "related_refs": [
+        {
+          "id": "0ee57c24-f6c4-46e8-9de2-d05094db0248",
+          "revision": 1
+        },
+        {
+          "id": "b265bcf2-c984-4171-96bf-f4988f89c180",
+          "revision": 1
+        },
+        {
+          "id": "fb1bc34e-3c5a-4821-9e70-6e1b113294f7",
+          "revision": 1
+        }
+      ],
+      "alternative_ids": [
+        "b265bcf2-c984-4171-96bf-f4988f89c180",
+        "fb1bc34e-3c5a-4821-9e70-6e1b113294f7"
+      ],
+      "state": "open",
+      "resolution_decision_id": null
+    },
+    {
+      "id": "6a5f28b2-9ec8-4538-8009-00d61c257790",
+      "kind": "story_element",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "26fac46a-e141-40ad-a03e-8c679c474d3a",
+          "message_id": "8431c0f7-6ede-45a2-83c8-927d28dcbaec",
+          "range": {
+            "start": 642,
+            "end": 700
+          }
+        }
+      ],
+      "created_exchange_id": "26fac46a-e141-40ad-a03e-8c679c474d3a",
+      "origin": "supplied",
+      "element_type": "plot_thread",
+      "display_name": "Possible tidal mechanism",
+      "aliases": [],
+      "status": "proposed",
+      "assertion_ids": [],
+      "relationship_ids": [],
+      "dependency_refs": [],
+      "time_ref": null,
+      "decision_ids": []
+    },
+    {
+      "id": "5bcfbb3c-2787-4a57-9be4-5d3f339e148b",
+      "kind": "idea",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "26fac46a-e141-40ad-a03e-8c679c474d3a",
+          "message_id": "8431c0f7-6ede-45a2-83c8-927d28dcbaec",
+          "range": {
+            "start": 642,
+            "end": 700
+          }
+        }
+      ],
+      "created_exchange_id": "26fac46a-e141-40ad-a03e-8c679c474d3a",
+      "origin": "supplied",
+      "statement": "A tidal mechanism might work someday.",
+      "status": "proposed",
+      "related_element_ids": [
+        "6a5f28b2-9ec8-4538-8009-00d61c257790"
+      ],
+      "alternative_group_id": null,
+      "selected_parts": [],
+      "decision_ids": [],
+      "resulting_assertion_ids": []
+    },
+    {
+      "id": "d793e13c-0035-4265-9c75-7b527d2c2ec4",
+      "kind": "story_element",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "26fac46a-e141-40ad-a03e-8c679c474d3a",
+          "message_id": "8431c0f7-6ede-45a2-83c8-927d28dcbaec",
+          "range": {
+            "start": 705,
+            "end": 746
+          }
+        }
+      ],
+      "created_exchange_id": "26fac46a-e141-40ad-a03e-8c679c474d3a",
+      "origin": "supplied",
+      "element_type": "location",
+      "display_name": "Hypothetical floating bridge",
+      "aliases": [],
+      "status": "proposed",
+      "assertion_ids": [],
+      "relationship_ids": [],
+      "dependency_refs": [],
+      "time_ref": null,
+      "decision_ids": []
+    },
+    {
+      "id": "96dee911-f682-49a3-8ec2-ffb27bb45b63",
+      "kind": "idea",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "26fac46a-e141-40ad-a03e-8c679c474d3a",
+          "message_id": "8431c0f7-6ede-45a2-83c8-927d28dcbaec",
+          "range": {
+            "start": 705,
+            "end": 746
+          }
+        }
+      ],
+      "created_exchange_id": "26fac46a-e141-40ad-a03e-8c679c474d3a",
+      "origin": "supplied",
+      "statement": "The island might have a floating bridge.",
+      "status": "proposed",
+      "related_element_ids": [
+        "f39dce7b-0a80-4c61-86f0-db07bbcec4ef",
+        "d793e13c-0035-4265-9c75-7b527d2c2ec4"
+      ],
+      "alternative_group_id": null,
+      "selected_parts": [],
+      "decision_ids": [],
+      "resulting_assertion_ids": [
+        "9d3b498f-f81c-4884-9d7f-6fea2c53b248"
+      ]
+    },
+    {
+      "id": "9d3b498f-f81c-4884-9d7f-6fea2c53b248",
+      "kind": "assertion",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "26fac46a-e141-40ad-a03e-8c679c474d3a",
+          "message_id": "8431c0f7-6ede-45a2-83c8-927d28dcbaec",
+          "range": {
+            "start": 705,
+            "end": 746
+          }
+        }
+      ],
+      "created_exchange_id": "26fac46a-e141-40ad-a03e-8c679c474d3a",
+      "origin": "supplied",
+      "subject_element_id": "f39dce7b-0a80-4c61-86f0-db07bbcec4ef",
+      "predicate": "has_floating_bridge",
+      "value": true,
+      "perspective": "author_truth",
+      "holder_id": null,
+      "reader_audience": null,
+      "time_ref": {
+        "chronology": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        },
+        "narrative": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        }
+      },
+      "truth_state": "affirmed",
+      "status": "proposed",
+      "decision_ids": [],
+      "supersedes": null
+    },
+    {
+      "id": "c8ddb813-589e-43f7-8ba4-b04829943346",
+      "kind": "finding",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "26fac46a-e141-40ad-a03e-8c679c474d3a",
+          "message_id": "8431c0f7-6ede-45a2-83c8-927d28dcbaec",
+          "range": {
+            "start": 705,
+            "end": 746
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "0c0dd85d-7244-4ed4-91b4-652a854d2edf",
+          "message_id": "98d455a4-1267-4a37-a2ad-4319793eefc4",
+          "range": {
+            "start": 86,
+            "end": 110
+          }
+        }
+      ],
+      "created_exchange_id": "26fac46a-e141-40ad-a03e-8c679c474d3a",
+      "origin": "interpreted",
+      "category": "world_rule",
+      "assessment": "uncertainty",
+      "severity": "advisory",
+      "affected_refs": [
+        {
+          "id": "96dee911-f682-49a3-8ec2-ffb27bb45b63",
+          "revision": 1
+        },
+        {
+          "id": "9d3b498f-f81c-4884-9d7f-6fea2c53b248",
+          "revision": 1
+        },
+        {
+          "id": "c70819f0-73c7-46b0-9dcd-8fbdbc0713ba",
+          "revision": 1
+        }
+      ],
+      "explanation": "The floating bridge is explicitly hypothetical. If intended in the same story period, it would oppose the accepted absence of a bridge. The hypothetical period and intended canon change are unspecified.",
+      "consequences": [
+        "The no-bridge rule remains accepted.",
+        "Do not develop the floating bridge as established same-period canon without clarification or a sourced rule revision."
+      ],
+      "resolution_options": [
+        "Keep this as an unaccepted hypothetical.",
+        "Clarify its intended period and relationship to the no-bridge rule.",
+        "Explicitly revise the no-bridge rule before adopting an incompatible same-period bridge."
+      ],
+      "disposition": "open",
+      "decision_ids": [],
+      "narrative_explanation": null
+    },
+    {
+      "id": "ca5f921f-84d4-491b-a40f-16a576e9cb03",
+      "kind": "idea",
+      "revision": 3,
+      "previous_revision": 2,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "1af5490d-dad0-4257-9f37-5aa34f3ee494",
+          "message_id": "a3d7733e-bd34-468b-a3af-1ae73c321ac4",
+          "range": {
+            "start": 446,
+            "end": 472
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "d83026c5-c29f-42e9-a520-7eb10c16138a",
+          "message_id": "76954376-ca22-4b4b-93bf-483a1ee0ea41",
+          "range": {
+            "start": 50,
+            "end": 64
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "26fac46a-e141-40ad-a03e-8c679c474d3a",
+          "message_id": "8431c0f7-6ede-45a2-83c8-927d28dcbaec",
+          "range": {
+            "start": 751,
+            "end": 810
+          }
+        }
+      ],
+      "created_exchange_id": "1af5490d-dad0-4257-9f37-5aa34f3ee494",
+      "origin": "supplied",
+      "statement": "Stormy weather.",
+      "status": "unresolved",
+      "related_element_ids": [
+        "6e43feba-be95-4219-bdee-734b58b049d4"
+      ],
+      "alternative_group_id": "1beff280-555d-4f14-9a53-1d564d273067",
+      "selected_parts": [],
+      "decision_ids": [
+        "91679de1-7f15-4dd2-85be-d4edfa4809c7",
+        "1f27742d-b023-435b-b2f3-dcbd6d232d7e"
+      ],
+      "resulting_assertion_ids": [
+        "56d74b11-d849-4ce4-926a-d04242a4af43"
+      ]
+    },
+    {
+      "id": "56d74b11-d849-4ce4-926a-d04242a4af43",
+      "kind": "assertion",
+      "revision": 2,
+      "previous_revision": 1,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "d83026c5-c29f-42e9-a520-7eb10c16138a",
+          "message_id": "76954376-ca22-4b4b-93bf-483a1ee0ea41",
+          "range": {
+            "start": 50,
+            "end": 64
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "26fac46a-e141-40ad-a03e-8c679c474d3a",
+          "message_id": "8431c0f7-6ede-45a2-83c8-927d28dcbaec",
+          "range": {
+            "start": 751,
+            "end": 810
+          }
+        }
+      ],
+      "created_exchange_id": "d83026c5-c29f-42e9-a520-7eb10c16138a",
+      "origin": "supplied",
+      "subject_element_id": "6e43feba-be95-4219-bdee-734b58b049d4",
+      "predicate": "weather",
+      "value": "storm",
+      "perspective": "author_truth",
+      "holder_id": null,
+      "reader_audience": null,
+      "time_ref": {
+        "chronology": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        },
+        "narrative": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        }
+      },
+      "truth_state": "unknown",
+      "status": "unresolved",
+      "decision_ids": [
+        "91679de1-7f15-4dd2-85be-d4edfa4809c7",
+        "1f27742d-b023-435b-b2f3-dcbd6d232d7e"
+      ],
+      "supersedes": null
+    },
+    {
+      "id": "1f27742d-b023-435b-b2f3-dcbd6d232d7e",
+      "kind": "decision",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "26fac46a-e141-40ad-a03e-8c679c474d3a",
+          "message_id": "8431c0f7-6ede-45a2-83c8-927d28dcbaec",
+          "range": {
+            "start": 751,
+            "end": 810
+          }
+        }
+      ],
+      "created_exchange_id": "26fac46a-e141-40ad-a03e-8c679c474d3a",
+      "origin": "supplied",
+      "action": "revise",
+      "user_message_ref": {
+        "type": "message",
+        "exchange_id": "26fac46a-e141-40ad-a03e-8c679c474d3a",
+        "message_id": "8431c0f7-6ede-45a2-83c8-927d28dcbaec",
+        "range": {
+          "start": 751,
+          "end": 810
+        }
+      },
+      "span": {
+        "start": 751,
+        "end": 810
+      },
+      "target_refs": [
+        {
+          "id": "ca5f921f-84d4-491b-a40f-16a576e9cb03",
+          "revision": 2
+        },
+        {
+          "id": "56d74b11-d849-4ce4-926a-d04242a4af43",
+          "revision": 1
+        }
+      ],
+      "selected_parts": [],
+      "prior_refs": [
+        {
+          "id": "ca5f921f-84d4-491b-a40f-16a576e9cb03",
+          "revision": 2
+        },
+        {
+          "id": "56d74b11-d849-4ce4-926a-d04242a4af43",
+          "revision": 1
+        }
+      ],
+      "result_refs": [
+        {
+          "id": "ca5f921f-84d4-491b-a40f-16a576e9cb03",
+          "revision": 3
+        },
+        {
+          "id": "56d74b11-d849-4ce4-926a-d04242a4af43",
+          "revision": 2
+        }
+      ],
+      "reason": "Reopen the weather choice as explicitly requested: withdraw the current storm commitment without rejecting either alternative. Preserve the earlier selection in history.",
+      "affected_refs": [
+        {
+          "id": "ca5f921f-84d4-491b-a40f-16a576e9cb03",
+          "revision": 3
+        },
+        {
+          "id": "56d74b11-d849-4ce4-926a-d04242a4af43",
+          "revision": 2
+        }
+      ],
+      "review_required_refs": []
+    },
+    {
+      "id": "19874e46-4095-4141-9c14-24559260450b",
+      "kind": "story_element",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "26fac46a-e141-40ad-a03e-8c679c474d3a",
+          "message_id": "8431c0f7-6ede-45a2-83c8-927d28dcbaec",
+          "range": {
+            "start": 815,
+            "end": 873
+          }
+        }
+      ],
+      "created_exchange_id": "26fac46a-e141-40ad-a03e-8c679c474d3a",
+      "origin": "supplied",
+      "element_type": "plot_thread",
+      "display_name": "Possible diary note",
+      "aliases": [],
+      "status": "proposed",
+      "assertion_ids": [],
+      "relationship_ids": [],
+      "dependency_refs": [],
+      "time_ref": null,
+      "decision_ids": []
+    },
+    {
+      "id": "0128429a-0c37-44b9-9212-f5413a8fc21b",
+      "kind": "idea",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "26fac46a-e141-40ad-a03e-8c679c474d3a",
+          "message_id": "8431c0f7-6ede-45a2-83c8-927d28dcbaec",
+          "range": {
+            "start": 815,
+            "end": 873
+          }
+        }
+      ],
+      "created_exchange_id": "26fac46a-e141-40ad-a03e-8c679c474d3a",
+      "origin": "supplied",
+      "statement": "Possible diary wording: \"Edda stole the seal.\"",
+      "status": "proposed",
+      "related_element_ids": [
+        "19874e46-4095-4141-9c14-24559260450b",
+        "83c818af-8c1a-4871-beca-eb354753ab30"
+      ],
+      "alternative_group_id": null,
+      "selected_parts": [],
+      "decision_ids": [],
+      "resulting_assertion_ids": []
+    },
+    {
+      "id": "638564fa-74b2-450e-a0a7-d15dac37024a",
+      "kind": "session",
+      "revision": 3,
+      "previous_revision": 2,
+      "created_exchange_id": "1af5490d-dad0-4257-9f37-5aa34f3ee494",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "26fac46a-e141-40ad-a03e-8c679c474d3a",
+          "message_id": "8431c0f7-6ede-45a2-83c8-927d28dcbaec",
+          "range": {
+            "start": 875,
+            "end": 935
+          }
+        }
+      ],
+      "topic": "Events",
+      "mode": "open",
+      "state": "open",
+      "started_exchange_id": "1af5490d-dad0-4257-9f37-5aa34f3ee494",
+      "last_exchange_id": "26fac46a-e141-40ad-a03e-8c679c474d3a",
+      "related_record_ids": [
+        "9132e8e4-53d6-46cc-bcf2-4a3d1d8c543d",
+        "aeb371cf-d132-4ef1-8268-25136577aa15",
+        "6e43feba-be95-4219-bdee-734b58b049d4",
+        "a03667be-bc38-4303-bac4-dee40f97b84f",
+        "2d32b3f7-e9b6-44e6-a298-fcd139036721",
+        "f6d39415-fc49-4301-b42e-6fde6a83997f",
+        "63f9c91e-e5ea-4984-b708-d0ee2a6ca2ca",
+        "112f571c-3b26-420a-a232-9523e41db09f",
+        "eae7c6ff-3ab6-494f-8acf-27f492c70075",
+        "35505134-099c-4d53-af9c-33f1abe55199",
+        "05f15bb9-5745-45fe-bf72-8fdabc1b8108",
+        "3b7fbd73-8bd0-4b85-891c-e2be7a44e17e",
+        "ca5f921f-84d4-491b-a40f-16a576e9cb03",
+        "6b3bb4ae-39db-4545-bc19-7333f6dd52a6",
+        "0ef4149b-bceb-41f6-9b69-30aedefcb983",
+        "404a8f02-f6c4-4fb4-8143-126db225b572",
+        "ee68d703-7133-491d-a0f2-17f2c2b37456",
+        "e9bb208a-9c02-4f2f-9b19-e60379ac0bba",
+        "6a6267eb-2724-44d9-8d94-13811e1b0da2",
+        "6e55f5df-13d9-4001-8d91-6aee43d5c3e6",
+        "12d564bf-6711-4335-8304-1c834f1b4830",
+        "d7c22da4-a38d-4b32-90b7-386e12b025d5",
+        "f68c6800-2f6a-4046-bf9e-de8e665fac23",
+        "56d74b11-d849-4ce4-926a-d04242a4af43",
+        "91679de1-7f15-4dd2-85be-d4edfa4809c7",
+        "94551fd9-2bdd-4435-aae3-fae189089a8f",
+        "fd6e1431-35c0-4a10-82d7-a8bd02939858",
+        "4a8cee6c-02a9-4a65-a3c6-d7fa96ef93b8",
+        "6e2f14e2-5707-4009-9e7f-7231ae914c4c",
+        "fa6e1900-e33e-4c33-99d9-86d28588086c",
+        "ee523c46-e518-438d-8e7b-0d347021dd93",
+        "34392e8c-ffa9-41ad-b8ca-cc3f9fc01d6e",
+        "b9b74305-4a7a-40af-9cbb-5df8f5d32b52",
+        "8585a85b-f8ab-41c0-b851-a481f199c2bd",
+        "80085c56-b3b8-441c-841d-dfff1f035569",
+        "138838ff-8d53-4251-8670-e8415b7a3c11",
+        "c72be9b2-3e76-4917-a3d5-e2f47c849753",
+        "73f2747c-a6e2-4e05-9c68-800164ce1c86",
+        "4d04c405-9676-4724-a918-073670d901f9",
+        "bb93a8e9-f19d-4cd8-b408-f07dfecb327c",
+        "ffe73a16-4020-48b0-bf0d-ebb0a3768bbb",
+        "a86ca6b8-0598-485a-b378-08320a08e2fa",
+        "cce33bff-e4f4-4636-9f21-8624d387bd10",
+        "2c8bdb38-8cd7-4fc5-99a0-789dcea62e85",
+        "4f1057ab-f7e4-4425-94ef-24d7af3a0533",
+        "58d64833-6a32-42b9-b3e8-682f53c1639a",
+        "153e1d18-33fa-455b-808b-164ddb6b08be",
+        "8fb9d139-cabd-4766-8df0-42258991f392",
+        "ccc7f13e-7414-4828-8baa-ccaa54c66545",
+        "decea5c4-356e-48a2-a166-566835edc5ad",
+        "9170d2d2-7500-43cb-8eb2-17bf4c1ee61d",
+        "3c94b6c2-1b4d-4c48-b1f4-684add61260a",
+        "a7e45e2c-e567-41f9-9b04-5f2c31811b7e",
+        "f995603a-10f7-4438-93cd-72242353a897",
+        "b265bcf2-c984-4171-96bf-f4988f89c180",
+        "fb1bc34e-3c5a-4821-9e70-6e1b113294f7",
+        "bffb6141-7668-4e36-8d7c-91036a59cb34",
+        "6a5f28b2-9ec8-4538-8009-00d61c257790",
+        "5bcfbb3c-2787-4a57-9be4-5d3f339e148b",
+        "d793e13c-0035-4265-9c75-7b527d2c2ec4",
+        "96dee911-f682-49a3-8ec2-ffb27bb45b63",
+        "9d3b498f-f81c-4884-9d7f-6fea2c53b248",
+        "c8ddb813-589e-43f7-8ba4-b04829943346",
+        "1f27742d-b023-435b-b2f3-dcbd6d232d7e",
+        "19874e46-4095-4141-9c14-24559260450b",
+        "0128429a-0c37-44b9-9212-f5413a8fc21b"
+      ],
+      "unresolved_question_ids": [
+        "d7c22da4-a38d-4b32-90b7-386e12b025d5",
+        "f68c6800-2f6a-4046-bf9e-de8e665fac23",
+        "73f2747c-a6e2-4e05-9c68-800164ce1c86",
+        "3c94b6c2-1b4d-4c48-b1f4-684add61260a",
+        "bffb6141-7668-4e36-8d7c-91036a59cb34"
+      ],
+      "derived_context_ref": null
+    }
+  ],
+  "continuity_review": {
+    "coverage": "complete",
+    "reviewed_record_refs": [
+      {
+        "id": "ba58b0dd-8d4e-402a-a41e-4adbabd0bcf0",
+        "revision": 1
+      },
+      {
+        "id": "5299dee6-4976-454a-b3bd-f85936be0fc3",
+        "revision": 1
+      },
+      {
+        "id": "83c818af-8c1a-4871-beca-eb354753ab30",
+        "revision": 1
+      },
+      {
+        "id": "fe4f5d2f-3ecc-48db-918a-3bb260cee80f",
+        "revision": 1
+      },
+      {
+        "id": "3a173fe0-b9d9-41dd-bd07-6b797c7c3390",
+        "revision": 1
+      },
+      {
+        "id": "b2bba552-bebf-4cae-b835-e01708b8d516",
+        "revision": 1
+      },
+      {
+        "id": "11fcc852-4938-4808-85d1-d80cbc08b8ef",
+        "revision": 1
+      },
+      {
+        "id": "24a9e934-c113-4281-bbfd-59e1db9d03ce",
+        "revision": 1
+      },
+      {
+        "id": "0636c698-a7f7-4957-ac90-2cc56a68bdfa",
+        "revision": 1
+      },
+      {
+        "id": "89643a23-bc5b-47e7-805d-69baf02f51e4",
+        "revision": 1
+      },
+      {
+        "id": "92657929-a1d8-4db7-81bc-3e5b83516e12",
+        "revision": 1
+      },
+      {
+        "id": "12fdedbe-1fd7-43c7-9899-d854c00ebf7f",
+        "revision": 1
+      },
+      {
+        "id": "0fafb781-6fe4-4f55-9665-8201f692081d",
+        "revision": 1
+      },
+      {
+        "id": "e4198cbf-dbfc-4068-a487-81dc21c73380",
+        "revision": 1
+      },
+      {
+        "id": "d5adf09d-3773-4d70-828b-5cee7def7194",
+        "revision": 1
+      },
+      {
+        "id": "c1edb38c-e177-4154-add4-13ebf95c7207",
+        "revision": 1
+      },
+      {
+        "id": "5ecad072-009b-438c-8e65-034fe992d3a9",
+        "revision": 1
+      },
+      {
+        "id": "b0134264-50de-4438-9ea4-7b7fea14021a",
+        "revision": 1
+      },
+      {
+        "id": "9132e8e4-53d6-46cc-bcf2-4a3d1d8c543d",
+        "revision": 1
+      },
+      {
+        "id": "aeb371cf-d132-4ef1-8268-25136577aa15",
+        "revision": 1
+      },
+      {
+        "id": "6e43feba-be95-4219-bdee-734b58b049d4",
+        "revision": 1
+      },
+      {
+        "id": "a03667be-bc38-4303-bac4-dee40f97b84f",
+        "revision": 1
+      },
+      {
+        "id": "2d32b3f7-e9b6-44e6-a298-fcd139036721",
+        "revision": 1
+      },
+      {
+        "id": "63f9c91e-e5ea-4984-b708-d0ee2a6ca2ca",
+        "revision": 1
+      },
+      {
+        "id": "112f571c-3b26-420a-a232-9523e41db09f",
+        "revision": 1
+      },
+      {
+        "id": "35505134-099c-4d53-af9c-33f1abe55199",
+        "revision": 1
+      },
+      {
+        "id": "05f15bb9-5745-45fe-bf72-8fdabc1b8108",
+        "revision": 1
+      },
+      {
+        "id": "ca5f921f-84d4-491b-a40f-16a576e9cb03",
+        "revision": 2
+      },
+      {
+        "id": "e9bb208a-9c02-4f2f-9b19-e60379ac0bba",
+        "revision": 2
+      },
+      {
+        "id": "6a6267eb-2724-44d9-8d94-13811e1b0da2",
+        "revision": 2
+      },
+      {
+        "id": "f39dce7b-0a80-4c61-86f0-db07bbcec4ef",
+        "revision": 1
+      },
+      {
+        "id": "35e60556-5757-44be-9402-91bdbaf3596a",
+        "revision": 1
+      },
+      {
+        "id": "c70819f0-73c7-46b0-9dcd-8fbdbc0713ba",
+        "revision": 1
+      },
+      {
+        "id": "1e4f66c1-05e2-41f5-aba2-290339dcc3a5",
+        "revision": 1
+      },
+      {
+        "id": "8913530c-0c5d-4a5f-a795-db0ceeca8d40",
+        "revision": 1
+      },
+      {
+        "id": "3a2d51c7-eb33-4443-95b9-86cdfa542100",
+        "revision": 1
+      },
+      {
+        "id": "249f979b-d59a-4815-b1ed-1dc386393711",
+        "revision": 1
+      },
+      {
+        "id": "5d69e81a-becd-438a-97f3-5368dc22f78b",
+        "revision": 1
+      },
+      {
+        "id": "56d74b11-d849-4ce4-926a-d04242a4af43",
+        "revision": 1
+      },
+      {
+        "id": "94551fd9-2bdd-4435-aae3-fae189089a8f",
+        "revision": 1
+      },
+      {
+        "id": "6b3bb4ae-39db-4545-bc19-7333f6dd52a6",
+        "revision": 1
+      }
+    ],
+    "unavailable_refs": [],
+    "canon_hold_refs": [],
+    "finding_ids": [
+      "c8ddb813-589e-43f7-8ba4-b04829943346"
+    ],
+    "summary": "Reviewed all twelve separate notes against saved facts and exact current source spans. Praise, maybe/what-if/suppose, ambiguous Yes, tentative interest and quoted dialogue/diary wording do not authorize acceptance. Explicit rejection is captured. The current request reopens the previously selected storm without rejecting either weather alternative. Floating-bridge timing and canon intent remain uncertain; the accepted no-bridge rule is unchanged. No unsupported character identities, victims or theft facts were established."
+  },
+  "payload_digest": "e562ee59453d97ade9673b9cf2cf793dc153a8e3dd8523d77fee2a998d9f7d84"
+}

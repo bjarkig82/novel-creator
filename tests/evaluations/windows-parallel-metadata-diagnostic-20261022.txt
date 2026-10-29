@@ -1,0 +1,14 @@
+{"fixture": {"sessions": 100, "exchanges": 5000, "active_assertions": 10000, "json_bytes": 26215716, "synthetic": true, "fully_validated": true}, "source_sha256": "69ff00ee3e3a864a458f8c26074e241932911f58c654551afb1b22285eba3035", "experiment_sha256": "ef1144c419418dbb4b4758f1cee8aba8abcc76722c25cc4feed4088163d60576", "method": "Balanced complete file-guard timings, 4 samples/variant, metadata checks join before full root-bound hashing, no production change; not p95"}
+{"metadata_workers": 0, "guard_seconds": 0.6857859999872744}
+{"metadata_workers": 2, "guard_seconds": 0.4576580000575632}
+{"metadata_workers": 4, "guard_seconds": 0.7395750000141561}
+{"metadata_workers": 4, "guard_seconds": 0.5412792999995872}
+{"metadata_workers": 2, "guard_seconds": 0.44221260002814233}
+{"metadata_workers": 0, "guard_seconds": 0.4766374999890104}
+{"metadata_workers": 0, "guard_seconds": 0.45655110001098365}
+{"metadata_workers": 2, "guard_seconds": 0.4504495000001043}
+{"metadata_workers": 4, "guard_seconds": 0.5854852999327704}
+{"metadata_workers": 4, "guard_seconds": 0.4076928999274969}
+{"metadata_workers": 2, "guard_seconds": 0.377635300043039}
+{"metadata_workers": 0, "guard_seconds": 0.4056436000391841}
+{"medians": {"0": 0.466594299999997, "2": 0.4463310500141233, "4": 0.5633822999661788}}

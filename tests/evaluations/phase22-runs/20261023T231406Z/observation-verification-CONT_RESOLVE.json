@@ -1,0 +1,86 @@
+{
+  "ok": true,
+  "scope": "Public delegated persistence/display/source checks only",
+  "case_filter": [
+    "CONT_RESOLVE"
+  ],
+  "language_filter": null,
+  "all_submitted_cases_checked": false,
+  "semantic_assessment": "Separate agent judgments required; no human/native result inferred",
+  "cases": [
+    {
+      "case_id": "CONT_RESOLVE",
+      "language": "en",
+      "thread_id": "01a16af9-f289-73c1-8151-55f50ace05d9",
+      "turn_id": "01a1821b-2c68-7f32-b757-c213ade05cf1",
+      "exchange_id": "d3acdbe1-665b-4454-87ac-7a8cb27b938f",
+      "checkpoint": {
+        "git_head": "83f9d5dfaff9dbf477abc6a9c8558c790b1e021d",
+        "exchange_id": "d3acdbe1-665b-4454-87ac-7a8cb27b938f",
+        "sequence": 18
+      },
+      "exact_input_saved": true,
+      "exact_response_saved_and_displayed": true,
+      "save_precedes_display": true,
+      "source_type": "delegated",
+      "native_user_input": false,
+      "novice_evidence": false,
+      "installed_bundle_verified": true,
+      "installed_bundle_matches_current_source": true,
+      "commentary_agent_reviewed": true,
+      "record_kinds": [
+        "idea",
+        "story_element",
+        "story_element",
+        "assertion",
+        "assertion",
+        "assertion",
+        "idea",
+        "decision",
+        "finding",
+        "decision",
+        "decision",
+        "finding",
+        "decision",
+        "session"
+      ],
+      "response": "The deferred relationship issue is resolved as an intentional dream (69b768af r3; resolution cb322bf4 r1). Freyja imagines the shared childhood in a dream; it is not a real shared experience (72157a31 r1; dream event b55e98b1 r1; author-truth assertions 301b0343 r1 and 1a723534 r1).\n\nThe dream content is stored separately with Freyja as its viewpoint holder (24e4f2e9 r1). This does not establish an earlier meeting, shared childhood in author truth, or a belief that the dream is real. Freyja and Sigrún still never met before the reunion (20ec7fd0 r1; reaffirmation dce8df27 r1). The old real-memory proposal and its versions remain inspectable; its current version is superseded (42cd4d30 r3). The deferred relationship hold is released by this sourced intentional resolution.\n\nThe advisory brass-seal foreshadowing finding is resolved (cefb035a r2; disposition decision 82d0d795 r1). Its proposal remains unaccepted and unchanged (ef0b727a r1); I will give no further advice about that suggestion unless you ask.\n\nContinuity review is closed (7b956f0b r6), retaining its saved open-ended mode. The unrelated floating-bridge uncertainty remains open (c8ddb813 r1), and all unanswered questions remain open. Routine checkpoints remain on request. Paused here."
+    },
+    {
+      "case_id": "CONT_RESOLVE",
+      "language": "is",
+      "thread_id": "01a16afa-1197-7650-8189-9365687429ee",
+      "turn_id": "01a1821b-34a4-79d2-9478-be769e06d271",
+      "exchange_id": "16893d05-744d-4869-a918-4c5b2f26ae7d",
+      "checkpoint": {
+        "git_head": "069ca90e32beedd919eeafa86067b5a3e0c99d63",
+        "exchange_id": "16893d05-744d-4869-a918-4c5b2f26ae7d",
+        "sequence": 18
+      },
+      "exact_input_saved": true,
+      "exact_response_saved_and_displayed": true,
+      "save_precedes_display": true,
+      "source_type": "delegated",
+      "native_user_input": false,
+      "novice_evidence": false,
+      "installed_bundle_verified": true,
+      "installed_bundle_matches_current_source": true,
+      "commentary_agent_reviewed": true,
+      "record_kinds": [
+        "idea",
+        "story_element",
+        "assertion",
+        "relationship",
+        "assertion",
+        "decision",
+        "finding",
+        "decision",
+        "finding",
+        "decision",
+        "session"
+      ],
+      "response": "Yfirferðinni er lokið.\n\nFrestaða tengslaálitamálið er leyst sem viljandi frásagnartækni (93c85a29 v3; úrlausn 9aba8142 v1). Sýnileg sameiginleg æskuminning er draumur sem Freyja ímyndar sér, ekki raunveruleg sameiginleg reynsla (cd8104e3 v3; endurskoðun 07d3b2bc v1).\nSjónarhorn draumsins er varðveitt aðskilið (247e8a85 v2); sú staðreynd að Freyja ímyndi sér hann er höfundarsannleikur (cb0c5e2d v1). Tímasetning draumsins er ótilgreind. Freyja og Sigrún höfðu enn aldrei hist fyrir endurfundina (60e3081b v1; 134717c6 v1). Fyrri útgáfur eru varðveittar.\nFyrra staðfestingarhald þessa tengslaálitamáls er aflétt með úrlausninni; raunveruleg sameiginleg æska er ekki staðfest.\n\nRáðgjöf um látúnsinnsiglið:\n- Ráðgefandi álitamálið er merkt leyst (1ee64885 v2; úrlausn 3658fa58 v1).\n- Fyrirboðatillagan er áfram óstaðfest tillaga (8fc8b19d v1). Að ljúka ráðgjöf er ekki samþykki hennar.\n\nEftirstandandi atriði:\n- Flotbrúarálitamálið er enn opið með óbreyttu umfangi (f1fcc75e v1).\n- Tímasetning vitneskju Freyju er enn óþekkt (0b71babb v1; f82120a5 v1).\n- Aðskilin látúnsspeglun er áfram tillaga (da64b265 v1).\n- Verndað sakleysi Eddu og aðrar staðfestar ákvarðanir haldast (711ac5fd v5).\n\nOpnar spurningar sem halda sér:\n- Hvers vegna sendi Rúna bréfið? (f2def862 v1).\n- Hvað vill Edda frá Bjarna? (a65358cf v1).\n- Hver finnur bréfið? (5d72fc12 v1).\n- Hvenær kemur Bjarni aftur? (8ed04638 v1).\n- Hvað opnar leyniherbergið? (7d3570e2 v1).\n- Hvað ef Ari á dóttur? (da79f6a2 v1).\n- Gæti báturinn lekið? (8f56ec6e v1).\n- Á „Já“ við gólfhlerann, veggdyrnar eða að halda báðum inngöngum til skoðunar? (20822d29 v1).\n- Hvenær lærði Freyja leyndarmál leyniherbergisins? (9c73d1de v1).\nAðrar ósamþykktar tillögur haldast án nýrrar staðfestingar.\nYfirlitið er afleitt af heimildafærslum. Fyrri vistunarpunktur: 158d08cfb1927dd3b395b3c857ea392f1d9bc9be, röð 17. Þessi færsla: 16893d05-744d-4869-a918-4c5b2f26ae7d, röð 18; lota bd14ac9f v6.\nÉg staldra við."
+    }
+  ],
+  "failures": []
+}

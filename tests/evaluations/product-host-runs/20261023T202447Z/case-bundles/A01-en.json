@@ -1,0 +1,428 @@
+{
+  "schema_version": "1.0",
+  "novel_id": "adfafe79-ad44-4097-8fc2-305095c3e4ec",
+  "exchange_id": "341e9a54-1270-40e0-abc6-d689c55f3f2d",
+  "sequence": 9,
+  "previous_exchange_id": "cdf16bd8-ae75-461c-9dda-077e58c78197",
+  "previous_digest": "7fed27f49c5280620757a559b91aad35c2741fb6133440081815a8514fbea9dd",
+  "session_id": "5c6111bf-1bc4-4679-8354-b673e96a06f0",
+  "expected_git_head": "75af515655120324dc5e91db3bf9b74f1e735e16",
+  "recorded_at": "2026-10-23T20:53:59.346011Z",
+  "operation": "conversation",
+  "messages": [
+    {
+      "message_id": "9789f9f4-79a5-4a6f-bd31-a2e3520e39e2",
+      "role": "user",
+      "text": "Accept the keeper as the sender."
+    },
+    {
+      "message_id": "8e53bc11-d148-4ea7-aaf4-113bbcefb3a6",
+      "role": "assistant",
+      "text": "Established: the keeper sent the letter.\n\nHis motive, what the letter says, and the childhood drawer remain undecided."
+    }
+  ],
+  "input_artifacts": [
+    {
+      "artifact_id": "ae8eaf50-cf9e-4701-ab58-044624a16fb6",
+      "original_text": "{\"kind\":\"host_input\",\"source_type\":\"delegated\",\"thread_id\":\"01a16833-e1cf-79d2-bee0-80a6ca973e3c\",\"turn_id\":\"01a16a89-af0f-7d42-b09f-fb33b125b9fa\",\"event_id\":\"fco_01a16a89-af10-7ee0-b29b-1cf655ad09e3\",\"event_type\":\"functionCallOutput\",\"source_thread_id\":\"01a167df-036b-7c71-b306-9d7021046c01\",\"native_user_input\":false,\"novice_evidence\":false,\"evaluation_only\":true,\"text\":\"Accept the keeper as the sender.\",\"public_event\":{\"type\":\"functionCallOutput\",\"id\":\"fco_01a16a89-af10-7ee0-b29b-1cf655ad09e3\",\"namespace\":\"codex_app\",\"name\":\"send_message_to_thread\",\"output\":{\"text\":\"<codex_delegation>\\n  <source_thread_id>01a167df-036b-7c71-b306-9d7021046c01</source_thread_id>\\n  <input>Accept the keeper as the sender.</input>\\n</codex_delegation>\",\"truncated\":false}}}",
+      "parsed_value": {
+        "kind": "host_input",
+        "source_type": "delegated",
+        "thread_id": "01a16833-e1cf-79d2-bee0-80a6ca973e3c",
+        "turn_id": "01a16a89-af0f-7d42-b09f-fb33b125b9fa",
+        "event_id": "fco_01a16a89-af10-7ee0-b29b-1cf655ad09e3",
+        "event_type": "functionCallOutput",
+        "source_thread_id": "01a167df-036b-7c71-b306-9d7021046c01",
+        "native_user_input": false,
+        "novice_evidence": false,
+        "evaluation_only": true,
+        "text": "Accept the keeper as the sender.",
+        "public_event": {
+          "type": "functionCallOutput",
+          "id": "fco_01a16a89-af10-7ee0-b29b-1cf655ad09e3",
+          "namespace": "codex_app",
+          "name": "send_message_to_thread",
+          "output": {
+            "text": "<codex_delegation>\n  <source_thread_id>01a167df-036b-7c71-b306-9d7021046c01</source_thread_id>\n  <input>Accept the keeper as the sender.</input>\n</codex_delegation>",
+            "truncated": false
+          }
+        }
+      },
+      "digest": "09ecc867cd176bf69b1003bb31ce2380c3afb6197892b072eaae2a4eca3d7efe"
+    }
+  ],
+  "record_versions": [
+    {
+      "id": "464a598d-0dfd-49f2-87a6-271c94550f03",
+      "kind": "idea",
+      "revision": 2,
+      "previous_revision": 1,
+      "created_exchange_id": "845b11a1-46fb-4d38-a1f6-a456bacb0a5e",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "845b11a1-46fb-4d38-a1f6-a456bacb0a5e",
+          "message_id": "f8cd83ef-35ac-4abe-a96a-3277fb36c577",
+          "range": {
+            "start": 22,
+            "end": 64
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "341e9a54-1270-40e0-abc6-d689c55f3f2d",
+          "message_id": "9789f9f4-79a5-4a6f-bd31-a2e3520e39e2",
+          "range": {
+            "start": 0,
+            "end": 32
+          }
+        }
+      ],
+      "origin": "supplied",
+      "statement": "The keeper sent the letter himself.",
+      "status": "accepted",
+      "related_element_ids": [
+        "9fb4a720-5cf2-48ae-b65c-e0cd5fad17f0"
+      ],
+      "alternative_group_id": null,
+      "selected_parts": [
+        "The keeper sent the letter himself."
+      ],
+      "decision_ids": [
+        "a6044c6f-a41c-4ba9-ae7c-2927b6bf8928"
+      ],
+      "resulting_assertion_ids": [
+        "f172b29a-f555-42a4-8539-ffc7b5a00849"
+      ]
+    },
+    {
+      "id": "9fb4a720-5cf2-48ae-b65c-e0cd5fad17f0",
+      "kind": "story_element",
+      "revision": 1,
+      "previous_revision": null,
+      "created_exchange_id": "341e9a54-1270-40e0-abc6-d689c55f3f2d",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "341e9a54-1270-40e0-abc6-d689c55f3f2d",
+          "message_id": "9789f9f4-79a5-4a6f-bd31-a2e3520e39e2",
+          "range": {
+            "start": 0,
+            "end": 32
+          }
+        }
+      ],
+      "origin": "supplied",
+      "element_type": "character",
+      "display_name": "the keeper",
+      "aliases": [],
+      "status": "accepted",
+      "assertion_ids": [
+        "f172b29a-f555-42a4-8539-ffc7b5a00849"
+      ],
+      "relationship_ids": [],
+      "dependency_refs": [],
+      "time_ref": null,
+      "decision_ids": [
+        "a6044c6f-a41c-4ba9-ae7c-2927b6bf8928"
+      ]
+    },
+    {
+      "id": "f172b29a-f555-42a4-8539-ffc7b5a00849",
+      "kind": "assertion",
+      "revision": 1,
+      "previous_revision": null,
+      "created_exchange_id": "341e9a54-1270-40e0-abc6-d689c55f3f2d",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "341e9a54-1270-40e0-abc6-d689c55f3f2d",
+          "message_id": "9789f9f4-79a5-4a6f-bd31-a2e3520e39e2",
+          "range": {
+            "start": 0,
+            "end": 32
+          }
+        }
+      ],
+      "origin": "supplied",
+      "subject_element_id": "9fb4a720-5cf2-48ae-b65c-e0cd5fad17f0",
+      "predicate": "sent_letter",
+      "value": "the letter",
+      "perspective": "author_truth",
+      "holder_id": null,
+      "reader_audience": null,
+      "time_ref": {
+        "chronology": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        },
+        "narrative": {
+          "precision": "unknown",
+          "event_anchor": null,
+          "start": null,
+          "end": null,
+          "before_refs": [],
+          "after_refs": []
+        }
+      },
+      "truth_state": "affirmed",
+      "status": "accepted",
+      "decision_ids": [
+        "a6044c6f-a41c-4ba9-ae7c-2927b6bf8928"
+      ],
+      "supersedes": null
+    },
+    {
+      "id": "a6c49204-ce89-40f0-a54a-41844154a6b7",
+      "kind": "question",
+      "revision": 2,
+      "previous_revision": 1,
+      "created_exchange_id": "e1adc0ee-d02f-4f73-bbb4-d64e2988848d",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "e1adc0ee-d02f-4f73-bbb4-d64e2988848d",
+          "message_id": "0bc091de-0716-419d-9cb9-313cb1cc5bc9",
+          "range": {
+            "start": 197,
+            "end": 226
+          }
+        },
+        {
+          "type": "message",
+          "exchange_id": "341e9a54-1270-40e0-abc6-d689c55f3f2d",
+          "message_id": "9789f9f4-79a5-4a6f-bd31-a2e3520e39e2",
+          "range": {
+            "start": 0,
+            "end": 32
+          }
+        }
+      ],
+      "text": "Who sent the letter?",
+      "related_refs": [
+        {
+          "id": "3cba38aa-8ee9-4854-bb47-45a5b8ced813",
+          "revision": 1
+        }
+      ],
+      "alternative_ids": [],
+      "state": "resolved",
+      "resolution_decision_id": "a6044c6f-a41c-4ba9-ae7c-2927b6bf8928"
+    },
+    {
+      "id": "a6044c6f-a41c-4ba9-ae7c-2927b6bf8928",
+      "kind": "decision",
+      "revision": 1,
+      "previous_revision": null,
+      "created_exchange_id": "341e9a54-1270-40e0-abc6-d689c55f3f2d",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "341e9a54-1270-40e0-abc6-d689c55f3f2d",
+          "message_id": "9789f9f4-79a5-4a6f-bd31-a2e3520e39e2",
+          "range": {
+            "start": 0,
+            "end": 32
+          }
+        }
+      ],
+      "origin": "supplied",
+      "action": "accept",
+      "user_message_ref": {
+        "type": "message",
+        "exchange_id": "341e9a54-1270-40e0-abc6-d689c55f3f2d",
+        "message_id": "9789f9f4-79a5-4a6f-bd31-a2e3520e39e2",
+        "range": {
+          "start": 0,
+          "end": 32
+        }
+      },
+      "span": {
+        "start": 0,
+        "end": 32
+      },
+      "target_refs": [
+        {
+          "id": "464a598d-0dfd-49f2-87a6-271c94550f03",
+          "revision": 1
+        }
+      ],
+      "selected_parts": [
+        "The keeper sent the letter himself."
+      ],
+      "prior_refs": [
+        {
+          "id": "464a598d-0dfd-49f2-87a6-271c94550f03",
+          "revision": 1
+        },
+        {
+          "id": "a6c49204-ce89-40f0-a54a-41844154a6b7",
+          "revision": 1
+        }
+      ],
+      "result_refs": [
+        {
+          "id": "464a598d-0dfd-49f2-87a6-271c94550f03",
+          "revision": 2
+        },
+        {
+          "id": "9fb4a720-5cf2-48ae-b65c-e0cd5fad17f0",
+          "revision": 1
+        },
+        {
+          "id": "f172b29a-f555-42a4-8539-ffc7b5a00849",
+          "revision": 1
+        },
+        {
+          "id": "a6c49204-ce89-40f0-a54a-41844154a6b7",
+          "revision": 2
+        }
+      ],
+      "reason": "Explicit current selection of the keeper as sender; no motive, letter contents, childhood fact, character knowledge or reader revelation accepted.",
+      "affected_refs": [
+        {
+          "id": "464a598d-0dfd-49f2-87a6-271c94550f03",
+          "revision": 2
+        },
+        {
+          "id": "9fb4a720-5cf2-48ae-b65c-e0cd5fad17f0",
+          "revision": 1
+        },
+        {
+          "id": "f172b29a-f555-42a4-8539-ffc7b5a00849",
+          "revision": 1
+        },
+        {
+          "id": "a6c49204-ce89-40f0-a54a-41844154a6b7",
+          "revision": 2
+        }
+      ],
+      "review_required_refs": []
+    },
+    {
+      "id": "5c6111bf-1bc4-4679-8354-b673e96a06f0",
+      "kind": "session",
+      "revision": 7,
+      "previous_revision": 6,
+      "created_exchange_id": "9896c9bc-f75e-4d6a-a647-b0566945556c",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "341e9a54-1270-40e0-abc6-d689c55f3f2d",
+          "message_id": "9789f9f4-79a5-4a6f-bd31-a2e3520e39e2"
+        }
+      ],
+      "topic": "The keeper's motive for retrieving the letter",
+      "mode": "guided",
+      "state": "open",
+      "started_exchange_id": "9896c9bc-f75e-4d6a-a647-b0566945556c",
+      "last_exchange_id": "341e9a54-1270-40e0-abc6-d689c55f3f2d",
+      "related_record_ids": [
+        "38b18f31-c7ae-4760-a384-3fa08f0a1ec6",
+        "3cba38aa-8ee9-4854-bb47-45a5b8ced813",
+        "a6c49204-ce89-40f0-a54a-41844154a6b7",
+        "1606e3ed-dbab-4fa6-82d8-971f7dfe6ad0",
+        "464a598d-0dfd-49f2-87a6-271c94550f03",
+        "20799974-2bd1-427b-a102-7e85b5fa477c",
+        "fd528242-9507-4420-a4a7-57ea3712e72d",
+        "dcd993b3-5a8b-4898-8540-12c49374b38d",
+        "408313cd-3e4b-4d22-9e28-80600c0f97d1",
+        "897ed57a-291b-4d48-af85-939feeaaf924",
+        "bb4999c5-634d-43e4-b2a7-37f3ab5ad2dd",
+        "a992a5c7-ec3b-4918-b08e-77908bc2d614",
+        "ccc9d5ae-8a26-4c24-929d-4bba90963755",
+        "d49c27a0-e7b7-414c-bb39-5711599c215d",
+        "9fb4a720-5cf2-48ae-b65c-e0cd5fad17f0",
+        "f172b29a-f555-42a4-8539-ffc7b5a00849",
+        "a6044c6f-a41c-4ba9-ae7c-2927b6bf8928"
+      ],
+      "unresolved_question_ids": [
+        "38b18f31-c7ae-4760-a384-3fa08f0a1ec6",
+        "1606e3ed-dbab-4fa6-82d8-971f7dfe6ad0",
+        "408313cd-3e4b-4d22-9e28-80600c0f97d1",
+        "bb4999c5-634d-43e4-b2a7-37f3ab5ad2dd"
+      ],
+      "derived_context_ref": null
+    }
+  ],
+  "continuity_review": {
+    "coverage": "complete",
+    "reviewed_record_refs": [
+      {
+        "id": "adfafe79-ad44-4097-8fc2-305095c3e4ec",
+        "revision": 3
+      },
+      {
+        "id": "5c6111bf-1bc4-4679-8354-b673e96a06f0",
+        "revision": 6
+      },
+      {
+        "id": "38b18f31-c7ae-4760-a384-3fa08f0a1ec6",
+        "revision": 1
+      },
+      {
+        "id": "3cba38aa-8ee9-4854-bb47-45a5b8ced813",
+        "revision": 1
+      },
+      {
+        "id": "a6c49204-ce89-40f0-a54a-41844154a6b7",
+        "revision": 1
+      },
+      {
+        "id": "1606e3ed-dbab-4fa6-82d8-971f7dfe6ad0",
+        "revision": 1
+      },
+      {
+        "id": "464a598d-0dfd-49f2-87a6-271c94550f03",
+        "revision": 1
+      },
+      {
+        "id": "20799974-2bd1-427b-a102-7e85b5fa477c",
+        "revision": 1
+      },
+      {
+        "id": "fd528242-9507-4420-a4a7-57ea3712e72d",
+        "revision": 1
+      },
+      {
+        "id": "dcd993b3-5a8b-4898-8540-12c49374b38d",
+        "revision": 1
+      },
+      {
+        "id": "408313cd-3e4b-4d22-9e28-80600c0f97d1",
+        "revision": 1
+      },
+      {
+        "id": "897ed57a-291b-4d48-af85-939feeaaf924",
+        "revision": 1
+      },
+      {
+        "id": "bb4999c5-634d-43e4-b2a7-37f3ab5ad2dd",
+        "revision": 1
+      },
+      {
+        "id": "a992a5c7-ec3b-4918-b08e-77908bc2d614",
+        "revision": 1
+      },
+      {
+        "id": "ccc9d5ae-8a26-4c24-929d-4bba90963755",
+        "revision": 1
+      },
+      {
+        "id": "d49c27a0-e7b7-414c-bb39-5711599c215d",
+        "revision": 1
+      }
+    ],
+    "unavailable_refs": [],
+    "canon_hold_refs": [],
+    "finding_ids": [],
+    "summary": "Reviewed all available records. Sender was explicitly undecided and keeper-as-sender was a proposal; current selection establishes only that proposition as author truth. Motives, retrieval, childhood drawer and other ideas remain proposed. Timing, character knowledge and reader revelation remain unknown; no conflict with existing accepted canon."
+  },
+  "payload_digest": "1e858e676038328009e3d64673236ad1920c7838257ea779909e77a9c21c691b"
+}

@@ -1,0 +1,6 @@
+test_switch_to_same_oid_branch_preserves_publication_and_cleanup_boundaries (tests.integration.test_storage.StorageTests.test_switch_to_same_oid_branch_preserves_publication_and_cleanup_boundaries) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 11.911s
+
+OK

@@ -1,0 +1,14 @@
+{
+  "case_id": "AUTH_REVISE",
+  "task": "T169",
+  "submitted": true,
+  "require_commentary_review": true,
+  "inputs": {
+    "en": "Case AUTH_REVISE. Deliberately revise these five established facts, retaining their prior versions and showing the directly affected records: Bjarni, rather than Rúna, sent the letter; Sigrún, rather than Ari, is the victim; Freyja, rather than Edda, is the investigator; the story takes place in autumn rather than winter; the letter arrived in the afternoon rather than before dawn. Keep Ari as Rúna’s brother and Edda as her sister. Make this a protected creative direction: Edda must remain innocent of the murder. Set routine checkpoints to session close, close Events now, summarize decisions, remaining proposals and unanswered questions, then pause.",
+    "is": "Tilvik AUTH_REVISE. Endurskoðum vísvitandi þessar fimm staðfestu staðreyndir; varðveittu fyrri útgáfur þeirra og sýndu færslur sem verða fyrir beinum áhrifum: Bjarni, en ekki Rúna, sendi bréfið; Sigrún, en ekki Ari, er fórnarlambið; Freyja, en ekki Edda, er rannsakandinn; sagan gerist að hausti en ekki vetri; bréfið kom síðdegis en ekki fyrir dögun. Ari er áfram bróðir Rúnu og Edda systir hennar. Gerðu þetta að verndaðri skapandi stefnu: Edda verður að vera saklaus af morðinu. Stilltu reglulega yfirferð við lok lotu, ljúktu Atburðum núna, taktu saman ákvarðanir, eftirstandandi tillögur og ósvaraðar spurningar og staldraðu svo við."
+  },
+  "submitted_languages": [
+    "en",
+    "is"
+  ]
+}

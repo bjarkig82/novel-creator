@@ -1,0 +1,81 @@
+"""Full-guard experiment: all metadata remains before full-byte hashes."""
+import hashlib,inspect,json,statistics,sys,time
+from pathlib import Path
+sys.path.insert(0,str(Path.cwd()))
+from novel_creator import records,storage
+from novel_creator.context import read
+from tests.helpers import repository,git
+from tests.performance import benchmark_records as benchmark
+source=inspect.getsource(storage.check_managed)
+start=source.index('        payload = ')
+end=source.index('        if any(current != oid',start)
+replacement='''        def hash_chunk(chunk):
+            payload = ''.join(json.dumps(path, ensure_ascii=False) + '\\n' for path, _ in chunk).encode()
+            values = git(root, 'hash-object', '--no-filters', '--stdin-paths', input=payload,
+                         env={'GIT_WORK_TREE': str(root)}).decode().splitlines()
+            if len(values) != len(chunk):
+                raise ToolError(5, 'Managed file hashing returned an incomplete result')
+            return values
+        size = max(1, (len(managed) + _workers - 1) // _workers)
+        # The complete original metadata loop precedes process submission.
+        with ThreadPoolExecutor(max_workers=_workers) as executor:
+            futures = [executor.submit(hash_chunk, managed[offset:offset + size])
+                       for offset in range(0, len(managed), size)]
+            hashes = [oid for future in futures for oid in future.result()]
+'''
+source=source[:start]+replacement+source[end:]
+source=source.replace('def check_managed(root, commit, paths, *, entries=None):','def parallel_hash_guard(root, commit, paths, *, entries=None, _workers=2):',1)
+namespace=dict(storage.__dict__);exec(compile(source,'<parallel-hash-experiment>','exec'),namespace)
+parallel=namespace['parallel_hash_guard']
+from unittest.mock import patch
+from novel_creator.cli import ToolError
+import threading
+cases=[]
+for fmt in ('sha1','sha256'):
+    with repository(object_format=fmt) as root:
+        for index in range(8):
+            target=root/('story/exchanges/'+str(index+1).zfill(6)+'-'+benchmark.uid()+'.json')
+            target.parent.mkdir(parents=True,exist_ok=True);target.write_bytes(b'{}')
+        git(root,'add','story/exchanges');git(root,'commit','-m','Disposable guard-only managed byte fixture')
+        entries=storage.committed_entries(root,storage.head(root))
+        managed=[path for path in entries if path.startswith(('story/exchanges/','.novel-creator/')) and not path.startswith('.novel-creator/local/')]
+        original=namespace['git']
+        # Every real byte hash is preserved, exactly once, including installed resources.
+        seen=[]
+        def traced(root,*args,**kwargs):
+            if args[0]=='hash-object':
+                assert kwargs['env']=={'GIT_WORK_TREE':str(root)}
+                assert args==('hash-object','--no-filters','--stdin-paths')
+                seen.extend(json.loads(p) for p in kwargs['input'].decode().splitlines())
+            return original(root,*args,**kwargs)
+        namespace['git']=traced
+        assert parallel(root,storage.head(root),[],entries=entries,_workers=4)==entries
+        assert sorted(seen)==sorted(managed) and len(seen)==len(set(seen))
+        namespace['git']=original
+        # Incomplete/error chunks must outrank a content conflict in an earlier chunk.
+        for failure in ('incomplete','process'):
+            calls=[];lock=threading.Lock()
+            def failing(root,*args,**kwargs):
+                if args[0]!='hash-object':return original(root,*args,**kwargs)
+                paths=[json.loads(p) for p in kwargs['input'].decode().splitlines()]
+                first=managed.index(paths[0])
+                with lock:calls.extend(paths)
+                if first==0:return (('0'*len(entries[paths[0]][1])+'\n')*len(paths)).encode()
+                if failure=='process':raise ToolError(5,'Injected process failure')
+                return b''
+            namespace['git']=failing
+            try:parallel(root,storage.head(root),[],entries=entries,_workers=4)
+            except ToolError as error:assert error.code==5,(failure,error.code)
+            else:raise AssertionError('Did not reject '+failure)
+            assert sorted(calls)==sorted(managed),'Not all workers joined'
+            namespace['git']=original
+        # An unsafe leaf must reject before any content process is launched.
+        target=root/managed[-1];raw=target.read_bytes();target.unlink();target.mkdir()
+        seen=[];namespace['git']=traced
+        try:parallel(root,storage.head(root),[],entries=entries,_workers=4)
+        except ToolError as error:assert error.code==3,error.code
+        else:raise AssertionError('Unsafe leaf accepted')
+        assert seen==[],'Hashing started before all metadata passed'
+        target.rmdir();target.write_bytes(raw);namespace['git']=original
+        cases.append({'object_format':fmt,'managed_files':len(managed),'exact_path_coverage':True,'failure_before_conflict':True,'workers_joined':True,'metadata_before_hash':True})
+print(json.dumps({'cases':cases,'scope':'external experiment only, not production save regression coverage'}))

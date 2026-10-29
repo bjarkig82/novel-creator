@@ -1,0 +1,25 @@
+{
+  "task": "T157 partial; T151-T156 planned only",
+  "source_unchanged": true,
+  "benchmark_exit": 1,
+  "stage_profile_exit": 0,
+  "gil_diagnostic_exit": 0,
+  "runtime_change_adopted": false,
+  "new_host_tasks_created": 0,
+  "read_p95_seconds": 0.8249958000378683,
+  "save_p95_seconds": 1.9713466999819502,
+  "independent_review": "No actionable issues",
+  "sha256": {
+    "src/novel_creator/storage.py": "a4cc5cba1ffd7f3885610ed98b8e0b965b16d3ed14ead91e73e8b58c7cab88d3",
+    "tests/performance/benchmark_records.py": "7f69593cbee6330af1cb67261f662db8d186cc6d00787d3710d002a8430650f2",
+    "tests/evaluations/windows-junction-packed-direct-30-20261023.json": "7efbbc07d88ece8f31a77dc49b07de5c239c2937ee7d9e781bf2559b2b3164ef",
+    "tests/evaluations/windows-junction-packed-direct-progress-20261023.txt": "3d0a3c6eaae40e0039f54acede9c4548e4874feb78ffcf733f5b0e0900ce0304",
+    "tests/evaluations/windows-packed-direct-stages-20261023.jsonl": "53d33211643733ee25f12321b23e52531d8ad1ed67c138b52af49c5490def08b",
+    "tests/evaluations/windows-packed-direct-stages-source-20261023.txt": "6137f94dd50c3c2fcc5e2e5e67533e7b26dcbb8a327651b8c67e8b72630b03f8",
+    "tests/evaluations/windows-metadata-gil-diagnostic-20261023.jsonl": "630df96cdabb67bc1c485bcb25ec8c0f031a4cc663a212e9912a2545fbc945a3",
+    "tests/evaluations/windows-metadata-gil-source-20261023.txt": "990a813e59e0bbd54a8d5e837bc41be5e9b9f488c47f630e1fa2a3ed2ab081af",
+    "tests/evaluations/windows-performance-hardware-20261023.json": "1f8e5433da0ac9e312860f48ce1c86330dddbad359e03cf51a88e8926a04854c",
+    "tests/evaluations/windows-performance-continuation-20261023.md": "2abccd0215fe4addbe35c02e88d2b57f3db8f802dd8dc97339faf1578a339aed",
+    "tests/evaluations/product-host-run-plan-20261023.md": "60109942a49752938deb67c74a6fe5948f77a6701cffa1a652248a54780f1142"
+  }
+}

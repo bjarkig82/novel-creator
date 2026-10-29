@@ -1,0 +1,13 @@
+{"resolved_launcher": "C:\\Program Files\\Git\\cmd\\git.exe", "direct_executable": "C:\\Program Files\\Git\\mingw64\\bin\\git.exe", "version": "git version 2.53.0.windows.3", "source_sha256": "57ba0d7f4dbb3c3ac68a70a74559236c36dadfad07713550f7970369f739a59b"}
+{"command": ["rev-parse", "--verify", "HEAD"], "median": {"False": 0.035645099997054785, "True": 0.019727949984371662}}
+{"command": ["ls-files", "--stage", "-z"], "median": {"False": 0.03539204999106005, "True": 0.020348699996247888}}
+{"fixture": {"sessions": 100, "exchanges": 5000, "active_assertions": 10000, "json_bytes": 26215716, "synthetic": true, "fully_validated": true}}
+{"direct": false, "seconds": 3.1654638999607414, "observed_count": 5001}
+{"direct": true, "seconds": 2.7599001999478787, "observed_count": 5002}
+{"direct": true, "seconds": 2.7180828999262303, "observed_count": 5003}
+{"direct": false, "seconds": 3.0187210999429226, "observed_count": 5004}
+{"direct": false, "seconds": 3.0168191000120714, "observed_count": 5005}
+{"direct": true, "seconds": 2.891837599920109, "observed_count": 5006}
+{"direct": true, "seconds": 2.8286534999497235, "observed_count": 5007}
+{"direct": false, "seconds": 3.069633200066164, "observed_count": 5008}
+{"save_medians": {"False": 3.0441771500045434, "True": 2.794276849948801}}

@@ -1,0 +1,83 @@
+{
+  "verification_ok": true,
+  "scope": "Observed delegated-input boundary only",
+  "tasks_created": 2,
+  "fresh_resumption_tasks_created": 0,
+  "native_capture_gate_passed": false,
+  "novels_initialized": 0,
+  "semantic_cases_executed": 0,
+  "human_or_novice_evidence": false,
+  "probes": [
+    {
+      "language": "en",
+      "phase": "creation",
+      "thread_id": "01a16833-e1cf-79d2-bee0-80a6ca973e3c",
+      "turn_id": "01a16833-e479-74e1-bc15-5535f6b160e6",
+      "source_type": "functionCallOutput",
+      "source_tool": "create_thread",
+      "native_user_messages": 0,
+      "delegated_input_matches_driver": true,
+      "capture_gate_passed": false,
+      "semantic_cases_executed": 0
+    },
+    {
+      "language": "en",
+      "phase": "followup",
+      "thread_id": "01a16833-e1cf-79d2-bee0-80a6ca973e3c",
+      "turn_id": "01a16835-26db-7532-a355-e765c8d36e28",
+      "source_type": "functionCallOutput",
+      "source_tool": "send_message_to_thread",
+      "native_user_messages": 0,
+      "delegated_input_matches_driver": true,
+      "capture_gate_passed": false,
+      "semantic_cases_executed": 0
+    },
+    {
+      "language": "is",
+      "phase": "creation",
+      "thread_id": "01a16833-fa8e-7ec1-9c69-53dc7eaec197",
+      "turn_id": "01a16833-fe8e-70a0-afb2-cc6d57b46085",
+      "source_type": "functionCallOutput",
+      "source_tool": "create_thread",
+      "native_user_messages": 0,
+      "delegated_input_matches_driver": true,
+      "capture_gate_passed": false,
+      "semantic_cases_executed": 0
+    },
+    {
+      "language": "is",
+      "phase": "followup",
+      "thread_id": "01a16833-fa8e-7ec1-9c69-53dc7eaec197",
+      "turn_id": "01a16835-30a7-7ee1-9421-c444c993dd51",
+      "source_type": "functionCallOutput",
+      "source_tool": "send_message_to_thread",
+      "native_user_messages": 0,
+      "delegated_input_matches_driver": true,
+      "capture_gate_passed": false,
+      "semantic_cases_executed": 0
+    }
+  ],
+  "sha256": {
+    "en-creation-gate-report.json": "d353dc9fa8e7316a9e5391691ffe286bba5ccb12cd64bf1fdb3812475752f9c1",
+    "en-creation-native.json": "1ed15a42b2da888cb27fb9cd55996dce0d6245552625cb0a67fd17f092c76594",
+    "en-followup-driver-prompt.txt": "1fdcf447672a079f88ffcd532afc1f2899c2d172538d1c384ebb8e21d1b2659f",
+    "en-followup-gate-report.json": "bb2b964e9bf08dd580b020137355d10388ad3392774efa0f62c5615b1f40e1cb",
+    "en-followup-native.json": "c73ab3caecd0dc2767dc1c46ec1e25f779890618c8bd0b5629e43d483cee9a6a",
+    "en-task-inventory.json": "21601976064c7a85a439a1ceef4ca20c8337e64b57ee1d917c61159a3813de40",
+    "is-creation-gate-report.json": "ec7c3648d183a6421d3e21d12f806dc97ec6a4443b51764772a7736e1b237ce2",
+    "is-creation-native.json": "013e317069de9187c22e95783fe0198172a16fa5c0f08ff6d5df8facdffc598d",
+    "is-followup-driver-prompt.txt": "99c59b45984c4413a0bb6637769e719b8234c55a6fd92eb46745db47175611f8",
+    "is-followup-gate-report.json": "2ffea1c2cc98e2a93a966ebed1996b4fb9bf41bf165c0517442c2e7ab268897c",
+    "is-followup-native.json": "cd282d2bb539bb9923046e6012c184cf52be970f93842e41f2ff74a478b0948f",
+    "is-task-inventory.json": "21601976064c7a85a439a1ceef4ca20c8337e64b57ee1d917c61159a3813de40",
+    "linux-resource-tests.txt": "f10c8d00377de53088e015ff3525e3aa3e7b0a081cf1d82fd88e1bf014a95456",
+    "linux-wheel-stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "linux-wheel-verification.json": "65eb3e5020dbb2142b13f037e0a8d9b662a6844af4ea3e6e80a74e9ef8040f5b",
+    "run.json": "e91fc4d1bc19edbee56b32c416af999ade1bfa6e058f8ed11fe2add171840335",
+    "verify_capture_boundary.py": "45e00a7245f723028e6929c94d26ae571b091ee356844fc2e054c85e0cffbf10",
+    "wheel-build.txt": "fb17247015f06d557584ab3aa559f54f0ea0f844e2d138cccb831b64efb3b1b6",
+    "windows-resource-tests.txt": "7d2e1f3b9a3f748528f07d2ffbbc6b380476792d400c874545b1fbfecc62156f",
+    "windows-wheel-stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "windows-wheel-verification.json": "673f4b4a78649fb53a5392776e1fa0397be22c6d91a0e0f34a1628fb33274b34"
+  }
+}

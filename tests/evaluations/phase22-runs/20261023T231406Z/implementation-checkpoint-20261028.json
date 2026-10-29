@@ -1,0 +1,73 @@
+{
+  "date": "2026-10-28",
+  "task_completion": {
+    "T168": true,
+    "T169": true,
+    "T170": true,
+    "T171": true,
+    "T172": false,
+    "T173": false
+  },
+  "task173_assessment_recorded": true,
+  "broader_release_qualified": false,
+  "poc_scope_unchanged": true,
+  "wheel_sha256": "003c938689ca6121488884fe3d0a2e53bd9a04a06688cc7d3c3abed798898514",
+  "pinned_bundle_file_count": 27,
+  "all_product_source_unchanged": true,
+  "current_windows_dependencies": {
+    "jsonschema": "4.26.0",
+    "jsonschema-rs": "0.59.0"
+  },
+  "novels": [
+    {
+      "label": "original-en",
+      "path": "C:\\Users\\BjarkiGunnarsson\\Documents\\Codex\\2026-10-23\\novel-phase22-en-20261023\\work\\commentary-regression-novel",
+      "head": "83f9d5dfaff9dbf477abc6a9c8558c790b1e021d",
+      "sequence": 18,
+      "exchange_id": "d3acdbe1-665b-4454-87ac-7a8cb27b938f",
+      "registered_pending_or_cleanup": [],
+      "working_tree_status": "",
+      "pinned_bundle_verified": true
+    },
+    {
+      "label": "original-is",
+      "path": "C:\\Users\\BjarkiGunnarsson\\Documents\\Codex\\2026-10-23\\novel-phase22-is-20261023\\commentary-regression-novel",
+      "head": "069ca90e32beedd919eeafa86067b5a3e0c99d63",
+      "sequence": 18,
+      "exchange_id": "16893d05-744d-4869-a918-4c5b2f26ae7d",
+      "registered_pending_or_cleanup": [],
+      "working_tree_status": "",
+      "pinned_bundle_verified": true
+    },
+    {
+      "label": "language-en",
+      "path": "C:\\Users\\BjarkiGunnarsson\\Documents\\Codex\\2026-10-23\\novel-phase22-en-20261023\\language-pitfalls-novel",
+      "head": "0219fef998608eb191b66dce4557c6a7de99821a",
+      "sequence": 5,
+      "exchange_id": "fe93d295-9197-46ac-be71-fc0cc2ea1aeb",
+      "registered_pending_or_cleanup": [],
+      "working_tree_status": "",
+      "pinned_bundle_verified": true
+    },
+    {
+      "label": "language-is",
+      "path": "C:\\Users\\BjarkiGunnarsson\\Documents\\Codex\\2026-10-23\\novel-phase22-is-20261023\\language-pitfalls-novel",
+      "head": "88f256604cddbc6a77507753be50c8d93adc8778",
+      "sequence": 5,
+      "exchange_id": "bd11e7dd-41a7-4ef9-978e-578cce235e83",
+      "registered_pending_or_cleanup": [],
+      "working_tree_status": "",
+      "pinned_bundle_verified": true
+    }
+  ],
+  "current_collector_regressions_per_platform": 9,
+  "collector_source_sha256": "b773a8507c80130166c1afa07393c2144635772d11ffd6fdebc9d531c5cfdf16",
+  "collector_test_sha256": "d7bce55af971101f52c0a84c2550236fbd964ffb5d42e28f0239af09e41202a1",
+  "performance": {
+    "read_p95": 1.028736700071022,
+    "save_p95": 3.067419500090182,
+    "save_target": 1.0,
+    "completed_reads": 30,
+    "completed_saves": 30
+  }
+}

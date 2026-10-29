@@ -1,0 +1,19 @@
+{"kind": "header", "source": {"src/novel_creator/storage.py": "40c7c1ef61af98e9c1e04292d2befc963bd48bbd45196ce8cbf91576f3ee771b", "src/novel_creator/context.py": "ce1a7819457b7dd700cf5478fed1746337d80efd38825c4d69c90d77711a1e54", "src/novel_creator/validation.py": "cbbae36120accdebc4e499f4331b212ccf806fc0e7b020e9349c31878b3a9aee", "tests/performance/benchmark_records.py": "7f69593cbee6330af1cb67261f662db8d186cc6d00787d3710d002a8430650f2"}, "python": "3.13.13 (tags/v3.13.13:01104ce, Apr  7 2026, 19:25:48) [MSC v.1944 64 bit (AMD64)]", "git": "git version 2.53.0.windows.3", "full_scale": false, "method": "ABBA repeated; diagnostic medians, not p95; no runtime file edits"}
+{"kind": "correctness", "checks": [{"format": "sha1", "stdout_equal": true, "binary_stdin_equal": true, "checked_failure_sanitized": true, "unchecked_stderr_retained": true}, {"format": "sha256", "stdout_equal": true, "binary_stdin_equal": true, "checked_failure_sanitized": true, "unchecked_stderr_retained": true}]}
+{"kind": "component", "candidate": false, "commands": 8, "reader_threads": 16, "seconds": 0.5977467999327928, "cpu_percent": 66.55948553054662}
+{"kind": "component", "candidate": true, "commands": 8, "reader_threads": 0, "seconds": 0.5122243999503553, "cpu_percent": 37.35408560311284}
+{"kind": "component", "candidate": true, "commands": 8, "reader_threads": 0, "seconds": 0.5300306000281125, "cpu_percent": 32.720588235294116}
+{"kind": "component", "candidate": false, "commands": 8, "reader_threads": 16, "seconds": 0.5713673999998719, "cpu_percent": 27.364864864864863}
+{"kind": "component", "candidate": false, "commands": 8, "reader_threads": 16, "seconds": 0.6662582999560982, "cpu_percent": 34.69387755102041}
+{"kind": "component", "candidate": true, "commands": 8, "reader_threads": 0, "seconds": 0.4988675999920815, "cpu_percent": 38.3399209486166}
+{"kind": "component", "candidate": true, "commands": 8, "reader_threads": 0, "seconds": 0.5109089999459684, "cpu_percent": 51.92307692307692}
+{"kind": "component", "candidate": false, "commands": 8, "reader_threads": 16, "seconds": 0.5129152999725193, "cpu_percent": 55.68181818181818}
+{"kind": "component", "candidate": false, "commands": 8, "reader_threads": 16, "seconds": 0.5645982001442462, "cpu_percent": 68.05555555555556}
+{"kind": "component", "candidate": true, "commands": 8, "reader_threads": 0, "seconds": 0.6056872999761254, "cpu_percent": 56.73076923076923}
+{"kind": "component", "candidate": true, "commands": 8, "reader_threads": 0, "seconds": 0.690217100083828, "cpu_percent": 65.05681818181819}
+{"kind": "component", "candidate": false, "commands": 8, "reader_threads": 16, "seconds": 0.9893507999368012, "cpu_percent": 88.4765625}
+{"kind": "component", "candidate": false, "commands": 8, "reader_threads": 16, "seconds": 0.6064585999120027, "cpu_percent": 68.42105263157895}
+{"kind": "component", "candidate": true, "commands": 8, "reader_threads": 0, "seconds": 0.546468400163576, "cpu_percent": 48.92857142857143}
+{"kind": "component", "candidate": true, "commands": 8, "reader_threads": 0, "seconds": 0.610403599916026, "cpu_percent": 63.46153846153846}
+{"kind": "component", "candidate": false, "commands": 8, "reader_threads": 16, "seconds": 0.6322808000259101, "cpu_percent": 79.57317073170732}
+{"kind": "complete", "source_unchanged": true}

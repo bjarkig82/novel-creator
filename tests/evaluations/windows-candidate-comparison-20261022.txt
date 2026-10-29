@@ -1,0 +1,23 @@
+{"fixture": {"sessions": 100, "exchanges": 5000, "active_assertions": 10000, "json_bytes": 26215716, "synthetic": true, "fully_validated": true}, "method": "Alternating same-process diagnostic; not release p95", "environment": {"os": "Windows-11-10.0.26300-SP0", "python": "3.13.13 (tags/v3.13.13:01104ce, Apr  7 2026, 19:25:48) [MSC v.1944 64 bit (AMD64)]", "git": "git version 2.53.0.windows.3"}, "source_sha256": {"before": "023c90a5dd7c07dc1df308e3f74c9d5b02abb2638d54d7493bc53ce9f597ed4c", "after": "f1d19709666eba8678ba496c0ec7418c723e4211d0e96a4b819549b2aa809e90"}}
+{"operation": "verify_candidate", "optimized": false, "seconds": 0.19030160002876073}
+{"operation": "verify_candidate", "optimized": true, "seconds": 0.09107399999629706}
+{"operation": "verify_candidate", "optimized": true, "seconds": 0.08843740005977452}
+{"operation": "verify_candidate", "optimized": false, "seconds": 0.2184774000197649}
+{"operation": "verify_candidate", "optimized": false, "seconds": 0.23964190005790442}
+{"operation": "verify_candidate", "optimized": true, "seconds": 0.10802569997031242}
+{"operation": "verify_candidate", "optimized": true, "seconds": 0.11585810000542551}
+{"operation": "verify_candidate", "optimized": false, "seconds": 0.2839283000212163}
+{"operation": "verify_candidate", "optimized": false, "seconds": 0.23604560003150254}
+{"operation": "verify_candidate", "optimized": true, "seconds": 0.1129371999995783}
+{"operation": "verify_candidate", "optimized": true, "seconds": 0.11392829997930676}
+{"operation": "verify_candidate", "optimized": false, "seconds": 0.21466769999824464}
+{"verification_medians": {"False": 0.22726150002563372, "True": 0.11048144998494536}}
+{"operation": "save", "optimized": false, "seconds": 3.365196399972774, "observed_count": 5002}
+{"operation": "save", "optimized": true, "seconds": 3.378749099909328, "observed_count": 5003}
+{"operation": "save", "optimized": true, "seconds": 3.1407344999024644, "observed_count": 5004}
+{"operation": "save", "optimized": false, "seconds": 3.0769697999348864, "observed_count": 5005}
+{"operation": "save", "optimized": false, "seconds": 2.9930019000312313, "observed_count": 5006}
+{"operation": "save", "optimized": true, "seconds": 3.15342599991709, "observed_count": 5007}
+{"operation": "save", "optimized": true, "seconds": 2.918733400059864, "observed_count": 5008}
+{"operation": "save", "optimized": false, "seconds": 3.1542728999629617, "observed_count": 5009}
+{"save_medians": {"False": 3.115621349948924, "True": 3.147080249909777}}

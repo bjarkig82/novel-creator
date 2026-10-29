@@ -1,5 +1,40 @@
 # Development
 
+**Current delivery policy (owner, 2026-10-28):** all read/save latency targets
+are withdrawn. Optimize after functional delivery. Keep every data/authority/
+transaction safeguard and report timings without a pass/fail target. Older timing
+misses below are historical, not outstanding delivery prerequisites. See
+[final functional qualification](../tests/evaluations/final-functional-qualification-20261028.md).
+
+**Single-user POC scope (2026-10-23):** novice testers are out of scope and the
+owner will test after delivery. Automated POC verification and starting commands
+are in [poc-quickstart.md](poc-quickstart.md) and the
+[POC evidence report](../tests/evaluations/poc-readiness-20261023.md). Historical
+human/native-host and broad release requirements below do not require manual
+testing before this POC can be used. Source labels and all safety/integrity
+checks remain unchanged; unknown semantic quality is not called verified.
+
+The user subsequently authorized a separately labeled delegated evaluation route.
+The installed `input capture` command requires explicit source selection and
+current thread/turn binding; delegation additionally requires an expected parent
+and `--evaluation-only`. Include its returned input_artifact in the saved exchange
+so source provenance survives reopening. See [the implementation plan](delegated-input-plan.md)
+and workflows/entry.md. This adds automated evaluation support without completing
+native-input, genuine-novice or human-rating requirements. Earlier unavailable
+native-input observations remain valid for their original route and source.
+
+Cross-task automation does not currently supply the native userMessage required
+by the Codex adapter. The [2026-10-23 delegated-input probes](../tests/evaluations/product-host-runs/20261023T095949Z/README.md)
+found delegation tool output for both task creation and follow-up messages in
+English and Icelandic. Those tasks stopped without initializing novels or saving
+invented conversations. This limits the automated evaluation route; it does not
+revoke the scoped direct typed-input capture result below.
+
+Windows junctions and other reparse points are rejected in managed paths and
+the novel's `.git` directory. Keep novel data and Git metadata in ordinary local
+directories. See the [junction boundary correction and verification](../tests/evaluations/windows-junction-boundary-20261023.md)
+for the tested scope and remaining release gates.
+
 ## Story implementation after the host gate
 
 The current tool implements init, context, session list, inspect, validate and
@@ -13,7 +48,11 @@ focused context, sourced revisions, partial selection, supersession, direct impa
 routine checkpoint triggers, significant/deferred conflict holds and unknown time.
 Shared authority/continuity workflows own the host judgments and response order.
 No model API or custom conversational runtime was added. The independent reader
-does not import the production reducer. Full-scale performance is not measured.
+does not import the production reducer. Full-scale measurements exist: the earlier
+Linux reference passed both targets with the optional authenticated cache;
+latest recorded Windows and Linux save p95 remain above one second. See
+[performance evidence](../tests/evaluations/performance.md) for configurations
+and raw results. Current platform scope is Linux and Windows; macOS is deferred.
 
 See [release evidence](../tests/evaluations/release-readiness.md) for remaining
 host/human/language/platform gates. Checklist markers were inspected read-only
@@ -34,9 +73,9 @@ source JSON belongs under `.novel-creator/local/evidence/`, outside root receipt
 discovery. No old exchange or payload ID was rewritten.
 
 T012/T069/T089/T103/T116 are complete; T013's current decision is PASS. No further
-manual host test is required for this change. Dependent story implementation may
-begin. Product workflows, release readiness, voice, other hosts and unattended
-default-sandbox operation remain unverified.
+manual capture-gate test is required for this change. Story tooling is implemented;
+its product-level creative judgments and release readiness remain unverified,
+along with voice, other hosts and unattended default-sandbox operation.
 
 The earlier assessments and procedures below are retained as historical records.
 Their BLOCKED/pending statements are superseded by this decision; their test
@@ -154,19 +193,39 @@ they are disposable test directories.
 
 Structural tests do not establish literary consistency or native-host support.
 Each claimed Codex host/model/version needs separate actual capture evidence in
-`tests/evaluations/host-capture.md`. No host is yet verified; story implementation
-must wait for the foundation gate.
+`tests/evaluations/host-capture.md`. The recorded Windows Desktop capture gate
+passes within its stated native-tool/text-input/scoped-approval combination;
+broader product-host creative and bilingual outcomes remain unverified.
 
-## Foundation status and hard gate
+## Delivered commands and recovery boundaries
 
 Foundation packaging, complete shared schemas, structural transition validation,
 atomic exchange-save and an independent disposable host-spike fixture are
-implemented. `init`, session operations, production context/inspection/validation
-and `recover` are command placeholders returning an explicit unavailable error.
-The fixture's context helper is test-only. Pending retries use the exact original
-`exchange save` payload. Published cleanup failures return saved/cleanup_required;
-further writes remain paused because safe cleanup recovery is later T034 work.
-Never manually reset history to clear this pause.
+implemented. `init`, `session list`, `context`, `inspect`, `validate` and `recover`
+are delivered commands; session start/mode/close and settings changes are typed
+revisions saved through `exchange save`. Fixture helpers remain test-only.
+
+Use the installed launcher in the configured Python environment. Replace the
+paths, UUID and checkpoint with the actual recovery inspection values:
+
+```powershell
+python C:\Novels\MyNovel\.novel-creator\run.py recover --novel C:\Novels\MyNovel --exchange EXCHANGE_UUID --json
+python C:\Novels\MyNovel\.novel-creator\run.py recover --novel C:\Novels\MyNovel --exchange EXCHANGE_UUID --retry --expected-head CONFIRMED_HEAD --json
+```
+
+Inspection is read-only and reports `pending`, `published` or `cleanup_needed`,
+the confirmed checkpoint, saved status and any held writer lock. Explicit retry
+requires the current Git HEAD from inspection; use `unborn` only before the first
+commit. A pending retry uses its unchanged receipt payload and original exchange
+ID; it cannot replace a changed file or reconcile a stale parent automatically.
+Published cleanup retains the saved commit and synchronizes only managed index
+entries without replaying decisions or changing unrelated staged work.
+
+Published cleanup failures return saved/cleanup_required and pause further writes
+until safe recovery succeeds. Changed managed files, staged entries, receipt
+payloads or branch advancement can block cleanup; preserve the evidence and
+inspect the conflict. Held writer locks are disclosed and never silently removed.
+Never reset history, delete receipts or overwrite conflicting work to clear a pause.
 
 New decisions must cite the current conversation's actual user message;
 historical messages may remain provenance but cannot authorize a new change.
@@ -182,17 +241,14 @@ verified committed checkpoint when available. Inspection reads a captured Git
 snapshot without taking over the lock; unborn or unreadable history does not
 produce an invented checkpoint. The existing lock and pending files are retained.
 
-Before dependent implementation, the actual host still needs real automatic
-subsequent turns, fresh-chat recovery and controlled save/display interruption
-evidence. Reading thread summaries or running subprocess fixtures does not
-establish those behaviors. Foundation remediation does not pass this gate.
+### Historical foundation gate decision
 
-**T013 decision: BLOCKED. T012 actual Codex host evidence is unverified.** See
-[host-capture evaluation](../tests/evaluations/host-capture.md). No available host
-control can create genuine subsequent turns, a fresh chat or display interruption
-here. T014+ remains unimplemented. A subprocess fixture or prompt compliance
-cannot waive that gate. Return to actual-host evaluation/adapter planning before
-continuing; no supported-host claim, manuscript feature or release is implied.
+The initial foundation assessment recorded T013 as BLOCKED because real automatic
+subsequent turns, fresh-chat recovery and controlled save/display interruption
+were unavailable. The later scoped PASS described above supersedes that decision;
+the [host-capture evaluation](../tests/evaluations/host-capture.md) retains both
+sets of evidence. Story tooling has since been implemented. Subprocess fixtures
+alone still cannot establish product-host creative quality or release readiness.
 
 ## Measured performance remediation — 2026-10-21
 
@@ -265,7 +321,123 @@ Every new exchange still undergoes complete validation. An early local-key
 prototype is retained only as experimental evidence; the delivered cache rejects
 novel-provided trust keys and requires explicit outside-novel runtime configuration.
 
-The final Ubuntu/WSL2 ext4 run passed 112 tests in 18.885s and all 30 warm
+Large Windows saves partition the final guard's complete byte reads across at
+most four Git processes after every metadata/index/path check succeeds.
+Inputs below 1,024 managed files and non-Windows runtime policy keep one reader.
+Large Windows initial guards use two byte readers; final guards use four. Every chunk retains explicit root binding and complete byte hashing;
+all processes/counts must succeed and all workers must finish before publication
+or error cleanup. The history, authority, private-index, candidate, conditional
+publication and recovery checks remain mandatory. See the
+[parallel-hash verification](../tests/evaluations/windows-parallel-hash-20261022.md).
+
+The earlier 2026-10-21 Ubuntu/WSL2 ext4 run passed 112 tests in 18.885s and all 30 warm
 measurements completed: read p95 0.826192151s, validation/local-save p95
-0.982377050s. These targets pass on that documented reference configuration.
-Windows performance and macOS support are separate claims.
+0.982377050s. Those targets passed on that historical reference configuration.
+The four-history-reader source passes all 150 Linux tests. Its Linux performance
+has not been remeasured; the earlier overlap source recorded ext4 save p95
+1.072006791s. Windows save performance remains an open gate. See the
+[latest verification](../tests/evaluations/windows-four-history-readers-20261022.md)
+and [source-pinned measurements](../tests/evaluations/performance.md).
+macOS support remains deferred.
+
+
+Large public Windows reads (>=1,024 exchanges) fetch captured immutable blob
+OIDs in at most four contiguous requests using the existing Git wrapper. Every
+worker joins before parsing or returning. Successful outputs form one original-order
+binary stream. Any worker/submission exception or nonzero child exit triggers one
+full original serial request before parsing, preserving partial stdout, earlier
+damaged-history errors and verified-prefix checkpoints. Small public reads and
+non-Windows runtime stay serial. Large Windows saves now select two history readers alongside two first-guard
+byte readers; small/non-Windows work remains serial. All history/blob/schema/digest/authority/hold,
+path/symlink/mode/live-index, both complete root-bound byte guards, private
+candidate, fresh branch/CAS, receipt and recovery safeguards remain. The
+previous parallel final-byte guard is unchanged.
+
+Both full suites cover 150 tests. See [current source and measurements](../tests/evaluations/windows-four-history-readers-20261022.md).
+
+
+## Balanced Windows save readers
+
+Large Windows saves use two history readers and two first-guard full-byte
+readers while the original operations overlap. The final full-byte guard and
+public history reads retain up to four readers. Each existing 1,024-item
+threshold independently keeps small inputs serial; non-Windows defaults remain
+one. All metadata/index/path/symlink/mode checks precede each guard's hashing.
+All actual blob/digest/schema/authority/hold checks, both complete root-bound
+byte guards, private candidate verification, original first-guard error/await
+position, worker/lock lifetime, fresh branch/CAS, receipts and recovery remain.
+History outputs keep ordered single-stream framing and one full serial fallback
+on worker/submission/nonzero exit failure. No check is skipped or moved.
+
+Windows full suite: 143 tests in 567.082s, 141 passed,
+2 explicit real-symlink privilege skips, exit 0. Linux/WSL2: all 143
+pass in 58.745s, zero skips, exit 0. The same five source/test/harness/
+helper fingerprints match before and after both suites and the benchmark.
+
+Ordinary-layout Windows PowerShell with the optional authenticated cache:
+first read 2.288559600s; read p95 2.289081100s; validation/local-save p95
+9.240644400s. All 30 reads and 30 saves succeed without operation errors or timeouts.
+Read misses the unchanged 2s target; save misses the unchanged 1s target.
+Benchmark exit 1 records that unmet threshold. No explicit packing/maintenance
+is requested. Linux performance has not been remeasured for this source;
+its earlier reference results remain historical evidence.
+
+[Current verification](../tests/evaluations/windows-balanced-save-20261022.md).
+
+
+## Native Windows bundle metadata
+
+Windows ordinary canonical bundle leaves use fresh GetFileAttributesW queries.
+Only NORMAL alone or nonzero combinations of ARCHIVE/READONLY/HIDDEN/SYSTEM
+classify regular files directly. Invalid, unknown, special, directory, reparse,
+unavailable and exceptional results use the original lstat. Parents, other
+managed paths, small bootstrap/write paths and non-Windows behavior retain
+original checks. Only the API callable is cached; filesystem metadata is fresh.
+Both complete live-index/path/type/byte guards, metadata-before-hash ordering,
+root binding, full historical blob/digest/schema/authority/hold validation,
+private candidate verification, worker joins under the lock, original error
+ordering, fresh branch/CAS, receipts and recovery remain. No check is skipped.
+
+Windows: 150 tests in 453.334s, 148 passed,
+2 explicit real-symlink privilege skips, exit 0.
+Linux/WSL: all 150 tests pass in 48.573s, zero skips,
+exit 0. Six source/test/harness/helper fingerprints match before and after
+both suites and the benchmark.
+
+Ordinary Windows PowerShell fixture: first read 1.998505000s; read p95
+1.320975200s (PASS, target 2s); validation/local-save p95
+3.292486500s (UNMET, target 1s). All 30 reads and 30 saves succeed without operation
+errors or timeouts. Benchmark exit 1 records unmet performance thresholds.
+No explicit Git packing or maintenance was requested. Linux performance was
+not remeasured for this source; previous Linux timings remain historical.
+
+[Latest source verification](../tests/evaluations/windows-native-bundle-mode-production-20261022.md).
+
+
+## Four Windows save-history readers
+
+Large Windows saves now use up to four history readers instead of two.
+The existing 1,024-item threshold keeps small histories serial; non-Windows
+keeps one reader. The initial full-byte guard retains two readers and the final
+full-byte guard four. All history is read and hashed; JSON and ephemeral indexes
+are rebuilt. Ordered framing, captured OIDs, original serial fallback, all child
+joins, damaged-prefix/error precedence and lock lifetime remain. Fresh native
+bundle metadata with conservative lstat fallback, parent checks, both complete
+byte/live-index/path/type guards, candidate/tree/digest/parent verification,
+authority/hold checks, fresh branch/CAS, receipts and recovery remain unchanged.
+No check is skipped and no target is lowered.
+
+Windows: 150 tests in 439.660s, 148 passed,
+2 explicit real-symlink privilege skips, exit 0.
+Linux/WSL: all 150 tests pass in 50.762s, zero skips,
+exit 0. Six source/test/harness/helper fingerprints match before and after
+both suites and the benchmark.
+
+Ordinary Windows PowerShell fixture: first read 1.984177600s; read p95
+1.183358100s (PASS, target 2s); validation/local-save p95
+2.856806500s (UNMET, target 1s). All 30 reads and 30 saves succeed without operation
+errors or timeouts. Benchmark exit 1 records unmet performance thresholds.
+No explicit Git packing or maintenance was requested. Linux performance was
+not remeasured for this source; previous Linux timings remain historical.
+
+[Latest source verification](../tests/evaluations/windows-four-history-readers-20261022.md).

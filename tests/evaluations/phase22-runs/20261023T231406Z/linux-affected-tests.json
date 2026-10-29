@@ -1,0 +1,19 @@
+{
+  "command": [
+    "/home/bjarki/.cache/novel-creator-verification/run.I6IApw/.venv/bin/python",
+    "-B",
+    "-m",
+    "unittest",
+    "tests.unit.test_evaluation_observation",
+    "tests.integration.test_install",
+    "tests.integration.test_initialize_journey",
+    "tests.integration.test_guidance_journey",
+    "tests.integration.test_resume_journey",
+    "tests.integration.test_portable_install",
+    "tests.integration.test_languages",
+    "tests.integration.test_host_input"
+  ],
+  "exit_code": 0,
+  "elapsed_seconds": 14.603659202999552,
+  "scope": "Affected automated installed checks only"
+}

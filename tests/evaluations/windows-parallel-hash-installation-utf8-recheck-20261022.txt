@@ -1,0 +1,6 @@
+test_independent_pinned_install_and_recognized_continuation (tests.integration.test_install.InstallationTests.test_independent_pinned_install_and_recognized_continuation) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 15.546s
+
+OK

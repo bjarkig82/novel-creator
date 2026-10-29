@@ -1,0 +1,38 @@
+{
+  "ok": true,
+  "scope": "Public delegated persistence/display/source checks only",
+  "case_filter": [
+    "FRESH_RESUME"
+  ],
+  "language_filter": [
+    "en"
+  ],
+  "all_submitted_cases_checked": false,
+  "semantic_assessment": "Separate agent judgments required; no human/native result inferred",
+  "cases": [
+    {
+      "case_id": "FRESH_RESUME",
+      "language": "en",
+      "thread_id": "01a16b1a-d51e-78e0-bd95-a58c516e323c",
+      "turn_id": "01a16b1b-5f0d-7d01-a9e7-5d5f55ef9b79",
+      "exchange_id": "4222a114-30aa-48a6-ab23-86f4cfedffb9",
+      "checkpoint": {
+        "git_head": "285e6cec844ae3a5e145e6051b590a7705f96db7",
+        "exchange_id": "4222a114-30aa-48a6-ab23-86f4cfedffb9",
+        "sequence": 7
+      },
+      "exact_input_saved": true,
+      "exact_response_saved_and_displayed": true,
+      "save_precedes_display": true,
+      "source_type": "delegated",
+      "native_user_input": false,
+      "novice_evidence": false,
+      "installed_bundle_verified": true,
+      "installed_bundle_matches_current_source": true,
+      "commentary_agent_reviewed": true,
+      "record_kinds": [],
+      "response": "Resumed from committed checkpoint a6e572559fad408596ecf22746a708bd984be46a; exchange ef11e8e4-9058-46eb-8574-7d1b0cbd1c91, sequence 6.\n\nSaved focus: People in guided mode. All three sessions remain open with their saved modes. Suggestions remain brief; routine checkpoints are on request (project cb66f60c r2). This overview selects no session.\n\nPeople — guided, open (session ea395271-4b89-4e17-969c-dc3651d06087 r2).\nEstablished decisions:\n- Rúna is the lighthouse keeper. (b2bba552 r1; decision b857a602 r1).\n- Rúna sent the letter. (24a9e934 r1; decision d06311e5 r1).\n- Ari is Rúna’s brother. (89643a23 r1; decision 8b1386f6 r1).\n- Ari is the victim. (12fdedbe r1; decision 8981fd4e r1).\n- Edda is Rúna’s sister. (e4198cbf r1; decision 73dd4a06 r1).\n- Edda is the investigator. (c1edb38c r1; decision 83602256 r1).\n- Rúna knows Bjarni. (b0134264 r1; decision b7cefc5a r1).\nProposed or unresolved; none is accepted:\n- Rúna collects driftwood. (2d56748a r2; proposed).\n- Edda distrusts bells. (e4a49295 r1; proposed).\n- Bjarni is a sailor. (a48aa0fb r1; proposed).\n- Bjarni may owe Edda money. (eacc5318 r1; proposed).\n- Edda could trace the letter through the tunnel to the hidden room. (3c8cad60 r1; proposed).\nSaved open questions, still unanswered:\n- Why did Rúna send the letter? (f1e737c0 r1).\n- What does Edda want from Bjarni? (55b62a7f r1).\n\nEvents — open, open (session 638564fa-74b2-450e-a0a7-d15dac37024a r1).\nEstablished decisions:\n- The lamp failed on the night of the letter. (2d32b3f7 r1; decision f6d39415 r1).\n- The letter arrived before dawn. (112f571c r1; decision eae7c6ff r1).\n- The story takes place in winter. (05f15bb9 r1; decision 3b7fbd73 r1).\nProposed or unresolved; none is accepted:\n- Stormy weather. (ca5f921f r1; unresolved alternative).\n- Clear weather. (6b3bb4ae r1; unresolved alternative).\n- The storm may conceal a signal. (0ef4149b r1; proposed).\n- A shipwreck may occur. (ee68d703 r1; proposed).\n- A blue light might be visible. (6a6267eb r1; proposed).\n- A warning bell might sound. (12d564bf r1; proposed).\nSaved open questions, still unanswered:\n- Who finds the letter? (d7c22da4 r1).\n- When does Bjarni return? (f68c6800 r1).\n\nIsland — guided, open (session 0473c1fb-c5a7-431a-bb7f-4a6a82a5088d r1).\nEstablished decisions:\n- The island has no bridge. (1e4f66c1 r1; decision 2fd6b656 r1).\n- The letter bears a brass seal. (3a2d51c7 r1; decision 96686fac r1).\n- Rúna has sworn to protect Edda. (5d69e81a r1; decision e031c7a6 r1).\nProposed or unresolved; none is accepted:\n- A tunnel might link the lighthouse and harbour. (9ea7eb09 r1; proposed).\n- The tide might expose old steps. (84e3fbc4 r1; proposed).\n- A hidden room might contain a map. (6ad4b40e r1; proposed).\nSaved open questions, still unanswered:\n- What opens the hidden room? (e7236c19 r1).\n\nSourced correction: the earlier unaccepted wording “Rúna collects sea glass.” is retained at idea 2d56748a r1 and assertion fd14cc8d r1. The correcting input in exchange ef11e8e4, message 77c1bc2f, span 107–146 supports correction decision 0578e8b8 r1 and the current “Rúna collects driftwood.” at idea 2d56748a r2 and assertion fd14cc8d r2. This correction did not accept the proposal.\n\nStormy and clear weather remain mutually exclusive unresolved alternatives (ca5f921f r1; 6b3bb4ae r1). The tracing thread remains proposed in People (3c8cad60 r1), with proposed tunnel and hidden-room dependencies (feeb5525 r1; 0ee57c24 r1). Unknown timing remains unknown; proposals and character perspectives have not become author truth.\n\nCommitted context coverage is complete, with no unavailable references, canon holds or active findings reported. This is a record-based checkpoint summary; literary consistency and human approval are unverified. The prior saved response is available, with display unconfirmed; no acceptance is inferred.\n\nNo creative records, session identities or modes have changed. All five saved questions remain open. Paused here without new ideas or answers."
+    }
+  ],
+  "failures": []
+}

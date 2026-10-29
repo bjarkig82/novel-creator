@@ -1,0 +1,787 @@
+{
+  "scope": "Parent agent meaning/source mapping of observed propositions; not a human judgment or automatic literary score",
+  "languages": {
+    "en": {
+      "designated_proposition_groups": [
+        {
+          "proposition": "keeper_sender",
+          "source_case": "CAPTURE1",
+          "record_refs": [
+            {
+              "id": "b2bba552-bebf-4cae-b835-e01708b8d516",
+              "revision": 1
+            },
+            {
+              "id": "24a9e934-c113-4281-bbfd-59e1db9d03ce",
+              "revision": 1
+            }
+          ],
+          "observed_statements": [
+            "Rúna is the lighthouse keeper.",
+            "Rúna sent the letter."
+          ],
+          "expected_status": "accepted"
+        },
+        {
+          "proposition": "brother_victim",
+          "source_case": "CAPTURE1",
+          "record_refs": [
+            {
+              "id": "89643a23-bc5b-47e7-805d-69baf02f51e4",
+              "revision": 1
+            },
+            {
+              "id": "12fdedbe-1fd7-43c7-9899-d854c00ebf7f",
+              "revision": 1
+            }
+          ],
+          "observed_statements": [
+            "Ari is Rúna’s brother.",
+            "Ari is the victim."
+          ],
+          "expected_status": "accepted"
+        },
+        {
+          "proposition": "sister_investigator",
+          "source_case": "CAPTURE1",
+          "record_refs": [
+            {
+              "id": "e4198cbf-dbfc-4068-a487-81dc21c73380",
+              "revision": 1
+            },
+            {
+              "id": "c1edb38c-e177-4154-add4-13ebf95c7207",
+              "revision": 1
+            }
+          ],
+          "observed_statements": [
+            "Edda is Rúna’s sister.",
+            "Edda is the investigator."
+          ],
+          "expected_status": "accepted"
+        },
+        {
+          "proposition": "knows_sailor",
+          "source_case": "CAPTURE1",
+          "record_refs": [
+            {
+              "id": "b0134264-50de-4438-9ea4-7b7fea14021a",
+              "revision": 1
+            }
+          ],
+          "observed_statements": [
+            "Rúna knows Bjarni."
+          ],
+          "expected_status": "accepted"
+        },
+        {
+          "proposition": "collection_corrected_proposal",
+          "source_case": "CAPTURE1",
+          "record_refs": [
+            {
+              "id": "2d56748a-3757-4a06-839d-00bc5f806905",
+              "revision": 1
+            }
+          ],
+          "observed_statements": [
+            "Rúna collects sea glass."
+          ],
+          "expected_status": "proposed"
+        },
+        {
+          "proposition": "distrusts_bells",
+          "source_case": "CAPTURE1",
+          "record_refs": [
+            {
+              "id": "e4a49295-ef40-47d5-8ac9-8c148fc68977",
+              "revision": 1
+            }
+          ],
+          "observed_statements": [
+            "Edda distrusts bells."
+          ],
+          "expected_status": "proposed"
+        },
+        {
+          "proposition": "possible_debt",
+          "source_case": "CAPTURE1",
+          "record_refs": [
+            {
+              "id": "eacc5318-7df6-412a-a413-1fd2a072b7f3",
+              "revision": 1
+            }
+          ],
+          "observed_statements": [
+            "Bjarni may owe Edda money."
+          ],
+          "expected_status": "proposed"
+        },
+        {
+          "proposition": "lamp_failure",
+          "source_case": "CAPTURE2",
+          "record_refs": [
+            {
+              "id": "2d32b3f7-e9b6-44e6-a298-fcd139036721",
+              "revision": 1
+            }
+          ],
+          "observed_statements": [
+            "The lamp failed on the night of the letter."
+          ],
+          "expected_status": "accepted"
+        },
+        {
+          "proposition": "letter_arrival",
+          "source_case": "CAPTURE2",
+          "record_refs": [
+            {
+              "id": "112f571c-3b26-420a-a232-9523e41db09f",
+              "revision": 1
+            }
+          ],
+          "observed_statements": [
+            "The letter arrived before dawn."
+          ],
+          "expected_status": "accepted"
+        },
+        {
+          "proposition": "winter",
+          "source_case": "CAPTURE2",
+          "record_refs": [
+            {
+              "id": "05f15bb9-5745-45fe-bf72-8fdabc1b8108",
+              "revision": 1
+            }
+          ],
+          "observed_statements": [
+            "The story takes place in winter."
+          ],
+          "expected_status": "accepted"
+        },
+        {
+          "proposition": "signal_in_storm",
+          "source_case": "CAPTURE2",
+          "record_refs": [
+            {
+              "id": "0ef4149b-bceb-41f6-9b69-30aedefcb983",
+              "revision": 1
+            }
+          ],
+          "observed_statements": [
+            "The storm may conceal a signal."
+          ],
+          "expected_status": "proposed"
+        },
+        {
+          "proposition": "possible_shipwreck",
+          "source_case": "CAPTURE2",
+          "record_refs": [
+            {
+              "id": "ee68d703-7133-491d-a0f2-17f2c2b37456",
+              "revision": 1
+            }
+          ],
+          "observed_statements": [
+            "A shipwreck may occur."
+          ],
+          "expected_status": "proposed"
+        },
+        {
+          "proposition": "possible_blue_light",
+          "source_case": "CAPTURE2",
+          "record_refs": [
+            {
+              "id": "6a6267eb-2724-44d9-8d94-13811e1b0da2",
+              "revision": 1
+            }
+          ],
+          "observed_statements": [
+            "A blue light might be visible."
+          ],
+          "expected_status": "proposed"
+        },
+        {
+          "proposition": "possible_bell",
+          "source_case": "CAPTURE2",
+          "record_refs": [
+            {
+              "id": "12d564bf-6711-4335-8304-1c834f1b4830",
+              "revision": 1
+            }
+          ],
+          "observed_statements": [
+            "A warning bell might sound."
+          ],
+          "expected_status": "proposed"
+        },
+        {
+          "proposition": "no_bridge",
+          "source_case": "CAPTURE3",
+          "record_refs": [
+            {
+              "id": "1e4f66c1-05e2-41f5-aba2-290339dcc3a5",
+              "revision": 1
+            }
+          ],
+          "observed_statements": [
+            "The island has no bridge."
+          ],
+          "expected_status": "accepted"
+        },
+        {
+          "proposition": "brass_seal",
+          "source_case": "CAPTURE3",
+          "record_refs": [
+            {
+              "id": "3a2d51c7-eb33-4443-95b9-86cdfa542100",
+              "revision": 1
+            }
+          ],
+          "observed_statements": [
+            "The letter bears a brass seal."
+          ],
+          "expected_status": "accepted"
+        },
+        {
+          "proposition": "protective_oath",
+          "source_case": "CAPTURE3",
+          "record_refs": [
+            {
+              "id": "5d69e81a-becd-438a-97f3-5368dc22f78b",
+              "revision": 1
+            }
+          ],
+          "observed_statements": [
+            "Rúna has sworn to protect Edda."
+          ],
+          "expected_status": "accepted"
+        },
+        {
+          "proposition": "possible_tunnel",
+          "source_case": "CAPTURE3",
+          "record_refs": [
+            {
+              "id": "9ea7eb09-6438-4c39-b2e0-a87994b84603",
+              "revision": 1
+            }
+          ],
+          "observed_statements": [
+            "A tunnel might link the lighthouse and harbour."
+          ],
+          "expected_status": "proposed"
+        },
+        {
+          "proposition": "possible_steps",
+          "source_case": "CAPTURE3",
+          "record_refs": [
+            {
+              "id": "84e3fbc4-93b2-44c5-a138-25264dfd263d",
+              "revision": 1
+            }
+          ],
+          "observed_statements": [
+            "The tide might expose old steps."
+          ],
+          "expected_status": "proposed"
+        },
+        {
+          "proposition": "possible_hidden_room",
+          "source_case": "CAPTURE3",
+          "record_refs": [
+            {
+              "id": "6ad4b40e-768c-452f-a434-e9c52a4a34de",
+              "revision": 1
+            }
+          ],
+          "observed_statements": [
+            "A hidden room might contain a map."
+          ],
+          "expected_status": "proposed"
+        }
+      ],
+      "question_refs": [
+        {
+          "id": "f1e737c0-6ce3-4c00-99c8-3495f3ce70c4",
+          "revision": 1,
+          "text": "Why did Rúna send the letter?"
+        },
+        {
+          "id": "55b62a7f-4dd9-4153-8019-cf8f66057626",
+          "revision": 1,
+          "text": "What does Edda want from Bjarni?"
+        },
+        {
+          "id": "d7c22da4-a38d-4b32-90b7-386e12b025d5",
+          "revision": 1,
+          "text": "Who finds the letter?"
+        },
+        {
+          "id": "f68c6800-2f6a-4046-bf9e-de8e665fac23",
+          "revision": 1,
+          "text": "When does Bjarni return?"
+        },
+        {
+          "id": "e7236c19-b463-4284-a78a-71cabc3767d4",
+          "revision": 1,
+          "text": "What opens the hidden room?"
+        }
+      ],
+      "observed_decision_refs": [
+        {
+          "id": "b857a602-16dc-46af-963e-ed2e5aa98d71",
+          "revision": 1
+        },
+        {
+          "id": "d06311e5-cfc4-4b4d-a178-6f79a94662b4",
+          "revision": 1
+        },
+        {
+          "id": "8b1386f6-8ae2-41f4-8942-2606a807b749",
+          "revision": 1
+        },
+        {
+          "id": "8981fd4e-44ff-4115-90f1-f82945a99d77",
+          "revision": 1
+        },
+        {
+          "id": "73dd4a06-7253-4090-9577-d1710bf513e7",
+          "revision": 1
+        },
+        {
+          "id": "83602256-af39-470b-b0ec-fea90eb751c4",
+          "revision": 1
+        },
+        {
+          "id": "b7cefc5a-1d40-4935-9766-6c8396ce3a61",
+          "revision": 1
+        },
+        {
+          "id": "f6d39415-fc49-4301-b42e-6fde6a83997f",
+          "revision": 1
+        },
+        {
+          "id": "eae7c6ff-3ab6-494f-8acf-27f492c70075",
+          "revision": 1
+        },
+        {
+          "id": "3b7fbd73-8bd0-4b85-891c-e2be7a44e17e",
+          "revision": 1
+        },
+        {
+          "id": "2fd6b656-3c48-41f9-a941-7dec88a88060",
+          "revision": 1
+        },
+        {
+          "id": "96686fac-a3c8-4345-ba08-3ecee471bd44",
+          "revision": 1
+        },
+        {
+          "id": "e031c7a6-47aa-473d-8ec4-21dd09b6938e",
+          "revision": 1
+        }
+      ],
+      "session_refs": [
+        {
+          "id": "ea395271-4b89-4e17-969c-dc3651d06087",
+          "topic": "People",
+          "mode": "guided"
+        },
+        {
+          "id": "638564fa-74b2-450e-a0a7-d15dac37024a",
+          "topic": "Events",
+          "mode": "open"
+        },
+        {
+          "id": "0473c1fb-c5a7-431a-bb7f-4a6a82a5088d",
+          "topic": "Island",
+          "mode": "guided"
+        }
+      ]
+    },
+    "is": {
+      "designated_proposition_groups": [
+        {
+          "proposition": "keeper_sender",
+          "source_case": "CAPTURE1",
+          "record_refs": [
+            {
+              "id": "e19f2739-2527-4846-bb3b-1d240f0abf78",
+              "revision": 1
+            },
+            {
+              "id": "500cb7e7-4b11-4b6c-adbf-efc84d0f8ba0",
+              "revision": 1
+            }
+          ],
+          "observed_statements": [
+            "Rúna er vitavörður.",
+            "Rúna er sendandi bréfsins."
+          ],
+          "expected_status": "accepted"
+        },
+        {
+          "proposition": "brother_victim",
+          "source_case": "CAPTURE1",
+          "record_refs": [
+            {
+              "id": "f351ee38-3956-47ee-aa75-73b05234d57e",
+              "revision": 1
+            },
+            {
+              "id": "1a1d9bcc-8c1a-467e-ad5b-1dd3d37c8637",
+              "revision": 1
+            }
+          ],
+          "observed_statements": [
+            "Ari er bróðir Rúnu.",
+            "Ari er fórnarlambið."
+          ],
+          "expected_status": "accepted"
+        },
+        {
+          "proposition": "sister_investigator",
+          "source_case": "CAPTURE1",
+          "record_refs": [
+            {
+              "id": "a594b87b-3178-4b67-a2b6-262f00cfcddc",
+              "revision": 1
+            },
+            {
+              "id": "90ddf826-91ec-4b56-8976-3dfb1e0a922c",
+              "revision": 1
+            }
+          ],
+          "observed_statements": [
+            "Edda er systir Rúnu.",
+            "Edda er rannsakandinn."
+          ],
+          "expected_status": "accepted"
+        },
+        {
+          "proposition": "knows_sailor",
+          "source_case": "CAPTURE1",
+          "record_refs": [
+            {
+              "id": "515f2c3b-3bf9-4134-9b49-d95d5fce74b3",
+              "revision": 1
+            }
+          ],
+          "observed_statements": [
+            "Rúna þekkir Bjarna."
+          ],
+          "expected_status": "accepted"
+        },
+        {
+          "proposition": "collection_corrected_proposal",
+          "source_case": "CAPTURE1",
+          "record_refs": [
+            {
+              "id": "29fd0678-1801-490d-916a-0dedd529434e",
+              "revision": 1
+            }
+          ],
+          "observed_statements": [
+            "Rúna safnar sjógleri"
+          ],
+          "expected_status": "proposed"
+        },
+        {
+          "proposition": "distrusts_bells",
+          "source_case": "CAPTURE1",
+          "record_refs": [
+            {
+              "id": "45553df8-86d7-4049-9611-f68851d1c81c",
+              "revision": 1
+            }
+          ],
+          "observed_statements": [
+            "Edda vantreystir bjöllum"
+          ],
+          "expected_status": "proposed"
+        },
+        {
+          "proposition": "possible_debt",
+          "source_case": "CAPTURE1",
+          "record_refs": [
+            {
+              "id": "8a81444f-107a-4b68-acc9-d1092f720425",
+              "revision": 1
+            }
+          ],
+          "observed_statements": [
+            "Bjarni skuldar Eddu hugsanlega peninga"
+          ],
+          "expected_status": "proposed"
+        },
+        {
+          "proposition": "lamp_failure",
+          "source_case": "CAPTURE2",
+          "record_refs": [
+            {
+              "id": "82eba284-22cc-4742-97df-4a2153d4f937",
+              "revision": 1
+            }
+          ],
+          "observed_statements": [
+            "ljósið bilaði nóttina sem bréfið kom"
+          ],
+          "expected_status": "accepted"
+        },
+        {
+          "proposition": "letter_arrival",
+          "source_case": "CAPTURE2",
+          "record_refs": [
+            {
+              "id": "8954dff5-7de8-47af-b033-365f7e3fe060",
+              "revision": 1
+            }
+          ],
+          "observed_statements": [
+            "bréfið kom fyrir dögun"
+          ],
+          "expected_status": "accepted"
+        },
+        {
+          "proposition": "winter",
+          "source_case": "CAPTURE2",
+          "record_refs": [
+            {
+              "id": "646ced87-a708-4061-91df-3cfdc5a3e6b3",
+              "revision": 1
+            }
+          ],
+          "observed_statements": [
+            "sagan gerist að vetri"
+          ],
+          "expected_status": "accepted"
+        },
+        {
+          "proposition": "signal_in_storm",
+          "source_case": "CAPTURE2",
+          "record_refs": [
+            {
+              "id": "27765347-973d-45d7-85e2-53dd8622037a",
+              "revision": 1
+            }
+          ],
+          "observed_statements": [
+            "stormur gæti falið merki"
+          ],
+          "expected_status": "proposed"
+        },
+        {
+          "proposition": "possible_shipwreck",
+          "source_case": "CAPTURE2",
+          "record_refs": [
+            {
+              "id": "37d7b9b9-6d2e-4c73-830a-ba8732201fe2",
+              "revision": 1
+            }
+          ],
+          "observed_statements": [
+            "skipbrot gæti orðið"
+          ],
+          "expected_status": "proposed"
+        },
+        {
+          "proposition": "possible_blue_light",
+          "source_case": "CAPTURE2",
+          "record_refs": [
+            {
+              "id": "60c1be74-63ec-4454-bed0-c6695d073414",
+              "revision": 1
+            }
+          ],
+          "observed_statements": [
+            "blátt ljós gæti sést"
+          ],
+          "expected_status": "proposed"
+        },
+        {
+          "proposition": "possible_bell",
+          "source_case": "CAPTURE2",
+          "record_refs": [
+            {
+              "id": "e37f88d3-c3bb-487f-a096-7ff44fd15d61",
+              "revision": 1
+            }
+          ],
+          "observed_statements": [
+            "viðvörunarbjalla gæti hljómað"
+          ],
+          "expected_status": "proposed"
+        },
+        {
+          "proposition": "no_bridge",
+          "source_case": "CAPTURE3",
+          "record_refs": [
+            {
+              "id": "c33e9f0b-9220-4478-bac9-45b3a1cdcaad",
+              "revision": 1
+            }
+          ],
+          "observed_statements": [
+            "engin brú er á eyjuna"
+          ],
+          "expected_status": "accepted"
+        },
+        {
+          "proposition": "brass_seal",
+          "source_case": "CAPTURE3",
+          "record_refs": [
+            {
+              "id": "36444d2f-130a-4d73-824b-6c6e124f1a22",
+              "revision": 1
+            }
+          ],
+          "observed_statements": [
+            "bréfið ber látúnsinnsigli"
+          ],
+          "expected_status": "accepted"
+        },
+        {
+          "proposition": "protective_oath",
+          "source_case": "CAPTURE3",
+          "record_refs": [
+            {
+              "id": "811ce9aa-ab20-4f4c-aa50-14ad476962cb",
+              "revision": 1
+            }
+          ],
+          "observed_statements": [
+            "Rúna hefur svarið að vernda Eddu"
+          ],
+          "expected_status": "accepted"
+        },
+        {
+          "proposition": "possible_tunnel",
+          "source_case": "CAPTURE3",
+          "record_refs": [
+            {
+              "id": "9b4ec66f-df90-4a8d-85b7-58c141cc9080",
+              "revision": 1
+            }
+          ],
+          "observed_statements": [
+            "göng gætu tengt vitann og höfnina"
+          ],
+          "expected_status": "proposed"
+        },
+        {
+          "proposition": "possible_steps",
+          "source_case": "CAPTURE3",
+          "record_refs": [
+            {
+              "id": "ffbf3c57-35fd-441a-859b-f5c0f0408147",
+              "revision": 1
+            }
+          ],
+          "observed_statements": [
+            "fjara gæti afhjúpað gamlar tröppur"
+          ],
+          "expected_status": "proposed"
+        },
+        {
+          "proposition": "possible_hidden_room",
+          "source_case": "CAPTURE3",
+          "record_refs": [
+            {
+              "id": "54443716-3bd1-4a6d-9d3f-824cb80a8365",
+              "revision": 1
+            }
+          ],
+          "observed_statements": [
+            "leynilegt herbergi gæti geymt kort"
+          ],
+          "expected_status": "proposed"
+        }
+      ],
+      "question_refs": [
+        {
+          "id": "f2def862-942a-4821-9d61-c0a26c2097de",
+          "revision": 1,
+          "text": "Hvers vegna sendi Rúna bréfið?"
+        },
+        {
+          "id": "a65358cf-d245-4ec6-9d4f-f81d2241cd59",
+          "revision": 1,
+          "text": "Hvað vill Edda frá Bjarna?"
+        },
+        {
+          "id": "5d72fc12-fade-47cf-8175-0a0b3c69b58b",
+          "revision": 1,
+          "text": "Hver finnur bréfið?"
+        },
+        {
+          "id": "8ed04638-c72b-4756-a528-f877afadf788",
+          "revision": 1,
+          "text": "Hvenær kemur Bjarni aftur?"
+        },
+        {
+          "id": "7d3570e2-74e2-4769-b405-eb1e582eaf07",
+          "revision": 1,
+          "text": "Hvað opnar leyniherbergið?"
+        }
+      ],
+      "observed_decision_refs": [
+        {
+          "id": "792fbf4b-2835-4324-b4f7-8f99f784818d",
+          "revision": 1
+        },
+        {
+          "id": "5a01d331-f41c-4304-928e-992847f870a7",
+          "revision": 1
+        },
+        {
+          "id": "c86ca859-8d22-4199-a988-a96d1c8edc6e",
+          "revision": 1
+        },
+        {
+          "id": "987d8385-a921-48cb-8482-ac5a79d25eda",
+          "revision": 1
+        },
+        {
+          "id": "2047d58e-565b-428a-8626-6cfd46c7403c",
+          "revision": 1
+        },
+        {
+          "id": "17c4de0d-c4bd-46f5-ab1f-1893db0e5ebc",
+          "revision": 1
+        },
+        {
+          "id": "c030d800-4f31-4afd-b073-a3adf7961b05",
+          "revision": 1
+        },
+        {
+          "id": "656637ea-5007-40c0-9ac6-f9486c1bbfed",
+          "revision": 1
+        },
+        {
+          "id": "577ab9b9-643f-4d13-b6de-efd8c5e20c9a",
+          "revision": 1
+        },
+        {
+          "id": "b57469ef-35bd-4efd-b433-41dd3b90a01b",
+          "revision": 1
+        }
+      ],
+      "session_refs": [
+        {
+          "id": "501375af-c06c-40ed-8d39-eb69416cb790",
+          "topic": "Fólk",
+          "mode": "guided"
+        },
+        {
+          "id": "17356bdd-0b04-475d-9fc8-9ea8ba0d8d0b",
+          "topic": "Atburðir",
+          "mode": "open"
+        },
+        {
+          "id": "d021f874-ba71-4927-8b16-398010532ff3",
+          "topic": "Eyjan",
+          "mode": "guided"
+        }
+      ]
+    }
+  }
+}

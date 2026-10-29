@@ -1,0 +1,21 @@
+{"conformance": "ordinary/directory/missing/API-error/unknown/special-attribute fallback passed", "real_symlink": {"status": "unverified", "winerror": 1314}, "production_unchanged": true}
+{"fixture": {"sessions": 100, "exchanges": 5000, "active_assertions": 10000, "json_bytes": 26215716, "synthetic": true, "fully_validated": true}, "source_sha256": "9bbcb0acb6442ef45ce564d4b9980abe5889fbd0373d14acb2387ae429bf2a44", "checked_path_candidate_sha256": "ba59e13b104598e01f28a75cfebb5067727c8bdcf4fbdcda4a82d614a1dd9c11", "method": "Four balanced samples per existing/native query for complete metadata phase and complete guard with four full-byte hash readers. Fresh per-leaf query, no enumeration/cache; parents/non-bundle/special/error paths retain lstat. Ordinary layout, all real content/index checks active; not p95 or adoption."}
+{"operation": "metadata", "native": 0, "seconds": 1.914413999998942, "managed_count": 5001}
+{"operation": "metadata", "native": 1, "seconds": 0.21047940000426024, "managed_count": 5001}
+{"operation": "metadata", "native": 1, "seconds": 0.16121040005236864, "managed_count": 5001}
+{"operation": "metadata", "native": 0, "seconds": 0.7145390000659972, "managed_count": 5001}
+{"operation": "metadata", "native": 0, "seconds": 0.7107146999333054, "managed_count": 5001}
+{"operation": "metadata", "native": 1, "seconds": 0.11934110010042787, "managed_count": 5001}
+{"operation": "metadata", "native": 1, "seconds": 0.14213619998190552, "managed_count": 5001}
+{"operation": "metadata", "native": 0, "seconds": 0.5748831999953836, "managed_count": 5001}
+{"operation": "metadata", "medians": {"0": 0.7126268499996513, "1": 0.15167330001713708}}
+{"operation": "guard", "native": 0, "seconds": 0.8743158000288531, "managed_count": 5001}
+{"operation": "guard", "native": 1, "seconds": 0.43377220002003014, "managed_count": 5001}
+{"operation": "guard", "native": 1, "seconds": 0.5225345999933779, "managed_count": 5001}
+{"operation": "guard", "native": 0, "seconds": 0.6843058000085875, "managed_count": 5001}
+{"operation": "guard", "native": 0, "seconds": 0.7439845999469981, "managed_count": 5001}
+{"operation": "guard", "native": 1, "seconds": 0.41305760003160685, "managed_count": 5001}
+{"operation": "guard", "native": 1, "seconds": 0.46742760005872697, "managed_count": 5001}
+{"operation": "guard", "native": 0, "seconds": 0.7191017000004649, "managed_count": 5001}
+{"operation": "guard", "medians": {"0": 0.7315431499737315, "1": 0.45059990003937855}}
+{"source_unchanged": true}

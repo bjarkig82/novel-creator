@@ -1,0 +1,296 @@
+{
+  "schema_version": "1.0",
+  "novel_id": "42754ded-2ba3-42d4-98b4-3e30663c4e76",
+  "exchange_id": "4146312e-8b9a-4739-bab5-55407e45623a",
+  "sequence": 3,
+  "previous_exchange_id": "9ded8930-92ba-4ab6-8e42-4d71833ed365",
+  "previous_digest": "f89131316ec0266dbfe9af421a36f79986f432ee1ef7b58396069ee0fd72393b",
+  "session_id": "3a4a9d59-c811-4c3c-ab96-438872a1add6",
+  "expected_git_head": "d1f9fcb1305e81ca4fe4016ec7c2c468d13d9c6c",
+  "recorded_at": "2026-10-28T10:49:57.707363Z",
+  "operation": "conversation",
+  "messages": [
+    {
+      "message_id": "fd6b4797-ed08-42d8-8897-b4a739463588",
+      "role": "user",
+      "text": "Case LANG_GUIDANCE. Fewer suggestions, please. Beinum sjónum að æsku Ægis.\n\nPause after your response."
+    },
+    {
+      "message_id": "840b9f30-64e5-4a65-bde7-f29faeac6912",
+      "role": "assistant",
+      "text": "We’ll focus on Ægir’s childhood, with fewer suggestions.\n\nWhat is one childhood experience that shaped Ægir?"
+    }
+  ],
+  "input_artifacts": [
+    {
+      "artifact_id": "5a09ba31-65cb-47af-91b2-36d420a349a8",
+      "original_text": "{\"kind\":\"host_input\",\"source_type\":\"delegated\",\"thread_id\":\"01a16af9-f289-73c1-8151-55f50ace05d9\",\"turn_id\":\"01a18220-e86d-7453-8e6a-5d9955480a88\",\"event_id\":\"fco_01a18220-e86e-7c01-b934-9d0da8604a2d\",\"event_type\":\"functionCallOutput\",\"source_thread_id\":\"01a16af6-0d9b-7173-a5f5-c8775f37df18\",\"native_user_input\":false,\"novice_evidence\":false,\"evaluation_only\":true,\"text\":\"Case LANG_GUIDANCE. Fewer suggestions, please. Beinum sjónum að æsku Ægis.\\n\\nPause after your response.\",\"public_event\":{\"type\":\"functionCallOutput\",\"id\":\"fco_01a18220-e86e-7c01-b934-9d0da8604a2d\",\"namespace\":\"codex_app\",\"name\":\"send_message_to_thread\",\"output\":{\"text\":\"<codex_delegation>\\n  <source_thread_id>01a16af6-0d9b-7173-a5f5-c8775f37df18</source_thread_id>\\n  <input>Case LANG_GUIDANCE. Fewer suggestions, please. Beinum sjónum að æsku Ægis.\\n\\nPause after your response.</input>\\n</codex_delegation>\",\"truncated\":false}}}",
+      "parsed_value": {
+        "kind": "host_input",
+        "source_type": "delegated",
+        "thread_id": "01a16af9-f289-73c1-8151-55f50ace05d9",
+        "turn_id": "01a18220-e86d-7453-8e6a-5d9955480a88",
+        "event_id": "fco_01a18220-e86e-7c01-b934-9d0da8604a2d",
+        "event_type": "functionCallOutput",
+        "source_thread_id": "01a16af6-0d9b-7173-a5f5-c8775f37df18",
+        "native_user_input": false,
+        "novice_evidence": false,
+        "evaluation_only": true,
+        "text": "Case LANG_GUIDANCE. Fewer suggestions, please. Beinum sjónum að æsku Ægis.\n\nPause after your response.",
+        "public_event": {
+          "type": "functionCallOutput",
+          "id": "fco_01a18220-e86e-7c01-b934-9d0da8604a2d",
+          "namespace": "codex_app",
+          "name": "send_message_to_thread",
+          "output": {
+            "text": "<codex_delegation>\n  <source_thread_id>01a16af6-0d9b-7173-a5f5-c8775f37df18</source_thread_id>\n  <input>Case LANG_GUIDANCE. Fewer suggestions, please. Beinum sjónum að æsku Ægis.\n\nPause after your response.</input>\n</codex_delegation>",
+            "truncated": false
+          }
+        }
+      },
+      "digest": "8f4e829b6a80065085f82332fca0bfeea3aaca87cbcb9824968840472778574e"
+    }
+  ],
+  "record_versions": [
+    {
+      "id": "42754ded-2ba3-42d4-98b4-3e30663c4e76",
+      "kind": "novel_project",
+      "revision": 3,
+      "previous_revision": 2,
+      "created_exchange_id": "2aa7a7ea-93a7-4406-9e56-100e3923bbc6",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "4146312e-8b9a-4739-bab5-55407e45623a",
+          "message_id": "fd6b4797-ed08-42d8-8897-b4a739463588",
+          "range": {
+            "start": 20,
+            "end": 46
+          }
+        }
+      ],
+      "origin": "supplied",
+      "title": {
+        "state": "default",
+        "original_text": "Untitled novel",
+        "interpretation": null,
+        "origin": "system_default",
+        "source_refs": []
+      },
+      "original_concept": {
+        "state": "unknown",
+        "original_text": null,
+        "interpretation": null,
+        "origin": "system_default",
+        "source_refs": []
+      },
+      "creative_brief": {
+        "genre": {
+          "state": "unknown",
+          "original_text": null,
+          "interpretation": null,
+          "origin": "system_default",
+          "source_refs": []
+        },
+        "subgenres": {
+          "state": "unknown",
+          "original_text": null,
+          "interpretation": null,
+          "origin": "system_default",
+          "source_refs": []
+        },
+        "audience": {
+          "state": "unknown",
+          "original_text": null,
+          "interpretation": null,
+          "origin": "system_default",
+          "source_refs": []
+        },
+        "tone": {
+          "state": "unknown",
+          "original_text": null,
+          "interpretation": null,
+          "origin": "system_default",
+          "source_refs": []
+        },
+        "style": {
+          "state": "unknown",
+          "original_text": null,
+          "interpretation": null,
+          "origin": "system_default",
+          "source_refs": []
+        },
+        "perspective": {
+          "state": "unknown",
+          "original_text": null,
+          "interpretation": null,
+          "origin": "system_default",
+          "source_refs": []
+        },
+        "complexity": {
+          "state": "unknown",
+          "original_text": null,
+          "interpretation": null,
+          "origin": "system_default",
+          "source_refs": []
+        }
+      },
+      "manuscript_language": "is",
+      "workflow_preferences": {
+        "interaction_language": {
+          "state": "supplied",
+          "original_text": "svaraðu á ensku",
+          "interpretation": "Respond in English.",
+          "origin": "supplied",
+          "source_refs": [
+            {
+              "type": "message",
+              "exchange_id": "9ded8930-92ba-4ab6-8e42-4d71833ed365",
+              "message_id": "e362f85e-1738-4d4d-bdfe-87ea5cc7d855",
+              "range": {
+                "start": 859,
+                "end": 874
+              }
+            }
+          ]
+        },
+        "suggestion_frequency": {
+          "state": "supplied",
+          "original_text": "Fewer suggestions, please.",
+          "interpretation": null,
+          "origin": "supplied",
+          "source_refs": [
+            {
+              "type": "message",
+              "exchange_id": "4146312e-8b9a-4739-bab5-55407e45623a",
+              "message_id": "fd6b4797-ed08-42d8-8897-b4a739463588",
+              "range": {
+                "start": 20,
+                "end": 46
+              }
+            }
+          ]
+        }
+      },
+      "review_preferences": {
+        "routine_checkpoint": "on_request"
+      },
+      "creative_directions": []
+    },
+    {
+      "id": "3a4a9d59-c811-4c3c-ab96-438872a1add6",
+      "kind": "session",
+      "revision": 1,
+      "previous_revision": null,
+      "created_exchange_id": "4146312e-8b9a-4739-bab5-55407e45623a",
+      "origin": "supplied",
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "4146312e-8b9a-4739-bab5-55407e45623a",
+          "message_id": "fd6b4797-ed08-42d8-8897-b4a739463588",
+          "range": {
+            "start": 47,
+            "end": 74
+          }
+        }
+      ],
+      "topic": "Ægir’s childhood",
+      "mode": "guided",
+      "state": "open",
+      "started_exchange_id": "4146312e-8b9a-4739-bab5-55407e45623a",
+      "last_exchange_id": "4146312e-8b9a-4739-bab5-55407e45623a",
+      "related_record_ids": [
+        "3e7cfe68-ceea-486f-b6e8-0e27cffd8057",
+        "27f89d03-dd4a-40a3-8afd-9b0036a15895"
+      ],
+      "unresolved_question_ids": [
+        "27f89d03-dd4a-40a3-8afd-9b0036a15895"
+      ],
+      "derived_context_ref": null
+    },
+    {
+      "id": "3e7cfe68-ceea-486f-b6e8-0e27cffd8057",
+      "kind": "story_element",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "4146312e-8b9a-4739-bab5-55407e45623a",
+          "message_id": "fd6b4797-ed08-42d8-8897-b4a739463588",
+          "range": {
+            "start": 69,
+            "end": 73
+          }
+        }
+      ],
+      "created_exchange_id": "4146312e-8b9a-4739-bab5-55407e45623a",
+      "origin": "interpreted",
+      "element_type": "character",
+      "display_name": "Ægir",
+      "aliases": [],
+      "status": "proposed",
+      "assertion_ids": [],
+      "relationship_ids": [],
+      "dependency_refs": [],
+      "time_ref": null,
+      "decision_ids": []
+    },
+    {
+      "id": "27f89d03-dd4a-40a3-8afd-9b0036a15895",
+      "kind": "question",
+      "revision": 1,
+      "previous_revision": null,
+      "source_refs": [
+        {
+          "type": "message",
+          "exchange_id": "4146312e-8b9a-4739-bab5-55407e45623a",
+          "message_id": "840b9f30-64e5-4a65-bde7-f29faeac6912",
+          "range": {
+            "start": 58,
+            "end": 108
+          }
+        }
+      ],
+      "created_exchange_id": "4146312e-8b9a-4739-bab5-55407e45623a",
+      "origin": "interpreted",
+      "text": "What is one childhood experience that shaped Ægir?",
+      "related_refs": [
+        {
+          "id": "3e7cfe68-ceea-486f-b6e8-0e27cffd8057",
+          "revision": 1
+        }
+      ],
+      "alternative_ids": [],
+      "state": "open",
+      "resolution_decision_id": null
+    }
+  ],
+  "continuity_review": {
+    "coverage": "complete",
+    "reviewed_record_refs": [
+      {
+        "id": "535a64d5-f560-4c5c-9bde-cf235f3b42e3",
+        "revision": 1
+      },
+      {
+        "id": "2d9d1a12-afd9-4ed4-baa3-4851f12cfd29",
+        "revision": 1
+      },
+      {
+        "id": "2ca3565a-e1fa-48f0-a7c1-a4dbb550d1f7",
+        "revision": 1
+      },
+      {
+        "id": "42754ded-2ba3-42d4-98b4-3e30663c4e76",
+        "revision": 2
+      }
+    ],
+    "unavailable_refs": [],
+    "canon_hold_refs": [],
+    "finding_ids": [],
+    "summary": "Current Icelandic topic direction identifies Ægir’s childhood without changing the saved Icelandic manuscript language or English interaction preference. Reduced suggestions are persisted and applied immediately. No childhood experience, genre or character backstory is invented or accepted; one focused question remains open. Existing petrol-only engine canon is unchanged."
+  },
+  "payload_digest": "4ec38ecbdf300022478a614f4f0289b6766bf744936ddbf94bab8c6344ff6894"
+}

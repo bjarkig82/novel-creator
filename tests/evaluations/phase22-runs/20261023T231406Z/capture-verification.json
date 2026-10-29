@@ -1,0 +1,35 @@
+{
+  "ok": true,
+  "scope": "Designated automated capture and actual fresh resumption only",
+  "semantic_proposition_mapping": "Separate parent-agent judgment; no human or arbitrary-extraction guarantee",
+  "results": [
+    {
+      "language": "en",
+      "designated_proposition_groups": 20,
+      "observed_accept_decision_records": 13,
+      "open_questions": 5,
+      "sessions": 3,
+      "pre_save_context_exactly_matches_independent_baseline": true,
+      "no_creative_record_changes_on_fresh_resume": true,
+      "correction_history_retained": true,
+      "all_capture_record_kinds_observed": true,
+      "source_type": "delegated",
+      "native_user_input": false,
+      "novice_evidence": false
+    },
+    {
+      "language": "is",
+      "designated_proposition_groups": 20,
+      "observed_accept_decision_records": 10,
+      "open_questions": 5,
+      "sessions": 3,
+      "pre_save_context_exactly_matches_independent_baseline": true,
+      "no_creative_record_changes_on_fresh_resume": true,
+      "correction_history_retained": true,
+      "all_capture_record_kinds_observed": true,
+      "source_type": "delegated",
+      "native_user_input": false,
+      "novice_evidence": false
+    }
+  ]
+}

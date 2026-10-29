@@ -1,0 +1,24 @@
+{
+  "status": "focused tests pass; full suites and fresh 30-run benchmark pending disk space",
+  "source": {
+    "src/novel_creator/storage.py": "9b9092130ff0ee2768ba739cdb9ae28613010ed82b4a9eeb70bb9b342b080ffc",
+    "tests/integration/test_storage.py": "30c6cf61476ebdd39c129d59f723ed0f0a517c4fa05ea33cfdf417ec545a372b"
+  },
+  "artifacts": {
+    "windows-history-partition-check-history-partition-candidate-source-20261022.txt": "b90de9ec61473420a88358b49f93f02cb94b171ad40b2a54f62e56a0c758fd57",
+    "windows-history-partition-corrected-checks-20261022.txt": "cd5411b91cb6054c1b313c6d6134c1da2ea34922b947618dc76f8bb3f1d08bb0",
+    "windows-history-partition-corrected-fresh-workers-20261022.txt": "491b8107b366806826272b78f515ab8c810f5bbaf1958803de784da9f440d848",
+    "windows-history-partition-corrected-threshold-20261022.txt": "94b1765ff77aeed7830f9942413a72f2123c17e5ac4e989a664c5b30ab121afb",
+    "windows-history-partition-exit-boundary-red-20261022.txt": "3c05e583757a5905384c248d27d0bb743b1732ebb028ce135f3b4560844e2254",
+    "windows-history-partition-history-partition-candidate-source-20261022.txt": "ab6ba8f402f0de6923cd4cfa7559c4c0c18e2b6b86762c85cb6b75a8db901ff6",
+    "windows-history-partition-measure-corrected-history-source-20261022.txt": "cef8b7754b6f4181afaa73ac373813c52e7f82c5f9091efcedfbcedc548d8ee4",
+    "windows-history-partition-measure-corrected-history-threshold-source-20261022.txt": "b6a7af41dd9c8960b25641e6216cd1265d226e323a288841c8577b7cb038eb1e",
+    "windows-history-partition-pending-storage-source-20261022.txt": "9b9092130ff0ee2768ba739cdb9ae28613010ed82b4a9eeb70bb9b342b080ffc",
+    "windows-history-partition-pending-tests-source-20261022.txt": "30c6cf61476ebdd39c129d59f723ed0f0a517c4fa05ea33cfdf417ec545a372b",
+    "windows-history-partition-production-final-focused-20261022.txt": "2a01c7a99af47179eb3dfe54bb2753a1bd6b681c76119b5f09df25067095b4b4",
+    "windows-history-partition-production-final-focused-space-retry-20261022.txt": "c743cd8d755e2d43a301dda198864498af73df6ec748f22cc0c68e40480efafb",
+    "windows-history-partition-production-focused-20261022.txt": "8ecae8e855279283ee5bd10a4f014357a2c0c4e2865cde0d4ac549d2c7bf131b",
+    "windows-history-partition-production-red-20261022.txt": "51f81a81d693cbf5e3a4c75ad15c3217111398d2e073460c304f1148d5e71830",
+    "windows-history-partition-production-red-corrected-20261022.txt": "f93813bf04a30501a4d91dd4756a6d33131fe939f75b6b9f601e40cc5b19406a"
+  }
+}

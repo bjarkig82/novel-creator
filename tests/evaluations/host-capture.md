@@ -1,5 +1,13 @@
 # Codex save-before-emit capability gate
 
+## Delegated-task input route — unavailable, 2026-10-23
+
+Four authorized task-creation/follow-up probes expose delegation tool output and
+zero native userMessage items. The tasks stopped without installing or saving a
+novel. See [actual observations](product-host-runs/20261023T095949Z/README.md).
+This route-specific limit does not revoke or extend the direct typed-input
+capability result below; product semantic evaluations remain pending.
+
 ## Current decision: PASS — focused spike-03 confirmation
 
 The actual Desktop capture gate is passed for the tested Windows Desktop
@@ -199,3 +207,13 @@ fresh-chat recovery, controlled interruption and visible failure handling remain
 unverified. Earlier unavailable-environment notes above describe their original
 assessment; this run establishes only the limited observations listed here.
 The host gate remains BLOCKED and all related task markers remain unchecked.
+# Explicit delegated extension - 2026-10-23
+
+The user selected a separately labeled delegated evaluation route, retaining
+all native-input and novice requirements. See
+[implementation evidence](delegated-input-support-20261023.md) and
+[independent observed gate verification](product-host-runs/20261023T202447Z/gate-verification.json).
+Both English/Icelandic delegated gates preserve exact observed input and saved/
+displayed response, with save preceding display and fresh CLI reopening.
+These results do not convert delegation into native user input. Earlier
+unavailable-native observations below remain valid for their tested scope.

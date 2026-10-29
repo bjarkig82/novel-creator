@@ -1,0 +1,35 @@
+"""Corrected external candidate; production storage.py remains unchanged."""
+from concurrent.futures import ThreadPoolExecutor
+import io
+from novel_creator import storage
+from novel_creator.cli import ToolError
+
+serial_blobs=storage._batch_blobs
+
+def partitioned_blobs(root,entries,paths,*,workers=4):
+    if not paths:return
+    if workers==1:
+        yield from serial_blobs(root,entries,paths)
+        return
+    size=(len(paths)+workers-1)//workers
+    parts=[paths[offset:offset+size] for offset in range(0,len(paths),size)]
+    def request(part):
+        return storage.git(root,'cat-file','--batch',
+            input=''.join(entries[path][1]+'\n' for path in part).encode(),check=False)
+    try:
+        # Context cleanup joins every submitted request before any fallback.
+        with ThreadPoolExecutor(max_workers=workers) as pool:
+            futures=[pool.submit(request,part) for part in parts]
+            results=[future.result() for future in futures]
+    except (OSError,RuntimeError):
+        # A late worker failure must not mask malformed earlier history. One
+        # complete original request restores the serial error/checkpoint order.
+        yield from serial_blobs(root,entries,paths)
+        return
+    # Preserve the original single binary stream, including framing across
+    # request boundaries. check=False retains usable-prefix/nonzero-exit policy.
+    stream=io.BytesIO(b''.join(result.stdout for result in results))
+    for path in paths:
+        try:yield path,storage._read_batch_object(stream,entries[path][1],'blob')
+        except (UnicodeError,ValueError):
+            yield path,ToolError(4,'Committed exchange blob is unavailable',affected_refs=[path])

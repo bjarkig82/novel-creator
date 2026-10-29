@@ -1,0 +1,167 @@
+Fixture ready; measuring cold read.
+read 1/30: {'status': 'ok', 'seconds': 2.7427611999446526, 'observed_count': 15101}
+read 2/30: {'status': 'ok', 'seconds': 2.3212272999808192, 'observed_count': 15101}
+read 3/30: {'status': 'ok', 'seconds': 3.2812232999131083, 'observed_count': 15101}
+read 4/30: {'status': 'ok', 'seconds': 2.437074299901724, 'observed_count': 15101}
+read 5/30: {'status': 'ok', 'seconds': 2.8287024999735877, 'observed_count': 15101}
+read 6/30: {'status': 'ok', 'seconds': 2.737632100004703, 'observed_count': 15101}
+read 7/30: {'status': 'ok', 'seconds': 3.24020129989367, 'observed_count': 15101}
+read 8/30: {'status': 'ok', 'seconds': 3.0162999000167474, 'observed_count': 15101}
+read 9/30: {'status': 'ok', 'seconds': 4.0404837999958545, 'observed_count': 15101}
+read 10/30: {'status': 'ok', 'seconds': 2.29339730006177, 'observed_count': 15101}
+read 11/30: {'status': 'ok', 'seconds': 3.545458500040695, 'observed_count': 15101}
+read 12/30: {'status': 'ok', 'seconds': 2.816133299958892, 'observed_count': 15101}
+read 13/30: {'status': 'ok', 'seconds': 2.3918752999743447, 'observed_count': 15101}
+read 14/30: {'status': 'ok', 'seconds': 3.178961299941875, 'observed_count': 15101}
+read 15/30: {'status': 'ok', 'seconds': 1.9859350000042468, 'observed_count': 15101}
+read 16/30: {'status': 'ok', 'seconds': 1.7643365000840276, 'observed_count': 15101}
+read 17/30: {'status': 'ok', 'seconds': 1.6526977999601513, 'observed_count': 15101}
+read 18/30: {'status': 'ok', 'seconds': 1.7402467000065371, 'observed_count': 15101}
+read 19/30: {'status': 'ok', 'seconds': 1.5656684000277892, 'observed_count': 15101}
+read 20/30: {'status': 'ok', 'seconds': 1.3761926000006497, 'observed_count': 15101}
+read 21/30: {'status': 'ok', 'seconds': 1.3502357000252232, 'observed_count': 15101}
+read 22/30: {'status': 'ok', 'seconds': 1.4234885999467224, 'observed_count': 15101}
+read 23/30: {'status': 'ok', 'seconds': 1.6079465999500826, 'observed_count': 15101}
+read 24/30: {'status': 'ok', 'seconds': 1.4250354999676347, 'observed_count': 15101}
+read 25/30: {'status': 'ok', 'seconds': 1.4256446999497712, 'observed_count': 15101}
+read 26/30: {'status': 'ok', 'seconds': 1.3315650000004098, 'observed_count': 15101}
+read 27/30: {'status': 'ok', 'seconds': 1.5099008000688627, 'observed_count': 15101}
+read 28/30: {'status': 'ok', 'seconds': 2.1700566000072286, 'observed_count': 15101}
+read 29/30: {'status': 'ok', 'seconds': 2.3721091999905184, 'observed_count': 15101}
+read 30/30: {'status': 'ok', 'seconds': 2.3652324998984113, 'observed_count': 15101}
+save 1/30: {'status': 'ok', 'seconds': 8.207596499938518, 'observed_count': 5001}
+save 2/30: {'status': 'ok', 'seconds': 6.245946200098842, 'observed_count': 5002}
+save 3/30: {'status': 'ok', 'seconds': 6.181132500059903, 'observed_count': 5003}
+save 4/30: {'status': 'ok', 'seconds': 4.9433024999452755, 'observed_count': 5004}
+save 5/30: {'status': 'ok', 'seconds': 4.598926900071092, 'observed_count': 5005}
+save 6/30: {'status': 'ok', 'seconds': 4.6468992999289185, 'observed_count': 5006}
+save 7/30: {'status': 'ok', 'seconds': 4.396934699965641, 'observed_count': 5007}
+save 8/30: {'status': 'ok', 'seconds': 3.839594400022179, 'observed_count': 5008}
+save 9/30: {'status': 'ok', 'seconds': 5.53120540000964, 'observed_count': 5009}
+save 10/30: {'status': 'ok', 'seconds': 4.666922600008547, 'observed_count': 5010}
+save 11/30: {'status': 'ok', 'seconds': 4.364408100023866, 'observed_count': 5011}
+save 12/30: {'status': 'ok', 'seconds': 3.101695599965751, 'observed_count': 5012}
+save 13/30: {'status': 'ok', 'seconds': 4.608112399931997, 'observed_count': 5013}
+save 14/30: {'status': 'ok', 'seconds': 3.9526985000120476, 'observed_count': 5014}
+save 15/30: {'status': 'ok', 'seconds': 3.962607800029218, 'observed_count': 5015}
+save 16/30: {'status': 'ok', 'seconds': 4.175129499984905, 'observed_count': 5016}
+save 17/30: {'status': 'ok', 'seconds': 4.273503599921241, 'observed_count': 5017}
+save 18/30: {'status': 'ok', 'seconds': 3.8393504000268877, 'observed_count': 5018}
+save 19/30: {'status': 'ok', 'seconds': 4.309756999951787, 'observed_count': 5019}
+save 20/30: {'status': 'ok', 'seconds': 4.574148499988951, 'observed_count': 5020}
+save 21/30: {'status': 'ok', 'seconds': 4.471522000036202, 'observed_count': 5021}
+save 22/30: {'status': 'ok', 'seconds': 6.288191300001927, 'observed_count': 5022}
+save 23/30: {'status': 'ok', 'seconds': 4.960813600104302, 'observed_count': 5023}
+save 24/30: {'status': 'ok', 'seconds': 3.9689976000227034, 'observed_count': 5024}
+save 25/30: {'status': 'ok', 'seconds': 4.006786199985072, 'observed_count': 5025}
+save 26/30: {'status': 'ok', 'seconds': 4.142355600022711, 'observed_count': 5026}
+save 27/30: {'status': 'ok', 'seconds': 4.56183180003427, 'observed_count': 5027}
+save 28/30: {'status': 'ok', 'seconds': 6.626094599952921, 'observed_count': 5028}
+save 29/30: {'status': 'ok', 'seconds': 5.249517299933359, 'observed_count': 5029}
+save 30/30: {'status': 'ok', 'seconds': 5.785987499984913, 'observed_count': 5030}
+{
+  "environment": {
+    "os": "Windows-11-10.0.26300-SP0",
+    "python": "3.13.13",
+    "processor": "Intel64 Family 6 Model 189 Stepping 1, GenuineIntel",
+    "logical_cpus": 8,
+    "git": "git version 2.53.0.windows.3"
+  },
+  "method": "Fresh subprocess per operation; filesystem-warm runs; interpreter import time excluded. Timeout deadlines include worker startup/imports. Cold means first fixture read, not a guaranteed OS page-cache flush. Save includes committed-history reads, validation, local Git publication and cleanup. Fixture generated in one harness snapshot; each warm save appends one exchange.",
+  "requested_warm_runs": 30,
+  "timeout_seconds": 30,
+  "model_latency": "excluded",
+  "fixture_git_maintenance": "none explicitly requested",
+  "validation_cache": "opt-in; temporary private key outside novel",
+  "fixture": {
+    "sessions": 100,
+    "exchanges": 5000,
+    "active_assertions": 10000,
+    "json_bytes": 26215716,
+    "synthetic": true,
+    "fully_validated": true
+  },
+  "cold_read": {
+    "status": "ok",
+    "seconds": 4.719507600064389,
+    "observed_count": 15101
+  },
+  "read": {
+    "samples_seconds": [
+      2.7427611999446526,
+      2.3212272999808192,
+      3.2812232999131083,
+      2.437074299901724,
+      2.8287024999735877,
+      2.737632100004703,
+      3.24020129989367,
+      3.0162999000167474,
+      4.0404837999958545,
+      2.29339730006177,
+      3.545458500040695,
+      2.816133299958892,
+      2.3918752999743447,
+      3.178961299941875,
+      1.9859350000042468,
+      1.7643365000840276,
+      1.6526977999601513,
+      1.7402467000065371,
+      1.5656684000277892,
+      1.3761926000006497,
+      1.3502357000252232,
+      1.4234885999467224,
+      1.6079465999500826,
+      1.4250354999676347,
+      1.4256446999497712,
+      1.3315650000004098,
+      1.5099008000688627,
+      2.1700566000072286,
+      2.3721091999905184,
+      2.3652324998984113
+    ],
+    "completed_runs": 30,
+    "failure": null,
+    "p95_seconds": 3.545458500040695,
+    "target_seconds": 2.0,
+    "passes": false
+  },
+  "save": {
+    "samples_seconds": [
+      8.207596499938518,
+      6.245946200098842,
+      6.181132500059903,
+      4.9433024999452755,
+      4.598926900071092,
+      4.6468992999289185,
+      4.396934699965641,
+      3.839594400022179,
+      5.53120540000964,
+      4.666922600008547,
+      4.364408100023866,
+      3.101695599965751,
+      4.608112399931997,
+      3.9526985000120476,
+      3.962607800029218,
+      4.175129499984905,
+      4.273503599921241,
+      3.8393504000268877,
+      4.309756999951787,
+      4.574148499988951,
+      4.471522000036202,
+      6.288191300001927,
+      4.960813600104302,
+      3.9689976000227034,
+      4.006786199985072,
+      4.142355600022711,
+      4.56183180003427,
+      6.626094599952921,
+      5.249517299933359,
+      5.785987499984913
+    ],
+    "completed_runs": 30,
+    "failure": null,
+    "p95_seconds": 6.626094599952921,
+    "target_seconds": 1.0,
+    "passes": false
+  }
+}

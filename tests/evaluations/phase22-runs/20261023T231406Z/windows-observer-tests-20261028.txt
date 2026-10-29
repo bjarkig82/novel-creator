@@ -1,0 +1,13 @@
+test_creative_progress_before_save_cannot_pass_from_matching_final (tests.unit.test_evaluation_observation.EvaluationObservationTests.test_creative_progress_before_save_cannot_pass_from_matching_final) ... ok
+test_empty_or_missing_submitted_observations_cannot_pass (tests.unit.test_evaluation_observation.EvaluationObservationTests.test_empty_or_missing_submitted_observations_cannot_pass) ... ok
+test_exact_unicode_whitespace_and_order (tests.unit.test_evaluation_observation.EvaluationObservationTests.test_exact_unicode_whitespace_and_order) ... ok
+test_input_and_response_changes_are_rejected (tests.unit.test_evaluation_observation.EvaluationObservationTests.test_input_and_response_changes_are_rejected) ... ok
+test_missing_late_failed_or_wrong_save_is_rejected (tests.unit.test_evaluation_observation.EvaluationObservationTests.test_missing_late_failed_or_wrong_save_is_rejected) ... ok
+test_provenance_incomplete_turn_and_duplicate_final_are_rejected (tests.unit.test_evaluation_observation.EvaluationObservationTests.test_provenance_incomplete_turn_and_duplicate_final_are_rejected) ... ok
+test_recovery_preserves_original_provenance_and_checks_actual_display (tests.unit.test_evaluation_observation.EvaluationObservationTests.test_recovery_preserves_original_provenance_and_checks_actual_display) ... ok
+test_unreviewed_or_changed_commentary_cannot_receive_a_review_pass (tests.unit.test_evaluation_observation.EvaluationObservationTests.test_unreviewed_or_changed_commentary_cannot_receive_a_review_pass) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.006s
+
+OK

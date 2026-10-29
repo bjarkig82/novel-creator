@@ -1,0 +1,8 @@
+[
+  {
+    "id": "msg_02f80cb399e0759d016adbeb242004819188cb03aa5d152899",
+    "text": "I’ll read the new workspace’s context, prepare this turn, and save it before displaying the reply.",
+    "classification": "administrative",
+    "reason": "Only operational reading/preparation/save-retry information; no new creative conclusion is disclosed."
+  }
+]

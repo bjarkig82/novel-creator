@@ -1,0 +1,1610 @@
+{
+  "ok": true,
+  "source_type": "delegated",
+  "native_user_input": false,
+  "novice_evidence": false,
+  "scope": "Eight authored fixture inputs per language embedded in four actual saved director turns",
+  "meaning_assessment": "Parent-agent interpretation of actual replies and records; human/subjective parity unmeasured",
+  "results": [
+    {
+      "fixture_variant": "en",
+      "fixtures": [
+        {
+          "id": "L05",
+          "phase": "LANG_SETUP",
+          "source_quote": "Keep the manuscript in Icelandic; svaraðu á ensku. I do not know the genre yet.",
+          "range": {
+            "start": 825,
+            "end": 904
+          },
+          "exchange_id": "9ded8930-92ba-4ab6-8e42-4d71833ed365",
+          "message_id": "e362f85e-1738-4d4d-bdfe-87ea5cc7d855"
+        },
+        {
+          "id": "L06",
+          "phase": "LANG_GUIDANCE",
+          "source_quote": "Fewer suggestions, please. Beinum sjónum að æsku Ægis.",
+          "range": {
+            "start": 20,
+            "end": 74
+          },
+          "exchange_id": "4146312e-8b9a-4739-bab5-55407e45623a",
+          "message_id": "fd6b4797-ed08-42d8-8897-b4a739463588"
+        },
+        {
+          "id": "L01",
+          "phase": "LANG_CAPTURE",
+          "source_quote": "Possibly Þóra sent the letter.",
+          "range": {
+            "start": 19,
+            "end": 49
+          },
+          "exchange_id": "cd8b9ee7-19e0-4e76-a4da-1a474809fc33",
+          "message_id": "8d366c6b-90fc-44aa-ae35-2c20eba92d5a"
+        },
+        {
+          "id": "L02",
+          "phase": "LANG_CAPTURE",
+          "source_quote": "Þóra is married. Establish that as a fact.",
+          "range": {
+            "start": 51,
+            "end": 93
+          },
+          "exchange_id": "cd8b9ee7-19e0-4e76-a4da-1a474809fc33",
+          "message_id": "8d366c6b-90fc-44aa-ae35-2c20eba92d5a"
+        },
+        {
+          "id": "L07",
+          "phase": "LANG_CAPTURE",
+          "source_quote": "The character says, “I am married.” This is only a possible lie.",
+          "range": {
+            "start": 95,
+            "end": 159
+          },
+          "exchange_id": "cd8b9ee7-19e0-4e76-a4da-1a474809fc33",
+          "message_id": "8d366c6b-90fc-44aa-ae35-2c20eba92d5a"
+        },
+        {
+          "id": "L08",
+          "phase": "LANG_CAPTURE",
+          "source_quote": "Do not establish that Þóra is the sender.",
+          "range": {
+            "start": 161,
+            "end": 202
+          },
+          "exchange_id": "cd8b9ee7-19e0-4e76-a4da-1a474809fc33",
+          "message_id": "8d366c6b-90fc-44aa-ae35-2c20eba92d5a"
+        },
+        {
+          "id": "L03",
+          "phase": "LANG_CONTINUITY",
+          "source_quote": "The engine uses gaseous fuel, not petrol. Does that fit the rule?",
+          "range": {
+            "start": 22,
+            "end": 87
+          },
+          "exchange_id": "fe93d295-9197-46ac-be71-fc0cc2ea1aeb",
+          "message_id": "13b68493-fde7-431c-a987-d08374a877e6"
+        },
+        {
+          "id": "L04",
+          "phase": "LANG_CONTINUITY",
+          "source_quote": "Keep Þóra as sender",
+          "range": {
+            "start": 89,
+            "end": 108
+          },
+          "exchange_id": "fe93d295-9197-46ac-be71-fc0cc2ea1aeb",
+          "message_id": "13b68493-fde7-431c-a987-d08374a877e6"
+        }
+      ],
+      "source_quotes": [
+        {
+          "record_id": "42754ded-2ba3-42d4-98b4-3e30663c4e76",
+          "revision": 2,
+          "range": {
+            "start": 825,
+            "end": 875
+          },
+          "quote": "Keep the manuscript in Icelandic; svaraðu á ensku.",
+          "role": "user"
+        },
+        {
+          "record_id": "42754ded-2ba3-42d4-98b4-3e30663c4e76",
+          "revision": 2,
+          "range": {
+            "start": 876,
+            "end": 904
+          },
+          "quote": "I do not know the genre yet.",
+          "role": "user"
+        },
+        {
+          "record_id": "535a64d5-f560-4c5c-9bde-cf235f3b42e3",
+          "revision": 1,
+          "range": {
+            "start": 785,
+            "end": 823
+          },
+          "quote": "The engine runs exclusively on petrol.",
+          "role": "user"
+        },
+        {
+          "record_id": "2d9d1a12-afd9-4ed4-baa3-4851f12cfd29",
+          "revision": 1,
+          "range": {
+            "start": 785,
+            "end": 823
+          },
+          "quote": "The engine runs exclusively on petrol.",
+          "role": "user"
+        },
+        {
+          "record_id": "2ca3565a-e1fa-48f0-a7c1-a4dbb550d1f7",
+          "revision": 1,
+          "range": {
+            "start": 785,
+            "end": 823
+          },
+          "quote": "The engine runs exclusively on petrol.",
+          "role": "user"
+        },
+        {
+          "record_id": "2e9fcc93-84cd-4378-8782-e001519d973c",
+          "revision": 1,
+          "range": {
+            "start": 741,
+            "end": 823
+          },
+          "quote": "Establish this engine rule as author truth: The engine runs exclusively on petrol.",
+          "role": "user"
+        },
+        {
+          "record_id": "42754ded-2ba3-42d4-98b4-3e30663c4e76",
+          "revision": 3,
+          "range": {
+            "start": 20,
+            "end": 46
+          },
+          "quote": "Fewer suggestions, please.",
+          "role": "user"
+        },
+        {
+          "record_id": "3a4a9d59-c811-4c3c-ab96-438872a1add6",
+          "revision": 1,
+          "range": {
+            "start": 47,
+            "end": 74
+          },
+          "quote": "Beinum sjónum að æsku Ægis.",
+          "role": "user"
+        },
+        {
+          "record_id": "3e7cfe68-ceea-486f-b6e8-0e27cffd8057",
+          "revision": 1,
+          "range": {
+            "start": 69,
+            "end": 73
+          },
+          "quote": "Ægis",
+          "role": "user"
+        },
+        {
+          "record_id": "27f89d03-dd4a-40a3-8afd-9b0036a15895",
+          "revision": 1,
+          "range": {
+            "start": 58,
+            "end": 108
+          },
+          "quote": "What is one childhood experience that shaped Ægir?",
+          "role": "assistant"
+        },
+        {
+          "record_id": "08f2bfd7-199a-4de6-b6da-39c5bce8ce94",
+          "revision": 1,
+          "range": {
+            "start": 51,
+            "end": 67
+          },
+          "quote": "Þóra is married.",
+          "role": "user"
+        },
+        {
+          "record_id": "010a1c3d-e88d-4792-b9e7-82e9cf9a7089",
+          "revision": 1,
+          "range": {
+            "start": 51,
+            "end": 67
+          },
+          "quote": "Þóra is married.",
+          "role": "user"
+        },
+        {
+          "record_id": "cc598574-fe29-425f-b3a3-2d80d241aebe",
+          "revision": 1,
+          "range": {
+            "start": 51,
+            "end": 67
+          },
+          "quote": "Þóra is married.",
+          "role": "user"
+        },
+        {
+          "record_id": "f250ede0-1c17-4a29-a953-7c8cf512204d",
+          "revision": 1,
+          "range": {
+            "start": 51,
+            "end": 93
+          },
+          "quote": "Þóra is married. Establish that as a fact.",
+          "role": "user"
+        },
+        {
+          "record_id": "a3e1a84d-497e-45e8-b195-7347cd755cea",
+          "revision": 1,
+          "range": {
+            "start": 19,
+            "end": 49
+          },
+          "quote": "Possibly Þóra sent the letter.",
+          "role": "user"
+        },
+        {
+          "record_id": "cbc84f52-ea8a-4bb6-a2e5-58acf50dfc33",
+          "revision": 1,
+          "range": {
+            "start": 19,
+            "end": 49
+          },
+          "quote": "Possibly Þóra sent the letter.",
+          "role": "user"
+        },
+        {
+          "record_id": "0e3c365a-843f-46d2-b47c-dbfbf3e38f9d",
+          "revision": 1,
+          "range": {
+            "start": 95,
+            "end": 159
+          },
+          "quote": "The character says, “I am married.” This is only a possible lie.",
+          "role": "user"
+        },
+        {
+          "record_id": "c05518bd-5c60-4021-ae99-7dcf79ac8680",
+          "revision": 1,
+          "range": {
+            "start": 95,
+            "end": 159
+          },
+          "quote": "The character says, “I am married.” This is only a possible lie.",
+          "role": "user"
+        },
+        {
+          "record_id": "3a4a9d59-c811-4c3c-ab96-438872a1add6",
+          "revision": 2,
+          "range": {
+            "start": 51,
+            "end": 93
+          },
+          "quote": "Þóra is married. Establish that as a fact.",
+          "role": "user"
+        },
+        {
+          "record_id": "b16e682d-4924-4702-9152-6181930dac72",
+          "revision": 1,
+          "range": {
+            "start": 22,
+            "end": 63
+          },
+          "quote": "The engine uses gaseous fuel, not petrol.",
+          "role": "user"
+        },
+        {
+          "record_id": "6d1da506-453b-4c98-a8ed-51ea8f6abe06",
+          "revision": 1,
+          "range": {
+            "start": 22,
+            "end": 63
+          },
+          "quote": "The engine uses gaseous fuel, not petrol.",
+          "role": "user"
+        },
+        {
+          "record_id": "2069408e-0c59-4273-846f-50ad84776c74",
+          "revision": 1,
+          "range": {
+            "start": 22,
+            "end": 63
+          },
+          "quote": "The engine uses gaseous fuel, not petrol.",
+          "role": "user"
+        },
+        {
+          "record_id": "a3e1a84d-497e-45e8-b195-7347cd755cea",
+          "revision": 2,
+          "range": {
+            "start": 89,
+            "end": 108
+          },
+          "quote": "Keep Þóra as sender",
+          "role": "user"
+        },
+        {
+          "record_id": "cbc84f52-ea8a-4bb6-a2e5-58acf50dfc33",
+          "revision": 2,
+          "range": {
+            "start": 89,
+            "end": 108
+          },
+          "quote": "Keep Þóra as sender",
+          "role": "user"
+        },
+        {
+          "record_id": "e8d71f1e-0925-4435-af4d-e9cd416e87d7",
+          "revision": 1,
+          "range": {
+            "start": 89,
+            "end": 108
+          },
+          "quote": "Keep Þóra as sender",
+          "role": "user"
+        },
+        {
+          "record_id": "100e9a66-7f32-4a29-913a-36df7cc1b42f",
+          "revision": 1,
+          "range": {
+            "start": 110,
+            "end": 136
+          },
+          "quote": "en morðið er enn óákveðið.",
+          "role": "user"
+        },
+        {
+          "record_id": "d30cccd8-b676-4f33-a605-ca0857fbcb01",
+          "revision": 1,
+          "range": {
+            "start": 483,
+            "end": 578
+          },
+          "quote": "Would you like to revise the petrol-only rule, or keep it and change the gaseous-fuel proposal?",
+          "role": "assistant"
+        },
+        {
+          "record_id": "3a4a9d59-c811-4c3c-ab96-438872a1add6",
+          "revision": 3,
+          "range": {
+            "start": 64,
+            "end": 87
+          },
+          "quote": "Does that fit the rule?",
+          "role": "user"
+        }
+      ],
+      "assessed_records": {
+        "sender_before": {
+          "id": "cbc84f52-ea8a-4bb6-a2e5-58acf50dfc33",
+          "kind": "assertion",
+          "revision": 1,
+          "previous_revision": null,
+          "source_refs": [
+            {
+              "type": "message",
+              "exchange_id": "cd8b9ee7-19e0-4e76-a4da-1a474809fc33",
+              "message_id": "8d366c6b-90fc-44aa-ae35-2c20eba92d5a",
+              "range": {
+                "start": 19,
+                "end": 49
+              }
+            }
+          ],
+          "created_exchange_id": "cd8b9ee7-19e0-4e76-a4da-1a474809fc33",
+          "origin": "supplied",
+          "subject_element_id": "08f2bfd7-199a-4de6-b6da-39c5bce8ce94",
+          "predicate": "sent",
+          "value": "the letter",
+          "perspective": "author_truth",
+          "holder_id": null,
+          "reader_audience": null,
+          "time_ref": {
+            "chronology": {
+              "precision": "unknown",
+              "event_anchor": null,
+              "start": null,
+              "end": null,
+              "before_refs": [],
+              "after_refs": []
+            },
+            "narrative": {
+              "precision": "unknown",
+              "event_anchor": null,
+              "start": null,
+              "end": null,
+              "before_refs": [],
+              "after_refs": []
+            }
+          },
+          "truth_state": "unknown",
+          "status": "proposed",
+          "decision_ids": [],
+          "supersedes": null
+        },
+        "sender_after": {
+          "id": "cbc84f52-ea8a-4bb6-a2e5-58acf50dfc33",
+          "kind": "assertion",
+          "revision": 2,
+          "previous_revision": 1,
+          "source_refs": [
+            {
+              "type": "message",
+              "exchange_id": "cd8b9ee7-19e0-4e76-a4da-1a474809fc33",
+              "message_id": "8d366c6b-90fc-44aa-ae35-2c20eba92d5a",
+              "range": {
+                "start": 19,
+                "end": 49
+              }
+            },
+            {
+              "type": "message",
+              "exchange_id": "fe93d295-9197-46ac-be71-fc0cc2ea1aeb",
+              "message_id": "13b68493-fde7-431c-a987-d08374a877e6",
+              "range": {
+                "start": 89,
+                "end": 108
+              }
+            }
+          ],
+          "created_exchange_id": "cd8b9ee7-19e0-4e76-a4da-1a474809fc33",
+          "origin": "supplied",
+          "subject_element_id": "08f2bfd7-199a-4de6-b6da-39c5bce8ce94",
+          "predicate": "sent",
+          "value": "the letter",
+          "perspective": "author_truth",
+          "holder_id": null,
+          "reader_audience": null,
+          "time_ref": {
+            "chronology": {
+              "precision": "unknown",
+              "event_anchor": null,
+              "start": null,
+              "end": null,
+              "before_refs": [],
+              "after_refs": []
+            },
+            "narrative": {
+              "precision": "unknown",
+              "event_anchor": null,
+              "start": null,
+              "end": null,
+              "before_refs": [],
+              "after_refs": []
+            }
+          },
+          "truth_state": "affirmed",
+          "status": "accepted",
+          "decision_ids": [
+            "e8d71f1e-0925-4435-af4d-e9cd416e87d7"
+          ],
+          "supersedes": null
+        },
+        "married": {
+          "id": "010a1c3d-e88d-4792-b9e7-82e9cf9a7089",
+          "kind": "assertion",
+          "revision": 1,
+          "previous_revision": null,
+          "source_refs": [
+            {
+              "type": "message",
+              "exchange_id": "cd8b9ee7-19e0-4e76-a4da-1a474809fc33",
+              "message_id": "8d366c6b-90fc-44aa-ae35-2c20eba92d5a",
+              "range": {
+                "start": 51,
+                "end": 67
+              }
+            }
+          ],
+          "created_exchange_id": "cd8b9ee7-19e0-4e76-a4da-1a474809fc33",
+          "origin": "supplied",
+          "subject_element_id": "08f2bfd7-199a-4de6-b6da-39c5bce8ce94",
+          "predicate": "marital_status",
+          "value": "married",
+          "perspective": "author_truth",
+          "holder_id": null,
+          "reader_audience": null,
+          "time_ref": {
+            "chronology": {
+              "precision": "unknown",
+              "event_anchor": null,
+              "start": null,
+              "end": null,
+              "before_refs": [],
+              "after_refs": []
+            },
+            "narrative": {
+              "precision": "unknown",
+              "event_anchor": null,
+              "start": null,
+              "end": null,
+              "before_refs": [],
+              "after_refs": []
+            }
+          },
+          "truth_state": "affirmed",
+          "status": "accepted",
+          "decision_ids": [
+            "f250ede0-1c17-4a29-a953-7c8cf512204d"
+          ],
+          "supersedes": null
+        },
+        "possible_quote": {
+          "id": "c05518bd-5c60-4021-ae99-7dcf79ac8680",
+          "kind": "idea",
+          "revision": 1,
+          "previous_revision": null,
+          "source_refs": [
+            {
+              "type": "message",
+              "exchange_id": "cd8b9ee7-19e0-4e76-a4da-1a474809fc33",
+              "message_id": "8d366c6b-90fc-44aa-ae35-2c20eba92d5a",
+              "range": {
+                "start": 95,
+                "end": 159
+              }
+            }
+          ],
+          "created_exchange_id": "cd8b9ee7-19e0-4e76-a4da-1a474809fc33",
+          "origin": "supplied",
+          "statement": "Possible dialogue or lie: “I am married.”",
+          "status": "proposed",
+          "related_element_ids": [
+            "0e3c365a-843f-46d2-b47c-dbfbf3e38f9d"
+          ],
+          "alternative_group_id": null,
+          "selected_parts": [],
+          "decision_ids": [],
+          "resulting_assertion_ids": []
+        },
+        "fuel_conflict": {
+          "id": "2069408e-0c59-4273-846f-50ad84776c74",
+          "kind": "finding",
+          "revision": 1,
+          "previous_revision": null,
+          "source_refs": [
+            {
+              "type": "message",
+              "exchange_id": "fe93d295-9197-46ac-be71-fc0cc2ea1aeb",
+              "message_id": "13b68493-fde7-431c-a987-d08374a877e6",
+              "range": {
+                "start": 22,
+                "end": 63
+              }
+            },
+            {
+              "type": "message",
+              "exchange_id": "9ded8930-92ba-4ab6-8e42-4d71833ed365",
+              "message_id": "e362f85e-1738-4d4d-bdfe-87ea5cc7d855",
+              "range": {
+                "start": 785,
+                "end": 823
+              }
+            }
+          ],
+          "created_exchange_id": "fe93d295-9197-46ac-be71-fc0cc2ea1aeb",
+          "origin": "interpreted",
+          "category": "world_rule",
+          "assessment": "conflict",
+          "severity": "significant",
+          "affected_refs": [
+            {
+              "id": "b16e682d-4924-4702-9152-6181930dac72",
+              "revision": 1
+            },
+            {
+              "id": "6d1da506-453b-4c98-a8ed-51ea8f6abe06",
+              "revision": 1
+            },
+            {
+              "id": "2d9d1a12-afd9-4ed4-baa3-4851f12cfd29",
+              "revision": 1
+            },
+            {
+              "id": "535a64d5-f560-4c5c-9bde-cf235f3b42e3",
+              "revision": 1
+            }
+          ],
+          "explanation": "Gaseous fuel explicitly distinguished from petrol is incompatible with the accepted rule that the engine runs exclusively on petrol. The current question asks about compatibility and does not settle whether to revise the existing rule.",
+          "consequences": [
+            "Do not promote the gaseous-fuel proposal while preserving the exclusive petrol rule.",
+            "Keep the established rule in force pending a sourced choice of resolution."
+          ],
+          "resolution_options": [
+            "Revise or reject the gaseous-fuel proposal.",
+            "Explicitly revise the petrol-only rule.",
+            "Supply an intentional narrative explanation or defer the conflict."
+          ],
+          "disposition": "open",
+          "decision_ids": [],
+          "narrative_explanation": null
+        },
+        "murder": {
+          "id": "100e9a66-7f32-4a29-913a-36df7cc1b42f",
+          "kind": "idea",
+          "revision": 1,
+          "previous_revision": null,
+          "source_refs": [
+            {
+              "type": "message",
+              "exchange_id": "fe93d295-9197-46ac-be71-fc0cc2ea1aeb",
+              "message_id": "13b68493-fde7-431c-a987-d08374a877e6",
+              "range": {
+                "start": 110,
+                "end": 136
+              }
+            }
+          ],
+          "created_exchange_id": "fe93d295-9197-46ac-be71-fc0cc2ea1aeb",
+          "origin": "supplied",
+          "statement": "The murder remains undecided.",
+          "status": "unresolved",
+          "related_element_ids": [],
+          "alternative_group_id": null,
+          "selected_parts": [],
+          "decision_ids": [],
+          "resulting_assertion_ids": []
+        }
+      },
+      "actual_project": {
+        "id": "42754ded-2ba3-42d4-98b4-3e30663c4e76",
+        "kind": "novel_project",
+        "revision": 3,
+        "previous_revision": 2,
+        "created_exchange_id": "2aa7a7ea-93a7-4406-9e56-100e3923bbc6",
+        "source_refs": [
+          {
+            "type": "message",
+            "exchange_id": "4146312e-8b9a-4739-bab5-55407e45623a",
+            "message_id": "fd6b4797-ed08-42d8-8897-b4a739463588",
+            "range": {
+              "start": 20,
+              "end": 46
+            }
+          }
+        ],
+        "origin": "supplied",
+        "title": {
+          "state": "default",
+          "original_text": "Untitled novel",
+          "interpretation": null,
+          "origin": "system_default",
+          "source_refs": []
+        },
+        "original_concept": {
+          "state": "unknown",
+          "original_text": null,
+          "interpretation": null,
+          "origin": "system_default",
+          "source_refs": []
+        },
+        "creative_brief": {
+          "genre": {
+            "state": "unknown",
+            "original_text": null,
+            "interpretation": null,
+            "origin": "system_default",
+            "source_refs": []
+          },
+          "subgenres": {
+            "state": "unknown",
+            "original_text": null,
+            "interpretation": null,
+            "origin": "system_default",
+            "source_refs": []
+          },
+          "audience": {
+            "state": "unknown",
+            "original_text": null,
+            "interpretation": null,
+            "origin": "system_default",
+            "source_refs": []
+          },
+          "tone": {
+            "state": "unknown",
+            "original_text": null,
+            "interpretation": null,
+            "origin": "system_default",
+            "source_refs": []
+          },
+          "style": {
+            "state": "unknown",
+            "original_text": null,
+            "interpretation": null,
+            "origin": "system_default",
+            "source_refs": []
+          },
+          "perspective": {
+            "state": "unknown",
+            "original_text": null,
+            "interpretation": null,
+            "origin": "system_default",
+            "source_refs": []
+          },
+          "complexity": {
+            "state": "unknown",
+            "original_text": null,
+            "interpretation": null,
+            "origin": "system_default",
+            "source_refs": []
+          }
+        },
+        "manuscript_language": "is",
+        "workflow_preferences": {
+          "interaction_language": {
+            "state": "supplied",
+            "original_text": "svaraðu á ensku",
+            "interpretation": "Respond in English.",
+            "origin": "supplied",
+            "source_refs": [
+              {
+                "type": "message",
+                "exchange_id": "9ded8930-92ba-4ab6-8e42-4d71833ed365",
+                "message_id": "e362f85e-1738-4d4d-bdfe-87ea5cc7d855",
+                "range": {
+                  "start": 859,
+                  "end": 874
+                }
+              }
+            ]
+          },
+          "suggestion_frequency": {
+            "state": "supplied",
+            "original_text": "Fewer suggestions, please.",
+            "interpretation": null,
+            "origin": "supplied",
+            "source_refs": [
+              {
+                "type": "message",
+                "exchange_id": "4146312e-8b9a-4739-bab5-55407e45623a",
+                "message_id": "fd6b4797-ed08-42d8-8897-b4a739463588",
+                "range": {
+                  "start": 20,
+                  "end": 46
+                }
+              }
+            ]
+          }
+        },
+        "review_preferences": {
+          "routine_checkpoint": "on_request"
+        },
+        "creative_directions": []
+      },
+      "question_preserved": true
+    },
+    {
+      "fixture_variant": "is",
+      "fixtures": [
+        {
+          "id": "L05",
+          "phase": "LANG_SETUP",
+          "source_quote": "Handritið verður á íslensku; reply in English. Ég veit ekki enn hver tegundin verður.",
+          "range": {
+            "start": 823,
+            "end": 908
+          },
+          "exchange_id": "49ab0fda-40cd-4521-8744-64af31134614",
+          "message_id": "1811d233-021e-418a-bc6b-745a42638726"
+        },
+        {
+          "id": "L06",
+          "phase": "LANG_GUIDANCE",
+          "source_quote": "Færri tillögur, please. Beinum sjónum að æsku Ægis.",
+          "range": {
+            "start": 57,
+            "end": 108
+          },
+          "exchange_id": "de615514-949a-4a42-b03d-a5da69e45b89",
+          "message_id": "0cd1bad1-32c5-41db-8df6-1e2c29497b57"
+        },
+        {
+          "id": "L01",
+          "phase": "LANG_CAPTURE",
+          "source_quote": "Eventúellt sendi Þóra bréfið.",
+          "range": {
+            "start": 19,
+            "end": 48
+          },
+          "exchange_id": "a5b50d12-fd7f-4e43-961f-b87b82202b7d",
+          "message_id": "99c15104-443b-4d93-b79d-2dce88ccb18e"
+        },
+        {
+          "id": "L02",
+          "phase": "LANG_CAPTURE",
+          "source_quote": "Þóra er gift. Staðfestum það sem staðreynd.",
+          "range": {
+            "start": 50,
+            "end": 93
+          },
+          "exchange_id": "a5b50d12-fd7f-4e43-961f-b87b82202b7d",
+          "message_id": "99c15104-443b-4d93-b79d-2dce88ccb18e"
+        },
+        {
+          "id": "L07",
+          "phase": "LANG_CAPTURE",
+          "source_quote": "Persónan segir: „Ég er gift.“ Þetta er aðeins möguleg lygi.",
+          "range": {
+            "start": 95,
+            "end": 154
+          },
+          "exchange_id": "a5b50d12-fd7f-4e43-961f-b87b82202b7d",
+          "message_id": "99c15104-443b-4d93-b79d-2dce88ccb18e"
+        },
+        {
+          "id": "L08",
+          "phase": "LANG_CAPTURE",
+          "source_quote": "Ekki staðfesta að Þóra sé sendandinn.",
+          "range": {
+            "start": 156,
+            "end": 193
+          },
+          "exchange_id": "a5b50d12-fd7f-4e43-961f-b87b82202b7d",
+          "message_id": "99c15104-443b-4d93-b79d-2dce88ccb18e"
+        },
+        {
+          "id": "L03",
+          "phase": "LANG_CONTINUITY",
+          "source_quote": "Vélin notar gas, ekki bensín. Samræmist það reglunni?",
+          "range": {
+            "start": 22,
+            "end": 75
+          },
+          "exchange_id": "bd11e7dd-41a7-4ef9-978e-578cce235e83",
+          "message_id": "8f874a94-4709-425d-b8c6-4d305faec20d"
+        },
+        {
+          "id": "L04",
+          "phase": "LANG_CONTINUITY",
+          "source_quote": "Höldum Þóru sem sendanda",
+          "range": {
+            "start": 77,
+            "end": 101
+          },
+          "exchange_id": "bd11e7dd-41a7-4ef9-978e-578cce235e83",
+          "message_id": "8f874a94-4709-425d-b8c6-4d305faec20d"
+        }
+      ],
+      "source_quotes": [
+        {
+          "record_id": "8a282cc3-d70b-428f-81d8-a2b43716e95e",
+          "revision": 2,
+          "range": {
+            "start": 852,
+            "end": 868
+          },
+          "quote": "reply in English",
+          "role": "user"
+        },
+        {
+          "record_id": "6891aa0a-adde-49ea-bdfe-9358b42623a4",
+          "revision": 1,
+          "range": {
+            "start": 785,
+            "end": 821
+          },
+          "quote": "Vélin gengur eingöngu fyrir bensíni.",
+          "role": "user"
+        },
+        {
+          "record_id": "993422dc-055a-4308-a9be-5d7f6d140265",
+          "revision": 1,
+          "range": {
+            "start": 785,
+            "end": 821
+          },
+          "quote": "Vélin gengur eingöngu fyrir bensíni.",
+          "role": "user"
+        },
+        {
+          "record_id": "53dee14c-9db4-4496-bf43-45482adba52d",
+          "revision": 1,
+          "range": {
+            "start": 785,
+            "end": 821
+          },
+          "quote": "Vélin gengur eingöngu fyrir bensíni.",
+          "role": "user"
+        },
+        {
+          "record_id": "db8a3681-580e-4368-92a0-180ac45535b6",
+          "revision": 1,
+          "range": {
+            "start": 741,
+            "end": 821
+          },
+          "quote": "Establish this engine rule as author truth: Vélin gengur eingöngu fyrir bensíni.",
+          "role": "user"
+        },
+        {
+          "record_id": "8a282cc3-d70b-428f-81d8-a2b43716e95e",
+          "revision": 3,
+          "range": {
+            "start": 20,
+            "end": 56
+          },
+          "quote": "Svörum aftur á íslensku héðan í frá.",
+          "role": "user"
+        },
+        {
+          "record_id": "8a282cc3-d70b-428f-81d8-a2b43716e95e",
+          "revision": 3,
+          "range": {
+            "start": 57,
+            "end": 80
+          },
+          "quote": "Færri tillögur, please.",
+          "role": "user"
+        },
+        {
+          "record_id": "df233544-f9d8-4855-9498-73f53c5fbb95",
+          "revision": 1,
+          "range": {
+            "start": 81,
+            "end": 108
+          },
+          "quote": "Beinum sjónum að æsku Ægis.",
+          "role": "user"
+        },
+        {
+          "record_id": "f8a276a2-d611-4442-990d-d5830ea5fe06",
+          "revision": 1,
+          "range": {
+            "start": 125,
+            "end": 176
+          },
+          "quote": "Hvaða eina upplifun úr æsku Ægis viltu kanna fyrst?",
+          "role": "assistant"
+        },
+        {
+          "record_id": "68738f79-c1ba-4e6e-8499-fce8033d2aa4",
+          "revision": 1,
+          "range": {
+            "start": 81,
+            "end": 108
+          },
+          "quote": "Beinum sjónum að æsku Ægis.",
+          "role": "user"
+        },
+        {
+          "record_id": "b730bc68-c613-4416-8941-fcc74ed2357e",
+          "revision": 1,
+          "range": {
+            "start": 50,
+            "end": 63
+          },
+          "quote": "Þóra er gift.",
+          "role": "user"
+        },
+        {
+          "record_id": "749bdc9a-35ba-4445-a759-fca5286a6ef3",
+          "revision": 1,
+          "range": {
+            "start": 50,
+            "end": 63
+          },
+          "quote": "Þóra er gift.",
+          "role": "user"
+        },
+        {
+          "record_id": "380b14f4-a04a-4124-b519-7735ee5e2beb",
+          "revision": 1,
+          "range": {
+            "start": 50,
+            "end": 63
+          },
+          "quote": "Þóra er gift.",
+          "role": "user"
+        },
+        {
+          "record_id": "89b3cfdf-4bb9-4dc3-8ec1-2f1bf9c9c08e",
+          "revision": 1,
+          "range": {
+            "start": 50,
+            "end": 93
+          },
+          "quote": "Þóra er gift. Staðfestum það sem staðreynd.",
+          "role": "user"
+        },
+        {
+          "record_id": "a42e2e54-0ade-4722-9302-68a73ccea17b",
+          "revision": 1,
+          "range": {
+            "start": 19,
+            "end": 48
+          },
+          "quote": "Eventúellt sendi Þóra bréfið.",
+          "role": "user"
+        },
+        {
+          "record_id": "141e3934-7462-4bc7-b3fd-b1ae51c61b91",
+          "revision": 1,
+          "range": {
+            "start": 19,
+            "end": 48
+          },
+          "quote": "Eventúellt sendi Þóra bréfið.",
+          "role": "user"
+        },
+        {
+          "record_id": "6bea469e-0b5b-41dc-a4e5-85ee48acb92c",
+          "revision": 1,
+          "range": {
+            "start": 19,
+            "end": 48
+          },
+          "quote": "Eventúellt sendi Þóra bréfið.",
+          "role": "user"
+        },
+        {
+          "record_id": "91d49049-8e83-40de-9710-090e4e8ccb2b",
+          "revision": 1,
+          "range": {
+            "start": 95,
+            "end": 154
+          },
+          "quote": "Persónan segir: „Ég er gift.“ Þetta er aðeins möguleg lygi.",
+          "role": "user"
+        },
+        {
+          "record_id": "15ec9d28-c7ea-4565-a490-8e972c0fa659",
+          "revision": 1,
+          "range": {
+            "start": 95,
+            "end": 154
+          },
+          "quote": "Persónan segir: „Ég er gift.“ Þetta er aðeins möguleg lygi.",
+          "role": "user"
+        },
+        {
+          "record_id": "1e86a4a9-4b68-41c6-98ce-e1a43270b433",
+          "revision": 1,
+          "range": {
+            "start": 95,
+            "end": 154
+          },
+          "quote": "Persónan segir: „Ég er gift.“ Þetta er aðeins möguleg lygi.",
+          "role": "user"
+        },
+        {
+          "record_id": "4d20d1fc-70dd-4823-9564-34dcc8a68fb1",
+          "revision": 1,
+          "range": {
+            "start": 22,
+            "end": 51
+          },
+          "quote": "Vélin notar gas, ekki bensín.",
+          "role": "user"
+        },
+        {
+          "record_id": "3b4ab543-2038-41a1-85ac-a47f942e31a1",
+          "revision": 1,
+          "range": {
+            "start": 22,
+            "end": 51
+          },
+          "quote": "Vélin notar gas, ekki bensín.",
+          "role": "user"
+        },
+        {
+          "record_id": "c372f461-87c8-4dee-a24f-b15f2eda03d6",
+          "revision": 1,
+          "range": {
+            "start": 22,
+            "end": 51
+          },
+          "quote": "Vélin notar gas, ekki bensín.",
+          "role": "user"
+        },
+        {
+          "record_id": "4fe281f2-4ce3-4679-ba2b-68db334241a1",
+          "revision": 1,
+          "range": {
+            "start": 52,
+            "end": 75
+          },
+          "quote": "Samræmist það reglunni?",
+          "role": "user"
+        },
+        {
+          "record_id": "4fe281f2-4ce3-4679-ba2b-68db334241a1",
+          "revision": 1,
+          "range": {
+            "start": 195,
+            "end": 259
+          },
+          "quote": "Viltu halda bensínreglunni eða endurskoða hana til að leyfa gas?",
+          "role": "assistant"
+        },
+        {
+          "record_id": "6bea469e-0b5b-41dc-a4e5-85ee48acb92c",
+          "revision": 2,
+          "range": {
+            "start": 77,
+            "end": 101
+          },
+          "quote": "Höldum Þóru sem sendanda",
+          "role": "user"
+        },
+        {
+          "record_id": "141e3934-7462-4bc7-b3fd-b1ae51c61b91",
+          "revision": 2,
+          "range": {
+            "start": 77,
+            "end": 101
+          },
+          "quote": "Höldum Þóru sem sendanda",
+          "role": "user"
+        },
+        {
+          "record_id": "a42e2e54-0ade-4722-9302-68a73ccea17b",
+          "revision": 2,
+          "range": {
+            "start": 77,
+            "end": 101
+          },
+          "quote": "Höldum Þóru sem sendanda",
+          "role": "user"
+        },
+        {
+          "record_id": "b4f0e9fa-e570-446c-b7a7-483acb4e8c04",
+          "revision": 1,
+          "range": {
+            "start": 77,
+            "end": 101
+          },
+          "quote": "Höldum Þóru sem sendanda",
+          "role": "user"
+        },
+        {
+          "record_id": "0ec7a969-949f-4a26-8c3a-8083bc77e660",
+          "revision": 1,
+          "range": {
+            "start": 103,
+            "end": 134
+          },
+          "quote": "but leave the murder undecided.",
+          "role": "user"
+        },
+        {
+          "record_id": "e2fa965c-7eab-428d-b1ea-10cc55790ffa",
+          "revision": 1,
+          "range": {
+            "start": 103,
+            "end": 134
+          },
+          "quote": "but leave the murder undecided.",
+          "role": "user"
+        },
+        {
+          "record_id": "f69099e7-db17-4a92-9984-a025afde097b",
+          "revision": 1,
+          "range": {
+            "start": 103,
+            "end": 134
+          },
+          "quote": "but leave the murder undecided.",
+          "role": "user"
+        }
+      ],
+      "assessed_records": {
+        "sender_before": {
+          "id": "141e3934-7462-4bc7-b3fd-b1ae51c61b91",
+          "kind": "assertion",
+          "revision": 1,
+          "previous_revision": null,
+          "created_exchange_id": "a5b50d12-fd7f-4e43-961f-b87b82202b7d",
+          "origin": "supplied",
+          "source_refs": [
+            {
+              "type": "message",
+              "exchange_id": "a5b50d12-fd7f-4e43-961f-b87b82202b7d",
+              "message_id": "99c15104-443b-4d93-b79d-2dce88ccb18e",
+              "range": {
+                "start": 19,
+                "end": 48
+              }
+            }
+          ],
+          "subject_element_id": "b730bc68-c613-4416-8941-fcc74ed2357e",
+          "predicate": "sendi",
+          "value": "bréfið",
+          "perspective": "author_truth",
+          "holder_id": null,
+          "reader_audience": null,
+          "time_ref": {
+            "chronology": {
+              "precision": "unknown",
+              "event_anchor": null,
+              "start": null,
+              "end": null,
+              "before_refs": [],
+              "after_refs": []
+            },
+            "narrative": {
+              "precision": "unknown",
+              "event_anchor": null,
+              "start": null,
+              "end": null,
+              "before_refs": [],
+              "after_refs": []
+            }
+          },
+          "truth_state": "unknown",
+          "status": "proposed",
+          "decision_ids": [],
+          "supersedes": null
+        },
+        "sender_after": {
+          "id": "141e3934-7462-4bc7-b3fd-b1ae51c61b91",
+          "kind": "assertion",
+          "revision": 2,
+          "previous_revision": 1,
+          "created_exchange_id": "a5b50d12-fd7f-4e43-961f-b87b82202b7d",
+          "origin": "supplied",
+          "source_refs": [
+            {
+              "type": "message",
+              "exchange_id": "a5b50d12-fd7f-4e43-961f-b87b82202b7d",
+              "message_id": "99c15104-443b-4d93-b79d-2dce88ccb18e",
+              "range": {
+                "start": 19,
+                "end": 48
+              }
+            },
+            {
+              "type": "message",
+              "exchange_id": "bd11e7dd-41a7-4ef9-978e-578cce235e83",
+              "message_id": "8f874a94-4709-425d-b8c6-4d305faec20d",
+              "range": {
+                "start": 77,
+                "end": 101
+              }
+            }
+          ],
+          "subject_element_id": "b730bc68-c613-4416-8941-fcc74ed2357e",
+          "predicate": "sendi",
+          "value": "bréfið",
+          "perspective": "author_truth",
+          "holder_id": null,
+          "reader_audience": null,
+          "time_ref": {
+            "chronology": {
+              "precision": "unknown",
+              "event_anchor": null,
+              "start": null,
+              "end": null,
+              "before_refs": [],
+              "after_refs": []
+            },
+            "narrative": {
+              "precision": "unknown",
+              "event_anchor": null,
+              "start": null,
+              "end": null,
+              "before_refs": [],
+              "after_refs": []
+            }
+          },
+          "truth_state": "affirmed",
+          "status": "accepted",
+          "decision_ids": [
+            "b4f0e9fa-e570-446c-b7a7-483acb4e8c04"
+          ],
+          "supersedes": null
+        },
+        "married": {
+          "id": "749bdc9a-35ba-4445-a759-fca5286a6ef3",
+          "kind": "assertion",
+          "revision": 1,
+          "previous_revision": null,
+          "created_exchange_id": "a5b50d12-fd7f-4e43-961f-b87b82202b7d",
+          "origin": "supplied",
+          "source_refs": [
+            {
+              "type": "message",
+              "exchange_id": "a5b50d12-fd7f-4e43-961f-b87b82202b7d",
+              "message_id": "99c15104-443b-4d93-b79d-2dce88ccb18e",
+              "range": {
+                "start": 50,
+                "end": 63
+              }
+            }
+          ],
+          "subject_element_id": "b730bc68-c613-4416-8941-fcc74ed2357e",
+          "predicate": "hjúskaparstaða",
+          "value": "gift",
+          "perspective": "author_truth",
+          "holder_id": null,
+          "reader_audience": null,
+          "time_ref": {
+            "chronology": {
+              "precision": "unknown",
+              "event_anchor": null,
+              "start": null,
+              "end": null,
+              "before_refs": [],
+              "after_refs": []
+            },
+            "narrative": {
+              "precision": "unknown",
+              "event_anchor": null,
+              "start": null,
+              "end": null,
+              "before_refs": [],
+              "after_refs": []
+            }
+          },
+          "truth_state": "affirmed",
+          "status": "accepted",
+          "decision_ids": [
+            "89b3cfdf-4bb9-4dc3-8ec1-2f1bf9c9c08e"
+          ],
+          "supersedes": null
+        },
+        "possible_quote": {
+          "id": "1e86a4a9-4b68-41c6-98ce-e1a43270b433",
+          "kind": "idea",
+          "revision": 1,
+          "previous_revision": null,
+          "created_exchange_id": "a5b50d12-fd7f-4e43-961f-b87b82202b7d",
+          "origin": "supplied",
+          "source_refs": [
+            {
+              "type": "message",
+              "exchange_id": "a5b50d12-fd7f-4e43-961f-b87b82202b7d",
+              "message_id": "99c15104-443b-4d93-b79d-2dce88ccb18e",
+              "range": {
+                "start": 95,
+                "end": 154
+              }
+            }
+          ],
+          "statement": "Persónan segir: „Ég er gift.“ Þetta er aðeins möguleg lygi.",
+          "status": "proposed",
+          "related_element_ids": [
+            "91d49049-8e83-40de-9710-090e4e8ccb2b"
+          ],
+          "alternative_group_id": null,
+          "selected_parts": [],
+          "decision_ids": [],
+          "resulting_assertion_ids": [
+            "15ec9d28-c7ea-4565-a490-8e972c0fa659"
+          ]
+        },
+        "fuel_conflict": {
+          "id": "c372f461-87c8-4dee-a24f-b15f2eda03d6",
+          "kind": "finding",
+          "revision": 1,
+          "previous_revision": null,
+          "created_exchange_id": "bd11e7dd-41a7-4ef9-978e-578cce235e83",
+          "origin": "supplied",
+          "source_refs": [
+            {
+              "type": "message",
+              "exchange_id": "bd11e7dd-41a7-4ef9-978e-578cce235e83",
+              "message_id": "8f874a94-4709-425d-b8c6-4d305faec20d",
+              "range": {
+                "start": 22,
+                "end": 51
+              }
+            },
+            {
+              "type": "message",
+              "exchange_id": "49ab0fda-40cd-4521-8744-64af31134614",
+              "message_id": "1811d233-021e-418a-bc6b-745a42638726",
+              "range": {
+                "start": 785,
+                "end": 821
+              }
+            }
+          ],
+          "category": "world_rule",
+          "assessment": "conflict",
+          "severity": "significant",
+          "affected_refs": [
+            {
+              "id": "3b4ab543-2038-41a1-85ac-a47f942e31a1",
+              "revision": 1
+            },
+            {
+              "id": "4d20d1fc-70dd-4823-9564-34dcc8a68fb1",
+              "revision": 1
+            },
+            {
+              "id": "6891aa0a-adde-49ea-bdfe-9358b42623a4",
+              "revision": 1
+            },
+            {
+              "id": "993422dc-055a-4308-a9be-5d7f6d140265",
+              "revision": 1
+            }
+          ],
+          "explanation": "Íslenskt gas er ekki bensín. Gasnotkun án bensíns stangast á við staðfesta eingöngu-bensín reglu vélarinnar.",
+          "consequences": [
+            "Ný tillaga getur ekki staðist óbreytta eingöngu-bensín reglu."
+          ],
+          "resolution_options": [
+            "Halda bensínreglunni og endurskoða gasnotkunartillöguna.",
+            "Endurskoða eldsneytisregluna með skýrri ákvörðun.",
+            "Fresta tillögunni."
+          ],
+          "disposition": "open",
+          "decision_ids": [],
+          "narrative_explanation": null
+        },
+        "murder": {
+          "id": "e2fa965c-7eab-428d-b1ea-10cc55790ffa",
+          "kind": "idea",
+          "revision": 1,
+          "previous_revision": null,
+          "created_exchange_id": "bd11e7dd-41a7-4ef9-978e-578cce235e83",
+          "origin": "supplied",
+          "source_refs": [
+            {
+              "type": "message",
+              "exchange_id": "bd11e7dd-41a7-4ef9-978e-578cce235e83",
+              "message_id": "8f874a94-4709-425d-b8c6-4d305faec20d",
+              "range": {
+                "start": 103,
+                "end": 134
+              }
+            }
+          ],
+          "statement": "Morðið er óákveðið; enginn morðingi valinn.",
+          "status": "unresolved",
+          "related_element_ids": [
+            "0ec7a969-949f-4a26-8c3a-8083bc77e660"
+          ],
+          "alternative_group_id": null,
+          "selected_parts": [],
+          "decision_ids": [
+            "f69099e7-db17-4a92-9984-a025afde097b"
+          ],
+          "resulting_assertion_ids": []
+        }
+      },
+      "actual_project": {
+        "id": "8a282cc3-d70b-428f-81d8-a2b43716e95e",
+        "kind": "novel_project",
+        "revision": 3,
+        "previous_revision": 2,
+        "created_exchange_id": "8ecead6b-25a4-405b-9b4b-68c8b0b26119",
+        "source_refs": [
+          {
+            "type": "message",
+            "exchange_id": "de615514-949a-4a42-b03d-a5da69e45b89",
+            "message_id": "0cd1bad1-32c5-41db-8df6-1e2c29497b57",
+            "range": {
+              "start": 20,
+              "end": 56
+            }
+          },
+          {
+            "type": "message",
+            "exchange_id": "de615514-949a-4a42-b03d-a5da69e45b89",
+            "message_id": "0cd1bad1-32c5-41db-8df6-1e2c29497b57",
+            "range": {
+              "start": 57,
+              "end": 80
+            }
+          }
+        ],
+        "origin": "supplied",
+        "title": {
+          "state": "default",
+          "original_text": "Untitled novel",
+          "interpretation": null,
+          "origin": "system_default",
+          "source_refs": []
+        },
+        "original_concept": {
+          "state": "unknown",
+          "original_text": null,
+          "interpretation": null,
+          "origin": "system_default",
+          "source_refs": []
+        },
+        "creative_brief": {
+          "genre": {
+            "state": "unknown",
+            "original_text": null,
+            "interpretation": null,
+            "origin": "system_default",
+            "source_refs": []
+          },
+          "subgenres": {
+            "state": "unknown",
+            "original_text": null,
+            "interpretation": null,
+            "origin": "system_default",
+            "source_refs": []
+          },
+          "audience": {
+            "state": "unknown",
+            "original_text": null,
+            "interpretation": null,
+            "origin": "system_default",
+            "source_refs": []
+          },
+          "tone": {
+            "state": "unknown",
+            "original_text": null,
+            "interpretation": null,
+            "origin": "system_default",
+            "source_refs": []
+          },
+          "style": {
+            "state": "unknown",
+            "original_text": null,
+            "interpretation": null,
+            "origin": "system_default",
+            "source_refs": []
+          },
+          "perspective": {
+            "state": "unknown",
+            "original_text": null,
+            "interpretation": null,
+            "origin": "system_default",
+            "source_refs": []
+          },
+          "complexity": {
+            "state": "unknown",
+            "original_text": null,
+            "interpretation": null,
+            "origin": "system_default",
+            "source_refs": []
+          }
+        },
+        "manuscript_language": "is",
+        "workflow_preferences": {
+          "reply_language": {
+            "state": "supplied",
+            "original_text": "Svörum aftur á íslensku héðan í frá.",
+            "interpretation": null,
+            "origin": "supplied",
+            "source_refs": [
+              {
+                "type": "message",
+                "exchange_id": "de615514-949a-4a42-b03d-a5da69e45b89",
+                "message_id": "0cd1bad1-32c5-41db-8df6-1e2c29497b57",
+                "range": {
+                  "start": 20,
+                  "end": 56
+                }
+              }
+            ]
+          },
+          "suggestion_frequency": {
+            "state": "supplied",
+            "original_text": "Færri tillögur, please.",
+            "interpretation": null,
+            "origin": "supplied",
+            "source_refs": [
+              {
+                "type": "message",
+                "exchange_id": "de615514-949a-4a42-b03d-a5da69e45b89",
+                "message_id": "0cd1bad1-32c5-41db-8df6-1e2c29497b57",
+                "range": {
+                  "start": 57,
+                  "end": 80
+                }
+              }
+            ]
+          }
+        },
+        "review_preferences": {
+          "routine_checkpoint": "on_request"
+        },
+        "creative_directions": []
+      },
+      "question_preserved": true
+    }
+  ]
+}
