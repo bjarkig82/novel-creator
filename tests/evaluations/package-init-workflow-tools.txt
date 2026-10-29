@@ -1,0 +1,8 @@
+Collecting PyYAML
+  Using cached pyyaml-6.0.3-cp313-cp313-win_amd64.whl.metadata (2.4 kB)
+Using cached pyyaml-6.0.3-cp313-cp313-win_amd64.whl (154 kB)
+Installing collected packages: PyYAML
+Successfully installed PyYAML-6.0.3
+
+[notice] A new release of pip is available: 26.0.1 -> 26.2.2
+[notice] To update, run: C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\.venv\Scripts\python.exe -m pip install --upgrade pip

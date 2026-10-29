@@ -1,5 +1,11 @@
 # Initialize a novel
 
+Package onboarding: `novel-creator init NAME` creates an independent novel with
+optional `--path`, `--title`, `--language en|is`; no manual brief is required.
+Read `getting-started.md` for the complete writer route and current release status.
+Use the exact printed Python interpreter for the novel-local launcher. The legacy
+brief interface below remains available for conversational/bundled setup inputs.
+
 Accept an existing concept, a vague idea, or no concept. Offer a working title,
 concept, genre/subgenres, audience, manuscript language, tone, style, perspective,
 complexity, workflow preferences and human review preferences. Ask normally one

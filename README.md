@@ -2,6 +2,15 @@
 
 A home for developing an app that helps writers plan and create novels.
 
+## Getting started
+
+Follow the [writer's getting-started guide](workflows/getting-started.md) for
+installation, `novel-creator init 'My Novel'`, opening the novel in Codex,
+your first saved conversation, inspection and returning later. The simple
+initializer is available in the development package; public package publication
+and ownership remain unverified. See the guide's release status before installing
+by name. The developer/older POC instructions below remain reference material.
+
 ## Project status
 
 **Single-user POC:** the current delivery is the local Codex workflow for novel

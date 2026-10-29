@@ -1,0 +1,46 @@
+{
+  "status": "local-only; not a GitHub candidate or published release",
+  "distribution": "novel-creator",
+  "version": "0.1.0",
+  "version_provisional": true,
+  "baseline_commit": "2a15eccd04b59cc66006ecd738ad53a30e6e02f5",
+  "uncommitted_implementation": true,
+  "candidate_run": null,
+  "candidate_attempt": null,
+  "artifact_id": null,
+  "license_decision": "intentionally unlicensed by maintainer",
+  "files": {
+    "novel_creator-0.1.0-py3-none-any.whl": "f2b4d08ae04b7c6f1c535c8a4e5d465f83b3ddc033c571fe7dd7b08425714c8b",
+    "novel_creator-0.1.0.tar.gz": "66e865562c7d3bcb3c82217ed124d866928388ef8a013b51b307072f580f136e"
+  },
+  "current_source_sha256": {
+    "src/novel_creator/cli.py": "0d036ab5213ee0f342a6beeebe1a7cfa155daf9e966fd513767928f082e0a5d1",
+    "src/novel_creator/__init__.py": "277031de0bb8a6cf825d6f25829addaefcdee170a24613786fe6cdc561c2738a",
+    "tests/verify_package_install.py": "d8407e7999e280aa384de81a4548c39ffed4619815d867a553964cd59b861ec3",
+    ".github/workflows/package-release.yml": "747be3a12569006dd49ebab273547640fffc8da9378d9d8fabf20d950f24a467",
+    ".gitattributes": "e85d37d89a4f5344a03a6c81ccabd0c5c2d64762cb565d5e2226b712f4cfabf5",
+    "pyproject.toml": "1ca32b6e2421c9b40645ddc4353efa257c1c14cbaea4c51f495f8d80de30e528",
+    "src/novel_creator/install.py": "c3276d5b575c9cc7f66190fa7ac5ab3b6c0e72f09ce14fdd556f2fc227ee0469",
+    "workflows/getting-started.md": "f6b6f6e8fb43ee87ffd2198e01df4774130fa501334af67d33f1ee57113dde4d",
+    "tests/package_release.py": "e4394d9b477ca9d5e9b4af10e2f0d2eeda23902b9211a4eec825118f80d17ee1"
+  },
+  "public_name_control_verified": false,
+  "host_walkthrough_verified": false,
+  "public_install_verified": false,
+  "previous_local_files": {
+    "novel_creator-0.1.0-py3-none-any.whl": "03d4701e30124af11cab53eb5f58d82a45e33fa672d491af9b0ac12e2ede1fdf",
+    "novel_creator-0.1.0.tar.gz": "51fc0a57d04253b44dbe10e04cc4d2307e0235d51a017373d37b37f9e1f2a7ef"
+  },
+  "local_artifact_directory": "dist/package-init-convergence",
+  "convergence_verification": {
+    "windows_affected_contracts": 30,
+    "linux_full_tests": 208,
+    "linux_skipped": 3,
+    "clean_install_platforms": [
+      "Windows",
+      "Linux"
+    ],
+    "invalid_input_cases_per_platform": 5,
+    "pip_selection_proof": "contract tests; public execution still pending"
+  }
+}

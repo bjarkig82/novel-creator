@@ -148,6 +148,19 @@ print(json.dumps(result))
             assert invoke('session', 'list')['data']['sessions'][0]['topic'] == 'Bréfin'
             assert invoke('context')['checkpoint'] == saved['checkpoint']
             cases.append({'case': label, 'initialized': True, 'pinned_save_and_reopen': True})
+        simple = scratch / 'Simple Novel'
+        simple.mkdir()
+        for args in [('init', '-b', 'main'), ('config', 'user.name', 'Wheel Verification'),
+                     ('config', 'user.email', 'wheel@example.invalid')]:
+            run(['git', '-C', simple, *args], cwd=scratch, env=env)
+        shorthand = json.loads(run([console, 'init', 'Simple Novel', '--json'], cwd=scratch, env=env))
+        assert shorthand['data']['ready']
+        assert Path(shorthand['data']['getting_started_path']).read_bytes() == expected['novel_creator/workflows/getting-started.md']
+        version = run([console, '--version'], cwd=scratch, env=env).strip()
+        cases.append({'case': 'name-only', 'ready': True, 'version': version,
+                      'request_artifact': True, 'guide_identity': True})
+        history = json.loads(next((simple / 'story/exchanges').glob('*.json')).read_text(encoding='utf-8'))
+        assert history['input_artifacts'][1]['parsed_value']['name'] == 'Simple Novel'
     return {'ok': True, 'wheel': wheel.name,
             'wheel_sha256': hashlib.sha256(wheel.read_bytes()).hexdigest(),
             'verified_source_files': len(expected), 'package': package, 'cases': cases,

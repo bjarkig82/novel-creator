@@ -1,5 +1,11 @@
 # Installed novel entry
 
+In commands below, `python` means the exact compatible interpreter reported by
+initialization and supplied to this Codex project, not an arbitrary system Python.
+Desktop sessions do not necessarily inherit activation. If the environment is
+unknown, establish its path before writes; never store machine paths in story data.
+The installed getting-started guide explains setup, first save and returning later.
+
 Read committed context using `python .novel-creator/run.py context --novel PATH
 --json`. Select the novel unambiguously. The manifest pins the installed bundle;
 no framework checkout is required. Python >=3.11, jsonschema >=4.23,<5 and jsonschema-rs >=0.59,<0.60 remain

@@ -1,5 +1,10 @@
 # Start the single-user POC
 
+For the simpler package initializer and current writer onboarding, use the
+[getting-started guide](../workflows/getting-started.md). The configured-checkout
+and historical wheel instructions below describe the earlier POC route; they are
+not required for the new name-only command. Public publication remains unverified.
+
 This POC runs in Codex against an independent local Git repository per novel.
 It supports conversational setup, guided/open brainstorming, saved questions
 and proposals, explicit canon decisions, continuity review, inspection and

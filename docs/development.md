@@ -1,5 +1,10 @@
 # Development
 
+Writer onboarding lives in the [getting-started guide](../workflows/getting-started.md).
+This document describes contributor setup and historical POC evidence. The new
+package command is `novel-creator init NAME`; consult the guide's release status
+before installing by name. Existing novels keep their pinned resources.
+
 **Current delivery policy (owner, 2026-10-28):** all read/save latency targets
 are withdrawn. Optimize after functional delivery. Keep every data/authority/
 transaction safeguard and report timings without a pass/fail target. Older timing
