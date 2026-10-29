@@ -1,6 +1,6 @@
 # Remote candidate verification
 
-Date: 2026-10-29. Distribution/version: novel-creator 0.1.0, provisional pending name control and release metadata. Candidate execution is authorized; publication is not authorized by that decision. The maintainer has no PyPI account, and the source repository remains private.
+Date: 2026-10-29. Distribution/version: novel-creator 0.1.0, provisional pending name control and release metadata. Candidate execution is authorized; publication is not authorized by that decision. The maintainer now reports PyPI account bjarkig82; pending trusted publishing is configured, the source repository is now public, and final name control/public release remain unverified.
 
 ## Superseded first candidate
 
