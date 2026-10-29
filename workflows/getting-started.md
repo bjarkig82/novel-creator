@@ -33,11 +33,13 @@ its own dependencies there, without changing system Python.
 
 ### Windows PowerShell
 
-Run in PowerShell. Choose an unused environment location if this one already exists.
+Run in PowerShell. Check `python --version` reports Python >=3.11. If your
+installation uses a different command, substitute its full `python.exe` path
+for `python` below. Choose an unused environment location if this one already exists.
 
 ```powershell
 $runtime = Join-Path $env:USERPROFILE 'NovelCreatorRuntime'
-py -3 -m venv $runtime
+python -m venv $runtime
 $novelPython = Join-Path $runtime 'Scripts/python.exe'
 & $novelPython -m pip install novel-creator
 $novelCommand = Join-Path $runtime 'Scripts/novel-creator.exe'

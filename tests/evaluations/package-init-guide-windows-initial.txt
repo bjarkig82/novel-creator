@@ -1,0 +1,4 @@
+Disposable guide root: C:\Users\BjarkiGunnarsson\AppData\Local\Temp\novel-guide-29dc8af15b144284930b2b963d193589
+git version 2.53.0.windows.3
+Disposable Guide Test <guide@example.invalid> 1793280271 +0000
+Disposable Guide Test <guide@example.invalid> 1793280272 +0000
