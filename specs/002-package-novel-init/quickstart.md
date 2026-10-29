@@ -44,7 +44,7 @@ Windows PowerShell:
 
 ```powershell
 $runtimeRoot = Join-Path $env:USERPROFILE 'NovelCreatorValidationRuntime'
-py -3 -m venv $runtimeRoot
+python -m venv $runtimeRoot
 $runtimePython = Join-Path $runtimeRoot 'Scripts/python.exe'
 & $runtimePython -m pip install --no-cache-dir --index-url https://pypi.org/simple "novel-creator==$releaseVersion"
 & $runtimePython -m pip check
@@ -119,3 +119,8 @@ Open the new novel folder in a fresh Codex project, supply the printed runtime i
 ## 6. Completion assessment
 
 Map results to SC-001–008 and FR-001–018 using [plan gates](plan.md). Local candidate, clean dependency, public install and actual host evidence are separate entries. Required unexecuted checks remain unverified. No latency target, novice/manual gate, or subjective literary-quality result is inferred. Public named installation must succeed before the feature is marked complete.
+
+
+## Scope amendment — 2026-10-29
+
+The owner approved actual Windows Codex Desktop verification plus Linux Bash/package/CLI evidence for this release. The Linux Codex-host portion of section 5 is explicitly unverified and not a 0.1.0 release gate. All other command, troubleshooting, exact-input/save, public delivery and immutable-artifact checks remain required.

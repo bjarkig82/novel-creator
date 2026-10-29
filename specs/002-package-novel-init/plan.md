@@ -108,3 +108,8 @@ Existing wheel verifier inherits dependency packages; retain that useful source/
 ## Complexity Tracking
 
 No constitutional violations. No new service, runtime manager, story schema, package ecosystem or provider integration is planned.
+
+
+## Owner-approved verification scope — 2026-10-29
+
+Per the explicit owner amendment in spec.md, use an actual Windows Codex Desktop setup/first-save/inspection/resume walkthrough plus Windows PowerShell and Linux Bash package/CLI/guide/troubleshooting/public-install checks. Linux Codex integration is unverified; do not claim a Linux host pass. The release verifier requires windows_guide, linux_guide, windows_host and linux_cli true, with linux_host explicitly false. All evidence remains bound to the immutable candidate. No additional provider integration, custom runtime or migration is introduced.

@@ -5,13 +5,14 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "novel-creator"
 dynamic = ["version"]
-description = "Local, Git-backed story exchange persistence"
+description = "Independent novel projects and saved Codex writing workflows"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = ["jsonschema>=4.23,<5", "jsonschema-rs>=0.59,<0.60"]
 
 [project.urls]
 Source = "https://github.com/bjarkig82/novel-creator"
+Documentation = "https://github.com/bjarkig82/novel-creator/blob/v0.1.0/workflows/getting-started.md"
 
 [project.optional-dependencies]
 test = []

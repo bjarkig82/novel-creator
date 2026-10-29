@@ -91,13 +91,14 @@ class PackageRelease(unittest.TestCase):
                             workflow_run=dict(id=12, head_sha='a' * 40))
             evidence = dict(candidate_run='12', candidate_attempt='1', artifact_id='34', source_commit='a' * 40,
                             files=files, windows_guide=True, linux_guide=True, windows_host=True,
-                            linux_host=True, evidence_urls=['https://example.com/evidence'])
+                            linux_host=False, linux_cli=True, evidence_urls=['https://example.com/evidence'])
             env = dict(GITHUB_REPOSITORY='o/r', CANDIDATE_RUN='12', CANDIDATE_ATTEMPT='1',
                        CANDIDATE_ARTIFACT='34', CANDIDATE_COMMIT='a' * 40)
             scenarios = [('run', key, value) for key, value in [('run_attempt', 2), ('head_sha', 'b' * 40),
                 ('conclusion', 'failure'), ('path', 'other.yml'), ('event', 'push')]]
             scenarios += [('artifact', 'expired', True), ('artifact', 'id', 35),
-                          ('evidence', 'artifact_id', '35'), ('evidence', 'linux_host', False),
+                          ('evidence', 'artifact_id', '35'), ('evidence', 'linux_cli', False),
+                          ('evidence', 'linux_host', True),
                           ('evidence', 'evidence_urls', [None])]
             for area, key, value in [('valid', '', '')] + scenarios:
                 current = dict(run=copy.deepcopy(run), artifact=copy.deepcopy(artifact), evidence=copy.deepcopy(evidence))

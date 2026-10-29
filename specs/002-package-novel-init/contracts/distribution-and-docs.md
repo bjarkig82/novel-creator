@@ -40,3 +40,8 @@ Reconcile README, docs/poc-quickstart.md and docs/development.md: writers reach 
 Record release version, source/artifact hashes, OS/shell/Python/Git, resolved dependencies and source, stdout/stderr/exits, and cases/skips. Candidate checks and public-install checks are separate. Verify published metadata/hashes and named-install identity; local pyproject.toml cannot prove owner control.
 
 Guide command checks are automated; Codex current-input/save/display/inspection/resume is actual labeled host evidence. Structural fixtures cannot substitute for host use or human approval. No novice/manual prerequisite, latency gate, or subjective quality claim is added. Feature completion still requires public named installs and required platform/host evidence.
+
+
+## Owner-approved host scope — 2026-10-29
+
+Actual Windows Codex Desktop host verification plus Windows/Linux shell/package checks replace the earlier both-host matrix for release 0.1.0. Linux Codex integration stays explicitly unverified. Pending publisher setup and public source visibility are verified separately; final publication still consumes the exact approved candidate and checks both production named installations.

@@ -4,12 +4,11 @@ A home for developing an app that helps writers plan and create novels.
 
 ## Getting started
 
-Follow the [writer's getting-started guide](workflows/getting-started.md) for
+Follow the [writer's getting-started guide](https://github.com/bjarkig82/novel-creator/blob/v0.1.0/workflows/getting-started.md) for
 installation, `novel-creator init 'My Novel'`, opening the novel in Codex,
-your first saved conversation, inspection and returning later. The simple
-initializer is available in the development package; public package publication
-and ownership remain unverified. See the guide's release status before installing
-by name. The developer/older POC instructions below remain reference material.
+your first saved conversation, inspection and returning later. The release instructions target
+`novel-creator==0.1.0` on PyPI. Confirm that release is available before installing
+by name; prepublication verification uses an explicitly identified candidate wheel. The developer/older POC instructions below remain reference material.
 
 ## Project status
 
@@ -17,8 +16,8 @@ by name. The developer/older POC instructions below remain reference material.
 setup, brainstorming, saved story records, canon decisions, continuity and
 resumption. The owner is the initial user. Novice testing is out of scope;
 manual/owner testing follows delivery and does not block it. Start with the
-[POC quickstart](docs/poc-quickstart.md) and
-[automated POC evidence](tests/evaluations/poc-readiness-20261023.md).
+[POC quickstart](https://github.com/bjarkig82/novel-creator/blob/v0.1.0/docs/poc-quickstart.md) and
+[automated POC evidence](https://github.com/bjarkig82/novel-creator/blob/v0.1.0/tests/evaluations/poc-readiness-20261023.md).
 
 The Python/Git exchange-persistence foundation is implemented, with versioned
 JSON schemas, source/authorization validation, atomic local saves and a disposable
@@ -35,8 +34,8 @@ for the tested Windows Desktop native-tool/text-input combination with scoped
 filesystem approval. Story tooling and shared workflows are delivered; their
 subjective literary quality remains unmeasured. All latency targets were withdrawn
 by the owner on 2026-10-28; optimization is deferred. Timings are informational.
-See the [final functional qualification](tests/evaluations/final-functional-qualification-20261028.md).
-See the [host evaluation](tests/evaluations/host-capture.md).
+See the [final functional qualification](https://github.com/bjarkig82/novel-creator/blob/v0.1.0/tests/evaluations/final-functional-qualification-20261028.md).
+See the [host evaluation](https://github.com/bjarkig82/novel-creator/blob/v0.1.0/tests/evaluations/host-capture.md).
 
 ## Development
 
@@ -92,7 +91,7 @@ question. Correct/revise/reverse explicitly, retaining prior versions, sources a
 direct impact for inspection. Contradictions cite sources and options; deferral
 keeps the idea unresolved and holds affected canon. Unavailable context is
 disclosed and revalidated after restoration. These changes never authorize
-manuscript edits. See [record ownership and compatibility](docs/record-format.md).
+manuscript edits. See [record ownership and compatibility](https://github.com/bjarkig82/novel-creator/blob/v0.1.0/docs/record-format.md).
 
 The automated journeys verify storage and record behavior on Linux and Windows.
 macOS support is deferred. Novice evaluations are out of scope for the initial
@@ -101,12 +100,12 @@ qualification remain separate from automated POC verification.
 The earlier Linux reference passed the performance targets. The final-source
 large Windows fixture misses its read target and times out on save attempt 27,
 so save p95 is unavailable; see the
-[measured configurations](tests/evaluations/performance.md). Voice
+[measured configurations](https://github.com/bjarkig82/novel-creator/blob/v0.1.0/tests/evaluations/performance.md). Voice
 capture/transcription and spoken output belong to the host; exact
 spoken-output fidelity is unverified.
 
 For verified commands and the remaining delivery milestones, see
-[Testing and completing the current feature](docs/testing-and-completion-guide.md).
+[Testing and completing the current feature](https://github.com/bjarkig82/novel-creator/blob/v0.1.0/docs/testing-and-completion-guide.md).
 
 Requires Python >=3.11 and Git >=2.39. From this checkout:
 
@@ -125,7 +124,7 @@ Bash, `jq` and `rg`. Tests use disposable repositories and local test identities
 no model credentials are required. The available persistence command is
 `exchange save --novel PATH --input FILE --json`, using a complete exchange
 envelope and a prepared independent repository. For a reproducible disposable
-installation, follow the [host-spike fixture procedure](tests/evaluations/host-capture.md#reproducible-structural-fixture).
+installation, follow the [host-spike fixture procedure](https://github.com/bjarkig82/novel-creator/blob/v0.1.0/tests/evaluations/host-capture.md#reproducible-structural-fixture).
 
 To check the distributable as well as the editable checkout, build and verify a
 wheel from the configured dependency environment:
@@ -149,8 +148,8 @@ published cleanup synchronizes managed index entries without replaying decisions
 or adding a commit. Changed payloads, managed files, staged entries or stale
 checkpoints can block recovery; preserve that evidence and inspect the conflict.
 Never reset history or delete receipts to clear a pause. See
-[development setup and limitations](docs/development.md) and
-the [validation guide](specs/001-novel-initialization-brainstorming/quickstart.md).
+[development setup and limitations](https://github.com/bjarkig82/novel-creator/blob/v0.1.0/docs/development.md) and
+the [validation guide](https://github.com/bjarkig82/novel-creator/blob/v0.1.0/specs/001-novel-initialization-brainstorming/quickstart.md).
 
 ## Project tooling
 
@@ -221,4 +220,4 @@ malformed proof or novel-supplied key cannot bypass validation or authorize cano
 
 The repeatable benchmark creates its own temporary external key and removes it
 afterward. `--no-validation-cache` measures the full-validation configuration.
-See [measured performance and platform limits](tests/evaluations/performance.md).
+See [measured performance and platform limits](https://github.com/bjarkig82/novel-creator/blob/v0.1.0/tests/evaluations/performance.md).

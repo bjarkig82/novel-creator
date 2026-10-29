@@ -20,7 +20,7 @@ on:
         description: Full candidate source SHA (publish only)
         type: string
       host_evidence:
-        description: JSON binding actual Windows/Linux guide and host evidence to the candidate
+        description: JSON binding Windows Codex and both-platform guide/CLI evidence; linux_host must be false
         type: string
 
 permissions:

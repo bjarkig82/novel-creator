@@ -5,17 +5,18 @@ and return to saved conversations in Codex. You can start with no story idea.
 Each novel is its own local Git repository. Initialization finishes before creative
 setup begins; you choose when to start brainstorming.
 
-**Release status:** the simple initializer is available in the development package.
-Public package publication and name ownership have not yet been verified. Only use
-the public install-by-name examples below after the project's release announcement
-confirms the package name/version. Until then, install the maintainer's verified
-wheel in the same environment instead. Do not install an unverified namesake.
+**Release target:** `novel-creator` 0.1.0 on PyPI. Check the
+[release page](https://pypi.org/project/novel-creator/0.1.0/) before using the named
+installation commands. During prepublication verification, install only the
+maintainer's identified candidate wheel in the same environment instead.
 
 ## Before you begin
 
 - Windows PowerShell or Linux Bash, with Python >=3.11 and pip/venv support.
 - Git >=2.39 and your own Git identity already configured.
-- Codex with access to the novel folder and its Python interpreter.
+- Windows Codex Desktop with access to the novel folder and its Python interpreter
+  for the conversational walkthrough. Linux Bash installation and CLI behavior
+  are verified separately; Linux Codex integration is unverified in this release.
 - Internet access to obtain the package and dependencies. Creating a novel then
   works offline and needs no model API key or framework source checkout.
 

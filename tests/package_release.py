@@ -91,8 +91,10 @@ def verify_remote(root):
                     source_commit=commit, files=data['files'])
     if any(evidence.get(key) != value for key, value in expected.items()):
         raise ValueError('Host/guide evidence is not bound to this candidate')
-    if not all(evidence.get(key) is True for key in ['windows_guide', 'linux_guide', 'windows_host', 'linux_host']):
-        raise ValueError('Required guide and actual-host checks are not confirmed')
+    if not all(evidence.get(key) is True for key in ['windows_guide', 'linux_guide', 'windows_host', 'linux_cli']):
+        raise ValueError('Required Windows host and both-platform guide/CLI checks are not confirmed')
+    if evidence.get('linux_host') is not False:
+        raise ValueError('This release must explicitly retain unverified Linux Codex integration')
     if not isinstance(evidence.get('evidence_urls'), list) or not evidence['evidence_urls']:
         raise ValueError('Traceable guide/host evidence URLs are required')
     if any(not isinstance(url, str) or urlparse(url).scheme != 'https' or not urlparse(url).netloc

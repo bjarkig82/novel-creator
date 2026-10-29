@@ -150,3 +150,8 @@ As a writer new to Novel Creator, I want an easy-to-find guide that takes me fro
 - The novel name provides a provisional title when no separate title is supplied. Other creative choices can wait for existing conversational setup.
 - Automated installation and workflow acceptance provide delivery evidence. This feature does not reintroduce retired latency targets or mandatory novice/manual evaluation gates. Subjective ease of use remains a separate owner assessment.
 - Getting-started documentation is a required feature deliverable. It describes verified delivered commands when implemented; the specification does not claim that the proposed simplified commands already exist. Existing developer and POC documentation may remain as clearly labeled references, with the writer-facing starting route made unambiguous.
+
+
+## Owner-approved release scope amendment — 2026-10-29
+
+The owner explicitly selected: "Amend to Windows Codex + Linux CLI" after learning that no Linux Codex host is connected and the WSL Codex launcher is unavailable. This supersedes the Linux Codex-host portion of US1/AC4, US4/AC2–AC3, SC-001, SC-005 and SC-007 and corresponding references in the plan/tasks. Windows Codex Desktop must complete actual setup, exact first-save/display, inspection and resume. Windows PowerShell and Linux Bash must both pass installation, initialization, settings/provenance, guide/discovery, safety/troubleshooting and public named-install/hash checks. Linux Codex integration remains explicitly unverified and is not a release gate for 0.1.0. No command, provenance, recovery or creative-authority safeguard is waived; fixtures do not become host or human evidence. Public package delivery remains required.
