@@ -1,17 +1,17 @@
 {
-  "status": "local-only; not a GitHub candidate or published release",
+  "status": "remote candidate verified on Windows/Linux; unpublished",
   "distribution": "novel-creator",
   "version": "0.1.0",
   "version_provisional": true,
   "baseline_commit": "2a15eccd04b59cc66006ecd738ad53a30e6e02f5",
-  "uncommitted_implementation": true,
-  "candidate_run": null,
-  "candidate_attempt": null,
-  "artifact_id": null,
+  "uncommitted_implementation": false,
+  "candidate_run": "40882235905",
+  "candidate_attempt": "1",
+  "artifact_id": "12901057415",
   "license_decision": "intentionally unlicensed by maintainer",
   "files": {
-    "novel_creator-0.1.0-py3-none-any.whl": "f2b4d08ae04b7c6f1c535c8a4e5d465f83b3ddc033c571fe7dd7b08425714c8b",
-    "novel_creator-0.1.0.tar.gz": "66e865562c7d3bcb3c82217ed124d866928388ef8a013b51b307072f580f136e"
+    "novel_creator-0.1.0-py3-none-any.whl": "ff1a617f55d863ccc173c416d3c0f12c75876b029056f112361f34cc911b678b",
+    "novel_creator-0.1.0.tar.gz": "cd740503228a1a8feed9d9807f6b5e01b0d840100d9dda2c194f2bf153d214e2"
   },
   "current_source_sha256": {
     "src/novel_creator/cli.py": "0d036ab5213ee0f342a6beeebe1a7cfa155daf9e966fd513767928f082e0a5d1",
@@ -21,7 +21,7 @@
     ".gitattributes": "e85d37d89a4f5344a03a6c81ccabd0c5c2d64762cb565d5e2226b712f4cfabf5",
     "pyproject.toml": "1ca32b6e2421c9b40645ddc4353efa257c1c14cbaea4c51f495f8d80de30e528",
     "src/novel_creator/install.py": "c3276d5b575c9cc7f66190fa7ac5ab3b6c0e72f09ce14fdd556f2fc227ee0469",
-    "workflows/getting-started.md": "f6b6f6e8fb43ee87ffd2198e01df4774130fa501334af67d33f1ee57113dde4d",
+    "workflows/getting-started.md": "b6bf0208e1fa86b3cc2b3ac21f2fa405be9ea04c9412fc6bce7f959e8a281fff",
     "tests/package_release.py": "e4394d9b477ca9d5e9b4af10e2f0d2eeda23902b9211a4eec825118f80d17ee1"
   },
   "public_name_control_verified": false,
@@ -42,5 +42,49 @@
     ],
     "invalid_input_cases_per_platform": 5,
     "pip_selection_proof": "contract tests; public execution still pending"
-  }
+  },
+  "previous_local_candidate_files": {
+    "novel_creator-0.1.0-py3-none-any.whl": "f2b4d08ae04b7c6f1c535c8a4e5d465f83b3ddc033c571fe7dd7b08425714c8b",
+    "novel_creator-0.1.0.tar.gz": "66e865562c7d3bcb3c82217ed124d866928388ef8a013b51b307072f580f136e"
+  },
+  "repository": "bjarkig82/novel-creator",
+  "source_commit": "1d6d6632c81ca8402ff60ca05a7ec832a0dea802",
+  "artifact_name": "candidate-40882235905-1",
+  "artifact_archive_sha256": "5d2dace52a0e6c333fff379c682dcfd3772807e0310c835d403c34420c38519e",
+  "candidate_url": "https://github.com/bjarkig82/novel-creator/actions/runs/40882235905",
+  "artifact_expires_at": "2026-11-28T13:29:56Z",
+  "pypi_account_ready": false,
+  "repository_visibility": "private",
+  "superseded_candidate": {
+    "run_id": "40881175659",
+    "run_attempt": "1",
+    "artifact_id": "12900133550",
+    "source_commit": "ed91ca48ff2ca0ecfee9aa6cf2720cffe5f9aa77",
+    "conclusion": "cancelled",
+    "reason": "guide Python launcher prerequisite corrected; Linux passed, Windows incomplete"
+  },
+  "candidate_checks": {
+    "build": "passed",
+    "source_resource_identity": "passed",
+    "metadata": "passed",
+    "sdist_rebuild": "passed",
+    "sdist_clean_install": "passed",
+    "windows": "passed",
+    "linux": "passed",
+    "actual_codex_host": "unverified",
+    "windows_guide_command_slice": "passed",
+    "windows_source_tests": {
+      "total": 208,
+      "passed": 208,
+      "skipped": 0
+    },
+    "linux_source_tests": {
+      "total": 208,
+      "passed": 205,
+      "skipped": 3
+    },
+    "windows_result_artifact_id": "12901132705",
+    "linux_result_artifact_id": "12900872945"
+  },
+  "candidate_conclusion": "success"
 }

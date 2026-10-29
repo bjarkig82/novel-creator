@@ -1,0 +1,14 @@
+{
+  "candidate_run": "40882235905",
+  "candidate_attempt": "1",
+  "artifact_id": "12901057415",
+  "source_commit": "1d6d6632c81ca8402ff60ca05a7ec832a0dea802",
+  "files": {
+    "novel_creator-0.1.0-py3-none-any.whl": "ff1a617f55d863ccc173c416d3c0f12c75876b029056f112361f34cc911b678b",
+    "novel_creator-0.1.0.tar.gz": "cd740503228a1a8feed9d9807f6b5e01b0d840100d9dda2c194f2bf153d214e2"
+  },
+  "verified_source_files": 27,
+  "guide_sha256": "b6bf0208e1fa86b3cc2b3ac21f2fa405be9ea04c9412fc6bce7f959e8a281fff",
+  "sdist_required_files_match": true,
+  "host_walkthrough": false
+}

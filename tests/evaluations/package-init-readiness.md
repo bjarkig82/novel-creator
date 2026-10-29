@@ -1,7 +1,9 @@
-# Package initialization: local implementation readiness
+# Package initialization readiness
 
-Date: 2026-10-29. **Local implementation delivered; full public-release scope remains incomplete.**
-No account configuration, commit, push, workflow dispatch, publication, real-novel edit or provider call was performed. The maintainer explicitly selected **keep it unlicensed for now**; no license file/expression was added.
+Date: 2026-10-29. **Remote candidate verified on Windows and Linux; full public-release scope remains incomplete.**
+The maintainer authorized commit/push/workflow availability and candidate execution. Corrected source `1d6d6632c81ca8402ff60ca05a7ec832a0dea802` passed [candidate run 40882235905](https://github.com/bjarkig82/novel-creator/actions/runs/40882235905), attempt 1, artifact 12901057415. Windows: 208 tests passed; Linux: 208 total with three Windows-only skips. Both wheel identity/pinned save/reopen and clean dependency/install matrices passed. Separate source-archive rebuild/clean install and the corrected Windows guide command slice passed. [Candidate record](package-init-candidate.md).
+
+34/48 tasks are complete: T033/T034/T035 now have remote candidate evidence. Actual Codex guide walkthroughs and full troubleshooting verification, PyPI account/name control/publisher setup, public documentation access, publication and public named installs remain open. The maintainer has no PyPI account; the repository remains private. No publisher configuration, publication, real-novel edit or provider call occurred. Licensing remains intentionally unlicensed. Earlier sections/logs below retain their original local/pre-authorization scope.
 
 ## Implemented behavior
 
@@ -61,8 +63,8 @@ T041/T042 close the empty-destination and actual pip-selection gaps. These resul
 
 Pip-selection contract tests cover normalized name/version, approved wheel/source filename/hash, missing hashes, duplicate products, unsupported reports and an alternate same-version platform wheel. The latter is rejected even when expected public files passed their metadata/download checks. This is fixture evidence; actual public installation remains pending. Public checks now emit `installed_product` with the selected filename and archive SHA-256 before reporting success.
 
-31 of 45 tasks are complete. T043–T045 remain open and retain the remote candidate, actual host and authorized production-release gates described below.
+At that local convergence checkpoint, 31 of 45 tasks were complete. The later authorized remote-candidate results above complete T033/T034/T035, with the current total at 34/48; full host and public release gates remain open.
 
-T024/T025 are partial documentation/actual-host validation, T031 awaits verified public name/version/release metadata, and T033–T040 remain open for remote candidate, candidate-bound evidence, account setup, publishing and final assessment. T032 is locally implemented/validated, never remotely executed. Name lookup returned HTTP 404, which does not establish ownership. Licensing is intentionally unlicensed by explicit maintainer choice, not a pending question.
+T024/T025/T044/T047 retain full documentation/troubleshooting and actual-host validation. T031/T043/T046 await verified public name control/release metadata/documentation access. T036–T040/T045/T048 remain open for account setup, publishing, public named installs and final assessment. T032/T033/T034/T035 now have successful remote candidate execution and platform evidence. Name lookup returned HTTP 404, which does not establish ownership. Licensing is intentionally unlicensed by explicit maintainer choice, not a pending question.
 
-Local artifacts retain provisional development version 0.1.0 and a local-only manifest. They are not an immutable GitHub candidate or published release. Finish unaffected local work before requesting the specific missing external authorization/account context; never invent a remote identity or treat these logs as host evidence.
+Historical local artifacts retain their original hashes. The current manifest now identifies the immutable GitHub candidate and its exact verified bytes. Version 0.1.0 remains provisional for public release because there is no maintainer PyPI account/name control. No package was published. Candidate commit/push/availability/dispatch authorization is settled; do not request it again for the completed action. Publisher setup, publication and actual host evidence remain distinct gates.
