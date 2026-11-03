@@ -26,6 +26,10 @@ on:
 permissions:
   contents: read
 
+# Match the documented UTF-8 environment, including child Python processes.
+env:
+  PYTHONUTF8: "1"
+
 concurrency:
   group: package-release-${{ inputs.mode }}
   cancel-in-progress: false
@@ -83,6 +87,11 @@ jobs:
       - run: python -m unittest discover -q
       - run: python tests/verify_wheel.py candidate/*.whl
       - run: python tests/verify_package_install.py --wheel candidate/*.whl > candidate-check.json
+      - name: Verify clean installation from the candidate sdist
+        run: python tests/verify_package_install.py --wheel candidate/*.tar.gz > candidate-sdist-check.json
+      - name: Follow the literal Bash getting-started guide
+        if: runner.os == 'Linux'
+        run: bash tests/package_init_release_guide.sh "$GITHUB_WORKSPACE" "$GITHUB_WORKSPACE/candidate" "$(command -v python)"
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
         with:
           name: candidate-check-${{ matrix.os }}-${{ github.run_id }}-${{ github.run_attempt }}

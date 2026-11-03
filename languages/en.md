@@ -13,3 +13,9 @@ means why they choose an action. Offer fewer possibilities when requested.
 “Maybe the keeper sent it,” and quoted character dialogue do not. Judge actual
 meaning in context and ask a focused question for ambiguity. Such judgments need
 real host evaluation; structural tests alone do not verify them.
+
+Optional contributor retrospective notices: keep them brief, operational and in
+the interaction language. Default off. Suggested English messages: "Retrospective
+created a draft PR: LINK" and "Retrospective contribution blocked: REASON."
+No-action outcomes need no automatic notice. Save notices with the next ordinary
+reply using the installed reservation protocol; they are never story facts.

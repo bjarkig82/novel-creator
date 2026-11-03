@@ -27,3 +27,9 @@ Vistaðu nákvæmlega móttekinn texta og undirbúið svar áður en svarið bir
 Ekki bæta við óvistuðum skapandi texta. Þessar leiðbeiningar eru tungumálaefni;
 merkingarleg gæði og raunveruleg hýsilhegðun þurfa sérstakt mat og eru ekki
 staðfest með formprófunum einum saman.
+
+Valfrjáls endurskoðun fyrir þátttakendur er sjálfgefið óvirk. Tilkynningar eru
+stuttar og rekstrarlegar, á samskiptamálinu: „Endurskoðun bjó til drög að
+breytingatillögu: SLÓÐ“ eða „Framlag endurskoðunar er stöðvað: ÁSTÆÐA.“
+Engin tilkynning er nauðsynleg ef ekkert þarf að gera. Vistaðu tilkynningu með
+næsta venjulega svari samkvæmt frátekningarferlinu; hún er aldrei staðreynd sögunnar.

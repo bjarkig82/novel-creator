@@ -76,6 +76,33 @@ def parser():
     p = Parser(prog="novel-creator", epilog='Getting started: ' + guide)
     p.add_argument('--version', action='version', version='%(prog)s ' + __version__)
     commands = p.add_subparsers(dest="command", required=True)
+    retro = commands.add_parser('retro').add_subparsers(dest='action', required=True)
+    for action in ('status', 'enable', 'disable', 'begin', 'review', 'compare', 'prepare',
+                   'validate', 'publish', 'resume', 'release', 'notices'):
+        target = retro.add_parser(action)
+        targets = [target]
+        if action == 'notices':
+            notices = target.add_subparsers(dest='notice_action', required=True)
+            targets = [notices.add_parser(name) for name in ('pending', 'reserve', 'confirm', 'reconcile')]
+            for child in targets:
+                if child.prog.endswith('pending'):
+                    child.add_argument('--language', choices=('en', 'is'))
+                if child.prog.endswith('reserve'):
+                    child.add_argument('--input', required=True)
+                if child.prog.endswith(('confirm', 'reconcile')):
+                    child.add_argument('--reservation', required=True)
+        for child in targets:
+            child.add_argument('--novel', required=True)
+            child.add_argument('--json', action='store_true')
+        if action == 'enable':
+            target.add_argument('--checkout', required=True)
+            target.add_argument('--authorize-draft-prs', required=True, action='store_true')
+        if action in ('begin', 'review', 'compare', 'validate'):
+            target.add_argument('--input', required=True)
+        if action in ('status', 'review', 'compare', 'prepare', 'validate', 'publish', 'resume', 'release'):
+            target.add_argument('--run', required=action != 'status')
+        if action == 'release':
+            target.add_argument('--confirm-abandon', required=True, action='store_true')
     init = commands.add_parser("init", epilog='Getting started: ' + guide,
         description='Create an independent novel with init NAME; creative choices can wait.')
     init.add_argument('name', nargs='?', help='Novel folder name and provisional working title')
@@ -125,6 +152,11 @@ def main(argv=None):
             stream.reconfigure(encoding='utf-8')
     try:
         args = parser().parse_args(argv)
+        if args.command == 'retro':
+            from .retro import dispatch
+            result = dispatch(args)
+            print(json.dumps({'ok': True, 'data': result}, ensure_ascii=False, allow_nan=False))
+            return 0
         if args.command == 'input':
             from pathlib import Path
             from . import host_input, records

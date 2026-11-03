@@ -5,8 +5,8 @@ and return to saved conversations in Codex. You can start with no story idea.
 Each novel is its own local Git repository. Initialization finishes before creative
 setup begins; you choose when to start brainstorming.
 
-**Release target:** `novel-creator` 0.1.0 on PyPI. Check the
-[release page](https://pypi.org/project/novel-creator/0.1.0/) before using the named
+**Release target:** `novel-creator` 0.2.0 on PyPI. Check the
+[release page](https://pypi.org/project/novel-creator/0.2.0/) before using the named
 installation commands. During prepublication verification, install only the
 maintainer's identified candidate wheel in the same environment instead.
 
@@ -207,3 +207,42 @@ evidence means preserve the project and investigate before further writes.
 An older novel may lack this guide. The installed command then labels a package-guide
 fallback; reading it changes nothing in that novel. Continue using the older novel's
 pinned workflows. Installing/upgrading the package never upgrades an existing novel.
+
+## Optional contributor retrospectives
+
+New novels include an optional retrospective workflow, disabled by default for
+everyone. It can review completed requests and prepare a focused, checked draft
+PR for Novel Creator. Normal writing needs no GitHub CLI or framework checkout.
+Existing novels keep their pinned bundle when you upgrade the package.
+
+Contributors need a separate local Novel Creator checkout, the GitHub CLI (`gh`)
+and existing authenticated upstream push access. Do not use your novel directory
+as the framework checkout. In the following PowerShell example, replace the paths
+and use the exact Python interpreter reported by initialization:
+
+```powershell
+& 'C:\path\to\python.exe' .novel-creator/run.py retro status --novel 'C:\Novels\MyNovel' --json
+& 'C:\path\to\python.exe' .novel-creator/run.py retro enable --novel 'C:\Novels\MyNovel' --checkout 'C:\source\novel-creator' --authorize-draft-prs --json
+& 'C:\path\to\python.exe' .novel-creator/run.py retro disable --novel 'C:\Novels\MyNovel' --json
+```
+
+Enable is explicit authorization for local framework fixes, checks, branch pushes
+and automatic **draft** PRs to bjarkig82/novel-creator. It never authorizes merging,
+deploying, manuscript changes, credentials or package publication. Disable prevents
+subsequent contribution operations and retains prior work. Grants belong to this
+novel, location, machine and account; copying/moving settings does not enable a
+new location. Missing authentication/access leaves participation off.
+
+PR or problem notices appear briefly in the next normally saved reply, without a
+status request. No-action outcomes remain local unless requested. If there is no
+next reply, the notice remains pending. Writing saves and exact responses retain
+their existing recovery rules; a retrospective result is never an unsaved suffix.
+
+Use `retro status --run UUID`, then `retro resume --run UUID` with the same `--novel`
+and `--json` to inspect/reconcile existing work. Disabled recovery requires explicit
+re-enablement first; it makes no repository requests while disabled. Enabling alone
+does not resume work. `retro release --run UUID --confirm-abandon` is inspected
+abandonment, preserving files/PRs and blocked by live locks or uncertain publication.
+Never delete receipts, worktrees or locks to force recovery. Read the installed
+`retrospective.md` for the complete protocol and limitations. Local state cannot
+prove human intent against malicious code running as the same OS user.

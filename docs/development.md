@@ -446,3 +446,16 @@ No explicit Git packing or maintenance was requested. Linux performance was
 not remeasured for this source; previous Linux timings remain historical.
 
 [Latest source verification](../tests/evaluations/windows-four-history-readers-20261022.md).
+
+## Contributor retrospectives
+
+The installed retrospective is default-off and host-led. Python owns bound local
+grants, task claims, safe worktree operations, validation receipts, conservative
+GitHub publication recovery and exact saved-notice acknowledgement. The host owns
+task-completion judgment, evidence selection, focused correction and semantic
+privacy approval. No scheduler/model API is added. Existing bundles are preserved.
+See `workflows/retrospective.md` and the feature-003 contracts. GitHub CLI is optional
+for writers and required only for opted-in contribution. Test environments must
+inject fake transport and isolate their per-user registry. Never infer real GitHub
+or native-host qualification from mocked checks. A user request to avoid pushes
+always overrides the broader feature opt-in.

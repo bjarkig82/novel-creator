@@ -23,6 +23,10 @@ from pathlib import Path
 root = Path({str(root)!r})
 sys.path.insert(0, str(root / '.novel-creator/src'))
 from novel_creator.context import read
+from novel_creator.retro import Retro
+assert Retro(root).status()['enabled'] is False
+assert (root / '.novel-creator/workflows/retrospective.md').is_file()
+assert (root / '.novel-creator/src/novel_creator/schemas/v1/retro.schema.json').is_file()
 from novel_creator import validation
 from novel_creator import records, storage
 data = read(root)

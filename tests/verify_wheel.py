@@ -106,6 +106,11 @@ print(json.dumps({'modules': paths, 'bundle_file_count': len(bundle_files())}))
                 return json.loads(run([python, '-I', '-B', '-c', code], cwd=scratch, env=env,
                                       expected_exit=expected_exit))
             context = invoke('context')
+            assert invoke('retro', 'status')['data']['enabled'] is False
+            assert (root / '.novel-creator/workflows/retrospective.md').is_file()
+            assert (root / '.novel-creator/src/novel_creator/retro.py').is_file()
+            assert (root / '.novel-creator/src/novel_creator/retro_github.py').is_file()
+            assert (root / '.novel-creator/src/novel_creator/schemas/v1/retro.schema.json').is_file()
             project = context['data']['project']
             assert project['creative_brief']['tone']['state'] == 'unknown'
             if brief:
