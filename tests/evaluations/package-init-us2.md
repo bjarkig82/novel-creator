@@ -1,0 +1,3 @@
+# US2: optional settings
+
+CLI optional-setting tests failed before implementation, then passed. Both clean installed-wheel matrices preserve exact Icelandic title, separate NAME/destination, explicit en, default en, spaces/Unicode and unknown creative preferences. Separate request artifacts retain supplied versus omitted language and original name, while field sources still refer to the ordinary brief. Four invalid-input forms return exit 2 without project creation. See [Windows](package-init-clean-windows.txt), [Linux](package-init-clean-linux.json) and [readiness](package-init-readiness.md). No story canon or invented conversation is created by initialization.

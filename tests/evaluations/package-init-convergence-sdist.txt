@@ -1,0 +1,12 @@
+Processing .\dist\package-init-convergence\novel_creator-0.1.0.tar.gz
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Building wheels for collected packages: novel-creator
+  Building wheel for novel-creator (pyproject.toml): started
+  Building wheel for novel-creator (pyproject.toml): finished with status 'done'
+  Created wheel for novel-creator: filename=novel_creator-0.1.0-py3-none-any.whl size=70642 sha256=d5b3396f58ae214929f44cd21a76930807b5059bfdb456b9462a4a3207dabd59
+  Stored in directory: c:\users\bjarkigunnarsson\appdata\local\pip\cache\wheels\e1\72\6e\7d11bf8df430528193a09507423f2dc8f0e1e350af26c75fb5
+Successfully built novel-creator
+
+[notice] A new release of pip is available: 26.0.1 -> 26.2.2
+[notice] To update, run: C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\.venv\Scripts\python.exe -m pip install --upgrade pip

@@ -1,0 +1,210 @@
+{
+  "base_commit": "e3dd756ca6cbd22861d5c76f7799ba57749ee5cc",
+  "uncommitted_working_tree": true,
+  "release_published": false,
+  "wheel": {
+    "filename": "novel_creator-0.1.0-py3-none-any.whl",
+    "sha256": "a34e60ad2057a9d9be6a997573ae10dc793b60e2e36244c8635d57f3ffb65abd",
+    "version": "0.1.0",
+    "local_verification_only": true
+  },
+  "code_and_resource_sha256": {
+    "adapters/codex/AGENTS.fragment.md": "834b6e5e177baf16181fe7a332205f37ba5a949a30349c81d68cc59cbdd7d5aa",
+    "adapters/codex/AGENTS.production.md": "10025a55f40b3e5e44149c9cd750d1b1bb24e0c18298e9e25b1631a374d6f38d",
+    "adapters/codex/skills/novel-brainstorm/SKILL.md": "14d353f037ccb0b696da9b8d962348e68bd1d3d215e51485637758d6472e8bbf",
+    "adapters/codex/skills/novel-init/SKILL.md": "ef7494041a31c39d8fe428c20047ea546127076d60f6e388ebd7cb7975d65c80",
+    "adapters/codex/skills/novel-inspect/SKILL.md": "81d8165b00a160d4f6df113545c888c8c391fbd46a66ced886743a18cd4d4783",
+    "adapters/codex/skills/novel-resume/SKILL.md": "5e0f974ed89198ad81d05558be0d30ec8ba24fecff7e0772196f3bbde1f7a872",
+    "languages/en.md": "66e81bf1cc879c2a13af120d74cc5f94953593a62db59a1bd73745bcfeb95e0e",
+    "languages/is.md": "70db4ae4428df7efcf44fc5e2493bbe9df76c37c098c26785f30c95a06ebcfd5",
+    "schemas/v1/exchange.schema.json": "5430748f7e56ad42c51e4e9fce1f661b1bca4286387ad48139731ea36188e5f5",
+    "schemas/v1/records.schema.json": "59d707afe6eb325723154931d066959fc3f7b8e6c9f8b985b2b006067c3902a8",
+    "schemas/v1/retro.schema.json": "9dcaa8c1b837b454b38936849f8672fce0b3e9d3ad25055d13d2785256f0b29e",
+    "src/novel_creator/__init__.py": "277031de0bb8a6cf825d6f25829addaefcdee170a24613786fe6cdc561c2738a",
+    "src/novel_creator/__main__.py": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+    "src/novel_creator/cli.py": "e6e286f884f204f535c417433065ad572d1bf6afadda2d879874d4a681b94b79",
+    "src/novel_creator/context.py": "ce1a7819457b7dd700cf5478fed1746337d80efd38825c4d69c90d77711a1e54",
+    "src/novel_creator/host_input.py": "01b1922cb27e50ce884c477f2aed158f066991eed0d63e394e15bdc19b3afb67",
+    "src/novel_creator/install.py": "c3276d5b575c9cc7f66190fa7ac5ab3b6c0e72f09ce14fdd556f2fc227ee0469",
+    "src/novel_creator/records.py": "a13dc0ba0b94e32a010571f48ee34d304e1c79fa11bffcce2733583ba81bac1e",
+    "src/novel_creator/retro.py": "6874d7ff162b3e509cae03305315adbd448271d428df2658cbbd11c010cb628e",
+    "src/novel_creator/retro_github.py": "191451cb0172a6fd13ba61097069c4a912b48a5acb60e2187c8bf5d128702bdc",
+    "src/novel_creator/storage.py": "1b7e1fff05e940f66512d7060c353efd3daf693ce329b99499567896f767c8e5",
+    "src/novel_creator/validation.py": "cbbae36120accdebc4e499f4331b212ccf806fc0e7b020e9349c31878b3a9aee",
+    "src/novel_creator/validation_cache.py": "db43c3c1e480122a27f39d14a890fbbfa9f8c20eac426e323c613422e9a7fd55",
+    "workflows/authority.md": "db0f3346ba7bd36594c68a99ff43cac4bfa8bf959c87ff78573652a063d872f4",
+    "workflows/brainstorm.md": "0bd336f15b991303aa094ac70bf55c136a726442232511cde4e5da0e4f49edca",
+    "workflows/continuity.md": "efb0f3303d6aa5c764f3150e59fbe6e750e3420757336a679013916449553455",
+    "workflows/entry.md": "10e1b7e3e2d77218df0856b51c6e6275bcf875033fc14acce79998f076364b08",
+    "workflows/getting-started.md": "b57343e6870d4eee966a8e29e393f7065453f003e595eb7d84f9972edcb356f9",
+    "workflows/initialize.md": "ec510c35b8ba339c0afbcd3480bbadbf46230f1b2f8c2b8db27bb0374eec199f",
+    "workflows/resume.md": "5f3336ecbe17e980103f339b8294ba5c8a5a9c1a2feeb6a54794931b43ddc7f3",
+    "workflows/retrospective.md": "050449390475112aff721807eed23558a6a9200929e0812414501a9515f29743"
+  },
+  "qualification": {
+    "native_codex": false,
+    "live_github_publication": false,
+    "linux_codex": false
+  },
+  "historical_verification_before_cycle1": {
+    "convergence_windows_retrospective": {
+      "run": 63,
+      "skipped": 0,
+      "failed": 0
+    },
+    "convergence_windows_final_recovery": {
+      "run": 7,
+      "skipped": 0,
+      "failed": 0
+    },
+    "convergence_linux_full": {
+      "run": 273,
+      "skipped": 3,
+      "failed": 0
+    },
+    "final_bounded_scope_merge_guard_checks": {
+      "windows": 3,
+      "linux": 3,
+      "failed": 0
+    },
+    "wheel_windows": true,
+    "wheel_linux": true,
+    "english_icelandic_independent_installs": true,
+    "notes": "Counts describe separate runs, not summed unique cases. Final recovery/guard additions verified after broader collection began. Prior baseline and pre-convergence hashes retained separately."
+  },
+  "historical_verification_before_cycle2": {
+    "phase9_windows_retrospective": {
+      "run": 72,
+      "skipped": 0,
+      "failed": 0,
+      "log": ".tools/retro-cycle1-windows-retro-final.txt"
+    },
+    "phase9_linux_retrospective": {
+      "run": 72,
+      "skipped": 0,
+      "failed": 0,
+      "log": ".tools/retro-cycle1-linux-retro-final.txt"
+    },
+    "wheel_windows": true,
+    "wheel_linux": true,
+    "verified_source_files": 31,
+    "english_icelandic_independent_installs": true,
+    "full_inventory": 281,
+    "retrospective_inventory": 72,
+    "notes": "Counts describe completed current retrospective collections. Broader historical suites are retained separately, not rerun or claimed for this source. Native/live qualification remains open."
+  },
+  "historical_native_preparation_before_cycle2": {
+    "prepared": true,
+    "qualification": false,
+    "handoff": ".tools/retro-cycle1-native-handoff.json",
+    "languages": [
+      "en",
+      "is"
+    ],
+    "runtime_python": "3.13.13",
+    "pinned_files_per_novel": 35
+  },
+  "verification": {
+    "phase10_windows_retrospective": {
+      "run": 76,
+      "skipped": 0,
+      "failed": 0,
+      "errors": 1,
+      "log": ".tools/retro-cycle2-windows-retro-qualified.txt",
+      "setup_error": "Receipt os.replace denied during validation setup before injected interleaving; root cause not established"
+    },
+    "phase10_linux_retrospective": {
+      "run": 76,
+      "skipped": 0,
+      "failed": 0,
+      "errors": 0,
+      "log": ".tools/retro-cycle2-linux-retro-qualified.txt"
+    },
+    "windows_scoped_reruns": {
+      "comparison-retry": {
+        "run": 1,
+        "skipped": 0,
+        "failed": 0,
+        "errors": 0,
+        "log": ".tools/retro-cycle2-windows-comparison-retry.txt"
+      },
+      "stale-receipt-focused": {
+        "run": 3,
+        "skipped": 0,
+        "failed": 0,
+        "errors": 0,
+        "log": ".tools/retro-cycle2-windows-stale-receipt-focused.txt"
+      }
+    },
+    "focused_linux": {
+      "run": 29,
+      "skipped": 0,
+      "failed": 0,
+      "errors": 0,
+      "log": ".tools/retro-cycle2-linux-focused-final.txt"
+    },
+    "wheel_windows": true,
+    "wheel_linux": true,
+    "verified_source_files": 31,
+    "english_icelandic_independent_installs": true,
+    "full_inventory": 285,
+    "retrospective_inventory": 76,
+    "task_sha256": "fda4477845497415b8de9dd2683e52a2a2cb48d679d6cf494189e12889e85003",
+    "requirements_checklist_sha256": "08c63e6e540a952377b72d5e3587aa8920245815c8ed91f69eee0ef4e3b8eaa9",
+    "retrospective_test_sha256": {
+      "tests/contract/test_retro_authorization.py": "1ceddf881bc30e91d4c39aa7a586d397f461be40c57f8d234ce22e1e06abc05d",
+      "tests/contract/test_retro_cli.py": "f92a6b69fcdf75894b38059a6467c0f414dc91bdef7962a8bc88511e0b6d978d",
+      "tests/contract/test_retro_github.py": "b6938fe525c06e78d4551f09c2c0b9857dc6b73b10ff976ea272765e71ed72e2",
+      "tests/contract/test_retro_publication.py": "8aea56e32a484adda552dffbb9ecf222ba4dcc218a71fd7dbeee952edcd0ca01",
+      "tests/contract/test_retro_review.py": "b3359ad64e2ef023b96c61cd941de383a1396005ff271f4dddabe78f673cea90",
+      "tests/contract/test_retro_transport.py": "acf62dfcf1b26fc9de3c20d3b8a2d4f996ee7c07660894de67c1ad3f3132728d",
+      "tests/integration/test_retro_author_privacy.py": "c95dc0bc5e18f57386f6dd4e0692a75517567543abaf1113b307b3aff29db6a3",
+      "tests/integration/test_retro_bundle.py": "eb6a2cdf28d38c0b20d4cfb531ab63765d97db384421bce5ef86d205e5f2df9d",
+      "tests/integration/test_retro_comparison.py": "38b9d9838043264b68457f49cfc37ff57c7a3765e43ade75a12cc53967e629b2",
+      "tests/integration/test_retro_controls.py": "8b5f4d228ce0a03456d27ab875f606512e7081cbaf37c9f1aa9f5d9ac0ba479b",
+      "tests/integration/test_retro_diagnostics.py": "2d16bf620d37e8ba24498875539b81efca10d09f6586f8de3f9e904bac999555",
+      "tests/integration/test_retro_failure_notice.py": "1710d412e3231d43d0929e3b7aa78c329ad5a9e35bf8a6eb88b7de1e3c568476",
+      "tests/integration/test_retro_journey.py": "56d748a4700b7c922b40912317526bef06a1f12cccf748e7d5a67da953da2b6d",
+      "tests/integration/test_retro_notice_language.py": "ca0f9c443d824385e0eee1240c321fb963d1642dc0d27bb242169fe94fadbf1c",
+      "tests/integration/test_retro_notices.py": "3bd5c545c92240a9369f02d9da2613cae0748f73e285e412cdb25882fcc74f1d",
+      "tests/integration/test_retro_preparation_recovery.py": "7ce6cb5927059ab14617299b86cbe1253d86077a27c1aec61365a26100e27d03",
+      "tests/integration/test_retro_preservation.py": "211c34e72517eecd39156b5aef65ddc447b3b6b886e2b5d8597f1181874f0fc7",
+      "tests/integration/test_retro_privacy.py": "76d401d6d0fde857a337732f1d78c8d1c707ef99e24dbd047a2eb89823fe5183",
+      "tests/integration/test_retro_publication_fences.py": "3ac4b4c385be772dd63f649caaaf9c4871d9128ef59a0e95d4de5a1bc3b82140",
+      "tests/integration/test_retro_receipt_edges.py": "6a242b95d98b87d98dc88129f6e8d7f3a5e96b1bf6be7aab7fbcd13efe618a93",
+      "tests/integration/test_retro_recovery.py": "dc9e981b6ea0823cc7d8b200d30fb78078a04fd2651deefd4413945a6eb2c1e1",
+      "tests/integration/test_retro_release_edges.py": "54cc0c5868d80c06ff625035e044955a825b603630947fa91f7321e1df3d256e",
+      "tests/integration/test_retro_review_journey.py": "b37982189e2cd44accabdceb009ac9796168f59f22f129ffe5cef39aad6fb0ec",
+      "tests/integration/test_retro_transport_mutation.py": "7b5f6f6599d143b65e9136482ec09634a4b5a7c1f3b3807490f447809324ac9c",
+      "tests/integration/test_retro_validation_resume.py": "50d1b84e80a6c402fc6c18f5d221981fddbbc82219befb3667fa9027f69eaa74",
+      "tests/retro_contribution_helpers.py": "a7247663c5117bc4b92b4f9b785a63f3604b51e408b10404a520f13eafcd673e",
+      "tests/retro_helpers.py": "dc37bfb572fa45c91e9c8de67ca64cbb57ce8db76fef3c2cfe9b483e14e8f395"
+    },
+    "notes": "Frozen-source Windows collection had76 run/1 os.replace setup error; separate affected1-test and related3-test reruns passed, with no root-cause claim or clean76 relabeling. Linux76 passed. Earlier cycle2 final-named collections and d2856ae1 wheel checks preceded the final dispatch correction and are intermediate only. Superseded Windows session18614 was interrupted only because source changed; its log is retained. Broad historical suites were not rerun or claimed for current bytes. Native/live qualification remains open."
+  },
+  "native_preparation": {
+    "prepared": true,
+    "qualification": false,
+    "handoff": ".tools/retro-cycle2-native-handoff.json",
+    "languages": [
+      "en",
+      "is"
+    ],
+    "runtime_python": "3.13.13",
+    "pinned_files_per_novel": 35,
+    "prior_handoff_preserved": ".tools/retro-cycle1-native-handoff.json",
+    "offline_harness": {
+      "prepared": true,
+      "native_qualification": false,
+      "no_enablement_performed": true,
+      "smoke_report": ".tools/retro-cycle2-offline-harness-smoke.json",
+      "smoke_report_sha256": "cf4b7862e13a5cc8e4aa8fe4d9f3483c958e8521c9fef8a058d1660c07599515",
+      "driver_sha256": "45ef59bb3d9c4b55e59432a124fbcdc0935cd4533d0adadbca635687e411950f",
+      "config_sha256": "85f9d0817e24c9f198b0ead84f1c0669b8051e47f690c42d75bc63449a871240",
+      "actual_product_argument_gate_checked": true,
+      "separate_process_fake_persistence": true,
+      "effective_git_child_config_isolated": true,
+      "scope": "Driver and injected transport only; no OS sandbox or independent host-tool control"
+    }
+  }
+}

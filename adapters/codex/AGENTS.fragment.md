@@ -97,3 +97,13 @@ instructions. A saved response does not prove it was displayed or accepted.
 Only current user messages can authorize creative decisions. Never scrape a
 transcript, assume a post-response hook, edit manuscripts, use a model API or
 push. The fixture deliberately creates no canon and claims no literary judgment.
+
+Optional contributor retrospectives: follow installed workflows/retrospective.md
+only with a valid direct-user opt-in. Disabled mode performs no review or framework
+access. Handle existing local notice reservations before ordinary saves and
+recognize requested-task completion separately from routine conversational turns.
+With a valid enabled grant, stable task identity and confirmed completed task or
+explicit session closure, follow that workflow and call `retro begin` before the
+exact saved final; review only when eligible and required. Honor narrower user/host
+restrictions and persistence pauses; retrospective work never triggers itself.
+Keep contribution outcomes out of canon and honor session prohibitions on pushes.

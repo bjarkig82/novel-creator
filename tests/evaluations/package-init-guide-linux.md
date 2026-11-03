@@ -1,0 +1,7 @@
+# Linux guide verification
+
+Date: 2026-10-29. Current Linux CLI result: pass against final candidate run 40904366247/attempt 1, artifact 12911245684, source 0f287cdcc2fc22334f437906ae13e90dba11f0f8. The literal Bash guide, activation, defaults, inspection, options and all six troubleshooting categories pass using normal pip/venv support in a private Python runtime. Linux Codex integration remains unverified and is excluded from the release gate by explicit owner amendment. See [final verification](package-init-release-final.md) and [literal guide output](package-init-final-linux-guide.txt). Earlier limitations below retain their original scope.
+
+The superseded remote candidate's Ubuntu 26.04.1 / CPython 3.13.17 job passed source tests, exact wheel resources and clean dependency/default/optional/refusal checks. [Candidate details](package-init-candidate.md). It does not establish literal guide execution or actual Codex setup/save/resume.
+
+The existing local WSL Python 3.12.3 environment lacks ensurepip. The guide explicitly requires pip/venv support and points to normal distribution setup when it is missing. Earlier private-pip verification was labeled supporting command evidence, not execution of the literal installation route. No system packages or Python configuration were changed to bypass this prerequisite. Final walkthroughs must use a compatible Linux environment and the replacement immutable candidate.

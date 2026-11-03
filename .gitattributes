@@ -1,6 +1,15 @@
 # Bash scripts must remain executable by Bash even in Windows checkouts.
 *.sh text eol=lf
 
+# Release resources must have identical bytes in Linux and Windows checkouts.
+src/novel_creator/** text eol=lf
+schemas/** text eol=lf
+workflows/** text eol=lf
+languages/** text eol=lf
+adapters/codex/** text eol=lf
+pyproject.toml text eol=lf
+README.md text eol=lf
+
 # Retained verification evidence is hash-bound; preserve its recorded bytes.
 tests/evaluations/** -text -whitespace
 specs/001-novel-initialization-brainstorming/tasks.md -text whitespace=cr-at-eol

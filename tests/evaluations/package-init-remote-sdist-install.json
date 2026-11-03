@@ -1,0 +1,67 @@
+{
+  "mode": "candidate",
+  "source": "novel_creator-0.1.0-py3-none-any.whl",
+  "version": "novel-creator 0.1.0",
+  "dependencies": [
+    {
+      "name": "attrs",
+      "version": "26.1.0"
+    },
+    {
+      "name": "jsonschema",
+      "version": "4.26.0"
+    },
+    {
+      "name": "jsonschema_rs",
+      "version": "0.59.0"
+    },
+    {
+      "name": "jsonschema-specifications",
+      "version": "2025.9.1"
+    },
+    {
+      "name": "novel-creator",
+      "version": "0.1.0"
+    },
+    {
+      "name": "pip",
+      "version": "26.2.2"
+    },
+    {
+      "name": "referencing",
+      "version": "0.37.0"
+    },
+    {
+      "name": "rpds-py",
+      "version": "2026.9.1"
+    }
+  ],
+  "validated": true,
+  "guide_sha256": "f6b6f6e8fb43ee87ffd2198e01df4774130fa501334af67d33f1ee57113dde4d",
+  "wheel_sha256": "58a2488c2df84cd634ddc583b9bfe8203a090d7d365397a7b7968f233e949d66",
+  "public_artifact_hashes": {},
+  "installed_product": null,
+  "settings_cases": [
+    {
+      "name": "Folder",
+      "title": "Br�f fr� morgundeginum",
+      "language": "is",
+      "preserved": true
+    },
+    {
+      "name": "English",
+      "title": "A working title",
+      "language": "en",
+      "preserved": true
+    },
+    {
+      "name": "A Novel",
+      "title": "A Novel",
+      "language": "en",
+      "preserved": true
+    }
+  ],
+  "invalid_input_cases": 5,
+  "host_walkthrough": "not performed",
+  "dependency_inheritance": false
+}

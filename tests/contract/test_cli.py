@@ -7,6 +7,25 @@ import unittest
 
 
 class CliContract(unittest.TestCase):
+    def test_legacy_init_without_json_preserves_raw_brief_and_machine_output(self):
+        import contextlib
+        import io
+        import tempfile
+        from unittest.mock import patch
+        from novel_creator.cli import main
+        with tempfile.TemporaryDirectory() as folder:
+            brief = Path(folder) / 'brief.json'
+            raw = '{"title":"Bréf"}\r\n'
+            brief.write_bytes(raw.encode('utf-8'))
+            output = io.StringIO()
+            with patch('novel_creator.install.initialize', return_value={'ok': True}) as initialize, \
+                 contextlib.redirect_stdout(output):
+                code = main(['init', '--path', str(Path(folder) / 'novel'), '--brief-file', str(brief)])
+            self.assertEqual(code, 0)
+            self.assertEqual(json.loads(output.getvalue()), {'ok': True})
+            self.assertEqual(initialize.call_args.args[1], raw)
+            self.assertEqual(initialize.call_args.kwargs, {})
+
     def invoke(self, *args):
         env = dict(os.environ, PYTHONPATH=str(Path(__file__).resolve().parents[2] / "src"))
         return subprocess.run([sys.executable, "-m", "novel_creator", *args], env=env, capture_output=True, text=True)

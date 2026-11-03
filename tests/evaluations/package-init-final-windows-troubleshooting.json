@@ -1,0 +1,41 @@
+{
+  "runtime_python": "C:\\Users\\BjarkiGunnarsson\\Documents\\Codex\\2026-10-29\\novel-init-release-runtime-win\\Scripts\\python.exe",
+  "workspace": "C:\\Users\\BjarkiGunnarsson\\Documents\\Codex\\2026-10-29\\novel-init-final-windows-troubleshooting",
+  "cases": [
+    {
+      "category": "command unavailable",
+      "recovery": "explicit executable path",
+      "passed": true
+    },
+    {
+      "category": "prerequisite unavailable",
+      "diagnostic": "Git executable is unavailable; install Git >=2.39 and check PATH",
+      "passed": true
+    },
+    {
+      "category": "Git identity missing",
+      "diagnostic": "Git identity is unavailable; configure your intended author/committer identity before retrying",
+      "passed": true
+    },
+    {
+      "category": "unsafe destination",
+      "recovery": "separate fresh destination",
+      "passed": true
+    },
+    {
+      "category": "permission failure",
+      "injection": "installed CLI filesystem boundary",
+      "diagnostic": "Local input or filesystem operation failed; check the selected file/path and permissions, preserve any partial initialization and retry unchanged",
+      "passed": true
+    },
+    {
+      "category": "interrupted initialization",
+      "recovery": "unchanged original command",
+      "same_saved_bundle": true,
+      "passed": true
+    }
+  ],
+  "all_six_passed": true,
+  "host_evidence": false,
+  "permission_failure_is_injected": true
+}

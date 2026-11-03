@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\verify_guide_failures.py", line 111, in <module>
+    print(json.dumps(verify(args.python, args.console, args.workspace), ensure_ascii=False, indent=2))
+                     ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\verify_guide_failures.py", line 44, in verify
+    missing = json.loads(run([console, 'init', 'MissingIdentity', '--json'], code=5,
+                         ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                            override={'HOME': str(empty), 'USERPROFILE': str(empty),
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                                      'XDG_CONFIG_HOME': str(empty / 'config')}))
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\verify_guide_failures.py", line 25, in run
+    raise RuntimeError(f'Expected {code}, got {result.returncode}: {result.stderr}')
+RuntimeError: Expected 5, got 0: 

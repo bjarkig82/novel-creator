@@ -1,0 +1,366 @@
+﻿2026-10-29T13:30:04.3708100Z Current runner version: '2.338.0'
+2026-10-29T13:30:04.3738518Z ##[group]Runner Image Provisioner
+2026-10-29T13:30:04.3739531Z Hosted Compute Agent
+2026-10-29T13:30:04.3740216Z Version: 20261021.618
+2026-10-29T13:30:04.3740951Z Commit: 21505ad2541d5be6135ed84fc33697146cf75b8e
+2026-10-29T13:30:04.3741791Z Build Date: 2026-10-21T00:45:21Z
+2026-10-29T13:30:04.3742547Z Worker ID: {c22e891e-2673-4ab9-a97d-27adf764e447}
+2026-10-29T13:30:04.3743401Z Region: eastus
+2026-10-29T13:30:04.3743989Z Cloud: Azure
+2026-10-29T13:30:04.3744582Z ##[endgroup]
+2026-10-29T13:30:04.3746108Z ##[group]Operating System
+2026-10-29T13:30:04.3746896Z Microsoft Windows Server 2025
+2026-10-29T13:30:04.3747952Z 10.0.26100
+2026-10-29T13:30:04.3748525Z Datacenter
+2026-10-29T13:30:04.3749098Z ##[endgroup]
+2026-10-29T13:30:04.3749730Z ##[group]Runner Image
+2026-10-29T13:30:04.3750420Z Image: windows-2025-vs2026
+2026-10-29T13:30:04.3751098Z Version: 20261021.278.1
+2026-10-29T13:30:04.3752891Z Included Software: https://github.com/actions/runner-images/blob/win25-vs2026/20261021.278/images/windows/Windows2025-VS2026-Readme.md
+2026-10-29T13:30:04.3754985Z Image Release: https://github.com/actions/runner-images/releases/tag/win25-vs2026%2F20261021.278
+2026-10-29T13:30:04.3756208Z ##[endgroup]
+2026-10-29T13:30:04.3757607Z ##[group]GITHUB_TOKEN Permissions
+2026-10-29T13:30:04.3759483Z Contents: read
+2026-10-29T13:30:04.3760166Z Metadata: read
+2026-10-29T13:30:04.3760798Z ##[endgroup]
+2026-10-29T13:30:04.3763002Z Secret source: Actions
+2026-10-29T13:30:04.3764042Z Cache mode: write
+2026-10-29T13:30:04.3764819Z Prepare workflow directory
+2026-10-29T13:30:04.4226954Z Prepare all required actions
+2026-10-29T13:30:04.4284098Z Getting action download info
+2026-10-29T13:30:04.6304057Z Download action repository 'actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a' (SHA:f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a)
+2026-10-29T13:30:04.7660456Z Download action repository 'actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0' (SHA:6d4fd22b20465ccc0f7354476588e8df7c9ca0e0)
+2026-10-29T13:30:05.0224240Z Download action repository 'actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333' (SHA:9000827ccba6bdab643e8b6fd33ac0654aef8333)
+2026-10-29T13:30:05.3133989Z Download action repository 'actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9' (SHA:cf430e030ddbb5b0abf93d22962f4752f3646cd9)
+2026-10-29T13:30:05.5316660Z Complete job name: candidate-checks (windows-latest)
+2026-10-29T13:30:05.6760383Z ##[group]Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a
+2026-10-29T13:30:05.6761768Z with:
+2026-10-29T13:30:05.6762316Z   persist-credentials: false
+2026-10-29T13:30:05.6763000Z   repository: bjarkig82/novel-creator
+2026-10-29T13:30:05.6769051Z   token: ***
+2026-10-29T13:30:05.6769604Z   ssh-strict: true
+2026-10-29T13:30:05.6770159Z   ssh-user: git
+2026-10-29T13:30:05.6770682Z   clean: true
+2026-10-29T13:30:05.6771237Z   sparse-checkout-cone-mode: true
+2026-10-29T13:30:05.6771891Z   fetch-depth: 1
+2026-10-29T13:30:05.6772479Z   fetch-tags: false
+2026-10-29T13:30:05.6773031Z   show-progress: true
+2026-10-29T13:30:05.6773588Z   lfs: false
+2026-10-29T13:30:05.6774123Z   submodules: false
+2026-10-29T13:30:05.6774683Z   set-safe-directory: true
+2026-10-29T13:30:05.6775319Z   allow-unsafe-pr-checkout: false
+2026-10-29T13:30:05.6776198Z ##[endgroup]
+2026-10-29T13:30:06.7080435Z Syncing repository: bjarkig82/novel-creator
+2026-10-29T13:30:06.7082012Z ##[group]Getting Git version info
+2026-10-29T13:30:06.7082508Z Working directory is 'D:\a\novel-creator\novel-creator'
+2026-10-29T13:30:06.7092198Z [command]"C:\Program Files\Git\bin\git.exe" version
+2026-10-29T13:30:06.7092710Z git version 2.56.0.windows.2
+2026-10-29T13:30:06.7094994Z ##[endgroup]
+2026-10-29T13:30:06.7099546Z Temporarily overriding HOME='D:\a\_temp\f1f0e150-3142-4540-aad9-02444c775029' before making global git config changes
+2026-10-29T13:30:06.7101065Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-29T13:30:06.7104129Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add safe.directory D:\a\novel-creator\novel-creator
+2026-10-29T13:30:06.7106292Z Deleting the contents of 'D:\a\novel-creator\novel-creator'
+2026-10-29T13:30:06.7107471Z ##[group]Determining repository object format
+2026-10-29T13:30:06.7108532Z ##[endgroup]
+2026-10-29T13:30:06.7109533Z ##[group]Initializing the repository
+2026-10-29T13:30:06.7110395Z [command]"C:\Program Files\Git\bin\git.exe" init D:\a\novel-creator\novel-creator
+2026-10-29T13:30:06.7111440Z Initialized empty Git repository in D:/a/novel-creator/novel-creator/.git/
+2026-10-29T13:30:06.7113560Z [command]"C:\Program Files\Git\bin\git.exe" remote add origin https://github.com/bjarkig82/novel-creator
+2026-10-29T13:30:06.7115715Z ##[endgroup]
+2026-10-29T13:30:06.7116797Z ##[group]Disabling automatic garbage collection
+2026-10-29T13:30:06.7128121Z [command]"C:\Program Files\Git\bin\git.exe" config --local gc.auto 0
+2026-10-29T13:30:06.7130314Z ##[endgroup]
+2026-10-29T13:30:06.7131237Z ##[group]Setting up auth
+2026-10-29T13:30:06.7132014Z Removing SSH command configuration
+2026-10-29T13:30:06.7133017Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+2026-10-29T13:30:06.7135424Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+2026-10-29T13:30:08.1694869Z Removing HTTP extra header
+2026-10-29T13:30:08.1695826Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-29T13:30:08.7169200Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+2026-10-29T13:30:08.7171237Z Removing includeIf entries pointing to credentials config files
+2026-10-29T13:30:08.7172058Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-29T13:30:08.7274046Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+2026-10-29T13:30:09.2416002Z [command]"C:\Program Files\Git\bin\git.exe" config --file D:\a\_temp\git-credentials-e78bb495-b9ad-415e-be27-1d3a07f0ae26.config http.https://github.com/.extraheader "AUTHORIZATION: basic ***"
+2026-10-29T13:30:09.2713337Z [command]"C:\Program Files\Git\bin\git.exe" config --local includeIf.gitdir:D:/a/novel-creator/novel-creator/.git.path D:\a\_temp\git-credentials-e78bb495-b9ad-415e-be27-1d3a07f0ae26.config
+2026-10-29T13:30:09.3021788Z [command]"C:\Program Files\Git\bin\git.exe" config --local includeIf.gitdir:D:/a/novel-creator/novel-creator/.git/worktrees/*.path D:\a\_temp\git-credentials-e78bb495-b9ad-415e-be27-1d3a07f0ae26.config
+2026-10-29T13:30:09.3375903Z [command]"C:\Program Files\Git\bin\git.exe" config --local includeIf.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-e78bb495-b9ad-415e-be27-1d3a07f0ae26.config
+2026-10-29T13:30:09.3679587Z [command]"C:\Program Files\Git\bin\git.exe" config --local includeIf.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-e78bb495-b9ad-415e-be27-1d3a07f0ae26.config
+2026-10-29T13:30:09.3997338Z ##[endgroup]
+2026-10-29T13:30:09.3998038Z ##[group]Fetching the repository
+2026-10-29T13:30:09.4008854Z [command]"C:\Program Files\Git\bin\git.exe" -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +1d6d6632c81ca8402ff60ca05a7ec832a0dea802:refs/remotes/origin/codex/package-novel-init
+2026-10-29T13:30:10.5575890Z From https://github.com/bjarkig82/novel-creator
+2026-10-29T13:30:10.5582868Z  * [new ref]         1d6d6632c81ca8402ff60ca05a7ec832a0dea802 -> origin/codex/package-novel-init
+2026-10-29T13:30:10.5787461Z [command]"C:\Program Files\Git\bin\git.exe" branch --list --remote origin/codex/package-novel-init
+2026-10-29T13:30:10.6085391Z   origin/codex/package-novel-init
+2026-10-29T13:30:10.6269994Z [command]"C:\Program Files\Git\bin\git.exe" rev-parse refs/remotes/origin/codex/package-novel-init
+2026-10-29T13:30:10.6538898Z 1d6d6632c81ca8402ff60ca05a7ec832a0dea802
+2026-10-29T13:30:10.6570489Z ##[endgroup]
+2026-10-29T13:30:10.6571279Z ##[group]Determining the checkout info
+2026-10-29T13:30:10.6572128Z ##[endgroup]
+2026-10-29T13:30:10.6580715Z [command]"C:\Program Files\Git\bin\git.exe" sparse-checkout disable
+2026-10-29T13:30:10.7690446Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset-all extensions.worktreeConfig
+2026-10-29T13:30:10.8179753Z ##[group]Checking out the ref
+2026-10-29T13:30:10.8195681Z [command]"C:\Program Files\Git\bin\git.exe" checkout --progress --force -B codex/package-novel-init refs/remotes/origin/codex/package-novel-init
+2026-10-29T13:30:11.1383759Z Switched to a new branch 'codex/package-novel-init'
+2026-10-29T13:30:11.1401411Z branch 'codex/package-novel-init' set up to track 'origin/codex/package-novel-init'.
+2026-10-29T13:30:11.1448154Z ##[endgroup]
+2026-10-29T13:30:11.1977056Z [command]"C:\Program Files\Git\bin\git.exe" log -1 --format=%H
+2026-10-29T13:30:11.2263052Z 1d6d6632c81ca8402ff60ca05a7ec832a0dea802
+2026-10-29T13:30:11.2302761Z ##[group]Removing auth
+2026-10-29T13:30:11.2303287Z Removing SSH command configuration
+2026-10-29T13:30:11.2310327Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+2026-10-29T13:30:11.2641274Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+2026-10-29T13:30:11.7902443Z Removing HTTP extra header
+2026-10-29T13:30:11.7910822Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-29T13:30:11.8250905Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+2026-10-29T13:30:12.3104432Z Removing includeIf entries pointing to credentials config files
+2026-10-29T13:30:12.3113759Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-29T13:30:12.3388762Z includeif.gitdir:D:/a/novel-creator/novel-creator/.git.path
+2026-10-29T13:30:12.3389517Z includeif.gitdir:D:/a/novel-creator/novel-creator/.git/worktrees/*.path
+2026-10-29T13:30:12.3390264Z includeif.gitdir:/github/workspace/.git.path
+2026-10-29T13:30:12.3400688Z includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-10-29T13:30:12.3428598Z [command]"C:\Program Files\Git\bin\git.exe" config --local --get-all includeif.gitdir:D:/a/novel-creator/novel-creator/.git.path
+2026-10-29T13:30:12.3704842Z D:\a\_temp\git-credentials-e78bb495-b9ad-415e-be27-1d3a07f0ae26.config
+2026-10-29T13:30:12.3741249Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset includeif.gitdir:D:/a/novel-creator/novel-creator/.git.path D\:\\a\\_temp\\git\-credentials\-e78bb495\-b9ad\-415e\-be27\-1d3a07f0ae26\.config
+2026-10-29T13:30:12.4049151Z [command]"C:\Program Files\Git\bin\git.exe" config --local --get-all includeif.gitdir:D:/a/novel-creator/novel-creator/.git/worktrees/*.path
+2026-10-29T13:30:12.4327314Z D:\a\_temp\git-credentials-e78bb495-b9ad-415e-be27-1d3a07f0ae26.config
+2026-10-29T13:30:12.4371176Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset includeif.gitdir:D:/a/novel-creator/novel-creator/.git/worktrees/*.path D\:\\a\\_temp\\git\-credentials\-e78bb495\-b9ad\-415e\-be27\-1d3a07f0ae26\.config
+2026-10-29T13:30:12.4679914Z [command]"C:\Program Files\Git\bin\git.exe" config --local --get-all includeif.gitdir:/github/workspace/.git.path
+2026-10-29T13:30:12.4955504Z /github/runner_temp/git-credentials-e78bb495-b9ad-415e-be27-1d3a07f0ae26.config
+2026-10-29T13:30:12.5015319Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset includeif.gitdir:/github/workspace/.git.path \/github\/runner_temp\/git\-credentials\-e78bb495\-b9ad\-415e\-be27\-1d3a07f0ae26\.config
+2026-10-29T13:30:12.5377875Z [command]"C:\Program Files\Git\bin\git.exe" config --local --get-all includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-10-29T13:30:12.5653151Z /github/runner_temp/git-credentials-e78bb495-b9ad-415e-be27-1d3a07f0ae26.config
+2026-10-29T13:30:12.5689417Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset includeif.gitdir:/github/workspace/.git/worktrees/*.path \/github\/runner_temp\/git\-credentials\-e78bb495\-b9ad\-415e\-be27\-1d3a07f0ae26\.config
+2026-10-29T13:30:12.6000560Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+2026-10-29T13:30:13.0851021Z Removing credentials config 'D:\a\_temp\git-credentials-e78bb495-b9ad-415e-be27-1d3a07f0ae26.config'
+2026-10-29T13:30:13.0862527Z ##[endgroup]
+2026-10-29T13:30:13.1230552Z ##[group]Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
+2026-10-29T13:30:13.1230911Z with:
+2026-10-29T13:30:13.1231076Z   python-version: 3.13
+2026-10-29T13:30:13.1231244Z   check-latest: false
+2026-10-29T13:30:13.1233232Z   token: ***
+2026-10-29T13:30:13.1233476Z   mirror: https://raw.githubusercontent.com/actions/python-versions/main
+2026-10-29T13:30:13.1233779Z   update-environment: true
+2026-10-29T13:30:13.1233955Z   allow-prereleases: false
+2026-10-29T13:30:13.1234129Z   freethreaded: false
+2026-10-29T13:30:13.1234288Z ##[endgroup]
+2026-10-29T13:30:13.2458225Z ##[group]Installed versions
+2026-10-29T13:30:13.2592360Z Successfully set up CPython (3.13.16)
+2026-10-29T13:30:13.2593080Z ##[endgroup]
+2026-10-29T13:30:13.2860273Z ##[group]Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333
+2026-10-29T13:30:13.2860642Z with:
+2026-10-29T13:30:13.2860799Z   artifact-ids: 12901057415
+2026-10-29T13:30:13.2860971Z   path: candidate
+2026-10-29T13:30:13.2861128Z   merge-multiple: false
+2026-10-29T13:30:13.2861312Z   repository: bjarkig82/novel-creator
+2026-10-29T13:30:13.2861500Z   run-id: 40882235905
+2026-10-29T13:30:13.2861656Z   skip-decompress: false
+2026-10-29T13:30:13.2861820Z   digest-mismatch: error
+2026-10-29T13:30:13.2861974Z env:
+2026-10-29T13:30:13.2862170Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.13.16\x64
+2026-10-29T13:30:13.2862535Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.13.16\x64/lib/pkgconfig
+2026-10-29T13:30:13.2862875Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.13.16\x64
+2026-10-29T13:30:13.2863175Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.13.16\x64
+2026-10-29T13:30:13.2863510Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.13.16\x64
+2026-10-29T13:30:13.2863756Z ##[endgroup]
+2026-10-29T13:30:13.4565904Z Downloading artifacts by ID
+2026-10-29T13:30:13.5512877Z Found 1 artifact(s)
+2026-10-29T13:30:13.5513921Z Preparing to download the following artifacts:
+2026-10-29T13:30:13.5514877Z - candidate-40882235905-1 (ID: 12901057415, Size: 131139, Expected Digest: sha256:5d2dace52a0e6c333fff379c682dcfd3772807e0310c835d403c34420c38519e)
+2026-10-29T13:30:13.6988734Z Redirecting to blob download url: https://productionresultssa14.blob.core.windows.net/actions-results/c9a88c10-f684-4950-af8f-83a0e316dd43/workflow-job-run-27f0a175-bda2-5050-9e6c-b895b9919bda/artifacts/d673acdb324c80bac9816cafadca1b01cc62687d7a4409e93be24af5bfdc38f7.zip
+2026-10-29T13:30:13.6990479Z Starting download of artifact to: D:\a\novel-creator\novel-creator\candidate
+2026-10-29T13:30:13.7327358Z (node:800) [DEP0005] DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or Buffer.from() methods instead.
+2026-10-29T13:30:13.7345038Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-29T13:30:13.7440762Z SHA256 digest of downloaded artifact is 5d2dace52a0e6c333fff379c682dcfd3772807e0310c835d403c34420c38519e
+2026-10-29T13:30:13.7441678Z Artifact download completed successfully.
+2026-10-29T13:30:13.7459471Z Total of 1 artifact(s) downloaded
+2026-10-29T13:30:13.7460369Z Download artifact has finished successfully
+2026-10-29T13:30:13.7749785Z ##[group]Run python tests/package_release.py verify candidate
+2026-10-29T13:30:13.7750228Z [36;1mpython tests/package_release.py verify candidate[0m
+2026-10-29T13:30:13.7817346Z shell: C:\Program Files\Git\bin\bash.EXE --noprofile --norc -e -o pipefail {0}
+2026-10-29T13:30:13.7817667Z env:
+2026-10-29T13:30:13.7817889Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.13.16\x64
+2026-10-29T13:30:13.7818511Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.13.16\x64/lib/pkgconfig
+2026-10-29T13:30:13.7818877Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.13.16\x64
+2026-10-29T13:30:13.7819186Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.13.16\x64
+2026-10-29T13:30:13.7819482Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.13.16\x64
+2026-10-29T13:30:13.7819727Z ##[endgroup]
+2026-10-29T13:30:18.6296477Z {
+2026-10-29T13:30:18.6296985Z   "repository": "bjarkig82/novel-creator",
+2026-10-29T13:30:18.6297499Z   "run_id": "40882235905",
+2026-10-29T13:30:18.6297997Z   "run_attempt": "1",
+2026-10-29T13:30:18.6298416Z   "source_commit": "1d6d6632c81ca8402ff60ca05a7ec832a0dea802",
+2026-10-29T13:30:18.6298910Z   "distribution": "novel-creator",
+2026-10-29T13:30:18.6299297Z   "version": "0.1.0",
+2026-10-29T13:30:18.6299606Z   "files": {
+2026-10-29T13:30:18.6300192Z     "novel_creator-0.1.0-py3-none-any.whl": "ff1a617f55d863ccc173c416d3c0f12c75876b029056f112361f34cc911b678b",
+2026-10-29T13:30:18.6301096Z     "novel_creator-0.1.0.tar.gz": "cd740503228a1a8feed9d9807f6b5e01b0d840100d9dda2c194f2bf153d214e2"
+2026-10-29T13:30:18.6301743Z   }
+2026-10-29T13:30:18.6302035Z }
+2026-10-29T13:30:18.6603909Z ##[group]Run python -m pip install -e .
+2026-10-29T13:30:18.6604227Z [36;1mpython -m pip install -e .[0m
+2026-10-29T13:30:18.6614681Z shell: C:\Program Files\Git\bin\bash.EXE --noprofile --norc -e -o pipefail {0}
+2026-10-29T13:30:18.6614973Z env:
+2026-10-29T13:30:18.6615195Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.13.16\x64
+2026-10-29T13:30:18.6615550Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.13.16\x64/lib/pkgconfig
+2026-10-29T13:30:18.6615896Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.13.16\x64
+2026-10-29T13:30:18.6616223Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.13.16\x64
+2026-10-29T13:30:18.6616528Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.13.16\x64
+2026-10-29T13:30:18.6616769Z ##[endgroup]
+2026-10-29T13:30:21.4751722Z Obtaining file:///D:/a/novel-creator/novel-creator
+2026-10-29T13:30:21.4785716Z   Installing build dependencies: started
+2026-10-29T13:30:23.2379201Z   Installing build dependencies: finished with status 'done'
+2026-10-29T13:30:23.2395143Z   Checking if build backend supports build_editable: started
+2026-10-29T13:30:23.7649893Z   Checking if build backend supports build_editable: finished with status 'done'
+2026-10-29T13:30:23.8277100Z   Getting requirements to build editable: started
+2026-10-29T13:30:24.2637543Z   Getting requirements to build editable: finished with status 'done'
+2026-10-29T13:30:24.2663815Z   Preparing editable metadata (pyproject.toml): started
+2026-10-29T13:30:24.5559724Z   Preparing editable metadata (pyproject.toml): finished with status 'done'
+2026-10-29T13:30:24.6159073Z Collecting jsonschema<5,>=4.23 (from novel-creator==0.1.0)
+2026-10-29T13:30:24.6359327Z   Downloading jsonschema-4.26.0-py3-none-any.whl.metadata (7.6 kB)
+2026-10-29T13:30:24.7926124Z Collecting jsonschema-rs<0.60,>=0.59 (from novel-creator==0.1.0)
+2026-10-29T13:30:24.7995210Z   Downloading jsonschema_rs-0.59.0-cp310-abi3-win_amd64.whl.metadata (33 kB)
+2026-10-29T13:30:24.8565241Z Collecting attrs>=22.2.0 (from jsonschema<5,>=4.23->novel-creator==0.1.0)
+2026-10-29T13:30:24.8609740Z   Downloading attrs-26.1.0-py3-none-any.whl.metadata (8.8 kB)
+2026-10-29T13:30:24.9173611Z Collecting jsonschema-specifications>=2023.03.6 (from jsonschema<5,>=4.23->novel-creator==0.1.0)
+2026-10-29T13:30:24.9214345Z   Downloading jsonschema_specifications-2025.9.1-py3-none-any.whl.metadata (2.9 kB)
+2026-10-29T13:30:24.9844759Z Collecting referencing>=0.28.4 (from jsonschema<5,>=4.23->novel-creator==0.1.0)
+2026-10-29T13:30:25.0169197Z   Downloading referencing-0.37.0-py3-none-any.whl.metadata (2.8 kB)
+2026-10-29T13:30:25.2496418Z Collecting rpds-py>=0.25.0 (from jsonschema<5,>=4.23->novel-creator==0.1.0)
+2026-10-29T13:30:25.2570121Z   Downloading rpds_py-2026.9.1-cp313-cp313-win_amd64.whl.metadata (4.2 kB)
+2026-10-29T13:30:25.2906543Z Downloading jsonschema-4.26.0-py3-none-any.whl (90 kB)
+2026-10-29T13:30:25.3217691Z Downloading jsonschema_rs-0.59.0-cp310-abi3-win_amd64.whl (6.1 MB)
+2026-10-29T13:30:25.4166770Z    ---------------------------------------- 6.1/6.1 MB 63.7 MB/s  0:00:00
+2026-10-29T13:30:25.4298499Z Downloading attrs-26.1.0-py3-none-any.whl (67 kB)
+2026-10-29T13:30:25.4756564Z Downloading jsonschema_specifications-2025.9.1-py3-none-any.whl (18 kB)
+2026-10-29T13:30:25.4877896Z Downloading referencing-0.37.0-py3-none-any.whl (26 kB)
+2026-10-29T13:30:25.5188289Z Downloading rpds_py-2026.9.1-cp313-cp313-win_amd64.whl (222 kB)
+2026-10-29T13:30:25.5989291Z Building wheels for collected packages: novel-creator
+2026-10-29T13:30:25.5990239Z   Building editable for novel-creator (pyproject.toml): started
+2026-10-29T13:30:25.9197649Z   Building editable for novel-creator (pyproject.toml): finished with status 'done'
+2026-10-29T13:30:25.9238552Z   Created wheel for novel-creator: filename=novel_creator-0.1.0-0.editable-py3-none-any.whl size=8226 sha256=68355f544c2bd009c8d6b7a7d441fe1c2a359d126422d2695fe5cd41c78c2467
+2026-10-29T13:30:25.9242882Z   Stored in directory: C:\Users\runneradmin\AppData\Local\Temp\pip-ephem-wheel-cache-o2o1nz7z\wheels\7b\69\0b\a685bf4f004b1948f5a7061936ae6183759a8ee0332e85bd3e
+2026-10-29T13:30:25.9267466Z Successfully built novel-creator
+2026-10-29T13:30:25.9500924Z Installing collected packages: rpds-py, jsonschema-rs, attrs, referencing, jsonschema-specifications, jsonschema, novel-creator
+2026-10-29T13:30:26.5272711Z 
+2026-10-29T13:30:26.5319701Z Successfully installed attrs-26.1.0 jsonschema-4.26.0 jsonschema-rs-0.59.0 jsonschema-specifications-2025.9.1 novel-creator-0.1.0 referencing-0.37.0 rpds-py-2026.9.1
+2026-10-29T13:30:26.7097690Z ##[group]Run python -m unittest discover -q
+2026-10-29T13:30:26.7098184Z [36;1mpython -m unittest discover -q[0m
+2026-10-29T13:30:26.7115488Z shell: C:\Program Files\Git\bin\bash.EXE --noprofile --norc -e -o pipefail {0}
+2026-10-29T13:30:26.7115995Z env:
+2026-10-29T13:30:26.7116338Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.13.16\x64
+2026-10-29T13:30:26.7117292Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.13.16\x64/lib/pkgconfig
+2026-10-29T13:30:26.7117872Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.13.16\x64
+2026-10-29T13:30:26.7118409Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.13.16\x64
+2026-10-29T13:30:26.7118917Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.13.16\x64
+2026-10-29T13:30:26.7119327Z ##[endgroup]
+2026-10-29T13:36:01.5389660Z ----------------------------------------------------------------------
+2026-10-29T13:36:01.5390867Z Ran 208 tests in 333.922s
+2026-10-29T13:36:01.5391219Z 
+2026-10-29T13:36:01.5391778Z OK
+2026-10-29T13:36:01.5893449Z ##[group]Run python tests/verify_wheel.py candidate/*.whl
+2026-10-29T13:36:01.5894029Z [36;1mpython tests/verify_wheel.py candidate/*.whl[0m
+2026-10-29T13:36:01.5906204Z shell: C:\Program Files\Git\bin\bash.EXE --noprofile --norc -e -o pipefail {0}
+2026-10-29T13:36:01.5906579Z env:
+2026-10-29T13:36:01.5907088Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.13.16\x64
+2026-10-29T13:36:01.5907538Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.13.16\x64/lib/pkgconfig
+2026-10-29T13:36:01.5907950Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.13.16\x64
+2026-10-29T13:36:01.5908329Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.13.16\x64
+2026-10-29T13:36:01.5908680Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.13.16\x64
+2026-10-29T13:36:01.5908992Z ##[endgroup]
+2026-10-29T13:36:22.3751182Z {
+2026-10-29T13:36:22.3751888Z   "ok": true,
+2026-10-29T13:36:22.3752348Z   "wheel": "novel_creator-0.1.0-py3-none-any.whl",
+2026-10-29T13:36:22.3753165Z   "wheel_sha256": "ff1a617f55d863ccc173c416d3c0f12c75876b029056f112361f34cc911b678b",
+2026-10-29T13:36:22.3753795Z   "verified_source_files": 27,
+2026-10-29T13:36:22.3754186Z   "package": {
+2026-10-29T13:36:22.3754541Z     "modules": [
+2026-10-29T13:36:22.3755251Z       "C:\\Users\\runneradmin\\AppData\\Local\\Temp\\novel-wheel-ig3t_8yi\\environment\\Lib\\site-packages\\novel_creator\\__init__.py",
+2026-10-29T13:36:22.3756410Z       "C:\\Users\\runneradmin\\AppData\\Local\\Temp\\novel-wheel-ig3t_8yi\\environment\\Lib\\site-packages\\novel_creator\\records.py",
+2026-10-29T13:36:22.3757568Z       "C:\\Users\\runneradmin\\AppData\\Local\\Temp\\novel-wheel-ig3t_8yi\\environment\\Lib\\site-packages\\novel_creator\\validation.py",
+2026-10-29T13:36:22.3758674Z       "C:\\Users\\runneradmin\\AppData\\Local\\Temp\\novel-wheel-ig3t_8yi\\environment\\Lib\\site-packages\\novel_creator\\cli.py",
+2026-10-29T13:36:22.3759797Z       "C:\\Users\\runneradmin\\AppData\\Local\\Temp\\novel-wheel-ig3t_8yi\\environment\\Lib\\site-packages\\novel_creator\\validation_cache.py",
+2026-10-29T13:36:22.3760960Z       "C:\\Users\\runneradmin\\AppData\\Local\\Temp\\novel-wheel-ig3t_8yi\\environment\\Lib\\site-packages\\novel_creator\\storage.py",
+2026-10-29T13:36:22.3762259Z       "C:\\Users\\runneradmin\\AppData\\Local\\Temp\\novel-wheel-ig3t_8yi\\environment\\Lib\\site-packages\\novel_creator\\install.py",
+2026-10-29T13:36:22.3763392Z       "C:\\Users\\runneradmin\\AppData\\Local\\Temp\\novel-wheel-ig3t_8yi\\environment\\Lib\\site-packages\\novel_creator\\context.py"
+2026-10-29T13:36:22.3764172Z     ],
+2026-10-29T13:36:22.3764508Z     "bundle_file_count": 28
+2026-10-29T13:36:22.3764867Z   },
+2026-10-29T13:36:22.3765209Z   "cases": [
+2026-10-29T13:36:22.3765506Z     {
+2026-10-29T13:36:22.3765830Z       "case": "unknown",
+2026-10-29T13:36:22.3766257Z       "initialized": true,
+2026-10-29T13:36:22.3766742Z       "pinned_save_and_reopen": true
+2026-10-29T13:36:22.3767184Z     },
+2026-10-29T13:36:22.3767519Z     {
+2026-10-29T13:36:22.3767864Z       "case": "icelandic",
+2026-10-29T13:36:22.3768310Z       "initialized": true,
+2026-10-29T13:36:22.3768741Z       "pinned_save_and_reopen": true
+2026-10-29T13:36:22.3769168Z     },
+2026-10-29T13:36:22.3769502Z     {
+2026-10-29T13:36:22.3769861Z       "case": "name-only",
+2026-10-29T13:36:22.3770272Z       "ready": true,
+2026-10-29T13:36:22.3770687Z       "version": "novel-creator 0.1.0",
+2026-10-29T13:36:22.3772892Z       "request_artifact": true,
+2026-10-29T13:36:22.3773677Z       "guide_identity": true
+2026-10-29T13:36:22.3774843Z     }
+2026-10-29T13:36:22.3775191Z   ],
+2026-10-29T13:36:22.3775909Z   "dependency_isolation": "calling environment package directories reused; product module origins checked",
+2026-10-29T13:36:22.3776729Z   "semantic_host_or_human_evidence": false
+2026-10-29T13:36:22.3777201Z }
+2026-10-29T13:36:22.4101559Z ##[group]Run python tests/verify_package_install.py --wheel candidate/*.whl > candidate-check.json
+2026-10-29T13:36:22.4102630Z [36;1mpython tests/verify_package_install.py --wheel candidate/*.whl > candidate-check.json[0m
+2026-10-29T13:36:22.4121569Z shell: C:\Program Files\Git\bin\bash.EXE --noprofile --norc -e -o pipefail {0}
+2026-10-29T13:36:22.4122128Z env:
+2026-10-29T13:36:22.4122531Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.13.16\x64
+2026-10-29T13:36:22.4123415Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.13.16\x64/lib/pkgconfig
+2026-10-29T13:36:22.4124612Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.13.16\x64
+2026-10-29T13:36:22.4125225Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.13.16\x64
+2026-10-29T13:36:22.4125806Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.13.16\x64
+2026-10-29T13:36:22.4126395Z ##[endgroup]
+2026-10-29T13:37:01.0588535Z ##[group]Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+2026-10-29T13:37:01.0589071Z with:
+2026-10-29T13:37:01.0589342Z   name: candidate-check-windows-latest-40882235905-1
+2026-10-29T13:37:01.0589667Z   path: candidate-check.json
+2026-10-29T13:37:01.0589934Z   if-no-files-found: error
+2026-10-29T13:37:01.0590216Z   compression-level: 6
+2026-10-29T13:37:01.0590449Z   overwrite: false
+2026-10-29T13:37:01.0590679Z   include-hidden-files: false
+2026-10-29T13:37:01.0590920Z   archive: true
+2026-10-29T13:37:01.0591154Z env:
+2026-10-29T13:37:01.0591455Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.13.16\x64
+2026-10-29T13:37:01.0591876Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.13.16\x64/lib/pkgconfig
+2026-10-29T13:37:01.0592286Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.13.16\x64
+2026-10-29T13:37:01.0592707Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.13.16\x64
+2026-10-29T13:37:01.0593149Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.13.16\x64
+2026-10-29T13:37:01.0593478Z ##[endgroup]
+2026-10-29T13:37:01.2137850Z With the provided path, there will be 1 file uploaded
+2026-10-29T13:37:01.2142467Z Artifact name is valid!
+2026-10-29T13:37:01.2143475Z Root directory input is valid!
+2026-10-29T13:37:01.3983591Z Uploading artifact: candidate-check-windows-latest-40882235905-1.zip
+2026-10-29T13:37:01.4014491Z Beginning upload of artifact content to blob storage
+2026-10-29T13:37:01.4501315Z Uploaded bytes 699
+2026-10-29T13:37:01.4623128Z Finished uploading artifact content to blob storage!
+2026-10-29T13:37:01.4625688Z SHA256 digest of uploaded artifact is e77652dab97e48b440f795f2f93869ac5ec1edbb157f0d0bfd7f4b418b63e172
+2026-10-29T13:37:01.4626551Z Finalizing artifact upload
+2026-10-29T13:37:01.9474848Z Artifact candidate-check-windows-latest-40882235905-1 successfully finalized. Artifact ID 12901132705
+2026-10-29T13:37:01.9505403Z Artifact candidate-check-windows-latest-40882235905-1 has been successfully uploaded! Final size is 699 bytes. Artifact ID is 12901132705
+2026-10-29T13:37:01.9509564Z Artifact download URL: https://github.com/bjarkig82/novel-creator/actions/runs/40882235905/artifacts/12901132705
+2026-10-29T13:37:01.9723094Z Post job cleanup.
+2026-10-29T13:37:02.1345942Z Post job cleanup.
+2026-10-29T13:37:02.3072838Z [command]"C:\Program Files\Git\bin\git.exe" version
+2026-10-29T13:37:02.3519765Z git version 2.56.0.windows.2
+2026-10-29T13:37:02.3654824Z Temporarily overriding HOME='D:\a\_temp\2e1899f8-f5a1-496b-82fc-9d3475600106' before making global git config changes
+2026-10-29T13:37:02.3701097Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-29T13:37:02.3723523Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add safe.directory D:\a\novel-creator\novel-creator
+2026-10-29T13:37:02.4120099Z Removing SSH command configuration
+2026-10-29T13:37:02.4131143Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+2026-10-29T13:37:02.4574626Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+2026-10-29T13:37:03.0472957Z Removing HTTP extra header
+2026-10-29T13:37:03.0482997Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-29T13:37:03.0813378Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+2026-10-29T13:37:03.5606488Z Removing includeIf entries pointing to credentials config files
+2026-10-29T13:37:03.5617618Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-29T13:37:03.6023078Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+2026-10-29T13:37:04.1040950Z Cleaning up orphan processes
+

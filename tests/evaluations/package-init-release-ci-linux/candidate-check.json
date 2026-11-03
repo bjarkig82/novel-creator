@@ -1,0 +1,67 @@
+{
+  "mode": "candidate",
+  "source": "novel_creator-0.1.0-py3-none-any.whl",
+  "version": "novel-creator 0.1.0",
+  "dependencies": [
+    {
+      "name": "attrs",
+      "version": "26.1.0"
+    },
+    {
+      "name": "jsonschema",
+      "version": "4.26.0"
+    },
+    {
+      "name": "jsonschema_rs",
+      "version": "0.59.0"
+    },
+    {
+      "name": "jsonschema-specifications",
+      "version": "2025.9.1"
+    },
+    {
+      "name": "novel-creator",
+      "version": "0.1.0"
+    },
+    {
+      "name": "pip",
+      "version": "26.2.2"
+    },
+    {
+      "name": "referencing",
+      "version": "0.37.0"
+    },
+    {
+      "name": "rpds-py",
+      "version": "2026.9.1"
+    }
+  ],
+  "validated": true,
+  "guide_sha256": "d61901b60a59447dc6805dcb874899d83ecc23f9cba2ed58860b0fe48d180ff7",
+  "wheel_sha256": "cc8645556f74190dee9ac7527c3e66c0bc71574913b5bbae5ddff7516b8817a8",
+  "public_artifact_hashes": {},
+  "installed_product": null,
+  "settings_cases": [
+    {
+      "name": "Folder",
+      "title": "Bréf frá morgundeginum",
+      "language": "is",
+      "preserved": true
+    },
+    {
+      "name": "English",
+      "title": "A working title",
+      "language": "en",
+      "preserved": true
+    },
+    {
+      "name": "A Novel",
+      "title": "A Novel",
+      "language": "en",
+      "preserved": true
+    }
+  ],
+  "invalid_input_cases": 5,
+  "host_walkthrough": "not performed",
+  "dependency_inheritance": false
+}

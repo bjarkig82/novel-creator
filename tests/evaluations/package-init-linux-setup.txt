@@ -1,0 +1,28 @@
+Obtaining file:///home/bjarki/.cache/novel-creator-verification/package-init.c8qZSk
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Checking if build backend supports build_editable: started
+  Checking if build backend supports build_editable: finished with status 'done'
+  Getting requirements to build editable: started
+  Getting requirements to build editable: finished with status 'done'
+  Preparing editable metadata (pyproject.toml): started
+  Preparing editable metadata (pyproject.toml): finished with status 'done'
+Requirement already satisfied: jsonschema<5,>=4.23 in /home/bjarki/.cache/novel-creator-verification/package-init.c8qZSk/.runtime/lib/python3.12/site-packages (from novel-creator==0.1.0) (4.26.0)
+Requirement already satisfied: jsonschema-rs<0.60,>=0.59 in /home/bjarki/.cache/novel-creator-verification/package-init.c8qZSk/.runtime/lib/python3.12/site-packages (from novel-creator==0.1.0) (0.59.0)
+Requirement already satisfied: attrs>=22.2.0 in /home/bjarki/.cache/novel-creator-verification/package-init.c8qZSk/.runtime/lib/python3.12/site-packages (from jsonschema<5,>=4.23->novel-creator==0.1.0) (26.1.0)
+Requirement already satisfied: jsonschema-specifications>=2023.03.6 in /home/bjarki/.cache/novel-creator-verification/package-init.c8qZSk/.runtime/lib/python3.12/site-packages (from jsonschema<5,>=4.23->novel-creator==0.1.0) (2025.9.1)
+Requirement already satisfied: referencing>=0.28.4 in /home/bjarki/.cache/novel-creator-verification/package-init.c8qZSk/.runtime/lib/python3.12/site-packages (from jsonschema<5,>=4.23->novel-creator==0.1.0) (0.37.0)
+Requirement already satisfied: rpds-py>=0.25.0 in /home/bjarki/.cache/novel-creator-verification/package-init.c8qZSk/.runtime/lib/python3.12/site-packages (from jsonschema<5,>=4.23->novel-creator==0.1.0) (2026.9.1)
+Requirement already satisfied: typing-extensions>=4.4.0 in /home/bjarki/.cache/novel-creator-verification/package-init.c8qZSk/.runtime/lib/python3.12/site-packages (from referencing>=0.28.4->jsonschema<5,>=4.23->novel-creator==0.1.0) (4.16.0)
+Building wheels for collected packages: novel-creator
+  Building editable for novel-creator (pyproject.toml): started
+  Building editable for novel-creator (pyproject.toml): finished with status 'done'
+  Created wheel for novel-creator: filename=novel_creator-0.1.0-0.editable-py3-none-any.whl size=8179 sha256=915c29f6361ac1a6183091d571a644b5539e7016532f8c4a7d1e5edda661840f
+  Stored in directory: /tmp/pip-ephem-wheel-cache-v1vav532/wheels/f5/f1/f7/747f8ba454631ba1f9768a8dca5751350b6d8dcacdbe8bbc7d
+Successfully built novel-creator
+Installing collected packages: novel-creator
+  Attempting uninstall: novel-creator
+    Found existing installation: novel-creator 0.1.0
+    Uninstalling novel-creator-0.1.0:
+      Successfully uninstalled novel-creator-0.1.0
+Successfully installed novel-creator-0.1.0

@@ -1,0 +1,252 @@
+public-checks (windows-latest)	Set up job	﻿2026-10-29T16:28:05.1470086Z Current runner version: '2.338.0'
+public-checks (windows-latest)	Set up job	2026-10-29T16:28:05.1522080Z ##[group]Runner Image Provisioner
+public-checks (windows-latest)	Set up job	2026-10-29T16:28:05.1522970Z Hosted Compute Agent
+public-checks (windows-latest)	Set up job	2026-10-29T16:28:05.1523540Z Version: 20261021.618
+public-checks (windows-latest)	Set up job	2026-10-29T16:28:05.1524152Z Commit: 21505ad2541d5be6135ed84fc33697146cf75b8e
+public-checks (windows-latest)	Set up job	2026-10-29T16:28:05.1524911Z Build Date: 2026-10-21T00:45:21Z
+public-checks (windows-latest)	Set up job	2026-10-29T16:28:05.1525542Z Worker ID: {db93000d-6414-49ac-9b2f-e41f1c0fbf36}
+public-checks (windows-latest)	Set up job	2026-10-29T16:28:05.1526196Z Region: westus3
+public-checks (windows-latest)	Set up job	2026-10-29T16:28:05.1526706Z Cloud: Azure
+public-checks (windows-latest)	Set up job	2026-10-29T16:28:05.1527227Z ##[endgroup]
+public-checks (windows-latest)	Set up job	2026-10-29T16:28:05.1528958Z ##[group]Operating System
+public-checks (windows-latest)	Set up job	2026-10-29T16:28:05.1529734Z Microsoft Windows Server 2025
+public-checks (windows-latest)	Set up job	2026-10-29T16:28:05.1530302Z 10.0.26100
+public-checks (windows-latest)	Set up job	2026-10-29T16:28:05.1530819Z Datacenter
+public-checks (windows-latest)	Set up job	2026-10-29T16:28:05.1531299Z ##[endgroup]
+public-checks (windows-latest)	Set up job	2026-10-29T16:28:05.1531804Z ##[group]Runner Image
+public-checks (windows-latest)	Set up job	2026-10-29T16:28:05.1532361Z Image: windows-2025-vs2026
+public-checks (windows-latest)	Set up job	2026-10-29T16:28:05.1532908Z Version: 20261021.278.1
+public-checks (windows-latest)	Set up job	2026-10-29T16:28:05.1533962Z Included Software: https://github.com/actions/runner-images/blob/win25-vs2026/20261021.278/images/windows/Windows2025-VS2026-Readme.md
+public-checks (windows-latest)	Set up job	2026-10-29T16:28:05.1535905Z Image Release: https://github.com/actions/runner-images/releases/tag/win25-vs2026%2F20261021.278
+public-checks (windows-latest)	Set up job	2026-10-29T16:28:05.1536841Z ##[endgroup]
+public-checks (windows-latest)	Set up job	2026-10-29T16:28:05.1537977Z ##[group]GITHUB_TOKEN Permissions
+public-checks (windows-latest)	Set up job	2026-10-29T16:28:05.1539870Z Actions: read
+public-checks (windows-latest)	Set up job	2026-10-29T16:28:05.1540403Z Contents: read
+public-checks (windows-latest)	Set up job	2026-10-29T16:28:05.1540925Z Metadata: read
+public-checks (windows-latest)	Set up job	2026-10-29T16:28:05.1541481Z ##[endgroup]
+public-checks (windows-latest)	Set up job	2026-10-29T16:28:05.1543419Z Secret source: Actions
+public-checks (windows-latest)	Set up job	2026-10-29T16:28:05.1544263Z Cache mode: write
+public-checks (windows-latest)	Set up job	2026-10-29T16:28:05.1544891Z Prepare workflow directory
+public-checks (windows-latest)	Set up job	2026-10-29T16:28:05.1975555Z Prepare all required actions
+public-checks (windows-latest)	Set up job	2026-10-29T16:28:05.2023067Z Getting action download info
+public-checks (windows-latest)	Set up job	2026-10-29T16:28:05.4857750Z Download action repository 'actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a' (SHA:f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a)
+public-checks (windows-latest)	Set up job	2026-10-29T16:28:05.6047922Z Download action repository 'actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0' (SHA:6d4fd22b20465ccc0f7354476588e8df7c9ca0e0)
+public-checks (windows-latest)	Set up job	2026-10-29T16:28:06.2536139Z Download action repository 'actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333' (SHA:9000827ccba6bdab643e8b6fd33ac0654aef8333)
+public-checks (windows-latest)	Set up job	2026-10-29T16:28:06.9186128Z Download action repository 'actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9' (SHA:cf430e030ddbb5b0abf93d22962f4752f3646cd9)
+public-checks (windows-latest)	Set up job	2026-10-29T16:28:07.1601479Z Complete job name: public-checks (windows-latest)
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	﻿2026-10-29T16:28:07.3318532Z ##[group]Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:07.3320539Z with:
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:07.3321326Z   ref: 0f287cdcc2fc22334f437906ae13e90dba11f0f8
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:07.3322301Z   persist-credentials: false
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:07.3323171Z   repository: bjarkig82/novel-creator
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:07.3330051Z   token: ***
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:07.3330723Z   ssh-strict: true
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:07.3331412Z   ssh-user: git
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:07.3332119Z   clean: true
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:07.3332835Z   sparse-checkout-cone-mode: true
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:07.3333676Z   fetch-depth: 1
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:07.3334358Z   fetch-tags: false
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:07.3335147Z   show-progress: true
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:07.3335982Z   lfs: false
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:07.3336649Z   submodules: false
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:07.3337373Z   set-safe-directory: true
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:07.3338191Z   allow-unsafe-pr-checkout: false
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:07.3339370Z ##[endgroup]
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:07.4886032Z Syncing repository: bjarkig82/novel-creator
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:07.4888632Z ##[group]Getting Git version info
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:07.4889744Z Working directory is 'D:\a\novel-creator\novel-creator'
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:07.5668830Z [command]"C:\Program Files\Git\bin\git.exe" version
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:07.9187211Z git version 2.56.0.windows.2
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:07.9233676Z ##[endgroup]
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:07.9252747Z Temporarily overriding HOME='D:\a\_temp\b6e72ac5-0222-4822-ad30-1586fa9c4452' before making global git config changes
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:07.9255817Z Adding repository directory to the temporary git global config as a safe directory
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:07.9263059Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add safe.directory D:\a\novel-creator\novel-creator
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:07.9960526Z Deleting the contents of 'D:\a\novel-creator\novel-creator'
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:07.9965550Z ##[group]Determining repository object format
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:07.9967487Z ##[endgroup]
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:07.9968302Z ##[group]Initializing the repository
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:07.9976907Z [command]"C:\Program Files\Git\bin\git.exe" init D:\a\novel-creator\novel-creator
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:08.1023683Z Initialized empty Git repository in D:/a/novel-creator/novel-creator/.git/
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:08.1072247Z [command]"C:\Program Files\Git\bin\git.exe" remote add origin https://github.com/bjarkig82/novel-creator
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:08.1920081Z ##[endgroup]
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:08.1920652Z ##[group]Disabling automatic garbage collection
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:08.1929494Z [command]"C:\Program Files\Git\bin\git.exe" config --local gc.auto 0
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:08.2298496Z ##[endgroup]
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:08.2299960Z ##[group]Setting up auth
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:08.2301007Z Removing SSH command configuration
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:08.2310736Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:08.2722817Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:09.8548914Z Removing HTTP extra header
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:09.8563107Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:09.8942272Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:10.4380119Z Removing includeIf entries pointing to credentials config files
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:10.4390318Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:10.4762763Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:10.9959038Z [command]"C:\Program Files\Git\bin\git.exe" config --file D:\a\_temp\git-credentials-5e886350-cef4-4e41-9232-6181e28adaa3.config http.https://github.com/.extraheader "AUTHORIZATION: basic ***"
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:11.0346150Z [command]"C:\Program Files\Git\bin\git.exe" config --local includeIf.gitdir:D:/a/novel-creator/novel-creator/.git.path D:\a\_temp\git-credentials-5e886350-cef4-4e41-9232-6181e28adaa3.config
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:11.0718789Z [command]"C:\Program Files\Git\bin\git.exe" config --local includeIf.gitdir:D:/a/novel-creator/novel-creator/.git/worktrees/*.path D:\a\_temp\git-credentials-5e886350-cef4-4e41-9232-6181e28adaa3.config
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:11.1170588Z [command]"C:\Program Files\Git\bin\git.exe" config --local includeIf.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-5e886350-cef4-4e41-9232-6181e28adaa3.config
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:11.1542667Z [command]"C:\Program Files\Git\bin\git.exe" config --local includeIf.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-5e886350-cef4-4e41-9232-6181e28adaa3.config
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:11.1953222Z ##[endgroup]
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:11.1953867Z ##[group]Fetching the repository
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:11.1968105Z [command]"C:\Program Files\Git\bin\git.exe" -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin 0f287cdcc2fc22334f437906ae13e90dba11f0f8
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:12.8517221Z From https://github.com/bjarkig82/novel-creator
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:12.8518112Z  * branch            0f287cdcc2fc22334f437906ae13e90dba11f0f8 -> FETCH_HEAD
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:12.8575875Z [command]"C:\Program Files\Git\bin\git.exe" rev-parse --verify --quiet 0f287cdcc2fc22334f437906ae13e90dba11f0f8^{object}
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:12.9068989Z 0f287cdcc2fc22334f437906ae13e90dba11f0f8
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:12.9115823Z ##[endgroup]
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:12.9116309Z ##[group]Determining the checkout info
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:12.9116784Z ##[endgroup]
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:12.9124791Z [command]"C:\Program Files\Git\bin\git.exe" sparse-checkout disable
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:12.9678550Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset-all extensions.worktreeConfig
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:13.0048003Z ##[group]Checking out the ref
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:13.0056993Z [command]"C:\Program Files\Git\bin\git.exe" checkout --progress --force 0f287cdcc2fc22334f437906ae13e90dba11f0f8
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:13.3452723Z Note: switching to '0f287cdcc2fc22334f437906ae13e90dba11f0f8'.
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:13.3453250Z 
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:13.3453543Z You are in 'detached HEAD' state. You can look around, make experimental
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:13.3454184Z changes and commit them, and you can discard any commits you make in this
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:13.3454909Z state without impacting any branches by switching back to a branch.
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:13.3455345Z 
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:13.3455637Z If you want to create a new branch to retain commits you create, you may
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:13.3456312Z do so (now or later) by using -c with the switch command. Example:
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:13.3456697Z 
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:13.3456907Z   git switch -c <new-branch-name>
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:13.3457156Z 
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:13.3457284Z Or undo this operation with:
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:13.3457528Z 
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:13.3457647Z   git switch -
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:13.3457836Z 
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:13.3458155Z Turn off this advice by setting config variable advice.detachedHead to false
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:13.3458650Z 
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:13.3459020Z HEAD is now at 0f287cd Name missing Git on Windows and add installed guide diagnostics
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:13.3530255Z ##[endgroup]
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:13.4021738Z [command]"C:\Program Files\Git\bin\git.exe" log -1 --format=%H
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:13.4364843Z 0f287cdcc2fc22334f437906ae13e90dba11f0f8
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:13.4407107Z ##[group]Removing auth
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:13.4407399Z Removing SSH command configuration
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:13.4416004Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:13.4796039Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:14.0528624Z Removing HTTP extra header
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:14.0539589Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:14.0941586Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:14.6522787Z Removing includeIf entries pointing to credentials config files
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:14.6533059Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:14.6859920Z includeif.gitdir:D:/a/novel-creator/novel-creator/.git.path
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:14.6861430Z includeif.gitdir:D:/a/novel-creator/novel-creator/.git/worktrees/*.path
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:14.6862401Z includeif.gitdir:/github/workspace/.git.path
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:14.6862791Z includeif.gitdir:/github/workspace/.git/worktrees/*.path
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:14.6912482Z [command]"C:\Program Files\Git\bin\git.exe" config --local --get-all includeif.gitdir:D:/a/novel-creator/novel-creator/.git.path
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:14.7251449Z D:\a\_temp\git-credentials-5e886350-cef4-4e41-9232-6181e28adaa3.config
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:14.7295833Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset includeif.gitdir:D:/a/novel-creator/novel-creator/.git.path D\:\\a\\_temp\\git\-credentials\-5e886350\-cef4\-4e41\-9232\-6181e28adaa3\.config
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:14.7681372Z [command]"C:\Program Files\Git\bin\git.exe" config --local --get-all includeif.gitdir:D:/a/novel-creator/novel-creator/.git/worktrees/*.path
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:14.8015197Z D:\a\_temp\git-credentials-5e886350-cef4-4e41-9232-6181e28adaa3.config
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:14.8061306Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset includeif.gitdir:D:/a/novel-creator/novel-creator/.git/worktrees/*.path D\:\\a\\_temp\\git\-credentials\-5e886350\-cef4\-4e41\-9232\-6181e28adaa3\.config
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:14.8431206Z [command]"C:\Program Files\Git\bin\git.exe" config --local --get-all includeif.gitdir:/github/workspace/.git.path
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:14.8753446Z /github/runner_temp/git-credentials-5e886350-cef4-4e41-9232-6181e28adaa3.config
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:14.8795053Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset includeif.gitdir:/github/workspace/.git.path \/github\/runner_temp\/git\-credentials\-5e886350\-cef4\-4e41\-9232\-6181e28adaa3\.config
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:14.9173194Z [command]"C:\Program Files\Git\bin\git.exe" config --local --get-all includeif.gitdir:/github/workspace/.git/worktrees/*.path
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:14.9495948Z /github/runner_temp/git-credentials-5e886350-cef4-4e41-9232-6181e28adaa3.config
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:14.9539225Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset includeif.gitdir:/github/workspace/.git/worktrees/*.path \/github\/runner_temp\/git\-credentials\-5e886350\-cef4\-4e41\-9232\-6181e28adaa3\.config
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:14.9905903Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:15.5102299Z Removing credentials config 'D:\a\_temp\git-credentials-5e886350-cef4-4e41-9232-6181e28adaa3.config'
+public-checks (windows-latest)	Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:15.5113827Z ##[endgroup]
+public-checks (windows-latest)	Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0	﻿2026-10-29T16:28:15.5553873Z ##[group]Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
+public-checks (windows-latest)	Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0	2026-10-29T16:28:15.5554335Z with:
+public-checks (windows-latest)	Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0	2026-10-29T16:28:15.5554533Z   python-version: 3.13
+public-checks (windows-latest)	Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0	2026-10-29T16:28:15.5554741Z   check-latest: false
+public-checks (windows-latest)	Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0	2026-10-29T16:28:15.5557306Z   token: ***
+public-checks (windows-latest)	Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0	2026-10-29T16:28:15.5557603Z   mirror: https://raw.githubusercontent.com/actions/python-versions/main
+public-checks (windows-latest)	Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0	2026-10-29T16:28:15.5557966Z   update-environment: true
+public-checks (windows-latest)	Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0	2026-10-29T16:28:15.5558195Z   allow-prereleases: false
+public-checks (windows-latest)	Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0	2026-10-29T16:28:15.5558407Z   freethreaded: false
+public-checks (windows-latest)	Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0	2026-10-29T16:28:15.5558608Z ##[endgroup]
+public-checks (windows-latest)	Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0	2026-10-29T16:28:15.7069678Z ##[group]Installed versions
+public-checks (windows-latest)	Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0	2026-10-29T16:28:15.7212511Z Successfully set up CPython (3.13.16)
+public-checks (windows-latest)	Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0	2026-10-29T16:28:15.7213360Z ##[endgroup]
+public-checks (windows-latest)	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	﻿2026-10-29T16:28:15.7516777Z ##[group]Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333
+public-checks (windows-latest)	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	2026-10-29T16:28:15.7517339Z with:
+public-checks (windows-latest)	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	2026-10-29T16:28:15.7517552Z   artifact-ids: 12911245684
+public-checks (windows-latest)	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	2026-10-29T16:28:15.7517800Z   run-id: 40904366247
+public-checks (windows-latest)	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	2026-10-29T16:28:15.7520323Z   github-token: ***
+public-checks (windows-latest)	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	2026-10-29T16:28:15.7520515Z   path: candidate
+public-checks (windows-latest)	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	2026-10-29T16:28:15.7520703Z   merge-multiple: false
+public-checks (windows-latest)	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	2026-10-29T16:28:15.7520926Z   repository: bjarkig82/novel-creator
+public-checks (windows-latest)	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	2026-10-29T16:28:15.7521185Z   skip-decompress: false
+public-checks (windows-latest)	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	2026-10-29T16:28:15.7521399Z   digest-mismatch: error
+public-checks (windows-latest)	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	2026-10-29T16:28:15.7521585Z env:
+public-checks (windows-latest)	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	2026-10-29T16:28:15.7521831Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.13.16\x64
+public-checks (windows-latest)	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	2026-10-29T16:28:15.7522272Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.13.16\x64/lib/pkgconfig
+public-checks (windows-latest)	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	2026-10-29T16:28:15.7522688Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.13.16\x64
+public-checks (windows-latest)	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	2026-10-29T16:28:15.7523067Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.13.16\x64
+public-checks (windows-latest)	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	2026-10-29T16:28:15.7523442Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.13.16\x64
+public-checks (windows-latest)	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	2026-10-29T16:28:15.7523767Z ##[endgroup]
+public-checks (windows-latest)	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	2026-10-29T16:28:15.9213555Z Downloading artifacts by ID
+public-checks (windows-latest)	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	2026-10-29T16:28:15.9218952Z Fetching artifact list for workflow run 40904366247 in repository bjarkig82/novel-creator
+public-checks (windows-latest)	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	2026-10-29T16:28:16.2654409Z Found 3 artifact(s)
+public-checks (windows-latest)	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	2026-10-29T16:28:16.2655686Z Preparing to download the following artifacts:
+public-checks (windows-latest)	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	2026-10-29T16:28:16.2656985Z - candidate-40904366247-1 (ID: 12911245684, Size: 131395, Expected Digest: sha256:d8013b1d62a5e10d547d3df7ab9432a2bd71b79b657a20b77ac19511ed239679)
+public-checks (windows-latest)	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	2026-10-29T16:28:16.2669899Z Downloading artifact '12911245684' from 'bjarkig82/novel-creator'
+public-checks (windows-latest)	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	2026-10-29T16:28:16.4784778Z Redirecting to blob download url: https://productionresultssa12.blob.core.windows.net/actions-results/fd121744-760d-4819-9de1-277ff64c3100/workflow-job-run-6f87d333-2c56-5316-857f-55a7c12b7052/artifacts/560119b0670f870de868b02971ef22db9137eb389f802d74b3abc0237d8e93b9.zip
+public-checks (windows-latest)	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	2026-10-29T16:28:16.4786292Z Starting download of artifact to: D:\a\novel-creator\novel-creator\candidate
+public-checks (windows-latest)	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	2026-10-29T16:28:16.7029850Z (node:1080) [DEP0005] DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or Buffer.from() methods instead.
+public-checks (windows-latest)	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	2026-10-29T16:28:16.7031220Z (Use `node --trace-deprecation ...` to show where the warning was created)
+public-checks (windows-latest)	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	2026-10-29T16:28:16.8489738Z SHA256 digest of downloaded artifact is d8013b1d62a5e10d547d3df7ab9432a2bd71b79b657a20b77ac19511ed239679
+public-checks (windows-latest)	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	2026-10-29T16:28:16.8491079Z Artifact download completed successfully.
+public-checks (windows-latest)	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	2026-10-29T16:28:16.8491612Z Total of 1 artifact(s) downloaded
+public-checks (windows-latest)	Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333	2026-10-29T16:28:16.8505182Z Download artifact has finished successfully
+public-checks (windows-latest)	Check named production install and selected archive hash	﻿2026-10-29T16:28:16.8822878Z ##[group]Run package=$(python -c "import json; d=json.load(open('candidate/manifest.json')); print(d['distribution']+'=='+d['version'])")
+public-checks (windows-latest)	Check named production install and selected archive hash	2026-10-29T16:28:16.8823909Z [36;1mpackage=$(python -c "import json; d=json.load(open('candidate/manifest.json')); print(d['distribution']+'=='+d['version'])")[0m
+public-checks (windows-latest)	Check named production install and selected archive hash	2026-10-29T16:28:16.8824746Z [36;1mpython tests/verify_package_install.py --package "$package" --manifest candidate/manifest.json > public-check.json[0m
+public-checks (windows-latest)	Check named production install and selected archive hash	2026-10-29T16:28:16.8908558Z shell: C:\Program Files\Git\bin\bash.EXE --noprofile --norc -e -o pipefail {0}
+public-checks (windows-latest)	Check named production install and selected archive hash	2026-10-29T16:28:16.8908987Z env:
+public-checks (windows-latest)	Check named production install and selected archive hash	2026-10-29T16:28:16.8909267Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.13.16\x64
+public-checks (windows-latest)	Check named production install and selected archive hash	2026-10-29T16:28:16.8909703Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.13.16\x64/lib/pkgconfig
+public-checks (windows-latest)	Check named production install and selected archive hash	2026-10-29T16:28:16.8910123Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.13.16\x64
+public-checks (windows-latest)	Check named production install and selected archive hash	2026-10-29T16:28:16.8910509Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.13.16\x64
+public-checks (windows-latest)	Check named production install and selected archive hash	2026-10-29T16:28:16.8910945Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.13.16\x64
+public-checks (windows-latest)	Check named production install and selected archive hash	2026-10-29T16:28:16.8911245Z ##[endgroup]
+public-checks (windows-latest)	Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9	﻿2026-10-29T16:28:47.5305726Z ##[group]Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+public-checks (windows-latest)	Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9	2026-10-29T16:28:47.5306322Z with:
+public-checks (windows-latest)	Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9	2026-10-29T16:28:47.5306636Z   name: public-check-windows-latest-40911698155
+public-checks (windows-latest)	Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9	2026-10-29T16:28:47.5307004Z   path: public-check.json
+public-checks (windows-latest)	Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9	2026-10-29T16:28:47.5307351Z   if-no-files-found: error
+public-checks (windows-latest)	Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9	2026-10-29T16:28:47.5307645Z   compression-level: 6
+public-checks (windows-latest)	Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9	2026-10-29T16:28:47.5307925Z   overwrite: false
+public-checks (windows-latest)	Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9	2026-10-29T16:28:47.5308198Z   include-hidden-files: false
+public-checks (windows-latest)	Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9	2026-10-29T16:28:47.5308528Z   archive: true
+public-checks (windows-latest)	Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9	2026-10-29T16:28:47.5308792Z env:
+public-checks (windows-latest)	Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9	2026-10-29T16:28:47.5309119Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.13.16\x64
+public-checks (windows-latest)	Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9	2026-10-29T16:28:47.5309635Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.13.16\x64/lib/pkgconfig
+public-checks (windows-latest)	Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9	2026-10-29T16:28:47.5310148Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.13.16\x64
+public-checks (windows-latest)	Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9	2026-10-29T16:28:47.5310601Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.13.16\x64
+public-checks (windows-latest)	Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9	2026-10-29T16:28:47.5311077Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.13.16\x64
+public-checks (windows-latest)	Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9	2026-10-29T16:28:47.5311553Z ##[endgroup]
+public-checks (windows-latest)	Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9	2026-10-29T16:28:47.7391810Z With the provided path, there will be 1 file uploaded
+public-checks (windows-latest)	Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9	2026-10-29T16:28:47.7397439Z Artifact name is valid!
+public-checks (windows-latest)	Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9	2026-10-29T16:28:47.7398022Z Root directory input is valid!
+public-checks (windows-latest)	Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9	2026-10-29T16:28:48.1056016Z Uploading artifact: public-check-windows-latest-40911698155.zip
+public-checks (windows-latest)	Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9	2026-10-29T16:28:48.1057681Z Beginning upload of artifact content to blob storage
+public-checks (windows-latest)	Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9	2026-10-29T16:28:48.3639427Z Uploaded bytes 863
+public-checks (windows-latest)	Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9	2026-10-29T16:28:48.4292166Z Finished uploading artifact content to blob storage!
+public-checks (windows-latest)	Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9	2026-10-29T16:28:48.4293241Z SHA256 digest of uploaded artifact is 82060aac314ad080afa38674dda4c3f9813fc4af5e8bd2ddea8dc61fc18d4161
+public-checks (windows-latest)	Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9	2026-10-29T16:28:48.4294021Z Finalizing artifact upload
+public-checks (windows-latest)	Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9	2026-10-29T16:28:49.0715743Z Artifact public-check-windows-latest-40911698155 successfully finalized. Artifact ID 12915140203
+public-checks (windows-latest)	Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9	2026-10-29T16:28:49.0717437Z Artifact public-check-windows-latest-40911698155 has been successfully uploaded! Final size is 863 bytes. Artifact ID is 12915140203
+public-checks (windows-latest)	Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9	2026-10-29T16:28:49.0729228Z Artifact download URL: https://github.com/bjarkig82/novel-creator/actions/runs/40911698155/artifacts/12915140203
+public-checks (windows-latest)	Post Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0	﻿2026-10-29T16:28:49.1068168Z Post job cleanup.
+public-checks (windows-latest)	Post Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	﻿2026-10-29T16:28:49.2868332Z Post job cleanup.
+public-checks (windows-latest)	Post Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:49.4890970Z [command]"C:\Program Files\Git\bin\git.exe" version
+public-checks (windows-latest)	Post Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:49.5245088Z git version 2.56.0.windows.2
+public-checks (windows-latest)	Post Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:49.5313406Z Temporarily overriding HOME='D:\a\_temp\546bdea8-eb25-41a1-9e84-089f5b3c0b98' before making global git config changes
+public-checks (windows-latest)	Post Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:49.5314632Z Adding repository directory to the temporary git global config as a safe directory
+public-checks (windows-latest)	Post Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:49.5324852Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add safe.directory D:\a\novel-creator\novel-creator
+public-checks (windows-latest)	Post Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:49.5690964Z Removing SSH command configuration
+public-checks (windows-latest)	Post Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:49.5701928Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+public-checks (windows-latest)	Post Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:49.6080097Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+public-checks (windows-latest)	Post Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:50.1400653Z Removing HTTP extra header
+public-checks (windows-latest)	Post Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:50.1411861Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+public-checks (windows-latest)	Post Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:50.1830754Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+public-checks (windows-latest)	Post Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:50.7489147Z Removing includeIf entries pointing to credentials config files
+public-checks (windows-latest)	Post Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:50.7500714Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+public-checks (windows-latest)	Post Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a	2026-10-29T16:28:50.7870803Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+public-checks (windows-latest)	Complete job	﻿2026-10-29T16:28:51.3419728Z Cleaning up orphan processes

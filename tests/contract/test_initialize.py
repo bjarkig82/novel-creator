@@ -8,6 +8,23 @@ from tests.helpers import envelope, seal
 
 
 class InitializationContract(unittest.TestCase):
+    def test_shorthand_request_is_separate_from_creative_field_sources(self):
+        from novel_creator.install import bootstrap
+        for language in [None, 'en', 'is']:
+            brief = {'title': 'Bréf frá morgundeginum'}
+            if language is not None:
+                brief['manuscript_language'] = language
+            request = dict(request_type='cli_init_v1', name='Folder', resolved_destination='/novels/Folder',
+                           title_argument=brief['title'], language_argument=language)
+            bundle = bootstrap(json.dumps(brief, ensure_ascii=False), request=request)
+            project = validation.validate_exchange(bundle, [])[bundle['novel_id']]
+            self.assertEqual(bundle['input_artifacts'][1]['parsed_value'], request)
+            self.assertEqual(project['title']['source_refs'][0]['artifact_id'], bundle['input_artifacts'][0]['artifact_id'])
+            self.assertEqual(project['title']['original_text'], brief['title'])
+            self.assertEqual(project['manuscript_language'], language or 'en')
+            self.assertEqual(project['original_concept']['state'], 'unknown')
+            self.assertFalse(bundle['messages'])
+
     def bootstrap(self, brief):
         from novel_creator.install import bootstrap
         return bootstrap(json.dumps(brief, ensure_ascii=False), novel_id=None)

@@ -1,0 +1,55 @@
+/home/bjarki/.cache/novel-creator-verification/release-guide.18UloQ
+Python 3.13.13
+git version 2.43.0
+Disposable Bash Guide <guide@example.invalid> 1793288314 +0000
+Disposable Bash Guide <guide@example.invalid> 1793288314 +0000
+Processing ./dist/candidate-40902823878-1/novel_creator-0.1.0-py3-none-any.whl
+Collecting jsonschema<5,>=4.23 (from novel-creator==0.1.0)
+  Downloading jsonschema-4.26.0-py3-none-any.whl.metadata (7.6 kB)
+Collecting jsonschema-rs<0.60,>=0.59 (from novel-creator==0.1.0)
+  Downloading jsonschema_rs-0.59.0-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (32 kB)
+Collecting attrs>=22.2.0 (from jsonschema<5,>=4.23->novel-creator==0.1.0)
+  Downloading attrs-26.1.0-py3-none-any.whl.metadata (8.8 kB)
+Collecting jsonschema-specifications>=2023.03.6 (from jsonschema<5,>=4.23->novel-creator==0.1.0)
+  Downloading jsonschema_specifications-2025.9.1-py3-none-any.whl.metadata (2.9 kB)
+Collecting referencing>=0.28.4 (from jsonschema<5,>=4.23->novel-creator==0.1.0)
+  Downloading referencing-0.37.0-py3-none-any.whl.metadata (2.8 kB)
+Collecting rpds-py>=0.25.0 (from jsonschema<5,>=4.23->novel-creator==0.1.0)
+  Downloading rpds_py-2026.9.1-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.1 kB)
+Downloading jsonschema-4.26.0-py3-none-any.whl (90 kB)
+Downloading jsonschema_rs-0.59.0-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (6.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.1/6.1 MB 50.4 MB/s  0:00:00
+Downloading attrs-26.1.0-py3-none-any.whl (67 kB)
+Downloading jsonschema_specifications-2025.9.1-py3-none-any.whl (18 kB)
+Downloading referencing-0.37.0-py3-none-any.whl (26 kB)
+Downloading rpds_py-2026.9.1-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (370 kB)
+Installing collected packages: rpds-py, jsonschema-rs, attrs, referencing, jsonschema-specifications, jsonschema, novel-creator
+
+Successfully installed attrs-26.1.0 jsonschema-4.26.0 jsonschema-rs-0.59.0 jsonschema-specifications-2025.9.1 novel-creator-0.1.0 referencing-0.37.0 rpds-py-2026.9.1
+
+[notice] A new release of pip is available: 26.0.1 -> 26.2.2
+[notice] To update, run: /home/bjarki/.cache/novel-creator-verification/release-guide.18UloQ/NovelCreatorRuntime/bin/python -m pip install --upgrade pip
+novel-creator 0.1.0
+usage: novel-creator init [-h] [--path PATH] [--brief-file BRIEF_FILE]
+                          [--title TITLE] [--language {en,is}] [--json]
+                          [name]
+
+Create an independent novel with init NAME; creative choices can wait.
+
+positional arguments:
+  name                  Novel folder name and provisional working title
+
+options:
+  -h, --help            show this help message and exit
+  --path PATH           Full destination; defaults to current directory/NAME
+  --brief-file BRIEF_FILE
+                        Legacy UTF-8 brief; requires --path and no NAME
+  --title TITLE         Working title; defaults to NAME
+  --language {en,is}    Manuscript language; defaults to en
+  --json
+
+Getting started: /home/bjarki/.cache/novel-creator-verification/release-
+guide.18UloQ/NovelCreatorRuntime/lib/python3.13/site-
+packages/novel_creator/workflows/getting-started.md
+Git identity is unavailable; configure your intended author/committer identity before retrying
+{"ok": false, "error": {"code": 5, "message": "Git identity is unavailable; configure your intended author/committer identity before retrying", "affected_refs": [], "retryable": true}, "last_confirmed_checkpoint": null, "pending_exchange_id": null}

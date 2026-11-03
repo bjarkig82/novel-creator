@@ -14,6 +14,21 @@ from tests.helpers import git
 
 
 class InstallationTests(unittest.TestCase):
+    def test_shorthand_replacement_options_do_not_mutate_recognized_novel(self):
+        from novel_creator.install import initialize
+        request = dict(request_type='cli_init_v1', name='Novel', resolved_destination=str(self.root),
+                       title_argument='Original', language_argument='is')
+        first = initialize(self.root, '{"title":"Original","manuscript_language":"is"}', request=request)
+        before = {p.relative_to(self.root).as_posix(): p.read_bytes() for p in self.root.rglob('*')
+                  if p.is_file() and '.git' not in p.relative_to(self.root).parts}
+        second = initialize(self.root, '{"title":"Replacement"}', request=dict(request, title_argument='Replacement'))
+        after = {p.relative_to(self.root).as_posix(): p.read_bytes() for p in self.root.rglob('*')
+                 if p.is_file() and '.git' not in p.relative_to(self.root).parts}
+        self.assertEqual(first['checkpoint'], second['checkpoint'])
+        self.assertEqual(before, after)
+        self.assertTrue(second['data']['already_initialized'])
+        self.assertIn('not applied', ' '.join(second['warnings']))
+
     def setUp(self):
         self.temp = tempfile.TemporaryDirectory()
         self.addCleanup(self.temp.cleanup)

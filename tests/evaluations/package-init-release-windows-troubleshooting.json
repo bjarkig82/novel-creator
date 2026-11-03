@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\verify_guide_failures.py", line 111, in <module>
+    print(json.dumps(verify(args.python, args.console, args.workspace), ensure_ascii=False, indent=2))
+                     ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BjarkiGunnarsson\source\repos\Personal\novel-creator\tests\verify_guide_failures.py", line 38, in verify
+    assert not missing['ok'] and 'git' in missing['error']['message'].lower()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

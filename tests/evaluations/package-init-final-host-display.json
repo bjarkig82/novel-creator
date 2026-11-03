@@ -1,0 +1,8 @@
+{
+  "verified": true,
+  "exact_raw_display": true,
+  "raw_display_text": "Your guided setup session is saved, so you can return later. We will take one question at a time. Your story idea and other creative choices remain unknown; brainstorming has not started. The existing folder-based working title and default English manuscript language are unchanged.\n\nWhat would you like to call this novel for now? You can leave the working title undecided.\n\n<oai-mem-citation>\n<citation_entries>\nskills/novel-creator-delegated-save-boundary/SKILL.md:25-30|note=[save and exact display verification]\n</citation_entries>\n<rollout_ids>\n</rollout_ids>\n</oai-mem-citation>",
+  "read_thread_presentation_strips_memory_footer": true,
+  "turn_id": "01a1886b-d095-7113-b394-3a90ad1cd5fe",
+  "thread_id": "01a1886b-cb1c-7180-8a3a-32eeb9d5867a"
+}

@@ -1,0 +1,8 @@
+{
+  "read_thread_presentation_strips_memory_footer": true,
+  "exact_raw_display": true,
+  "turn_id": "01a18875-50cd-71c1-b70a-e4e10119c08f",
+  "verified": true,
+  "raw_display_text": "Your saved “Novel setup” session is resumed in guided mode, one question at a time. Your story idea and other creative choices remain unknown, and brainstorming has not started. The existing folder-based working title and default English manuscript language are unchanged.\n\nThe saved question remains unanswered:\nWhat would you like to call this novel for now? You can leave the working title undecided.\n\nReferences: project 4ac6a6e7-50b8-4e52-b789-8b8dea40112f r2; session baefb02c-8372-4ff7-88ec-ca7d533798c8 r1; question 67c3190e-084f-4257-ad85-f6c3f05a0e0e r1; recovered checkpoint 376ddd47bacd1bc24dafea4727be2a11e7e4b0c0, exchange 843c845a-3f5e-42e5-9669-a36624279342, sequence 2. The prior saved reply has unconfirmed display status.\n\n<oai-mem-citation>\n<citation_entries>\nskills/novel-creator-delegated-save-boundary/SKILL.md:26-30|note=[save and exact display verification]\nMEMORY.md:319-319|note=[resume identity and unchanged records verification]\n</citation_entries>\n<rollout_ids>\n01a16aa5-4c4c-7a52-89d0-26df804faaf0\n01a16aa7-60f4-74e1-9efe-d132eed653e4\n</rollout_ids>\n</oai-mem-citation>",
+  "thread_id": "01a18875-19b5-7cb1-ad1b-b4e011657112"
+}
