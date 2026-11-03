@@ -44,10 +44,11 @@ The installed workflow saves each exact exchange before displaying its reply.
 
 ## Independent distribution
 
-The latest verified wheel is
-[novel_creator-0.1.0-py3-none-any.whl](../dist/phase22-20261023/novel_creator-0.1.0-py3-none-any.whl).
-It includes the [save-before-display commentary clarification](../tests/evaluations/display-boundary-20261023.md),
-verified against freshly installed workflows. The original
+The verified wheel was a local build artifact; `dist/` is not included in a
+repository checkout. Build and verify a wheel using the
+[README instructions](../README.md#development).
+The [save-before-display commentary clarification](../tests/evaluations/display-boundary-20261023.md)
+records the freshly installed workflow verification. The original
 [POC evidence report](../tests/evaluations/poc-readiness-20261023.md) retains its
 source-specific baseline and known limits.
 On a different machine create a Python >=3.11 environment, install that wheel
