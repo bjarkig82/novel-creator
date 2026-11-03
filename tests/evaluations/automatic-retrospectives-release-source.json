@@ -73,5 +73,12 @@
     "windows_guide_and_six_troubleshooting_cases": true
   },
   "main_merge_commit": "e0e5b315b4643675bd36cfdfe6d4870545224ec2",
-  "main_merge_tree_matches_candidate": true
+  "main_merge_tree_matches_candidate": true,
+  "publication": {
+    "status": "published_and_independently_verified",
+    "run": "41701146948",
+    "rebuilt": false,
+    "latest_pypi_version": "0.2.0",
+    "public_report": "automatic-retrospectives-release-public.json"
+  }
 }

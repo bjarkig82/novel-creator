@@ -1,4 +1,5 @@
 {
+  "release_binding": "automatic-retrospectives-release-source.json",
   "criterion_reconciliation": {
     "status": "scoped_qualification_and_independent_convergence_complete",
     "native_evidence": "actual_human_input_with_offline_fake_remote_effects",

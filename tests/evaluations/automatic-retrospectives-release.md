@@ -1,8 +1,9 @@
 # Automatic retrospectives: 0.2.0 release
 
 The maintainer authorized merging the completed feature to main and publishing a
-PyPI update on 2026-11-03. Target version: **0.2.0**. Publication is pending until
-the protected workflow completes and public archive hashes are verified.
+PyPI update on 2026-11-03. **Version 0.2.0 is published and independently
+verified**, including public archive hashes and clean production installations on
+Windows and Linux. The protected publication workflow completed successfully.
 
 The release includes the completed default-off retrospective feature and the
 reviewed documentation correction from draft PR #2. The earlier synthetic
@@ -77,3 +78,28 @@ existing files. Native Windows declarations explicitly reuse unchanged-component
 evidence, supported by the two release-only deltas and fresh archive/guide checks;
 they do not claim a new native conversation. Linux host qualification remains
 false. Production named-install and public hash results follow after publication.
+
+## Publication and production verification
+
+[Protected publication run 41701146948](https://github.com/bjarkig82/novel-creator/actions/runs/41701146948)
+succeeded on 2026-11-03. It executed from main evidence commit
+`23be9e0918014ed457eb64875502459bd59f2d07`, checked out the selected candidate
+source, verified the immutable artifact and uploaded the existing archives without
+rebuilding. The existing required-reviewer gate was approved under the maintainer's
+explicit publication authorization; no protection settings were changed.
+
+[PyPI 0.2.0](https://pypi.org/project/novel-creator/0.2.0/) is the latest public
+release. Independent metadata checks and downloads of both public files match the
+approved hashes above. Both Windows and Linux production jobs installed
+`novel-creator==0.2.0` by name with independent dependencies, selected the exact
+approved wheel, and passed initialization, validation, settings and invalid-input
+checks. Their guide digest matches the candidate. These package checks do not
+claim a new conversational host walkthrough.
+
+[Public release reconciliation](automatic-retrospectives-release-public.json)
+records the selected archive, source, public hashes and each platform's results.
+The release tag resolves to the exact candidate source. Both feature and
+documentation PRs are merged; the unrelated synthetic smoke PR and remote test
+artifacts were not deleted. No application deployment or merge of that smoke PR
+was performed. Existing novels retain their pinned bundles; new novels remain
+default-off for retrospectives.

@@ -4,7 +4,7 @@
 
 **Created**: 2026-10-29
 
-**Status**: Implemented locally — scoped Windows Codex qualification complete; independent convergence passed with zero findings
+**Status**: Released as 0.2.0 on PyPI — scoped Windows Codex qualification complete; independent convergence passed with zero findings. See the release evaluation for archive and production-install evidence.
 
 **Input**: User description: "Agents using Novel Creator should run a quick automatic retrospective when tasks finish, review the conversation for improvements, and optionally create a PR to the Novel Creator repository. The feature must default to disabled. Create only a Spec Kit specification now."
 

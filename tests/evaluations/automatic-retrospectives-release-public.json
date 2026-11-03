@@ -1,0 +1,59 @@
+{
+  "status": "published_and_independently_verified",
+  "distribution": "novel-creator",
+  "version": "0.2.0",
+  "publication_run": "41701146948",
+  "candidate_run": "41697714816",
+  "candidate_attempt": "1",
+  "candidate_artifact": "13262337033",
+  "source_commit": "7334f5867d462911084693dbaf61841dc0601ac8",
+  "rebuilt_during_publication": false,
+  "public_files": {
+    "novel_creator-0.2.0-py3-none-any.whl": {
+      "sha256": "9872b3aa9a4a1629d4b6c50a1672f5acbd376130f08f9c7edcd0492381c632fa",
+      "url": "https://files.pythonhosted.org/packages/a7/5d/140a488d00ecdc056f1d5b0573fc39d884217bbd9e748d4acf040c543f37/novel_creator-0.2.0-py3-none-any.whl",
+      "yanked": false
+    },
+    "novel_creator-0.2.0.tar.gz": {
+      "sha256": "aec018f3b7e5156971f313b33b02bde78cee425dd13a13f4259da5c5edab4703",
+      "url": "https://files.pythonhosted.org/packages/a5/1d/fc26b1e888950845f928f84db0c1dbd4c89f2603fabd6893a6c9a356798c/novel_creator-0.2.0.tar.gz",
+      "yanked": false
+    }
+  },
+  "clean_production_installs": {
+    "windows": {
+      "validated": true,
+      "version": "novel-creator 0.2.0",
+      "installed_product": {
+        "name": "novel-creator",
+        "version": "0.2.0",
+        "filename": "novel_creator-0.2.0-py3-none-any.whl",
+        "sha256": "9872b3aa9a4a1629d4b6c50a1672f5acbd376130f08f9c7edcd0492381c632fa",
+        "url": "https://files.pythonhosted.org/packages/a7/5d/140a488d00ecdc056f1d5b0573fc39d884217bbd9e748d4acf040c543f37/novel_creator-0.2.0-py3-none-any.whl"
+      },
+      "guide_sha256": "68ef2fe285a3564aad0e13b9c5b5bdc59a0aac3620d2c9e574c1670e8934d56c",
+      "dependency_inheritance": false,
+      "settings_cases": 3,
+      "invalid_input_cases": 5,
+      "host_walkthrough": "not performed"
+    },
+    "linux": {
+      "validated": true,
+      "version": "novel-creator 0.2.0",
+      "installed_product": {
+        "name": "novel-creator",
+        "version": "0.2.0",
+        "filename": "novel_creator-0.2.0-py3-none-any.whl",
+        "sha256": "9872b3aa9a4a1629d4b6c50a1672f5acbd376130f08f9c7edcd0492381c632fa",
+        "url": "https://files.pythonhosted.org/packages/a7/5d/140a488d00ecdc056f1d5b0573fc39d884217bbd9e748d4acf040c543f37/novel_creator-0.2.0-py3-none-any.whl"
+      },
+      "guide_sha256": "68ef2fe285a3564aad0e13b9c5b5bdc59a0aac3620d2c9e574c1670e8934d56c",
+      "dependency_inheritance": false,
+      "settings_cases": 3,
+      "invalid_input_cases": 5,
+      "host_walkthrough": "not performed"
+    }
+  },
+  "linux_native_codex_integration": "unverified",
+  "native_host_scope": "previous_qualified_unchanged_components_no_new_native_chat"
+}

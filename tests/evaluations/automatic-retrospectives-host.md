@@ -1,5 +1,15 @@
 # Automatic retrospective native-host qualification — 2026-10-29
 
+**Current result — 2026-11-03:** native qualification and independent convergence
+are complete within the recorded Windows Codex scope. See the
+[current qualification matrix](automatic-retrospectives-qualification.md),
+[native summary](automatic-retrospectives-native-summary.md) and
+[0.2.0 release evaluation](automatic-retrospectives-release.md). Earlier partial
+and failed attempts retain their original grades below. Linux Codex integration
+remains unverified; release package checks are not new native conversations.
+
+## Historical qualification timeline
+
 Status: UNVERIFIED. No native public-input Codex session was created for this feature during implementation. Installed launcher/module/resource checks and synthetic exact-save/notice journeys are automated evidence only. Earlier feature-001/002 native-host evidence is historical and does not qualify the new task-completion and notice workflow.
 
 A future explicitly authorized disposable native session must exercise completion recognition, ordinary-turn exclusion, English/Icelandic interaction-language rendering, save-before-display, next-saved-reply notice, interruption and revocation using the final installed bundle. Do not label delegated fixtures or structural checks as genuine native-user or literary approval. Linux Codex integration remains unverified.
