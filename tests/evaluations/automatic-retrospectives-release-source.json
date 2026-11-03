@@ -1,0 +1,77 @@
+{
+  "distribution": "novel-creator",
+  "version": "0.2.0",
+  "candidate_run": "41697714816",
+  "candidate_attempt": "1",
+  "artifact_id": "13262337033",
+  "source_commit": "7334f5867d462911084693dbaf61841dc0601ac8",
+  "files": {
+    "novel_creator-0.2.0-py3-none-any.whl": "9872b3aa9a4a1629d4b6c50a1672f5acbd376130f08f9c7edcd0492381c632fa",
+    "novel_creator-0.2.0.tar.gz": "aec018f3b7e5156971f313b33b02bde78cee425dd13a13f4259da5c5edab4703"
+  },
+  "verified_candidate_resources": 31,
+  "unchanged_from_native_qualified_candidate": 29,
+  "changed_resources": {
+    "src/novel_creator/__init__.py": {
+      "before": "277031de0bb8a6cf825d6f25829addaefcdee170a24613786fe6cdc561c2738a",
+      "after": "c5ee9252c32d444b3636b92bebc47fb100a621f928fef1fbebdf4956aaaad546"
+    },
+    "workflows/getting-started.md": {
+      "before": "b57343e6870d4eee966a8e29e393f7065453f003e595eb7d84f9972edcb356f9",
+      "after": "68ef2fe285a3564aad0e13b9c5b5bdc59a0aac3620d2c9e574c1670e8934d56c"
+    }
+  },
+  "delta": "Only package version and getting-started release target/link change from 0.1.0 to 0.2.0.",
+  "code_and_resource_sha256": {
+    "adapters/codex/AGENTS.fragment.md": "d16ee9011daea5d617c6e2fe3f8856f8d68a39401e1bb1ae3266b56c31fbb210",
+    "adapters/codex/AGENTS.production.md": "58cad5ac978e7d605d5992a9c44876e5839ed304f6c2b4d280f18a313b322104",
+    "adapters/codex/skills/novel-brainstorm/SKILL.md": "14d353f037ccb0b696da9b8d962348e68bd1d3d215e51485637758d6472e8bbf",
+    "adapters/codex/skills/novel-init/SKILL.md": "ef7494041a31c39d8fe428c20047ea546127076d60f6e388ebd7cb7975d65c80",
+    "adapters/codex/skills/novel-inspect/SKILL.md": "81d8165b00a160d4f6df113545c888c8c391fbd46a66ced886743a18cd4d4783",
+    "adapters/codex/skills/novel-resume/SKILL.md": "5e0f974ed89198ad81d05558be0d30ec8ba24fecff7e0772196f3bbde1f7a872",
+    "languages/en.md": "66e81bf1cc879c2a13af120d74cc5f94953593a62db59a1bd73745bcfeb95e0e",
+    "languages/is.md": "70db4ae4428df7efcf44fc5e2493bbe9df76c37c098c26785f30c95a06ebcfd5",
+    "schemas/v1/exchange.schema.json": "5430748f7e56ad42c51e4e9fce1f661b1bca4286387ad48139731ea36188e5f5",
+    "schemas/v1/records.schema.json": "59d707afe6eb325723154931d066959fc3f7b8e6c9f8b985b2b006067c3902a8",
+    "schemas/v1/retro.schema.json": "9dcaa8c1b837b454b38936849f8672fce0b3e9d3ad25055d13d2785256f0b29e",
+    "src/novel_creator/__init__.py": "c5ee9252c32d444b3636b92bebc47fb100a621f928fef1fbebdf4956aaaad546",
+    "src/novel_creator/__main__.py": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+    "src/novel_creator/cli.py": "e6e286f884f204f535c417433065ad572d1bf6afadda2d879874d4a681b94b79",
+    "src/novel_creator/context.py": "ce1a7819457b7dd700cf5478fed1746337d80efd38825c4d69c90d77711a1e54",
+    "src/novel_creator/host_input.py": "01b1922cb27e50ce884c477f2aed158f066991eed0d63e394e15bdc19b3afb67",
+    "src/novel_creator/install.py": "c3276d5b575c9cc7f66190fa7ac5ab3b6c0e72f09ce14fdd556f2fc227ee0469",
+    "src/novel_creator/records.py": "a13dc0ba0b94e32a010571f48ee34d304e1c79fa11bffcce2733583ba81bac1e",
+    "src/novel_creator/retro.py": "2d30dde7f381f60459a941fa1a226a7e4e5def6e5d3d1bed19ffe72ca7010e5d",
+    "src/novel_creator/retro_github.py": "6e8969582984beee02387d56be0dd7025242cddaba46467dbfc00cc35dd39b67",
+    "src/novel_creator/storage.py": "1b7e1fff05e940f66512d7060c353efd3daf693ce329b99499567896f767c8e5",
+    "src/novel_creator/validation.py": "cbbae36120accdebc4e499f4331b212ccf806fc0e7b020e9349c31878b3a9aee",
+    "src/novel_creator/validation_cache.py": "db43c3c1e480122a27f39d14a890fbbfa9f8c20eac426e323c613422e9a7fd55",
+    "workflows/authority.md": "db0f3346ba7bd36594c68a99ff43cac4bfa8bf959c87ff78573652a063d872f4",
+    "workflows/brainstorm.md": "0bd336f15b991303aa094ac70bf55c136a726442232511cde4e5da0e4f49edca",
+    "workflows/continuity.md": "efb0f3303d6aa5c764f3150e59fbe6e750e3420757336a679013916449553455",
+    "workflows/entry.md": "a91c8c1be9ecce2fb8c252703947ba8a1e8db8c0bcbea01ef4624154c56b1834",
+    "workflows/getting-started.md": "68ef2fe285a3564aad0e13b9c5b5bdc59a0aac3620d2c9e574c1670e8934d56c",
+    "workflows/initialize.md": "ec510c35b8ba339c0afbcd3480bbadbf46230f1b2f8c2b8db27bb0374eec199f",
+    "workflows/resume.md": "5f3336ecbe17e980103f339b8294ba5c8a5a9c1a2feeb6a54794931b43ddc7f3",
+    "workflows/retrospective.md": "575af1fbd9f8dfe8b30a734eb49072d90eccc9ee991aaddc3e7c3dd5f20f6e0a"
+  },
+  "native_evidence_mode": "reuse_of_actual_native_evidence_for_unchanged_behavior_components",
+  "new_native_conversation_against_release_archives": false,
+  "linux_codex_integration": "unverified",
+  "candidate_validation": {
+    "status": "success",
+    "windows": {
+      "run": 295,
+      "skipped": 0
+    },
+    "linux": {
+      "run": 295,
+      "skipped": 3
+    },
+    "wheel_and_sdist_clean_install_both_platforms": true,
+    "linux_literal_guide": true,
+    "windows_guide_and_six_troubleshooting_cases": true
+  },
+  "main_merge_commit": "e0e5b315b4643675bd36cfdfe6d4870545224ec2",
+  "main_merge_tree_matches_candidate": true
+}
