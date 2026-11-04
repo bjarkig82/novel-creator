@@ -20,9 +20,14 @@ def canonical_origin(value):
 
 def environment():
     # Keep credential discovery, not caller-controlled repository/host overrides.
+    # Managed hosts may require their existing proxy and certificate settings.
     names = ('PATH', 'SYSTEMROOT', 'WINDIR', 'COMSPEC', 'PATHEXT', 'HOME',
              'USERPROFILE', 'APPDATA', 'LOCALAPPDATA', 'XDG_CONFIG_HOME',
-             'TEMP', 'TMP', 'SSH_AUTH_SOCK', 'GH_TOKEN', 'GITHUB_TOKEN')
+             'TEMP', 'TMP', 'SSH_AUTH_SOCK', 'GH_TOKEN', 'GITHUB_TOKEN',
+             'HTTP_PROXY', 'HTTPS_PROXY', 'ALL_PROXY', 'NO_PROXY',
+             'http_proxy', 'https_proxy', 'all_proxy', 'no_proxy',
+             'SSL_CERT_FILE', 'SSL_CERT_DIR', 'REQUESTS_CA_BUNDLE',
+             'CURL_CA_BUNDLE', 'GIT_SSL_CAINFO', 'GIT_SSL_CAPATH')
     result = {k: os.environ[k] for k in names if k in os.environ}
     result.update(GIT_TERMINAL_PROMPT='0', GH_PROMPT_DISABLED='1',
                   GIT_CONFIG_NOSYSTEM='1', GIT_CONFIG_GLOBAL=os.devnull)
