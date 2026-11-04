@@ -1,11 +1,44 @@
 import json
+import sys
 import unittest
 from unittest.mock import patch
 from novel_creator.cli import ToolError
-from novel_creator.retro_github import Github, environment
+from novel_creator.retro_github import Github, command, environment
 
 
 class GithubTransport(unittest.TestCase):
+    def test_transport_subprocess_preserves_host_proxy_settings(self):
+        settings = {
+            'HTTP_PROXY': 'proxy.example.test:8080',
+            'HTTPS_PROXY': 'proxy.example.test:8443',
+            'ALL_PROXY': 'proxy.example.test:1080',
+            'NO_PROXY': 'localhost,example.test',
+            'http_proxy': 'lowercase.example.test:8080',
+            'https_proxy': 'lowercase.example.test:8443',
+            'all_proxy': 'lowercase.example.test:1080',
+            'no_proxy': 'localhost,lowercase.example.test',
+        }
+        script = ('import json, os; print(json.dumps('
+                  '{name: os.environ.get(name) for name in ' + repr(list(settings)) + '}))')
+        with patch.dict('os.environ', settings):
+            received = json.loads(command([sys.executable, '-c', script]))
+        self.assertEqual(received, settings)
+
+    def test_transport_subprocess_preserves_host_certificate_settings(self):
+        settings = {
+            'SSL_CERT_FILE': 'synthetic-ca.pem',
+            'SSL_CERT_DIR': 'synthetic-certificates',
+            'REQUESTS_CA_BUNDLE': 'synthetic-requests-ca.pem',
+            'CURL_CA_BUNDLE': 'synthetic-curl-ca.pem',
+            'GIT_SSL_CAINFO': 'synthetic-git-ca.pem',
+            'GIT_SSL_CAPATH': 'synthetic-git-certificates',
+        }
+        script = ('import json, os; print(json.dumps('
+                  '{name: os.environ.get(name) for name in ' + repr(list(settings)) + '}))')
+        with patch.dict('os.environ', settings):
+            received = json.loads(command([sys.executable, '-c', script]))
+        self.assertEqual(received, settings)
+
     def test_transport_verification_revocation_prevents_fetch_and_push_launch(self):
         from novel_creator import retro_github
         for mutation in ('fetch','push'):
