@@ -44,3 +44,18 @@ its version label is not proof of release-artifact identity. No new conversation
 against the release archives is claimed. Host evidence is reused only for the
 unchanged creative/adapter components; updater corrections have separate explicit
 command-test evidence and must pass the current candidate checks.
+
+## First candidate Windows timeout; not publishable
+
+Run 41823550929's Linux job passed all 372 tests (three Windows-junction skips),
+wheel verification, clean wheel/sdist installs and the literal Bash guide.
+The Windows job was cancelled by its 45-minute job timeout during the full suite.
+Its retained log shows all 20 changed-resource checkpoints and all 12 durable
+transition checkpoints recovered, but no final suite result. This is incomplete
+Windows evidence, not a test-suite pass, and the candidate must not be published.
+
+The job's hang-protection bound is raised to 90 minutes so the existing functional
+matrix can finish. No product code, tests, assertions, discovery or publication
+gate is weakened or skipped. There is no performance acceptance target. A new
+source commit and immutable candidate are required; the cancelled candidate and
+its archive identities above remain historical and will not be republished.

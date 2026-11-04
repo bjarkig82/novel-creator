@@ -67,7 +67,8 @@ jobs:
       matrix:
         os: [windows-latest, ubuntu-latest]
     runs-on: ${{ matrix.os }}
-    timeout-minutes: 45
+    # Hang protection only: the real Windows crash/recovery matrix exceeds 45m.
+    timeout-minutes: 90
     defaults:
       run:
         shell: bash
