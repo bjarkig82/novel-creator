@@ -1,5 +1,10 @@
 # Getting started with Novel Creator
 
+For step-by-step explanations of the tools and your first writing session, use
+the [beginner guide](start-here.md). If your setup is already prepared, go straight
+to [everyday writing](everyday-writing.md). This page retains the detailed commands
+and advanced maintenance instructions.
+
 Novel Creator helps you set up a novel, explore ideas, keep decisions and questions,
 and return to saved conversations in Codex. You can start with no story idea.
 Each novel is its own local Git repository. Initialization finishes before creative

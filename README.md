@@ -4,6 +4,11 @@ A home for developing an app that helps writers plan and create novels.
 
 ## Getting started
 
+**New to the tools?** Start with the [beginner guide](https://github.com/bjarkig82/novel-creator/blob/main/workflows/start-here.md),
+which explains setup, everyday writing, and the Windows, Linux, and Mac limits.
+If someone has already prepared your novel, go straight to
+[everyday writing](https://github.com/bjarkig82/novel-creator/blob/main/workflows/everyday-writing.md).
+
 Follow the [writer's getting-started guide](https://github.com/bjarkig82/novel-creator/blob/v0.3.0/workflows/getting-started.md) for
 installation, `novel-creator init 'My Novel'`, opening the novel in Codex,
 your first saved conversation, inspection and returning later.
