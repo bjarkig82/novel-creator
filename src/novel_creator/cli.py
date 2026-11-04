@@ -113,6 +113,18 @@ def parser():
     p = Parser(prog="novel-creator", epilog='Getting started: ' + guide)
     p.add_argument('--version', action='version', version='%(prog)s ' + __version__)
     commands = p.add_subparsers(dest="command", required=True)
+    # A pinned legacy launcher lives beside its src directory. It does not
+    # contain the setup resources, even if an editable package is also installed.
+    from pathlib import Path
+    if not (Path(__file__).resolve().parents[2] / 'run.py').is_file():
+        notebook = commands.add_parser('notebook', description='New novels with agent-maintained Markdown notes')
+        notebook_init = notebook.add_subparsers(dest='notebook_action', required=True).add_parser('init')
+        notebook_init.add_argument('name')
+        notebook_init.add_argument('--path', action=Once)
+        notebook_init.add_argument('--title', action=Once)
+        notebook_init.add_argument('--language', choices=('en', 'is'), action=Once)
+        notebook_init.add_argument('--json', action=SwitchOnce)
+        notebook_init.set_defaults(brief_file=None)
     update = commands.add_parser('update', description='Explicit published-release preview or local update status')
     update.add_argument('update_action', nargs='?', choices=('status', 'recover'))
     update.add_argument('--novel', required=True, action=Once)
@@ -201,6 +213,20 @@ def main(argv=None):
             stream.reconfigure(encoding='utf-8')
     try:
         args = parser().parse_args(argv)
+        if args.command == 'notebook':
+            from .notebook import initialize
+            request = _init_request(args)
+            result = initialize(request['resolved_destination'],
+                                title=args.title if args.title is not None else args.name,
+                                language=args.language or 'en')
+            if args.json:
+                print(json.dumps(result, ensure_ascii=False, allow_nan=False))
+            else:
+                print('Story notebook ready: ' + result['data']['novel_path'])
+                print('Format: ' + result['data']['format'] + ' version ' + str(result['data']['version']))
+                print('Language: ' + result['data']['language'])
+                print(result['data']['next_action'])
+            return 0
         if args.command == 'update':
             try:
                 result = _update_dispatch(args)

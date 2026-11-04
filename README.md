@@ -26,6 +26,26 @@ unverified. The developer/older POC instructions below remain reference material
 
 Check the release page before installing; candidate verification precedes publication.
 
+## New story notebook (development candidate)
+
+The development candidate adds a native Codex Markdown notebook for **new novels**.
+Install the candidate from this checkout or a candidate wheel in a Python 3.11+
+virtual environment, with Git 2.39+ and your Git identity configured. The
+published 0.3.0 package above does not contain this command. Choose a new path
+outside every existing Git repository:
+
+```bash
+novel-creator notebook init "My Novel" --path "/path/to/My Novel" --language en
+```
+
+Use `--language is` for Icelandic and optionally `--title` for the working title.
+Open the created folder in Codex and talk naturally about your story; ask for a
+topic brief whenever useful. The notebook does not request an automatic recap.
+Python is used for setup; the writing workflow uses Codex's native file and Git
+tools. Existing novels use the separate legacy commands and are not converted.
+Notebook conversations in Windows and Linux Codex Desktop remain unverified;
+see the [notebook evidence ledger](tests/evaluations/agent-story-notebook.md).
+
 ## Project status
 
 **Existing-book updater (0.3.0 release target):** this checkout implements explicit published

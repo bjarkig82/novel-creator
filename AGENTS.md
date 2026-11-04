@@ -18,3 +18,20 @@ The `script: "ps"` entries in Spec Kit's initialization metadata record how the
 project was originally generated; select scripts using the current shell.
 When refreshing Spec Kit, preserve both script directories and the shell choices
 in the agent workflows. Keep Bash scripts on LF line endings.
+
+## Development workflow
+
+Use subagent-driven development by default for implementation work. When
+available, follow the `superpowers:subagent-driven-development` skill; the
+workflow below also applies when that skill is not installed.
+
+- The coordinator owns the plan, task sequencing, and progress reporting.
+- Give each implementation task to a fresh, scoped implementer subagent with
+  self-contained context, requirements, constraints, and expected validation.
+- After each task, use independent reviewers to check spec compliance and code
+  quality, and resolve findings before moving on. Finish with an independent overall review.
+- Do not run writers in parallel when they touch shared files.
+- Continue through routine implementation and review without permission
+  questions. Explicit user preferences override these defaults.
+- If subagents are unavailable, state that limitation and execute the workflow
+  inline, including validation and review.

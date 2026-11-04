@@ -49,6 +49,21 @@ def run(argv, *, cwd, env, expected_exit=0):
     return result.stdout
 
 
+def verify_notebook_install(console, root, env, package, version):
+    """Historical published releases predate notebooks; all candidates must pass."""
+    version = version.removeprefix('novel-creator ')
+    if package:
+        name, requested_version = package.split('==')
+        normalized = re.sub(r'[-_.]+', '-', name).lower()
+        if normalized == 'novel-creator' and requested_version == version and version in {'0.1.0', '0.2.0', '0.3.0'}:
+            return []
+    try:
+        from tests.verify_wheel import verify_notebook
+    except ModuleNotFoundError:
+        from verify_wheel import verify_notebook
+    return [verify_notebook(console, root, env, language) for language in ('en', 'is')]
+
+
 def verify(*, wheel=None, package=None, manifest=None):
     expected = json.loads(Path(manifest).read_text(encoding='utf-8')) if manifest else None
     if package:
@@ -145,6 +160,7 @@ def verify(*, wheel=None, package=None, manifest=None):
             outcome = json.loads(run([console, *invalid, '--json'], cwd=root, env=env, expected_exit=2))
             if outcome['ok'] or (root / 'Invalid').exists():
                 raise RuntimeError('Invalid input changed a novel or reported success')
+        notebook_cases = verify_notebook_install(console, root, env, package, version)
         dependencies = json.loads(run([python, '-I', '-m', 'pip', 'list', '--format=json'], cwd=root, env=env))
         return {'mode': 'candidate' if wheel else 'public', 'source': Path(source).name if wheel else source,
                 'version': version, 'dependencies': dependencies, 'validated': True,
@@ -152,7 +168,7 @@ def verify(*, wheel=None, package=None, manifest=None):
                 'wheel_sha256': hashlib.sha256(Path(wheel).read_bytes()).hexdigest() if wheel else None,
                 'public_artifact_hashes': public_hashes,
                 'installed_product': installed_product,
-                'settings_cases': settings_cases, 'invalid_input_cases': 5,
+                'settings_cases': settings_cases, 'notebook_cases': notebook_cases, 'invalid_input_cases': 5,
                 'host_walkthrough': 'not performed', 'dependency_inheritance': False}
 
 

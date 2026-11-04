@@ -10,6 +10,26 @@ and help you explore them. A suggestion becomes an established story fact only
 when you clearly accept it. You can change your mind later and keep a record of
 what changed.
 
+## New story notebook (development candidate)
+
+The development candidate offers a separate Markdown notebook for a new novel.
+After installing that candidate in a Python environment and configuring your Git
+identity, choose a new folder outside existing Git repositories:
+
+```text
+novel-creator notebook init "My Novel" --path "/path/to/My Novel" --language en
+```
+
+Choose `is` for Icelandic and use `--title` if you want a different working title.
+Open the new folder in Codex and start an ordinary conversation. Ask for a brief
+on a topic when you want one; recaps are not automatic. Python is needed for
+setup, while Codex uses its native tools for the notebook. Existing novels stay
+on the separate legacy workflow described below; this command does not convert
+them. The notebook's Windows and Linux Codex Desktop conversations are still
+unverified. The notebook evidence ledger is available in the source repository.
+
+The rest of this page describes the existing legacy workflow.
+
 ## Choose your starting point
 
 - **Someone has already set things up for you:** open your novel folder in Codex

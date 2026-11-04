@@ -25,6 +25,45 @@ def run(args, *, cwd, env, expected_exit=0):
     return result.stdout
 
 
+def verify_notebook(console, scratch, env, language):
+    """Exercise installed resources and setup in a new independent repository."""
+    import re
+    root = scratch / ('Bréf notebook ' + language)
+    result = json.loads(run([console, 'notebook', 'init', 'Bréf', '--path', root,
+                             '--title', 'Bréf frá morgundeginum', '--language', language, '--json'],
+                            cwd=scratch, env=env))
+    assert result['ok'] and result['data']['language'] == language
+    assert Path(result['data']['novel_path']) == root
+    assert 'Bréf frá morgundeginum' in (root / 'notebook/project.md').read_text(encoding='utf-8')
+    project = (root / 'notebook/project.md').read_text(encoding='utf-8')
+    summary = (root / 'notebook/working-summary.md').read_text(encoding='utf-8')
+    if language == 'en':
+        assert '## Concept\n\nUnknown.' in project
+        assert 'Guided conversation is the default' in project
+        assert '# Working summary\n' in summary
+        assert 'Derived navigation, not canon. Do not display automatically' in summary
+        assert 'Hugmynd' not in project and 'Vinnuyfirlit' not in summary
+    else:
+        assert '## Hugmynd\n\nÓþekkt.' in project
+        assert 'Sjálfgefið er leiðbeinandi samtal' in project
+        assert '# Vinnuyfirlit\n' in summary
+        assert 'Leiðarvísir, ekki sjálfstæðar sögustaðreyndir. Ekki birta sjálfkrafa' in summary
+        assert 'Concept' not in project and 'Working summary' not in summary
+    assert (root / '.novel-notebook/languages' / (language + '.md')).is_file()
+    assert not (root / '.novel-notebook/languages' / (('is' if language == 'en' else 'en') + '.md')).exists()
+    assert not (root / '.novel-creator').exists()
+    assert not list(root.rglob('*.py'))
+    for reference in ('.novel-notebook/workflows/conversation.md', '.novel-notebook/workflows/format.md',
+                      'notebook/project.md', 'notebook/working-summary.md'):
+        assert (root / reference).is_file(), reference
+    for path in [root / 'AGENTS.md', *(root / '.novel-notebook').rglob('*.md')]:
+        for link in re.findall(r'\]\(([^)#]+)(?:#[^)]*)?\)', path.read_text(encoding='utf-8')):
+            if not re.match(r'^[a-zA-Z][a-zA-Z0-9+.-]*:', link):
+                assert (path.parent / link).is_file(), (path, link)
+    run(['git', '-C', root, 'log', '-1', '--format=%s'], cwd=scratch, env=env)
+    return {'language': language, 'created': True, 'guidance_links': True}
+
+
 def verify(wheel):
     wheel = wheel.resolve(strict=True)
     # Check against source bytes, including resources that a successful import
@@ -37,7 +76,9 @@ def verify(wheel):
             ('schemas', 'novel_creator/schemas', '*.json'),
             ('workflows', 'novel_creator/workflows', '*.md'),
             ('languages', 'novel_creator/languages', '*.md'),
-            ('adapters/codex', 'novel_creator/codex', '*.md')):
+            ('adapters/codex', 'novel_creator/codex', '*.md'),
+            ('notebook', 'novel_creator/notebook_resources', '*.md'),
+            ('notebook', 'novel_creator/notebook_resources', '__init__.py')):
         folder = checkout / source
         for path in folder.rglob(pattern):
             expected[target + '/' + path.relative_to(folder).as_posix()] = path.read_bytes()
@@ -175,6 +216,9 @@ print(json.dumps(result))
                       'request_artifact': True, 'guide_identity': True})
         history = json.loads(next((simple / 'story/exchanges').glob('*.json')).read_text(encoding='utf-8'))
         assert history['input_artifacts'][1]['parsed_value']['name'] == 'Simple Novel'
+        env.update(GIT_AUTHOR_NAME='Wheel Verification', GIT_AUTHOR_EMAIL='wheel@example.invalid',
+                   GIT_COMMITTER_NAME='Wheel Verification', GIT_COMMITTER_EMAIL='wheel@example.invalid')
+        notebook_cases = [verify_notebook(console, scratch, env, language) for language in ('en', 'is')]
         update_probe = '''
 import sys,json
 from pathlib import Path
@@ -196,7 +240,7 @@ print(json.dumps(result))
                                       cwd=scratch, env=env))['cases']
     return {'ok': True, 'wheel': wheel.name,
             'wheel_sha256': hashlib.sha256(wheel.read_bytes()).hexdigest(),
-            'verified_source_files': len(expected), 'package': package, 'cases': cases, 'update_cases': update_cases,
+            'verified_source_files': len(expected), 'package': package, 'cases': cases, 'notebook_cases': notebook_cases, 'update_cases': update_cases,
             'dependency_isolation': 'calling environment package directories reused; product module origins checked',
             'semantic_host_or_human_evidence': False}
 
