@@ -78,3 +78,19 @@ guide was rerun against this exact wheel and passed all nine command steps and
 six troubleshooting cases. The current source/guide JSON records bind these
 results to the replacement artifact, preserving the first identity separately.
 Full platform checks remain pending; no publication has occurred.
+
+## Replacement candidate qualified
+
+Run 41830297234 completed successfully. Windows passed all **372 tests without
+skips**, wheel verification, and clean wheel/sdist installation checks. Linux
+passed **372 tests with three Windows-junction skips**, the same archive checks,
+and the literal Bash setup guide including all six troubleshooting cases.
+Durations (Windows 2480.144s; Linux 438.759s) are informational, not acceptance
+targets. The longer job bound allowed the unchanged matrix to finish.
+
+The [candidate check reports](existing-book-update-release-candidate-checks.json)
+bind both clean installations to artifact 13322367181 and its wheel hash.
+Publication will select exactly this successful run/attempt/artifact/source and
+the recorded host/guide scope; the first cancelled candidate remains ineligible.
+The runtime/host limitations above remain unchanged. Public named-install
+checks must still verify the exact published hashes after upload.
