@@ -1,7 +1,9 @@
 # Existing-book updater: 0.3.0 release
 
 The maintainer authorized PyPI publication on 2026-11-04 after merging PR #4.
-Release preparation targets 0.3.0; publication is pending verified candidate gates.
+**Version 0.3.0 is published and independently verified**, including exact public
+archive hashes and clean named production installations on Windows and Linux.
+The protected candidate and publication workflows completed successfully.
 
 The protected workflow builds an immutable wheel/sdist artifact and checks it on
 Windows and Linux. Publication must select that exact successful run, attempt,
@@ -16,8 +18,8 @@ Direct native-user update input and Linux Codex integration remain unverified.
 FUP-001 and conservative runtime-fingerprint refusal remain disclosed limits.
 
 Candidate identity, archive hashes, check outcomes and host evidence binding are
-recorded below as observed. Publication and named-install verification remain
-pending until their protected workflow gates pass.
+recorded below as observed. Preparation/timeout sections retain their historical
+states; the final published-and-verified section records the completed result.
 
 ## Candidate built; platform checks pending
 
@@ -94,3 +96,30 @@ Publication will select exactly this successful run/attempt/artifact/source and
 the recorded host/guide scope; the first cancelled candidate remains ineligible.
 The runtime/host limitations above remain unchanged. Public named-install
 checks must still verify the exact published hashes after upload.
+
+## Published and verified - 2026-11-04
+
+Protected [publication run 41837616353](https://github.com/bjarkig82/novel-creator/actions/runs/41837616353)
+uploaded the exact successful replacement candidate without rebuilding. The
+wheel was uploaded at 13:24:37 UTC and sdist at 13:24:38 UTC. Direct PyPI JSON
+and independent archive downloads confirmed both hashes exactly match artifact
+13322367181. Tag `v0.3.0` identifies candidate source
+`e895a1a285a118afaf5217d10b3f2fa3aa3734bf`.
+
+Both Windows and Linux clean named installations of `novel-creator==0.3.0`
+selected the approved wheel, passed dependency checks, initialized and validated
+independent books, and preserved English/Icelandic options. These checks inherit
+no development dependencies. See the [public verification record](existing-book-update-release-public.json).
+
+The first Windows public check ran shortly after upload and PyPI's simple index
+listed only 0.1.0/0.2.0 there. After directly confirming both 0.3.0 archives were
+visible in the simple index, only the failed install job was rerun. It passed;
+the publisher was not rerun and no archive was replaced. This transient failure
+and the earlier candidate timeout remain documented rather than relabeled green.
+
+Package installation alone does not update pinned books. Use the reviewed
+external-controller workflow, retain legacy closed-client requirements and
+conservative runtime-fingerprint checks, and preserve the explicitly unverified
+direct native-user update input / Linux Codex boundaries. No real book, provider
+call, contribution opt-in or contribution publication was part of this release.
+
