@@ -29,6 +29,8 @@ def direct_impact(state, identifiers):
 
 def read(novel, *, operation='context', session=None, kind=None, identifier=None, revision=None):
     root = storage.root_path(novel)
+    from .maintenance import ensure_ready
+    ensure_ready(root, read_only=True)
     commit = storage.head(root)
     history, chain = storage.read_snapshot(root, commit)
     if not history:

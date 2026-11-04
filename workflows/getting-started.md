@@ -208,6 +208,75 @@ An older novel may lack this guide. The installed command then labels a package-
 fallback; reading it changes nothing in that novel. Continue using the older novel's
 pinned workflows. Installing/upgrading the package never upgrades an existing novel.
 
+## Updating an existing book (unreleased development feature)
+
+The development controller implements explicit preview, application and recovery.
+Published 0.1.0/0.2.0 book launchers do not provide these commands. This feature
+needs a future published updater-capable release; installing the currently
+documented 0.2.0 package does not provide it. Until then, identified development
+builds are for disposable evaluation. Package installation alone never changes
+the pinned framework in an existing book.
+
+When an updater-capable release is available, install it in a separate Python
+environment outside the book and retain its absolute interpreter path as the
+external controller. No framework checkout, GitHub contribution access or model
+key is required. Use the intended book runtime explicitly if it differs:
+
+```powershell
+& 'C:\path\to\controller\python.exe' -I -B -m novel_creator update --novel 'C:\Novels\MyNovel' --python 'C:\path\to\runtime\python.exe' --json
+& 'C:\path\to\controller\python.exe' -I -B -m novel_creator update status --novel 'C:\Novels\MyNovel' --json
+```
+
+Check only when requested. The check selects a published stable release and
+verifies its archive, runtime prerequisites and compatibility. It writes private
+preparation/preview data outside the book, then reports the exact version, hashes,
+reviewed HEAD, runtime interpreter and proposed paths. A same-version result is
+`already_current`; unavailable release information is an error, not proof that
+the book is current. Releases without update protocol 1 cannot be update targets.
+
+A preview does not authorize changing the book. Review its target, paths and
+blockers. After requesting that exact update, use the returned preview ID,
+version and reviewed HEAD. The configured runtime is bound into the preview:
+
+```powershell
+& 'C:\path\to\controller\python.exe' -I -B -m novel_creator update --novel 'C:\Novels\MyNovel' --apply --preview PREVIEW_ID --version VERSION --expected-head REVIEWED_HEAD --confirm-quiescent --json
+```
+
+For initial 0.1.0/0.2.0 updates, close every other book client and keep them closed
+through application and any external recovery. Add `--confirm-quiescent` only
+after confirming that lifecycle. It does not discover/stop processes or bypass
+locks: already-loaded legacy code cannot be retroactively fenced (FUP-001).
+Restart through the guarded launcher after success. Updates of guarded format-2
+books do not require that legacy confirmation flag.
+
+If interrupted, preserve the operation ID, files and locks. Keep legacy clients
+closed and inspect using the external controller. A failure can occur after the
+update commit was published:
+
+```powershell
+& 'C:\path\to\controller\python.exe' -I -B -m novel_creator update recover --novel 'C:\Novels\MyNovel' --operation OPERATION_ID --json
+& 'C:\path\to\controller\python.exe' -I -B -m novel_creator update recover --novel 'C:\Novels\MyNovel' --operation OPERATION_ID --retry --expected-head OBSERVED_HEAD --json
+```
+
+Run retry only after reviewing an eligible inspection and explicitly requesting
+it. Use the exact currently observed HEAD, not a guessed or stale value. Status
+and recovery inspection are local/read-only and never remove locks. Unproven
+ownership or changed evidence blocks retry. Recovery uses the exact local
+artifact and candidate; there is no implicit download, rollback or second commit.
+
+Only `ready: true` with no cleanup means completion. Reload book instructions and
+skill discovery, then read committed context before writing. Manuscript, saved
+records, custom instructions, settings, unrelated staging and retrospective
+grants/notices retain their meaning. The update is not a creative exchange and
+does not start a retrospective. Missing runtime prerequisites require explicit
+environment repair; no global package installation happens during an update.
+
+In Bash, the same commands use the quoted executable path directly instead of
+PowerShell's `&`. The shared [update workflow](update.md) contains the complete
+writer/host protocol. See the development qualification ledger for actual CLI,
+historical-wheel and platform results; native Codex acceptance is separate and
+must not be inferred from scripted tests.
+
 ## Optional contributor retrospectives
 
 New novels include an optional retrospective workflow, disabled by default for

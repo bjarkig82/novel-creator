@@ -5,6 +5,9 @@ from pathlib import Path
 import json
 import sys
 import uuid
+for stream in (sys.stdout, sys.stderr):
+    if hasattr(stream, 'reconfigure'):
+        stream.reconfigure(encoding='utf-8')
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from novel_creator import records, storage
 p = argparse.ArgumentParser()

@@ -14,6 +14,7 @@ from jsonschema import Draft202012Validator, FormatChecker
 
 from . import records, storage
 from .cli import ToolError
+from .maintenance import guarded_mutation
 from .retro_github import Github, REPOSITORY, canonical_origin, git as contribution_git
 
 
@@ -235,6 +236,8 @@ class Retro:
         return grant if machine == grant else None
 
     def status(self, run=None):
+        from .maintenance import ensure_ready
+        ensure_ready(self.root, read_only=True)
         grant = self.bound()
         result = {'enabled': bool(grant), 'binding_valid': bool(grant),
                   'repository': REPOSITORY, 'latest_run': None}
@@ -256,6 +259,7 @@ class Retro:
                                                      checks=len(attempt['checks']))
         return result
 
+    @guarded_mutation
     def enable(self, checkout, *, authorize=False):
         if not authorize:
             raise ToolError(2, 'Explicit draft-PR authorization is required')
@@ -285,6 +289,7 @@ class Retro:
             write(self.path('authorization.json'), grant, 'authorization')
         return self.status()
 
+    @guarded_mutation
     def disable(self):
         with lock(self.path('authorization.lock')):
             grant = self.grant()
@@ -310,6 +315,7 @@ class Retro:
             raise ToolError(3, 'Requested retrospective run is unavailable')
         return item
 
+    @guarded_mutation
     def save_run(self, item):
         write(self.path('runs/' + item['run_id'] + '.json'), item, 'run')
 
@@ -323,6 +329,8 @@ class Retro:
             raise StaleRunError(3, 'Retrospective state changed; resume the current receipt before retrying')
 
     def history(self, *, allow_pause=False):
+        from .maintenance import ensure_ready
+        ensure_ready(self.root, read_only=True)
         if not allow_pause:
             if storage.safe_path(self.root, '.novel-creator/local/write.lock').exists():
                 raise ToolError(6, 'Novel persistence is locked')
@@ -345,6 +353,7 @@ class Retro:
         if result.returncode or not any(e['exchange_id'] == exchange_id for e in storage.read_history(self.root, checkpoint)):
             raise ToolError(3, 'Completion checkpoint is stale or unavailable')
 
+    @guarded_mutation
     def begin(self, data):
         if not self.bound():
             return {'eligible': False, 'review_required': False}
@@ -384,6 +393,7 @@ class Retro:
             values.extend(m['text'] for m in exchange['messages'] if len(m['text']) >= 12)
         return values
 
+    @guarded_mutation
     def review(self, run_id, data):
         validate(data, 'review')
         with lock(self.path('state.lock')):
@@ -409,6 +419,7 @@ class Retro:
             self.save_run(item)
             return {'run_id': run_id, 'status': item['status']}
 
+    @guarded_mutation
     def notice(self, item, text, url=None):
         kind = 'published' if url else ('insufficient' if item['status'] == 'insufficient_evidence' else 'problem')
         notice_id = str(uuid.uuid5(uuid.UUID(item['run_id']), json.dumps([kind, item['reason_code'], url])))
@@ -432,6 +443,7 @@ class Retro:
             result[value['notice_id']] = value
         return result
 
+    @guarded_mutation
     def notices_pending(self, language=None):
         if language not in (None, 'en', 'is'):
             raise ToolError(2, 'Supported notice interaction languages are en and is')
@@ -471,6 +483,7 @@ class Retro:
             return 'Framlag endurskoðunar er stöðvað: ' + reasons.get(note['reason_code'], 'skoða þarf staðbundna stöðu') + '.'
         return 'Retrospective contribution blocked: ' + note['reason_code'].replace('_', ' ') + '.'
 
+    @guarded_mutation
     def notices_reserve(self, data):
         validate(data, 'reservation_input')
         with lock(self.path('state.lock')):
@@ -506,9 +519,11 @@ class Retro:
                 write(self.path('notices/' + note['notice_id'] + '.json'), note, 'notice')
             return {'reservation_id': data['reservation_id'], 'state': 'reserved'}
 
+    @guarded_mutation
     def notices_confirm(self, reservation):
         return self._notice_result(reservation, allow_release=False)
 
+    @guarded_mutation
     def notices_reconcile(self, reservation):
         return self._notice_result(reservation, allow_release=True)
 
@@ -615,6 +630,7 @@ class Retro:
             finally:
                 self.github.guard = previous
 
+    @guarded_mutation
     def release_owner(self, item, base):
         self.require(item)
         owner = load(base / 'owner.json', 'owner')
@@ -671,6 +687,7 @@ class Retro:
                                     text_truncated=len(p['title']) > 1024 or len(p['body']) > 8192)
                                for p in candidates[:50]]}
 
+    @guarded_mutation
     def compare(self, run_id, data):
         validate(data, 'comparison_input')
         item = self.run(run_id)
@@ -715,6 +732,7 @@ class Retro:
             self.save_run(item)
             return {'run_id': run_id, 'status': item['status'], 'comparison': 'approved', 'base': upstream}
 
+    @guarded_mutation
     def prepare(self, run_id):
         item = self.run(run_id)
         self.require(item)
@@ -811,6 +829,7 @@ class Retro:
         privacy_check(text, private_values=self.private_values())
         return tree
 
+    @guarded_mutation
     def validate_contribution(self, run_id, data):
         validate(data, 'validation')
         item = self.run(run_id)
@@ -891,6 +910,7 @@ class Retro:
             self.save_run(item)
             return {'run_id': run_id, 'status': 'validated', 'tree': tree}
 
+    @guarded_mutation
     def block(self, item, reason):
         item.update(status='blocked', reason_code=reason)
         self.notice(item, 'Retrospective contribution blocked: ' + reason.replace('_', ' ') + '.')
@@ -906,6 +926,7 @@ class Retro:
             raise ToolError(3, 'Created pull request does not match the approved draft')
         return pr
 
+    @guarded_mutation
     def published(self, item, pr, base):
         # Record a known remote result before applying the stricter success gate.
         validate(pr, 'remote_pr')
@@ -970,6 +991,7 @@ class Retro:
             self.save_run(item)
         return {'run_id': item['run_id'], 'status': item['status'], 'stage': part['stage']}
 
+    @guarded_mutation
     def publish(self, run_id):
         item = self.run(run_id)
         self.require(item)
@@ -1051,6 +1073,7 @@ class Retro:
                 raise ToolError(5, 'Draft outcome is uncertain; resume to reconcile without another create') from error
             return self.published(item, pr, base)
 
+    @guarded_mutation
     def resume(self, run_id, *, abandoning=False):
         grant = self.require()  # No framework access when disabled.
         item = self.run(run_id)
@@ -1091,6 +1114,7 @@ class Retro:
                 return {'run_id': run_id, 'status': item['status'], 'next_operation': 'prepare'}
             return {'run_id': run_id, 'status': item['status']}
 
+    @guarded_mutation
     def release(self, run_id):
         grant = self.require()
         original = self.run(run_id)
@@ -1149,6 +1173,15 @@ class Retro:
 
 
 def dispatch(args):
+    from .maintenance import ensure_ready, normal_operation
+    if args.action == 'status':
+        ensure_ready(args.novel, read_only=True)
+        return _dispatch_after_maintenance(args)
+    with normal_operation(args.novel):
+        return _dispatch_after_maintenance(args)
+
+
+def _dispatch_after_maintenance(args):
     service = Retro(args.novel)
     try:
         return _dispatch(service, args)

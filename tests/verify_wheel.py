@@ -33,6 +33,7 @@ def verify(wheel):
     expected = {}
     for source, target, pattern in (
             ('src/novel_creator', 'novel_creator', '*.py'),
+            ('src/novel_creator', 'novel_creator', '*.json'),
             ('schemas', 'novel_creator/schemas', '*.json'),
             ('workflows', 'novel_creator/workflows', '*.md'),
             ('languages', 'novel_creator/languages', '*.md'),
@@ -46,7 +47,7 @@ def verify(wheel):
                 raise RuntimeError(f'Wheel is stale or changed: {name}')
 
     env = dict(os.environ, PYTHONUTF8='1', PYTHONDONTWRITEBYTECODE='1',
-               PIP_DISABLE_PIP_VERSION_CHECK='1', PIP_NO_INDEX='1')
+               PIP_DISABLE_PIP_VERSION_CHECK='1', PIP_NO_INDEX='1', PIP_CONFIG_FILE=os.devnull)
     for name in ('PYTHONPATH', 'PYTHONHOME', 'GIT_DIR', 'GIT_WORK_TREE', 'GIT_INDEX_FILE'):
         env.pop(name, None)
     with tempfile.TemporaryDirectory(prefix='novel-wheel-') as directory:
@@ -65,10 +66,12 @@ def verify(wheel):
         # A venv created from a venv inherits the base interpreter's site,
         # not the calling venv's dependencies. Add only its package directories;
         # do not execute the calling environment's editable-install .pth files.
-        dependency_sites = dict.fromkeys(sysconfig.get_path(name) for name in ('purelib', 'platlib'))
+        dependency_sites = dict.fromkeys(str(Path(path).absolute()) for path in sys.path
+                                       if Path(path).name in ('site-packages', 'dist-packages'))
         (site / 'verification-dependencies.pth').write_text(
             ''.join(path + '\n' for path in dependency_sites), encoding='utf-8')
-        run([python, '-m', 'pip', 'install', '--no-deps', '--ignore-installed', wheel], cwd=scratch, env=env)
+        run([python, '-I', '-B', '-m', 'pip', '--isolated', 'install', '--no-index',
+             '--no-deps', '--ignore-installed', '--no-compile', '--no-cache-dir', wheel], cwd=scratch, env=env)
         run([console, '--help'], cwd=scratch, env=env)
         probe = """
 import json
@@ -76,10 +79,16 @@ from pathlib import Path
 import sys
 from novel_creator.install import bundle_files
 from novel_creator import context, records, storage, validation, validation_cache
+from novel_creator.update_release import protocol, export_bundle
+metadata=protocol()
+assert metadata['protocol_version'] == 1 and metadata['source_installation_formats'] == [1,2]
+exported=export_bundle()
+assert '.novel-creator/workflows/update.md' in exported['files']
+assert '.agents/skills/novel-update/SKILL.md' in exported['files']
 paths = [str(Path(module.__file__).resolve()) for name, module in sys.modules.items()
          if name.startswith('novel_creator') and getattr(module, '__file__', None)]
 assert paths and all(Path(path).is_relative_to(Path(sys.prefix)) for path in paths), paths
-print(json.dumps({'modules': paths, 'bundle_file_count': len(bundle_files())}))
+print(json.dumps({'modules': paths, 'bundle_file_count': len(bundle_files()), 'update_protocol': metadata}))
 """
         package = json.loads(run([python, '-I', '-B', '-c', probe], cwd=scratch, env=env))
         cases = []
@@ -166,9 +175,28 @@ print(json.dumps(result))
                       'request_artifact': True, 'guide_identity': True})
         history = json.loads(next((simple / 'story/exchanges').glob('*.json')).read_text(encoding='utf-8'))
         assert history['input_artifacts'][1]['parsed_value']['name'] == 'Simple Novel'
+        update_probe = '''
+import sys,json
+from pathlib import Path
+from packaging.version import Version
+from novel_creator import __version__
+import novel_creator
+assert Path(novel_creator.__file__).resolve().is_relative_to(Path(sys.prefix))
+sys.path.append(sys.argv[1])
+from tests.update_helpers import SOURCE_WHEELS
+from tests.verify_update import installed_matrix
+sources=[str(Path(sys.argv[1])/path) for version,(path,digest) in SOURCE_WHEELS.items() if Version(version)<Version(__version__)]
+assert sources
+result=installed_matrix(sources,sys.argv[2])
+assert all(Path(module.__file__).resolve().is_relative_to(Path(sys.prefix))
+ for name,module in sys.modules.items() if name.startswith('novel_creator') and getattr(module,'__file__',None))
+print(json.dumps(result))
+'''
+        update_cases = json.loads(run([python, '-I', '-B', '-X', 'utf8', '-c', update_probe, checkout, wheel],
+                                      cwd=scratch, env=env))['cases']
     return {'ok': True, 'wheel': wheel.name,
             'wheel_sha256': hashlib.sha256(wheel.read_bytes()).hexdigest(),
-            'verified_source_files': len(expected), 'package': package, 'cases': cases,
+            'verified_source_files': len(expected), 'package': package, 'cases': cases, 'update_cases': update_cases,
             'dependency_isolation': 'calling environment package directories reused; product module origins checked',
             'semantic_host_or_human_evidence': False}
 

@@ -19,3 +19,12 @@ the interaction language. Default off. Suggested English messages: "Retrospectiv
 created a draft PR: LINK" and "Retrospective contribution blocked: REASON."
 No-action outcomes need no automatic notice. Save notices with the next ordinary
 reply using the installed reservation protocol; they are never story facts.
+
+Explicit framework maintenance copy (use the interaction language independently
+of manuscript language): "Update preview ready: VERSION. Review the changes
+before applying." "Update complete. Reload the book instructions before writing."
+"Update recovery needs inspection. Use the external controller and preserve the
+locks and operation evidence." Initial legacy application: "Close all other book
+clients and keep them closed through application and any recovery, then restart
+the guarded launcher." Never call a preview an installed update or append an
+unsaved maintenance notice to a saved creative response.

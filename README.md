@@ -21,6 +21,22 @@ unverified. The developer/older POC instructions below remain reference material
 
 ## Project status
 
+**Unreleased existing-book updater:** this checkout implements explicit published
+release checks, reviewed previews, framework-only local update commits and exact
+operation recovery. The published 0.1.0/0.2.0 packages do not contain it. Package
+installation alone does not update a pinned book. See the development
+[update instructions](workflows/getting-started.md#updating-an-existing-book-unreleased-development-feature),
+[shared workflow](workflows/update.md) and
+[qualification ledger](tests/evaluations/existing-book-update-qualification.md).
+Keep legacy clients closed through first application/recovery and use the
+external controller. The actual Windows Codex host workflow has been exercised
+with user-approved delegated evaluation input, including instruction/skill reload
+and exact saved-response checks; see the [host evidence and scope](tests/evaluations/existing-book-update-host.md).
+Direct native-user input and Linux Codex update behavior remain unverified.
+On Windows, keep preview/apply/recovery in the same scoped filesystem-access
+context so the configured runtime's detected platform markers remain consistent.
+No release, push or publication is implied by the implementation or evaluation.
+
 **Single-user POC:** the current delivery is the local Codex workflow for novel
 setup, brainstorming, saved story records, canon decisions, continuity and
 resumption. The owner is the initial user. Novice testing is out of scope;

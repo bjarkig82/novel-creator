@@ -6,9 +6,18 @@ Desktop sessions do not necessarily inherit activation. If the environment is
 unknown, establish its path before writes; never store machine paths in story data.
 The installed getting-started guide explains setup, first save and returning later.
 
+For a direct request to check/update the framework, load `update.md` and invoke
+`$novel-update`. No automatic update check runs on opening, resuming or saving.
+Use an external controller for legacy bootstrap and interrupted recovery. Review
+the preview before explicit application, keep legacy clients closed through
+recovery, and reload these instructions after verified ready completion. This is
+maintenance rather than a creative exchange; it does not trigger retrospectives
+or consume notices. Operational content included in a creative reply still uses
+that reply's normal save-before-display protocol.
+
 Read committed context using `python .novel-creator/run.py context --novel PATH
 --json`. Select the novel unambiguously. The manifest pins the installed bundle;
-no framework checkout is required. Python >=3.11, jsonschema >=4.23,<5 and jsonschema-rs >=0.59,<0.60 remain
+no framework checkout is required. Python >=3.11, packaging >=24, jsonschema >=4.23,<5 and jsonschema-rs >=0.59,<0.60 remain
 environment prerequisites. Unknown or damaged records are unavailable, never an
 empty story. Structural validation does not establish narrative consistency.
 

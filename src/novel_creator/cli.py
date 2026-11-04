@@ -6,11 +6,12 @@ import sys
 
 class ToolError(Exception):
     def __init__(self, code, message, *, affected_refs=None, checkpoint=None, pending=None,
-                 expected_head=None, actual_head=None):
+                 expected_head=None, actual_head=None, data=None):
         super().__init__(message)
         self.code, self.checkpoint, self.pending = code, checkpoint, pending
         self.affected_refs = affected_refs or []
         self.expected_head, self.actual_head = expected_head, actual_head
+        self.data = data
 
     def result(self):
         result = {"ok": False, "error": {"code": self.code, "message": str(self),
@@ -18,6 +19,8 @@ class ToolError(Exception):
                 "last_confirmed_checkpoint": self.checkpoint, "pending_exchange_id": self.pending}
         if self.expected_head is not None or self.actual_head is not None:
             result["error"].update(expected_git_head=self.expected_head, actual_git_head=self.actual_head)
+        if self.data is not None:
+            result['data'] = self.data
         return result
 
 
@@ -31,6 +34,40 @@ class Once(argparse.Action):
         if getattr(namespace, self.dest, None) is not None:
             raise ToolError(2, 'Supply ' + option_string + ' only once')
         setattr(namespace, self.dest, values)
+
+
+class SwitchOnce(argparse.Action):
+    def __init__(self, option_strings, dest, **kwargs):
+        super().__init__(option_strings, dest, nargs=0, **kwargs)
+
+    def __call__(self, parser, namespace, values, option_string=None):
+        if getattr(namespace, self.dest, None) is not None:
+            raise ToolError(2, 'Supply ' + option_string + ' only once')
+        setattr(namespace, self.dest, True)
+
+
+def _update_dispatch(args):
+    from . import update
+    if args.update_action == 'status':
+        if any((args.version, args.python, args.apply, args.preview, args.expected_head, args.confirm_quiescent, args.retry)):
+            raise ToolError(2, 'Update status accepts only --novel, --operation and --json')
+        return update.status(args.novel, operation_id=args.operation)
+    if args.update_action == 'recover':
+        if not args.operation or any((args.version, args.python, args.apply, args.preview, args.confirm_quiescent)):
+            raise ToolError(2, 'Update recovery requires --operation; inspection/retry cannot change release or runtime')
+        if bool(args.retry) != (args.expected_head is not None):
+            raise ToolError(2, 'Recovery retry requires --retry and --expected-head together')
+        return update.recover(args.novel, operation_id=args.operation, retry=bool(args.retry), expected_head=args.expected_head)
+    if args.operation is not None or args.retry:
+        raise ToolError(2, '--operation/--retry require update status or recover')
+    if args.apply:
+        if not all((args.preview, args.version, args.expected_head)) or args.python is not None:
+            raise ToolError(2, 'Apply requires --preview, --version and --expected-head; its runtime is already pinned')
+        return update.apply(args.novel, preview_id=args.preview, version=args.version,
+                            expected_head=args.expected_head, confirm_quiescent=bool(args.confirm_quiescent))
+    if any((args.preview, args.expected_head, args.confirm_quiescent)):
+        raise ToolError(2, 'Preview application arguments require --apply')
+    return update.preview(args.novel, version=args.version, python=args.python)
 
 
 def _init_request(args):
@@ -76,6 +113,18 @@ def parser():
     p = Parser(prog="novel-creator", epilog='Getting started: ' + guide)
     p.add_argument('--version', action='version', version='%(prog)s ' + __version__)
     commands = p.add_subparsers(dest="command", required=True)
+    update = commands.add_parser('update', description='Explicit published-release preview or local update status')
+    update.add_argument('update_action', nargs='?', choices=('status', 'recover'))
+    update.add_argument('--novel', required=True, action=Once)
+    update.add_argument('--version', action=Once)
+    update.add_argument('--python', action=Once)
+    update.add_argument('--operation', action=Once)
+    update.add_argument('--apply', action=SwitchOnce)
+    update.add_argument('--preview', action=Once)
+    update.add_argument('--expected-head', action=Once)
+    update.add_argument('--confirm-quiescent', action=SwitchOnce)
+    update.add_argument('--retry', action=SwitchOnce)
+    update.add_argument('--json', action='store_true')
     retro = commands.add_parser('retro').add_subparsers(dest='action', required=True)
     for action in ('status', 'enable', 'disable', 'begin', 'review', 'compare', 'prepare',
                    'validate', 'publish', 'resume', 'release', 'notices'):
@@ -152,6 +201,24 @@ def main(argv=None):
             stream.reconfigure(encoding='utf-8')
     try:
         args = parser().parse_args(argv)
+        if args.command == 'update':
+            try:
+                result = _update_dispatch(args)
+            except (ValueError, TypeError, KeyError, AttributeError, RecursionError) as malformed:
+                raise ToolError(4, 'Unsupported or inconsistent update metadata; preserve the book and inspect its release/operation evidence',
+                    data={'operation_id': args.operation, 'preview_id': args.preview, 'ready': False}) from malformed
+            except OSError as failure:
+                raise ToolError(5, 'Update filesystem/preparation operation failed; preserve the operation evidence before recovery',
+                    data={'operation_id': args.operation, 'preview_id': args.preview, 'ready': False}) from failure
+            except ToolError as error:
+                if error.data is None:
+                    error.data = {'operation_id': args.operation, 'preview_id': args.preview, 'ready': False}
+                raise
+            print(json.dumps(result, ensure_ascii=False, allow_nan=False))
+            return 0
+        if getattr(args, 'novel', None) and args.command != 'update':
+            from .maintenance import ensure_ready
+            ensure_ready(args.novel, read_only=args.command in ('context', 'inspect', 'validate', 'session'))
         if args.command == 'retro':
             from .retro import dispatch
             result = dispatch(args)
@@ -225,9 +292,9 @@ def main(argv=None):
             return 0
         raise ToolError(4, "This operation is not yet implemented")
     except ModuleNotFoundError as missing:
-        if missing.name not in ('jsonschema', 'jsonschema_rs'):
+        if missing.name not in ('jsonschema', 'jsonschema_rs', 'packaging'):
             raise
-        error = ToolError(4, 'Required validator dependency is unavailable; use the configured Novel Creator Python environment or repair its package installation')
+        error = ToolError(4, 'Required validator/version dependency is unavailable; use the configured Novel Creator Python environment or repair its package installation')
         print(json.dumps(error.result(), ensure_ascii=False))
         print(str(error), file=sys.stderr)
         return error.code
