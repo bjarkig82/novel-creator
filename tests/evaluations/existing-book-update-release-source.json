@@ -1,17 +1,17 @@
 {
   "candidate": {
     "repository": "bjarkig82/novel-creator",
-    "run_id": "41823550929",
+    "run_id": "41830297234",
     "run_attempt": "1",
-    "source_commit": "e2fca23e8c29c8a9bca68506c130345fbb343d34",
+    "source_commit": "e895a1a285a118afaf5217d10b3f2fa3aa3734bf",
     "distribution": "novel-creator",
     "version": "0.3.0",
     "files": {
-      "novel_creator-0.3.0-py3-none-any.whl": "d0a8b60578df58ecea269935619e9ffbc8457200cfc65d498482f95bf942765a",
-      "novel_creator-0.3.0.tar.gz": "ccd1c44177008a86e7857686b088dcd25708d073010eae6b1db34b5d55b88704"
+      "novel_creator-0.3.0-py3-none-any.whl": "f7eb10ca004a19fd9643800769fc6b31856f1c9da86db1df516eb02638a67d44",
+      "novel_creator-0.3.0.tar.gz": "9ba6643d9ffd77b9fcc83a796844d8ca53e8c2697b33beba741a61a2ff32f919"
     }
   },
-  "artifact_id": "13318445983",
+  "artifact_id": "13322367181",
   "original_host_target_sha256": "a1a12064c8b029b48693a10c4871c516d4215e06a55aeb6ed3666f5f621997d2",
   "original_host_target_unpublished_fixture": true,
   "unchanged_package_resources": 41,
@@ -28,5 +28,20 @@
   "windows_host_evidence_mode": "reuse of actual approved delegated host evidence for unchanged creative/adapter components; updater review fixes separately command-tested",
   "new_candidate_host_conversation": false,
   "direct_native_user_update_input": false,
-  "linux_host": false
+  "linux_host": false,
+  "first_candidate": {
+    "repository": "bjarkig82/novel-creator",
+    "run_id": "41823550929",
+    "run_attempt": "1",
+    "source_commit": "e2fca23e8c29c8a9bca68506c130345fbb343d34",
+    "distribution": "novel-creator",
+    "version": "0.3.0",
+    "files": {
+      "novel_creator-0.3.0-py3-none-any.whl": "d0a8b60578df58ecea269935619e9ffbc8457200cfc65d498482f95bf942765a",
+      "novel_creator-0.3.0.tar.gz": "ccd1c44177008a86e7857686b088dcd25708d073010eae6b1db34b5d55b88704"
+    }
+  },
+  "first_candidate_artifact_id": "13318445983",
+  "wheel_contents_identical_to_first_candidate": true,
+  "wheel_entries_compared": 48
 }

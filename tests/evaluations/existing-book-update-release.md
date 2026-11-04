@@ -59,3 +59,22 @@ matrix can finish. No product code, tests, assertions, discovery or publication
 gate is weakened or skipped. There is no performance acceptance target. A new
 source commit and immutable candidate are required; the cancelled candidate and
 its archive identities above remain historical and will not be republished.
+
+## Replacement candidate; checks pending
+
+Candidate [run 41830297234](https://github.com/bjarkig82/novel-creator/actions/runs/41830297234),
+attempt 1, artifact **13322367181**, source
+`e895a1a285a118afaf5217d10b3f2fa3aa3734bf` replaces the cancelled candidate:
+
+| Archive | SHA-256 |
+| --- | --- |
+| `novel_creator-0.3.0-py3-none-any.whl` | `f7eb10ca004a19fd9643800769fc6b31856f1c9da86db1df516eb02638a67d44` |
+| `novel_creator-0.3.0.tar.gz` | `9ba6643d9ffd77b9fcc83a796844d8ca53e8c2697b33beba741a61a2ff32f919` |
+
+The fresh download passes manifest verification. All 48 uncompressed wheel
+entries, including distribution metadata, match the first candidate exactly;
+archive identity is nevertheless distinct and retained. The Windows literal
+guide was rerun against this exact wheel and passed all nine command steps and
+six troubleshooting cases. The current source/guide JSON records bind these
+results to the replacement artifact, preserving the first identity separately.
+Full platform checks remain pending; no publication has occurred.
