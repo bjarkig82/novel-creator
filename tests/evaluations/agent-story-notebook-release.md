@@ -1,6 +1,6 @@
 # Story notebook: 0.4.0 release preparation
 
-**Status: first candidate ineligible; replacement preparation in progress; not published.** The published stable release
+**Status: replacement candidate verified; Linux qualification passed; Windows CI and native-host evidence pending; not published.** The published stable release
 remains 0.3.0. Version 0.4.0 is the next minor release because the published
 0.3.0 archives cannot be replaced.
 
@@ -51,3 +51,32 @@ as passing.
 Successful runner checks do not establish Windows Codex Desktop notebook
 acceptance. The release remains blocked on that native evidence and the normal
 protected PyPI review.
+
+## Replacement immutable candidate
+
+The [replacement workflow](https://github.com/bjarkig82/novel-creator/actions/runs/41929443036) built the fixture-corrected
+source `f0379dd8cdef8062680f33301cea5fe43571b666`, attempt 1, artifact
+`13372020036`. Independent verification checks the GitHub ZIP digest,
+strict source/run/attempt identity, version and both archive hashes.
+
+| Distribution | SHA-256 |
+| --- | --- |
+| novel_creator-0.4.0-py3-none-any.whl | `a6a387d328e8534b1d333f377d837e7ff6d7a9303dc593dd92cee60694fa115f` |
+| novel_creator-0.4.0.tar.gz | `04f770a9ead9ac09e685cb8ab0194a2e77c987aa6ca367e76c81e0fc86fdca14` |
+
+Linux structural qualification passed, including the full unit suite, wheel
+verification, clean wheel and source installations, and literal Bash guide checks.
+At the final snapshot, Windows CI remained in its full unit suite. The replacement
+workflow has not been cancelled and can continue without local monitoring.
+
+Native Windows Codex Desktop notebook acceptance remains unavailable and
+unverified. The release cannot proceed to publication until the candidate-bound
+Windows host and guide evidence is supplied and the normal protected environment
+review is completed. The user was asked for Windows environment access or existing
+verification results; none were available during this attempt. Linux Desktop
+remains explicitly unverified under the existing scope. No publication was
+attempted, and PyPI 0.4.0 is not claimed published.
+
+The first candidate and its failed/cancelled results remain historical. Resume
+from this replacement run after the required input is available; inspect its
+current Windows result rather than assuming success or rebuilding unnecessarily.
