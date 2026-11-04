@@ -1,0 +1,8 @@
+{
+  "kind": "release",
+  "document_version": 1,
+  "protocol_version": 1,
+  "source_installation_formats": [1, 2],
+  "story_schema_versions": ["1.0"],
+  "retro_versions": [1]
+}

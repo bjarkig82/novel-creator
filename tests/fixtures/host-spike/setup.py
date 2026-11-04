@@ -9,8 +9,13 @@ import sys
 import uuid
 
 FRAMEWORK = Path(__file__).resolve().parents[3]
-sys.path.insert(0, str(FRAMEWORK / 'src'))
+# Use the configured package, including its resource packages. Prepending only
+# src/ masks an installed wheel's schemas when no editable finder is present.
 from novel_creator import records, storage
+
+for stream in (sys.stdout, sys.stderr):
+    if hasattr(stream, 'reconfigure'):
+        stream.reconfigure(encoding='utf-8')
 
 
 def setup(target):

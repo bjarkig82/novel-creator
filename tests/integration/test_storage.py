@@ -1409,3 +1409,27 @@ class StorageTests(unittest.TestCase):
             self.assertTrue(retry['data']['already_saved'])
             self.assertFalse(retry['data']['cleanup_required'])
             self.assertEqual(retry['checkpoint'],result['checkpoint'])
+
+    def test_index_merge_supports_removals_and_preserves_latest_unrelated_staging(self):
+        with repository() as root:
+            (root / 'obsolete.txt').write_text('old')
+            (root / 'notes.txt').write_text('original')
+            git(root, 'add', 'obsolete.txt', 'notes.txt')
+            git(root, 'commit', '-m', 'Synthetic resources')
+            baseline = storage.index_entries(root, ['obsolete.txt'])
+            parent = storage.head(root)
+            tree = git(root, 'rev-parse', parent + '^{tree}')
+            with tempfile.TemporaryDirectory() as directory:
+                index = str(Path(directory) / 'index')
+                storage.git(root, 'read-tree', tree, env={'GIT_INDEX_FILE': index})
+                storage.git(root, 'update-index', '--force-remove', 'obsolete.txt', env={'GIT_INDEX_FILE': index})
+                tree = storage.git(root, 'write-tree', env={'GIT_INDEX_FILE': index}).decode().strip()
+            commit = storage.git(root, 'commit-tree', tree, '-p', parent, input=b'Remove synthetic resource\n').decode().strip()
+            (root / 'notes.txt').write_text('new staged notes')
+            git(root, 'add', 'notes.txt')
+            unrelated = storage.index_entries(root, ['notes.txt'])
+            storage.sync_index(root, ['obsolete.txt'], baseline, commit)
+            self.assertEqual(storage.index_entries(root, ['obsolete.txt']), b'')
+            self.assertEqual(storage.index_entries(root, ['notes.txt']), unrelated)
+            with self.assertRaises(OSError):
+                storage.sync_index(root, ['obsolete.txt'], baseline, commit)

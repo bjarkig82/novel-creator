@@ -33,3 +33,13 @@ stuttar og rekstrarlegar, á samskiptamálinu: „Endurskoðun bjó til drög a�
 breytingatillögu: SLÓÐ“ eða „Framlag endurskoðunar er stöðvað: ÁSTÆÐA.“
 Engin tilkynning er nauðsynleg ef ekkert þarf að gera. Vistaðu tilkynningu með
 næsta venjulega svari samkvæmt frátekningarferlinu; hún er aldrei staðreynd sögunnar.
+
+Texti fyrir uppfærslu kerfisins, á samskiptamáli óháð tungumáli handritsins:
+„Forskoðun uppfærslu tilbúin: ÚTGÁFA. Farðu yfir breytingarnar áður en þú
+samþykkir uppfærslu.“ „Uppfærslu lokið. Endurhlaðaðu leiðbeiningum bókarinnar
+áður en þú heldur áfram að skrifa.“ „Endurheimt uppfærslu þarf athugun. Notaðu
+ytra uppfærslutólið og varðveittu læsingar og gögn aðgerðarinnar.“ Fyrsta uppfærsla
+eldri bókar: „Lokaðu öllum öðrum forritum og samtölum sem vinna með bókina og
+haltu þeim lokuðum meðan uppfærsla og endurheimt standa yfir. Ræstu síðan með
+varða ræsiforritinu.“ Forskoðun merkir ekki að uppfærsla hafi verið sett inn.
+Ekki bæta óvistuðum rekstrartexta við skapandi svar sem þegar hefur verið vistað.

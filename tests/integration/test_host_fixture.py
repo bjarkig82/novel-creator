@@ -16,7 +16,7 @@ class HostFixtureTests(unittest.TestCase):
             parent = Path(parent).resolve()
             root = parent / 'novel'
             setup = subprocess.run([sys.executable, str(FIXTURE / 'setup.py'), '--path', str(root)],
-                                   capture_output=True, text=True)
+                                   capture_output=True, text=True, encoding='utf-8')
             self.assertEqual(setup.returncode, 0, setup.stderr)
             source = root / '.novel-creator/local/evidence/native-user-message.json'
             source.parent.mkdir(parents=True)
@@ -28,7 +28,7 @@ class HostFixtureTests(unittest.TestCase):
                         'content': [{'type': 'text', 'text': text}]}, ensure_ascii=False), encoding='utf-8')
                     prepare = subprocess.run([sys.executable, str(root / '.novel-creator/src/fixture-prepare.py'),
                         '--user-message-file', str(source), '--response-file', str(response)],
-                        capture_output=True, text=True, cwd=parent)
+                        capture_output=True, text=True, encoding='utf-8', cwd=parent)
                     self.assertEqual(prepare.returncode, 0, prepare.stderr)
                     prepared = json.loads(prepare.stdout)
                     payload = json.loads(Path(prepared['payload_file']).read_bytes())
@@ -36,11 +36,11 @@ class HostFixtureTests(unittest.TestCase):
                     self.assertEqual(payload['messages'][1]['text'], 'Svar: Þóra.\n')
                     save = subprocess.run([sys.executable, str(root / '.novel-creator/run.py'), 'exchange',
                         'save', '--novel', str(root), '--input', prepared['payload_file'], '--json'],
-                        capture_output=True, text=True, cwd=parent)
+                        capture_output=True, text=True, encoding='utf-8', cwd=parent)
                     self.assertEqual(save.returncode, 0, save.stderr)
                     self.assertFalse(json.loads(save.stdout)['data']['cleanup_required'])
                     context = subprocess.run([sys.executable, str(root / '.novel-creator/src/fixture-context.py')],
-                        capture_output=True, text=True, cwd=parent)
+                        capture_output=True, text=True, encoding='utf-8', cwd=parent)
                     self.assertEqual(context.returncode, 0, context.stderr)
                     self.assertEqual(json.loads(context.stdout)['saved_messages'][0]['text'], text)
             for invalid in ({'type': 'agentMessage', 'id': 'wrong-role', 'text': 'Not a user'},
@@ -51,7 +51,7 @@ class HostFixtureTests(unittest.TestCase):
                     source.write_text(json.dumps(invalid), encoding='utf-8')
                     prepare = subprocess.run([sys.executable, str(root / '.novel-creator/src/fixture-prepare.py'),
                         '--user-message-file', str(source), '--response-file', str(response)],
-                        capture_output=True, text=True, cwd=parent)
+                        capture_output=True, text=True, encoding='utf-8', cwd=parent)
                     self.assertEqual(prepare.returncode, 2)
                     self.assertNotIn('Traceback', prepare.stderr)
                     self.assertEqual(prepare.stdout, '')
@@ -60,7 +60,7 @@ class HostFixtureTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as parent:
             parent = Path(parent).resolve()
             root = Path(parent) / 'novel'
-            result = subprocess.run([sys.executable, str(FIXTURE / 'setup.py'), '--path', str(root)], capture_output=True, text=True)
+            result = subprocess.run([sys.executable, str(FIXTURE / 'setup.py'), '--path', str(root)], capture_output=True, text=True, encoding='utf-8')
             self.assertEqual(result.returncode, 0, result.stderr)
             self.assertFalse(json.loads(result.stdout)['data']['cleanup_required'])
             launcher = root / '.novel-creator/run.py'
@@ -68,13 +68,13 @@ class HostFixtureTests(unittest.TestCase):
             response = Path(parent) / 'response.txt'
             user.write_text('Explore Þóra.\nKeep this line.\n', encoding='utf-8')
             response.write_text('What does Þóra want?\n', encoding='utf-8')
-            prepare = subprocess.run([sys.executable, str(root / '.novel-creator/src/fixture-prepare.py'), '--user-file', str(user), '--response-file', str(response)], capture_output=True, text=True, cwd=parent)
+            prepare = subprocess.run([sys.executable, str(root / '.novel-creator/src/fixture-prepare.py'), '--user-file', str(user), '--response-file', str(response)], capture_output=True, text=True, encoding='utf-8', cwd=parent)
             self.assertEqual(prepare.returncode, 0, prepare.stderr)
             payload = json.loads(prepare.stdout)['payload_file']
-            save = subprocess.run([sys.executable, str(launcher), 'exchange', 'save', '--novel', str(root), '--input', payload, '--json'], capture_output=True, text=True, cwd=parent)
+            save = subprocess.run([sys.executable, str(launcher), 'exchange', 'save', '--novel', str(root), '--input', payload, '--json'], capture_output=True, text=True, encoding='utf-8', cwd=parent)
             self.assertEqual(save.returncode, 0, save.stderr)
             self.assertFalse(json.loads(save.stdout)['data']['cleanup_required'])
-            context = subprocess.run([sys.executable, str(root / '.novel-creator/src/fixture-context.py')], capture_output=True, text=True, cwd=parent)
+            context = subprocess.run([sys.executable, str(root / '.novel-creator/src/fixture-context.py')], capture_output=True, text=True, encoding='utf-8', cwd=parent)
             self.assertEqual(context.returncode, 0, context.stderr)
             data = json.loads(context.stdout)
             # Compare exact UTF-8 input, including Windows CRLF and trailing
@@ -90,6 +90,6 @@ class HostFixtureTests(unittest.TestCase):
     def test_fixture_refuses_existing_directory(self):
         with tempfile.TemporaryDirectory() as parent:
             parent = Path(parent).resolve()
-            result = subprocess.run([sys.executable, str(FIXTURE / 'setup.py'), '--path', parent], capture_output=True, text=True)
+            result = subprocess.run([sys.executable, str(FIXTURE / 'setup.py'), '--path', parent], capture_output=True, text=True, encoding='utf-8')
             self.assertNotEqual(result.returncode, 0)
             self.assertFalse((Path(parent) / '.git').exists())

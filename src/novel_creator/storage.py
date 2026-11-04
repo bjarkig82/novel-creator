@@ -439,6 +439,22 @@ def atomic_json(path, value):
             os.unlink(temp)
 
 
+def _writer_lock_error(root, pending=None):
+    """Read-only held-lock diagnostics, before even creating a shared lease."""
+    confirmed, affected = None, []
+    try:
+        initial = head(root)
+        if initial is not None:
+            history = read_history(root, initial)
+            confirmed = checkpoint(root, history, initial)
+    except ToolError as unavailable:
+        confirmed, affected = unavailable.checkpoint, unavailable.affected_refs
+    except (OSError, UnicodeError):
+        pass
+    return ToolError(6, 'Novel writer lock held; inspect recovery before removal',
+                     checkpoint=confirmed, pending=pending, affected_refs=affected)
+
+
 @contextmanager
 def writer_lock(root, *, pending=None):
     local = safe_path(root, '.novel-creator/local/write.lock')
@@ -446,20 +462,7 @@ def writer_lock(root, *, pending=None):
     try:
         local.mkdir()
     except FileExistsError as error:
-        confirmed, affected = None, []
-        try:
-            # Readers can inspect an immutable committed snapshot without owning
-            # the writer lock. Capture HEAD once so a competing save cannot mix trees.
-            initial = head(root)
-            if initial is not None:
-                history = read_history(root, initial)
-                confirmed = checkpoint(root, history, initial)
-        except ToolError as unavailable:
-            confirmed, affected = unavailable.checkpoint, unavailable.affected_refs
-        except (OSError, UnicodeError):
-            pass  # No checkpoint can be claimed when inspection itself is unavailable.
-        raise ToolError(6, 'Novel writer lock held; inspect recovery before removal',
-                        checkpoint=confirmed, pending=pending, affected_refs=affected) from error
+        raise _writer_lock_error(root, pending) from error
     try:
         (local / 'owner.json').write_text(json.dumps({'pid': os.getpid()}), encoding='utf-8')
         yield
@@ -544,7 +547,7 @@ def check_managed(root, commit, paths, *, entries=None, hash_workers=1):
     return entries
 
 
-def sync_index(root, paths, baseline, commit, *, entries=None):
+def sync_index(root, paths, baseline, commit, *, entries=None, git_options=()):
     """Merge only managed entries while holding the real Git index lock."""
     index = root / '.git/index'
     lock = root / '.git/index.lock'
@@ -564,11 +567,12 @@ def sync_index(root, paths, baseline, commit, *, entries=None):
             # Keep the real index lock held while preparing a valid empty index.
             with tempfile.TemporaryDirectory(dir=root / '.novel-creator/local') as temp:
                 temporary = str(Path(temp) / 'empty-index')
-                git(root, 'read-tree', '--empty', env={'GIT_INDEX_FILE': temporary})
+                git(root, *git_options, 'read-tree', '--empty', env={'GIT_INDEX_FILE': temporary})
                 lock.write_bytes(Path(temporary).read_bytes())
         entries = committed_entries(root, commit) if entries is None else entries
-        payload = b''.join(f'{entries[p][0]} {entries[p][1]} 0\t{p}\0'.encode() for p in paths)
-        git(root, 'update-index', '-z', '--index-info', input=payload, env={'GIT_INDEX_FILE': str(lock)})
+        payload = b''.join((f'{entries[p][0]} {entries[p][1]} 0\t{p}\0' if p in entries
+                           else f'0 {"0" * len(commit)}\t{p}\0').encode() for p in paths)
+        git(root, *git_options, 'update-index', '-z', '--index-info', input=payload, env={'GIT_INDEX_FILE': str(lock)})
         # Windows FlushFileBuffers requires write access; a read-only descriptor
         # makes an otherwise published save permanently need index recovery.
         with lock.open('r+b') as stream:
@@ -586,6 +590,53 @@ def success(bundle, commit, *, already=False, cleanup=False, warnings=None):
             'data': {'saved': True, 'already_saved': already, 'cleanup_required': cleanup},
             'warnings': warnings or [], 'checkpoint': {'git_head': commit,
              'exchange_id': bundle['exchange_id'], 'sequence': bundle['sequence']}}
+
+
+def installation_paths(manifest):
+    """Bootstrap commits shared files too, without claiming exclusive ownership."""
+    return ['.novel-creator/manifest.json', '.gitignore', *manifest.get('managed_paths', []),
+            *manifest.get('ownership', {}).get('shared', {})]
+
+
+def _bootstrap_superseded(root, current, bootstrap):
+    """Recognize a committed framework update without private journal authority.
+
+    Portable books retain this evidence in their manifest and Git graph. An
+    arbitrary manifest edit or story rewrite cannot narrow bootstrap recovery.
+    """
+    try:
+        manifest = records.loads(git(root, 'show', current + ':.novel-creator/manifest.json'))
+        evidence = manifest.get('last_update')
+        if manifest.get('installation_format') != 2 or not isinstance(evidence, dict):
+            return False
+        identifier = evidence['operation_id']
+        if str(uuid.UUID(identifier)) != identifier or not re.fullmatch('[0-9a-f]{64}', evidence['artifact_sha256']):
+            return False
+        revision = git(root, 'log', '-1', '--format=%H', current, '--', '.novel-creator/manifest.json').decode().strip()
+        parents = git(root, 'rev-list', '--parents', '-n', '1', revision).decode().split()
+        if len(parents) != 2 or parents[1] != evidence['source_head'] or revision == bootstrap:
+            return False
+        parent = records.loads(git(root, 'show', parents[1] + ':.novel-creator/manifest.json'))
+        if parent['novel_id'] != manifest['novel_id'] or parent['schema_version'] != manifest['schema_version']:
+            return False
+        if git(root, 'merge-base', '--is-ancestor', bootstrap, parents[1], check=False).returncode:
+            return False
+        before, after = committed_entries(root, parents[1]), committed_entries(root, revision)
+        changed = {path for path in before.keys() | after.keys() if before.get(path) != after.get(path)}
+        allowed = set(installation_paths(parent)) | set(installation_paths(manifest))
+        if not changed or not changed <= allowed:
+            return False
+        for path in changed:
+            if not (path in ('.novel-creator/manifest.json', '.novel-creator/run.py', 'AGENTS.md', '.gitignore', '.gitattributes')
+                    or path.startswith(('.novel-creator/src/', '.novel-creator/workflows/', '.novel-creator/languages/', '.agents/skills/novel-'))):
+                return False
+            safe_path(root, path, setup=True)
+        return (set(manifest['checksums']) == set(manifest['managed_paths'])
+                and all(after.get(path, (None,))[0] in ('100644', '100755')
+                        and hashlib.sha256(git(root, 'cat-file', 'blob', after[path][1])).hexdigest() == digest
+                        for path, digest in manifest['checksums'].items()))
+    except (ToolError, ValueError, TypeError, KeyError, AttributeError):
+        return False
 
 
 def _save(root, bundle, *, fault=None):
@@ -618,9 +669,9 @@ def _save(root, bundle, *, fault=None):
                     local_state = read_receipt(root, receipt) if receipt.exists() else {}
                     cleanup = bool(local_state) and (local_state.get('state') != 'published' or local_state.get('cleanup_required', True))
                     retry_paths = [path]
-                    if bundle['expected_git_head'] is None:
+                    if bundle['expected_git_head'] is None and not _bootstrap_superseded(root, initial, commit):
                         manifest = records.loads(git(root, 'show', commit + ':.novel-creator/manifest.json'))
-                        retry_paths += ['.novel-creator/manifest.json', '.gitignore'] + manifest.get('managed_paths', [])
+                        retry_paths += installation_paths(manifest)
                     saved_entries = committed_entries(root, commit)
                     expected_index = b''.join(f'{saved_entries[p][0]} {saved_entries[p][1]} 0\t{p}\0'.encode()
                                               for p in sorted(set(retry_paths)))
@@ -645,7 +696,7 @@ def _save(root, bundle, *, fault=None):
                 raise ToolError(3, 'Exchange belongs to another novel')
             paths = [path]
             if initial is None:
-                paths += ['.novel-creator/manifest.json', '.gitignore'] + manifest.get('managed_paths', [])
+                paths += installation_paths(manifest)
             paths = sorted(set(paths))
             for managed in paths:
                 safe_path(root, managed, setup=True)
@@ -750,6 +801,16 @@ def _save(root, bundle, *, fault=None):
 
 
 def save(root, bundle, *, fault=None):
+    from .maintenance import normal_operation
+    root = root_path(root)
+    bundle_path(bundle)
+    if safe_path(root, '.novel-creator/local/write.lock').exists():
+        raise _writer_lock_error(root, bundle['exchange_id'])
+    with normal_operation(root):
+        return _save_with_cleanup(root, bundle, fault=fault)
+
+
+def _save_with_cleanup(root, bundle, *, fault=None):
     """Keep the commit point truthful even when releasing the writer lock fails."""
     try:
         return _save(root, bundle, fault=fault)
@@ -778,6 +839,16 @@ def save(root, bundle, *, fault=None):
 
 
 def recover(root, exchange_id, *, retry=False, expected_head=None):
+    from .maintenance import ensure_ready, normal_operation
+    root = root_path(root)
+    if retry:
+        with normal_operation(root):
+            return _recover(root, exchange_id, retry=retry, expected_head=expected_head)
+    ensure_ready(root, read_only=True)
+    return _recover(root, exchange_id, retry=retry, expected_head=expected_head)
+
+
+def _recover(root, exchange_id, *, retry=False, expected_head=None):
     """Inspect freely; retry publishes unchanged work or finishes managed cleanup.
 
     Never remove a writer lock, reset a ref, or replay a published bundle.
@@ -809,9 +880,9 @@ def recover(root, exchange_id, *, retry=False, expected_head=None):
     saved_commit = None
     if published:
         saved_commit = git(root, 'log', '-1', '--format=%H', initial, '--', paths[0]).decode().strip()
-        if bundle['expected_git_head'] is None:
+        if bundle['expected_git_head'] is None and not _bootstrap_superseded(root, initial, saved_commit):
             manifest = records.loads(git(root, 'show', saved_commit + ':.novel-creator/manifest.json'))
-            paths += ['.novel-creator/manifest.json', '.gitignore'] + manifest.get('managed_paths', [])
+            paths += installation_paths(manifest)
     elif receipt:
         paths = receipt['paths']
     paths = sorted(set(paths))

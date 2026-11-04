@@ -1,5 +1,14 @@
 # Novel Creator: experimental save-before-emit adapter
 
+Explicit framework maintenance uses `$novel-update` and the shared
+`workflows/update.md` protocol. Never check automatically or treat a preview as
+permission to apply. Legacy book clients stay closed through first application
+and external recovery; retain the external controller and preserve all locks and
+evidence on failure. Reload book instructions only after verified ready success.
+Do not manufacture a story exchange or retrospective for maintenance. Reports
+included in an ordinary creative reply retain that reply's exact saved-response
+boundary; no unsaved suffix is permitted.
+
 This adapter is unverified until its exact host/model/version passes the actual
 host-capture evaluation. The host-spike installation is a disposable fixture,
 not the novel initialization or full brainstorming product.

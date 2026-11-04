@@ -8,7 +8,7 @@ dynamic = ["version"]
 description = "Independent novel projects and saved Codex writing workflows"
 readme = "README.md"
 requires-python = ">=3.11"
-dependencies = ["jsonschema>=4.23,<5", "jsonschema-rs>=0.59,<0.60"]
+dependencies = ["jsonschema>=4.23,<5", "jsonschema-rs>=0.59,<0.60", "packaging>=24"]
 
 [project.urls]
 Source = "https://github.com/bjarkig82/novel-creator"
@@ -25,6 +25,7 @@ packages = ["novel_creator", "novel_creator.schemas", "novel_creator.schemas.v1"
 package-dir = {"novel_creator" = "src/novel_creator", "novel_creator.schemas" = "schemas", "novel_creator.workflows" = "workflows", "novel_creator.languages" = "languages", "novel_creator.codex" = "adapters/codex"}
 
 [tool.setuptools.package-data]
+"novel_creator" = ["update-release.json"]
 "novel_creator.schemas.v1" = ["*.json"]
 "novel_creator.workflows" = ["*.md"]
 "novel_creator.languages" = ["*.md"]

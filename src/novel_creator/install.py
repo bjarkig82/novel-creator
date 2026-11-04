@@ -49,6 +49,8 @@ def _resources(node, destination):
 def bundle_files():
     result = {'.novel-creator/src/novel_creator/' + p.name: p.read_bytes()
               for p in files('novel_creator').iterdir() if p.is_file() and p.name.endswith('.py')}
+    result['.novel-creator/src/novel_creator/update-release.json'] = files(
+        'novel_creator').joinpath('update-release.json').read_bytes()
     result.update(_resources(files('novel_creator.schemas'), '.novel-creator/src/novel_creator/schemas'))
     # Explicit package markers also work without namespace-package assumptions.
     result['.novel-creator/src/novel_creator/schemas/__init__.py'] = b''
@@ -58,7 +60,12 @@ def bundle_files():
     codex = files('novel_creator.codex')
     result.update(_resources(codex.joinpath('skills'), '.agents/skills'))
     result['.novel-creator/run.py'] = (
-        'from pathlib import Path\nimport sys\n'
+        'from pathlib import Path\nimport json, sys\n'
+        "root = Path(__file__).resolve().parent.parent\n"
+        "if (root / '.novel-creator/local/update/active.json').exists():\n"
+        "    if hasattr(sys.stdout, 'reconfigure'): sys.stdout.reconfigure(encoding='utf-8')\n"
+        "    print(json.dumps({'ok': False, 'error': {'code': 6, 'message': 'Update pending; use external-controller status/recovery'}}))\n"
+        '    raise SystemExit(6)\n'
         "sys.path.insert(0, str(Path(__file__).resolve().parent / 'src'))\n"
         'from novel_creator.cli import main\nraise SystemExit(main())\n').encode()
     # Framework resources are text governed by the installed LF attributes.
@@ -86,13 +93,15 @@ def _reserve_setup(path, state):
         lock.rmdir()
 
 
-def _preflight(root):
+def _preflight(root, *, require_identity=True):
     if sys.version_info < (3, 11):
         raise ToolError(4, 'Python >=3.11 is required')
     version = storage.git(root, '--version').decode()
     match = re.search(r'(\d+)\.(\d+)', version)
     if not match or tuple(map(int, match.groups())) < (2, 39):
         raise ToolError(4, 'Git >=2.39 is required')
+    if not require_identity:
+        return
     try:
         storage.git(root, 'var', 'GIT_AUTHOR_IDENT')
         storage.git(root, 'var', 'GIT_COMMITTER_IDENT')
@@ -119,6 +128,8 @@ def initialize(target, original_text, *, fault=None, request=None):
     for parent in root.parents:
         if parent.exists() and storage.git(parent, 'rev-parse', '--show-toplevel', check=False).returncode == 0:
             raise ToolError(3, 'Novel must be outside the framework and every other Git repository')
+    from .maintenance import ensure_ready
+    ensure_ready(root, read_only=True)
     manifest_path = root / '.novel-creator/manifest.json'
     state_path = root / '.novel-creator/local/setup/state.json'
     if root.exists() and (root / '.novel-creator').exists():
@@ -173,9 +184,18 @@ def initialize(target, original_text, *, fault=None, request=None):
             planned[name] = _append(old, addition)
         planned['AGENTS.md'] = ((root / 'AGENTS.md').read_bytes() if (root / 'AGENTS.md').exists()
                                 else files('novel_creator.codex').joinpath('AGENTS.production.md').read_bytes())
+        shared = {'AGENTS.md': {'role': 'instructions', 'required_lines': []},
+                  '.gitignore': {'role': 'ignore_rules', 'required_lines': ['.novel-creator/local/', '__pycache__/', '*.pyc']},
+                  '.gitattributes': {'role': 'attributes', 'required_lines': [
+                      '.novel-creator/** text eol=lf', 'story/exchanges/** text eol=lf', '.agents/skills/** text eol=lf']}}
+        if planned['AGENTS.md'] == files('novel_creator.codex').joinpath('AGENTS.production.md').read_bytes():
+            shared['AGENTS.md']['generated_default_sha256'] = hashlib.sha256(planned['AGENTS.md']).hexdigest()
+        exclusive = {name: raw for name, raw in planned.items() if name not in shared}
         manifest = {'novel_id': candidate['novel_id'], 'schema_version': '1.0', 'bundle_version': __version__,
-                    'managed_paths': sorted(planned), 'checksums': {
-                        name: hashlib.sha256(raw).hexdigest() for name, raw in planned.items()}}
+                    'installation_format': 2, 'managed_paths': sorted(exclusive), 'checksums': {
+                        name: hashlib.sha256(raw).hexdigest() for name, raw in exclusive.items()},
+                    'ownership': {'exclusive': {name: {'sha256': hashlib.sha256(raw).hexdigest(), 'mode': '100644'}
+                                                for name, raw in exclusive.items()}, 'shared': shared}}
         planned['.novel-creator/manifest.json'] = (json.dumps(manifest, indent=2) + '\n').encode()
         state = {'bundle': candidate, 'files': {name: base64.b64encode(raw).decode('ascii') for name, raw in planned.items()}}
         root.mkdir(parents=True, exist_ok=True)

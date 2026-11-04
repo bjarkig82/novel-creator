@@ -5,6 +5,31 @@ This document describes contributor setup and historical POC evidence. The new
 package command is `novel-creator init NAME`; consult the guide's release status
 before installing by name. Existing novels keep their pinned resources.
 
+The unreleased existing-book updater is implemented in this checkout. It uses
+an external controller, exact published-release identities, a read-only preview,
+ownership-aware framework commits and local exact-operation recovery. Its tests
+use approved public historical sources and controlled unpublished targets; the
+development wheel is not the published 0.2.0 artifact. Repository hooks and
+inherited pip/Python/Git injection cannot redirect the tested update path.
+
+Consult [the feature qualification ledger](../tests/evaluations/existing-book-update-qualification.md)
+for actual suite/verifier outcomes and hash-bound evidence. Functional CLI,
+packaging and historical preservation checks are separate from
+[actual Codex host evaluation](../tests/evaluations/existing-book-update-host.md).
+The Windows host journey uses user-approved delegated evaluation input, actual
+human preview approval in the coordinating chat, real instruction/skill reload
+and exact captured/saved/public-response comparison. Direct native-user input and
+Linux host behavior remain unverified. Keep Windows preview/apply/recovery in the
+same scoped filesystem-access context; the default sandbox can report a different
+platform-machine marker and is correctly refused against a mismatching preview.
+The final qualification also checks that completed maintenance remains complete
+after ordinary writer commits while changed resources and unrelated history
+still refuse. See the ledger for the exact current artifact/check outcomes.
+FUP-001 retains the closed-client requirement for initial
+legacy updates; arbitrary already-loaded legacy clients are outside the qualified
+boundary. No publication, push or change to a real book is authorized by these
+development checks.
+
 **Current delivery policy (owner, 2026-10-28):** all read/save latency targets
 are withdrawn. Optimize after functional delivery. Keep every data/authority/
 transaction safeguard and report timings without a pass/fail target. Older timing

@@ -27,8 +27,10 @@ class CliContract(unittest.TestCase):
             self.assertEqual(initialize.call_args.kwargs, {})
 
     def invoke(self, *args):
-        env = dict(os.environ, PYTHONPATH=str(Path(__file__).resolve().parents[2] / "src"))
-        return subprocess.run([sys.executable, "-m", "novel_creator", *args], env=env, capture_output=True, text=True)
+        env = dict(os.environ)
+        env.pop('PYTHONPATH', None)
+        return subprocess.run([sys.executable, "-m", "novel_creator", *args], env=env,
+                              capture_output=True, text=True, encoding='utf-8')
 
     def test_help(self):
         result = self.invoke("--help")
