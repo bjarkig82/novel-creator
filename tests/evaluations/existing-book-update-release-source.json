@@ -1,0 +1,32 @@
+{
+  "candidate": {
+    "repository": "bjarkig82/novel-creator",
+    "run_id": "41823550929",
+    "run_attempt": "1",
+    "source_commit": "e2fca23e8c29c8a9bca68506c130345fbb343d34",
+    "distribution": "novel-creator",
+    "version": "0.3.0",
+    "files": {
+      "novel_creator-0.3.0-py3-none-any.whl": "d0a8b60578df58ecea269935619e9ffbc8457200cfc65d498482f95bf942765a",
+      "novel_creator-0.3.0.tar.gz": "ccd1c44177008a86e7857686b088dcd25708d073010eae6b1db34b5d55b88704"
+    }
+  },
+  "artifact_id": "13318445983",
+  "original_host_target_sha256": "a1a12064c8b029b48693a10c4871c516d4215e06a55aeb6ed3666f5f621997d2",
+  "original_host_target_unpublished_fixture": true,
+  "unchanged_package_resources": 41,
+  "changed_resources": {
+    "novel_creator/update.py": {
+      "before": "a3f8f532189a78a6f45a8ff3109e32bf5250accbf4b47f22b7663978d13facf2",
+      "after": "d3c9c804a4345ffbdf2e45479274f148a0078e9e611c212708e8519f1784f3dd"
+    },
+    "novel_creator/workflows/getting-started.md": {
+      "before": "1326f7b421c8f5198ee2648b7e6093fa1a3927df148f271533b16e4b8185a40e",
+      "after": "6f65bc40858acae7c677273f5d6a50f37209a6a644d2fe01d487ae9dd30e845c"
+    }
+  },
+  "windows_host_evidence_mode": "reuse of actual approved delegated host evidence for unchanged creative/adapter components; updater review fixes separately command-tested",
+  "new_candidate_host_conversation": false,
+  "direct_native_user_update_input": false,
+  "linux_host": false
+}
