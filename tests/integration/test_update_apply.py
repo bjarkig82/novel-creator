@@ -171,6 +171,8 @@ class ApplyTests(unittest.TestCase):
             instructions = b'# Exact custom instructions\nDo not overwrite.\n'
             (book.root / 'AGENTS.md').write_bytes(instructions)
             (book.root / '.gitignore').write_bytes(b'# custom\n.novel-creator/local/\n')
+            git(book.root, 'add', '.gitignore')
+            git(book.root, 'commit', '-m', 'Writer custom ignore rules')
             with patch('novel_creator.update_release.cache_home', return_value=Path(cache)):
                 preview = update.preview(book.root, transport=transport_for('0.2.0'))['data']
                 self.assertTrue(apply_review(book, preview)['data']['ready'])

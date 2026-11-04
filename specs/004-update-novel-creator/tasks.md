@@ -166,3 +166,9 @@ Do not parallelize edits to shared `update.py`, `cli.py`, `install.py` or `maint
 Deliver read-only US1 first. Add internal transaction behavior, then complete interruption/recovery exclusion before making public apply available. Integrate historical onboarding/host behavior and run full qualification last. Stop for contradictory safety requirements or unresolved FUP-001 evidence rather than weakening preservation guarantees. Task completion is recorded in the checkboxes above. Task generation itself performed no implementation; subsequent verified work is recorded in tests/evaluations/existing-book-update-qualification.md. No real-book update or release/publication is authorized by these checkboxes.
 
 No `.specify/extensions.yml` hooks were configured during generation or implementation. Preimplementation analysis was completed; use the checkboxes and qualification ledger for current implementation/evidence status.
+
+## Phase 8: PR #4 Review Corrections
+
+- [X] T042 Fix the unchanged-launcher transaction exception in `src/novel_creator/update.py`; cover successive fixture releases, actual hard-stop recovery, rejection of arbitrary launcher edits and mandatory final launcher restoration per FR-010–FR-012, SC-002, SC-005 (partial).
+- [X] T043 Refuse affected shared instruction/rule files containing unstaged custom bytes before application; preserve bytes, HEAD and staging and retain successful committed-custom-rule updates per FR-005, FR-007, SC-003 (partial).
+- [X] T044 Make read-only recovery inspection of a completed released update agree with status after writer commits, without weakening exact-checkpoint guards on pending work or explicit retry; extend regressions and the packaged verifier per FR-010–FR-012, SC-005 (partial).

@@ -1,6 +1,65 @@
 # Existing-book Update Qualification
 
-## Status - 2026-11-04 (qualification began 2026-11-03)
+## Current status - PR #4 review corrections, 2026-11-04
+
+The three review findings at `0e4c7c1` are implemented and have failing-before /
+passing-after regressions in `tests/integration/test_update_review.py`:
+
+- An unchanged launcher may match only the exact maintenance stub during an
+  active transaction. Final release checks require the real target launcher.
+  A real fixture journey updates 0.2.0 -> controlled 0.3.0 -> 0.4.0 -> 0.5.0;
+  it kills the 0.4.0 updater after launcher swap, inspects and recovers it, then
+  performs a normal 0.5.0 update and idempotent reapply. Story history, exact
+  commit parents, released fences and verified completion are checked.
+- A shared file that needs modification and differs from its committed bytes
+  is refused before book mutation. Both `.gitignore` and `.gitattributes`
+  regressions preserve custom bytes, HEAD and semantic staging. Committed
+  custom ignore rules still update successfully; unrelated custom AGENTS bytes
+  remain untouched.
+- Read-only recovery inspection returns verified completed status after writer
+  progress, with no cleanup and no retry needed. Pending operations and explicit
+  retries retain the existing exact-evidence/checkpoint checks. The packaged
+  verifier now asserts completed inspection after a real subsequent save, while
+  continuing to require refusal of an explicit retry with changed evidence.
+
+The three focused contract regressions passed. A separate Windows run passed
+19 tests covering the successive hard-stop journey, all update CLI/protocol
+contracts, ownership and committed-custom-rule integration: exit 0, no skips,
+469.677s (informational). The successive test holds one actual runtime metadata
+snapshot constant, including in the killed child, solely to isolate the reported
+Windows fingerprint drift. Actual package installation, origin/hash validation,
+Git transactions and process death remain exercised.
+
+All three review corrections are complete (T042-T044). Packaged verification
+passed for both historical origins, English/Icelandic preservation, a real
+subsequent saved exchange, complete/ready/no-cleanup recovery inspection,
+no-op application and changed-evidence retry refusal. This is explicitly
+fixed-metadata, offline Windows fixture evidence; it does not qualify live
+runtime-fingerprint stability. The result is retained in
+`.tools/pr4-review/stable-update.json` with
+`runtime_metadata_held_constant_in_test_harness: true`.
+
+| Review artifact | SHA-256 |
+| --- | --- |
+| Unreleased development 0.2.0 wheel | `0cc8da68aea0174669c0ab3f075669c14fcde9f151aa8709b3e3ee117de9d55f` |
+| Controlled unpublished 0.3.0 target | `b6fb3008e66b122d017655dd0c65c5113ed63721cf97332b69fc83e42da4838e` |
+
+Both wheel copies of `novel_creator/update.py` match the current source bytes.
+The source-file SHA-256 is
+`d3c9c804a4345ffbdf2e45479274f148a0078e9e611c212708e8519f1784f3dd`.
+
+The first ordinary packaged run failed;
+a diagnostic run captured `Configured runtime changed since preview` from the
+installed child. Those failed attempts are retained separately from the passing
+test-only fixed-metadata run.
+Production runtime fingerprint checks have not been changed. A new Linux
+environment attempt failed at WSL startup with
+`Wsl/Service/CreateInstance/HCS_E_CONNECTION_TIMEOUT`; no corrected-source Linux
+result is claimed. The earlier full 368-case Windows/Linux and native-host
+results below are historical evidence for the pre-review source, not a rerun of
+these corrections. FUP-001 and the native-input/Linux-host limits remain open.
+
+## Initial qualification - 2026-11-04 (began 2026-11-03)
 
 Preview, application, durable recovery, ownership guards and historical-book
 integration are implemented. All 41 tasks are complete in the user-approved

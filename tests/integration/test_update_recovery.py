@@ -15,15 +15,18 @@ from tests.integration.test_update_apply import reviewed, apply_review
 from tests.update_helpers import snapshot
 
 
-def killed_apply(book, preview, point):
+def killed_apply(book, preview, point, *, runtime=None):
     cache = update_release.cache_home()
     acknowledgement = cache / 'crash-ack.txt'
     program = '''
 import sys,os,json
 from pathlib import Path
 from novel_creator import update,update_release
-root,cache,preview,point=sys.argv[1:]
+root,cache,preview,point,runtime=sys.argv[1:]
 update_release.cache_home=lambda:Path(cache)
+if runtime != 'null':
+ fixed_runtime=json.loads(runtime)
+ update_release.runtime_info=lambda python=None:fixed_runtime
 document=json.loads(preview)
 def fault(actual):
  if actual == point:
@@ -34,7 +37,7 @@ update.apply(root,preview_id=document['preview_id'],version=document['target_ver
  expected_head=document['reviewed_head'],confirm_quiescent=True,fault=fault)
 '''
     result = subprocess.run([sys.executable, '-I', '-B', '-X', 'utf8', '-c', program,
-        str(book.root), str(cache), json.dumps(preview), point], capture_output=True, timeout=180,
+        str(book.root), str(cache), json.dumps(preview), point, json.dumps(runtime)], capture_output=True, timeout=180,
         creationflags=getattr(subprocess, 'CREATE_NO_WINDOW', 0))
     if result.returncode != 91:
         raise AssertionError('Child did not reach requested crash point: ' + result.stderr.decode('utf-8'))

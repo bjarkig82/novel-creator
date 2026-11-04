@@ -179,6 +179,12 @@ def _plan_changes(root, manifest, raw_manifest, source, source_agents, prepared,
             raise ToolError(3, 'Target resource collides with existing content', affected_refs=[path])
         if old == new:
             continue
+        if path in SHARED:
+            entry = committed.get(path)
+            committed_raw = storage.git(root, 'cat-file', 'blob', entry[1]) if entry else None
+            if old != committed_raw:
+                raise ToolError(3, 'Affected shared file has unstaged changes; commit or preserve them before updating',
+                                affected_refs=[path])
         if path in SHARED or path == MANIFEST or path in exclusive:
             expected = committed.get(path)
             actual = storage.index_entries(root, [path])
@@ -474,13 +480,18 @@ def _check_worktree(root, value, *, final=False, only_path=None, allow_launcher=
             raise ToolError(3, 'Installed working file differs from recorded update evidence', affected_refs=[change['path']])
 
 
-def _check_untouched_resources(root, value, prepared):
+def _check_untouched_resources(root, value, prepared, *, allow_launcher=True):
     affected = {item['path'] for item in value['preview']['changes']}
     for path, raw in prepared['files'].items():
         if path in affected:
             continue
         target = storage.safe_path(root, path, setup=True, _regular_leaf=True)
-        if target.read_bytes() != raw or _file_identity(target)['mode'] != prepared['modes'][path]:
+        actual, mode = target.read_bytes(), _file_identity(target)['mode']
+        # Every transaction pauses the launcher, even when releases share it.
+        # Only finalization requires the real target launcher unconditionally.
+        if allow_launcher and path == LAUNCHER and (actual, mode) == (MAINTENANCE_LAUNCHER, '100644'):
+            continue
+        if actual != raw or mode != prepared['modes'][path]:
             raise ToolError(3, 'An unchanged installed resource was modified during maintenance', affected_refs=[path])
 
 
@@ -516,7 +527,7 @@ def _ready_to_release(root, value, prepared, baseline, desired):
             or _index_rows(root, list(desired)) != desired):
         raise ToolError(3, 'Published update state changed during final verification')
     _check_worktree(root, value, final=True, allow_launcher=False)
-    _check_untouched_resources(root, value, prepared)
+    _check_untouched_resources(root, value, prepared, allow_launcher=False)
     _check_story(root, value['candidate'])
     _runtime_unchanged(document)
 
@@ -705,6 +716,11 @@ def recover(novel, *, operation_id, retry=False, expected_head=None, fault=None)
     report = status(root, operation_id=identifier)
     report['operation'] = 'update.recover'
     report['data']['retry_eligible'] = False
+    # Finished maintenance needs no recovery. Status already verifies the
+    # released target and raw ancestry, including subsequent writer commits.
+    # Explicit retries still validate the original transaction evidence below.
+    if not retry and report['data']['state'] == 'complete' and report['data']['ready']:
+        return report
     value = maintenance.read_operation(root, identifier)
     fence = storage.safe_path(root, '.novel-creator/local/write.lock')
     blockers = report['data']['blockers']

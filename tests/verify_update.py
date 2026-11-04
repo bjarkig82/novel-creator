@@ -102,6 +102,9 @@ print(json.dumps(result))
             with patch('novel_creator.update_release.cache_home', return_value=Path(cache)):
                 report = update.status(book.root, operation_id=preview['preview_id'])
                 assert report['data']['ready'] and not report['data']['cleanup_required']
+                inspection = update.recover(book.root, operation_id=preview['preview_id'])
+                assert inspection['data']['state'] == 'complete' and inspection['data']['ready']
+                assert not inspection['data']['cleanup_required'] and not inspection['data']['retry_eligible']
                 assert update.apply(book.root, preview_id=preview['preview_id'], version=str(version),
                     expected_head=preview['reviewed_head'], confirm_quiescent=True)['data']['ready']
                 from novel_creator.cli import ToolError
@@ -119,6 +122,7 @@ print(json.dumps(result))
                 'history_and_writer_work_preserved': True, 'guided_session_restored': True,
                 'pinned_product_origins': True, 'subsequent_synthetic_save': True,
                 'completed_status_after_subsequent_save': True,
+                'completed_recovery_inspection_after_subsequent_save': True,
                 'changed_recovery_checkpoint_refused': True})
     return {'ok': True, 'scope': 'offline disposable installed-controller CLI qualification; not native host or publication',
             'cases': cases}
