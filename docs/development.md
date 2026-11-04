@@ -5,7 +5,7 @@ This document describes contributor setup and historical POC evidence. The new
 package command is `novel-creator init NAME`; consult the guide's release status
 before installing by name. Existing novels keep their pinned resources.
 
-The unreleased existing-book updater is implemented in this checkout. It uses
+The existing-book updater targets release 0.3.0 in this checkout. It uses
 an external controller, exact published-release identities, a read-only preview,
 ownership-aware framework commits and local exact-operation recovery. Its tests
 use approved public historical sources and controlled unpublished targets; the

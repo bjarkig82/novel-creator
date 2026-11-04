@@ -5,8 +5,8 @@ and return to saved conversations in Codex. You can start with no story idea.
 Each novel is its own local Git repository. Initialization finishes before creative
 setup begins; you choose when to start brainstorming.
 
-**Release target:** `novel-creator` 0.2.0 on PyPI. Check the
-[release page](https://pypi.org/project/novel-creator/0.2.0/) before using the named
+**Release target:** `novel-creator` 0.3.0 on PyPI. Check the
+[release page](https://pypi.org/project/novel-creator/0.3.0/) before using the named
 installation commands. During prepublication verification, install only the
 maintainer's identified candidate wheel in the same environment instead.
 
@@ -208,16 +208,15 @@ An older novel may lack this guide. The installed command then labels a package-
 fallback; reading it changes nothing in that novel. Continue using the older novel's
 pinned workflows. Installing/upgrading the package never upgrades an existing novel.
 
-## Updating an existing book (unreleased development feature)
+## Updating an existing book
 
-The development controller implements explicit preview, application and recovery.
-Published 0.1.0/0.2.0 book launchers do not provide these commands. This feature
-needs a future published updater-capable release; installing the currently
-documented 0.2.0 package does not provide it. Until then, identified development
-builds are for disposable evaluation. Package installation alone never changes
-the pinned framework in an existing book.
+The 0.3.0 controller implements explicit preview, application and recovery.
+Published 0.1.0/0.2.0 book launchers do not provide these commands. Install the
+updater-capable 0.3.0 package only after its release is available; during candidate
+verification use the identified candidate archive. Package installation alone
+never changes the pinned framework in an existing book.
 
-When an updater-capable release is available, install it in a separate Python
+Install the external controller in a separate Python
 environment outside the book and retain its absolute interpreter path as the
 external controller. No framework checkout, GitHub contribution access or model
 key is required. Use the intended book runtime explicitly if it differs:

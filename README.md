@@ -4,13 +4,13 @@ A home for developing an app that helps writers plan and create novels.
 
 ## Getting started
 
-Follow the [writer's getting-started guide](https://github.com/bjarkig82/novel-creator/blob/v0.2.0/workflows/getting-started.md) for
+Follow the [writer's getting-started guide](https://github.com/bjarkig82/novel-creator/blob/v0.3.0/workflows/getting-started.md) for
 installation, `novel-creator init 'My Novel'`, opening the novel in Codex,
 your first saved conversation, inspection and returning later.
-[Install Novel Creator 0.2.0 from PyPI](https://pypi.org/project/novel-creator/0.2.0/):
+[Install Novel Creator 0.3.0 from PyPI](https://pypi.org/project/novel-creator/0.3.0/):
 
 ```text
-python -m pip install novel-creator==0.2.0
+python -m pip install novel-creator==0.3.0
 novel-creator init "My Novel"
 ```
 
@@ -19,13 +19,15 @@ Windows PowerShell and Linux Bash production installs are verified, together wit
 Windows Codex Desktop setup/save/inspection/resume. Linux Codex integration remains
 unverified. The developer/older POC instructions below remain reference material.
 
+Check the release page before installing; candidate verification precedes publication.
+
 ## Project status
 
-**Unreleased existing-book updater:** this checkout implements explicit published
+**Existing-book updater (0.3.0 release target):** this checkout implements explicit published
 release checks, reviewed previews, framework-only local update commits and exact
 operation recovery. The published 0.1.0/0.2.0 packages do not contain it. Package
-installation alone does not update a pinned book. See the development
-[update instructions](workflows/getting-started.md#updating-an-existing-book-unreleased-development-feature),
+installation alone does not update a pinned book. See the
+[update instructions](workflows/getting-started.md#updating-an-existing-book),
 [shared workflow](workflows/update.md) and
 [qualification ledger](tests/evaluations/existing-book-update-qualification.md).
 Keep legacy clients closed through first application/recovery and use the

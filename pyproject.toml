@@ -12,7 +12,7 @@ dependencies = ["jsonschema>=4.23,<5", "jsonschema-rs>=0.59,<0.60", "packaging>=
 
 [project.urls]
 Source = "https://github.com/bjarkig82/novel-creator"
-Documentation = "https://github.com/bjarkig82/novel-creator/blob/v0.2.0/workflows/getting-started.md"
+Documentation = "https://github.com/bjarkig82/novel-creator/blob/v0.3.0/workflows/getting-started.md"
 
 [project.optional-dependencies]
 test = []
