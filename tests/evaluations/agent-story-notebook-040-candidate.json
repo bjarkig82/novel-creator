@@ -1,0 +1,29 @@
+{
+  "run_id": 41927760131,
+  "run_attempt": 1,
+  "artifact_id": 13368909938,
+  "source_commit": "06c35470ebc4b1c765e02f140cef26b35c52be7b",
+  "artifact_archive_sha256": "f5adc96d697ab43e930893c02e6bec6be8ce0f45a88f6d410a9fc8d12e110192",
+  "workflow_url": "https://github.com/bjarkig82/novel-creator/actions/runs/41927760131",
+  "windows_job_url": "https://github.com/bjarkig82/novel-creator/actions/runs/41927760131/job/126916719932",
+  "linux_job_url": "https://github.com/bjarkig82/novel-creator/actions/runs/41927760131/job/126916720066",
+  "local_verification": "passed: archive digest, externally specified candidate identity, exact files and checksums",
+  "ci_manifest_verification": "passed on Linux and Windows",
+  "native_desktop_acceptance": "not established",
+  "manifest": {
+    "repository": "bjarkig82/novel-creator",
+    "run_id": "41927760131",
+    "run_attempt": "1",
+    "source_commit": "06c35470ebc4b1c765e02f140cef26b35c52be7b",
+    "distribution": "novel-creator",
+    "version": "0.4.0",
+    "files": {
+      "novel_creator-0.4.0-py3-none-any.whl": "0e307a484601b25299246f356047153ac09c929f447861354e6b2f0944152ccc",
+      "novel_creator-0.4.0.tar.gz": "3db59e353e0a765f0444be6675f085edf33d7c05bfe7f01a0b1f6325ba1edd4d"
+    }
+  },
+  "qualification_status": "ineligible: Linux qualification failed; run cancelled after failure",
+  "linux_qualification": "failed: LegacyNotebookBoundary fixture relied on inherited developer Git identity",
+  "windows_qualification": "cancelled: superseded candidate",
+  "publication": "not attempted"
+}

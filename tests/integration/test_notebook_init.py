@@ -209,12 +209,20 @@ class LegacyNotebookBoundary(unittest.TestCase):
         from novel_creator.update_release import export_bundle
 
         with tempfile.TemporaryDirectory(prefix='legacy-notebook-boundary-') as directory:
-            root = Path(directory) / 'legacy'
+            home = Path(directory).resolve() / 'home'
+            home.mkdir()
+            (home / '.gitconfig').write_text('[user]\n\tuseConfigOnly = true\n', encoding='utf-8')
+            root = Path(directory).resolve() / 'legacy'
             env = {k: v for k, v in os.environ.items() if not k.startswith('GIT_')}
-            env.update(GIT_CONFIG_NOSYSTEM='1', GIT_CONFIG_GLOBAL=os.devnull,
+            env.update(HOME=str(home), USERPROFILE=str(home), XDG_CONFIG_HOME=str(home / 'xdg'),
+                       GIT_CONFIG_NOSYSTEM='1',
                        GIT_AUTHOR_NAME='Test', GIT_AUTHOR_EMAIL='test@example.invalid',
                        GIT_COMMITTER_NAME='Test', GIT_COMMITTER_EMAIL='test@example.invalid')
             with patch.dict(os.environ, env, clear=True):
+                root.mkdir()
+                subprocess.check_call(['git', '-C', str(root), 'init', '-q', '-b', 'main'])
+                subprocess.check_call(['git', '-C', str(root), 'config', 'user.name', 'Disposable Test'])
+                subprocess.check_call(['git', '-C', str(root), 'config', 'user.email', 'test@example.invalid'])
                 initialize(root, json.dumps({'title': 'Legacy'}))
             exported = export_bundle()['files']
             setup_module = '.novel-creator/src/novel_creator/notebook.py'
