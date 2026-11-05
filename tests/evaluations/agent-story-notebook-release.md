@@ -1,6 +1,6 @@
 # Story notebook: 0.4.0 release preparation
 
-**Status: replacement Windows qualification failed; test correction prepared; not published.** The published stable release
+**Status: corrected candidate verified; Windows and Linux CI qualification running; not published.** The published stable release
 remains 0.3.0. Version 0.4.0 is the next minor release because the published
 0.3.0 archives cannot be replaced.
 
@@ -81,9 +81,9 @@ verification results; none were available during this attempt. Linux Desktop
 remains explicitly unverified under the existing scope. No publication was
 attempted, and PyPI 0.4.0 is not claimed published.
 
-The first candidate and its failed/cancelled results remain historical. Resume
-from this replacement run after the required input is available; inspect its
-current Windows result rather than assuming success or rebuilding unnecessarily.
+The first candidate and this failed replacement remain historical and must not
+be published. Use only the corrected candidate identified below after its own
+Windows and Linux qualification succeeds; do not resume either failed run.
 
 ## Windows proxy regression correction — November 5, 2026
 
@@ -96,3 +96,33 @@ and filtering checks are retained. Thirteen focused transport/GitHub/CLI/mutatio
 tests passed locally, and independent review found no material issue. A new
 immutable candidate and actual Windows CI validation are required after the fix.
 Native Codex Desktop notebook acceptance remains separately unverified.
+
+## Corrected Windows proxy candidate
+
+The [fresh candidate workflow](https://github.com/bjarkig82/novel-creator/actions/runs/41989002817)
+built source `a495c0b9a94e4cf982f40317c2a784f0293ac560`, attempt 1, artifact
+`13397352646`. Independent verification checked the GitHub ZIP
+digest, repository/source/run/attempt/version binding and exact distribution hashes.
+
+| Distribution | SHA-256 |
+| --- | --- |
+| novel_creator-0.4.0-py3-none-any.whl | `848e9bd71f09d618f7de564454383480330e39953e6587f084348fae63cf08eb` |
+| novel_creator-0.4.0.tar.gz | `b687597c4fba1ee1b3f56e148ea3adca892c2b16314dfa4fd227837a2792a90c` |
+
+Linux CI qualification passed. Windows passed all 401 unit tests, including the
+proxy regression, but wheel verification then failed because notebook resource
+bytes differed from the Windows checkout. This candidate is ineligible for
+publication; a corrected candidate must pass its own checks. Actual native Windows
+Codex Desktop notebook acceptance remains separately unverified; runner checks
+cannot substitute for it. No publication was attempted.
+
+## Windows checkout resource correction
+
+The notebook resource directory was missing from the release-resource LF rules
+in `.gitattributes`. A Windows checkout with `core.autocrlf=true` converted its
+Markdown bytes to CRLF while the immutable wheel built on Linux retained LF.
+The directory now uses the same LF rule as the other packaged resources. Strict
+wheel/source byte comparison is unchanged. A real Git checkout regression fails
+without the rule and passes with it; all five focused verifier tests pass. An
+independent review found no material issue. The corrected source needs a fresh
+candidate run; previous failed candidates remain ineligible for publication.

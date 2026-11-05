@@ -6,6 +6,7 @@ src/novel_creator/** text eol=lf
 schemas/** text eol=lf
 workflows/** text eol=lf
 languages/** text eol=lf
+notebook/** text eol=lf
 adapters/codex/** text eol=lf
 pyproject.toml text eol=lf
 README.md text eol=lf

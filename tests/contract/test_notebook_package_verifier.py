@@ -1,11 +1,36 @@
 """Candidate notebook failures cannot masquerade as historical compatibility."""
 import unittest
+from pathlib import Path
+import subprocess
+import tempfile
 from unittest.mock import patch
 
 from tests import verify_package_install
 
 
 class NotebookPackageVerifierTest(unittest.TestCase):
+    def test_notebook_resources_keep_lf_in_autocrlf_checkout(self):
+        checkout = Path(__file__).resolve().parents[2]
+        resources = [path.relative_to(checkout) for path in (checkout / 'notebook').rglob('*')
+                     if path.is_file() and path.suffix in ('.md', '.py')]
+        self.assertTrue(resources)
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            subprocess.run(['git', 'init', '-q', str(root)], check=True)
+            subprocess.run(['git', '-C', str(root), 'config', 'core.autocrlf', 'true'], check=True)
+            (root / '.gitattributes').write_bytes((checkout / '.gitattributes').read_bytes())
+            for relative in resources:
+                path = root / relative
+                path.parent.mkdir(parents=True, exist_ok=True)
+                path.write_bytes(b'first line\nsecond line\n')
+            subprocess.run(['git', '-C', str(root), 'add', '.'], check=True, capture_output=True)
+            for relative in resources:
+                (root / relative).unlink()
+            subprocess.run(['git', '-C', str(root), 'checkout-index', '--all', '--force'], check=True)
+            for relative in resources:
+                with self.subTest(resource=relative):
+                    self.assertEqual((root / relative).read_bytes(), b'first line\nsecond line\n')
+
     def test_candidate_requires_notebook_even_at_historical_version(self):
         with patch('tests.verify_wheel.verify_notebook', side_effect=RuntimeError('missing route')) as probe:
             with self.assertRaisesRegex(RuntimeError, 'missing route'):

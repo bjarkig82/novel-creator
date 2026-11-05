@@ -1,0 +1,25 @@
+{
+  "manifest": {
+    "repository": "bjarkig82/novel-creator",
+    "run_id": "41989002817",
+    "run_attempt": "1",
+    "source_commit": "a495c0b9a94e4cf982f40317c2a784f0293ac560",
+    "distribution": "novel-creator",
+    "version": "0.4.0",
+    "files": {
+      "novel_creator-0.4.0-py3-none-any.whl": "848e9bd71f09d618f7de564454383480330e39953e6587f084348fae63cf08eb",
+      "novel_creator-0.4.0.tar.gz": "b687597c4fba1ee1b3f56e148ea3adca892c2b16314dfa4fd227837a2792a90c"
+    }
+  },
+  "artifact_id": 13397352646,
+  "archive_sha256": "370b7d8fe6b2cea113316c9d8d8c06ede018c78ced21b5db5c10280c43fe5611",
+  "manifest_verification": "passed",
+  "workflow_status": "completed",
+  "native_desktop_acceptance": "not established",
+  "ready_for_publication": false,
+  "publication": "not attempted",
+  "workflow_conclusion": "failure",
+  "linux_ci": "passed",
+  "windows_unit_tests": "passed: 401 tests",
+  "windows_package_verification": "failed: notebook resource bytes differ from Windows checkout"
+}
