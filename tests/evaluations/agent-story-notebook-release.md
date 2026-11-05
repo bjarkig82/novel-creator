@@ -1,6 +1,6 @@
 # Story notebook: 0.4.0 release preparation
 
-**Status: preparing the approved automated-only release contract and a replacement candidate; not published.** The published stable release
+**Status: automated-only replacement candidate built and independently verified; Windows/Linux qualification running; not published.** The published stable release
 remains 0.3.0. Version 0.4.0 is the next minor release because the published
 0.3.0 archives cannot be replaced.
 
@@ -203,3 +203,25 @@ The prior brainstorming candidate above does not contain this contract change an
 must not be published with invented host declarations. A fresh immutable candidate
 will be built after the reviewed workflow/verifier change is committed. Historical
 candidate and native-evidence records remain intact.
+
+
+## Automated-only immutable candidate
+
+The superseded brainstorming candidate was cancelled before qualification finished;
+it remains historical and must not be published. The reviewed automated-only
+contract is now included in [replacement candidate qualification](https://github.com/bjarkig82/novel-creator/actions/runs/42044371273),
+source `abaca5ff90ce1adc90274e5515209a87bf6c58f7`, attempt 1, artifact
+`13423358339`. Independent connector download verified its GitHub ZIP digest
+`26ad6d07f7ff56c7b307d6e3e484b6dfa19bda14f6421c1ca73c5ca2ac2d69ab`,
+strict manifest identity, version 0.4.0 and both archive hashes:
+
+| Distribution | SHA-256 |
+| --- | --- |
+| novel_creator-0.4.0-py3-none-any.whl | `1e6d7db9fd9b2356563afaa776625d90a41bc909786a52d517a1566d40115bb3` |
+| novel_creator-0.4.0.tar.gz | `8025ff396c9a9d1c547603ccd3819ee3076e855b434eb3cf2d5534eb78708713` |
+
+Both platform jobs are running full automated qualification. Current exact results
+are retained in [automated candidate evidence](agent-story-notebook-040-automated-candidate.json).
+Native Windows/Linux Desktop behavior and the Windows literal PowerShell guide
+remain unverified. Publication has not been attempted; successful complete automated
+qualification and the existing protected PyPI review are still required.

@@ -18,16 +18,18 @@
       "novel_creator-0.4.0.tar.gz": "3db59346732c10703895b4f954482c79a19ec8bba04da6438388ae934e33bcb3"
     }
   },
-  "status": "in_progress",
+  "status": "completed",
   "windows": {
-    "status": "in_progress"
+    "status": "cancelled"
   },
   "linux": {
-    "status": "in_progress"
+    "status": "cancelled"
   },
   "native_windows_codex_desktop_acceptance": "unverified",
   "windows_literal_guide_acceptance": "unverified",
   "linux_codex_desktop_acceptance": "unverified",
   "ready_for_publication": false,
-  "publication": "not attempted"
+  "publication": "not attempted",
+  "conclusion": "cancelled",
+  "superseded_by_candidate_run": 42044371273
 }
