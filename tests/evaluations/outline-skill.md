@@ -42,6 +42,11 @@ The complete rebuilt-wheel verifier passed: source-byte inventory checks,
 installed product module origins, legacy journeys and export boundaries, and
 English/Icelandic notebook creation with the explicit outline adapter.
 
+The full `python -m unittest discover` run completed with exit status 0:
+403 tests run, three skipped, no failures. This includes the existing update
+checkpoint and durability recovery cases. The final focused installation and
+package checks also passed after the development-documentation migration.
+
 ## Agent application checks
 
 A separate fresh-context application agent used the installed adapter and shared
