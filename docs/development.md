@@ -48,6 +48,9 @@ behavior. The release workflow also checks source distributions and production
 installation. Local builds do not establish publication or actual Codex behavior.
 See [testing guidance](testing-and-completion-guide.md) and
 [the release workflow](../.github/workflows/package-release.yml).
+For every requested PyPI release, prepare versioned notes and update the
+[release history](releases/README.md) following the
+[release documentation requirements](../AGENTS.md#pypi-releases).
 
 ## Compatibility and evidence
 

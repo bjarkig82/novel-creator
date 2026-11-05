@@ -19,6 +19,31 @@ See [functionality](docs/functionality.md), [development setup](docs/development
 and [testing guidance](docs/testing-and-completion-guide.md). Application workflows
 and installed Codex skills are product resources; preserve them when changing tooling.
 
+## PyPI releases
+
+When asked to publish a new version of `novel-creator` to PyPI, prepare its
+release documentation before publication as part of the release work:
+
+- Create or update `docs/releases/<version>.md` and add it to the
+  [release history](docs/releases/README.md), newest version first. Link the
+  release history from the README when updating its installation/version guidance.
+- State the exact package version and whether it is an unpublished candidate or
+  a verified published release. Add the publication date only after verifying
+  publication; do not describe a planned release as available on PyPI.
+- Compare with the previous published version, using the relevant source changes
+  and release evidence. Explain user-visible additions, fixes, changed behavior,
+  compatibility or breaking changes, and known limitations in plain language.
+  Omit empty categories and distinguish verified behavior from pending work.
+- Include a version-pinned install/upgrade command and any required migration or
+  follow-up steps. Explain effects on existing novels, including when installing
+  the package leaves their pinned resources unchanged. For candidates, label the
+  command as usable only after publication.
+- Keep the notes, package version, installation guidance and release artifacts
+  consistent. Follow the existing candidate checks and publication workflow;
+  release notes do not replace validation or authorize publication.
+- After authorized publication, verify availability, update the notes' status and
+  date, and report the version, main changes and release-note location to the user.
+
 ## Implementation and review
 
 Use subagent-driven development for implementation work in this repository.
