@@ -50,11 +50,12 @@ def initialize(target, *, title=None, language='en'):
 
     # Read and render the entire small resource set before creating anything.
     shared = files('novel_creator.notebook_resources')
-    codex = files('novel_creator.codex').joinpath('notebook', 'AGENTS.md')
-    planned = {'AGENTS.md': codex.read_bytes(),
+    codex = files('novel_creator.codex').joinpath('notebook')
+    planned = {'AGENTS.md': codex.joinpath('AGENTS.md').read_bytes(),
+               '.agents/skills/novel-outline/SKILL.md': codex.joinpath('skills', 'novel-outline', 'SKILL.md').read_bytes(),
                '.gitignore': b'.env\n.env.*\n*.key\n*.pem\n',
                '.gitattributes': b'*.md text eol=lf\n'}
-    for name in ('conversation.md', 'format.md'):
+    for name in ('conversation.md', 'format.md', 'outline.md'):
         planned['.novel-notebook/workflows/' + name] = shared.joinpath('workflows', name).read_bytes()
     planned['.novel-notebook/languages/' + language + '.md'] = shared.joinpath('languages', language + '.md').read_bytes()
     for kind, filename, identifier in (('project', 'project.md', 'project'),

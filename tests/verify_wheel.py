@@ -53,15 +53,23 @@ def verify_notebook(console, scratch, env, language):
     assert not (root / '.novel-notebook/languages' / (('is' if language == 'en' else 'en') + '.md')).exists()
     assert not (root / '.novel-creator').exists()
     assert not list(root.rglob('*.py'))
+    skill = root / '.agents/skills/novel-outline/SKILL.md'
+    assert skill.is_file()
     for reference in ('.novel-notebook/workflows/conversation.md', '.novel-notebook/workflows/format.md',
+                      '.novel-notebook/workflows/outline.md',
                       'notebook/project.md', 'notebook/working-summary.md'):
         assert (root / reference).is_file(), reference
-    for path in [root / 'AGENTS.md', *(root / '.novel-notebook').rglob('*.md')]:
+    for path in [root / 'AGENTS.md', skill, *(root / '.novel-notebook').rglob('*.md')]:
         for link in re.findall(r'\]\(([^)#]+)(?:#[^)]*)?\)', path.read_text(encoding='utf-8')):
             if not re.match(r'^[a-zA-Z][a-zA-Z0-9+.-]*:', link):
                 assert (path.parent / link).is_file(), (path, link)
+    assert any((skill.parent / link).resolve() == (root / '.novel-notebook/workflows/outline.md').resolve()
+               for link in re.findall(r'\]\(([^)]+)\)', skill.read_text(encoding='utf-8')))
+    assert not (root / 'notebook/topics').exists()
+    assert not (root / 'chapters').exists() and not (root / 'scenes').exists()
+    assert not run(['git', '-C', root, 'status', '--porcelain'], cwd=scratch, env=env).strip()
     run(['git', '-C', root, 'log', '-1', '--format=%s'], cwd=scratch, env=env)
-    return {'language': language, 'created': True, 'guidance_links': True}
+    return {'language': language, 'created': True, 'guidance_links': True, 'outline_skill': True}
 
 
 def verify(wheel):
@@ -126,6 +134,7 @@ assert metadata['protocol_version'] == 1 and metadata['source_installation_forma
 exported=export_bundle()
 assert '.novel-creator/workflows/update.md' in exported['files']
 assert '.agents/skills/novel-update/SKILL.md' in exported['files']
+assert '.agents/skills/novel-outline/SKILL.md' not in exported['files']
 paths = [str(Path(module.__file__).resolve()) for name, module in sys.modules.items()
          if name.startswith('novel_creator') and getattr(module, '__file__', None)]
 assert paths and all(Path(path).is_relative_to(Path(sys.prefix)) for path in paths), paths

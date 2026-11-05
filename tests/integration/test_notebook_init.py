@@ -84,6 +84,28 @@ class NotebookInitialization(unittest.TestCase):
                     self.assertNotIn('Concept', project)
                     self.assertNotIn('Working summary', summary)
 
+    def test_outline_skill_is_installed_with_resolvable_shared_guidance(self):
+        import re
+        for language in ('en', 'is'):
+            with self.subTest(language=language):
+                self.target = self.parent / language
+                self.initialize(language=language)
+                skill = self.target / '.agents/skills/novel-outline/SKILL.md'
+                workflow = self.target / '.novel-notebook/workflows/outline.md'
+                self.assertTrue(skill.is_file(), 'New notebooks need the explicit outline skill')
+                self.assertTrue(workflow.is_file())
+                links = re.findall(r'\]\(([^)]+)\)', skill.read_text(encoding='utf-8'))
+                self.assertTrue(links)
+                self.assertIn(workflow.resolve(), [(skill.parent / link).resolve() for link in links])
+                for link in links:
+                    self.assertTrue((skill.parent / link).is_file(), link)
+                tracked = subprocess.check_output(['git', '-C', str(self.target), 'ls-files'], text=True)
+                self.assertIn('.agents/skills/novel-outline/SKILL.md', tracked)
+                self.assertIn('.novel-notebook/workflows/outline.md', tracked)
+                self.assertFalse((self.target / 'notebook/topics').exists())
+                self.assertFalse((self.target / 'chapters').exists())
+                self.assertFalse((self.target / 'scenes').exists())
+
     def test_existing_empty_directory_is_preserved(self):
         self.target.mkdir()
         with self.assertRaises(ToolError):
@@ -241,3 +263,6 @@ class LegacyNotebookBoundary(unittest.TestCase):
             self.assertNotIn('notebook', help_result.stdout)
             self.assertNotIn(setup_module, exported)
             self.assertFalse((root / setup_module).exists())
+            self.assertNotIn('.agents/skills/novel-outline/SKILL.md', exported)
+            self.assertFalse((root / '.agents/skills/novel-outline').exists())
+            self.assertFalse((root / '.novel-notebook/workflows/outline.md').exists())
