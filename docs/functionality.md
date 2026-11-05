@@ -116,6 +116,29 @@ The installed [format guidance](../notebook/workflows/format.md) is the detailed
 reference; [notebook evidence](../tests/evaluations/agent-story-notebook.md) records
 what has actually been exercised.
 
+Notebook brainstorming selects both a useful focus and a conversational method
+from actual book context, the current request and subsequent answers. Loose
+fragments can invite associations, a stuck idea can invite freewriting, and an
+event question can invite what-if consequences; these are flexible cues. Empty or
+sparse concepts begin with broad book-idea discovery, then follow the writer's interests, atmosphere, themes or rough situation one
+question at a time. Known answers are not asked again. There is no required genre
+checklist or character/plot/outline prerequisite. An explicit topic or method,
+including a method chosen before a subject, takes priority and persists while
+relevant; writers can switch naturally. Suggestions and story choices remain
+provisional until clear acceptance, and moving on does not resolve questions.
+
+Five thin Codex skills provide optional focused entries: `$novel-book-idea`,
+`$novel-premise`, `$novel-character`, `$novel-plot` and `$novel-setting`. Shared
+[brainstorming guidance](../notebook/workflows/brainstorming.md) supplies concrete
+prompts and methods: associations, mind mapping, conversational freewriting,
+perspective changes, focused questions and optional later premise expansion.
+It requires no runtime internet access. The [design source notes](superpowers/specs/2026-11-05-brainstorming-design.md)
+explain the general writing sources and their limits; no method guarantees
+literary quality. These resources ship only into new candidate notebooks, without
+converting or automatically updating existing notebooks or legacy books. Manual
+[conversation scenarios](../tests/evaluations/brainstorming.md) describe judgment
+checks separately from automated installation evidence.
+
 The installed `$novel-outline` skill proposes and refines a book outline from
 relevant notes, then saves selected structure in an outline topic. It preserves
 existing outline identity, revisions and writer edits, links to owning facts and

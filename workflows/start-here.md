@@ -28,6 +28,21 @@ on the separate legacy workflow described below; this command does not convert
 them. The notebook's Windows and Linux Codex Desktop conversations are still
 unverified. The notebook evidence ledger is available in the source repository.
 
+In a new notebook, you can say “I want to write a book, but I don't know what
+about.” Guided conversation starts with your interests, a feeling or a rough
+image, one question at a time. You do not have to choose a genre or invent a
+character first. If you already want a character, place or plot, say so and
+start there. You can also choose a method first, such as “Let's try mind mapping,”
+and change focus whenever you like. Suggestions stay tentative until you choose.
+
+Optional focused skills are `$novel-book-idea`, `$novel-premise`,
+`$novel-character`, `$novel-plot` and `$novel-setting`; ordinary conversation
+chooses a useful focus and method without requiring these commands. `$novel-outline` remains
+an explicitly requested later option. These additions belong to newly initialized
+candidate notebooks. Package installation does not add them to existing notebooks
+or change legacy brainstorming. Candidate features are not available from the
+published legacy release; use the notebook candidate route described above.
+
 The rest of this page describes the existing legacy workflow.
 
 ## Choose your starting point

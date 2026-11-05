@@ -55,11 +55,18 @@ def verify_notebook(console, scratch, env, language):
     assert not list(root.rglob('*.py'))
     skill = root / '.agents/skills/novel-outline/SKILL.md'
     assert skill.is_file()
+    brainstorming_skills = [root / f'.agents/skills/novel-{stage}/SKILL.md'
+                            for stage in ('book-idea', 'premise', 'character', 'plot', 'setting')]
+    for brainstorm_skill in brainstorming_skills:
+        assert brainstorm_skill.is_file(), brainstorm_skill
+        assert any((brainstorm_skill.parent / link).resolve() ==
+                   (root / '.novel-notebook/workflows/brainstorming.md').resolve()
+                   for link in re.findall(r'\]\(([^)]+)\)', brainstorm_skill.read_text(encoding='utf-8')))
     for reference in ('.novel-notebook/workflows/conversation.md', '.novel-notebook/workflows/format.md',
-                      '.novel-notebook/workflows/outline.md',
+                      '.novel-notebook/workflows/outline.md', '.novel-notebook/workflows/brainstorming.md',
                       'notebook/project.md', 'notebook/working-summary.md'):
         assert (root / reference).is_file(), reference
-    for path in [root / 'AGENTS.md', skill, *(root / '.novel-notebook').rglob('*.md')]:
+    for path in [root / 'AGENTS.md', skill, *brainstorming_skills, *(root / '.novel-notebook').rglob('*.md')]:
         for link in re.findall(r'\]\(([^)#]+)(?:#[^)]*)?\)', path.read_text(encoding='utf-8')):
             if not re.match(r'^[a-zA-Z][a-zA-Z0-9+.-]*:', link):
                 assert (path.parent / link).is_file(), (path, link)
@@ -69,7 +76,7 @@ def verify_notebook(console, scratch, env, language):
     assert not (root / 'chapters').exists() and not (root / 'scenes').exists()
     assert not run(['git', '-C', root, 'status', '--porcelain'], cwd=scratch, env=env).strip()
     run(['git', '-C', root, 'log', '-1', '--format=%s'], cwd=scratch, env=env)
-    return {'language': language, 'created': True, 'guidance_links': True, 'outline_skill': True}
+    return {'language': language, 'created': True, 'guidance_links': True, 'outline_skill': True, 'brainstorming_skills': True}
 
 
 def verify(wheel):
