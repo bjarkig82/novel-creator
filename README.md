@@ -11,10 +11,12 @@ setup, read the generated project instructions and continue in the same
 conversation. See [agent-led setup](workflows/start-here.md#ask-your-agent-to-set-up-a-story)
 for prerequisites, safe destinations and host access limits.
 
-The agent-led handoff improvements in this checkout are not included in the
-published 0.4.0 package. That release already supports notebook initialization;
-new instructions apply to projects initialized from this updated source or a
-future package. Installing a package does not rewrite existing project guidance.
+This checkout prepares **0.4.1, an unpublished candidate**, with agent-led setup
+handoff improvements and explicit legacy realtime input capture. These changes
+are not included in the published 0.4.0 package. New instructions apply to
+projects initialized from this updated source or, after publication, 0.4.1.
+Installing a package does not rewrite existing project guidance. See the
+[0.4.1 candidate notes](docs/releases/0.4.1.md) for changes and host requirements.
 
 **New to the tools?** Start with the [beginner guide](https://github.com/bjarkig82/novel-creator/blob/main/workflows/start-here.md),
 which explains setup, everyday writing, and the Windows, Linux, and Mac limits.
@@ -27,6 +29,16 @@ in your configured environment:
 ```text
 python -m pip install novel-creator==0.4.0
 ```
+
+After 0.4.1 is published, use this version-pinned upgrade command:
+
+```text
+python -m pip install --upgrade novel-creator==0.4.1
+```
+
+Existing legacy novels need an [explicit supported update](workflows/getting-started.md#updating-an-existing-book)
+to change pinned resources. Existing notebooks are not automatically updated or
+migrated.
 
 For new notebooks, use the setup route below. The
 [legacy getting-started guide](https://github.com/bjarkig82/novel-creator/blob/v0.4.0/workflows/getting-started.md)
@@ -225,7 +237,7 @@ wheel from the configured dependency environment:
 
 ```bash
 python -m pip wheel . --no-deps --wheel-dir dist
-python tests/verify_wheel.py dist/novel_creator-0.4.0-py3-none-any.whl
+python tests/verify_wheel.py dist/novel_creator-0.4.1-py3-none-any.whl
 ```
 
 Use the actual versioned filename produced by the build. The verifier installs

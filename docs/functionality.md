@@ -228,7 +228,12 @@ The published 0.4.0 release adds the native notebook alongside legacy onboarding
 and updating; 0.2.0 added optional retrospectives.
 See [release notes](releases/0.4.0.md) and the linked evidence for precise scope.
 
-This checkout additionally improves agent-led initialization: generated project
+The [0.4.1 unpublished candidate](releases/0.4.1.md) adds the explicit legacy
+realtime capture route described above and strengthens synthetic retrospective
+transport tests. Proxy/certificate preservation already shipped in 0.4.0; these
+tests do not establish new live network behavior.
+
+The candidate also improves agent-led initialization: generated project
 instructions direct ongoing work through Novel Creator, and legacy setup returns
 runtime/project handoff paths in both shorthand and brief-file modes. Agents must
 read target instructions and saved context before creative replies. Legacy runtime
