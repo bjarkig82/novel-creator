@@ -4,10 +4,21 @@ import sys
 import unittest
 from unittest.mock import patch
 from novel_creator.cli import ToolError
-from novel_creator.retro_github import Github, command, environment
+from novel_creator.retro_github import Github, command
 
 
 class GithubTransport(unittest.TestCase):
+    def child_environment(self, settings, names=None):
+        names = list(settings if names is None else names)
+        script = ('import json, os; print(json.dumps('
+                  '{name: os.environ.get(name) for name in ' + repr(names) + '}))')
+        # Keep only platform executable support; no real credentials or network
+        # settings enter the fixture process.
+        platform = {key: os.environ[key] for key in ('SYSTEMROOT', 'WINDIR')
+                    if key in os.environ}
+        with patch.dict('os.environ', {**platform, **settings}, clear=True):
+            return json.loads(command([sys.executable, '-c', script]))
+
     def test_transport_subprocess_preserves_host_proxy_settings(self):
         uppercase = {
             'HTTP_PROXY': 'proxy.example.test:8080',
@@ -24,15 +35,9 @@ class GithubTransport(unittest.TestCase):
         cases = [uppercase, lowercase]
         if os.name != 'nt':
             cases.append({**uppercase, **lowercase})
-        host_environment = {key: value for key, value in os.environ.items()
-                            if key.upper() not in uppercase}
         for settings in cases:
             with self.subTest(settings=settings):
-                script = ('import json, os; print(json.dumps('
-                          '{name: os.environ.get(name) for name in ' + repr(list(settings)) + '}))')
-                with patch.dict('os.environ', {**host_environment, **settings}, clear=True):
-                    received = json.loads(command([sys.executable, '-c', script]))
-                self.assertEqual(received, settings)
+                self.assertEqual(self.child_environment(settings), settings)
 
     def test_transport_subprocess_preserves_host_certificate_settings(self):
         settings = {
@@ -43,11 +48,14 @@ class GithubTransport(unittest.TestCase):
             'GIT_SSL_CAINFO': 'synthetic-git-ca.pem',
             'GIT_SSL_CAPATH': 'synthetic-git-certificates',
         }
-        script = ('import json, os; print(json.dumps('
-                  '{name: os.environ.get(name) for name in ' + repr(list(settings)) + '}))')
-        with patch.dict('os.environ', settings):
-            received = json.loads(command([sys.executable, '-c', script]))
-        self.assertEqual(received, settings)
+        self.assertEqual(self.child_environment(settings), settings)
+
+    def test_missing_network_settings_are_not_invented(self):
+        names = ['HTTP_PROXY', 'HTTPS_PROXY', 'ALL_PROXY', 'NO_PROXY',
+                 'http_proxy', 'https_proxy', 'all_proxy', 'no_proxy',
+                 'SSL_CERT_FILE', 'SSL_CERT_DIR', 'REQUESTS_CA_BUNDLE',
+                 'CURL_CA_BUNDLE', 'GIT_SSL_CAINFO', 'GIT_SSL_CAPATH']
+        self.assertEqual(self.child_environment({}, names), dict.fromkeys(names))
 
     def test_transport_verification_revocation_prevents_fetch_and_push_launch(self):
         from novel_creator import retro_github
@@ -100,11 +108,33 @@ class GithubTransport(unittest.TestCase):
         self.assertTrue(all(a[:7]==['gh','api','--hostname','github.com','--method','GET',a[-1]] for a in seen))
 
     def test_repository_overrides_and_secret_propagation_are_limited(self):
-        with patch.dict('os.environ',{'GH_REPO':'attacker/repo','GH_HOST':'attacker.invalid',
-                        'GIT_SSH_COMMAND':'steal','GIT_CONFIG_COUNT':'1'}):
-            env=environment()
-        for key in ('GH_REPO','GH_HOST','GIT_SSH_COMMAND','GIT_CONFIG_COUNT'):
-            self.assertNotIn(key,env)
+        settings = {
+            'GH_REPO': 'synthetic/other', 'GH_HOST': 'synthetic.invalid',
+            'GH_CONFIG_DIR': 'synthetic-config',
+            'GH_ENTERPRISE_TOKEN': 'synthetic-enterprise-token',
+            'GITHUB_ENTERPRISE_TOKEN': 'synthetic-enterprise-token',
+            'GIT_DIR': 'synthetic.git', 'GIT_WORK_TREE': 'synthetic-worktree',
+            'GIT_COMMON_DIR': 'synthetic-common', 'GIT_INDEX_FILE': 'synthetic-index',
+            'GIT_OBJECT_DIRECTORY': 'synthetic-objects',
+            'GIT_ALTERNATE_OBJECT_DIRECTORIES': 'synthetic-alternate',
+            'GIT_SSH': 'synthetic-ssh', 'GIT_SSH_COMMAND': 'synthetic-ssh-command',
+            'GIT_PROXY_COMMAND': 'synthetic-proxy-command',
+            'GIT_CONFIG': 'synthetic-config', 'GIT_CONFIG_SYSTEM': 'synthetic-system',
+            'GIT_CONFIG_PARAMETERS': "'http.sslVerify=false'",
+            'GIT_CONFIG_COUNT': '1', 'GIT_CONFIG_KEY_0': 'http.sslVerify',
+            'GIT_CONFIG_VALUE_0': 'false', 'GIT_SSL_NO_VERIFY': '1',
+            'GIT_ASKPASS': 'synthetic-askpass', 'SSH_ASKPASS': 'synthetic-askpass',
+            'UNRELATED_SECRET': 'synthetic-private-value',
+        }
+        self.assertEqual(self.child_environment(settings), dict.fromkeys(settings))
+
+    def test_transport_pins_noninteractive_and_isolated_git_config(self):
+        settings = {'GIT_TERMINAL_PROMPT': '1', 'GH_PROMPT_DISABLED': '0',
+                    'GIT_CONFIG_NOSYSTEM': '0', 'GIT_CONFIG_GLOBAL': 'synthetic-global'}
+        self.assertEqual(self.child_environment(settings), {
+            'GIT_TERMINAL_PROMPT': '0', 'GH_PROMPT_DISABLED': '1',
+            'GIT_CONFIG_NOSYSTEM': '1', 'GIT_CONFIG_GLOBAL': os.devnull,
+        })
 
     def test_push_denied_and_wrong_repo_cannot_enable(self):
         with patch.object(Github,'get',side_effect=[{'login':'writer'},

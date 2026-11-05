@@ -113,7 +113,7 @@ def _preflight(root, *, require_identity=True):
 def _result(root, saved, *, already=False):
     result = dict(saved, operation='init')
     result['data'] = dict(saved['data'], already_initialized=already,
-        brainstorming_optional=True, next_action='Before any creative reply, use novel_path as the working directory and read its AGENTS.md and .novel-creator/workflows/entry.md, then load committed context with runtime_python and launcher_path returned here. Retain those tool-result paths in agent context; they need not be repeated by the writer. Existing AGENTS.md is preserved and may not mention Novel Creator; read the installed entry guide explicitly. Follow native-input capture and save-before-display; brainstorming is optional. If the agent cannot access this folder, select/open the initialized project in the host; do not initialize it again.')
+        brainstorming_optional=True, next_action='Before any creative reply, use novel_path as the working directory and read its AGENTS.md and .novel-creator/workflows/entry.md, then load committed context with runtime_python and launcher_path returned here. Retain those tool-result paths in agent context; they need not be repeated by the writer. Existing AGENTS.md is preserved and may not mention Novel Creator; read the installed entry guide explicitly. Follow explicit current-input capture and save-before-display; brainstorming is optional. If the agent cannot access this folder, select/open the initialized project in the host; do not initialize it again.')
     if saved['data']['cleanup_required']:
         result['data']['next_action'] = 'Run recover inspection and explicit cleanup retry before continuing.'
     return result

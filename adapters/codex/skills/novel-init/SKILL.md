@@ -43,5 +43,5 @@ entry discovery here is explicit and does not guarantee automatic discovery in
 later host sessions. If this host cannot access the novel folder, state the actual
 limitation and ask the writer to select/open that initialized project. Do not
 claim the host switched automatically. Offer brainstorming only as an optional
-next step; all creative replies still require the entry guide's native-input
+next step; all creative replies still require the entry guide's explicit current-input
 capture and save-before-display. Stop if those capabilities are unavailable.

@@ -122,7 +122,7 @@ class InstallationTests(unittest.TestCase):
         self.assertEqual(instructions, files('novel_creator.codex').joinpath(
             'AGENTS.production.md').read_bytes().replace(b'\r\n', b'\n'))
         self.assertIn(b'Use Novel Creator for ongoing story work in this initialized novel', instructions)
-        self.assertIn(b'native-input capture and save-before-display', instructions)
+        self.assertIn(b'explicit current-input capture and save-before-display', instructions)
         self.assertIn('Before any creative reply', result['data']['next_action'])
         self.assertIn('runtime_python and launcher_path', result['data']['next_action'])
         self.assertEqual(result['data']['runtime_python'], str(Path(sys.executable).absolute()))

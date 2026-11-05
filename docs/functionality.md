@@ -53,6 +53,31 @@ saved; recovery cleans up without replay. Never delete receipts, steal locks or
 reset history to clear a pause. Commands and examples are in the
 [testing guide](testing-and-completion-guide.md) and [legacy workflow](../workflows/resume.md).
 
+Legacy realtime voice delegation additionally supports explicit
+`input capture --source realtime_delegation --capture-file FILE --json` when the
+exact complete current public wrapper is directly available. A strict direct
+JSON container retains the raw wrapper and separate mixed earlier user/assistant
+`transcript_delta`; only exact current `<input>` becomes the user message. Unicode,
+whitespace, CRLF, ordinary angle text and ampersands are preserved. Truncated,
+ambiguous, malformed, nested or mixed wrappers fail; structural delimiter text
+inside fields is unsupported. This production source is labeled separately from
+native input and evaluation delegation, with native/evaluation/novice evidence
+false. Artifacts remain evidence rather than creative-source authority; transcript
+context cannot become current instruction, acceptance or retrospective opt-in.
+
+This route can capture/save without read_thread or stable host IDs and is
+independent of retrospective enablement. Optional identity flags must be a genuine
+host-supplied current thread/turn pair. Retrospectives still require normal opt-in,
+confirmed completion save and genuine stable initiating task identity, which may
+differ from the current completion turn. Missing identity means skip/disclose,
+never infer one; later availability does not prove earlier identity. Without the
+exact current wrapper, do not save or reconstruct it, scrape chats or fabricate a
+native/evaluation event. The host owns transcription/fidelity, wrapper availability,
+native chat tools and genuine identity. Novel Creator cannot restore chat-reading
+tools, and no live host voice behavior or spoken fidelity has been verified.
+The [installed entry](../workflows/entry.md) explains exact artifact retention and
+save-before-display. This legacy transcript protocol does not apply to notebooks.
+
 ## Canon and continuity
 
 Only clear writer commitment establishes the identifiable selected facts. Praise,
@@ -218,8 +243,9 @@ update host evaluation used explicitly authorized delegated input. Linux CLI and
 package checks do not establish Linux Codex writing behavior. Direct native-user
 update behavior, notebook Windows/Linux Desktop conversations and macOS support
 remain unverified or deferred. English/Icelandic Unicode structural coverage does
-not establish full literary parity. Voice capture, transcription and speech belong
-to the host; exact spoken fidelity is unverified.
+not establish full literary parity. Voice recording, transcription and speech belong
+to the host; exact spoken fidelity and live host use of the explicit realtime
+wrapper capture remain unverified.
 
 The owner is the initial hobby user. Novice recruitment and manual ratings do not
 block use; owner assessment follows delivery. All latency targets were withdrawn
