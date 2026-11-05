@@ -7,23 +7,43 @@ No feature-template or task-generation workflow is required. See
 
 ## Automated checks
 
-From the configured Python environment at the repository root:
+For normal work, select the smallest meaningful affected test modules or cases
+and their direct dependencies. For example, a notebook contract change can use
+this focused check from the configured environment at the repository root:
 
 ```bash
-python -m unittest discover -q
+python -m unittest tests.unit.test_notebook_contract -q
 ```
 
-For a focused change, run the relevant test module first. Use disposable projects
+Expand focused checks when failures or affected behavior warrant it, without
+automatically escalating to the full suite. Follow the authoritative
+[focused testing policy](../AGENTS.md#focused-testing-policy) for implementation,
+review, commit and push work. Use disposable projects
 outside the framework and other Git repositories. Preserve unrelated work and
 never reset a real novel to manufacture a passing test. Add regression coverage
 for meaningful behavior changes. Documentation changes usually need reference,
 link and diff checks rather than new code tests.
 
-For packaging changes, build a wheel and run `tests/verify_wheel.py` as described
-in [development](development.md#packaging). Check both wheel and source distribution
-when changing resource inclusion. The [release workflow](../.github/workflows/package-release.yml)
-shows candidate install and cross-platform checks. Publication is a separate,
-explicitly authorized operation.
+For resource-inclusion changes, perform targeted artifact-content and isolated
+install/package checks for affected resources in both wheel and source
+distribution. The complete rebuilt-wheel verifier also covers broad legacy and
+update journeys; it is not required for every routine packaging edit.
+
+### Release-only full validation
+
+Run the full suite and any required full coverage checks when preparing a new
+package release before publication, or when the user explicitly requests them:
+
+```bash
+python -m unittest discover -q
+```
+
+Also run the complete wheel verifier as described in
+[development](development.md#packaging). Preserve the candidate install,
+source-distribution, cross-platform and other gates in the
+[release workflow](../.github/workflows/package-release.yml). Routine focused
+checks do not replace these release gates. Publication is a separate, explicitly
+authorized operation.
 
 ## Behavior to preserve
 
@@ -101,7 +121,8 @@ Latency targets were withdrawn, so report measurements without obsolete gates.
 ## Completion report
 
 State what changed, what relevant checks passed or failed and what remains
-unverified. Review the final diff for unrelated changes and broken documentation
-links. Preserve historical evaluation records as evidence of their original runs;
+unverified. Name the exact checks run; focused results do not establish full-suite
+or full-coverage success. Review the final diff for unrelated changes and broken
+documentation links. Preserve historical evaluation records as evidence of their original runs;
 old task numbers and closed gates do not create current implementation work.
 Do not push, publish, deploy or change a real novel without user authorization.

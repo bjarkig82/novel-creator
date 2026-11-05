@@ -7,8 +7,8 @@ This is a small, single-maintainer project. Keep the process proportionate to th
   For larger changes, keep a short plan with concrete steps and update it as needed.
   No templates, numbered feature directories or separate specification workflow are required.
 - Make focused changes; preserve existing novel data, compatibility and writer authority.
-- Run checks relevant to the change. Add regression tests for meaningful behavior changes;
-  documentation-only changes usually need link/reference checks and a diff review.
+- Follow the focused testing policy below. Add regression tests for meaningful
+  behavior changes; documentation-only changes need reference/link checks and a diff review.
 - Review the diff, update ordinary documentation when behavior changes, and report what
   changed, what was checked and any remaining limits. Do not imply unobserved host behavior
   or subjective writing quality was verified by structural tests.
@@ -18,6 +18,29 @@ This is a small, single-maintainer project. Keep the process proportionate to th
 See [functionality](docs/functionality.md), [development setup](docs/development.md)
 and [testing guidance](docs/testing-and-completion-guide.md). Application workflows
 and installed Codex skills are product resources; preserve them when changing tooling.
+
+## Focused testing policy
+
+For normal implementation, review, commit and push work, choose the smallest
+meaningful set of affected test modules or cases, including direct dependencies.
+Expand focused checks when failures or affected behavior warrant it; this does
+not automatically require the full suite. Do not rerun exhaustive historical
+recovery scenarios or the complete release wheel verifier for every task.
+Documentation-only changes normally need reference/link validation and diff
+whitespace review, without running code tests.
+
+Run the full suite and any required full coverage checks only when preparing a
+new package release before publication, or when the user explicitly requests
+them. Preserve all existing release workflow gates; focused routine checks do
+not replace release validation or authorize publication.
+
+When resource inclusion changes, keep targeted artifact-content and isolated
+install/package checks for the affected resources, including wheel and source
+distribution contents. These checks are distinct from the complete rebuilt-wheel
+release verifier, which also exercises broad legacy and update journeys.
+
+Report the exact checks run, their results and remaining limits. Focused passing
+results do not establish full-suite or full-coverage success.
 
 ## PyPI releases
 

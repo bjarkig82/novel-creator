@@ -16,8 +16,14 @@ python -m venv .venv
 python -m pip install -r requirements-lock.txt
 python -m pip install -e '.[test]'
 python -m novel_creator --help
-python -m unittest discover -q
+python -m unittest tests.unit.test_notebook_contract -q
 ```
+
+The test command is a concrete focused example. Select the modules or individual
+cases affected by your change and their direct dependencies, following the
+[focused testing policy](../AGENTS.md#focused-testing-policy). Expand focused
+checks if failures or affected behavior warrant it. Documentation-only changes
+normally need reference/link and diff whitespace checks.
 
 On Windows PowerShell, create the environment with `py -3 -m venv .venv` and
 activate `.venv\Scripts\Activate.ps1`. If activation is blocked, invoke
@@ -35,9 +41,18 @@ and environment details. Some real-host saves may require scoped filesystem acce
 
 ## Packaging
 
-Build and check the distributable from the configured environment:
+For resource-inclusion changes, build the affected artifacts and perform targeted
+content and isolated install checks for the changed resources in both wheel and
+source distribution. Select checks that exercise the affected packaging behavior.
+The complete wheel verifier below also runs broad legacy and update journeys;
+it is a release gate, not a routine check for each task, review, commit or push.
+
+For new package release preparation before publication (or an explicit user
+request), run the full suite and complete wheel verification from the configured
+environment:
 
 ```bash
+python -m unittest discover -q
 python -m pip wheel . --no-deps --wheel-dir dist
 python tests/verify_wheel.py dist/novel_creator-0.4.0-py3-none-any.whl
 ```
@@ -45,7 +60,8 @@ python tests/verify_wheel.py dist/novel_creator-0.4.0-py3-none-any.whl
 Use the actual versioned filename produced by the build. The wheel verifier
 installs outside the checkout and checks resource bytes and independent project
 behavior. The release workflow also checks source distributions and production
-installation. Local builds do not establish publication or actual Codex behavior.
+installation. Preserve all release workflow gates and any required full coverage
+checks. Local builds do not establish publication or actual Codex behavior.
 See [testing guidance](testing-and-completion-guide.md) and
 [the release workflow](../.github/workflows/package-release.yml).
 For every requested PyPI release, prepare versioned notes and update the
