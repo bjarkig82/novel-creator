@@ -1,0 +1,251 @@
+{
+  "version": "0.4.0",
+  "publication_date": "2026-11-05",
+  "source_commit": "abaca5ff90ce1adc90274e5515209a87bf6c58f7",
+  "candidate_run": 42044371273,
+  "candidate_attempt": 1,
+  "candidate_artifact_id": 13423358339,
+  "candidate_manifest": {
+    "repository": "bjarkig82/novel-creator",
+    "run_id": "42044371273",
+    "run_attempt": "1",
+    "source_commit": "abaca5ff90ce1adc90274e5515209a87bf6c58f7",
+    "distribution": "novel-creator",
+    "version": "0.4.0",
+    "files": {
+      "novel_creator-0.4.0-py3-none-any.whl": "1e6d7db9fd9b2356563afaa776625d90a41bc909786a52d517a1566d40115bb3",
+      "novel_creator-0.4.0.tar.gz": "8025ff396c9a9d1c547603ccd3819ee3076e855b434eb3cf2d5534eb78708713"
+    }
+  },
+  "publish_run": 42053510931,
+  "publish_run_attempt": 1,
+  "publish_dispatch_commit": "39c78b3b97b5ee3a8e31d9950d280a22766c3398",
+  "publish_workflow_conclusion": "success",
+  "protected_pypi_publication": "completed successfully under existing environment protection",
+  "pypi": {
+    "version": "0.4.0",
+    "files": {
+      "novel_creator-0.4.0-py3-none-any.whl": {
+        "sha256": "1e6d7db9fd9b2356563afaa776625d90a41bc909786a52d517a1566d40115bb3",
+        "upload_time": "2026-11-05T15:59:08.050101Z"
+      },
+      "novel_creator-0.4.0.tar.gz": {
+        "sha256": "8025ff396c9a9d1c547603ccd3819ee3076e855b434eb3cf2d5534eb78708713",
+        "upload_time": "2026-11-05T15:59:09.376954Z"
+      }
+    },
+    "public_metadata_and_download_hashes_match_candidate": true
+  },
+  "qualification": "automated-only",
+  "windows_host": false,
+  "linux_host": false,
+  "windows_literal_guide": "unverified",
+  "public_checks": {
+    "windows": {
+      "job_id": 127360483773,
+      "conclusion": "success",
+      "artifact_id": 13432375831,
+      "artifact_zip_sha256": "0dff2e6f435e293327a2f84fea5937f87df467bf2034df91057b48dbc5020622",
+      "artifact_zip_digest_verified": true,
+      "report": {
+        "mode": "public",
+        "source": "novel-creator==0.4.0",
+        "version": "novel-creator 0.4.0",
+        "dependencies": [
+          {
+            "name": "attrs",
+            "version": "26.1.0"
+          },
+          {
+            "name": "jsonschema",
+            "version": "4.26.0"
+          },
+          {
+            "name": "jsonschema_rs",
+            "version": "0.59.0"
+          },
+          {
+            "name": "jsonschema-specifications",
+            "version": "2025.9.1"
+          },
+          {
+            "name": "novel-creator",
+            "version": "0.4.0"
+          },
+          {
+            "name": "packaging",
+            "version": "26.3"
+          },
+          {
+            "name": "pip",
+            "version": "26.3"
+          },
+          {
+            "name": "referencing",
+            "version": "0.37.0"
+          },
+          {
+            "name": "rpds-py",
+            "version": "2026.9.1"
+          }
+        ],
+        "validated": true,
+        "guide_sha256": "788d152de9f837985eaed385c5acd08292ec120234987e769e70cb69f49d232c",
+        "wheel_sha256": null,
+        "public_artifact_hashes": {
+          "novel_creator-0.4.0-py3-none-any.whl": "1e6d7db9fd9b2356563afaa776625d90a41bc909786a52d517a1566d40115bb3",
+          "novel_creator-0.4.0.tar.gz": "8025ff396c9a9d1c547603ccd3819ee3076e855b434eb3cf2d5534eb78708713"
+        },
+        "installed_product": {
+          "name": "novel-creator",
+          "version": "0.4.0",
+          "filename": "novel_creator-0.4.0-py3-none-any.whl",
+          "sha256": "1e6d7db9fd9b2356563afaa776625d90a41bc909786a52d517a1566d40115bb3",
+          "url": "https://files.pythonhosted.org/packages/f6/ec/f1cbcccadedcdb6931e4dbb76d7a60e0158de5ac3ca933525970b18888da/novel_creator-0.4.0-py3-none-any.whl"
+        },
+        "settings_cases": [
+          {
+            "name": "Folder",
+            "title": "Bréf frá morgundeginum",
+            "language": "is",
+            "preserved": true
+          },
+          {
+            "name": "English",
+            "title": "A working title",
+            "language": "en",
+            "preserved": true
+          },
+          {
+            "name": "A Novel",
+            "title": "A Novel",
+            "language": "en",
+            "preserved": true
+          }
+        ],
+        "notebook_cases": [
+          {
+            "language": "en",
+            "created": true,
+            "guidance_links": true,
+            "outline_skill": true,
+            "brainstorming_skills": true
+          },
+          {
+            "language": "is",
+            "created": true,
+            "guidance_links": true,
+            "outline_skill": true,
+            "brainstorming_skills": true
+          }
+        ],
+        "invalid_input_cases": 5,
+        "host_walkthrough": "not performed",
+        "dependency_inheritance": false
+      }
+    },
+    "linux": {
+      "job_id": 127360484013,
+      "conclusion": "success",
+      "artifact_id": 13431831384,
+      "artifact_zip_sha256": "53739e2af4000b18980f3f64677c116c4112a6bd017283a51d386179fcc34f9d",
+      "artifact_zip_digest_verified": true,
+      "report": {
+        "mode": "public",
+        "source": "novel-creator==0.4.0",
+        "version": "novel-creator 0.4.0",
+        "dependencies": [
+          {
+            "name": "attrs",
+            "version": "26.1.0"
+          },
+          {
+            "name": "jsonschema",
+            "version": "4.26.0"
+          },
+          {
+            "name": "jsonschema_rs",
+            "version": "0.59.0"
+          },
+          {
+            "name": "jsonschema-specifications",
+            "version": "2025.9.1"
+          },
+          {
+            "name": "novel-creator",
+            "version": "0.4.0"
+          },
+          {
+            "name": "packaging",
+            "version": "26.3"
+          },
+          {
+            "name": "pip",
+            "version": "26.3"
+          },
+          {
+            "name": "referencing",
+            "version": "0.37.0"
+          },
+          {
+            "name": "rpds-py",
+            "version": "2026.9.1"
+          }
+        ],
+        "validated": true,
+        "guide_sha256": "788d152de9f837985eaed385c5acd08292ec120234987e769e70cb69f49d232c",
+        "wheel_sha256": null,
+        "public_artifact_hashes": {
+          "novel_creator-0.4.0-py3-none-any.whl": "1e6d7db9fd9b2356563afaa776625d90a41bc909786a52d517a1566d40115bb3",
+          "novel_creator-0.4.0.tar.gz": "8025ff396c9a9d1c547603ccd3819ee3076e855b434eb3cf2d5534eb78708713"
+        },
+        "installed_product": {
+          "name": "novel-creator",
+          "version": "0.4.0",
+          "filename": "novel_creator-0.4.0-py3-none-any.whl",
+          "sha256": "1e6d7db9fd9b2356563afaa776625d90a41bc909786a52d517a1566d40115bb3",
+          "url": "https://files.pythonhosted.org/packages/f6/ec/f1cbcccadedcdb6931e4dbb76d7a60e0158de5ac3ca933525970b18888da/novel_creator-0.4.0-py3-none-any.whl"
+        },
+        "settings_cases": [
+          {
+            "name": "Folder",
+            "title": "Bréf frá morgundeginum",
+            "language": "is",
+            "preserved": true
+          },
+          {
+            "name": "English",
+            "title": "A working title",
+            "language": "en",
+            "preserved": true
+          },
+          {
+            "name": "A Novel",
+            "title": "A Novel",
+            "language": "en",
+            "preserved": true
+          }
+        ],
+        "notebook_cases": [
+          {
+            "language": "en",
+            "created": true,
+            "guidance_links": true,
+            "outline_skill": true,
+            "brainstorming_skills": true
+          },
+          {
+            "language": "is",
+            "created": true,
+            "guidance_links": true,
+            "outline_skill": true,
+            "brainstorming_skills": true
+          }
+        ],
+        "invalid_input_cases": 5,
+        "host_walkthrough": "not performed",
+        "dependency_inheritance": false
+      }
+    }
+  }
+}

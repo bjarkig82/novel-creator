@@ -1,23 +1,24 @@
 # Story notebook: 0.4.0 release preparation
 
-**Status: automated-only candidate qualified on Windows and Linux; publication waiting for protected PyPI approval; not published.** The published stable release
-remains 0.3.0. Version 0.4.0 is the next minor release because the published
-0.3.0 archives cannot be replaced.
+**Status: 0.4.0 verified published on PyPI, 2026-11-05.** The exact automated-only
+candidate and both public Windows/Linux installation jobs passed. Version 0.3.0
+is the previous published release. Native Windows/Linux Codex Desktop notebook
+behavior remains explicitly unverified. The sections below retain historical
+candidate failures, earlier manual-gate requirements and the later approved policy
+change; the final publication section records the completed outcome.
 
-The [notebook evidence ledger](agent-story-notebook.md) records Linux structural
-checks and the remaining native-host gaps. The integrated local suite passed
-with three skips before this release metadata preparation. These results do not
-establish Windows Codex Desktop notebook acceptance. New Windows native notebook
-acceptance evidence is required before publication; record the actual journeys,
-results, scope, provenance and binding to the candidate source and artifact.
-Linux Codex Desktop remains unverified under T028 and is not a new mandatory gate.
+The [notebook evidence ledger](agent-story-notebook.md) records structural checks
+and remaining native-host gaps. The initial release preparation required new
+Windows native acceptance before publication. The owner later approved the
+automated-only policy recorded below, preserving both native-host declarations as
+false. No structural result is treated as native conversational acceptance.
 
-The existing package-release workflow builds an immutable wheel and source
-archive, runs structural checks on Windows and Linux, and requires candidate-bound
-host declarations and the protected PyPI environment for publication. Record the
-candidate identity, archive hashes and platform results when available. Publish
-only the exact qualified candidate, then verify the public named installations and
-archive hashes. No tag or PyPI publication is claimed here.
+The package-release workflow builds immutable wheel/source archives, runs full
+structural qualification on Windows and Linux, verifies candidate-bound identity
+and hashes, and publishes through the protected PyPI environment. The final exact
+candidate, public named installations and archive hashes are independently verified
+below. Linux Desktop remains unverified under T028; Windows native notebook
+behavior and the literal PowerShell guide journey also remain unverified.
 
 ## First immutable candidate — qualification failed
 
@@ -246,3 +247,36 @@ PyPI publication is claimed. An eligible reviewer must approve this pending
 deployment through an authorized GitHub session; then the workflow can publish
 and verify the named public installations and exact archive hashes. No replacement
 candidate or fabricated native acceptance is needed.
+
+
+## Verified PyPI publication — 2026-11-05
+
+[Publication and public qualification](https://github.com/bjarkig82/novel-creator/actions/runs/42053510931)
+completed successfully after the protected PyPI environment review. The published
+0.4.0 archives are the exact immutable candidate from source
+`abaca5ff90ce1adc90274e5515209a87bf6c58f7`, candidate run `42044371273`,
+attempt 1, artifact `13423358339`; they were not rebuilt for publication. The
+workflow dispatch source was the later evidence-only commit, while checkout and
+publication remained bound to the qualified source and artifact.
+
+Direct PyPI metadata and fresh downloads independently confirmed both filenames
+and SHA-256 hashes match the manifest above. PyPI records wheel publication on
+November 5, 2026 at 15:59 UTC and source publication immediately afterward.
+Both public Windows and Linux jobs passed named `novel-creator==0.4.0` clean
+installation, exact selected-wheel/hash checks, both public archive hashes,
+legacy initialization/validation, optional settings/invalid input checks and
+English/Icelandic notebook setup including outline and brainstorming resources.
+The public reports establish isolated installs without inherited dependency sites.
+
+Both public result artifacts were independently downloaded and their ZIP hashes
+matched GitHub metadata. Exact job/artifact identities, PyPI timestamps, qualified
+source/manifest bindings and complete public reports are retained in
+[public release evidence](agent-story-notebook-040-public.json). The
+[release notes](../../docs/releases/0.4.0.md) now describe a verified published
+release and provide the usable pinned upgrade command.
+
+Native Windows/Linux Desktop conversations, literary quality and the literal
+Windows PowerShell guide journey remain unverified. Public reports explicitly say
+no host walkthrough was performed. Publication follows the owner's approved
+automated-only scope; no native acceptance is inferred. Later source changes,
+including subsequent agent-led initialization work, are outside this release.

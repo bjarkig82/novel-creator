@@ -51,7 +51,7 @@
   "windows_literal_guide_acceptance": "unverified",
   "linux_codex_desktop_acceptance": "unverified",
   "ready_for_publication": true,
-  "publication": "waiting for protected PyPI environment approval",
+  "publication": "verified published PyPI release",
   "conclusion": "success",
   "publish_run_id": 42053510931,
   "remote_publication_verifier": "passed against live GitHub candidate attempt/jobs/artifact",
@@ -68,5 +68,8 @@
     "qualification": "automated-only",
     "windows_host": false,
     "linux_host": false
-  }
+  },
+  "publication_date": "2026-11-05",
+  "publish_workflow_conclusion": "success",
+  "public_evidence_file": "agent-story-notebook-040-public.json"
 }
