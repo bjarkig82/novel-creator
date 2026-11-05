@@ -55,3 +55,5 @@ The outline implementation and documentation migration received independent scop
 The user also requested removal of Spec Kit and the existing top-level specs, preservation of normal functionality documentation, explicit subagent-driven development instructions, and committing/pushing the completed changes directly to main. These scope additions are included in the implementation.
 
 The broader full-suite run was still advancing through recovery checks at delivery; it is not claimed as passed. The writer explicitly chose to proceed with the reviewed changes and completed focused/package/application checks rather than wait for that run.
+
+After the initial push, the broader unittest run completed successfully: 403 tests, 3 expected skips. The direct push was verified against the remote main reference with a clean working tree.
