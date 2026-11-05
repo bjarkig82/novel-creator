@@ -1,0 +1,57 @@
+{
+  "run_id": 42002561962,
+  "source_commit": "dc5dd1b36341b92144ad40f32cfc6cba72971659",
+  "artifact_id": 13402977775,
+  "artifact_zip_sha256": "557bea13d2e9602cf9e484de22e1e581e3115065c5f797a971e3f676f911edfa",
+  "artifact_zip_digest_verified": true,
+  "manifest_identity_and_files_verified": true,
+  "manifest": {
+    "repository": "bjarkig82/novel-creator",
+    "run_id": "42002561962",
+    "run_attempt": "1",
+    "source_commit": "dc5dd1b36341b92144ad40f32cfc6cba72971659",
+    "distribution": "novel-creator",
+    "version": "0.4.0",
+    "files": {
+      "novel_creator-0.4.0-py3-none-any.whl": "0e8b7b05175438c6fbcf7685504481773d0d1a0629c512ed5d7774401ebee3e5",
+      "novel_creator-0.4.0.tar.gz": "da06212994a39531486e9e05ba65d603d2529c2c11098a67cd7cbb6ecdaca8e5"
+    }
+  },
+  "status": "completed",
+  "native_windows_codex_desktop_acceptance": "unverified",
+  "linux": {
+    "conclusion": "success",
+    "test_counts": [
+      402
+    ],
+    "checks": [
+      "manifest identity and hashes",
+      "unit suite including autocrlf checkout regression",
+      "wheel bytes",
+      "clean wheel install",
+      "clean sdist install",
+      "literal Bash getting-started guide"
+    ],
+    "skipped_tests": 3
+  },
+  "conclusion": "success",
+  "run_attempt": 1,
+  "windows": {
+    "conclusion": "success",
+    "test_counts": [
+      402
+    ],
+    "skipped_tests": 0,
+    "checks": [
+      "manifest identity and hashes",
+      "unit suite including autocrlf checkout regression",
+      "wheel bytes",
+      "clean wheel install",
+      "clean sdist install"
+    ],
+    "literal_bash_guide": "skipped: Linux-only",
+    "native_windows_codex_desktop_acceptance": "unverified"
+  },
+  "ready_for_publication": false,
+  "publication": "not attempted"
+}

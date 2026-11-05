@@ -126,3 +126,20 @@ wheel/source byte comparison is unchanged. A real Git checkout regression fails
 without the rule and passes with it; all five focused verifier tests pass. An
 independent review found no material issue. The corrected source needs a fresh
 candidate run; previous failed candidates remain ineligible for publication.
+
+## Successful LF-corrected candidate — November 5, 2026
+
+[Candidate qualification](https://github.com/bjarkig82/novel-creator/actions/runs/42002561962)
+completed successfully for source `dc5dd1b36341b92144ad40f32cfc6cba72971659`,
+attempt 1. The independently downloaded artifact `13402977775` matched its GitHub
+ZIP digest, manifest identity and both distribution hashes. Exact bindings and
+results are retained in `agent-story-notebook-040-lf-candidate.json`.
+
+Windows passed 402 tests without skips, strict wheel byte verification and clean
+wheel and source-distribution installation checks. Linux passed 402 tests with
+three skips, the same package checks and the literal Bash getting-started guide.
+The workflow and both platform jobs were independently confirmed successful.
+
+This supersedes the failed structural candidates above. Native Windows Codex
+Desktop notebook acceptance remains unverified and publication was not attempted.
+The successful runner checks do not replace that protected release requirement.
