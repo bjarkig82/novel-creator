@@ -43,6 +43,14 @@ Open the created folder in Codex and talk naturally about your story; ask for a
 topic brief whenever useful. The notebook does not request an automatic recap.
 Python is used for setup; the writing workflow uses Codex's native file and Git
 tools. Existing novels use the separate legacy commands and are not converted.
+
+In a newly created notebook, invoke `$novel-outline` to propose a book outline
+from the notes, refine it in conversation, and save the chosen structure as a
+linked topic. It supports English and Icelandic, preserves existing outline
+edits and history, and keeps proposed facts and open questions distinct from
+accepted structure. It creates no chapter or scene manuscript files and adds no
+CLI command. Existing notebooks do not acquire the skill automatically.
+
 Notebook conversations in Windows and Linux Codex Desktop remain unverified;
 see the [notebook evidence ledger](tests/evaluations/agent-story-notebook.md) and
 [release preparation](tests/evaluations/agent-story-notebook-release.md).
@@ -167,8 +175,8 @@ so save p95 is unavailable; see the
 capture/transcription and spoken output belong to the host; exact
 spoken-output fidelity is unverified.
 
-For verified commands and the remaining delivery milestones, see
-[Testing and completing the current feature](https://github.com/bjarkig82/novel-creator/blob/v0.2.0/docs/testing-and-completion-guide.md).
+For validation commands and current completion guidance, see
+[Testing and completing a change](docs/testing-and-completion-guide.md).
 
 Requires Python >=3.11 and Git >=2.39. From this checkout:
 
@@ -179,12 +187,10 @@ python -m pip install -r requirements-lock.txt
 python -m pip install -e '.[test]'
 python -m novel_creator --help
 python -m unittest discover -v
-bash tests/speckit-smoke.sh
 ```
 
-On Windows, activate `.venv\Scripts\Activate.ps1`. Bash smoke checks require
-Bash, `jq` and `rg`. Tests use disposable repositories and local test identities;
-no model credentials are required. The available persistence command is
+On Windows, activate `.venv\Scripts\Activate.ps1`. Tests use disposable
+repositories and local test identities; no model credentials are required. The available persistence command is
 `exchange save --novel PATH --input FILE --json`, using a complete exchange
 envelope and a prepared independent repository. For a reproducible disposable
 installation, follow the [host-spike fixture procedure](https://github.com/bjarkig82/novel-creator/blob/v0.2.0/tests/evaluations/host-capture.md#reproducible-structural-fixture).
@@ -194,10 +200,11 @@ wheel from the configured dependency environment:
 
 ```bash
 python -m pip wheel . --no-deps --wheel-dir dist
-python tests/verify_wheel.py dist/novel_creator-0.2.0-py3-none-any.whl
+python tests/verify_wheel.py dist/novel_creator-0.4.0-py3-none-any.whl
 ```
 
-The verifier installs the wheel in a disposable environment, checks its source
+Use the actual versioned filename produced by the build. The verifier installs
+the wheel in a disposable environment, checks its source
 and resource bytes, and exercises initialization, recovery, saves and Unicode
 readback outside the checkout. It reuses the calling environment's dependency
 packages and pip without downloading runtime dependencies. JSON output uses
@@ -212,61 +219,20 @@ or adding a commit. Changed payloads, managed files, staged entries or stale
 checkpoints can block recovery; preserve that evidence and inspect the conflict.
 Never reset history or delete receipts to clear a pause. See
 [development setup and limitations](https://github.com/bjarkig82/novel-creator/blob/v0.2.0/docs/development.md) and
-the [validation guide](https://github.com/bjarkig82/novel-creator/blob/v0.2.0/specs/001-novel-initialization-brainstorming/quickstart.md).
+the [validation guide](docs/testing-and-completion-guide.md).
 
 ## Project tooling
 
-The existing `.specify/` and `.agents/` directories contain specification templates and agent workflows for planning and implementing features.
+Use lightweight planning and focused implementation for this single-maintainer
+project. Small changes need no separate plan document; larger changes can use a
+short list of concrete steps. Repository [agent instructions](AGENTS.md) require
+scoped subagent implementation and independent reviews when available.
 
-### Spec Kit locally and in the cloud
-
-Use the same Codex skills in either environment: `$speckit-specify`,
-`$speckit-plan`, `$speckit-tasks`, and `$speckit-implement`. The workflows include
-commands for both Bash and PowerShell; select the one matching your session.
-
-| Environment | Scripts | Requirements |
-| --- | --- | --- |
-| Codex cloud, Linux, macOS, WSL, Git Bash | `.specify/scripts/bash/*.sh` | Bash and standard Unix tools; Git for repository operations |
-| Local Windows PowerShell | `.specify/scripts/powershell/*.ps1` | PowerShell and Git |
-
-`jq` is recommended for Bash JSON handling, and Python 3 enables advanced
-preset/extension template resolution. Neither PowerShell nor the Specify CLI is
-needed to run the checked-in Bash scripts.
-
-For example, resolve a template without creating a feature:
-
-```bash
-bash .specify/scripts/bash/resolve-template.sh spec-template --json
-```
-
-```powershell
-.specify/scripts/powershell/resolve-template.ps1 spec-template -Json
-```
-
-Run commands from the repository root. Start with `$speckit-specify` to create a
-feature before running planning or task commands. Both script variants share the
-same templates and `.specify/feature.json` pointer. That pointer is ignored by Git;
-in a fresh checkout, select an existing feature using `SPECIFY_FEATURE_DIRECTORY`
-(a repository-relative path works across machines):
-
-```bash
-export SPECIFY_FEATURE_DIRECTORY=specs/001-your-feature
-bash .specify/scripts/bash/check-prerequisites.sh --json --paths-only
-```
-
-```powershell
-$env:SPECIFY_FEATURE_DIRECTORY = 'specs/001-your-feature'
-.specify/scripts/powershell/check-prerequisites.ps1 -Json -PathsOnly
-```
-
-The scripts are based on Spec Kit **1.0.5**, with Codex skill invocation names in
-diagnostics. Initialization metadata still records the original PowerShell
-setup. When updating Spec Kit, retain both script sets and the shell-specific
-workflow instructions; regenerating with only `--script sh` or `--script ps`
-can replace those instructions.
-
-Validate the Bash scripts in an isolated temporary checkout with
-`bash tests/speckit-smoke.sh` (requires `jq` and `rg` for assertions).
+The [functionality guide](docs/functionality.md) describes setup, legacy persistence,
+canon and continuity, the Markdown notebook, updates, optional retrospectives and
+current limits. See [development setup](docs/development.md) and
+[testing guidance](docs/testing-and-completion-guide.md) for contributor commands.
+Shared application workflows and installed Codex skills remain product resources.
 
 ### Optional validation cache
 

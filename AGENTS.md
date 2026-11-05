@@ -1,37 +1,33 @@
-# Repository tooling
+# Development
 
-Spec Kit workflows are in `.agents/skills/speckit-*/SKILL.md`. Use the script
-variant for the session's shell:
+This is a small, single-maintainer project. Keep the process proportionate to the change.
 
-- Bash (cloud, Linux, macOS, WSL, or Git Bash): run
-  `bash .specify/scripts/bash/<name>.sh` with Bash flags such as `--json`.
-- PowerShell (local Windows): run
-  `.specify/scripts/powershell/<name>.ps1` with PowerShell flags such as `-Json`.
+- Read the relevant code, tests and documentation before editing. Preserve unrelated work.
+- For a small change, explain the intended result briefly and implement it directly.
+  For larger changes, keep a short plan with concrete steps and update it as needed.
+  No templates, numbered feature directories or separate specification workflow are required.
+- Make focused changes; preserve existing novel data, compatibility and writer authority.
+- Run checks relevant to the change. Add regression tests for meaningful behavior changes;
+  documentation-only changes usually need link/reference checks and a diff review.
+- Review the diff, update ordinary documentation when behavior changes, and report what
+  changed, what was checked and any remaining limits. Do not imply unobserved host behavior
+  or subjective writing quality was verified by structural tests.
+- Follow the user's authorization for commits and pushes. Publishing, deployment and
+  changes to a real novel require their own authorization.
 
-Run scripts from the repository root. Both variants use the same templates and
-feature state. Do not invoke `.ps1` files directly from Bash. Bash sessions do
-not require PowerShell or the Specify CLI for the checked-in scripts.
-Quote arguments using the current shell's syntax; Bash single-quote escape
-examples in the workflows do not apply to PowerShell.
+See [functionality](docs/functionality.md), [development setup](docs/development.md)
+and [testing guidance](docs/testing-and-completion-guide.md). Application workflows
+and installed Codex skills are product resources; preserve them when changing tooling.
 
-The `script: "ps"` entries in Spec Kit's initialization metadata record how the
-project was originally generated; select scripts using the current shell.
-When refreshing Spec Kit, preserve both script directories and the shell choices
-in the agent workflows. Keep Bash scripts on LF line endings.
+## Implementation and review
 
-## Development workflow
-
-Use subagent-driven development by default for implementation work. When
-available, follow the `superpowers:subagent-driven-development` skill; the
-workflow below also applies when that skill is not installed.
-
-- The coordinator owns the plan, task sequencing, and progress reporting.
-- Give each implementation task to a fresh, scoped implementer subagent with
-  self-contained context, requirements, constraints, and expected validation.
-- After each task, use independent reviewers to check spec compliance and code
-  quality, and resolve findings before moving on. Finish with an independent overall review.
-- Do not run writers in parallel when they touch shared files.
-- Continue through routine implementation and review without permission
-  questions. Explicit user preferences override these defaults.
-- If subagents are unavailable, state that limitation and execute the workflow
-  inline, including validation and review.
+Use subagent-driven development for implementation work in this repository.
+When available, follow the `superpowers:subagent-driven-development` skill.
+The coordinator keeps the lightweight plan, sequences work and reports progress.
+Give implementation slices to scoped implementers with self-contained context and
+expected validation. After each slice, obtain independent requirement-compliance
+and code-quality review, resolve findings and finish with an independent overall
+review. Do not run writers concurrently on shared files. Continue routine work
+without repeated permission requests. If subagents are unavailable, say so and
+perform the same implementation, validation and review steps inline. Explicit
+user instructions override these defaults.
