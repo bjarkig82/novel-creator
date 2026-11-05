@@ -20,7 +20,7 @@ on:
         description: Full candidate source SHA (publish only)
         type: string
       host_evidence:
-        description: JSON binding Windows Codex and both-platform guide/CLI evidence; linux_host must be false
+        description: Candidate-bound automated-only qualification JSON; windows_host and linux_host must be false
         type: string
 
 permissions:
@@ -83,11 +83,15 @@ jobs:
         with:
           artifact-ids: ${{ needs.candidate.outputs.artifact_id }}
           path: candidate
-      - run: python tests/package_release.py verify candidate
+      - name: Verify candidate manifest
+        run: python tests/package_release.py verify candidate
       - run: python -m pip install -e '.[test]'
-      - run: python -m unittest discover -q
-      - run: python tests/verify_wheel.py candidate/*.whl
-      - run: python tests/verify_package_install.py --wheel candidate/*.whl > candidate-check.json
+      - name: Run full unit suite
+        run: python -m unittest discover -q
+      - name: Verify wheel bytes and legacy journeys
+        run: python tests/verify_wheel.py candidate/*.whl
+      - name: Verify clean wheel installation
+        run: python tests/verify_package_install.py --wheel candidate/*.whl > candidate-check.json
       - name: Verify clean installation from the candidate sdist
         run: python tests/verify_package_install.py --wheel candidate/*.tar.gz > candidate-sdist-check.json
       - name: Follow the literal Bash getting-started guide

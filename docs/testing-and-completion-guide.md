@@ -126,3 +126,27 @@ or full-coverage success. Review the final diff for unrelated changes and broken
 documentation links. Preserve historical evaluation records as evidence of their original runs;
 old task numbers and closed gates do not create current implementation work.
 Do not push, publish, deploy or change a real novel without user authorization.
+
+
+## Automated package publication contract
+
+For the 0.4.0 release, the owner explicitly approved publication after automated
+checks pass with native notebook behavior still unverified. The protected release
+workflow verifies the selected immutable artifact, source commit, candidate run
+and attempt, archive hashes and successful full qualification on Windows and Linux.
+It queries the selected attempt's jobs and requires successful manifest, unit-suite,
+wheel-byte/legacy-journey and clean wheel/source-install steps on both platforms,
+plus the literal Bash getting-started guide on Linux. Windows automated CLI/install
+coverage is not a claim that the literal PowerShell guide was followed.
+
+The publish input retains the name `host_evidence` for the candidate-bound JSON:
+copy `run_id` to `candidate_run`, `run_attempt` to `candidate_attempt`, and
+`source_commit` and `files` from the verified manifest; set `artifact_id` to the
+selected immutable artifact ID (all identifiers are strings). Add
+`"qualification": "automated-only"`, `"windows_host": false` and
+`"linux_host": false`. These false declarations preserve the known native-host
+limits; they do not fabricate acceptance. Automated results are checked through
+GitHub, not accepted as input booleans. A failed, incomplete or mismatched candidate
+cannot publish. PyPI environment protection and reviewer requirements are unchanged.
+Historical release ledgers retain their original manual-gate decisions; this
+approved policy supersedes that requirement only for the current release process.

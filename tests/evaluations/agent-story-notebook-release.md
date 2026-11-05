@@ -1,6 +1,6 @@
 # Story notebook: 0.4.0 release preparation
 
-**Status: outline and adaptive-brainstorming candidate built and independently verified; Windows/Linux qualification running; not published.** The published stable release
+**Status: preparing the approved automated-only release contract and a replacement candidate; not published.** The published stable release
 remains 0.3.0. Version 0.4.0 is the next minor release because the published
 0.3.0 archives cannot be replaced.
 
@@ -184,3 +184,22 @@ English/Icelandic notes, interruptions and honest persistence failures. Runner
 checks alone cannot establish these conversational outcomes. No publish workflow
 has been dispatched. Protected PyPI environment review remains required after
 all actual evidence is available.
+
+
+## Owner-approved automated-only qualification — November 5, 2026
+
+The owner explicitly chose publication after automated checks pass, with native
+Windows notebook behavior clearly documented as unverified. This supersedes the
+manual native-acceptance publication requirement recorded above; it does not mark
+any native conversation or Windows literal guide journey passed. Both Windows and
+Linux Desktop remain unverified. The release verifier now requires explicit false
+native-host declarations and queries actual successful candidate-bound Windows and
+Linux jobs and required steps. Immutable source/run/attempt/artifact/hash checks,
+full platform suites, wheel/source installations, Linux literal guide and protected
+PyPI review remain mandatory. Windows automated CLI coverage retains its actual
+scope. See the [publication contract](../../docs/testing-and-completion-guide.md#automated-package-publication-contract).
+
+The prior brainstorming candidate above does not contain this contract change and
+must not be published with invented host declarations. A fresh immutable candidate
+will be built after the reviewed workflow/verifier change is committed. Historical
+candidate and native-evidence records remain intact.

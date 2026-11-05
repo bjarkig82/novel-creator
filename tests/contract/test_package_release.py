@@ -75,7 +75,7 @@ class PackageRelease(unittest.TestCase):
                     verify(package='novel-creator==0.1.0', manifest=manifest)
             self.assertEqual(len(calls), 1)
 
-    def test_remote_candidate_rejects_identity_and_evidence_mismatches(self):
+    def test_remote_candidate_requires_automated_platform_checks_and_honest_native_limits(self):
         from tests.package_release import verify_remote
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
@@ -85,27 +85,58 @@ class PackageRelease(unittest.TestCase):
             manifest = dict(repository='o/r', run_id='12', run_attempt='1', source_commit='a' * 40,
                             distribution='novel-creator', version='0.1.0', files=files)
             (root / 'manifest.json').write_text(json.dumps(manifest))
-            run = dict(id=12, run_attempt=1, conclusion='success', head_sha='a' * 40,
+            run = dict(id=12, run_attempt=1, status='completed', conclusion='success', head_sha='a' * 40,
                        event='workflow_dispatch', path='.github/workflows/package-release.yml')
             artifact = dict(id=34, expired=False, name='candidate-12-1',
                             workflow_run=dict(id=12, head_sha='a' * 40))
             evidence = dict(candidate_run='12', candidate_attempt='1', artifact_id='34', source_commit='a' * 40,
-                            files=files, windows_guide=True, linux_guide=True, windows_host=True,
-                            linux_host=False, linux_cli=True, evidence_urls=['https://example.com/evidence'])
+                            files=files, qualification='automated-only', windows_host=False, linux_host=False)
             env = dict(GITHUB_REPOSITORY='o/r', CANDIDATE_RUN='12', CANDIDATE_ATTEMPT='1',
                        CANDIDATE_ARTIFACT='34', CANDIDATE_COMMIT='a' * 40)
+            common_steps = ['Verify candidate manifest', 'Run full unit suite',
+                            'Verify wheel bytes and legacy journeys', 'Verify clean wheel installation',
+                            'Verify clean installation from the candidate sdist']
+            jobs = dict(total_count=2, jobs=[dict(name='candidate-checks (' + platform + ')',
+                run_id=12, head_sha='a' * 40, status='completed', conclusion='success',
+                steps=[dict(name=name, status='completed', conclusion='success') for name in
+                       common_steps + (['Follow the literal Bash getting-started guide']
+                                       if platform == 'ubuntu-latest' else [])])
+                for platform in ['windows-latest', 'ubuntu-latest']])
             scenarios = [('run', key, value) for key, value in [('run_attempt', 2), ('head_sha', 'b' * 40),
-                ('conclusion', 'failure'), ('path', 'other.yml'), ('event', 'push')]]
+                ('conclusion', 'failure'), ('status', 'in_progress'), ('path', 'other.yml'), ('event', 'push')]]
             scenarios += [('artifact', 'expired', True), ('artifact', 'id', 35),
-                          ('evidence', 'artifact_id', '35'), ('evidence', 'linux_cli', False),
-                          ('evidence', 'linux_host', True),
-                          ('evidence', 'evidence_urls', [None])]
+                          ('artifact', 'workflow_run', dict(id=13, head_sha='a' * 40)),
+                          ('evidence', 'artifact_id', '35'), ('evidence', 'source_commit', 'b' * 40),
+                          ('evidence', 'files', {}), ('evidence', 'windows_host', True),
+                          ('evidence', 'linux_host', True), ('evidence', 'qualification', 'manual'),
+                          ('evidence', 'windows_host', None),
+                          ('jobs', 'jobs', []), ('jobs', 'total_count', 101)]
+            for change in ['failed', 'skipped-suite', 'missing-wheel', 'wrong-source', 'wrong-run',
+                           'missing-linux', 'duplicate-windows', 'missing-guide', 'unfinished']:
+                altered = copy.deepcopy(jobs['jobs'])
+                if change == 'failed': altered[0]['conclusion'] = 'failure'
+                elif change == 'skipped-suite': altered[0]['steps'][1]['conclusion'] = 'skipped'
+                elif change == 'missing-wheel': del altered[0]['steps'][2]
+                elif change == 'wrong-source': altered[0]['head_sha'] = 'b' * 40
+                elif change == 'wrong-run': altered[0]['run_id'] = 13
+                elif change == 'missing-linux': altered.pop()
+                elif change == 'duplicate-windows': altered.append(copy.deepcopy(altered[0]))
+                elif change == 'missing-guide': altered[1]['steps'].pop()
+                else: altered[0]['status'] = 'in_progress'
+                scenarios.append(('jobs', 'jobs', altered))
             for area, key, value in [('valid', '', '')] + scenarios:
-                current = dict(run=copy.deepcopy(run), artifact=copy.deepcopy(artifact), evidence=copy.deepcopy(evidence))
+                current = dict(run=copy.deepcopy(run), artifact=copy.deepcopy(artifact),
+                               evidence=copy.deepcopy(evidence), jobs=copy.deepcopy(jobs))
                 if area != 'valid':
                     current[area][key] = value
                 def fake_api(path):
-                    return current['run'] if '/runs/' in path else current['artifact']
+                    if path == '/actions/runs/12/attempts/1/jobs?per_page=100':
+                        return current['jobs']
+                    if path == '/actions/runs/12/attempts/1':
+                        return current['run']
+                    if path == '/actions/artifacts/34':
+                        return current['artifact']
+                    raise AssertionError('Unexpected API request: ' + path)
                 with self.subTest(area=area, key=key), patch.dict('os.environ', dict(env, HOST_EVIDENCE=json.dumps(current['evidence']))), \
                      patch('tests.package_release.api', side_effect=fake_api):
                     if area == 'valid':

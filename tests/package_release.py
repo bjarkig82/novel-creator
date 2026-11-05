@@ -7,7 +7,6 @@ import os
 from pathlib import Path
 import re
 import urllib.request
-from urllib.parse import urlparse
 import zipfile
 
 
@@ -76,7 +75,8 @@ def verify_remote(root):
     run = api(f'/actions/runs/{run_id}/attempts/{attempt}')
     artifact = api(f'/actions/artifacts/{artifact_id}')
     if (run.get('id') != int(run_id) or run.get('run_attempt') != int(attempt)
-            or run.get('conclusion') != 'success' or run.get('head_sha') != commit
+            or run.get('status') != 'completed' or run.get('conclusion') != 'success'
+            or run.get('head_sha') != commit
             or run.get('event') != 'workflow_dispatch'
             or run.get('path') != '.github/workflows/package-release.yml'
             or artifact.get('id') != int(artifact_id) or artifact.get('expired') is not False
@@ -90,17 +90,33 @@ def verify_remote(root):
     expected = dict(candidate_run=run_id, candidate_attempt=attempt, artifact_id=artifact_id,
                     source_commit=commit, files=data['files'])
     if any(evidence.get(key) != value for key, value in expected.items()):
-        raise ValueError('Host/guide evidence is not bound to this candidate')
-    if not all(evidence.get(key) is True for key in ['windows_guide', 'linux_guide', 'windows_host', 'linux_cli']):
-        raise ValueError('Required Windows host and both-platform guide/CLI checks are not confirmed')
-    if evidence.get('linux_host') is not False:
-        raise ValueError('This release must explicitly retain unverified Linux Codex integration')
-    if not isinstance(evidence.get('evidence_urls'), list) or not evidence['evidence_urls']:
-        raise ValueError('Traceable guide/host evidence URLs are required')
-    if any(not isinstance(url, str) or urlparse(url).scheme != 'https' or not urlparse(url).netloc
-           for url in evidence['evidence_urls']):
-        raise ValueError('Evidence URLs must be nonempty HTTPS URLs')
-    # This checks binding and declarations, not literary quality or independent human approval.
+        raise ValueError('Qualification evidence is not bound to this candidate')
+    if evidence.get('qualification') != 'automated-only':
+        raise ValueError('This release requires automated-only qualification')
+    if any(evidence.get(key) is not False for key in ['windows_host', 'linux_host']):
+        raise ValueError('Both native Codex Desktop integrations must remain explicitly unverified')
+    jobs = api(f'/actions/runs/{run_id}/attempts/{attempt}/jobs?per_page=100')
+    if jobs.get('total_count') != len(jobs.get('jobs', [])):
+        raise ValueError('Candidate job response is incomplete')
+    common_steps = {'Verify candidate manifest', 'Run full unit suite',
+                    'Verify wheel bytes and legacy journeys', 'Verify clean wheel installation',
+                    'Verify clean installation from the candidate sdist'}
+    for platform in ['windows-latest', 'ubuntu-latest']:
+        matches = [job for job in jobs['jobs'] if job.get('name') == f'candidate-checks ({platform})']
+        if len(matches) != 1:
+            raise ValueError('Candidate platform qualification is missing or ambiguous: ' + platform)
+        job = matches[0]
+        if (job.get('run_id') != int(run_id) or job.get('head_sha') != commit
+                or job.get('status') != 'completed' or job.get('conclusion') != 'success'):
+            raise ValueError('Candidate platform qualification is unsuccessful or mismatched: ' + platform)
+        required = common_steps | ({'Follow the literal Bash getting-started guide'}
+                                   if platform == 'ubuntu-latest' else set())
+        for name in required:
+            steps = [step for step in job.get('steps', []) if step.get('name') == name]
+            if (len(steps) != 1 or steps[0].get('status') != 'completed'
+                    or steps[0].get('conclusion') != 'success'):
+                raise ValueError('Required automated candidate check did not pass: ' + name)
+    # These are verified runner results, not native conversation or literary acceptance.
     return data
 
 
