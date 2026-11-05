@@ -18,17 +18,55 @@
       "novel_creator-0.4.0.tar.gz": "8025ff396c9a9d1c547603ccd3819ee3076e855b434eb3cf2d5534eb78708713"
     }
   },
-  "status": "in_progress",
+  "status": "completed",
   "windows": {
-    "status": "in_progress"
+    "status": "completed",
+    "conclusion": "success",
+    "test_count": 404,
+    "skipped_tests": 0,
+    "checks": [
+      "manifest identity and hashes",
+      "full unit suite",
+      "wheel bytes and legacy journeys",
+      "clean wheel install",
+      "clean sdist install"
+    ]
   },
   "linux": {
-    "status": "in_progress"
+    "status": "completed",
+    "conclusion": "success",
+    "test_count": 404,
+    "skipped_tests": 3,
+    "checks": [
+      "manifest identity and hashes",
+      "full unit suite",
+      "wheel bytes and legacy journeys",
+      "clean wheel install",
+      "clean sdist install",
+      "literal Bash getting-started guide"
+    ]
   },
   "qualification": "automated-only",
   "native_windows_codex_desktop_acceptance": "unverified",
   "windows_literal_guide_acceptance": "unverified",
   "linux_codex_desktop_acceptance": "unverified",
-  "ready_for_publication": false,
-  "publication": "not attempted"
+  "ready_for_publication": true,
+  "publication": "waiting for protected PyPI environment approval",
+  "conclusion": "success",
+  "publish_run_id": 42053510931,
+  "remote_publication_verifier": "passed against live GitHub candidate attempt/jobs/artifact",
+  "protected_approval_attempt": "rejected: integration token cannot review pending deployments (HTTP 403)",
+  "publication_evidence": {
+    "candidate_run": "42044371273",
+    "candidate_attempt": "1",
+    "artifact_id": "13423358339",
+    "source_commit": "abaca5ff90ce1adc90274e5515209a87bf6c58f7",
+    "files": {
+      "novel_creator-0.4.0-py3-none-any.whl": "1e6d7db9fd9b2356563afaa776625d90a41bc909786a52d517a1566d40115bb3",
+      "novel_creator-0.4.0.tar.gz": "8025ff396c9a9d1c547603ccd3819ee3076e855b434eb3cf2d5534eb78708713"
+    },
+    "qualification": "automated-only",
+    "windows_host": false,
+    "linux_host": false
+  }
 }

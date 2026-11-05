@@ -1,6 +1,6 @@
 # Story notebook: 0.4.0 release preparation
 
-**Status: automated-only replacement candidate built and independently verified; Windows/Linux qualification running; not published.** The published stable release
+**Status: automated-only candidate qualified on Windows and Linux; publication waiting for protected PyPI approval; not published.** The published stable release
 remains 0.3.0. Version 0.4.0 is the next minor release because the published
 0.3.0 archives cannot be replaced.
 
@@ -225,3 +225,24 @@ are retained in [automated candidate evidence](agent-story-notebook-040-automate
 Native Windows/Linux Desktop behavior and the Windows literal PowerShell guide
 remain unverified. Publication has not been attempted; successful complete automated
 qualification and the existing protected PyPI review are still required.
+
+
+## Passing automated qualification; protected publication pending
+
+The automated-only candidate completed successfully on both platforms. Windows
+passed all 404 unit tests without skips; Linux passed 404 tests with three skips.
+Both passed strict wheel verification, clean wheel/source installations and
+candidate hash checks; Linux also passed the literal Bash guide. The publication
+verifier independently queried the live successful candidate attempt, required
+platform jobs and every required step, with exact source/artifact/manifest binding.
+The recorded qualification JSON truthfully sets both native host flags false.
+
+[Authorized publication](https://github.com/bjarkig82/novel-creator/actions/runs/42053510931)
+was dispatched for only these exact qualified archives. It is waiting for the
+existing protected `pypi` environment review. GitHub lists the account as an
+eligible reviewer, but the available integration token's normal approval request
+was rejected as inaccessible (HTTP 403). No protection setting was changed, and no
+PyPI publication is claimed. An eligible reviewer must approve this pending
+deployment through an authorized GitHub session; then the workflow can publish
+and verify the named public installations and exact archive hashes. No replacement
+candidate or fabricated native acceptance is needed.
