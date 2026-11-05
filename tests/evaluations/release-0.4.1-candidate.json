@@ -1,0 +1,101 @@
+{
+  "version": "0.4.1",
+  "status": "qualified but unpublished candidate",
+  "source_commit": "8d8c099004ab83b95f40fcb080730ea1530a363c",
+  "run_id": 42089185677,
+  "run_attempt": 1,
+  "run_url": "https://github.com/bjarkig82/novel-creator/actions/runs/42089185677",
+  "artifact_id": 13442949549,
+  "artifact_zip_sha256": "8e43a7ce8233c2ee745ed65cd1a0b3c85bddfaca24c547cd876d49a7e1add8ae",
+  "artifact_zip_digest_verified": true,
+  "manifest_identity_and_files_verified": true,
+  "affected_packaged_bytes_match_source": true,
+  "manifest": {
+    "repository": "bjarkig82/novel-creator",
+    "run_id": "42089185677",
+    "run_attempt": "1",
+    "source_commit": "8d8c099004ab83b95f40fcb080730ea1530a363c",
+    "distribution": "novel-creator",
+    "version": "0.4.1",
+    "files": {
+      "novel_creator-0.4.1-py3-none-any.whl": "b5662f70f657f9ebb1921c165665e74be8aa2dd30ef3233dfd48a45827673223",
+      "novel_creator-0.4.1.tar.gz": "3350736bb7bd5a2a89ec4d474f81b8fea6471b9f303912756747330b162d91ee"
+    }
+  },
+  "conclusion": "success",
+  "qualification": "automated-only",
+  "windows": {
+    "conclusion": "success",
+    "test_count": 417,
+    "skipped_tests": 0,
+    "checks": [
+      "manifest identity and hashes",
+      "full unit suite",
+      "wheel bytes and legacy journeys",
+      "clean wheel install",
+      "clean sdist install"
+    ]
+  },
+  "linux": {
+    "conclusion": "success",
+    "test_count": 417,
+    "skipped_tests": 3,
+    "checks": [
+      "manifest identity and hashes",
+      "full unit suite",
+      "wheel bytes and legacy journeys",
+      "clean wheel install",
+      "clean sdist install",
+      "literal Bash getting-started guide"
+    ]
+  },
+  "jobs": [
+    {
+      "id": 127462401621,
+      "name": "candidate",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/bjarkig82/novel-creator/actions/runs/42089185677/job/127462401621"
+    },
+    {
+      "id": 127462403696,
+      "name": "publish",
+      "status": "completed",
+      "conclusion": "skipped",
+      "html_url": "https://github.com/bjarkig82/novel-creator/actions/runs/42089185677/job/127462403696"
+    },
+    {
+      "id": 127462405428,
+      "name": "public-checks",
+      "status": "completed",
+      "conclusion": "skipped",
+      "html_url": "https://github.com/bjarkig82/novel-creator/actions/runs/42089185677/job/127462405428"
+    },
+    {
+      "id": 127462561832,
+      "name": "candidate-checks (windows-latest)",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/bjarkig82/novel-creator/actions/runs/42089185677/job/127462561832"
+    },
+    {
+      "id": 127462561878,
+      "name": "candidate-checks (ubuntu-latest)",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/bjarkig82/novel-creator/actions/runs/42089185677/job/127462561878"
+    }
+  ],
+  "remote_release_verifier": "passed against live candidate run, attempt, jobs and artifact",
+  "native_windows_codex_desktop_acceptance": "unverified",
+  "windows_literal_powershell_guide_acceptance": "unverified",
+  "linux_codex_desktop_acceptance": "unverified",
+  "live_host_realtime_voice_capture": "unverified",
+  "spoken_output_fidelity": "unverified",
+  "direct_native_user_update_behavior": "unverified",
+  "macos_support": "deferred",
+  "literary_quality": "not established by structural tests",
+  "ready_for_publication": true,
+  "publication": "pending",
+  "public_installation_checks": "pending"
+}
