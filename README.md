@@ -24,7 +24,8 @@ Windows PowerShell and Linux Bash production installs are verified, together wit
 Windows Codex Desktop setup/save/inspection/resume. Linux Codex integration remains
 unverified. The developer/older POC instructions below remain reference material.
 
-Check the release page before installing; candidate verification precedes publication.
+See the [release history](docs/releases/README.md) for version changes and
+compatibility. Candidate verification precedes publication.
 
 ## New story notebook (0.4.0 candidate)
 
@@ -50,6 +51,14 @@ linked topic. It supports English and Icelandic, preserves existing outline
 edits and history, and keeps proposed facts and open questions distinct from
 accepted structure. It creates no chapter or scene manuscript files and adds no
 CLI command. Existing notebooks do not acquire the skill automatically.
+
+Notebook brainstorming adapts to the book's stage and your chosen topic or method.
+With no concept, it starts broadly and asks one question at a time. Optional
+`$novel-book-idea`, `$novel-premise`, `$novel-character`, `$novel-plot` and
+`$novel-setting` skills provide focused entry points; outlining remains explicit-only.
+These additions ship only into new notebooks. See the
+[0.4.0 candidate release notes](docs/releases/0.4.0.md) for upgrade instructions,
+compatibility and evidence limits.
 
 Notebook conversations in Windows and Linux Codex Desktop remain unverified;
 see the [notebook evidence ledger](tests/evaluations/agent-story-notebook.md) and

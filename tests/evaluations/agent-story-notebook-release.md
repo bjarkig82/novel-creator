@@ -1,6 +1,6 @@
 # Story notebook: 0.4.0 release preparation
 
-**Status: corrected candidate verified; Windows and Linux CI qualification running; not published.** The published stable release
+**Status: preparing a fresh outline and adaptive-brainstorming candidate; not published.** The published stable release
 remains 0.3.0. Version 0.4.0 is the next minor release because the published
 0.3.0 archives cannot be replaced.
 
@@ -143,3 +143,15 @@ The workflow and both platform jobs were independently confirmed successful.
 This supersedes the failed structural candidates above. Native Windows Codex
 Desktop notebook acceptance remains unverified and publication was not attempted.
 The successful runner checks do not replace that protected release requirement.
+
+
+## Outline and adaptive brainstorming release preparation — November 5, 2026
+
+Release notes now compare the complete 0.4.0 candidate with published 0.3.0,
+including new notebooks, explicit outlines, adaptive brainstorming, legacy
+compatibility and the post-publication pinned installation command. The successful
+LF-corrected candidate above predates these added resources and cannot qualify
+this release source. A new immutable candidate is required after committing this
+preparation. Native Windows notebook acceptance is still unavailable; no old host
+evidence is carried forward or represented as candidate-bound. Publication remains
+unattempted and blocked on actual native acceptance and the protected PyPI review.
