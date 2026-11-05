@@ -22,7 +22,7 @@
   "local_verification": "passed: archive digest, expected identity, version, exact files and hashes",
   "native_desktop_acceptance": "not established; required input/access unavailable",
   "linux_qualification": "passed: full unit suite, wheel verification, clean wheel/sdist installations and Bash guide",
-  "windows_qualification": "in progress: full unit suite at final snapshot",
+  "windows_qualification": "failed: case-sensitive proxy expectation on Windows in test_transport_subprocess_preserves_host_proxy_settings; 401 tests, one failure",
   "ci_status_at_handoff": {
     "conclusion": "",
     "jobs": [
@@ -48,6 +48,7 @@
     "status": "in_progress"
   },
   "publication": "not attempted",
-  "monitoring": "paused pending required Windows host input; GitHub workflow not cancelled",
-  "ready_for_publication": false
+  "monitoring": "completed run inspected after failure; new candidate required",
+  "ready_for_publication": false,
+  "qualification_status": "ineligible: Windows qualification failed"
 }

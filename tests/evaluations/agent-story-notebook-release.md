@@ -1,6 +1,6 @@
 # Story notebook: 0.4.0 release preparation
 
-**Status: replacement candidate verified; Linux qualification passed; Windows CI and native-host evidence pending; not published.** The published stable release
+**Status: replacement Windows qualification failed; test correction prepared; not published.** The published stable release
 remains 0.3.0. Version 0.4.0 is the next minor release because the published
 0.3.0 archives cannot be replaced.
 
@@ -66,8 +66,12 @@ strict source/run/attempt identity, version and both archive hashes.
 
 Linux structural qualification passed, including the full unit suite, wheel
 verification, clean wheel and source installations, and literal Bash guide checks.
-At the final snapshot, Windows CI remained in its full unit suite. The replacement
-workflow has not been cancelled and can continue without local monitoring.
+Windows CI subsequently completed its full suite with 401 tests and one failure:
+the proxy forwarding test expected uppercase and lowercase proxy names to retain
+different values, which is impossible in a Windows case-insensitive environment.
+The failure is recorded in the Windows job linked by the candidate JSON. This
+replacement candidate is therefore ineligible for publication despite its valid
+archive hashes and passing Linux qualification.
 
 Native Windows Codex Desktop notebook acceptance remains unavailable and
 unverified. The release cannot proceed to publication until the candidate-bound
@@ -80,3 +84,15 @@ attempted, and PyPI 0.4.0 is not claimed published.
 The first candidate and its failed/cancelled results remain historical. Resume
 from this replacement run after the required input is available; inspect its
 current Windows result rather than assuming success or rebuilding unnecessarily.
+
+## Windows proxy regression correction — November 5, 2026
+
+The test now exercises uppercase and lowercase proxy settings in separate real
+subprocesses on every platform, retaining a simultaneous distinct-value case on
+systems that support case-sensitive environment names. Inherited proxy aliases
+are cleared for each case and the host environment is restored afterward.
+Production transport and its proxy/certificate allowlist are unchanged; certificate
+and filtering checks are retained. Thirteen focused transport/GitHub/CLI/mutation
+tests passed locally, and independent review found no material issue. A new
+immutable candidate and actual Windows CI validation are required after the fix.
+Native Codex Desktop notebook acceptance remains separately unverified.

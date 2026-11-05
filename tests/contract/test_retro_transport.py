@@ -1,4 +1,5 @@
 import json
+import os
 import sys
 import unittest
 from unittest.mock import patch
@@ -8,21 +9,30 @@ from novel_creator.retro_github import Github, command, environment
 
 class GithubTransport(unittest.TestCase):
     def test_transport_subprocess_preserves_host_proxy_settings(self):
-        settings = {
+        uppercase = {
             'HTTP_PROXY': 'proxy.example.test:8080',
             'HTTPS_PROXY': 'proxy.example.test:8443',
             'ALL_PROXY': 'proxy.example.test:1080',
             'NO_PROXY': 'localhost,example.test',
+        }
+        lowercase = {
             'http_proxy': 'lowercase.example.test:8080',
             'https_proxy': 'lowercase.example.test:8443',
             'all_proxy': 'lowercase.example.test:1080',
             'no_proxy': 'localhost,lowercase.example.test',
         }
-        script = ('import json, os; print(json.dumps('
-                  '{name: os.environ.get(name) for name in ' + repr(list(settings)) + '}))')
-        with patch.dict('os.environ', settings):
-            received = json.loads(command([sys.executable, '-c', script]))
-        self.assertEqual(received, settings)
+        cases = [uppercase, lowercase]
+        if os.name != 'nt':
+            cases.append({**uppercase, **lowercase})
+        host_environment = {key: value for key, value in os.environ.items()
+                            if key.upper() not in uppercase}
+        for settings in cases:
+            with self.subTest(settings=settings):
+                script = ('import json, os; print(json.dumps('
+                          '{name: os.environ.get(name) for name in ' + repr(list(settings)) + '}))')
+                with patch.dict('os.environ', {**host_environment, **settings}, clear=True):
+                    received = json.loads(command([sys.executable, '-c', script]))
+                self.assertEqual(received, settings)
 
     def test_transport_subprocess_preserves_host_certificate_settings(self):
         settings = {
