@@ -1,6 +1,6 @@
 # Story notebook: 0.4.0 release preparation
 
-**Status: preparing a fresh outline and adaptive-brainstorming candidate; not published.** The published stable release
+**Status: outline and adaptive-brainstorming candidate built and independently verified; Windows/Linux qualification running; not published.** The published stable release
 remains 0.3.0. Version 0.4.0 is the next minor release because the published
 0.3.0 archives cannot be replaced.
 
@@ -155,3 +155,32 @@ this release source. A new immutable candidate is required after committing this
 preparation. Native Windows notebook acceptance is still unavailable; no old host
 evidence is carried forward or represented as candidate-bound. Publication remains
 unattempted and blocked on actual native acceptance and the protected PyPI review.
+
+
+## Immutable outline and adaptive brainstorming candidate
+
+[Candidate qualification](https://github.com/bjarkig82/novel-creator/actions/runs/42042388364)
+built source `2f625d799b0ec397340b1a2743ab3454256d7af6`, attempt 1, artifact
+`13424285380`. The artifact was independently downloaded through the GitHub
+connector. Its ZIP SHA-256 matches GitHub metadata:
+`5d43198bfc788a3e7f43b23d392e88e1508abacbd9f79e0e5ece1bb28a11d172`.
+Manifest verification checked repository, full source commit, run, attempt,
+distribution/version and both exact archive hashes.
+
+| Distribution | SHA-256 |
+| --- | --- |
+| novel_creator-0.4.0-py3-none-any.whl | `85afd9150b6f862a9d4df977bfaad67c76c7cb83e4ad90371c3bd8d630330ad3` |
+| novel_creator-0.4.0.tar.gz | `3db59346732c10703895b4f954482c79a19ec8bba04da6438388ae934e33bcb3` |
+
+Windows and Linux qualification are running. Exact bindings and current results
+are retained in [candidate evidence](agent-story-notebook-040-brainstorming-candidate.json).
+Native Windows Codex Desktop notebook acceptance and the literal Windows guide
+journey remain unverified. Linux Desktop stays explicitly unverified. A Windows
+evaluator must use this exact candidate, record actual journeys and outcomes with
+traceable HTTPS evidence, and retain the candidate source/run/attempt/artifact and
+archive hashes. See the [native acceptance coverage](agent-story-notebook.md#acceptance-coverage)
+and [brainstorming scenarios](brainstorming.md); include explicit outline behavior,
+English/Icelandic notes, interruptions and honest persistence failures. Runner
+checks alone cannot establish these conversational outcomes. No publish workflow
+has been dispatched. Protected PyPI environment review remains required after
+all actual evidence is available.

@@ -1,0 +1,33 @@
+{
+  "run_id": 42042388364,
+  "run_attempt": 1,
+  "source_commit": "2f625d799b0ec397340b1a2743ab3454256d7af6",
+  "artifact_id": 13424285380,
+  "artifact_zip_sha256": "5d43198bfc788a3e7f43b23d392e88e1508abacbd9f79e0e5ece1bb28a11d172",
+  "artifact_zip_digest_verified": true,
+  "manifest_identity_and_files_verified": true,
+  "manifest": {
+    "repository": "bjarkig82/novel-creator",
+    "run_id": "42042388364",
+    "run_attempt": "1",
+    "source_commit": "2f625d799b0ec397340b1a2743ab3454256d7af6",
+    "distribution": "novel-creator",
+    "version": "0.4.0",
+    "files": {
+      "novel_creator-0.4.0-py3-none-any.whl": "85afd9150b6f862a9d4df977bfaad67c76c7cb83e4ad90371c3bd8d630330ad3",
+      "novel_creator-0.4.0.tar.gz": "3db59346732c10703895b4f954482c79a19ec8bba04da6438388ae934e33bcb3"
+    }
+  },
+  "status": "in_progress",
+  "windows": {
+    "status": "in_progress"
+  },
+  "linux": {
+    "status": "in_progress"
+  },
+  "native_windows_codex_desktop_acceptance": "unverified",
+  "windows_literal_guide_acceptance": "unverified",
+  "linux_codex_desktop_acceptance": "unverified",
+  "ready_for_publication": false,
+  "publication": "not attempted"
+}
