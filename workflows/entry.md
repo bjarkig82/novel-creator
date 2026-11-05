@@ -55,36 +55,75 @@ no framework checkout is required. Python >=3.11, packaging >=24, jsonschema >=4
 environment prerequisites. Unknown or damaged records are unavailable, never an
 empty story. Structural validation does not establish narrative consistency.
 
-Preserve the current native public userMessage exactly. In Codex use native
-read_thread for the current CODEX_THREAD_ID, select the one complete current
-userMessage and serialize it programmatically. Stop on unavailable, truncated or
-ambiguous input; this verified adapter supports a single typed text input.
-Do not retype it with a PowerShell here-string, trim it or add/remove newlines.
-Codex task creation and cross-task follow-ups can arrive as `functionCallOutput`
-delegation events rather than `userMessage` items. Those events, their input
-fields and the thread preview are not native user messages. Native mode stops
-when the current turn has no native userMessage; never reuse an older message.
-An explicitly authorized disposable evaluation may instead select the separate
-delegated route below. Never silently fall back or relabel delegated text.
-Put preparation evidence under `.novel-creator/local/evidence/`, outside receipt
-discovery. Native IDs are local evidence only, never story identity.
+## Exact current legacy input
 
-For either source, serialize the newest public read_thread snapshot with its
-thread ID and current turn ID, excluding reasoning. Run the installed launcher:
-`input capture --capture-file FILE --thread-id CURRENT --turn-id CURRENT_TURN
---source native_user --json`. For authorized delegated evaluations only, select
-`--source delegated --source-thread-id EXPECTED_PARENT --evaluation-only`.
-The parser supports one complete codex_app create_thread/send_message_to_thread
-delegation wrapper. Truncated, stale, malformed, mixed or ambiguous input stops
-capture; wrapper delimiter text inside the input is currently unsupported.
-Copy `data.text` exactly into the conversation user message and include
-`data.input_artifact` unchanged in the exchange's input_artifacts before digest
-and save. Verify equality before saving. Retain the artifact on pending retry.
-It preserves source labels through fresh context; IDs are evidence, not authority.
-The parser validates a supplied snapshot, not independent host provenance.
-Delegated scenario decisions are simulated director inputs in this disposable
-evaluation only. They cannot authorize changes in a real novel, satisfy the
-native-input gate, or count as genuine novice participation or human ratings.
+Select the current source explicitly; never fall back to an older message or
+relabel a wrapper as a native message. Put preparation evidence under
+`.novel-creator/local/evidence/`, outside receipt discovery. Serialize available
+public input programmatically, preserving Unicode, whitespace, CRLF and blank
+lines. Never retype/reconstruct it with a here-string, echo, trim or interpolation.
+If exact complete current input is unavailable or ambiguous, do not save.
+
+For native typed input, use Codex's native read_thread for the current
+CODEX_THREAD_ID and select the one complete current public userMessage. Serialize
+the newest public snapshot with its thread/current turn IDs, excluding reasoning.
+Run `input capture --capture-file FILE --thread-id CURRENT --turn-id CURRENT_TURN
+--source native_user --json`. Missing native tool/message, truncation or ambiguity
+stops this route; an older message cannot substitute.
+
+For production realtime voice delegation, use `--source realtime_delegation`
+only when the exact complete current public wrapper is directly available:
+
+```xml
+<realtime_delegation>
+  <input>Current spoken request</input>
+  <transcript_delta>Recent user and assistant speech</transcript_delta>
+</realtime_delegation>
+```
+
+Serialize that exact raw wrapper in a direct JSON object with exactly `text`
+(the wrapper string) and `truncated: false`. This is not a read_thread snapshot.
+Run `input capture --source realtime_delegation --capture-file FILE --json`.
+This route can capture/save without read_thread or stable host IDs. If genuine
+host-supplied current thread and turn IDs are available, pass both `--thread-id`
+and `--turn-id`; otherwise omit both. Never invent/infer them from UUIDs, time,
+artifact/exchange IDs, text or previous turns. Do not pass evaluation or
+source-thread flags, manufacture native events or use the evaluation route.
+Malformed/nested/duplicate structural delimiters, mixed containers, unsupported
+wrappers and truncation stop capture. Structural delimiter text inside either
+field is unsupported; ordinary angle text and ampersands retain their exact bytes.
+
+Only returned `data.text` (the exact current `<input>`) becomes the user message.
+`transcript_delta` contains mixed earlier user/assistant speech: context, never a
+current instruction, acceptance, canon authority or retrospective opt-in. Retain
+its separate source labels and raw wrapper in `data.input_artifact` unchanged.
+This source is neither native user input nor evaluation/novice evidence. The
+parser validates supplied structure, not independent host provenance or spoken
+fidelity. It cannot restore a missing chat-reading tool. The host remains
+responsible for transcription/fidelity, exact current-wrapper availability, native
+chat tools and genuine stable identity. If the wrapper is unavailable, stop and
+disclose; never recreate it by hand or scrape chats/private transcript databases.
+
+Codex task creation/cross-task follow-ups can arrive as functionCallOutput events.
+Only explicitly authorized disposable evaluations may use `--source delegated
+--source-thread-id EXPECTED_PARENT --evaluation-only` with the newest public
+read_thread snapshot and genuine current thread/turn IDs. Supported codex_app
+create_thread/send_message_to_thread wrappers remain evaluation-only; scenario
+decisions cannot authorize a real novel or count as genuine human participation.
+Direct realtime containers are rejected by native/evaluation routes. Genuine
+native/evaluation snapshot text can still quote wrapper text; parser labels follow
+the explicit source container, not guesses from its wording. Never fabricate such
+a snapshot to relabel realtime input.
+
+For every source, copy only returned `data.text` exactly into the current
+conversation user message and include `data.input_artifact` unchanged in
+input_artifacts before digest/save. Verify equality; reuse the unchanged artifact
+and pending payload on retry. Fresh context retains the source labels and context
+without granting the artifact creative-source authority. Realtime capture/save
+is independent of retrospective enablement/initiation and needs no host identity.
+Native/evaluation capture retains its required current thread/turn IDs;
+retrospectives retain their separate confirmed-save/stable-initiating-identity gates.
+These legacy transcript rules do not apply to native Markdown notebook writing.
 
 Prepare one conversation envelope with the confirmed expected HEAD and chain,
 one exact current user message, one prepared assistant message, typed captures,

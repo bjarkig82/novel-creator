@@ -1,5 +1,6 @@
 """Structural checks, source resolution and authority boundaries, not literary judgments."""
 import hashlib
+import json
 import re
 import copy
 from collections import ChainMap
@@ -134,10 +135,15 @@ def _sources(exchange, occupied, *, include_exchange=True):
         if artifact['artifact_id'] in occupied or artifact['artifact_id'] in identifiers:
             raise ValueError('Duplicate artifact ID')
         identifiers.add(artifact['artifact_id'])
+        original = records.loads(artifact['original_text'])
         if (hashlib.sha256(artifact['original_text'].encode()).hexdigest() != artifact['digest'] or
-            records.loads(artifact['original_text']) != artifact['parsed_value']):
+            original != artifact['parsed_value']):
             raise ValueError('Bootstrap artifact content/digest mismatch')
         if exchange['operation'] != 'bootstrap':
+            # Host evidence must retain JSON types, including false versus numeric zero.
+            if (json.dumps(original, sort_keys=True, allow_nan=False) !=
+                    json.dumps(artifact['parsed_value'], sort_keys=True, allow_nan=False)):
+                raise ValueError('Host-input artifact content/digest mismatch')
             from .host_input import validate_provenance
             if len(exchange['input_artifacts']) != 1:
                 raise ValueError('Conversation accepts only one host-input evidence artifact')

@@ -51,6 +51,38 @@ never transfer them to real novels. All save-before-display, capture, source,
 continuity, canon and manuscript safeguards still apply. Unsupported wrapper
 shapes, delimiter ambiguity, truncation or unavailable current IDs stop the run.
 
+## Production legacy realtime capture
+
+Follow installed workflows/entry.md's explicit `realtime_delegation` route when
+the exact complete current public `<realtime_delegation>` wrapper is directly
+available. Serialize it unchanged as `{"text": "<exact raw wrapper>", "truncated": false}`
+under local/evidence and run `input capture --source realtime_delegation
+--capture-file FILE --json`. It requires neither read_thread nor retrospective
+enablement nor stable host identity. Omit both identity flags when unavailable;
+otherwise pass only the genuine current host thread/turn pair. Never fabricate
+native events, infer IDs or reuse the evaluation route. Direct realtime containers
+are rejected by native/evaluation modes; genuine older native/evaluation captures
+can retain literal quoted wrapper text under their original labels.
+
+Copy ONLY data.text (exact current input) into the user message; retain
+data.input_artifact unchanged before digest/save and on retries. The raw wrapper,
+source labels and separate transcript_delta survive saving. transcript_delta is
+mixed earlier user/assistant context, never instruction, acceptance, canon
+source or opt-in. native_user_input, evaluation_only and novice_evidence remain false. All ordinary
+save-before-display and writer-authority safeguards still apply. Malformed,
+ambiguous, nested, mixed, truncated or unsupported input stops capture. If the
+exact current wrapper is unavailable, do not save, retype/reconstruct it or scrape
+chats. The host owns transcription/fidelity, wrapper availability, native chat
+tools and genuine identity; the framework cannot restore read_thread. No live
+host voice verification is implied. This legacy capture protocol does not apply
+to native notebook writing.
+
+Retrospectives remain separate: confirmed completion save and genuine stable
+initiating host thread/turn identity are required. A current capture/completion
+turn may differ from the initiating task turn. Missing earlier identity cannot be
+inferred from later availability, saved exchanges, UUIDs or timestamps. Skip and
+disclose unavailable initiation while preserving ordinary local capture/save.
+
 ## Native fixture preparation (unchanged)
 
 Write that public userMessage object directly as UTF-8 JSON under

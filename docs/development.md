@@ -39,6 +39,27 @@ a test work. On Windows, if temporary-directory access is blocked, select an
 ordinary writable temporary location for the test process and retain the failure
 and environment details. Some real-host saves may require scoped filesystem access.
 
+### Retrospective network settings
+
+Optional legacy retrospective Git and GitHub CLI subprocesses preserve the host's
+existing `HTTP_PROXY`, `HTTPS_PROXY`, `ALL_PROXY` and `NO_PROXY` settings, including
+their lowercase forms. They also preserve `SSL_CERT_FILE`, `SSL_CERT_DIR`,
+`REQUESTS_CA_BUNDLE`, `CURL_CA_BUNDLE`, `GIT_SSL_CAINFO` and `GIT_SSL_CAPATH` for
+custom certificate authorities. These settings supplement existing authentication;
+they do not configure credentials or grant network access.
+
+The subprocess environment remains an explicit allowlist. Caller environment
+overrides for the repository, GitHub host, Git configuration and TLS verification
+disabling are excluded. Global/system Git configuration stays disabled and prompts
+stay off. A proxy or certificate failure still stops the contribution operation;
+inspect it without exposing proxy credentials, tokens or private writing.
+
+Synthetic child-process regression checks require no GitHub requests:
+
+```bash
+python -m unittest tests.contract.test_retro_transport tests.contract.test_retro_github -q
+```
+
 ## Packaging
 
 For resource-inclusion changes, build the affected artifacts and perform targeted
