@@ -44,8 +44,18 @@ immutable original input. Use records.revise_project to preserve unchanged field
 The bootstrap artifact preserves the original supplied JSON and its digest,
 with JSON Pointer provenance. It does not fabricate conversational messages or
 authorize canon. Only clear user decisions can establish story facts later.
-After confirmed initialization, offer optional guided brainstorming. Setup can
-finish without starting brainstorming. Disclose any unfinished capability.
+After confirmed initialization, retain novel_path, runtime_python and launcher_path
+from the tool result; the writer does not need to repeat them in chat. For a fresh
+or relocated session, use entry.md's read-only runtime discovery before asking
+about an interpreter. Read the target's AGENTS.md and installed entry.md, then
+load committed context through its pinned launcher before any creative reply.
+Continue in the same conversation. Existing AGENTS.md is preserved and may
+not mention Novel Creator, so always read entry.md explicitly. Use the novel's
+working directory when accessible; if the host cannot access it, disclose that
+limit and ask the writer to select/open the initialized project. Do not repeat
+successful setup or require another skill invocation or a fresh chat. Offer
+optional guided brainstorming. Setup can finish without starting brainstorming.
+Disclose any unfinished capability.
 
 All conversational replies and subsequent changes follow save-before-display:
 preserve the exact current input using entry.md's explicitly selected source,

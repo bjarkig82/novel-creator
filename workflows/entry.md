@@ -1,10 +1,44 @@
 # Installed novel entry
 
-In commands below, `python` means the exact compatible interpreter reported by
-initialization and supplied to this Codex project, not an arbitrary system Python.
-Desktop sessions do not necessarily inherit activation. If the environment is
-unknown, establish its path before writes; never store machine paths in story data.
-The installed getting-started guide explains setup, first save and returning later.
+Before any creative reply, select the intended novel root, read its AGENTS.md
+and this installed entry, and load committed context below. Scope file and
+launcher operations to that novel. An agent opened at a parent workspace cannot
+assume nested project instructions were automatically loaded. For future sessions,
+select/open the novel root in the host. If it is inaccessible, disclose the actual
+limit before continuing; do not initialize again or invent saved context.
+
+## Discover and verify the legacy runtime
+
+In commands below, `python` means a verified compatible environment, not an
+arbitrary system Python. Retain `runtime_python`, `launcher_path` and `novel_path`
+from successful initialization tool output in agent context. Those paths are
+usable evidence even when absent from the writer's chat text. Do not ask the
+writer to confirm an interpreter already established by that result.
+
+In a fresh, relocated or cloud session, inspect the actual environment before
+asking. Check the installed `novel-creator` command's launcher/shebang, an active
+`VIRTUAL_ENV`, and available `.venv` environments in the selected workspace or its
+parent. These are candidates, not proof; do not assume a conventional path exists.
+Do not search unrelated home folders or expose environment secrets. Preserve each
+candidate's lexical executable path: resolving a venv symlink can select base
+Python and lose installed dependencies.
+
+For an evidence-backed candidate, first make read-only checks using that exact
+executable: confirm Python >=3.11 and installed distribution versions satisfying
+packaging >=24, jsonschema >=4.23,<5 and jsonschema-rs >=0.59,<0.60 (for example
+with `importlib.metadata` and `packaging.specifiers`). Then run that executable
+with the selected novel's pinned `.novel-creator/run.py context --novel PATH --json`
+from the novel root. Require successful output for the intended novel before any
+write; damaged records, maintenance holds or missing dependencies are failures,
+not an empty story. Use that verified environment for subsequent pinned commands.
+Verification of a compatible replacement does not prove it was the original
+setup environment. If equally plausible environments remain ambiguous, or none
+passes, report the concrete failure and ask one focused environment question.
+Do not install globally, resolve ambiguity by silently choosing system Python,
+or store machine paths in story data or committed instructions. No durable runtime
+file is required. The installed getting-started guide explains manual setup.
+
+## Continue with installed safeguards
 
 For a direct request to check/update the framework, load `update.md` and invoke
 `$novel-update`. No automatic update check runs on opening, resuming or saving.

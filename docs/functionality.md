@@ -82,7 +82,7 @@ for the detailed legacy workflow. Structural validation cannot prove literary co
 
 ## Markdown notebook
 
-The unpublished 0.4.0 candidate adds `novel-creator notebook init "My Novel"` for
+The published 0.4.0 package adds `novel-creator notebook init "My Novel"` for
 new novels, with optional path, title and English/Icelandic language. It refuses
 every existing destination, even an empty folder or recognized novel. A new path
 must be outside other Git repositories and have a writable parent and usable Git
@@ -134,7 +134,7 @@ prompts and methods: associations, mind mapping, conversational freewriting,
 perspective changes, focused questions and optional later premise expansion.
 It requires no runtime internet access. The [design source notes](superpowers/specs/2026-11-05-brainstorming-design.md)
 explain the general writing sources and their limits; no method guarantees
-literary quality. These resources ship only into new candidate notebooks, without
+literary quality. These resources ship only into new notebooks, without
 converting or automatically updating existing notebooks or legacy books. Manual
 [conversation scenarios](../tests/evaluations/brainstorming.md) describe judgment
 checks separately from automated installation evidence.
@@ -199,9 +199,19 @@ See [the update workflow](../workflows/update.md) for commands and recovery boun
 
 ## Delivery status and limits
 
-The published 0.3.0 release supplies legacy onboarding and updating; 0.2.0 added
-optional retrospectives. The 0.4.0 notebook remains an unpublished candidate.
+The published 0.4.0 release adds the native notebook alongside legacy onboarding
+and updating; 0.2.0 added optional retrospectives.
 See [release notes](releases/0.4.0.md) and the linked evidence for precise scope.
+
+This checkout additionally improves agent-led initialization: generated project
+instructions direct ongoing work through Novel Creator, and legacy setup returns
+runtime/project handoff paths in both shorthand and brief-file modes. Agents must
+read target instructions and saved context before creative replies. Legacy runtime
+discovery verifies available environment evidence before asking the writer; it
+does not add per-turn Python to notebooks. These improvements are not in the
+published 0.4.0 artifact or automatically installed into existing stories. Hosts
+do not automatically switch projects, and parent workspaces do not guarantee
+nested instruction discovery. See [agent-led setup](../workflows/start-here.md#ask-your-agent-to-set-up-a-story).
 
 Legacy Windows Codex Desktop capture and update journeys have scoped evidence;
 update host evaluation used explicitly authorized delegated input. Linux CLI and

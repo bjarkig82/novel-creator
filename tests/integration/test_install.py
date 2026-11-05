@@ -93,7 +93,15 @@ class InstallationTests(unittest.TestCase):
 
     def test_existing_instructions_preserved_and_unrelated_content_refused(self):
         (self.root / 'AGENTS.md').write_bytes(b'# Existing instructions\r\n')
-        self.install()
+        result = self.install()
+        self.assertEqual((self.root / 'AGENTS.md').read_bytes(), b'# Existing instructions\r\n')
+        for initialization in (result, self.install()):
+            handoff = initialization['data']['next_action']
+            self.assertIn('Existing AGENTS.md is preserved', handoff)
+            self.assertIn('.novel-creator/workflows/entry.md', handoff)
+            self.assertIn('load committed context', handoff)
+            self.assertNotIn('invoke $novel-init', handoff)
+        self.assertTrue((self.root / '.novel-creator/workflows/entry.md').is_file())
         self.assertEqual((self.root / 'AGENTS.md').read_bytes(), b'# Existing instructions\r\n')
         other = self.parent / 'occupied'
         other.mkdir()
@@ -105,6 +113,40 @@ class InstallationTests(unittest.TestCase):
         self.assertEqual(error.exception.code, 3)
         self.assertEqual(manuscript.read_bytes(), b'Approved manuscript')
         self.assertFalse((other / '.git').exists())
+
+    def test_generated_instructions_direct_ongoing_project_work_to_pinned_entry(self):
+        from importlib.resources import files
+
+        result = self.install()
+        instructions = (self.root / 'AGENTS.md').read_bytes()
+        self.assertEqual(instructions, files('novel_creator.codex').joinpath(
+            'AGENTS.production.md').read_bytes().replace(b'\r\n', b'\n'))
+        self.assertIn(b'Use Novel Creator for ongoing story work in this initialized novel', instructions)
+        self.assertIn(b'native-input capture and save-before-display', instructions)
+        self.assertIn('Before any creative reply', result['data']['next_action'])
+        self.assertIn('runtime_python and launcher_path', result['data']['next_action'])
+        self.assertEqual(result['data']['runtime_python'], str(Path(sys.executable).absolute()))
+        self.assertEqual(result['data']['novel_path'], str(self.root))
+        self.assertTrue(result['data']['ready'])
+        self.assertTrue((self.root / '.novel-creator/run.py').is_file())
+        self.assertEqual(git(self.root, 'status', '--porcelain'), '')
+
+    def test_brief_file_cli_returns_runtime_handoff_on_setup_and_continuation(self):
+        brief = self.parent / 'brief.json'
+        brief.write_text('{}', encoding='utf-8')
+        for already in (False, True):
+            result = subprocess.run([sys.executable, '-m', 'novel_creator', 'init',
+                '--path', str(self.root), '--brief-file', str(brief), '--json'],
+                capture_output=True, text=True, encoding='utf-8')
+            self.assertEqual(result.returncode, 0, result.stderr)
+            data = json.loads(result.stdout)['data']
+            self.assertEqual(data.get('runtime_python'), str(Path(sys.executable).absolute()))
+            self.assertEqual(data.get('novel_path'), str(self.root))
+            self.assertEqual(data.get('launcher_path'), str(self.root / '.novel-creator/run.py'))
+            self.assertTrue(data.get('ready'))
+            self.assertTrue(Path(data['getting_started_path']).is_file())
+            self.assertEqual(data['already_initialized'], already)
+        self.assertEqual(git(self.root, 'status', '--porcelain'), '')
 
     def test_nested_repository_is_refused_without_changes(self):
         from novel_creator.install import initialize
@@ -148,6 +190,8 @@ class InstallationTests(unittest.TestCase):
         self.assertTrue(saved['data']['cleanup_required'])
         again = self.install()
         self.assertTrue(again['data']['cleanup_required'])
+        self.assertFalse(again['data']['ready'])
+        self.assertEqual(again['data']['runtime_python'], str(Path(sys.executable).absolute()))
         self.assertIn('recover', again['data']['next_action'])
 
     def test_missing_identity_does_not_install(self):

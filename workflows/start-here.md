@@ -10,18 +10,78 @@ and help you explore them. A suggestion becomes an established story fact only
 when you clearly accept it. You can change your mind later and keep a record of
 what changed.
 
-## New story notebook (development candidate)
+## Ask your agent to set up a story
 
-The development candidate offers a separate Markdown notebook for a new novel.
-After installing that candidate in a Python environment and configuring your Git
-identity, choose a new folder outside existing Git repositories:
+Ask in the conversation where you are already working, for example: “Use Novel
+Creator to create a new English story notebook called My Novel at
+/path/to/My Novel. I don't have a story idea yet.” Replace the example with your
+intended new folder. A temporary working title is fine; you do not need a concept,
+genre or outline before setup.
+
+The agent should establish the destination, language and working title from your
+request and context, asking only for missing choices. It should use your configured
+compatible Python environment and the actual installed CLI, check success, then
+read the new project's `AGENTS.md`, linked guides and relevant project notes before
+continuing in the same conversation. It should switch its working directory to
+the story folder when possible and do this before any creative reply. Setup does
+not require a new chat or repeated
+skill commands, and starting brainstorming is your choice. Outlining remains an
+explicit request.
+
+The published 0.4.0 package supports notebook setup. The improved generated
+instructions and continuation messages described here are changes in this source
+checkout for new initializations and a future package; they are not part of the
+published 0.4.0 artifact. Existing projects keep their installed instructions.
+
+Setup needs Python 3.11+, the installed package, Git 2.39+, your configured Git
+identity and access to the intended destination. Keep the Python environment
+outside the story. The agent must preserve existing books and unrelated files,
+confirm it is targeting the intended new destination outside all Git repositories,
+and never overwrite an existing notebook destination. It must not invent a Git
+identity, change global configuration or request a model key. If setup is partial,
+preserve the evidence and follow its recovery message rather than overwrite it.
+
+The host may not be able to access a newly created folder or change project
+context. The agent should report the actual limit; you may need to select/open
+that initialized folder in the host. Setup does not install global instructions,
+guarantee global skill discovery or switch host projects automatically. Do not
+initialize again after successful setup.
+
+For later cloud or desktop sessions, select the story folder itself as the host
+project root. Opening a parent workspace does not guarantee that the agent will
+discover a nested story's instructions before answering. Tell the agent which
+existing story to continue if the destination is ambiguous.
+
+For an existing legacy novel, continue with its pinned launcher and installed
+entry guide; creating a notebook does not convert it. Legacy setup preserves any
+pre-existing `AGENTS.md` byte for byte, so that file may not direct future sessions
+to Novel Creator. The initializing agent must explicitly read
+`.novel-creator/workflows/entry.md` and load committed context even then; automatic
+discovery in a later host session is not guaranteed. Native-input capture and
+save-before-display safeguards still apply; unavailable host capabilities must
+be disclosed before creative continuation.
+
+Legacy setup returns its Python interpreter and launcher paths to the agent in
+the tool result, so you do not need to repeat them in chat. When that result is
+unavailable in a fresh or moved workspace, the agent should inspect actual CLI
+and virtual-environment candidates and verify dependencies and read-only pinned
+context before asking you about an environment. A conventional folder name alone
+does not prove an interpreter is compatible. Machine paths are not committed to
+your story, and notebook conversations do not need this legacy runtime discovery.
+
+## New story notebook
+
+Novel Creator 0.4.0 offers a separate Markdown notebook for a new novel. The agent
+can execute the direct CLI fallback below in the configured environment, using
+a new folder outside existing Git repositories:
 
 ```text
 novel-creator notebook init "My Novel" --path "/path/to/My Novel" --language en
 ```
 
 Choose `is` for Icelandic and use `--title` if you want a different working title.
-Open the new folder in Codex and start an ordinary conversation. Ask for a brief
+After setup, read the generated instructions and continue as described above.
+Ask for a brief
 on a topic when you want one; recaps are not automatic. Python is needed for
 setup, while Codex uses its native tools for the notebook. Existing novels stay
 on the separate legacy workflow described below; this command does not convert
@@ -39,9 +99,9 @@ Optional focused skills are `$novel-book-idea`, `$novel-premise`,
 `$novel-character`, `$novel-plot` and `$novel-setting`; ordinary conversation
 chooses a useful focus and method without requiring these commands. `$novel-outline` remains
 an explicitly requested later option. These additions belong to newly initialized
-candidate notebooks. Package installation does not add them to existing notebooks
-or change legacy brainstorming. Candidate features are not available from the
-published legacy release; use the notebook candidate route described above.
+notebooks. Package installation does not add them to existing notebooks
+or change legacy brainstorming. These notebook features are not available from
+the older published legacy releases.
 
 The rest of this page describes the existing legacy workflow.
 

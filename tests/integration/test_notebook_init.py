@@ -84,6 +84,25 @@ class NotebookInitialization(unittest.TestCase):
                     self.assertNotIn('Concept', project)
                     self.assertNotIn('Working summary', summary)
 
+    def test_project_instructions_and_handoff_are_installed_for_continuation(self):
+        from importlib.resources import files
+
+        result = self.initialize()
+        instructions = (self.target / 'AGENTS.md').read_bytes()
+        self.assertEqual(instructions, files('novel_creator.codex').joinpath(
+            'notebook/AGENTS.md').read_bytes().replace(b'\r\n', b'\n'))
+        self.assertIn(b'Use Novel Creator for ongoing story work in this project.', instructions)
+        self.assertIn(b'no Python\nlauncher or per-turn skill invocation is required', instructions)
+        handoff = result['data']['next_action']
+        for relative in ('AGENTS.md', 'notebook/project.md', 'notebook/working-summary.md'):
+            self.assertIn(relative, handoff)
+            self.assertTrue((self.target / relative).is_file())
+        for relative in ('.novel-notebook/workflows/conversation.md',
+                         '.novel-notebook/workflows/format.md', '.novel-notebook/languages/en.md'):
+            self.assertTrue((self.target / relative).is_file())
+        self.assertIn('Continue in this notebook folder', handoff)
+        self.assertIn('do not initialize it again', handoff)
+
     def test_outline_skill_is_installed_with_resolvable_shared_guidance(self):
         import re
         for language in ('en', 'is'):

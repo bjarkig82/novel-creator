@@ -88,4 +88,4 @@ def initialize(target, *, title=None, language='en'):
                         data={'ready': False, 'partial': True, 'novel_path': str(root)}) from error
     return {'ok': True, 'data': {'ready': True, 'format': 'novel-notebook', 'version': 1,
                                  'novel_path': str(root), 'language': language,
-                                 'next_action': 'Open this folder in Codex and start talking about your novel. Ask for a topic brief whenever useful.'}}
+                                 'next_action': 'Continue in this notebook folder before any creative reply: use novel_path as the working directory and read its AGENTS.md, linked guides, notebook/project.md and notebook/working-summary.md. Use native file and Git tools; brainstorming is optional. If the agent cannot access this folder, select/open the initialized project in the host; do not initialize it again.'}}

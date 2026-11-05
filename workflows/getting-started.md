@@ -10,10 +10,11 @@ and return to saved conversations in Codex. You can start with no story idea.
 Each novel is its own local Git repository. Initialization finishes before creative
 setup begins; you choose when to start brainstorming.
 
-**Release target:** `novel-creator` 0.3.0 on PyPI. Check the
-[release page](https://pypi.org/project/novel-creator/0.3.0/) before using the named
-installation commands. During prepublication verification, install only the
-maintainer's identified candidate wheel in the same environment instead.
+**Current release:** `novel-creator` 0.4.0 is published on
+[PyPI](https://pypi.org/project/novel-creator/0.4.0/). This guide describes the
+legacy format retained from 0.3.0; use the [beginner guide](start-here.md) for
+new Markdown notebooks. During prepublication verification of a future release,
+install only the maintainer's identified candidate wheel in the same environment.
 
 ## Before you begin
 
@@ -141,8 +142,11 @@ it does not establish story facts. Codex can also use `$novel-inspect`.
 
 ## Return later
 
-Open the same novel folder in Codex and invoke `$novel-resume`. Supply the same
-interpreter path again if the new chat does not have it. Do not initialize again
+Open the same novel folder in Codex and ask to resume; `$novel-resume` is an
+explicit entry point. The agent should retain the initialization tool result's
+interpreter and follow the installed entry guide's read-only discovery when it
+is unavailable, before asking you for an environment. Supply a known compatible
+interpreter only if needed. Do not initialize again
 to resume. In a new terminal, set the variables again and reactivate the existing
 environment, or use the interpreter's full path. To check the selected interpreter:
 
@@ -151,8 +155,9 @@ python -c "import sys; print(sys.executable)"
 ```
 
 The printed path should belong to your Novel Creator environment. Moving a novel
-to another machine requires a compatible Python environment there; give Codex its
-new interpreter path. No framework checkout or history rewrite is needed.
+to another machine requires a compatible Python environment there; the agent
+must verify it, and may need your help finding it. No framework checkout or history
+rewrite is needed.
 
 ## Optional settings
 

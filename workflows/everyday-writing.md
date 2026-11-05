@@ -5,18 +5,26 @@
 Use this guide once your novel folder and Python environment are ready. Most
 steps below are **messages to send in Codex**, not terminal commands. You can
 write in ordinary language; you do not need to repeat a skill name on every turn.
+This page describes legacy novels. Native notebooks use their project instructions
+and ordinary file/Git tools, without a Python interpreter during writing.
 
 ## Open the right project
 
-Open your novel folder, such as **My Novel**, in Codex. Keep its Python interpreter
-path handy. If someone prepared the setup, ask them for both paths. If you have
-lost the interpreter path, use the
+Open your novel folder itself, such as **My Novel**, in Codex. A parent workspace
+does not guarantee automatic discovery of a nested novel's instructions. Ask the
+agent to read that folder's AGENTS.md and installed entry guide and load saved
+context before answering creatively. Use the initialized folder; do not set it
+up again. If you need manual environment help, use the
 [reconnect instructions](beginner-setup.md#reconnect-after-closing-the-terminal).
 
-At the start of a new chat, tell Codex which Python to use. Replace the placeholder
-below with the exact interpreter path from setup, keeping the quotes.
+The agent should retain the interpreter from successful initialization tool output.
+In a fresh or moved workspace, it should inspect and verify actual environment
+candidates as described in the installed entry guide before asking you. You need
+not repeat a path already available to the agent. If no compatible environment
+can be established, you can supply a known one with the optional message below.
+Replace the placeholder with its exact path, keeping the quotes.
 
-**Message to send in Codex:**
+**Optional environment message:**
 
 > Use the Python interpreter at "PASTE_YOUR_PYTHON_PATH_HERE" for this novel's
 > `.novel-creator/run.py`.

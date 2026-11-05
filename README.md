@@ -4,22 +4,34 @@ A home for developing an app that helps writers plan and create novels.
 
 ## Getting started
 
+Start by asking your agent to set up a story, for example: “Use Novel Creator
+to create a new English story notebook called My Novel at /path/to/My Novel.
+I don't have a story idea yet.” Use your intended new folder. The agent can run
+setup, read the generated project instructions and continue in the same
+conversation. See [agent-led setup](workflows/start-here.md#ask-your-agent-to-set-up-a-story)
+for prerequisites, safe destinations and host access limits.
+
+The agent-led handoff improvements in this checkout are not included in the
+published 0.4.0 package. That release already supports notebook initialization;
+new instructions apply to projects initialized from this updated source or a
+future package. Installing a package does not rewrite existing project guidance.
+
 **New to the tools?** Start with the [beginner guide](https://github.com/bjarkig82/novel-creator/blob/main/workflows/start-here.md),
 which explains setup, everyday writing, and the Windows, Linux, and Mac limits.
 If someone has already prepared your novel, go straight to
 [everyday writing](https://github.com/bjarkig82/novel-creator/blob/main/workflows/everyday-writing.md).
 
-Follow the [writer's getting-started guide](https://github.com/bjarkig82/novel-creator/blob/v0.3.0/workflows/getting-started.md) for
-installation, `novel-creator init 'My Novel'`, opening the novel in Codex,
-your first saved conversation, inspection and returning later.
-[Install Novel Creator 0.3.0 from PyPI](https://pypi.org/project/novel-creator/0.3.0/):
+Install [Novel Creator 0.4.0 from PyPI](https://pypi.org/project/novel-creator/0.4.0/)
+in your configured environment:
 
 ```text
-python -m pip install novel-creator==0.3.0
-novel-creator init "My Novel"
+python -m pip install novel-creator==0.4.0
 ```
 
-The guide covers the Python/Git prerequisites and an isolated virtual environment.
+For new notebooks, use the setup route below. The
+[legacy getting-started guide](https://github.com/bjarkig82/novel-creator/blob/v0.4.0/workflows/getting-started.md)
+covers `novel-creator init 'My Novel'`, pinned saves and returning later for the
+separate legacy format, including Python/Git prerequisites and an isolated environment.
 Windows PowerShell and Linux Bash production installs are verified, together with
 Windows Codex Desktop setup/save/inspection/resume. Linux Codex integration remains
 unverified. The developer/older POC instructions below remain reference material.
@@ -27,20 +39,24 @@ unverified. The developer/older POC instructions below remain reference material
 See the [release history](docs/releases/README.md) for version changes and
 compatibility. Candidate verification precedes publication.
 
-## New story notebook (0.4.0 candidate)
+## New story notebook (0.4.0)
 
-The unpublished 0.4.0 source candidate adds a native Codex Markdown notebook for **new novels**.
-Install the candidate from this checkout or a candidate wheel in a Python 3.11+
+The published 0.4.0 package adds a native Codex Markdown notebook for **new novels**.
+Install it in a Python 3.11+
 virtual environment, with Git 2.39+ and your Git identity configured. The
-published 0.3.0 package above does not contain this command. Choose a new path
-outside every existing Git repository:
+older 0.3.0 package does not contain this command. Your agent can execute
+this direct CLI fallback using the configured environment and a new path outside
+every existing Git repository:
 
 ```bash
 novel-creator notebook init "My Novel" --path "/path/to/My Novel" --language en
 ```
 
 Use `--language is` for Icelandic and optionally `--title` for the working title.
-Open the created folder in Codex and talk naturally about your story; ask for a
+After successful setup, have the agent read the created folder's `AGENTS.md`
+and linked guides, project notes and working summary before continuing there.
+If the host cannot access the folder, select/open the initialized project in
+Codex. Talk naturally about your story; ask for a
 topic brief whenever useful. The notebook does not request an automatic recap.
 Python is used for setup; the writing workflow uses Codex's native file and Git
 tools. Existing novels use the separate legacy commands and are not converted.
@@ -57,7 +73,7 @@ With no concept, it starts broadly and asks one question at a time. Optional
 `$novel-book-idea`, `$novel-premise`, `$novel-character`, `$novel-plot` and
 `$novel-setting` skills provide focused entry points; outlining remains explicit-only.
 These additions ship only into new notebooks. See the
-[0.4.0 candidate release notes](docs/releases/0.4.0.md) for upgrade instructions,
+[0.4.0 release notes](docs/releases/0.4.0.md) for upgrade instructions,
 compatibility and evidence limits.
 
 Notebook conversations in Windows and Linux Codex Desktop remain unverified;

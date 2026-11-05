@@ -113,7 +113,7 @@ def _preflight(root, *, require_identity=True):
 def _result(root, saved, *, already=False):
     result = dict(saved, operation='init')
     result['data'] = dict(saved['data'], already_initialized=already,
-        brainstorming_optional=True, next_action='Open this novel folder in Codex and invoke $novel-init; brainstorming is optional.')
+        brainstorming_optional=True, next_action='Before any creative reply, use novel_path as the working directory and read its AGENTS.md and .novel-creator/workflows/entry.md, then load committed context with runtime_python and launcher_path returned here. Retain those tool-result paths in agent context; they need not be repeated by the writer. Existing AGENTS.md is preserved and may not mention Novel Creator; read the installed entry guide explicitly. Follow native-input capture and save-before-display; brainstorming is optional. If the agent cannot access this folder, select/open the initialized project in the host; do not initialize it again.')
     if saved['data']['cleanup_required']:
         result['data']['next_action'] = 'Run recover inspection and explicit cleanup retry before continuing.'
     return result
@@ -152,7 +152,7 @@ def initialize(target, original_text, *, fault=None, request=None):
             recovery = storage.recover(root, history[-1]['exchange_id'])
             result = _result(root, {'ok': True, 'novel_id': projects[0]['id'], 'warnings': [],
                 'checkpoint': point, 'data': {'saved': True, 'cleanup_required': recovery['data']['cleanup_required']}}, already=True)
-            return _command_result(root, result) if request is not None else result
+            return _command_result(root, result)
         if not state_path.is_file():
             raise ToolError(3, 'Unrecognized partial installation; preserve it and choose another path')
         try:
@@ -221,7 +221,7 @@ def initialize(target, original_text, *, fault=None, request=None):
                 os.fsync(stream.fileno())
     saved = storage.save(root, state['bundle'], fault=fault)
     result = _result(root, saved)
-    return _command_result(root, result) if request is not None else result
+    return _command_result(root, result)
 
 
 def _command_result(root, result):
