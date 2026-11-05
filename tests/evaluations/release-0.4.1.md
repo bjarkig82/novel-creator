@@ -33,6 +33,17 @@ verifier passed against the live candidate run, attempt, platform jobs and
 artifact identity. The candidate run's `publish` and `public-checks` jobs were
 skipped, so this record does not establish publication or public installation.
 
+## Publication awaiting protected environment review
+
+[Publication run 42098634966](https://github.com/bjarkig82/novel-creator/actions/runs/42098634966)
+was dispatched and is waiting for approval of the protected `pypi` environment
+configured in the [release workflow](../../.github/workflows/package-release.yml).
+GitHub reports that the current user can approve, but the authorized integration
+could not submit the review: `Resource not accessible by integration`. Approval
+through the GitHub interface remains pending; the upload has not started.
+No public 0.4.1 availability or public installation checks have been verified.
+The candidate remains qualified but unpublished, with no publication date.
+
 ## Scope and remaining limits
 
 Qualification is automated-only. Windows automated CLI/install checks do not

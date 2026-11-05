@@ -96,6 +96,18 @@
   "macos_support": "deferred",
   "literary_quality": "not established by structural tests",
   "ready_for_publication": true,
-  "publication": "pending",
-  "public_installation_checks": "pending"
+  "publication": "waiting for protected pypi environment approval",
+  "public_installation_checks": "pending",
+  "publication_run": {
+    "run_id": 42098634966,
+    "run_url": "https://github.com/bjarkig82/novel-creator/actions/runs/42098634966",
+    "status": "waiting",
+    "environment": "pypi",
+    "environment_approval": "pending",
+    "current_user_can_approve": true,
+    "integration_review_attempt": "failed: Resource not accessible by integration",
+    "github_interface_review": "pending",
+    "upload_started": false,
+    "pypi_availability_verified": false
+  }
 }
