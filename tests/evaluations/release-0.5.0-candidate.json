@@ -1,0 +1,79 @@
+{
+  "version": "0.5.0",
+  "status": "qualified but unpublished candidate",
+  "repository": "bjarkig82/novel-creator",
+  "source_commit": "7b314f725a26d778ca0153761e1773428f6858f2",
+  "run_id": 42228146377,
+  "run_attempt": 1,
+  "run_url": "https://github.com/bjarkig82/novel-creator/actions/runs/42228146377",
+  "attempt_url": "https://github.com/bjarkig82/novel-creator/actions/runs/42228146377/attempts/1",
+  "artifact_id": 13505594099,
+  "artifact_name": "candidate-42228146377-1",
+  "artifact_zip_sha256": "ff1aca198ede61914cdff7b5d2f87cd0dca41f74ccf4d127f20470b20becb253",
+  "artifact_zip_digest_verified": true,
+  "manifest_identity_and_files_verified": true,
+  "packaged_source_files_compared": 75,
+  "native_agent_toml_files_compared": 6,
+  "packaged_source_bytes_match_reviewed_source": true,
+  "manifest": {
+    "repository": "bjarkig82/novel-creator",
+    "run_id": "42228146377",
+    "run_attempt": "1",
+    "source_commit": "7b314f725a26d778ca0153761e1773428f6858f2",
+    "distribution": "novel-creator",
+    "version": "0.5.0",
+    "files": {
+      "novel_creator-0.5.0-py3-none-any.whl": "8d2e981294b7d4e11bb47f286f98c75b18d7a5f24e8803b5ce30374bee4ecd9b",
+      "novel_creator-0.5.0.tar.gz": "c6e9396ee1bf23e3d51a4cf2954aad14814d2a7876c20011aa18b95f12bf929d"
+    }
+  },
+  "conclusion": "success",
+  "qualification": "automated-only",
+  "platforms": {
+    "windows": {
+      "job_id": 127926963083,
+      "job_url": "https://github.com/bjarkig82/novel-creator/actions/runs/42228146377/job/127926963083",
+      "conclusion": "success",
+      "test_count": 418,
+      "skipped_tests": 0,
+      "test_seconds": 3110.94,
+      "checks_passed": [
+        "manifest identity and hashes",
+        "full unit suite",
+        "strict wheel bytes and legacy journeys",
+        "clean wheel installation",
+        "clean sdist installation"
+      ]
+    },
+    "linux": {
+      "job_id": 127926963069,
+      "job_url": "https://github.com/bjarkig82/novel-creator/actions/runs/42228146377/job/127926963069",
+      "conclusion": "success",
+      "test_count": 418,
+      "skipped_tests": 3,
+      "test_seconds": 349.105,
+      "checks_passed": [
+        "manifest identity and hashes",
+        "full unit suite",
+        "strict wheel bytes and legacy journeys",
+        "clean wheel installation",
+        "clean sdist installation",
+        "literal Bash getting-started guide"
+      ]
+    }
+  },
+  "remote_release_verifier": "passed against live candidate run, attempt, jobs, artifact, source and hashes",
+  "windows_host": false,
+  "linux_host": false,
+  "native_agent_discovery": "unverified",
+  "native_delegation": "unverified",
+  "persistent_direct_specialist_controls": "unverified",
+  "windows_literal_powershell_guide_acceptance": "unverified",
+  "literary_quality": "not established by structural tests",
+  "macos_support": "deferred",
+  "publication": {
+    "status": "not-started",
+    "pypi_availability_verified": false
+  },
+  "public_installation_checks": "not run for this unpublished candidate"
+}

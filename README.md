@@ -11,16 +11,17 @@ setup, read the generated project instructions and continue in the same
 conversation. See [agent-led setup](workflows/start-here.md#ask-your-agent-to-set-up-a-story)
 for prerequisites, safe destinations and host access limits.
 
-This checkout prepares **0.5.0, an unpublished candidate**, adding six writing
-roles with scene/chapter manuscripts, research and review guidance for new
+This checkout prepares **0.5.0, a qualified but unpublished candidate**, adding
+six writing roles with scene/chapter manuscripts, research and review guidance for new
 notebooks. These additions are absent from the published 0.4.1 package. New
 writing instructions apply to notebooks initialized from this updated source or,
 after publication, 0.5.0. Agent-led setup handoff improvements and explicit legacy
 realtime input capture are already available in published 0.4.1.
 
 Installing a package does not rewrite existing project guidance. The new writing
-resources have focused checks; full release qualification is pending. Native
-specialist interaction in Codex Desktop remains unverified. See the
+resources passed automated Windows/Linux release qualification for the exact
+candidate recorded in the [release evidence](tests/evaluations/release-0.5.0.md).
+Native specialist interaction in Codex Desktop remains unverified. See the
 [0.5.0 candidate notes](docs/releases/0.5.0.md) for changes and host requirements.
 
 **New to the tools?** Start with the [beginner guide](https://github.com/bjarkig82/novel-creator/blob/main/workflows/start-here.md),
