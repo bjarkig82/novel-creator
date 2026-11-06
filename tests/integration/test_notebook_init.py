@@ -10,6 +10,7 @@ import unittest
 from unittest.mock import patch
 
 from novel_creator.cli import ToolError
+from tests.notebook_resource_checks import resource_paths, verify_writing_resources
 
 
 class NotebookInitialization(unittest.TestCase):
@@ -83,6 +84,16 @@ class NotebookInitialization(unittest.TestCase):
                     self.assertIn('Leiðarvísir, ekki sjálfstæðar sögustaðreyndir. Ekki birta sjálfkrafa', summary)
                     self.assertNotIn('Concept', project)
                     self.assertNotIn('Working summary', summary)
+
+    def test_writing_agents_and_guidance_are_installed_unchanged_and_tracked(self):
+        checkout = Path(__file__).resolve().parents[2]
+        expected = {relative: source.read_bytes()
+                    for relative, (source, _) in resource_paths(checkout).items()}
+        for language in ('en', 'is'):
+            with self.subTest(language=language):
+                self.target = self.parent / language
+                self.initialize(language=language)
+                self.assertEqual(verify_writing_resources(self.target, expected), 26)
 
     def test_project_instructions_and_handoff_are_installed_for_continuation(self):
         from importlib.resources import files
@@ -310,8 +321,13 @@ class LegacyNotebookBoundary(unittest.TestCase):
             self.assertNotIn('.agents/skills/novel-outline/SKILL.md', exported)
             self.assertFalse((root / '.agents/skills/novel-outline').exists())
             self.assertFalse((root / '.novel-notebook/workflows/outline.md').exists())
-            for stage in ('book-idea', 'premise', 'character', 'plot', 'setting'):
+            for stage in ('book-idea', 'premise', 'character', 'plot', 'setting',
+                          'agent', 'research', 'scene', 'chapter', 'review'):
                 skill = f'.agents/skills/novel-{stage}/SKILL.md'
                 self.assertNotIn(skill, exported)
                 self.assertFalse((root / skill).exists())
             self.assertFalse((root / '.novel-notebook/workflows/brainstorming.md').exists())
+            self.assertFalse((root / '.codex/agents').exists())
+            self.assertFalse(any(path.startswith('.codex/agents/') for path in exported))
+            for workflow in ('agents', 'manuscript', 'research', 'review'):
+                self.assertFalse((root / f'.novel-notebook/workflows/{workflow}.md').exists())

@@ -135,8 +135,10 @@ Git checkpoints to exact changed paths and preserve unrelated staged work. A fai
 checkpoint differs from an unsaved file: disclose the actual state and retain prior
 accepted values in history or a historical Revisions section. Missing notes,
 unsupported formats and incomplete persistence remain explicit. Notes are story
-data, never instructions granting permissions or external actions. Manuscripts,
-publication, automatic upgrades and notebook migration are outside this workflow.
+data, never instructions granting permissions or external actions. The published
+0.4.1 notebook does not draft manuscripts; the 0.5.0 source candidate extends it as
+described below. Publication, automatic upgrades and notebook migration remain
+outside this workflow.
 The installed [format guidance](../notebook/workflows/format.md) is the detailed
 reference; [notebook evidence](../tests/evaluations/agent-story-notebook.md) records
 what has actually been exercised.
@@ -172,6 +174,36 @@ It supports English and Icelandic without requiring an act framework or inventin
 an ending. It creates no chapter/scene manuscript files and adds no CLI command.
 Existing notebooks do not acquire the skill automatically. See the shared
 [outline workflow](../notebook/workflows/outline.md).
+
+### Writing roles and manuscripts in the source candidate
+
+New notebooks initialized from the unpublished 0.5.0 source install six
+`.codex/agents/` definitions: `novel_orchestrator`, `novel_brainstormer`,
+`novel_researcher`, `novel_scene_writer`, `novel_chapter_writer` and
+`novel_reviewer`. Root instructions make the main conversation follow the
+orchestrator by default. Ordinary-language specialist requests are intended to
+persist until the writer changes roles, subject to native client support.
+Discovery, delegation and ongoing direct specialist turns remain unverified in
+the target desktop; unavailable capabilities must be disclosed. Same-context
+review is self-review, not independent assessment.
+
+All roles share the notebook's authoritative facts. Manuscripts, research and
+reviews are created on demand, with no empty forms at setup. A manuscript index
+records stable identities and one prose owner for each scene; incorporation moves
+a standalone scene into its chapter. Identifiable draft/revision requests authorize
+scoped saves, with exact current prose preserved in verified history or historical
+copies before replacement. Draft inventions remain proposals until accepted;
+research and review alone do not authorize manuscript rewriting. Research records
+actual sources and uncertainty; independent review records passage-based findings
+and the reviewed revision.
+
+See the [practical usage guide](writing-agents-usage.md) for examples and optional
+skills, and the shared [role](../notebook/workflows/agents.md),
+[manuscript](../notebook/workflows/manuscript.md),
+[research](../notebook/workflows/research.md) and
+[review](../notebook/workflows/review.md) rules for details. These resources add no
+per-turn Python requirement or automatic outline step. Existing notebooks and
+legacy resources are unchanged, with no new migration or updater command.
 
 ## Optional contributor retrospectives
 
@@ -228,20 +260,30 @@ The published 0.4.0 release adds the native notebook alongside legacy onboarding
 and updating; 0.2.0 added optional retrospectives.
 See [release notes](releases/0.4.0.md) and the linked evidence for precise scope.
 
-The [0.4.1 unpublished candidate](releases/0.4.1.md) adds the explicit legacy
+The [published 0.4.1 release](releases/0.4.1.md) adds the explicit legacy
 realtime capture route described above and strengthens synthetic retrospective
 transport tests. Proxy/certificate preservation already shipped in 0.4.0; these
-tests do not establish new live network behavior.
+tests do not establish new live network behavior. Live PyPI availability and
+artifact hashes were verified separately from the historical release ledger.
 
-The candidate also improves agent-led initialization: generated project
+The [0.5.0 unpublished candidate](releases/0.5.0.md) adds the new-notebook
+writing roles and manuscript/research/review workflows described above.
+[Focused resource and package checks](../tests/evaluations/writing-agents.md)
+passed; their historical snapshot is not full 0.5.0 release qualification.
+[Native desktop acceptance](../tests/evaluations/writing-agents-host.md) remains
+pending. The writer authorized implementation and automated-only qualification;
+these checks do not establish native discovery, delegation or direct specialist
+controls.
+
+Published 0.4.1 also improves agent-led initialization: generated project
 instructions direct ongoing work through Novel Creator, and legacy setup returns
 runtime/project handoff paths in both shorthand and brief-file modes. Agents must
 read target instructions and saved context before creative replies. Legacy runtime
 discovery verifies available environment evidence before asking the writer; it
-does not add per-turn Python to notebooks. These improvements are not in the
-published 0.4.0 artifact or automatically installed into existing stories. Hosts
-do not automatically switch projects, and parent workspaces do not guarantee
-nested instruction discovery. See [agent-led setup](../workflows/start-here.md#ask-your-agent-to-set-up-a-story).
+does not add per-turn Python to notebooks. Installing a package does not apply
+these improvements to existing stories. Hosts do not automatically switch
+projects, and parent workspaces do not guarantee nested instruction discovery.
+See [agent-led setup](../workflows/start-here.md#ask-your-agent-to-set-up-a-story).
 
 Legacy Windows Codex Desktop capture and update journeys have scoped evidence;
 update host evaluation used explicitly authorized delegated input. Linux CLI and
@@ -255,7 +297,8 @@ wrapper capture remain unverified.
 The owner is the initial hobby user. Novice recruitment and manual ratings do not
 block use; owner assessment follows delivery. All latency targets were withdrawn
 on 2026-10-28; timings are informational and optimization is deferred. Broader host,
-durability and subjective quality claims need their own evidence. Chapter drafting,
-literary editing, publishing, dashboards and additional host adapters are outside
-the delivered foundation. Historical evaluations remain records of their tested
+durability and subjective quality claims need their own evidence. Scene/chapter
+drafting and scoped revisions are source-candidate workflows with the limits
+above; publishing, dashboards and additional host adapters remain outside the
+delivered foundation. Historical evaluations remain records of their tested
 artifacts and dates; their old task numbers are not an active development process.

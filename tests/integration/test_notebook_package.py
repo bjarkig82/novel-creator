@@ -3,16 +3,21 @@ import os
 from pathlib import Path
 import subprocess
 import sys
+import tarfile
 import tempfile
 import unittest
 import venv
+import zipfile
 
+from tests.notebook_resource_checks import resource_paths
 from tests.verify_wheel import run, verify_notebook
 
 
 class NotebookPackageTest(unittest.TestCase):
     def test_wheel_and_sdist_install_and_initialize(self):
         checkout = Path(__file__).resolve().parents[2]
+        resources = resource_paths(checkout)
+        expected = {relative: source.read_bytes() for relative, (source, _) in resources.items()}
         env = dict(os.environ, PYTHONUTF8='1', PYTHONDONTWRITEBYTECODE='1',
                    PIP_NO_INDEX='1', PIP_DISABLE_PIP_VERSION_CHECK='1', PIP_CONFIG_FILE=os.devnull,
                    GIT_AUTHOR_NAME='Package Test', GIT_AUTHOR_EMAIL='package@example.invalid',
@@ -28,6 +33,17 @@ class NotebookPackageTest(unittest.TestCase):
             run([sys.executable, '-c', build], cwd=checkout, env=env)
             wheel = next(artifacts.glob('*.whl'))
             sdist = next(artifacts.glob('*.tar.gz'))
+            with zipfile.ZipFile(wheel) as archive:
+                for relative, (_, member) in resources.items():
+                    self.assertEqual(archive.read(member), expected[relative], member)
+            with tarfile.open(sdist, 'r:gz') as archive:
+                prefix = sdist.name.removesuffix('.tar.gz')
+                for relative, (source, _) in resources.items():
+                    member = prefix + '/' + source.relative_to(checkout).as_posix()
+                    stream = archive.extractfile(member)
+                    self.assertIsNotNone(stream, member)
+                    with stream:
+                        self.assertEqual(stream.read(), expected[relative], member)
             for label, archive in [('wheel', wheel), ('sdist', sdist)]:
                 with self.subTest(artifact=label):
                     area = scratch / label
@@ -45,7 +61,10 @@ class NotebookPackageTest(unittest.TestCase):
                     probe = "import novel_creator,sys; from pathlib import Path; assert Path(novel_creator.__file__).resolve().is_relative_to(Path(sys.prefix))"
                     run([python, '-I', '-c', probe], cwd=area, env=env)
                     for language in ('en', 'is'):
-                        verify_notebook(console, area, env, language)
+                        result = verify_notebook(console, area, env, language, expected)
+                        self.assertEqual(result['verified_resource_count'], 26)
+                    print(f'{label}: {len(resources)} artifact resources match source bytes; '
+                          'isolated install and en/is notebook resource checks passed')
 
 
 if __name__ == '__main__':

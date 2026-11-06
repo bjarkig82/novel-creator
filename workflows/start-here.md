@@ -28,10 +28,9 @@ not require a new chat or repeated
 skill commands, and starting brainstorming is your choice. Outlining remains an
 explicit request.
 
-The published 0.4.0 package supports notebook setup. The improved generated
-instructions and continuation messages described here are changes in this source
-checkout for new initializations and a future package; they are not part of the
-published 0.4.0 artifact. Existing projects keep their installed instructions.
+The published 0.4.1 package includes notebook setup and the improved generated
+instructions and continuation messages described here. Existing projects keep
+their installed instructions; installing a package does not update them.
 
 Setup needs Python 3.11+, the installed package, Git 2.39+, your configured Git
 identity and access to the intended destination. Keep the Python environment
@@ -102,6 +101,19 @@ an explicitly requested later option. These additions belong to newly initialize
 notebooks. Package installation does not add them to existing notebooks
 or change legacy brainstorming. These notebook features are not available from
 the older published legacy releases.
+
+New notebooks initialized from the unpublished 0.5.0 source candidate also
+install six writing roles and guidance for on-demand scenes, chapters, research
+and review. Open the initialized novel folder itself, then check whether your
+actual Codex client supports custom agents and ongoing direct specialist turns.
+Those native interactions remain unverified in the target desktop. Ordinary
+requests such as “Let me work with the scene writer” require that host support;
+missing capabilities must be disclosed. For practical examples and limits, read
+`docs/writing-agents-usage.md` in the updated Novel Creator source checkout; that
+guide is not installed in legacy novels. No repeated skill command, per-turn
+Python or full questionnaire is required. These additions are absent from
+published 0.4.1, leave existing notebooks and legacy novels unchanged, and
+introduce no migration or updater command.
 
 The rest of this page describes the existing legacy workflow.
 

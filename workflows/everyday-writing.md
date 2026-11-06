@@ -6,7 +6,12 @@ Use this guide once your novel folder and Python environment are ready. Most
 steps below are **messages to send in Codex**, not terminal commands. You can
 write in ordinary language; you do not need to repeat a skill name on every turn.
 This page describes legacy novels. Native notebooks use their project instructions
-and ordinary file/Git tools, without a Python interpreter during writing.
+and ordinary file/Git tools, without a Python interpreter during writing. For
+new notebooks initialized from the unpublished 0.5.0 source candidate, read
+`docs/writing-agents-usage.md` in the updated Novel Creator source checkout for
+scenes, chapters, research and review. That guide is not installed in legacy
+novels. Those additions are absent from published 0.4.1 and do not update existing
+notebooks. The legacy instructions below remain unchanged.
 
 ## Open the right project
 

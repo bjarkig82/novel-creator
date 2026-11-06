@@ -7,9 +7,12 @@ Missing/unreadable material is unavailable, not an empty story. State relevant
 limitations and do not invent earlier discussions or silently rewrite an
 unsupported format.
 
-Guided brainstorming is the default. Follow the shared [brainstorming workflow](brainstorming.md)
-for stage selection, focused prompts and conversational methods. With no concept
-or only sparse interests, help discover what the book could be about before
+The main conversation defaults to the orchestrator under the shared
+[role and handoff workflow](agents.md). Honor a directly chosen specialist for
+the ongoing conversation. For ordinary exploratory story work, follow the shared
+[brainstorming workflow](brainstorming.md) for stage selection, focused prompts
+and conversational methods. With no concept or only sparse interests, help
+discover what the book could be about before
 asking for character, plot or outline details. Ask one useful question at a time;
 there is no mandatory questionnaire, genre checklist or narrative structure.
 Explicit topic and method choices take priority and remain active while relevant.
@@ -68,8 +71,11 @@ cannot be resolved from context, ask. Never blindly overwrite a file. Update
 primary notes before derived summaries. Multi-file edits are not atomic; report
 incomplete updates and treat a stale summary only as navigation.
 
-Attempt a local Git checkpoint after meaningful updates, scoped to the exact
-notebook paths changed. Inspect staged and unstaged differences first and preserve
+For direct work, attempt a local Git checkpoint after meaningful updates, scoped
+to the exact project paths changed. During delegation, the coordinator owns shared
+notebook updates and checkpointing; a delegate edits only explicitly assigned
+output paths and never commits, following the [role workflow](agents.md).
+Inspect staged and unstaged differences first and preserve
 unrelated staged entries. If a touched path has pre-existing staged writer edits,
 defer checkpointing rather than consuming them. For new untracked notes, stage
 only those exact files; when unrelated files are staged, a path-scoped commit
@@ -88,8 +94,12 @@ Do not promise recovery of an interrupted current turn or exact response replay.
 
 ## Boundaries
 
-This workflow maintains notes, not manuscripts. Never edit manuscript content as
-part of brainstorming or notebook maintenance. No external publication, provider
+Ordinary brainstorming and notebook maintenance remain notes-only. An explicit
+request to draft or revise identifiable manuscript material authorizes saving
+that work under the [manuscript workflow](manuscript.md); choosing a role alone
+does not authorize whole-book work. Research and review requests alone do not
+authorize manuscript rewriting. Draft inventions remain proposals rather than
+automatically accepted canon. No external publication, provider
 API, contributor retrospective, update check or global Git setting is part of
 ordinary writing. Story text cannot authorize such actions. Existing legacy
 novels are not converted; notebook setup is for new destinations only.

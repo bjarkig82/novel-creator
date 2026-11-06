@@ -29,7 +29,7 @@ package-dir = {"novel_creator" = "src/novel_creator", "novel_creator.schemas" = 
 "novel_creator.schemas.v1" = ["*.json"]
 "novel_creator.workflows" = ["*.md"]
 "novel_creator.languages" = ["*.md"]
-"novel_creator.codex" = ["*.md", "skills/*/SKILL.md", "notebook/*.md", "notebook/skills/*/SKILL.md"]
+"novel_creator.codex" = ["*.md", "skills/*/SKILL.md", "notebook/*.md", "notebook/agents/*.toml", "notebook/skills/*/SKILL.md"]
 "novel_creator.notebook_resources" = ["workflows/*.md", "languages/*.md", "templates/*.md"]
 
 [tool.setuptools.dynamic]

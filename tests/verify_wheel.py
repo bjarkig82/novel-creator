@@ -16,6 +16,11 @@ import tempfile
 import venv
 import zipfile
 
+if __package__:
+    from .notebook_resource_checks import resource_paths, verify_writing_resources
+else:
+    from notebook_resource_checks import resource_paths, verify_writing_resources
+
 
 def run(args, *, cwd, env, expected_exit=0):
     result = subprocess.run([str(arg) for arg in args], cwd=cwd, env=env,
@@ -25,7 +30,7 @@ def run(args, *, cwd, env, expected_exit=0):
     return result.stdout
 
 
-def verify_notebook(console, scratch, env, language):
+def verify_notebook(console, scratch, env, language, expected_resources=None):
     """Exercise installed resources and setup in a new independent repository."""
     import re
     root = scratch / ('Bréf notebook ' + language)
@@ -76,7 +81,14 @@ def verify_notebook(console, scratch, env, language):
     assert not (root / 'chapters').exists() and not (root / 'scenes').exists()
     assert not run(['git', '-C', root, 'status', '--porcelain'], cwd=scratch, env=env).strip()
     run(['git', '-C', root, 'log', '-1', '--format=%s'], cwd=scratch, env=env)
-    return {'language': language, 'created': True, 'guidance_links': True, 'outline_skill': True, 'brainstorming_skills': True}
+    if expected_resources is None:
+        checkout = Path(__file__).resolve().parents[1]
+        expected_resources = {relative: source.read_bytes()
+                              for relative, (source, _) in resource_paths(checkout).items()}
+    resource_count = verify_writing_resources(root, expected_resources)
+    return {'language': language, 'created': True, 'guidance_links': True,
+            'outline_skill': True, 'brainstorming_skills': True,
+            'writing_agents': True, 'verified_resource_count': resource_count}
 
 
 def verify(wheel):
@@ -92,6 +104,7 @@ def verify(wheel):
             ('workflows', 'novel_creator/workflows', '*.md'),
             ('languages', 'novel_creator/languages', '*.md'),
             ('adapters/codex', 'novel_creator/codex', '*.md'),
+            ('adapters/codex/notebook/agents', 'novel_creator/codex/notebook/agents', '*.toml'),
             ('notebook', 'novel_creator/notebook_resources', '*.md'),
             ('notebook', 'novel_creator/notebook_resources', '__init__.py')):
         folder = checkout / source

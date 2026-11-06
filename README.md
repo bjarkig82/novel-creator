@@ -11,29 +11,34 @@ setup, read the generated project instructions and continue in the same
 conversation. See [agent-led setup](workflows/start-here.md#ask-your-agent-to-set-up-a-story)
 for prerequisites, safe destinations and host access limits.
 
-This checkout prepares **0.4.1, an unpublished candidate**, with agent-led setup
-handoff improvements and explicit legacy realtime input capture. These changes
-are not included in the published 0.4.0 package. New instructions apply to
-projects initialized from this updated source or, after publication, 0.4.1.
-Installing a package does not rewrite existing project guidance. See the
-[0.4.1 candidate notes](docs/releases/0.4.1.md) for changes and host requirements.
+This checkout prepares **0.5.0, an unpublished candidate**, adding six writing
+roles with scene/chapter manuscripts, research and review guidance for new
+notebooks. These additions are absent from the published 0.4.1 package. New
+writing instructions apply to notebooks initialized from this updated source or,
+after publication, 0.5.0. Agent-led setup handoff improvements and explicit legacy
+realtime input capture are already available in published 0.4.1.
+
+Installing a package does not rewrite existing project guidance. The new writing
+resources have focused checks; full release qualification is pending. Native
+specialist interaction in Codex Desktop remains unverified. See the
+[0.5.0 candidate notes](docs/releases/0.5.0.md) for changes and host requirements.
 
 **New to the tools?** Start with the [beginner guide](https://github.com/bjarkig82/novel-creator/blob/main/workflows/start-here.md),
 which explains setup, everyday writing, and the Windows, Linux, and Mac limits.
 If someone has already prepared your novel, go straight to
 [everyday writing](https://github.com/bjarkig82/novel-creator/blob/main/workflows/everyday-writing.md).
 
-Install [Novel Creator 0.4.0 from PyPI](https://pypi.org/project/novel-creator/0.4.0/)
+Install [Novel Creator 0.4.1 from PyPI](https://pypi.org/project/novel-creator/0.4.1/)
 in your configured environment:
 
 ```text
-python -m pip install novel-creator==0.4.0
+python -m pip install novel-creator==0.4.1
 ```
 
-After 0.4.1 is published, use this version-pinned upgrade command:
+**Usable only after 0.5.0 is published:**
 
 ```text
-python -m pip install --upgrade novel-creator==0.4.1
+python -m pip install --upgrade novel-creator==0.5.0
 ```
 
 Existing legacy novels need an [explicit supported update](workflows/getting-started.md#updating-an-existing-book)
@@ -91,6 +96,21 @@ compatibility and evidence limits.
 Notebook conversations in Windows and Linux Codex Desktop remain unverified;
 see the [notebook evidence ledger](tests/evaluations/agent-story-notebook.md) and
 [release preparation](tests/evaluations/agent-story-notebook-release.md).
+
+## Writing agents and manuscripts (0.5.0 source candidate)
+
+New notebooks initialized from this source install six `.codex/agents/` roles.
+The root conversation follows the orchestrator; you can request a specialist in
+ordinary language, such as “Let me work with the scene writer.” Native role
+selection and ongoing direct turns depend on the actual Codex client and remain
+unverified in the target desktop. Ask the host to disclose unavailable capabilities.
+
+The [writing-agent usage guide](docs/writing-agents-usage.md) covers role choices,
+on-demand scenes and chapters, scoped revisions, research sources and review
+findings, with optional skill entries. Open the initialized novel folder itself.
+Existing notebooks and legacy novels stay unchanged; there is no new migration
+or updater command. See [focused evidence](tests/evaluations/writing-agents.md)
+and the [pending desktop checkpoint](tests/evaluations/writing-agents-host.md).
 
 ## Project status
 
@@ -237,7 +257,7 @@ wheel from the configured dependency environment:
 
 ```bash
 python -m pip wheel . --no-deps --wheel-dir dist
-python tests/verify_wheel.py dist/novel_creator-0.4.1-py3-none-any.whl
+python tests/verify_wheel.py dist/novel_creator-0.5.0-py3-none-any.whl
 ```
 
 Use the actual versioned filename produced by the build. The verifier installs

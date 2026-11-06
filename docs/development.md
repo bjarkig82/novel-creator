@@ -75,7 +75,7 @@ environment:
 ```bash
 python -m unittest discover -q
 python -m pip wheel . --no-deps --wheel-dir dist
-python tests/verify_wheel.py dist/novel_creator-0.4.1-py3-none-any.whl
+python tests/verify_wheel.py dist/novel_creator-0.5.0-py3-none-any.whl
 ```
 
 Use the actual versioned filename produced by the build. The wheel verifier
