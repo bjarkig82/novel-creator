@@ -11,7 +11,13 @@ setup, read the generated project instructions and continue in the same
 conversation. See [agent-led setup](workflows/start-here.md#ask-your-agent-to-set-up-a-story)
 for prerequisites, safe destinations and host access limits.
 
-**Novel Creator 0.5.0 is published on PyPI, 2026-11-06**, adding six writing
+**This checkout prepares 0.6.0, an unpublished candidate.** It adds fresh small
+legacy working context with targeted record/source retrieval, and focused notebook
+memory guidance. Read the [0.6.0 candidate notes](docs/releases/0.6.0.md) for
+compatibility and pending qualification. Context volume reduction does not establish
+faster voice responses; actual pause timing and cause remain unverified.
+
+**Novel Creator 0.5.0 is the latest published release, 2026-11-06**, adding six writing
 roles with scene/chapter manuscripts, research and review guidance for new
 notebooks. New writing instructions apply to notebooks initialized with 0.5.0.
 Agent-led setup handoff improvements and explicit legacy realtime input capture
@@ -37,6 +43,8 @@ in your configured environment:
 python -m pip install --upgrade novel-creator==0.5.0
 ```
 
+The 0.6.0 install pin is documented in the candidate notes for use only after
+publication. Until then, candidate testing uses the identified candidate artifact.
 Existing legacy novels need an [explicit supported update](workflows/getting-started.md#updating-an-existing-book)
 to change pinned resources. Existing notebooks are not automatically updated or
 migrated.
@@ -147,7 +155,8 @@ The actual Codex capture capability gate has **passed**
 for the tested Windows Desktop native-tool/text-input combination with scoped
 filesystem approval. Story tooling and shared workflows are delivered; their
 subjective literary quality remains unmeasured. All latency targets were withdrawn
-by the owner on 2026-10-28; optimization is deferred. Timings are informational.
+by the owner on 2026-10-28; timings are informational. The 0.6.0 candidate's
+focused context retrieval does not establish a measured voice speed improvement.
 See the [final functional qualification](https://github.com/bjarkig82/novel-creator/blob/v0.2.0/tests/evaluations/final-functional-qualification-20261028.md).
 See the [host evaluation](https://github.com/bjarkig82/novel-creator/blob/v0.2.0/tests/evaluations/host-capture.md).
 
@@ -193,6 +202,14 @@ exploration, change topics or ask for fewer suggestions. The host prepares typed
 session/capture revisions and saves every exact exchange before displaying it.
 Session start, resume, mode changes and closure are records in that same transaction.
 Python/jsonschema/jsonschema-rs remain required; no framework path, model key or dashboard is needed.
+
+New or explicitly updated 0.6.0 bundles read fresh working context each turn and
+retrieve relevant complete records and sources on demand. See the
+[working-context guide](workflows/working-context.md). The journal remains the
+sole legacy authority; record status, provenance, exact input capture and
+save-before-display are preserved. Default CLI/API context remains full for
+compatibility; `--view current` omits archived exchanges. Older pinned runtimes
+require their original commands until an explicit supported update succeeds.
 
 Resume lists stable session IDs, restores saved focus/mode and offers any saved
 reply with display unconfirmed. Inspect source-backed records and history:
@@ -253,7 +270,7 @@ wheel from the configured dependency environment:
 
 ```bash
 python -m pip wheel . --no-deps --wheel-dir dist
-python tests/verify_wheel.py dist/novel_creator-0.5.0-py3-none-any.whl
+python tests/verify_wheel.py dist/novel_creator-0.6.0-py3-none-any.whl
 ```
 
 Use the actual versioned filename produced by the build. The verifier installs

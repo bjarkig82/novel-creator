@@ -30,6 +30,59 @@ def run(args, *, cwd, env, expected_exit=0):
     return result.stdout
 
 
+def verify_context_views(python, launcher, novel, *, cwd, env):
+    """Exercise installed and pinned memory modules, not checkout imports."""
+    module_probe = """
+import sys
+from pathlib import Path
+from novel_creator import memory
+assert Path(memory.__file__).resolve().is_relative_to(Path(sys.prefix))
+"""
+    run([python, '-I', '-B', '-c', module_probe], cwd=cwd, env=env)
+    pinned_probe = f"""
+import sys
+from pathlib import Path
+root = Path({str(novel)!r})
+sys.path.insert(0, str(root / '.novel-creator/src'))
+from novel_creator import memory
+assert Path(memory.__file__).resolve().is_relative_to(root / '.novel-creator/src')
+"""
+    run([python, '-I', '-B', '-c', pinned_probe], cwd=cwd, env=env)
+    assert (novel / '.novel-creator/workflows/working-context.md').is_file()
+
+    def invoke(*args):
+        return json.loads(run([python, '-I', '-B', launcher, 'context', '--novel', novel,
+                               *args, '--json'], cwd=cwd, env=env))
+
+    full = invoke()
+    assert full == invoke('--view', 'full')
+    current = invoke('--view', 'current')
+    assert current['checkpoint'] == full['checkpoint']
+    assert 'exchanges' not in current['data']
+    for key, value in full['data'].items():
+        if key != 'exchanges':
+            assert current['data'][key] == value, key
+    working = invoke('--view', 'working')
+    data = working['data']
+    assert working['checkpoint'] == full['checkpoint']
+    assert data['retrieval']['source_checkpoint'] == full['checkpoint']
+    assert data['retrieval']['source_novel_id'] == full['novel_id']
+    assert data['project'] == full['data']['project']
+    assert data['retrieval']['limit'] == 12 and not data['retrieval']['exhaustive']
+    assert 'exchanges' not in data and 'current_canon' not in data
+    selected = next((r for r in full['data']['records'] if r['kind'] != 'novel_project'),
+                    full['data']['project'])
+    focused = invoke('--view', 'working', '--focus', selected['id'], '--limit', '1')['data']
+    assert selected == focused['project'] or selected in focused['records']
+    assert focused['retrieval']['focus'] == [selected['id']]
+    miss = invoke('--view', 'working', '--query', 'novelverificationabsent8b0d1ef4')['data']
+    assert miss['retrieval']['result'] == 'no_query_matches'
+    assert miss['retrieval']['query_match_count'] == 0
+    return {'default_full_compatible': True, 'current': True, 'working': True,
+            'focused_complete_record': True, 'lexical_query_miss': True,
+            'source_checkpoint': working['checkpoint'], 'installed_and_pinned_memory': True}
+
+
 def verify_notebook(console, scratch, env, language, expected_resources=None):
     """Exercise installed resources and setup in a new independent repository."""
     import re
@@ -147,13 +200,15 @@ import json
 from pathlib import Path
 import sys
 from novel_creator.install import bundle_files
-from novel_creator import context, records, storage, validation, validation_cache
+from novel_creator import context, memory, records, storage, validation, validation_cache
 from novel_creator.update_release import protocol, export_bundle
 metadata=protocol()
 assert metadata['protocol_version'] == 1 and metadata['source_installation_formats'] == [1,2]
 exported=export_bundle()
 assert '.novel-creator/workflows/update.md' in exported['files']
 assert '.agents/skills/novel-update/SKILL.md' in exported['files']
+assert '.novel-creator/src/novel_creator/memory.py' in exported['files']
+assert '.novel-creator/workflows/working-context.md' in exported['files']
 assert '.agents/skills/novel-outline/SKILL.md' not in exported['files']
 paths = [str(Path(module.__file__).resolve()) for name, module in sys.modules.items()
          if name.startswith('novel_creator') and getattr(module, '__file__', None)]
@@ -231,7 +286,9 @@ print(json.dumps(result))
             assert invoke('validate')['data']['exchange_count'] == 2
             assert invoke('session', 'list')['data']['sessions'][0]['topic'] == 'Bréfin'
             assert invoke('context')['checkpoint'] == saved['checkpoint']
-            cases.append({'case': label, 'initialized': True, 'pinned_save_and_reopen': True})
+            views = verify_context_views(python, launcher, root, cwd=scratch, env=env)
+            cases.append({'case': label, 'initialized': True, 'pinned_save_and_reopen': True,
+                          'context_views': views})
         simple = scratch / 'Simple Novel'
         simple.mkdir()
         for args in [('init', '-b', 'main'), ('config', 'user.name', 'Wheel Verification'),

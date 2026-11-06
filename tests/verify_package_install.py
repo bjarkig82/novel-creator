@@ -1,6 +1,7 @@
 """Clean candidate/public installation checks. Never publishes or inherits dependencies."""
 import argparse
 import hashlib
+import io
 import json
 import os
 import re
@@ -9,6 +10,7 @@ import subprocess
 import sys
 import tempfile
 import venv
+import zipfile
 import urllib.request
 from urllib.parse import unquote, urlparse
 
@@ -49,7 +51,7 @@ def run(argv, *, cwd, env, expected_exit=0):
     return result.stdout
 
 
-def verify_notebook_install(console, root, env, package, version):
+def verify_notebook_install(console, root, env, package, version, *, verified_wheel=None):
     """Historical published releases predate notebooks; all candidates must pass."""
     version = version.removeprefix('novel-creator ')
     if package:
@@ -59,9 +61,39 @@ def verify_notebook_install(console, root, env, package, version):
             return []
     try:
         from tests.verify_wheel import verify_notebook
+        from tests.notebook_resource_checks import resource_paths
     except ModuleNotFoundError:
         from verify_wheel import verify_notebook
+        from notebook_resource_checks import resource_paths
+    if package and normalized == 'novel-creator' and requested_version == version == '0.5.0':
+        if verified_wheel is None:
+            raise ValueError('Public 0.5.0 notebook checks require the approved hash-verified wheel')
+        # 0.5.0 has the current writing-resource layout, but its guidance bytes
+        # predate 0.6.0. Use only the archive already verified against the public
+        # manifest, retaining all installed byte, structure, link/tracking checks.
+        checkout = Path(__file__).resolve().parents[1]
+        with zipfile.ZipFile(io.BytesIO(verified_wheel)) as archive:
+            expected_resources = {relative: archive.read(member)
+                                  for relative, (_, member) in resource_paths(checkout).items()}
+        return [verify_notebook(console, root, env, language, expected_resources)
+                for language in ('en', 'is')]
     return [verify_notebook(console, root, env, language) for language in ('en', 'is')]
+
+
+def verify_memory_install(python, launcher, novel, root, env, package, version):
+    """Known public releases predate working views; every candidate must pass."""
+    version = version.removeprefix('novel-creator ')
+    if package:
+        name, requested_version = package.split('==')
+        if (re.sub(r'[-_.]+', '-', name).lower() == 'novel-creator'
+                and requested_version == version
+                and version in {'0.1.0', '0.2.0', '0.3.0', '0.4.0', '0.4.1', '0.5.0'}):
+            return {'historical_public_release': version, 'working_views_available': False}
+    try:
+        from tests.verify_wheel import verify_context_views
+    except ModuleNotFoundError:
+        from verify_wheel import verify_context_views
+    return verify_context_views(python, launcher, novel, cwd=root, env=env)
 
 
 def verify(*, wheel=None, package=None, manifest=None):
@@ -79,6 +111,7 @@ def verify(*, wheel=None, package=None, manifest=None):
                        for value in expected_files.values())):
             raise ValueError('Public mode requires candidate wheel and sdist SHA-256 hashes')
     public_hashes = {}
+    verified_wheel = None
     if package:
         name, version = package.split('==')
         with urllib.request.urlopen(f'https://pypi.org/pypi/{name}/{version}/json', timeout=30) as response:
@@ -92,10 +125,13 @@ def verify(*, wheel=None, package=None, manifest=None):
             if url.scheme != 'https' or url.hostname != 'files.pythonhosted.org':
                 raise ValueError('Unexpected public distribution origin')
             with urllib.request.urlopen(entry['url'], timeout=60) as response:
-                actual = hashlib.sha256(response.read()).hexdigest()
+                downloaded = response.read()
+                actual = hashlib.sha256(downloaded).hexdigest()
             if actual != expected_hash:
                 raise ValueError('Downloaded public distribution hash mismatch')
             public_hashes[filename] = actual
+            if filename.endswith('.whl'):
+                verified_wheel = downloaded
     env = os.environ.copy()
     for key in list(env):
         if key.startswith(('PIP_', 'PYTHON', 'GIT_')):
@@ -133,6 +169,7 @@ def verify(*, wheel=None, package=None, manifest=None):
         guide = Path(initialized['data']['getting_started_path'])
         if not initialized['data']['ready'] or not guide.is_file() or not validated['ok']:
             raise RuntimeError('Installed novel is not ready/valid or guide is missing')
+        context_views = verify_memory_install(reported_python, launcher, novel, root, env, package, version)
         settings_cases = []
         for name, title, language, explicit in [('Folder', 'Bréf frá morgundeginum', 'is', True),
                                                  ('English', 'A working title', 'en', True),
@@ -160,7 +197,8 @@ def verify(*, wheel=None, package=None, manifest=None):
             outcome = json.loads(run([console, *invalid, '--json'], cwd=root, env=env, expected_exit=2))
             if outcome['ok'] or (root / 'Invalid').exists():
                 raise RuntimeError('Invalid input changed a novel or reported success')
-        notebook_cases = verify_notebook_install(console, root, env, package, version)
+        notebook_cases = verify_notebook_install(console, root, env, package, version,
+                                                verified_wheel=verified_wheel)
         dependencies = json.loads(run([python, '-I', '-m', 'pip', 'list', '--format=json'], cwd=root, env=env))
         return {'mode': 'candidate' if wheel else 'public', 'source': Path(source).name if wheel else source,
                 'version': version, 'dependencies': dependencies, 'validated': True,
@@ -168,6 +206,7 @@ def verify(*, wheel=None, package=None, manifest=None):
                 'wheel_sha256': hashlib.sha256(Path(wheel).read_bytes()).hexdigest() if wheel else None,
                 'public_artifact_hashes': public_hashes,
                 'installed_product': installed_product,
+                'context_views': context_views,
                 'settings_cases': settings_cases, 'notebook_cases': notebook_cases, 'invalid_input_cases': 5,
                 'host_walkthrough': 'not performed', 'dependency_inheritance': False}
 

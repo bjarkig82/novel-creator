@@ -34,7 +34,12 @@ Replace the placeholder with its exact path, keeping the quotes.
 > Use the Python interpreter at "PASTE_YOUR_PYTHON_PATH_HERE" for this novel's
 > `.novel-creator/run.py`.
 
-The installed workflow reads the novel's saved context. It should explain any
+The installed workflow reads the novel's saved context. New or explicitly updated
+0.6.0 legacy bundles use fresh small working context and retrieve complete relevant
+records and sources when needed; summaries never accept facts or replace the
+journal. Older pinned bundles retain their installed behavior. Installing a package
+does not update either kind of book. See [working context](working-context.md) for
+the candidate workflow. It should explain any
 unavailable records or required capabilities before continuing. On Linux the
 conversation integration remains unverified; native Mac framework support is
 deferred. See the [platform table](start-here.md#which-computer-can-i-use).

@@ -5,7 +5,9 @@ description: Explore a novel in guided or open mode with automatic sourced captu
 
 Read `.novel-creator/workflows/entry.md`, then `brainstorm.md` and the configured
 language resource in `.novel-creator/languages/`. Use the novel-local launcher
-to read context. Select or start a session with stable IDs; load saved mode and
+to read fresh `context --view working` before each response and retrieve relevant
+complete records/sources as directed by `working-context.md`. Reuse loaded
+workflows while valid. Select or start a session with stable IDs; load saved mode and
 topic. Prepare session changes and all captures in the same exchange as the
 exact current user message and response. Save before displaying, on every turn
 without repeated skill invocation. Shared workflows own coaching and continuity;

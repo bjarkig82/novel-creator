@@ -2,6 +2,12 @@
 
 Read the project brief and format guidance, then relevant topic notes. Use the
 working summary as navigation only; search locally and follow relevant links.
+Recover current focus from `notebook/working-summary.md`, then read the owning
+topic notes for complete relevant items, stable IDs, states and decision origins.
+Check project directions and relevant unresolved findings across topics. Retrieve
+linked topics and exact historical prose when the current request needs them;
+a search miss or omitted item never proves absence. Saved owning files are the
+shared authority for all roles; agent recollection adds no second canon.
 Do not load or recite the entire novel when a focused topic is sufficient.
 Missing/unreadable material is unavailable, not an empty story. State relevant
 limitations and do not invent earlier discussions or silently rewrite an
@@ -26,6 +32,25 @@ brief, determine its scope and summarize relevant notes concisely: accepted
 facts, live proposals and open questions remain distinct. Broader recaps are
 available when asked. Ask one focused question if identity/scope is genuinely
 ambiguous; otherwise proceed. If nothing is saved on that topic, say so.
+
+## Conversational responsiveness
+
+When sufficient context is available, make the first user-facing response a
+substantive reaction, idea or next useful question, rather than a generic promise
+to update notes followed by a long tool gap. Check missing or contradictory
+context before making unsupported story claims.
+
+Reuse already loaded guidance and focused story context while valid in the current
+conversation; do not repeatedly reload unchanged workflows or the whole notebook.
+Keep required initial reads, recover fresh context after compaction, and check
+current files and Git before targeted writes, reconciling external writer edits.
+Batch independent reads and compatible scoped writes to reduce tool round trips.
+Do small work directly under the existing role guidance; avoid unnecessary
+delegation. Saved files and the writer's directions retain story authority.
+
+A useful early response does not replace required work. Complete meaningful saves
+by turn completion and follow the scoped Git checkpoint rules below. Do not claim
+a save succeeded before it does; disclose persistence failures as usual.
 
 ## Automatic notes
 
@@ -70,6 +95,9 @@ it was read, reload and reconcile, preserving direct writer edits. If the change
 cannot be resolved from context, ask. Never blindly overwrite a file. Update
 primary notes before derived summaries. Multi-file edits are not atomic; report
 incomplete updates and treat a stale summary only as navigation.
+After meaningful saves or direct writer edits, reconcile/regenerate affected
+working-summary links and focus from current owning notes. Never use a stale
+summary to override their accepted/proposed states, provenance or open questions.
 
 For direct work, attempt a local Git checkpoint after meaningful updates, scoped
 to the exact project paths changed. During delegation, the coordinator owns shared

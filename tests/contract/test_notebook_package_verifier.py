@@ -1,5 +1,8 @@
 """Candidate notebook failures cannot masquerade as historical compatibility."""
+import io
+import os
 import unittest
+import zipfile
 from pathlib import Path
 import subprocess
 import tempfile
@@ -9,6 +12,79 @@ from tests import verify_package_install
 
 
 class NotebookPackageVerifierTest(unittest.TestCase):
+    def test_public_050_uses_approved_wheel_resources_and_current_stays_source_strict(self):
+        from novel_creator.notebook import initialize
+        from tests.notebook_resource_checks import resource_paths, verify_writing_resources
+
+        checkout = Path(__file__).resolve().parents[2]
+        paths = resource_paths(checkout)
+        current = {relative: source.read_bytes() for relative, (source, _) in paths.items()}
+        historical = dict(current)
+        conversation = '.novel-notebook/workflows/conversation.md'
+        historical[conversation] += b'\nHistorical 0.5.0 resource fixture.\n'
+        archive_bytes = io.BytesIO()
+        with zipfile.ZipFile(archive_bytes, 'w') as archive:
+            for relative, (_, member) in paths.items():
+                archive.writestr(member, historical[relative])
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory).resolve() / 'historical'
+            with patch.dict(os.environ, GIT_AUTHOR_NAME='Package verifier test',
+                            GIT_AUTHOR_EMAIL='test@example.invalid', GIT_COMMITTER_NAME='Package verifier test',
+                            GIT_COMMITTER_EMAIL='test@example.invalid'):
+                initialize(root, title='Historical resource fixture', language='en')
+            (root / conversation).write_bytes(historical[conversation])
+
+            def resource_check(console, scratch, env, language, expected_resources=None):
+                return verify_writing_resources(root, current if expected_resources is None else expected_resources)
+
+            with patch('tests.verify_wheel.verify_notebook', side_effect=resource_check) as probe:
+                verified = verify_package_install.verify_notebook_install(
+                    'console', root.parent, {}, 'novel-creator==0.5.0', 'novel-creator 0.5.0',
+                    verified_wheel=archive_bytes.getvalue())
+                self.assertEqual(verified, [len(current), len(current)])
+                self.assertEqual(probe.call_count, 2)
+                for package in (None, 'novel-creator==0.6.0'):
+                    with self.subTest(package=package), self.assertRaisesRegex(AssertionError, 'conversation.md'):
+                        verify_package_install.verify_notebook_install(
+                            'console', root.parent, {}, package, 'novel-creator 0.6.0',
+                            verified_wheel=archive_bytes.getvalue())
+                (root / conversation).write_bytes(current[conversation])
+                for package in (None, 'novel-creator==0.6.0'):
+                    self.assertEqual([len(current), len(current)], verify_package_install.verify_notebook_install(
+                        'console', root.parent, {}, package, 'novel-creator 0.6.0',
+                        verified_wheel=archive_bytes.getvalue()))
+                # Historical checks still require the exact approved bytes.
+                with self.assertRaisesRegex(AssertionError, 'conversation.md'):
+                    verify_package_install.verify_notebook_install(
+                        'console', root.parent, {}, 'novel-creator==0.5.0', 'novel-creator 0.5.0',
+                        verified_wheel=archive_bytes.getvalue())
+
+    def test_public_050_missing_approved_wheel_fails_closed(self):
+        with self.assertRaisesRegex(ValueError, 'hash-verified wheel'):
+            verify_package_install.verify_notebook_install(
+                'console', 'scratch', {}, 'novel-creator==0.5.0', 'novel-creator 0.5.0')
+
+    def test_memory_candidates_cannot_skip_as_historical_versions(self):
+        with patch('tests.verify_wheel.verify_context_views', side_effect=RuntimeError('missing memory')) as probe:
+            for version, package in [('0.5.0', None), ('0.6.0', None),
+                                     ('0.6.0', 'novel-creator==0.6.0')]:
+                with self.subTest(version=version, package=package), self.assertRaisesRegex(RuntimeError, 'missing memory'):
+                    verify_package_install.verify_memory_install(
+                        'python', 'launcher', 'novel', 'scratch', {}, package, version)
+            self.assertEqual(probe.call_count, 3)
+
+    def test_memory_only_known_matching_public_releases_skip(self):
+        with patch('tests.verify_wheel.verify_context_views', return_value={'working': True}) as probe:
+            for version in ('0.1.0', '0.2.0', '0.3.0', '0.4.0', '0.4.1', '0.5.0'):
+                self.assertFalse(verify_package_install.verify_memory_install(
+                    'python', 'launcher', 'novel', 'scratch', {},
+                    'novel-creator==' + version, 'novel-creator ' + version)['working_views_available'])
+            probe.assert_not_called()
+            for package, version in [('novel-creator==0.5.0', '0.6.0'), ('other==0.5.0', '0.5.0')]:
+                self.assertEqual({'working': True}, verify_package_install.verify_memory_install(
+                    'python', 'launcher', 'novel', 'scratch', {}, package, version))
+            self.assertEqual(probe.call_count, 2)
+
     def test_notebook_resources_keep_lf_in_autocrlf_checkout(self):
         checkout = Path(__file__).resolve().parents[2]
         resources = [path.relative_to(checkout) for path in (checkout / 'notebook').rglob('*')

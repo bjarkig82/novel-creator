@@ -1,6 +1,7 @@
 # Writing with notebook agents
 
-This guide covers **new notebooks initialized with published 0.5.0**.
+This guide covers the writing roles introduced in **published 0.5.0** and the
+focused memory/responsiveness guidance in the **unpublished 0.6.0 candidate**.
 The earlier 0.4.1 package does not include these writing roles or manuscript
 workflows. Package installation leaves existing notebooks and legacy novels
 unchanged; there is no migration or new updater command for these additions.
@@ -62,6 +63,34 @@ Optional entry skills are `$novel-agent`, `$novel-research`, `$novel-scene`,
 prove a native agent switch. Ordinary conversation needs no repeated skill or
 Python command. Saved work follows the project's English or Icelandic language;
 you can request another output language without silently changing project settings.
+
+## Focused memory and conversational responsiveness (0.6.0 candidate)
+
+The [conversation guidance](../notebook/workflows/conversation.md#conversational-responsiveness)
+now asks for a useful reaction, idea or next question when enough context is
+available, instead of a generic bookkeeping promise before a long tool gap. It
+also encourages reuse of valid focused context and fewer tool round trips while
+preserving context checks, writer authority, saves by turn completion and scoped
+Git checkpoints. An early response does not mean notes have already been saved;
+save and checkpoint failures must still be reported.
+
+Start with the project brief and derived `notebook/working-summary.md`, then read
+complete relevant items in their owning topic notes, following stable IDs and
+links. Check relevant unresolved findings and project directions. Keep accepted
+facts, live proposals, open questions and original decision context distinct.
+Search or follow links for missing detail and exact history; an omitted item or
+search miss does not prove absence. Reconcile affected summaries after saves or
+writer edits. All roles use these same saved files as authority; agent memory
+and summaries never become a separate canon.
+
+This guidance is part of [0.6.0's unpublished candidate](releases/0.6.0.md) for
+new notebooks created with that version. Existing notebooks are not automatically
+updated; neither a package upgrade nor reading this source guide changes their
+installed instructions. No notebook migration/updater is added. Legacy books
+need an explicit supported update for their new working-context workflow, whose
+exact input capture and save-before-display behavior is preserved. Actual
+Codex voice latency and playback remain unverified; no measured improvement or
+cause of a voice pause has been established.
 
 ## Shared notes and manuscript ownership
 

@@ -15,7 +15,9 @@ arbitrary system Python. See the installed getting-started guide when available.
 Read `.novel-creator/workflows/entry.md` before working on this novel. Use the
 installed `.novel-creator/run.py` launcher and the configured Python environment.
 After successful setup, read these instructions and the installed entry guide,
-load committed context through the pinned launcher before any creative reply,
+load fresh committed `context --view working` through the pinned launcher before
+any creative reply, following `.novel-creator/workflows/working-context.md` for
+targeted complete records and exact sources,
 and continue in the same
 conversation using this novel's folder as the working directory. Do not repeat
 initialization or require a fresh chat or repeated skill invocation. `$novel-init`

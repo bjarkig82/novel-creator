@@ -78,6 +78,51 @@ tools, and no live host voice behavior or spoken fidelity has been verified.
 The [installed entry](../workflows/entry.md) explains exact artifact retention and
 save-before-display. This legacy transcript protocol does not apply to notebooks.
 
+## Working memory and retrieval (0.6.0 candidate)
+
+The unpublished 0.6.0 candidate adds legacy `context --view working` for ordinary
+agent turns. It derives navigation from the freshly validated committed journal
+on every read and reports the novel identity and source checkpoint. It returns
+complete project settings/directions, a compact session summary, selected complete
+current records, all active open/deferred findings, holds, coverage/availability
+and the last saved response with display unconfirmed. There is no separate fact
+store, trusted stale summary cache, provider call or database. The shared journal
+remains the sole legacy authority; original record states, revisions and sources
+are preserved. Capture/save semantics and canon authority are unchanged.
+
+`--focus ID` is repeatable. `--query TEXT` matches all word terms as Unicode
+NFKC-normalized, case-insensitive lexical substrings in saved text; it is not
+semantic search. Focus and query combine, with explicit IDs first. Bounded
+incoming/outgoing record links expand relevant context, including links from
+explicitly focused/query-matched globals; session navigation lists do not expand
+recursively. With no focus/query, recent session links and recent changes seed
+selection. `--session ID` selects the summary/fallback and saved-response scope
+without filtering explicit/query hits elsewhere.
+
+`--limit N` defaults to 12, range 1–100, for selected records; the complete global
+project and active findings are additional. It is not a token budget. Too many
+explicit IDs fails with error 2 rather than dropping them; missing IDs fail with
+error 4. Retrieval flags require the working view. Omissions, outstanding linked
+IDs and historical revision references are explicit. A query miss is not evidence
+that a fact is absent. Agents retrieve relevant complete records and exact sources
+before relying on them and disclose incomplete continuity coverage.
+
+`context --view current` preserves all current fields/records while omitting the
+exchange archive. `--view full`, also the unchanged default CLI/Python API, retains
+the prior complete shape. Broader requests such as all open questions need a
+broader read. Inspect retrieves exact historical wording and artifacts. All views
+fail closed on damaged committed history. The
+[installed workflow](../workflows/working-context.md) requires fresh working reads
+before each response, allows reuse of valid loaded guidance/runtime, and preserves
+exact input capture and save-before-display, including creative commentary.
+
+Native notebooks instead use the existing `notebook/working-summary.md` as derived
+navigation into complete relevant owning topic files. All roles share those saved
+files, stable IDs, item states and decision origins. After saves or writer edits,
+affected summaries are reconciled from owning notes; recollection and stale
+summaries cannot establish canon. No legacy runtime is used for notebook writing.
+Neither path establishes exhaustive continuity or measured spoken-response latency.
+
 ## Canon and continuity
 
 Only clear writer commitment establishes the identifiable selected facts. Praise,
@@ -255,6 +300,14 @@ See [the update workflow](../workflows/update.md) for commands and recovery boun
 
 ## Delivery status and limits
 
+The [0.6.0 candidate](releases/0.6.0.md) is unpublished and adds the working-context
+views and focused memory guidance above, plus notebook responsiveness guidance.
+Release qualification and publication verification are pending. Installing a
+package leaves existing pinned legacy books and native notebooks unchanged;
+legacy resources need an explicit supported update and notebook migration/updating
+is not introduced. Actual voice pause causes/timing, playback fidelity and native
+host behavior for these changes remain unverified.
+
 The published 0.4.0 release adds the native notebook alongside legacy onboarding
 and updating; 0.2.0 added optional retrospectives.
 See [release notes](releases/0.4.0.md) and the linked evidence for precise scope.
@@ -299,7 +352,8 @@ wrapper capture remain unverified.
 
 The owner is the initial hobby user. Novice recruitment and manual ratings do not
 block use; owner assessment follows delivery. All latency targets were withdrawn
-on 2026-10-28; timings are informational and optimization is deferred. Broader host,
+on 2026-10-28; timings remain informational. Focused context retrieval does not
+establish actual voice latency improvement. Broader host,
 durability and subjective quality claims need their own evidence. Scene/chapter
 drafting and scoped revisions are notebook workflows with the limits
 above; publishing, dashboards and additional host adapters remain outside the

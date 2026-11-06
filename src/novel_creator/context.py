@@ -27,7 +27,12 @@ def direct_impact(state, identifiers):
             any(mentions(value) for key, value in r.items() if key not in ('id', 'source_refs', 'created_exchange_id'))]
 
 
-def read(novel, *, operation='context', session=None, kind=None, identifier=None, revision=None):
+def read(novel, *, operation='context', session=None, kind=None, identifier=None, revision=None,
+         view='full', focus=None, query=None, limit=None):
+    from .memory import validate_options, working
+    focus, limit = validate_options(operation, view, focus, query, limit)
+    if view != 'full' and any(value is not None for value in (kind, identifier, revision)):
+        raise ToolError(2, 'Record kind, ID and revision filters require inspect; use --focus for working context')
     root = storage.root_path(novel)
     from .maintenance import ensure_ready
     ensure_ready(root, read_only=True)
@@ -73,6 +78,8 @@ def read(novel, *, operation='context', session=None, kind=None, identifier=None
         data.update(records=versions if revision is not None else selected, history=versions,
                     exchanges=history, directly_affected=direct_impact(state, [r['id'] for r in selected]),
                     impact_scope='recorded direct links only')
+    elif view == 'working':
+        data.update(working(state, history, point, session=session, focus=focus, query=query, limit=limit))
     else:
         visible = set(state)
         if session:
@@ -106,5 +113,11 @@ def read(novel, *, operation='context', session=None, kind=None, identifier=None
                     active_findings=[r for r in state.values() if r['kind'] == 'finding' and r['disposition'] in ('open', 'deferred')],
                     saved_response_display='unconfirmed',
                     last_saved_response=next((m['text'] for m in reversed(last['messages']) if m['role'] == 'assistant'), None) if last else None)
+        if view == 'current':
+            del data['exchanges']
+            data.update(view='current', omitted={'exchange_count': len(history),
+                'record_version_count': sum(len(e['record_versions']) for e in history),
+                'record_count': len(state) - len(data['records'])},
+                history_omission='Exchange history omitted; use full context or inspect for exact saved history')
     return {'ok': True, 'operation': 'session.list' if operation == 'session' else operation, 'novel_id': history[0]['novel_id'],
             'data': data, 'warnings': [], 'checkpoint': point}

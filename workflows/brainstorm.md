@@ -1,7 +1,10 @@
 # Brainstorming turn
 
-Load committed project settings, selected session, source-backed canon, current
-ideas, decisions, questions and availability before every response. New sessions
+Read a fresh `context --view working` before every response, following
+[working-context.md](working-context.md). Load project settings, selected session,
+global findings/holds and complete records relevant to the current request;
+retrieve missing source-backed canon, ideas, decisions and questions on demand.
+Do not equate a bounded selection with complete continuity coverage. New sessions
 default to guided; resume retains the saved mode. Use records.start_session and
 records.revise_session to prepare typed changes in the conversation exchange.
 Topic/mode changes take effect in this response. Explicit user direction is

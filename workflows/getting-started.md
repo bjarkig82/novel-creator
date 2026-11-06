@@ -10,8 +10,10 @@ and return to saved conversations in Codex. You can start with no story idea.
 Each novel is its own local Git repository. Initialization finishes before creative
 setup begins; you choose when to start brainstorming.
 
-**Current release:** `novel-creator` 0.4.0 is published on
-[PyPI](https://pypi.org/project/novel-creator/0.4.0/). This guide describes the
+**Current published release:** `novel-creator` 0.5.0 is available on
+[PyPI](https://pypi.org/project/novel-creator/0.5.0/). This checkout prepares the
+unpublished 0.6.0 candidate with fresh working context and targeted retrieval.
+This guide describes the
 legacy format retained from 0.3.0; use the [beginner guide](start-here.md) for
 new Markdown notebooks. During prepublication verification of a future release,
 install only the maintainer's identified candidate wheel in the same environment.
@@ -139,6 +141,16 @@ In a terminal in the novel folder, use the same environment's Python:
 Expected: a confirmed checkpoint, saved project settings and any sessions. No
 sessions is normal before the first conversational session. Inspection is read-only;
 it does not establish story facts. Codex can also use `$novel-inspect`.
+
+For a new or explicitly updated 0.6.0 legacy bundle, ordinary agent turns instead
+start with `context --view working`, then retrieve relevant complete records and
+sources on demand. See [working context](working-context.md) for `--focus`,
+`--query`, `--limit`, omissions and freshness. `--view current` omits archived
+exchanges; full remains the compatible default above. These options require the
+new pinned runtime: package installation alone does not change an existing book.
+Use the explicit supported update below after 0.6.0 is published; do not copy
+source workflows over an older runtime. Existing Markdown notebooks remain
+unchanged and use native topic files rather than these commands.
 
 ## Return later
 

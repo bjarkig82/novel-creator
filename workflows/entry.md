@@ -27,7 +27,7 @@ For an evidence-backed candidate, first make read-only checks using that exact
 executable: confirm Python >=3.11 and installed distribution versions satisfying
 packaging >=24, jsonschema >=4.23,<5 and jsonschema-rs >=0.59,<0.60 (for example
 with `importlib.metadata` and `packaging.specifiers`). Then run that executable
-with the selected novel's pinned `.novel-creator/run.py context --novel PATH --json`
+with the selected novel's pinned `.novel-creator/run.py context --novel PATH --view working --json`
 from the novel root. Require successful output for the intended novel before any
 write; damaged records, maintenance holds or missing dependencies are failures,
 not an empty story. Use that verified environment for subsequent pinned commands.
@@ -49,8 +49,11 @@ maintenance rather than a creative exchange; it does not trigger retrospectives
 or consume notices. Operational content included in a creative reply still uses
 that reply's normal save-before-display protocol.
 
-Read committed context using `python .novel-creator/run.py context --novel PATH
---json`. Select the novel unambiguously. The manifest pins the installed bundle;
+Read fresh committed context using `python .novel-creator/run.py context --novel PATH
+--view working --json` before preparing each response. Follow
+[working-context.md](working-context.md) for focused retrieval, checkpoint freshness,
+omissions and when a broader current/full read is needed. Reuse loaded workflows
+and verified runtime while valid. Select the novel unambiguously. The manifest pins the installed bundle;
 no framework checkout is required. Python >=3.11, packaging >=24, jsonschema >=4.23,<5 and jsonschema-rs >=0.59,<0.60 remain
 environment prerequisites. Unknown or damaged records are unavailable, never an
 empty story. Structural validation does not establish narrative consistency.

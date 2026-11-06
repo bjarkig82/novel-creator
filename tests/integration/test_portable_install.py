@@ -78,7 +78,7 @@ assert Retro(root).status()['enabled'] is False
 assert (root / '.novel-creator/workflows/retrospective.md').is_file()
 assert (root / '.novel-creator/src/novel_creator/schemas/v1/retro.schema.json').is_file()
 from novel_creator import validation
-from novel_creator import records, storage
+from novel_creator import memory, records, storage
 data = read(root)
 previous = storage.read_history(root)[-1]
 exchange = records.new_exchange(data['novel_id'], previous=previous, expected_head=storage.head(root),
@@ -92,6 +92,14 @@ assert receipt['data']['saved'] and not receipt['data']['cleanup_required']
 assert read(root, operation='validate')['data']['exchange_count'] == 2
 assert read(root, operation='session')['data']['sessions'][0]['topic'] == 'Bréfin / letters'
 assert read(root, operation='inspect', identifier=session['id'])['data']['history'][0]['mode'] == 'guided'
+current = read(root, view='current')
+assert current['checkpoint'] == receipt['checkpoint'] and 'exchanges' not in current['data']
+working = read(root, view='working', focus=[session['id']], limit=1)
+assert working['data']['records'] == [session]
+assert working['data']['retrieval']['source_checkpoint'] == receipt['checkpoint']
+assert working['data']['retrieval']['source_novel_id'] == data['novel_id']
+assert working['data']['project'] == data['data']['project']
+assert read(root, view='working', query='BRÉFIN')['data']['records'] == [session]
 paths = [str(Path(module.__file__).resolve()) for name, module in sys.modules.items()
          if name.startswith('novel_creator') and getattr(module, '__file__', None)]
 assert paths and all(Path(p).is_relative_to(root) for p in paths), paths

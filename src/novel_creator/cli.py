@@ -189,6 +189,12 @@ def parser():
         operations.append(sub)
         if name == "context":
             sub.add_argument("--session")
+            sub.add_argument('--view', choices=('current', 'working', 'full'), action=Once,
+                             help='Context projection; defaults to full')
+            sub.add_argument('--focus', action='append', metavar='ID', help='Working view: stable record ID; repeatable')
+            sub.add_argument('--query', action=Once, metavar='TEXT', help='Working view: Unicode lexical search')
+            sub.add_argument('--limit', action=Once, type=int, metavar='N',
+                             help='Working view: 1–100 retrieved records; defaults to 12 (global warnings are additional)')
         if name == "inspect":
             sub.add_argument("--kind")
             sub.add_argument("--id")
@@ -303,7 +309,9 @@ def main(argv=None):
             from .context import read
             result = read(args.novel, operation=args.command, session=getattr(args, 'session', None),
                           kind=getattr(args, 'kind', None), identifier=getattr(args, 'id', None),
-                          revision=getattr(args, 'revision', None))
+                          revision=getattr(args, 'revision', None), view=getattr(args, 'view', None) or 'full',
+                          focus=getattr(args, 'focus', None), query=getattr(args, 'query', None),
+                          limit=getattr(args, 'limit', None))
             print(json.dumps(result, ensure_ascii=False, allow_nan=False))
             return 0
         if args.command == "exchange" and args.action == "save":

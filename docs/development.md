@@ -75,7 +75,7 @@ environment:
 ```bash
 python -m unittest discover -q
 python -m pip wheel . --no-deps --wheel-dir dist
-python tests/verify_wheel.py dist/novel_creator-0.5.0-py3-none-any.whl
+python tests/verify_wheel.py dist/novel_creator-0.6.0-py3-none-any.whl
 ```
 
 Use the actual versioned filename produced by the build. The wheel verifier
@@ -98,8 +98,15 @@ legacy runtime dependencies into native notebook writing.
 
 Keep checks proportional to the change. Record failures and unsupported coverage
 honestly; structural validity does not establish narrative quality. Read/save
-latency targets were withdrawn by the owner; optimization is deferred and timings
-are informational. No novice recruitment is required for this single-user project.
+latency targets were withdrawn by the owner; timings remain informational. The
+0.6.0 candidate adds focused context retrieval, not a measured voice speed claim.
+Use fresh `context --view working` and targeted complete records for legacy turns;
+the unchanged default full view remains available for compatibility. Installed
+wheel/clean-package probes exercise these views in the real pinned runtime and
+check inclusion of `memory.py`. See the
+[working-context guide](../workflows/working-context.md) and
+[candidate notes](releases/0.6.0.md). No novice recruitment is required for this
+single-user project.
 
 Detailed historical observations remain available in
 [legacy functional qualification](../tests/evaluations/final-functional-qualification-20261028.md),

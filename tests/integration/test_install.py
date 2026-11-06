@@ -55,7 +55,10 @@ class InstallationTests(unittest.TestCase):
         for relative, digest in manifest['checksums'].items():
             self.assertEqual(hashlib.sha256((self.root / relative).read_bytes()).hexdigest(), digest)
         env = dict(os.environ, PYTHONPATH='')
-        for command in [('context',), ('validate',)]:
+        self.assertTrue((self.root / '.novel-creator/src/novel_creator/memory.py').is_file())
+        self.assertTrue((self.root / '.novel-creator/workflows/working-context.md').is_file())
+        for command in [('context',), ('context', '--view', 'current'),
+                        ('context', '--view', 'working'), ('validate',)]:
             output = subprocess.run([sys.executable, '-B', str(self.root / '.novel-creator/run.py'),
                 *command, '--novel', str(self.root), '--json'], cwd=self.parent, env=env,
                 capture_output=True, text=True, encoding='utf-8')
