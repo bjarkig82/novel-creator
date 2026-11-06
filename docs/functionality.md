@@ -78,9 +78,9 @@ tools, and no live host voice behavior or spoken fidelity has been verified.
 The [installed entry](../workflows/entry.md) explains exact artifact retention and
 save-before-display. This legacy transcript protocol does not apply to notebooks.
 
-## Working memory and retrieval (0.6.0 candidate)
+## Working memory and retrieval (0.6.0)
 
-The unpublished 0.6.0 candidate adds legacy `context --view working` for ordinary
+Published 0.6.0 adds legacy `context --view working` for ordinary
 agent turns. It derives navigation from the freshly validated committed journal
 on every read and reports the novel identity and source checkpoint. It returns
 complete project settings/directions, a compact session summary, selected complete
@@ -300,10 +300,14 @@ See [the update workflow](../workflows/update.md) for commands and recovery boun
 
 ## Delivery status and limits
 
-The [0.6.0 candidate](releases/0.6.0.md) is unpublished and adds the working-context
+The [0.6.0 release](releases/0.6.0.md), published 2026-11-06, adds the working-context
 views and focused memory guidance above, plus notebook responsiveness guidance.
-Release qualification and publication verification are pending. Installing a
-package leaves existing pinned legacy books and native notebooks unchanged;
+The exact artifacts passed automated Windows/Linux qualification, public hashes
+matched, and independent clean named-package installation and Windows/Linux public
+checks passed. The Linux public check passed on retry after an initial index
+propagation delay; upload was not repeated. See the
+[release evidence](../tests/evaluations/release-0.6.0.md). Installing a package
+leaves existing pinned legacy books and native notebooks unchanged;
 legacy resources need an explicit supported update and notebook migration/updating
 is not introduced. Actual voice pause causes/timing, playback fidelity and native
 host behavior for these changes remain unverified.

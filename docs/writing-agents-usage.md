@@ -1,7 +1,7 @@
 # Writing with notebook agents
 
 This guide covers the writing roles introduced in **published 0.5.0** and the
-focused memory/responsiveness guidance in the **unpublished 0.6.0 candidate**.
+focused memory/responsiveness guidance in **published 0.6.0**.
 The earlier 0.4.1 package does not include these writing roles or manuscript
 workflows. Package installation leaves existing notebooks and legacy novels
 unchanged; there is no migration or new updater command for these additions.
@@ -64,7 +64,7 @@ prove a native agent switch. Ordinary conversation needs no repeated skill or
 Python command. Saved work follows the project's English or Icelandic language;
 you can request another output language without silently changing project settings.
 
-## Focused memory and conversational responsiveness (0.6.0 candidate)
+## Focused memory and conversational responsiveness (0.6.0)
 
 The [conversation guidance](../notebook/workflows/conversation.md#conversational-responsiveness)
 now asks for a useful reaction, idea or next question when enough context is
@@ -83,7 +83,7 @@ search miss does not prove absence. Reconcile affected summaries after saves or
 writer edits. All roles use these same saved files as authority; agent memory
 and summaries never become a separate canon.
 
-This guidance is part of [0.6.0's unpublished candidate](releases/0.6.0.md) for
+This guidance ships in [published 0.6.0](releases/0.6.0.md) for
 new notebooks created with that version. Existing notebooks are not automatically
 updated; neither a package upgrade nor reading this source guide changes their
 installed instructions. No notebook migration/updater is added. Legacy books

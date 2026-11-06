@@ -1,9 +1,10 @@
 # Novel Creator 0.6.0 release evidence
 
-**Status: qualified unpublished candidate, awaiting protected publication
-approval.** Automated Windows/Linux qualification passed for the immutable
-candidate below. Publication and public artifact verification remain pending;
-0.5.0 remains the latest verified published release. The
+**Status: verified published release, 2026-11-06.** The public wheel and source
+archive match the immutable Windows/Linux qualified candidate below. Independent
+clean public installation and Windows/Linux public CI checks passed. The Linux
+check passed on retry after an initial package-index propagation delay, without
+repeating the upload. PyPI confirms 0.6.0 as the latest published release. The
 [release notes](../../docs/releases/0.6.0.md) describe changes and compatibility.
 The [machine-readable candidate record](release-0.6.0-candidate.json) retains
 selected facts without raw logs, signed download URLs or private paths.
@@ -45,25 +46,53 @@ evidence to the selected artifact rather than a rebuilt distribution or later
 checkout. Historical 0.5.0 and earlier evidence retains its own identities and
 observed scope.
 
-## Publication awaiting protected approval
+## Verified publication and public installation
 
 [Publication run 42286073249](https://github.com/bjarkig82/novel-creator/actions/runs/42286073249)
 was dispatched once from source
 `8df4ca09e58f71d800211a4dad794dd6c1f0c610` at
-`2026-11-06T20:10:32Z`, using the qualified candidate above. Its recorded status is
-waiting for required reviewer `bjarkig82` on protected environment `pypi`
-(`25700067917`). The API reported that the current user was eligible to approve,
-but the integration's approval POST returned HTTP 403,
-`Resource not accessible by integration`. Required approval through GitHub remains
-pending in this record. No environment protection or release workflow was changed.
+`2026-11-06T20:10:32Z`, using the qualified candidate above. Publish job
+`128127112339` succeeded on attempt 1, completing at `2026-11-06T20:37:35Z`.
+The integration's initial protected `pypi` environment approval POST returned
+HTTP 403, `Resource not accessible by integration`, despite reported current-user
+eligibility. The required environment review was subsequently satisfied externally
+in GitHub; its actor and exact interface method were not observed here. Protection
+and the release workflow were unchanged. The earlier approval wait was resolved;
+no upload failure is claimed.
 
-This records an approval wait, not an upload failure. No successful upload,
-publication date, public availability, public hash match or public 0.6.0 installation
-is established here. The 0.6.0 install command in the release notes is for use only
-after publication and verification; the README retains the published 0.5.0 pin.
-Approval and any later upload/public checks must be verified before changing that
-status. Documentation/evidence updates after the selected source do not replace,
-rebuild or change the qualified candidate artifact.
+PyPI reports wheel upload `2026-11-06T20:37:30.204331Z` and source archive upload
+`2026-11-06T20:37:31.709900Z`. Both public SHA-256 values match the candidate manifest.
+[Novel Creator 0.6.0](https://pypi.org/project/novel-creator/0.6.0/) was also verified
+as the latest public release through project-level PyPI metadata.
+
+Independent clean installation of `novel-creator==0.6.0`, without inherited
+dependencies, passed production verification and selected the public wheel with
+the matching candidate hash. Both public archives were downloaded and their hashes
+verified. Full/current/working context views, installed and pinned memory module
+origins and English/Icelandic notebooks with all 26 writing resources per language
+passed. This named installation selected the wheel; no independent public source
+archive installation is claimed. Clean candidate source archive installations had
+already passed on both platforms above.
+
+The [Windows public check job 128140397989](https://github.com/bjarkig82/novel-creator/actions/runs/42286073249/job/128140397989)
+passed on attempt 1, completing at `2026-11-06T20:38:33Z`. The first
+[Linux public check job 128140398064](https://github.com/bjarkig82/novel-creator/actions/runs/42286073249/job/128140398064)
+failed at `2026-11-06T20:37:48Z`: pip's index did not yet list 0.6.0, returning
+`No matching distribution` and versions only through 0.5.0 about 15 seconds after
+upload. This was a public installation failure during index propagation, not an
+upload failure. Public availability, exact archive hashes and independent named
+installation were verified before rerunning only failed jobs through the official
+GitHub API. The
+[Linux retry job 128144214203](https://github.com/bjarkig82/novel-creator/actions/runs/42286073249/job/128144214203)
+passed at `2026-11-06T20:45:54Z`, and
+[publication run attempt 2](https://github.com/bjarkig82/novel-creator/actions/runs/42286073249/attempts/2)
+completed successfully. Attempt 2 lists copied-success Windows job `128144215655`
+and publish job `128144261155` with their original completion timestamps. Those
+new IDs do not represent repeated execution: the successful upload and Windows
+public check were not rerun. No source artifact was rebuilt.
+
+Documentation/evidence updates after the selected source do not replace, rebuild
+or change the qualified candidate artifact.
 
 ## Scope and remaining limits
 

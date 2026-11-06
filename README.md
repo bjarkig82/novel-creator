@@ -11,42 +11,40 @@ setup, read the generated project instructions and continue in the same
 conversation. See [agent-led setup](workflows/start-here.md#ask-your-agent-to-set-up-a-story)
 for prerequisites, safe destinations and host access limits.
 
-**0.6.0 is a qualified, unpublished candidate awaiting protected publication
-approval.** It adds fresh small
-legacy working context with targeted record/source retrieval, and focused notebook
-memory guidance. Read the [0.6.0 candidate notes](docs/releases/0.6.0.md) for
+**Novel Creator 0.6.0 is the latest published release on PyPI, 2026-11-06.** It adds
+fresh small legacy working context with targeted record/source retrieval, and focused notebook
+memory guidance. Read the [0.6.0 release notes](docs/releases/0.6.0.md) for
 compatibility and [successful automated Windows/Linux qualification](tests/evaluations/release-0.6.0.md).
-Publication and public artifact verification remain pending. Context volume reduction does not establish
-faster voice responses; actual pause timing and cause remain unverified.
+Public artifact hashes match the qualified candidate. Context volume reduction
+does not establish faster voice responses; actual pause timing and cause remain unverified.
 
-**Novel Creator 0.5.0 is the latest published release, 2026-11-06**, adding six writing
+The previous [0.5.0 release](docs/releases/0.5.0.md) added six writing
 roles with scene/chapter manuscripts, research and review guidance for new
-notebooks. New writing instructions apply to notebooks initialized with 0.5.0.
+notebooks. Its writing roles are retained in 0.6.0.
 Agent-led setup handoff improvements and explicit legacy realtime input capture
 were introduced in 0.4.1.
 
 Installing a package does not rewrite existing project guidance. The exact
 published artifacts passed automated Windows/Linux release qualification. Public
 hashes matched, and Windows/Linux public installation checks and an independent
-clean named-package installation passed. Native specialist interaction in Codex
-Desktop remains unverified. See the
-[0.5.0 release notes](docs/releases/0.5.0.md) and
-[release evidence](tests/evaluations/release-0.5.0.md) for scope and host requirements.
+clean named-package installation passed. The Linux check passed on retry after
+an initial package-index propagation delay; the upload was not repeated. Native
+specialist interaction in Codex Desktop remains unverified. See the
+[0.6.0 release notes](docs/releases/0.6.0.md) and
+[release evidence](tests/evaluations/release-0.6.0.md) for scope and host requirements.
 
 **New to the tools?** Start with the [beginner guide](https://github.com/bjarkig82/novel-creator/blob/main/workflows/start-here.md),
 which explains setup, everyday writing, and the Windows, Linux, and Mac limits.
 If someone has already prepared your novel, go straight to
 [everyday writing](https://github.com/bjarkig82/novel-creator/blob/main/workflows/everyday-writing.md).
 
-Install or upgrade [Novel Creator 0.5.0 from PyPI](https://pypi.org/project/novel-creator/0.5.0/)
+Install or upgrade [Novel Creator 0.6.0 from PyPI](https://pypi.org/project/novel-creator/0.6.0/)
 in your configured environment:
 
 ```text
-python -m pip install --upgrade novel-creator==0.5.0
+python -m pip install --upgrade novel-creator==0.6.0
 ```
 
-The 0.6.0 install pin is documented in the candidate notes for use only after
-publication. Until then, candidate testing uses the identified candidate artifact.
 Existing legacy novels need an [explicit supported update](workflows/getting-started.md#updating-an-existing-book)
 to change pinned resources. Existing notebooks are not automatically updated or
 migrated.
@@ -157,7 +155,7 @@ The actual Codex capture capability gate has **passed**
 for the tested Windows Desktop native-tool/text-input combination with scoped
 filesystem approval. Story tooling and shared workflows are delivered; their
 subjective literary quality remains unmeasured. All latency targets were withdrawn
-by the owner on 2026-10-28; timings are informational. The 0.6.0 candidate's
+by the owner on 2026-10-28; timings are informational. The 0.6.0 release's
 focused context retrieval does not establish a measured voice speed improvement.
 See the [final functional qualification](https://github.com/bjarkig82/novel-creator/blob/v0.2.0/tests/evaluations/final-functional-qualification-20261028.md).
 See the [host evaluation](https://github.com/bjarkig82/novel-creator/blob/v0.2.0/tests/evaluations/host-capture.md).

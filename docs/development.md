@@ -99,13 +99,13 @@ legacy runtime dependencies into native notebook writing.
 Keep checks proportional to the change. Record failures and unsupported coverage
 honestly; structural validity does not establish narrative quality. Read/save
 latency targets were withdrawn by the owner; timings remain informational. The
-0.6.0 candidate adds focused context retrieval, not a measured voice speed claim.
+published 0.6.0 release adds focused context retrieval, not a measured voice speed claim.
 Use fresh `context --view working` and targeted complete records for legacy turns;
 the unchanged default full view remains available for compatibility. Installed
 wheel/clean-package probes exercise these views in the real pinned runtime and
 check inclusion of `memory.py`. See the
 [working-context guide](../workflows/working-context.md) and
-[candidate notes](releases/0.6.0.md). No novice recruitment is required for this
+[release notes](releases/0.6.0.md). No novice recruitment is required for this
 single-user project.
 
 Detailed historical observations remain available in
