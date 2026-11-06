@@ -31,7 +31,12 @@ whitespace review, without running code tests.
 
 Run the full suite and any required full coverage checks only when preparing a
 new package release before publication, or when the user explicitly requests
-them. Preserve all existing release workflow gates; focused routine checks do
+them. Every release requires full Linux qualification. Windows uses the source-bound
+`auto` policy (compatibility for routine changes, full for sensitive changes or
+uncertain history); `full` explicitly requests full Windows coverage. Compatibility
+coverage must never be described as full qualification. See the
+[Windows release policy](docs/testing-and-completion-guide.md#windows-release-selection).
+Preserve all existing release workflow gates; focused routine checks do
 not replace release validation or authorize publication.
 
 When resource inclusion changes, keep targeted artifact-content and isolated

@@ -69,8 +69,12 @@ The complete wheel verifier below also runs broad legacy and update journeys;
 it is a release gate, not a routine check for each task, review, commit or push.
 
 For new package release preparation before publication (or an explicit user
-request), run the full suite and complete wheel verification from the configured
-environment:
+request), run the full Linux suite and complete wheel verification from the configured
+environment. Windows runs full or compatibility coverage according to the
+[source-bound release policy](testing-and-completion-guide.md#windows-release-selection);
+use candidate input `windows_suite: full` to request full Windows coverage.
+Compatibility coverage does not establish full Windows qualification.
+The local full-suite/build commands are:
 
 ```bash
 python -m unittest discover -q

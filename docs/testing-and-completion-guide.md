@@ -32,7 +32,8 @@ update journeys; it is not required for every routine packaging edit.
 ### Release-only full validation
 
 Run the full suite and any required full coverage checks when preparing a new
-package release before publication, or when the user explicitly requests them:
+package release before publication on Linux, and on Windows when selected by the
+policy below, or when the user explicitly requests full coverage:
 
 ```bash
 python -m unittest discover -q
@@ -44,6 +45,49 @@ source-distribution, cross-platform and other gates in the
 [release workflow](../.github/workflows/package-release.yml). Routine focused
 checks do not replace these release gates. Publication is a separate, explicitly
 authorized operation.
+
+### Windows release selection
+
+Every release runs the full Linux suite and literal Bash guide. Candidate input
+`windows_suite` defaults to `auto`; `full` requests full Windows qualification.
+There is no force-compatibility input. The immutable manifest records
+`windows_suite`, `windows_baseline` and `windows_reason`; logs and job summaries
+show the selection. Historical manifests without a profile still require full
+Windows coverage. Publication verifies actual runner steps, rejecting missing,
+skipped, failed or incorrect qualification and unsupported profiles.
+
+[The policy](../tests/release_checks.py) compares cumulative Git tree changes from
+full-qualified 0.6.0 source `8df4ca09e58f71d800211a4dad794dd6c1f0c610`
+(candidate run `42277353584`, attempt `1`; [evidence](../tests/evaluations/release-0.6.0.md))
+to the candidate source. Complete history and an ancestor baseline are required;
+uncertain history selects full. A narrow allowlist permits documentation,
+text writing resources in `workflows/`, `languages/`, `notebook/` and
+`adapters/codex/` (Markdown and the six known notebook agent TOML files),
+version-only `__init__.py` edits, the derived `context.py`/`memory.py` modules and explicit non-sensitive
+tests/release tooling (including the exact package-release workflow path). Unknown paths, runtime modules, persistence, filesystem, CLI,
+installation, updater, schema, dependency and build configuration changes require
+full Windows qualification. Renames and deletions are included. Refresh the fixed
+baseline manually only after successful full Windows qualification at the exact
+new source, recording its evidence/run/attempt; compatibility checks never advance it.
+
+The Windows compatibility suite uses explicit unittest selections: all native
+path/junction protections (including three Windows `mklink /J` tests), CLI encoding,
+languages, one save/reopen test and one pending/retry recovery test. It excludes
+the expensive storage/recovery/update matrices. Both platforms still run unchanged
+wheel/legacy journeys and clean wheel/source installs; public installation checks,
+immutable identities/hashes and protected PyPI approval remain required. This
+focused coverage is not full Windows qualification, native Codex acceptance or a
+measured speed improvement. Actual Windows timing requires Windows CI.
+
+From the configured development environment, inspect the policy or list/run the
+compatibility suite locally (Linux skips Windows-only junction cases):
+
+```bash
+python -m tests.release_checks
+python -m tests.release_checks --full
+python -m tests.release_checks --list
+python -m tests.release_checks --run
+```
 
 ## Behavior to preserve
 
@@ -133,7 +177,8 @@ Do not push, publish, deploy or change a real novel without user authorization.
 For the 0.4.0 release, the owner explicitly approved publication after automated
 checks pass with native notebook behavior still unverified. The protected release
 workflow verifies the selected immutable artifact, source commit, candidate run
-and attempt, archive hashes and successful full qualification on Windows and Linux.
+and attempt, archive hashes, full Linux qualification and the selected Windows
+qualification described below.
 It queries the selected attempt's jobs and requires successful manifest, unit-suite,
 wheel-byte/legacy-journey and clean wheel/source-install steps on both platforms,
 plus the literal Bash getting-started guide on Linux. Windows automated CLI/install

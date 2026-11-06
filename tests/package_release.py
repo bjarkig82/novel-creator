@@ -9,6 +9,11 @@ import re
 import urllib.request
 import zipfile
 
+try:
+    from tests.release_checks import select_windows_suite, validate_windows_suite
+except ModuleNotFoundError:  # Direct invocation: python tests/package_release.py
+    from release_checks import select_windows_suite, validate_windows_suite
+
 
 def digest(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
@@ -21,6 +26,7 @@ def verify_files(root, *, repository, run_id, run_attempt, source_commit):
                               source_commit=source_commit).items():
         if manifest.get(key) != expected:
             raise ValueError('Candidate identity mismatch: ' + key)
+    validate_windows_suite(manifest)
     names = manifest.get('files', {})
     if (len(names) != 2 or sum(n.endswith('.whl') for n in names) != 1
             or sum(n.endswith('.tar.gz') for n in names) != 1):
@@ -37,7 +43,7 @@ def verify_files(root, *, repository, run_id, run_attempt, source_commit):
     return manifest
 
 
-def manifest(root):
+def manifest(root, *, full=False):
     root = Path(root)
     wheels = list(root.glob('*.whl'))
     sources = list(root.glob('*.tar.gz'))
@@ -49,7 +55,11 @@ def manifest(root):
     commit = os.environ['GITHUB_SHA']
     if not re.fullmatch(r'[0-9a-f]{40}', commit):
         raise ValueError('Candidate requires an immutable source commit')
-    data = dict(repository=os.environ['GITHUB_REPOSITORY'], run_id=os.environ['GITHUB_RUN_ID'],
+    policy = select_windows_suite(full=full)
+    if subprocess_head() != commit:
+        raise ValueError('Candidate source checkout does not match GITHUB_SHA')
+    data = dict(windows_suite=policy['profile'], windows_baseline=policy['baseline'],
+                windows_reason=policy['reason'], repository=os.environ['GITHUB_REPOSITORY'], run_id=os.environ['GITHUB_RUN_ID'],
                 run_attempt=os.environ['GITHUB_RUN_ATTEMPT'], source_commit=commit,
                 distribution=info['Name'], version=info['Version'],
                 files={p.name: digest(p) for p in [wheels[0], sources[0]]})
@@ -98,7 +108,8 @@ def verify_remote(root):
     jobs = api(f'/actions/runs/{run_id}/attempts/{attempt}/jobs?per_page=100')
     if jobs.get('total_count') != len(jobs.get('jobs', [])):
         raise ValueError('Candidate job response is incomplete')
-    common_steps = {'Verify candidate manifest', 'Run full unit suite',
+    profile = validate_windows_suite(data)
+    common_steps = {'Verify candidate manifest',
                     'Verify wheel bytes and legacy journeys', 'Verify clean wheel installation',
                     'Verify clean installation from the candidate sdist'}
     for platform in ['windows-latest', 'ubuntu-latest']:
@@ -109,7 +120,19 @@ def verify_remote(root):
         if (job.get('run_id') != int(run_id) or job.get('head_sha') != commit
                 or job.get('status') != 'completed' or job.get('conclusion') != 'success'):
             raise ValueError('Candidate platform qualification is unsuccessful or mismatched: ' + platform)
-        required = common_steps | ({'Follow the literal Bash getting-started guide'}
+        suite_name = ('Run Windows compatibility suite' if platform == 'windows-latest'
+                      and profile == 'compatibility' else 'Run full unit suite')
+        # Extra full coverage is acceptable, but a failed alternate suite is never ignored.
+        suite_steps = [step for step in job.get('steps', []) if step.get('name') in
+                       {'Run full unit suite', 'Run Windows compatibility suite'}]
+        if any(step.get('status') != 'completed' or step.get('conclusion') not in ('success', 'skipped')
+               for step in suite_steps):
+            raise ValueError('Candidate suite failed or is unfinished')
+        if platform == 'windows-latest' and profile == 'compatibility':
+            if any(step.get('name') == 'Run full unit suite' and step.get('status') == 'completed'
+                   and step.get('conclusion') == 'success' for step in suite_steps):
+                suite_name = 'Run full unit suite'
+        required = common_steps | {suite_name} | ({'Follow the literal Bash getting-started guide'}
                                    if platform == 'ubuntu-latest' else set())
         for name in required:
             steps = [step for step in job.get('steps', []) if step.get('name') == name]
@@ -120,19 +143,33 @@ def verify_remote(root):
     return data
 
 
+def subprocess_head():
+    import subprocess
+    return subprocess.check_output(['git', 'rev-parse', 'HEAD'], text=True).strip()
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('operation', choices=['manifest', 'verify', 'verify-remote'])
     parser.add_argument('directory', type=Path)
+    parser.add_argument('--full', action='store_true', help='Request full Windows qualification at build time')
     args = parser.parse_args()
     if args.operation == 'manifest':
-        result = manifest(args.directory)
+        result = manifest(args.directory, full=args.full)
     elif args.operation == 'verify-remote':
         result = verify_remote(args.directory)
     else:
         data = json.loads((args.directory / 'manifest.json').read_text(encoding='utf-8'))
         # Local verification checks bytes; remote mode additionally checks externally selected identity.
         result = verify_files(args.directory, **{key: data[key] for key in ['repository', 'run_id', 'run_attempt', 'source_commit']})
+    if os.environ.get('GITHUB_OUTPUT'):
+        with open(os.environ['GITHUB_OUTPUT'], 'a', encoding='utf-8') as stream:
+            stream.write('windows_suite=' + result.get('windows_suite', 'full') + '\n')
+    if os.environ.get('GITHUB_STEP_SUMMARY'):
+        with open(os.environ['GITHUB_STEP_SUMMARY'], 'a', encoding='utf-8') as stream:
+            stream.write('Windows suite: ' + result.get('windows_suite', 'full') + '\n\n'
+                         + 'Baseline: ' + result.get('windows_baseline', 'legacy full') + '\n\n'
+                         + result.get('windows_reason', 'Historical full qualification') + '\n')
     print(json.dumps(result, indent=2))
 
 

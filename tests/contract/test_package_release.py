@@ -145,6 +145,83 @@ class PackageRelease(unittest.TestCase):
                         with self.assertRaises(ValueError):
                             verify_remote(root)
 
+    def test_windows_coverage_profiles_fail_closed(self):
+        from contextlib import chdir
+        import subprocess
+        from tests.package_release import verify_remote
+        from tests.release_checks import WINDOWS_BASELINE
+        # Real complete baseline history permits compatibility; only the GitHub boundary is mocked.
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            subprocess.run(['git', 'clone', '-q', '--shared', '--no-checkout', str(Path.cwd()), str(root)], check=True)
+            subprocess.run(['git', '-C', str(root), 'checkout', '-q', WINDOWS_BASELINE], check=True)
+            commit = WINDOWS_BASELINE
+            candidate = root / 'candidate'; candidate.mkdir()
+            for name in ['a.whl', 'a.tar.gz']: (candidate / name).write_bytes(b'archive')
+            files = {p.name: hashlib.sha256(p.read_bytes()).hexdigest() for p in candidate.iterdir()}
+            base = dict(repository='o/r', run_id='12', run_attempt='1', source_commit=commit, files=files)
+            env = dict(GITHUB_REPOSITORY='o/r', CANDIDATE_RUN='12', CANDIDATE_ATTEMPT='1', CANDIDATE_ARTIFACT='34', CANDIDATE_COMMIT=commit,
+                HOST_EVIDENCE=json.dumps(dict(candidate_run='12', candidate_attempt='1', artifact_id='34', source_commit=commit, files=files, qualification='automated-only', windows_host=False, linux_host=False)))
+            run = dict(id=12, run_attempt=1, status='completed', conclusion='success', head_sha=commit, event='workflow_dispatch', path='.github/workflows/package-release.yml')
+            artifact = dict(id=34, expired=False, name='candidate-12-1', workflow_run=dict(id=12, head_sha=commit))
+            for profile in [None, 'full', 'compatibility', 'unknown']:
+                data = dict(base)
+                if profile is not None: data.update(windows_suite=profile, windows_baseline=WINDOWS_BASELINE, windows_reason='test')
+                (candidate / 'manifest.json').write_text(json.dumps(data))
+                for platform in ['windows-latest', 'ubuntu-latest']:
+                    for conclusion in ['success', 'skipped', 'failure', 'missing']:
+                        jobs = []
+                        for os_name in ['windows-latest', 'ubuntu-latest']:
+                            names = ['Verify candidate manifest', ('Run Windows compatibility suite' if profile == 'compatibility' and os_name == 'windows-latest' else 'Run full unit suite'), 'Verify wheel bytes and legacy journeys', 'Verify clean wheel installation', 'Verify clean installation from the candidate sdist']
+                            if os_name == 'ubuntu-latest': names.append('Follow the literal Bash getting-started guide')
+                            steps = [dict(name=n, status='completed', conclusion='success') for n in names]
+                            if os_name == platform:
+                                if conclusion == 'missing': steps.pop(1)
+                                else: steps[1]['conclusion'] = conclusion
+                            jobs.append(dict(name='candidate-checks (' + os_name + ')', run_id=12, head_sha=commit, status='completed', conclusion='success', steps=steps))
+                        def api(path):
+                            if '/jobs?' in path: return dict(total_count=2, jobs=jobs)
+                            return artifact if '/artifacts/' in path else run
+                        with self.subTest(profile=profile, platform=platform, conclusion=conclusion), chdir(root), patch.dict('os.environ', env), patch('tests.package_release.api', side_effect=api):
+                            if profile in [None, 'full', 'compatibility'] and conclusion == 'success': verify_remote(candidate)
+                            else:
+                                with self.assertRaises(ValueError): verify_remote(candidate)
+            # A failed alternate suite must never be hidden by successful selected coverage.
+            data = dict(base, windows_suite='compatibility', windows_baseline=WINDOWS_BASELINE, windows_reason='test')
+            (candidate / 'manifest.json').write_text(json.dumps(data))
+            for job in jobs:
+                for step in job['steps']: step['conclusion'] = 'success'
+            jobs[1]['steps'].append(dict(name='Run full unit suite', status='completed', conclusion='success'))
+            jobs[0]['steps'] = [step for step in jobs[0]['steps'] if step['name'] != 'Run full unit suite']
+            jobs[0]['steps'].append(dict(name='Run Windows compatibility suite', status='completed', conclusion='success'))
+            for alternate in ['failure', 'success', 'skipped']:
+                jobs[0]['steps'].append(dict(name='Run full unit suite', status='completed', conclusion=alternate))
+                with chdir(root), patch.dict('os.environ', env), patch('tests.package_release.api', side_effect=api):
+                    if alternate == 'failure':
+                        with self.assertRaises(ValueError): verify_remote(candidate)
+                    else: verify_remote(candidate)
+                jobs[0]['steps'].pop()
+            # At an exact sensitive source checkout, compatibility is still rejected.
+            (root / 'src/novel_creator/storage.py').write_text('# sensitive change')
+            subprocess.run(['git', '-C', str(root), 'add', 'src/novel_creator/storage.py'], check=True)
+            subprocess.run(['git', '-C', str(root), '-c', 'user.name=Test', '-c', 'user.email=test@example.invalid', 'commit', '-qm', 'sensitive'], check=True)
+            commit = subprocess.check_output(['git', '-C', str(root), 'rev-parse', 'HEAD'], text=True).strip()
+            data['source_commit'] = commit
+            (candidate / 'manifest.json').write_text(json.dumps(data))
+            env['CANDIDATE_COMMIT'] = commit
+            evidence = json.loads(env['HOST_EVIDENCE']); evidence['source_commit'] = commit
+            env['HOST_EVIDENCE'] = json.dumps(evidence)
+            run['head_sha'] = commit; artifact['workflow_run']['head_sha'] = commit
+            for job in jobs: job['head_sha'] = commit
+            with chdir(root), patch.dict('os.environ', env), patch('tests.package_release.api', side_effect=api):
+                with self.assertRaises(ValueError): verify_remote(candidate)
+            # Missing history forces full even when a manifest asks for compatibility.
+            subprocess.run(['git', '-C', str(root), 'checkout', '-q', '--orphan', 'unrelated'], check=True)
+            subprocess.run(['git', '-C', str(root), 'rm', '-rfq', '.'], check=True)
+            subprocess.run(['git', '-C', str(root), '-c', 'user.name=Test', '-c', 'user.email=test@example.invalid', 'commit', '-qm', 'unrelated', '--allow-empty'], check=True)
+            with chdir(root), patch.dict('os.environ', env), patch('tests.package_release.api', side_effect=api):
+                with self.assertRaises(ValueError): verify_remote(candidate)
+
     def test_public_hash_mismatch_is_rejected_before_installation(self):
         from tests.verify_package_install import verify
         with tempfile.TemporaryDirectory() as directory:
