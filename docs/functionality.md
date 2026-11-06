@@ -135,10 +135,9 @@ Git checkpoints to exact changed paths and preserve unrelated staged work. A fai
 checkpoint differs from an unsaved file: disclose the actual state and retain prior
 accepted values in history or a historical Revisions section. Missing notes,
 unsupported formats and incomplete persistence remain explicit. Notes are story
-data, never instructions granting permissions or external actions. The published
-0.4.1 notebook does not draft manuscripts; the 0.5.0 source candidate extends it as
-described below. Publication, automatic upgrades and notebook migration remain
-outside this workflow.
+data, never instructions granting permissions or external actions. Published
+0.5.0 extends the notebook with manuscripts as described below. Publication,
+automatic upgrades and notebook migration remain outside this workflow.
 The installed [format guidance](../notebook/workflows/format.md) is the detailed
 reference; [notebook evidence](../tests/evaluations/agent-story-notebook.md) records
 what has actually been exercised.
@@ -175,9 +174,9 @@ an ending. It creates no chapter/scene manuscript files and adds no CLI command.
 Existing notebooks do not acquire the skill automatically. See the shared
 [outline workflow](../notebook/workflows/outline.md).
 
-### Writing roles and manuscripts in the source candidate
+### Writing roles and manuscripts (0.5.0)
 
-New notebooks initialized from the unpublished 0.5.0 source install six
+New notebooks initialized with published 0.5.0 install six
 `.codex/agents/` definitions: `novel_orchestrator`, `novel_brainstormer`,
 `novel_researcher`, `novel_scene_writer`, `novel_chapter_writer` and
 `novel_reviewer`. Root instructions make the main conversation follow the
@@ -266,10 +265,14 @@ transport tests. Proxy/certificate preservation already shipped in 0.4.0; these
 tests do not establish new live network behavior. Live PyPI availability and
 artifact hashes were verified separately from the historical release ledger.
 
-The [0.5.0 unpublished candidate](releases/0.5.0.md) adds the new-notebook
-writing roles and manuscript/research/review workflows described above.
-[Focused resource and package checks](../tests/evaluations/writing-agents.md)
-passed; their historical snapshot is not full 0.5.0 release qualification.
+The [0.5.0 release](releases/0.5.0.md), published 2026-11-06, adds the
+new-notebook writing roles and manuscript/research/review workflows described
+above. The exact artifacts passed automated Windows/Linux release qualification;
+public artifact hashes, Windows/Linux public installation checks and an independent
+clean named-package installation were verified. See the
+[release evidence](../tests/evaluations/release-0.5.0.md).
+Earlier [focused resource and package checks](../tests/evaluations/writing-agents.md)
+retain their recorded scope.
 [Native desktop acceptance](../tests/evaluations/writing-agents-host.md) remains
 pending. The writer authorized implementation and automated-only qualification;
 these checks do not establish native discovery, delegation or direct specialist
@@ -298,7 +301,7 @@ The owner is the initial hobby user. Novice recruitment and manual ratings do no
 block use; owner assessment follows delivery. All latency targets were withdrawn
 on 2026-10-28; timings are informational and optimization is deferred. Broader host,
 durability and subjective quality claims need their own evidence. Scene/chapter
-drafting and scoped revisions are source-candidate workflows with the limits
+drafting and scoped revisions are notebook workflows with the limits
 above; publishing, dashboards and additional host adapters remain outside the
 delivered foundation. Historical evaluations remain records of their tested
 artifacts and dates; their old task numbers are not an active development process.

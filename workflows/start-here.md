@@ -102,18 +102,16 @@ notebooks. Package installation does not add them to existing notebooks
 or change legacy brainstorming. These notebook features are not available from
 the older published legacy releases.
 
-New notebooks initialized from the unpublished 0.5.0 source candidate also
-install six writing roles and guidance for on-demand scenes, chapters, research
-and review. Open the initialized novel folder itself, then check whether your
+New notebooks initialized with published 0.5.0 also install six writing roles and
+guidance for on-demand scenes, chapters, research and review. Open the initialized novel folder itself, then check whether your
 actual Codex client supports custom agents and ongoing direct specialist turns.
 Those native interactions remain unverified in the target desktop. Ordinary
 requests such as “Let me work with the scene writer” require that host support;
 missing capabilities must be disclosed. For practical examples and limits, read
 `docs/writing-agents-usage.md` in the updated Novel Creator source checkout; that
 guide is not installed in legacy novels. No repeated skill command, per-turn
-Python or full questionnaire is required. These additions are absent from
-published 0.4.1, leave existing notebooks and legacy novels unchanged, and
-introduce no migration or updater command.
+Python or full questionnaire is required. These additions leave existing notebooks
+and legacy novels unchanged and introduce no migration or updater command.
 
 The rest of this page describes the existing legacy workflow.
 

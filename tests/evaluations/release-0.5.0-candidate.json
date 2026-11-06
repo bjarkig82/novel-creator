@@ -1,6 +1,6 @@
 {
   "version": "0.5.0",
-  "status": "qualified but unpublished candidate",
+  "status": "verified published release",
   "repository": "bjarkig82/novel-creator",
   "source_commit": "7b314f725a26d778ca0153761e1773428f6858f2",
   "run_id": 42228146377,
@@ -74,17 +74,75 @@
   "publication": {
     "run_id": 42237043344,
     "run_url": "https://github.com/bjarkig82/novel-creator/actions/runs/42237043344",
-    "status": "awaiting-protected-pypi-review",
+    "status": "published-and-verified",
     "workflow_commit": "5a92fb351c34ce80f8c11c56e71a6260c3ba97bc",
     "publish_job_id": 127957259898,
     "environment": "pypi",
     "environment_id": 25700067917,
-    "environment_approval": "pending",
-    "current_user_can_approve": true,
-    "integration_approval_error": "HTTP 403 Resource not accessible by integration",
-    "github_interface_review": "pending",
-    "upload_started": false,
-    "pypi_availability_verified": false
+    "environment_approval": "approved through GitHub interface",
+    "github_interface_review": "approved",
+    "upload_started": true,
+    "pypi_availability_verified": true,
+    "upload_completed": true,
+    "upload_attempt": 1,
+    "publish_job_conclusion": "success",
+    "public_hashes_match": true,
+    "uploads": [
+      {
+        "filename": "novel_creator-0.5.0-py3-none-any.whl",
+        "sha256": "8d2e981294b7d4e11bb47f286f98c75b18d7a5f24e8803b5ce30374bee4ecd9b",
+        "upload_time_iso_8601": "2026-11-06T15:08:28.777549Z"
+      },
+      {
+        "filename": "novel_creator-0.5.0.tar.gz",
+        "sha256": "c6e9396ee1bf23e3d51a4cf2954aad14814d2a7876c20011aa18b95f12bf929d",
+        "upload_time_iso_8601": "2026-11-06T15:08:30.442627Z"
+      }
+    ],
+    "workflow_conclusion": "success",
+    "public_checks_attempt": 2,
+    "initial_integration_approval_error": "HTTP 403 Resource not accessible by integration",
+    "owner_was_eligible_for_environment_approval": true
   },
-  "public_installation_checks": "not run for this unpublished candidate"
+  "public_installation_checks": {
+    "independent_clean_named_install": {
+      "status": "passed",
+      "source": "novel-creator==0.5.0",
+      "dependency_inheritance": false,
+      "installed_product": {
+        "name": "novel-creator",
+        "version": "0.5.0",
+        "filename": "novel_creator-0.5.0-py3-none-any.whl",
+        "sha256": "8d2e981294b7d4e11bb47f286f98c75b18d7a5f24e8803b5ce30374bee4ecd9b"
+      },
+      "public_artifact_hashes": {
+        "novel_creator-0.5.0-py3-none-any.whl": "8d2e981294b7d4e11bb47f286f98c75b18d7a5f24e8803b5ce30374bee4ecd9b",
+        "novel_creator-0.5.0.tar.gz": "c6e9396ee1bf23e3d51a4cf2954aad14814d2a7876c20011aa18b95f12bf929d"
+      },
+      "public_sdist_installation": "not performed; named installation selected the wheel"
+    },
+    "workflow": {
+      "run_id": 42237043344,
+      "attempt": 2,
+      "status": "completed",
+      "first_attempt": "Both public check jobs received PyPI JSON HTTP 404 seconds after successful upload. Exact public files and candidate hashes were verified before rerunning failed check jobs only.",
+      "linux": {
+        "job_id": 127970049761,
+        "job_url": "https://github.com/bjarkig82/novel-creator/actions/runs/42237043344/job/127970049761",
+        "conclusion": "success",
+        "named_production_install_and_selected_archive_hash": "passed"
+      },
+      "windows": {
+        "job_id": 127970050246,
+        "job_url": "https://github.com/bjarkig82/novel-creator/actions/runs/42237043344/job/127970050246",
+        "conclusion": "success",
+        "named_production_install_and_selected_archive_hash": "passed"
+      },
+      "upload_repeated": false,
+      "conclusion": "success",
+      "run_url": "https://github.com/bjarkig82/novel-creator/actions/runs/42237043344",
+      "attempt_url": "https://github.com/bjarkig82/novel-creator/actions/runs/42237043344/attempts/2"
+    }
+  },
+  "publication_date": "2026-11-06"
 }

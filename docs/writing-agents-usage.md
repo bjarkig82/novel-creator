@@ -1,7 +1,7 @@
 # Writing with notebook agents
 
-This guide covers **new notebooks initialized from the unpublished 0.5.0 source
-candidate**. Published 0.4.1 does not include these writing roles or manuscript
+This guide covers **new notebooks initialized with published 0.5.0**.
+The earlier 0.4.1 package does not include these writing roles or manuscript
 workflows. Package installation leaves existing notebooks and legacy novels
 unchanged; there is no migration or new updater command for these additions.
 For setup, see [start here](../workflows/start-here.md#ask-your-agent-to-set-up-a-story).

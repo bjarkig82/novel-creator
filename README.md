@@ -11,32 +11,27 @@ setup, read the generated project instructions and continue in the same
 conversation. See [agent-led setup](workflows/start-here.md#ask-your-agent-to-set-up-a-story)
 for prerequisites, safe destinations and host access limits.
 
-This checkout prepares **0.5.0, a qualified but unpublished candidate**, adding
-six writing roles with scene/chapter manuscripts, research and review guidance for new
-notebooks. These additions are absent from the published 0.4.1 package. New
-writing instructions apply to notebooks initialized from this updated source or,
-after publication, 0.5.0. Agent-led setup handoff improvements and explicit legacy
-realtime input capture are already available in published 0.4.1.
+**Novel Creator 0.5.0 is published on PyPI, 2026-11-06**, adding six writing
+roles with scene/chapter manuscripts, research and review guidance for new
+notebooks. New writing instructions apply to notebooks initialized with 0.5.0.
+Agent-led setup handoff improvements and explicit legacy realtime input capture
+were introduced in 0.4.1.
 
-Installing a package does not rewrite existing project guidance. The new writing
-resources passed automated Windows/Linux release qualification for the exact
-candidate recorded in the [release evidence](tests/evaluations/release-0.5.0.md).
-Native specialist interaction in Codex Desktop remains unverified. See the
-[0.5.0 candidate notes](docs/releases/0.5.0.md) for changes and host requirements.
+Installing a package does not rewrite existing project guidance. The exact
+published artifacts passed automated Windows/Linux release qualification. Public
+hashes matched, and Windows/Linux public installation checks and an independent
+clean named-package installation passed. Native specialist interaction in Codex
+Desktop remains unverified. See the
+[0.5.0 release notes](docs/releases/0.5.0.md) and
+[release evidence](tests/evaluations/release-0.5.0.md) for scope and host requirements.
 
 **New to the tools?** Start with the [beginner guide](https://github.com/bjarkig82/novel-creator/blob/main/workflows/start-here.md),
 which explains setup, everyday writing, and the Windows, Linux, and Mac limits.
 If someone has already prepared your novel, go straight to
 [everyday writing](https://github.com/bjarkig82/novel-creator/blob/main/workflows/everyday-writing.md).
 
-Install [Novel Creator 0.4.1 from PyPI](https://pypi.org/project/novel-creator/0.4.1/)
+Install or upgrade [Novel Creator 0.5.0 from PyPI](https://pypi.org/project/novel-creator/0.5.0/)
 in your configured environment:
-
-```text
-python -m pip install novel-creator==0.4.1
-```
-
-**Usable only after 0.5.0 is published:**
 
 ```text
 python -m pip install --upgrade novel-creator==0.5.0
@@ -98,9 +93,9 @@ Notebook conversations in Windows and Linux Codex Desktop remain unverified;
 see the [notebook evidence ledger](tests/evaluations/agent-story-notebook.md) and
 [release preparation](tests/evaluations/agent-story-notebook-release.md).
 
-## Writing agents and manuscripts (0.5.0 source candidate)
+## Writing agents and manuscripts (0.5.0)
 
-New notebooks initialized from this source install six `.codex/agents/` roles.
+New notebooks initialized with 0.5.0 install six `.codex/agents/` roles.
 The root conversation follows the orchestrator; you can request a specialist in
 ordinary language, such as “Let me work with the scene writer.” Native role
 selection and ongoing direct turns depend on the actual Codex client and remain

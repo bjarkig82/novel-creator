@@ -1,9 +1,9 @@
 # Novel Creator 0.5.0 release evidence
 
-**Status: qualified but unpublished candidate.** Automated Windows/Linux release
-qualification passed. Publication is waiting for protected `pypi` environment
-approval; upload has not started. PyPI availability and public installation checks
-have not been verified. No publication date is claimed.
+**Status: verified published release, 2026-11-06.** The public PyPI wheel and
+source archive match the exact automated Windows/Linux qualified candidate.
+Independent clean public named-package installation and Windows/Linux public CI
+checks passed, selecting the wheel. Native Desktop acceptance remains unverified.
 The [release notes](../../docs/releases/0.5.0.md) describe changes and compatibility.
 The [machine-readable candidate record](release-0.5.0-candidate.json) retains
 selected public facts without raw logs, signed download URLs or private paths.
@@ -41,24 +41,42 @@ implementation checks and selected disposable workflow scenarios. Those records
 do not establish target Desktop behavior. Historical 0.4.1 evidence remains
 unchanged and applies to its own source and artifact identities.
 
-## Publication awaiting protected environment review
+## Verified publication and public installation
 
 [Publication run 42237043344](https://github.com/bjarkig82/novel-creator/actions/runs/42237043344)
 was dispatched from documentation commit
-`5a92fb351c34ce80f8c11c56e71a6260c3ba97bc` with the qualified artifact above unchanged.
-Its publish job `127957259898` is waiting for approval of the protected `pypi`
-environment (`25700067917`). GitHub reports that the owner can approve, but the
-integration's approval request returned HTTP 403, `Resource not accessible by
-integration`. This is a GitHub integration permission limit; approval through the
-GitHub interface remains pending. The upload has not started, and no public
-availability or public installation checks are claimed. The
-[release workflow](../../.github/workflows/package-release.yml) and environment
-protection remain unchanged. Add publication status/date only after verifying
-the public distribution hashes and installation results.
+`5a92fb351c34ce80f8c11c56e71a6260c3ba97bc` with the qualified artifact unchanged.
+The integration initially received HTTP 403, `Resource not accessible by
+integration`, when requesting protected `pypi` environment approval. The writer
+then approved through the GitHub interface. Publish job `127957259898` succeeded
+on attempt 1; no upload failure is claimed. Environment protection and the
+[release workflow](../../.github/workflows/package-release.yml) remained unchanged.
+
+PyPI reports wheel upload `2026-11-06T15:08:28.777549Z` and source archive upload
+`2026-11-06T15:08:30.442627Z`. Both public SHA-256 hashes match the qualified
+manifest above. [Novel Creator 0.5.0](https://pypi.org/project/novel-creator/0.5.0/)
+was independently verified as the latest public release.
+
+An independent clean installation of `novel-creator==0.5.0`, without inherited
+dependencies, passed production verification, including English/Icelandic notebook
+initialization and installed writing resources. It selected the public wheel and
+verified its hash against the candidate manifest. Both published file hashes were
+verified; this check did not install the public source archive. Candidate clean
+source archive installations had already passed on Windows and Linux above.
+
+Both first-attempt public CI jobs received PyPI version-JSON HTTP 404 seconds after
+successful upload. Exact public availability and hashes were verified before
+rerunning only the failed check jobs in
+[attempt 2](https://github.com/bjarkig82/novel-creator/actions/runs/42237043344/attempts/2).
+Attempt 2 completed successfully: the
+[Linux public check job 127970049761](https://github.com/bjarkig82/novel-creator/actions/runs/42237043344/job/127970049761)
+and [Windows public check job 127970050246](https://github.com/bjarkig82/novel-creator/actions/runs/42237043344/job/127970050246)
+both passed named production installation and selected archive hash checks. No
+second upload or artifact rebuild occurred.
 
 Documentation and evidence commits after the selected source do not replace or
-rebuild the qualified artifact. Publication must retain the source, run, attempt,
-artifact and distribution hashes above and preserve the workflow gates.
+rebuild the qualified artifact. Publication retained the source, candidate run,
+attempt, artifact and distribution hashes above and preserved the workflow gates.
 
 ## Scope and remaining limits
 
@@ -73,4 +91,4 @@ journey. Linux CLI/package checks do not establish Linux Codex writing behavior;
 macOS support remains deferred. Structural checks and disposable scenarios do
 not establish literary quality, exhaustive continuity or full English/Icelandic
 literary parity. Live voice capture, spoken fidelity and direct native-user
-legacy update behavior remain outside this candidate's observed scope.
+legacy update behavior remain outside this release's observed scope.
