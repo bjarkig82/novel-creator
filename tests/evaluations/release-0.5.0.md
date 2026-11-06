@@ -1,8 +1,9 @@
 # Novel Creator 0.5.0 release evidence
 
 **Status: qualified but unpublished candidate.** Automated Windows/Linux release
-qualification passed. Publication has not been dispatched; PyPI availability and
-public installation checks have not been verified. No publication date is claimed.
+qualification passed. Publication is waiting for protected `pypi` environment
+approval; upload has not started. PyPI availability and public installation checks
+have not been verified. No publication date is claimed.
 The [release notes](../../docs/releases/0.5.0.md) describe changes and compatibility.
 The [machine-readable candidate record](release-0.5.0-candidate.json) retains
 selected public facts without raw logs, signed download URLs or private paths.
@@ -40,13 +41,19 @@ implementation checks and selected disposable workflow scenarios. Those records
 do not establish target Desktop behavior. Historical 0.4.1 evidence remains
 unchanged and applies to its own source and artifact identities.
 
-## Publication pending
+## Publication awaiting protected environment review
 
-No publication workflow has been dispatched for this candidate. The existing
-[release workflow](../../.github/workflows/package-release.yml) must publish the
-same qualified artifact through the protected `pypi` environment and then run
-public package checks. Candidate qualification does not establish a public PyPI
-installation. Add a publication date and availability claims only after verifying
+[Publication run 42237043344](https://github.com/bjarkig82/novel-creator/actions/runs/42237043344)
+was dispatched from documentation commit
+`5a92fb351c34ce80f8c11c56e71a6260c3ba97bc` with the qualified artifact above unchanged.
+Its publish job `127957259898` is waiting for approval of the protected `pypi`
+environment (`25700067917`). GitHub reports that the owner can approve, but the
+integration's approval request returned HTTP 403, `Resource not accessible by
+integration`. This is a GitHub integration permission limit; approval through the
+GitHub interface remains pending. The upload has not started, and no public
+availability or public installation checks are claimed. The
+[release workflow](../../.github/workflows/package-release.yml) and environment
+protection remain unchanged. Add publication status/date only after verifying
 the public distribution hashes and installation results.
 
 Documentation and evidence commits after the selected source do not replace or
