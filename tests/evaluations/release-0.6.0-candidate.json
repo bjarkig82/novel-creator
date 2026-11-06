@@ -1,0 +1,121 @@
+{
+  "version": "0.6.0",
+  "status": "qualified unpublished candidate awaiting protected publication approval",
+  "repository": "bjarkig82/novel-creator",
+  "source_commit": "8df4ca09e58f71d800211a4dad794dd6c1f0c610",
+  "run_id": 42277353584,
+  "run_attempt": 1,
+  "run_url": "https://github.com/bjarkig82/novel-creator/actions/runs/42277353584",
+  "attempt_url": "https://github.com/bjarkig82/novel-creator/actions/runs/42277353584/attempts/1",
+  "artifact_id": 13533632038,
+  "artifact_name": "candidate-42277353584-1",
+  "artifact_zip_sha256": "7e213fcecb8116989e7d8d94726eedec2c805bcd4117fc780881a9073d3799c0",
+  "artifact_zip_digest_verified": true,
+  "manifest_identity_and_files_verified": true,
+  "packaged_source_files_compared": 77,
+  "packaged_source_bytes_match_reviewed_source": true,
+  "manifest": {
+    "repository": "bjarkig82/novel-creator",
+    "run_id": "42277353584",
+    "run_attempt": "1",
+    "source_commit": "8df4ca09e58f71d800211a4dad794dd6c1f0c610",
+    "distribution": "novel-creator",
+    "version": "0.6.0",
+    "files": {
+      "novel_creator-0.6.0-py3-none-any.whl": "4c5d6452ed3132d669778a5147423aae2e07132d1cc4cb3ea5965515418351cd",
+      "novel_creator-0.6.0.tar.gz": "5c460da4e7f1420da8b4f10c21977cfba74fc920d5d382936f442e5fd4cff114"
+    }
+  },
+  "conclusion": "success",
+  "qualification": "automated-only",
+  "platforms": {
+    "windows": {
+      "job_id": 128097201403,
+      "conclusion": "success",
+      "test_count": 432,
+      "skipped_tests": 0,
+      "test_seconds": 3220.833,
+      "completed_at": "2026-11-06T20:08:41Z",
+      "checks_passed": [
+        "Verify candidate manifest",
+        "Run full unit suite",
+        "Verify wheel bytes and legacy journeys",
+        "Verify clean wheel installation",
+        "Verify clean installation from the candidate sdist"
+      ],
+      "job_url": "https://github.com/bjarkig82/novel-creator/actions/runs/42277353584/job/128097201403"
+    },
+    "linux": {
+      "job_id": 128097201491,
+      "conclusion": "success",
+      "test_count": 432,
+      "skipped_tests": 3,
+      "test_seconds": 511.31,
+      "completed_at": "2026-11-06T19:20:53Z",
+      "checks_passed": [
+        "Verify candidate manifest",
+        "Run full unit suite",
+        "Verify wheel bytes and legacy journeys",
+        "Verify clean wheel installation",
+        "Verify clean installation from the candidate sdist",
+        "Follow the literal Bash getting-started guide"
+      ],
+      "job_url": "https://github.com/bjarkig82/novel-creator/actions/runs/42277353584/job/128097201491"
+    }
+  },
+  "remote_release_verifier": "passed against live candidate run, attempt, jobs, artifact, source and hashes",
+  "independent_wheel_verification": {
+    "status": "passed",
+    "wheel_sha256": "4c5d6452ed3132d669778a5147423aae2e07132d1cc4cb3ea5965515418351cd",
+    "installed_and_pinned_memory_origins": "passed",
+    "full_current_working_context_views": "passed",
+    "focused_complete_records_and_checkpoint_identity": "passed",
+    "lexical_query_misses": "passed",
+    "notebook_languages": [
+      "en",
+      "is"
+    ],
+    "notebook_writing_resources_per_language": 26,
+    "legacy_save_reopen_and_update_journeys": "passed",
+    "dependency_isolation": "calling environment package directories reused; product module origins checked",
+    "semantic_host_or_human_evidence": false
+  },
+  "windows_host": false,
+  "linux_host": false,
+  "native_agent_discovery": "unverified",
+  "native_delegation": "unverified",
+  "persistent_direct_specialist_controls": "unverified",
+  "windows_literal_powershell_guide_acceptance": "unverified",
+  "voice_pause_cause_and_timing": "unverified",
+  "spoken_fidelity": "unverified",
+  "literary_quality": "not established by structural tests",
+  "exhaustive_continuity": "not established by structural tests",
+  "macos_support": "deferred",
+  "publication": {
+    "run_id": 42286073249,
+    "run_url": "https://github.com/bjarkig82/novel-creator/actions/runs/42286073249",
+    "status": "waiting for protected environment approval",
+    "workflow_status": "waiting",
+    "workflow_conclusion": null,
+    "workflow_commit": "8df4ca09e58f71d800211a4dad794dd6c1f0c610",
+    "created_at": "2026-11-06T20:10:32Z",
+    "dispatch_count": 1,
+    "environment": "pypi",
+    "environment_id": 25700067917,
+    "required_reviewers": [
+      "bjarkig82"
+    ],
+    "environment_approval": "pending required review",
+    "owner_was_eligible_for_environment_approval": true,
+    "initial_integration_approval_error": "HTTP 403 Resource not accessible by integration",
+    "upload_started": false,
+    "upload_completed": false,
+    "pypi_availability_verified": false,
+    "public_hashes_match": null,
+    "environment_protection_changed": false,
+    "release_workflow_changed": false
+  },
+  "latest_verified_published_release": "0.5.0",
+  "qualified_artifact_rebuilt_after_source_commit": false,
+  "private_novel_content_or_metrics_included": false
+}

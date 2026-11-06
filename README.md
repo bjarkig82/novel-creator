@@ -11,10 +11,12 @@ setup, read the generated project instructions and continue in the same
 conversation. See [agent-led setup](workflows/start-here.md#ask-your-agent-to-set-up-a-story)
 for prerequisites, safe destinations and host access limits.
 
-**This checkout prepares 0.6.0, an unpublished candidate.** It adds fresh small
+**0.6.0 is a qualified, unpublished candidate awaiting protected publication
+approval.** It adds fresh small
 legacy working context with targeted record/source retrieval, and focused notebook
 memory guidance. Read the [0.6.0 candidate notes](docs/releases/0.6.0.md) for
-compatibility and pending qualification. Context volume reduction does not establish
+compatibility and [successful automated Windows/Linux qualification](tests/evaluations/release-0.6.0.md).
+Publication and public artifact verification remain pending. Context volume reduction does not establish
 faster voice responses; actual pause timing and cause remain unverified.
 
 **Novel Creator 0.5.0 is the latest published release, 2026-11-06**, adding six writing
