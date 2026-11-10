@@ -1,0 +1,258 @@
+{
+  "version": "0.7.1",
+  "status": "qualified unpublished candidate",
+  "repository": "bjarkig82/novel-creator",
+  "source_commit": "56ed3de1ba5aa26b6d129a6f767e16e260177c22",
+  "run_id": 42854055221,
+  "run_attempt": 1,
+  "run_url": "https://github.com/bjarkig82/novel-creator/actions/runs/42854055221",
+  "artifact_id": 13780539173,
+  "artifact_zip_sha256": "33433f826747fcbd49b61c3164ad4d9e5df74654a1692a64f954780ccf29cfb0",
+  "artifact_zip_digest_verified": true,
+  "manifest": {
+    "windows_suite": "full",
+    "windows_baseline": "8df4ca09e58f71d800211a4dad794dd6c1f0c610",
+    "windows_reason": "Changes require full qualification: src/novel_creator/cli.py, src/novel_creator/notebook.py, tests/contract/test_legacy_focused_methods.py, tests/contract/test_notebook_package_verifier.py, tests/integration/test_notebook_init.py, tests/integration/test_notebook_package.py, tests/integration/test_notebook_update.py, tests/integration/test_update_apply.py, tests/notebook_resource_checks.py, tests/verify_package_install.py, tests/verify_wheel.py",
+    "repository": "bjarkig82/novel-creator",
+    "run_id": "42854055221",
+    "run_attempt": "1",
+    "source_commit": "56ed3de1ba5aa26b6d129a6f767e16e260177c22",
+    "distribution": "novel-creator",
+    "version": "0.7.1",
+    "files": {
+      "novel_creator-0.7.1-py3-none-any.whl": "cbbd487cee102003160f1966b5748efac73ac9733532744b015abb1f9e6393ba",
+      "novel_creator-0.7.1.tar.gz": "c829fa31229cdcb122f4172a4ec3906ce6ce4517b91cb7dc1318864fdb8fdfd3"
+    }
+  },
+  "manifest_identity_and_files_verified": true,
+  "prior_candidate_record": "release-0.7.1-first-candidate.json",
+  "prior_candidate_conclusion": "failed Windows qualification with one nonportable fault-injection test; never published",
+  "corrective_change": "Native Path.parts matching and unconditional early project-upgrade tests on both release platforms",
+  "early_upgrade_guard": {
+    "linux": "passed",
+    "windows": "passed"
+  },
+  "local_full_suite": {
+    "status": "completed",
+    "command": ".venv/bin/python -m unittest discover -q",
+    "conclusion": "success",
+    "test_count": 453,
+    "skipped_tests": 3,
+    "test_seconds": 1036.417,
+    "exit_code": 0
+  },
+  "publication": {
+    "status": "waiting-protected-owner-approval",
+    "pre_dispatch_version_json_http_status": 404,
+    "protection_changed": false,
+    "run_id": 42865746897,
+    "run_url": "https://github.com/bjarkig82/novel-creator/actions/runs/42865746897",
+    "source_commit": "56ed3de1ba5aa26b6d129a6f767e16e260177c22",
+    "candidate_run": 42854055221,
+    "candidate_attempt": 1,
+    "artifact_id": 13780539173,
+    "files": {
+      "novel_creator-0.7.1-py3-none-any.whl": "cbbd487cee102003160f1966b5748efac73ac9733532744b015abb1f9e6393ba",
+      "novel_creator-0.7.1.tar.gz": "c829fa31229cdcb122f4172a4ec3906ce6ce4517b91cb7dc1318864fdb8fdfd3"
+    },
+    "dispatch_count": 1,
+    "environment": "pypi",
+    "environment_id": 25700067917,
+    "required_reviewers": [
+      "bjarkig82"
+    ],
+    "approval_api_error": "HTTP 403 Resource not accessible by integration",
+    "approval_auto_review_rejection": false,
+    "upload_started": false
+  },
+  "version_tag": {
+    "name": "v0.7.1",
+    "status": "pending verified publication",
+    "required_source": "56ed3de1ba5aa26b6d129a6f767e16e260177c22"
+  },
+  "windows_host": false,
+  "linux_host": false,
+  "native_skill_discovery_and_invocation": "unverified",
+  "private_novel_content_included": false,
+  "independent_wheel_verification": {
+    "status": "passed",
+    "sha256": "cbbd487cee102003160f1966b5748efac73ac9733532744b015abb1f9e6393ba",
+    "packaged_source_files_compared": 89,
+    "source_bytes_match": true,
+    "dependency_package_directories_reused": true,
+    "product_origins_checked": true,
+    "native_host_evidence": false
+  },
+  "previous_published_release_upgrades": {
+    "legacy_published_070": {
+      "ok": true,
+      "scope": "offline disposable installed-controller CLI qualification; not native host or publication",
+      "cases": [
+        {
+          "source_version": "0.7.0",
+          "source_sha256": "e7dba537ba4abf6e1b9c832f816dd71886ed9fcd1510aa89ca8e29c4cac8e27f",
+          "language": "is",
+          "target_version": "0.7.1",
+          "target_sha256": "cbbd487cee102003160f1966b5748efac73ac9733532744b015abb1f9e6393ba",
+          "preview_read_only": true,
+          "framework_commit": "e27c17123e7e7b92d2b00e2cbdd6de2c20eeb400",
+          "single_update_commit": true,
+          "history_and_writer_work_preserved": true,
+          "guided_session_restored": true,
+          "pinned_product_origins": true,
+          "subsequent_synthetic_save": true,
+          "completed_status_after_subsequent_save": true,
+          "completed_recovery_inspection_after_subsequent_save": true,
+          "changed_recovery_checkpoint_refused": true
+        }
+      ],
+      "focused_skills_and_workflows_installed": true
+    },
+    "notebooks_published_060": [
+      {
+        "source": "published 0.6.0 wheel",
+        "target": "0.7.1",
+        "language": "en",
+        "real_installed_cli": true,
+        "story_history_custom_instructions_staging_preserved": true,
+        "source_sha256": "4c5d6452ed3132d669778a5147423aae2e07132d1cc4cb3ea5965515418351cd",
+        "target_sha256": "cbbd487cee102003160f1966b5748efac73ac9733532744b015abb1f9e6393ba"
+      },
+      {
+        "source": "published 0.6.0 wheel",
+        "target": "0.7.1",
+        "language": "is",
+        "real_installed_cli": true,
+        "story_history_custom_instructions_staging_preserved": true,
+        "source_sha256": "4c5d6452ed3132d669778a5147423aae2e07132d1cc4cb3ea5965515418351cd",
+        "target_sha256": "cbbd487cee102003160f1966b5748efac73ac9733532744b015abb1f9e6393ba"
+      }
+    ]
+  },
+  "independent_clean_installations": {
+    "wheel": {
+      "status": "passed",
+      "validated": true,
+      "source": "novel_creator-0.7.1-py3-none-any.whl",
+      "archive_sha256": "cbbd487cee102003160f1966b5748efac73ac9733532744b015abb1f9e6393ba",
+      "dependency_inheritance": false,
+      "notebook_cases": [
+        {
+          "language": "en",
+          "created": true,
+          "guidance_links": true,
+          "outline_skill": true,
+          "brainstorming_skills": true,
+          "writing_agents": true,
+          "verified_resource_count": 32,
+          "explicit_notebook_retrofit": true
+        },
+        {
+          "language": "is",
+          "created": true,
+          "guidance_links": true,
+          "outline_skill": true,
+          "brainstorming_skills": true,
+          "writing_agents": true,
+          "verified_resource_count": 32,
+          "explicit_notebook_retrofit": true
+        }
+      ]
+    },
+    "sdist": {
+      "status": "passed",
+      "validated": true,
+      "source": "novel_creator-0.7.1.tar.gz",
+      "archive_sha256": "c829fa31229cdcb122f4172a4ec3906ce6ce4517b91cb7dc1318864fdb8fdfd3",
+      "dependency_inheritance": false,
+      "notebook_cases": [
+        {
+          "language": "en",
+          "created": true,
+          "guidance_links": true,
+          "outline_skill": true,
+          "brainstorming_skills": true,
+          "writing_agents": true,
+          "verified_resource_count": 32,
+          "explicit_notebook_retrofit": true
+        },
+        {
+          "language": "is",
+          "created": true,
+          "guidance_links": true,
+          "outline_skill": true,
+          "brainstorming_skills": true,
+          "writing_agents": true,
+          "verified_resource_count": 32,
+          "explicit_notebook_retrofit": true
+        }
+      ]
+    }
+  },
+  "platforms": {
+    "linux": {
+      "job_id": 129962336679,
+      "job_url": "https://github.com/bjarkig82/novel-creator/actions/runs/42854055221/job/129962336679",
+      "status": "completed",
+      "conclusion": "success",
+      "suite": "full",
+      "test_count": 453,
+      "skipped_tests": 3,
+      "test_seconds": 604.141,
+      "early_upgrade_tests": 14,
+      "early_upgrade_test_seconds": 2.054,
+      "completed_at": "2026-11-10T16:35:08Z",
+      "successful_steps": [
+        "Set up job",
+        "Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a",
+        "Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+        "Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333",
+        "Verify candidate manifest",
+        "Run python -m pip install -e '.[test]'",
+        "Check project skill upgrades",
+        "Run full unit suite",
+        "Verify wheel bytes and legacy journeys",
+        "Verify clean wheel installation",
+        "Verify clean installation from the candidate sdist",
+        "Follow the literal Bash getting-started guide",
+        "Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9",
+        "Post Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+        "Post Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a",
+        "Complete job"
+      ]
+    },
+    "windows": {
+      "job_id": 129962336992,
+      "job_url": "https://github.com/bjarkig82/novel-creator/actions/runs/42854055221/job/129962336992",
+      "status": "completed",
+      "conclusion": "success",
+      "suite": "full",
+      "test_count": 453,
+      "skipped_tests": 0,
+      "test_seconds": 3639.574,
+      "early_upgrade_tests": 14,
+      "early_upgrade_test_seconds": 26.364,
+      "completed_at": "2026-11-10T17:29:14Z",
+      "successful_steps": [
+        "Set up job",
+        "Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a",
+        "Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+        "Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333",
+        "Verify candidate manifest",
+        "Run python -m pip install -e '.[test]'",
+        "Check project skill upgrades",
+        "Run full unit suite",
+        "Verify wheel bytes and legacy journeys",
+        "Verify clean wheel installation",
+        "Verify clean installation from the candidate sdist",
+        "Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9",
+        "Post Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+        "Post Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a",
+        "Complete job"
+      ]
+    }
+  },
+  "candidate_run_status": "completed",
+  "conclusion": "success",
+  "remote_release_verifier": "passed against exact completed candidate, immutable artifact, source, hashes and required platform jobs"
+}
