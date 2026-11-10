@@ -102,6 +102,8 @@ jobs:
         id: qualification
         run: python tests/package_release.py verify candidate
       - run: python -m pip install -e '.[test]'
+      - name: Check project skill upgrades
+        run: python -m unittest tests.integration.test_notebook_update tests.contract.test_legacy_focused_methods -q
       - name: Run full unit suite
         if: runner.os == 'Linux' || steps.qualification.outputs.windows_suite == 'full'
         run: python -m unittest discover -q

@@ -152,7 +152,7 @@ class NotebookUpdate(unittest.TestCase):
         preview = notebook.update(self.target)
         original = Path.open
         def fail_on_second(path, *args, **kwargs):
-            if str(path).endswith('/workflows/clarify.md') and args and args[0] == 'xb':
+            if path.parts[-2:] == ('workflows', 'clarify.md') and args and args[0] == 'xb':
                 raise OSError('Simulated interruption after one complete resource')
             return original(path, *args, **kwargs)
         with patch.object(Path, 'open', fail_on_second):
