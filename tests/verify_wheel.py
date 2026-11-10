@@ -139,9 +139,54 @@ def verify_notebook(console, scratch, env, language, expected_resources=None):
         expected_resources = {relative: source.read_bytes()
                               for relative, (source, _) in resource_paths(checkout).items()}
     resource_count = verify_writing_resources(root, expected_resources)
+    retrofit = False
+    if '.agents/skills/novel-analyze/SKILL.md' in expected_resources:
+        retrofit = verify_notebook_retrofit(console, root, scratch, env, expected_resources)
     return {'language': language, 'created': True, 'guidance_links': True,
             'outline_skill': True, 'brainstorming_skills': True,
-            'writing_agents': True, 'verified_resource_count': resource_count}
+            'writing_agents': True, 'verified_resource_count': resource_count,
+            'explicit_notebook_retrofit': retrofit}
+
+
+def verify_notebook_retrofit(console, root, scratch, env, expected_resources):
+    """Use the installed CLI against a notebook missing the 0.7 additions."""
+    for name in ('clarify', 'analyze', 'help'):
+        (root / f'.agents/skills/novel-{name}/SKILL.md').unlink()
+        (root / f'.novel-notebook/workflows/{name}.md').unlink()
+    custom = b'# Existing notebook directions\n\nPreserve the writer direction.\n'
+    (root / 'AGENTS.md').write_bytes(custom)
+    accepted = root / 'notebook/accepted-verifier.md'
+    accepted.write_bytes(b'Accepted story content must remain unchanged.\n')
+    run(['git', '-C', root, 'add', '.'], cwd=scratch, env=env)
+    run(['git', '-C', root, 'commit', '-m', 'Existing notebook before focused methods'], cwd=scratch, env=env)
+    writer = root / 'writer-verifier.txt'
+    writer.write_bytes(b'Staged writer work\n')
+    run(['git', '-C', root, 'add', 'writer-verifier.txt'], cwd=scratch, env=env)
+    writer.write_bytes(b'Unstaged writer work\n')
+    index = run(['git', '-C', root, 'ls-files', '--stage', '-z'], cwd=scratch, env=env)
+    head = run(['git', '-C', root, 'rev-parse', 'HEAD'], cwd=scratch, env=env)
+    before = {p.relative_to(root).as_posix(): p.read_bytes() for p in root.rglob('*')
+              if p.is_file() and '.git' not in p.relative_to(root).parts}
+    preview = json.loads(run([console, 'notebook', 'update', '--path', root, '--json'], cwd=scratch, env=env))['data']
+    assert not preview['ready'] and preview['changes']
+    assert before == {p.relative_to(root).as_posix(): p.read_bytes() for p in root.rglob('*')
+                      if p.is_file() and '.git' not in p.relative_to(root).parts}
+    result = json.loads(run([console, 'notebook', 'update', '--path', root, '--apply',
+                             '--preview', preview['preview_id'], '--expected-head', preview['reviewed_head'],
+                             '--json'], cwd=scratch, env=env))['data']
+    assert result['ready'] and result['applied']
+    assert run(['git', '-C', root, 'rev-parse', 'HEAD'], cwd=scratch, env=env) == head
+    assert run(['git', '-C', root, 'ls-files', '--stage', '-z'], cwd=scratch, env=env) == index
+    assert writer.read_bytes() == b'Unstaged writer work\n'
+    assert accepted.read_bytes() == b'Accepted story content must remain unchanged.\n'
+    assert (root / 'AGENTS.md').read_bytes().startswith(custom)
+    assert b'Analysis and help are strictly read-only' in (root / 'AGENTS.md').read_bytes()
+    for name in ('clarify', 'analyze', 'help'):
+        for relative in (f'.agents/skills/novel-{name}/SKILL.md', f'.novel-notebook/workflows/{name}.md'):
+            assert (root / relative).read_bytes() == expected_resources[relative].replace(b'\r\n', b'\n')
+    assert json.loads(run([console, 'notebook', 'update', '--path', root, '--json'],
+                          cwd=scratch, env=env))['data']['already_current']
+    return True
 
 
 def verify(wheel):
@@ -207,6 +252,9 @@ assert metadata['protocol_version'] == 1 and metadata['source_installation_forma
 exported=export_bundle()
 assert '.novel-creator/workflows/update.md' in exported['files']
 assert '.agents/skills/novel-update/SKILL.md' in exported['files']
+for method in ('clarify', 'analyze', 'help'):
+    assert f'.agents/skills/novel-{method}/SKILL.md' in exported['files']
+    assert f'.novel-creator/workflows/{method}.md' in exported['files']
 assert '.novel-creator/src/novel_creator/memory.py' in exported['files']
 assert '.novel-creator/workflows/working-context.md' in exported['files']
 assert '.agents/skills/novel-outline/SKILL.md' not in exported['files']

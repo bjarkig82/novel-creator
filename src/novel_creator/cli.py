@@ -118,13 +118,20 @@ def parser():
     from pathlib import Path
     if not (Path(__file__).resolve().parents[2] / 'run.py').is_file():
         notebook = commands.add_parser('notebook', description='New novels with agent-maintained Markdown notes')
-        notebook_init = notebook.add_subparsers(dest='notebook_action', required=True).add_parser('init')
+        notebook_actions = notebook.add_subparsers(dest='notebook_action', required=True)
+        notebook_init = notebook_actions.add_parser('init')
         notebook_init.add_argument('name')
         notebook_init.add_argument('--path', action=Once)
         notebook_init.add_argument('--title', action=Once)
         notebook_init.add_argument('--language', choices=('en', 'is'), action=Once)
         notebook_init.add_argument('--json', action=SwitchOnce)
         notebook_init.set_defaults(brief_file=None)
+        notebook_update = notebook_actions.add_parser('update', description='Preview or explicitly add focused methods to an existing story notebook')
+        notebook_update.add_argument('--path', required=True, action=Once)
+        notebook_update.add_argument('--apply', action=SwitchOnce)
+        notebook_update.add_argument('--preview', action=Once)
+        notebook_update.add_argument('--expected-head', action=Once)
+        notebook_update.add_argument('--json', action=SwitchOnce)
     update = commands.add_parser('update', description='Explicit published-release preview or local update status')
     update.add_argument('update_action', nargs='?', choices=('status', 'recover'))
     update.add_argument('--novel', required=True, action=Once)
@@ -219,6 +226,23 @@ def main(argv=None):
             stream.reconfigure(encoding='utf-8')
     try:
         args = parser().parse_args(argv)
+        if args.command == 'notebook' and args.notebook_action == 'update':
+            from .notebook import update
+            if not args.path:
+                raise ToolError(2, 'Notebook update requires a nonempty --path')
+            result = update(args.path, apply=bool(args.apply), preview_id=args.preview,
+                            expected_head=args.expected_head)
+            if args.json:
+                print(json.dumps(result, ensure_ascii=False, allow_nan=False))
+            else:
+                data = result['data']
+                print(('Notebook methods installed: ' if data['applied'] else 'Notebook update preview: ') + data['novel_path'])
+                print('Reviewed HEAD: ' + data['reviewed_head'])
+                print('Preview ID: ' + data['preview_id'])
+                for change in data['changes']:
+                    print(change['action'] + ': ' + change['path'])
+                print(data['next_action'])
+            return 0
         if args.command == 'notebook':
             from .notebook import initialize
             request = _init_request(args)

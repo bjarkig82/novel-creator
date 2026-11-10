@@ -1,5 +1,13 @@
 # Start here: Novel Creator for writers
 
+For the 0.7.1 patch candidate, existing projects have explicit update paths for
+Clarify, Analyze and Help. Package installation alone still does not add skills
+to your novel. Follow `docs/upgrading-projects.md` in the updated source checkout:
+legacy novels use the reviewed framework updater; notebooks use the additive
+`novel-creator notebook update --path BOOK --json` preview and explicit apply.
+Do not initialize over an existing novel. This supersedes the older releases'
+new-notebook-only availability descriptions below once 0.7.1 is published.
+
 Novel Creator helps you develop a novel through conversations in Codex. You can
 start with a detailed idea, a few loose thoughts, or no idea at all. It keeps a
 local record of your ideas, decisions, and unanswered questions so you can return

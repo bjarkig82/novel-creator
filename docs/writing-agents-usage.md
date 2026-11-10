@@ -104,6 +104,12 @@ detailed guidance.
 
 ## Clarify and analyze (0.7.0)
 
+The [0.7.1 patch candidate](releases/0.7.1.md) extends these methods to existing
+projects through explicit updates; see [upgrading projects](upgrading-projects.md).
+Legacy novels receive format-specific skills through their supported updater.
+Older notebooks receive an additive retrofit. The original 0.7.0 limitations
+below describe that release, not the availability after a successful 0.7.1 update.
+
 New notebooks initialized **with published 0.7.0** include two
 additional methods. They are not part of published 0.6.0, and installing a package
 or reading this guide does not add them to an existing notebook. No notebook

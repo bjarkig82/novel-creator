@@ -4,6 +4,7 @@ Read the notes for each version to understand its changes, compatibility and
 upgrade considerations. Candidate notes describe planned changes and do not
 establish that the package is available on PyPI.
 
+- [0.7.1](0.7.1.md) — **unpublished patch candidate**: Clarify, Analyze and Help for existing legacy novels and notebooks, explicit project upgrade guidance and version-tag requirements.
 - [0.7.0](0.7.0.md) — **published 2026-11-10**: targeted clarification, read-only analysis and writer help for new notebooks; full Linux/Windows qualification and public installation verified.
 - [0.6.0](0.6.0.md) — **published 2026-11-06**: fresh legacy working context, targeted record retrieval and focused notebook memory/responsiveness guidance.
 - [0.5.0](0.5.0.md) — **published 2026-11-06**: six notebook writing roles, scene/chapter manuscripts, research and independent review guidance.

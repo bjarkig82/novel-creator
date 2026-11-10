@@ -58,6 +58,22 @@ no framework checkout is required. Python >=3.11, packaging >=24, jsonschema >=4
 environment prerequisites. Unknown or damaged records are unavailable, never an
 empty story. Structural validation does not establish narrative consistency.
 
+
+## Read-only analysis and help exception
+
+For `$novel-analyze` or an explicitly read-only story analysis, follow
+[analysis](analyze.md). For `$novel-help` or command-usage/next-step guidance,
+follow [help](help.md). Apply this exception before exact input capture or any
+write: these passes create no input evidence, session changes, exchanges,
+findings, notes, notices, retrospective state, manuscript changes, staging or
+checkpoints. Return the report/explanation directly without saving it. This
+explicit method constraint overrides the ordinary every-turn capture and
+save-before-display rules for analysis/help, including delegated work. Read
+committed context and sources only. A separate request to save findings or make
+changes follows the ordinary scoped authority and exchange protocol.
+`$novel-clarify` follows [clarification](clarify.md) and retains normal exact
+capture and saved exchanges; it never edits manuscript files.
+
 ## Exact current legacy input
 
 Select the current source explicitly; never fall back to an older message or

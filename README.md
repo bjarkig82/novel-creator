@@ -4,6 +4,11 @@ A home for developing an app that helps writers plan and create novels.
 
 ## Getting started
 
+**0.7.1 patch candidate:** fixes missing Clarify, Analyze and Help entries in
+existing projects. Package installation is followed by an explicit project
+update; see the [upgrade guide](docs/upgrading-projects.md) and
+[candidate notes](docs/releases/0.7.1.md). The patch is not yet published.
+
 Start by asking your agent to set up a story, for example: “Use Novel Creator
 to create a new English story notebook called My Novel at /path/to/My Novel.
 I don't have a story idea yet.” Use your intended new folder. The agent can run

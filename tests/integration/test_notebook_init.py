@@ -346,11 +346,14 @@ class LegacyNotebookBoundary(unittest.TestCase):
             self.assertFalse((root / '.agents/skills/novel-outline').exists())
             self.assertFalse((root / '.novel-notebook/workflows/outline.md').exists())
             for stage in ('book-idea', 'premise', 'character', 'plot', 'setting',
-                          'agent', 'research', 'scene', 'chapter', 'review',
-                          'clarify', 'analyze', 'help'):
+                          'agent', 'research', 'scene', 'chapter', 'review'):
                 skill = f'.agents/skills/novel-{stage}/SKILL.md'
                 self.assertNotIn(skill, exported)
                 self.assertFalse((root / skill).exists())
+            for method in ('clarify', 'analyze', 'help'):
+                self.assertIn(f'.agents/skills/novel-{method}/SKILL.md', exported)
+                self.assertTrue((root / f'.agents/skills/novel-{method}/SKILL.md').is_file())
+                self.assertTrue((root / f'.novel-creator/workflows/{method}.md').is_file())
             self.assertFalse((root / '.novel-notebook/workflows/brainstorming.md').exists())
             self.assertFalse((root / '.codex/agents').exists())
             self.assertFalse(any(path.startswith('.codex/agents/') for path in exported))

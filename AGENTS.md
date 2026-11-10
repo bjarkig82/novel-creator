@@ -71,6 +71,28 @@ release documentation before publication as part of the release work:
   release notes do not replace validation or authorize publication.
 - After authorized publication, verify availability, update the notes' status and
   date, and report the version, main changes and release-note location to the user.
+- Before shipping a feature or skill, check its availability in all four cases:
+  new legacy novels, existing legacy novels, new notebooks and existing notebooks.
+  Provide and test a supported explicit project update path for every applicable
+  existing format. Do not ship a feature only through initialization and call a
+  Python package upgrade sufficient. Explain concrete format incompatibilities
+  before publication rather than silently omitting a feature from existing books.
+- Test updates from the previous published release, including project-local skill
+  files, linked workflows and instruction routing. Check that story content,
+  history, custom instructions and unrelated staging are preserved; customized
+  resources, stale previews and redirected paths must fail safely. Exercise the
+  update path from installed wheel and source artifacts as well as new setup.
+  Never rewrite real novels or install globally as a side effect of publication.
+- Document the complete upgrade sequence for each format: package installation,
+  project preview/application and reloading instructions/skills in Codex. State
+  which resources change, save effects and limitations. Verify actual skill files
+  and links; successful Python imports do not prove native Codex discovery.
+- Create an annotated Git tag named `v<exact package version>` for each release,
+  pointing to the immutable source commit whose candidate artifacts passed release
+  qualification and were published. Push that tag to origin and verify its
+  annotation and peeled commit there before reporting the release complete.
+  Tag the qualified source, not a later evidence/documentation commit. Never move,
+  delete or force-push an existing version tag; stop on a mismatch.
 
 ## Implementation and review
 

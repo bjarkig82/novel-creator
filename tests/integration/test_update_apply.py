@@ -111,6 +111,12 @@ class ApplyTests(unittest.TestCase):
             self.assertNotEqual(after['head'], before['head'])
             self.assertEqual(git(book.root, 'rev-parse', 'HEAD^'), before['head'])
             self.assertEqual(storage.read_history(book.root), before_history)
+            for method in ('clarify', 'analyze', 'help'):
+                skill = book.root / f'.agents/skills/novel-{method}/SKILL.md'
+                workflow = book.root / f'.novel-creator/workflows/{method}.md'
+                self.assertTrue(skill.is_file(), 'Existing legacy update must deliver new skills')
+                self.assertTrue(workflow.is_file(), 'New skills require their linked legacy workflows')
+                self.assertNotIn('.novel-notebook/', skill.read_text(encoding='utf-8'))
             self.assertEqual(storage.index_entries(book.root, ['notes.txt']),
                 next(row + b'\0' for row in before['index'].encode().split(b'\0') if row.endswith(b'\tnotes.txt')))
             self.assertEqual((book.root / 'notes.txt').read_bytes(), b'working\n')
