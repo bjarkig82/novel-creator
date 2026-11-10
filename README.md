@@ -11,14 +11,17 @@ setup, read the generated project instructions and continue in the same
 conversation. See [agent-led setup](workflows/start-here.md#ask-your-agent-to-set-up-a-story)
 for prerequisites, safe destinations and host access limits.
 
-**0.7.0 is an unpublished release candidate.** It adds targeted clarification,
-read-only analysis and writer help to new notebooks. Release qualification and
-publication remain pending; see the [0.7.0 notes](docs/releases/0.7.0.md) for
-changes, compatibility and the install command to use after verified publication.
+**Novel Creator 0.7.0 is the latest verified published release, 2026-11-10.**
+It adds targeted clarification, read-only analysis and writer help to new
+notebooks. Full Linux/Windows qualification, both public CI installation checks,
+public archive hashes and independent clean installation passed. The additional
+independent installation passed on retry after initial index propagation; no
+upload or CI check was repeated. See the [0.7.0 notes](docs/releases/0.7.0.md)
+and [release evidence](tests/evaluations/release-0.7.0.md) for scope and compatibility.
 
-**0.6.0 remains the latest verified published release on PyPI, published
-2026-11-06.** It adds fresh legacy working context, targeted retrieval and focused
-notebook memory guidance, retaining the writing roles introduced in 0.5.0.
+The previous **0.6.0 release, published 2026-11-06**, adds fresh legacy working
+context, targeted retrieval and focused notebook memory guidance, retaining the
+writing roles introduced in 0.5.0.
 Its public artifact hashes matched the qualified candidate and Windows/Linux
 installation checks passed; the Linux check passed on retry after an initial index
 propagation delay without repeating the upload. See the
@@ -32,11 +35,11 @@ which explains setup, everyday writing, and the Windows, Linux, and Mac limits.
 If someone has already prepared your novel, go straight to
 [everyday writing](https://github.com/bjarkig82/novel-creator/blob/main/workflows/everyday-writing.md).
 
-Install or upgrade [Novel Creator 0.6.0 from PyPI](https://pypi.org/project/novel-creator/0.6.0/)
+Install or upgrade [Novel Creator 0.7.0 from PyPI](https://pypi.org/project/novel-creator/0.7.0/)
 in your configured environment:
 
 ```text
-python -m pip install --upgrade novel-creator==0.6.0
+python -m pip install --upgrade novel-creator==0.7.0
 ```
 
 Existing legacy novels need an [explicit supported update](workflows/getting-started.md#updating-an-existing-book)
@@ -112,8 +115,8 @@ and the [pending desktop checkpoint](tests/evaluations/writing-agents-host.md).
 
 ## Project status
 
-**0.7.0 candidate clarification and analysis:** new notebooks initialized from this
-candidate include `$novel-clarify` for one-at-a-time questions about a character,
+**0.7.0 clarification and analysis:** new notebooks initialized with this release
+include `$novel-clarify` for one-at-a-time questions about a character,
 outline or other target, with clear answers saved in owning notes, and
 `$novel-analyze` for read-only, evidence-based checks of scenes, chapters and
 related notes. For example: “Ask me clarifying questions about Elin's motivation”
@@ -123,12 +126,12 @@ changing files; `$novel-review` remains available for saved reviews. See the
 These additions are not in published 0.6.0 and do not update existing notebooks
 or legacy novels automatically.
 
-**0.7.0 candidate writer help:** `$novel-help` offers a few suitable next steps and
+**0.7.0 writer help:** `$novel-help` offers a few suitable next steps and
 explains installed chat skills, accepted inputs, save effects and examples.
 No input is required; try `$novel-help novel-clarify` or `$novel-help commands`.
 Names/descriptions work as targets; IDs and file paths are optional. Help is
 read-only and does not execute its examples. It ships only to new notebooks
-initialized from this candidate, not published 0.6.0 or existing notebooks.
+initialized with 0.7.0, not 0.6.0 or existing notebooks.
 See [help usage](docs/writing-agents-usage.md#help-choosing-a-next-step-070).
 
 **Existing-book updater (0.3.0 release target):** this checkout implements explicit published

@@ -221,7 +221,7 @@ Existing notebooks do not acquire the skill automatically. See the shared
 
 ### Writer help (0.7.0)
 
-New notebooks initialized with the unpublished 0.7.0 candidate install
+New notebooks initialized with published 0.7.0 install
 `$novel-help`, a read-only guide to next steps and actually installed chat skills.
 No input is required; optional freeform input can name a command, goal, topic or `commands` for the
 compact inventory. It explains purpose, expected/optional inputs, natural-language
@@ -237,7 +237,7 @@ the shared [help workflow](../notebook/workflows/help.md).
 
 ### Targeted clarification and analysis (0.7.0)
 
-New notebooks initialized with the unpublished 0.7.0 candidate install
+New notebooks initialized with published 0.7.0 install
 `$novel-clarify` and `$novel-analyze`; they are not in published 0.6.0.
 Ordinary-language requests also select these methods.
 [Clarification](../notebook/workflows/clarify.md)
@@ -340,9 +340,13 @@ See [the update workflow](../workflows/update.md) for commands and recovery boun
 
 ## Delivery status and limits
 
-The [0.7.0 candidate](releases/0.7.0.md) adds the new-notebook clarification,
-read-only analysis and help methods above. Release qualification and publication
-remain pending; 0.6.0 is still the latest verified published release.
+The [0.7.0 release](releases/0.7.0.md), published 2026-11-10, adds the new-notebook clarification,
+read-only analysis and help methods above. Full Linux and Windows automated
+release qualification, actual public archive hashes, public CI checks and
+independent clean installation passed. The independent local installation passed
+on retry after initial index propagation; publication and CI were not repeated.
+Version 0.7.0 is the latest verified published release. See the
+[release evidence](../tests/evaluations/release-0.7.0.md) for scope and provenance.
 
 The [0.6.0 release](releases/0.6.0.md), published 2026-11-06, adds the working-context
 views and focused memory guidance above, plus notebook responsiveness guidance.

@@ -2,8 +2,10 @@
 
 This guide covers the writing roles introduced in **published 0.5.0** and the
 focused memory/responsiveness guidance in **published 0.6.0**, plus clarification,
-analysis and help in the **unpublished 0.7.0 candidate**. Final 0.7.0 qualification
-and publication remain pending; see the [candidate notes](releases/0.7.0.md).
+analysis and help in **published 0.7.0, 2026-11-10**. Full Linux/Windows automated
+qualification, public archive hashes, public CI checks and independent clean
+installation were verified. Version 0.7.0 is the latest published release; see the
+[release notes](releases/0.7.0.md) for installation and compatibility.
 The earlier 0.4.1 package does not include these writing roles or manuscript
 workflows. Package installation leaves existing notebooks and legacy novels
 unchanged; there is no migration or new updater command for these additions.
@@ -68,10 +70,10 @@ you can request another output language without silently changing project settin
 
 ## Help choosing a next step (0.7.0)
 
-New notebooks initialized **with the 0.7.0 candidate** include `$novel-help`.
-It is an optional chat skill, not a terminal command. The candidate is not yet
-published; this skill is not in published 0.6.0 and is not added to existing
-notebooks by installing the package or reading this guide.
+New notebooks initialized **with published 0.7.0** include `$novel-help`.
+It is an optional chat skill, not a terminal command. This skill is not in 0.6.0
+and is not added to existing notebooks by installing the package or reading this
+guide.
 
 > $novel-help
 
@@ -102,7 +104,7 @@ detailed guidance.
 
 ## Clarify and analyze (0.7.0)
 
-New notebooks initialized **with the unpublished 0.7.0 candidate** include two
+New notebooks initialized **with published 0.7.0** include two
 additional methods. They are not part of published 0.6.0, and installing a package
 or reading this guide does not add them to an existing notebook. No notebook
 migration or new CLI command is introduced. Use ordinary language or the optional
