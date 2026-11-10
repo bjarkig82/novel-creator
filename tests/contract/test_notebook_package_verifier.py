@@ -19,20 +19,38 @@ class NotebookPackageVerifierTest(unittest.TestCase):
         checkout = Path(__file__).resolve().parents[2]
         paths = resource_paths(checkout)
         current = {relative: source.read_bytes() for relative, (source, _) in paths.items()}
-        historical = dict(current)
-        conversation = '.novel-notebook/workflows/conversation.md'
-        historical[conversation] += b'\nHistorical 0.5.0 resource fixture.\n'
+        # Explicit historical layout, not a copy of the expanding current set.
+        historical_paths = {'AGENTS.md'}
+        historical_paths.update(f'.codex/agents/{name}.toml' for name in (
+            'novel_orchestrator', 'novel_brainstormer', 'novel_researcher',
+            'novel_scene_writer', 'novel_chapter_writer', 'novel_reviewer'))
+        historical_paths.update(f'.agents/skills/novel-{name}/SKILL.md' for name in (
+            'outline', 'book-idea', 'premise', 'character', 'plot', 'setting',
+            'agent', 'research', 'scene', 'chapter', 'review'))
+        historical_paths.update(f'.novel-notebook/workflows/{name}.md' for name in (
+            'conversation', 'format', 'outline', 'brainstorming', 'agents',
+            'manuscript', 'research', 'review'))
+        self.assertEqual(len(historical_paths), 26)
+        historical = {relative: current[relative] for relative in historical_paths}
+        # Minimal historical guidance fixtures cannot link to future workflows.
+        # The approved fixture bytes must still be checked exactly on install.
+        for relative in ('AGENTS.md', '.novel-notebook/workflows/conversation.md',
+                         '.novel-notebook/workflows/agents.md', '.novel-notebook/workflows/review.md'):
+            historical[relative] = b'# Historical 0.5.0 guidance fixture.\n'
         archive_bytes = io.BytesIO()
         with zipfile.ZipFile(archive_bytes, 'w') as archive:
-            for relative, (_, member) in paths.items():
-                archive.writestr(member, historical[relative])
+            for relative, raw in historical.items():
+                archive.writestr(paths[relative][1], raw)
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory).resolve() / 'historical'
             with patch.dict(os.environ, GIT_AUTHOR_NAME='Package verifier test',
                             GIT_AUTHOR_EMAIL='test@example.invalid', GIT_COMMITTER_NAME='Package verifier test',
                             GIT_COMMITTER_EMAIL='test@example.invalid'):
                 initialize(root, title='Historical resource fixture', language='en')
-            (root / conversation).write_bytes(historical[conversation])
+            for relative in current.keys() - historical.keys():
+                (root / relative).unlink()
+            for relative, raw in historical.items():
+                (root / relative).write_bytes(raw)
 
             def resource_check(console, scratch, env, language, expected_resources=None):
                 return verify_writing_resources(root, current if expected_resources is None else expected_resources)
@@ -41,23 +59,36 @@ class NotebookPackageVerifierTest(unittest.TestCase):
                 verified = verify_package_install.verify_notebook_install(
                     'console', root.parent, {}, 'novel-creator==0.5.0', 'novel-creator 0.5.0',
                     verified_wheel=archive_bytes.getvalue())
-                self.assertEqual(verified, [len(current), len(current)])
+                self.assertEqual(verified, [26, 26])
                 self.assertEqual(probe.call_count, 2)
-                for package in (None, 'novel-creator==0.6.0'):
-                    with self.subTest(package=package), self.assertRaisesRegex(AssertionError, 'conversation.md'):
+                for package, version in ((None, '0.5.0'), (None, '0.6.0'),
+                                         ('novel-creator==0.6.0', '0.6.0')):
+                    with self.subTest(package=package, version=version), self.assertRaisesRegex(AssertionError, 'AGENTS.md'):
                         verify_package_install.verify_notebook_install(
-                            'console', root.parent, {}, package, 'novel-creator 0.6.0',
+                            'console', root.parent, {}, package, 'novel-creator ' + version,
                             verified_wheel=archive_bytes.getvalue())
-                (root / conversation).write_bytes(current[conversation])
+                for relative, raw in current.items():
+                    (root / relative).write_bytes(raw)
                 for package in (None, 'novel-creator==0.6.0'):
                     self.assertEqual([len(current), len(current)], verify_package_install.verify_notebook_install(
                         'console', root.parent, {}, package, 'novel-creator 0.6.0',
                         verified_wheel=archive_bytes.getvalue()))
                 # Historical checks still require the exact approved bytes.
-                with self.assertRaisesRegex(AssertionError, 'conversation.md'):
+                with self.assertRaisesRegex(AssertionError, 'AGENTS.md'):
                     verify_package_install.verify_notebook_install(
                         'console', root.parent, {}, 'novel-creator==0.5.0', 'novel-creator 0.5.0',
                         verified_wheel=archive_bytes.getvalue())
+
+    def test_public_050_missing_required_archive_resource_fails_closed(self):
+        archive_bytes = io.BytesIO()
+        with zipfile.ZipFile(archive_bytes, 'w') as archive:
+            archive.writestr('unrelated.txt', b'Not a notebook resource')
+        with patch('tests.verify_wheel.verify_notebook') as probe:
+            with self.assertRaises(KeyError):
+                verify_package_install.verify_notebook_install(
+                    'console', 'scratch', {}, 'novel-creator==0.5.0', 'novel-creator 0.5.0',
+                    verified_wheel=archive_bytes.getvalue())
+            probe.assert_not_called()
 
     def test_public_050_missing_approved_wheel_fails_closed(self):
         with self.assertRaisesRegex(ValueError, 'hash-verified wheel'):

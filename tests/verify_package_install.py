@@ -68,13 +68,15 @@ def verify_notebook_install(console, root, env, package, version, *, verified_wh
     if package and normalized == 'novel-creator' and requested_version == version == '0.5.0':
         if verified_wheel is None:
             raise ValueError('Public 0.5.0 notebook checks require the approved hash-verified wheel')
-        # 0.5.0 has the current writing-resource layout, but its guidance bytes
-        # predate 0.6.0. Use only the archive already verified against the public
-        # manifest, retaining all installed byte, structure, link/tracking checks.
+        # Freeze the public 0.5.0 layout as well as its guidance bytes. New
+        # notebook resources must not be required from a historical archive.
+        # Use only the wheel already verified against the public manifest,
+        # retaining installed byte, structure, link and tracking checks.
         checkout = Path(__file__).resolve().parents[1]
         with zipfile.ZipFile(io.BytesIO(verified_wheel)) as archive:
             expected_resources = {relative: archive.read(member)
-                                  for relative, (_, member) in resource_paths(checkout).items()}
+                                  for relative, (_, member) in
+                                  resource_paths(checkout, public_version='0.5.0').items()}
         return [verify_notebook(console, root, env, language, expected_resources)
                 for language in ('en', 'is')]
     return [verify_notebook(console, root, env, language) for language in ('en', 'is')]

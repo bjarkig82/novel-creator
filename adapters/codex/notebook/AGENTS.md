@@ -23,6 +23,17 @@ state that limitation and ask the writer to select/open the initialized project;
 do not claim that the host switched projects automatically. Brainstorming is
 optional and the story concept may remain unknown.
 
+For `$novel-help`, questions about command inputs, or “I don't know what to do
+next”, follow [help](.novel-notebook/workflows/help.md). No input is required;
+an optional command name, goal, topic or `commands` narrows the guidance. Explain
+actually installed chat skills, with accepted inputs and examples; a character
+name/description is enough when clear, and IDs/file paths are optional. Help is
+read-only and starts no task or native role switch. Do not execute example
+commands or maintain notes/checkpoints from a help request. This exception
+overrides ordinary automatic-save guidance for the help pass.
+An actionable “Help me draft/revise this scene” still uses manuscript guidance;
+help routing is for guidance and usage questions, not every mention of “help”.
+
 The main conversation defaults to the orchestrator workflow. The six project
 agent definitions under `.codex/agents/` are `novel_orchestrator`,
 `novel_brainstormer`, `novel_researcher`, `novel_scene_writer`,
@@ -52,6 +63,18 @@ When the writer explicitly invokes `$novel-outline`, use the installed
 [outline skill](.agents/skills/novel-outline/SKILL.md). Ordinary brainstorming does
 not invoke outlining automatically. The skill plans and revises outlines in topic notes;
 it does not create chapter or scene manuscript files.
+
+For a targeted question pass such as “Ask me clarifying questions about Elin's
+motivation”, follow [clarification](.novel-notebook/workflows/clarify.md), also
+available as `$novel-clarify`. Ask one question at a time, defaulting to at most
+five, and integrate clear answers into owning notes without rewriting manuscripts.
+For “Analyze chapter two against the outline” or `$novel-analyze`, follow
+[analysis](.novel-notebook/workflows/analyze.md). Analysis is strictly read-only:
+return evidence-based findings in the conversation, with no automatic notes,
+review files, staging or checkpoints. This exception overrides ordinary automatic
+save guidance for the analysis pass. Saving a report or applying revisions is
+separate explicitly requested work. `$novel-review` retains saved-review behavior.
+Both methods honor the requested scope without requiring a whole-book pass.
 
 The focused `novel-agent`, `novel-research`, `novel-scene`, `novel-chapter` and
 `novel-review` skills provide entry points without repeated invocation. Follow

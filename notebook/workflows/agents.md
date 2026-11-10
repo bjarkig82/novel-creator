@@ -37,6 +37,18 @@ about the desired task when none is known. Selecting a reviewer alone does not
 authorize reviewing or revising the entire novel. A skill supplies a method; it
 does not prove that the host switched to a native agent.
 
+Honor the chosen method too: [clarification](clarify.md) asks bounded questions
+and maintains owning notes, while [analysis](analyze.md) returns findings without
+any file changes or checkpoints. The read-only analysis constraint overrides
+ordinary automatic persistence rules for all direct and delegated roles during
+that pass; delegates receive the same no-write scope. A separate explicit save or
+revision request follows the existing review/manuscript rules.
+
+[Help](help.md), including `$novel-help` and questions about command inputs or
+next steps, is also read-only across all roles. Explain choices without starting
+an assignment, executing example commands or changing the writer's native role.
+This exception overrides automatic persistence during the help pass.
+
 ## Roles
 
 | Native name | Work and limits |

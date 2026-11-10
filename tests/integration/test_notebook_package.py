@@ -62,7 +62,7 @@ class NotebookPackageTest(unittest.TestCase):
                     run([python, '-I', '-c', probe], cwd=area, env=env)
                     for language in ('en', 'is'):
                         result = verify_notebook(console, area, env, language, expected)
-                        self.assertEqual(result['verified_resource_count'], 26)
+                        self.assertEqual(result['verified_resource_count'], len(expected))
                     print(f'{label}: {len(resources)} artifact resources match source bytes; '
                           'isolated install and en/is notebook resource checks passed')
 

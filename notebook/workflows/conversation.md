@@ -13,6 +13,10 @@ Missing/unreadable material is unavailable, not an empty story. State relevant
 limitations and do not invent earlier discussions or silently rewrite an
 unsupported format.
 
+For a request about command usage, `$novel-help` or uncertainty about what to do
+next, use [help](help.md) to explain a few available choices without starting
+creative work. Help is read-only; example commands are not task invocations.
+
 The main conversation defaults to the orchestrator under the shared
 [role and handoff workflow](agents.md). Honor a directly chosen specialist for
 the ongoing conversation. For ordinary exploratory story work, follow the shared
@@ -53,6 +57,15 @@ by turn completion and follow the scoped Git checkpoint rules below. Do not clai
 a save succeeded before it does; disclose persistence failures as usual.
 
 ## Automatic notes
+
+Exception: a requested [read-only analysis](analyze.md), including
+`$novel-analyze`, creates no notes, review files, summary updates or Git checkpoint.
+Its report stays in the conversation. A separately requested save or revision
+uses the corresponding review/manuscript workflow afterward. For a targeted
+question pass that does maintain owning notes, use [clarification](clarify.md).
+The same no-write/no-checkpoint exception applies to [help](help.md), including
+questions about command inputs and next steps; guidance creates no story notes
+and does not start the example task or switch a native role.
 
 Create/update topic files when substantive ideas, clear decisions, revisions or
 unresolved story questions emerge. Create only useful files. Preserve names,

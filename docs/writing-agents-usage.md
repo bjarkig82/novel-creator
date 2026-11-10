@@ -1,7 +1,9 @@
 # Writing with notebook agents
 
 This guide covers the writing roles introduced in **published 0.5.0** and the
-focused memory/responsiveness guidance in **published 0.6.0**.
+focused memory/responsiveness guidance in **published 0.6.0**, plus clarification,
+analysis and help in the **unpublished 0.7.0 candidate**. Final 0.7.0 qualification
+and publication remain pending; see the [candidate notes](releases/0.7.0.md).
 The earlier 0.4.1 package does not include these writing roles or manuscript
 workflows. Package installation leaves existing notebooks and legacy novels
 unchanged; there is no migration or new updater command for these additions.
@@ -63,6 +65,84 @@ Optional entry skills are `$novel-agent`, `$novel-research`, `$novel-scene`,
 prove a native agent switch. Ordinary conversation needs no repeated skill or
 Python command. Saved work follows the project's English or Icelandic language;
 you can request another output language without silently changing project settings.
+
+## Help choosing a next step (0.7.0)
+
+New notebooks initialized **with the 0.7.0 candidate** include `$novel-help`.
+It is an optional chat skill, not a terminal command. The candidate is not yet
+published; this skill is not in published 0.6.0 and is not added to existing
+notebooks by installing the package or reading this guide.
+
+> $novel-help
+
+No input is required. Help offers a few next steps suited to the saved story's
+stage without starting them or imposing an order. You can begin with no story
+idea. “What should I do next?” works too. To narrow the explanation, add a command
+name, goal or topic; use `commands` for the compact full list of installed entries:
+
+> $novel-help novel-clarify
+
+> $novel-help commands
+
+For a named command, help explains its purpose, whether extra input is needed,
+useful optional details, save effects and one copyable example. A target can be
+a character's ordinary name or description, an outline, a scene/chapter title,
+or an optional known stable ID or file path. `$novel-clarify` does **not** require
+a character ID. For example, `$novel-clarify Elin's motivation` is enough when
+Elin is identifiable. With no supplied target, it can use a clear current focus;
+otherwise it asks one scope question. `$novel-analyze` accepts similar targets
+but returns a read-only report; `$novel-review` saves substantial findings.
+
+Help checks what is actually installed in your notebook instead of assuming a
+newer command exists. It changes no files, notes, summaries or history and does
+not switch agents or execute the examples. A later explicit writing request uses
+the relevant workflow; “Help me revise this scene” remains a revision request.
+See the shared [help workflow](../notebook/workflows/help.md) for the catalog and
+detailed guidance.
+
+## Clarify and analyze (0.7.0)
+
+New notebooks initialized **with the unpublished 0.7.0 candidate** include two
+additional methods. They are not part of published 0.6.0, and installing a package
+or reading this guide does not add them to an existing notebook. No notebook
+migration or new CLI command is introduced. Use ordinary language or the optional
+skill entries:
+
+> $novel-clarify Elin's motivation for hiding the letter. Ask me up to three
+> questions, one at a time.
+
+The clarification pass reads relevant notes, chooses the most consequential gap
+and asks one question at a time, with up to five questions by default. You can
+answer freely, select an offered alternative, leave something unknown, skip or
+stop. Clear answers update the owning notes with their existing stable identities
+and history. Choosing an outline order does not accept every suggested plot fact.
+Clarification does not rewrite scene or chapter prose.
+
+> Ask me clarifying questions about the midpoint of the outline. Keep the
+> sender's identity unresolved.
+
+> $novel-analyze chapter two against the outline and Elin's character notes.
+> Focus on what she knows when she opens the letter.
+
+Analysis is read-only. It returns findings in the conversation with scope,
+reviewed revision, actual passages/locations, severity, story consequences and
+suggested remedies. It compares selected material with relevant accepted notes
+and directions, distinguishes character belief from objective fact and reader
+knowledge, and respects intentional mystery. Unavailable context and unexamined
+future payoffs stay explicit; the report does not claim exhaustive continuity.
+Optional pacing/style advice is separated from substantiated conflicts.
+
+> Analyze the arrival scene for causality and pacing without changing any files.
+
+No notes, review files, summaries or checkpoints are written during analysis,
+even though ordinary notebook conversation maintains notes automatically.
+`$novel-review` retains its existing behavior of saving substantial requested
+reviews. You can separately request “Save that analysis as a review” or a scoped
+revision afterward. Neither a finding nor an offered remedy changes accepted
+facts or authorizes a manuscript edit by itself. Actual independent analysis
+still needs a separate native context; a context assessing its own draft is
+self-review. See [clarification](../notebook/workflows/clarify.md) and
+[analysis](../notebook/workflows/analyze.md) for detailed rules.
 
 ## Focused memory and conversational responsiveness (0.6.0)
 

@@ -113,6 +113,23 @@ guide is not installed in legacy novels. No repeated skill command, per-turn
 Python or full questionnaire is required. These additions leave existing notebooks
 and legacy novels unchanged and introduce no migration or updater command.
 
+New notebooks initialized with the unpublished 0.7.0 candidate also include
+`$novel-clarify` for targeted questions about a character, outline or other story
+material and `$novel-analyze` for read-only checks of scenes, chapters and related
+notes. You can say “Ask me clarifying questions about this character” or “Analyze
+chapter two against the outline.” Clarification saves clear answers in owning
+notes; analysis returns findings without changing files. These methods are not
+in published 0.6.0 and do not update existing notebooks or legacy novels.
+
+The same 0.7.0 candidate adds `$novel-help` for a few next-step suggestions or
+command explanations. No input is required; try `$novel-help novel-clarify` to
+learn what targets it accepts, or `$novel-help commands` for installed entries.
+A character name or description is enough when clear; IDs/file paths are optional.
+Help is read-only, does not run its examples and works before you have a story
+idea. Final 0.7.0 qualification and publication remain pending; it leaves existing
+notebooks/legacy novels unchanged. Candidate notes are in `docs/releases/0.7.0.md`
+in the source checkout; do not treat the candidate as available on PyPI yet.
+
 The rest of this page describes the existing legacy workflow.
 
 ## Choose your starting point

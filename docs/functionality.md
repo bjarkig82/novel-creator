@@ -219,6 +219,46 @@ an ending. It creates no chapter/scene manuscript files and adds no CLI command.
 Existing notebooks do not acquire the skill automatically. See the shared
 [outline workflow](../notebook/workflows/outline.md).
 
+### Writer help (0.7.0)
+
+New notebooks initialized with the unpublished 0.7.0 candidate install
+`$novel-help`, a read-only guide to next steps and actually installed chat skills.
+No input is required; optional freeform input can name a command, goal, topic or `commands` for the
+compact inventory. It explains purpose, expected/optional inputs, natural-language
+names/descriptions versus optional IDs or paths, ambiguity handling, save effects
+and a copyable example. A bare invocation offers a few context-appropriate choices,
+including idea discovery when the notebook has no concept. Help executes no task,
+switches no role and writes no notes, summaries, reviews or checkpoints. Quoted
+examples are not invocations. Availability comes from the installed notebook,
+not an assumption that older notebooks contain newer entries. This addition is
+not in published 0.6.0 and adds no CLI command, migration or automatic update.
+See [help usage](writing-agents-usage.md#help-choosing-a-next-step-070) and
+the shared [help workflow](../notebook/workflows/help.md).
+
+### Targeted clarification and analysis (0.7.0)
+
+New notebooks initialized with the unpublished 0.7.0 candidate install
+`$novel-clarify` and `$novel-analyze`; they are not in published 0.6.0.
+Ordinary-language requests also select these methods.
+[Clarification](../notebook/workflows/clarify.md)
+prioritizes consequential gaps in a named character, outline, scene, chapter or
+other target and asks one question at a time, defaulting to at most five per pass.
+Clear answers update owning notes incrementally with stable IDs, decision origins
+and recoverable history. Deferred questions remain open; intentional ambiguity,
+freeform answers and early stopping are supported. It does not rewrite manuscripts.
+
+[Analysis](../notebook/workflows/analyze.md) compares selected material with
+relevant accepted notes, directions and outlines, returning prioritized findings
+with actual evidence, stable finding IDs, revision basis and limits. It checks
+consistency, causality, knowledge/revelation, chronology and applicable outline
+coverage; subjective craft advice is labeled separately. Missing context is not
+assumed absent. Analysis is strictly read-only, including no automatic notes,
+review files, summary changes or checkpoints. Explicitly requested follow-up
+saves/revisions use existing review/manuscript workflows. Ordinary `$novel-review`
+retains its saved-review behavior. These additions change neither legacy
+persistence nor existing notebooks; no migration, new CLI command or automatic
+resource update is added. See [usage examples](writing-agents-usage.md#clarify-and-analyze-070).
+
 ### Writing roles and manuscripts (0.5.0)
 
 New notebooks initialized with published 0.5.0 install six
@@ -299,6 +339,10 @@ success. Update operations do not trigger creative saves or retrospectives.
 See [the update workflow](../workflows/update.md) for commands and recovery boundaries.
 
 ## Delivery status and limits
+
+The [0.7.0 candidate](releases/0.7.0.md) adds the new-notebook clarification,
+read-only analysis and help methods above. Release qualification and publication
+remain pending; 0.6.0 is still the latest verified published release.
 
 The [0.6.0 release](releases/0.6.0.md), published 2026-11-06, adds the working-context
 views and focused memory guidance above, plus notebook responsiveness guidance.

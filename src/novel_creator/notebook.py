@@ -57,13 +57,15 @@ def initialize(target, *, title=None, language='en'):
     for skill in ('novel-outline', 'novel-book-idea', 'novel-premise',
                   'novel-character', 'novel-plot', 'novel-setting',
                   'novel-agent', 'novel-research', 'novel-scene',
-                  'novel-chapter', 'novel-review'):
+                  'novel-chapter', 'novel-review', 'novel-clarify', 'novel-analyze',
+                  'novel-help'):
         planned[f'.agents/skills/{skill}/SKILL.md'] = codex.joinpath('skills', skill, 'SKILL.md').read_bytes()
     for agent in ('novel_orchestrator', 'novel_brainstormer', 'novel_researcher',
                   'novel_scene_writer', 'novel_chapter_writer', 'novel_reviewer'):
         planned[f'.codex/agents/{agent}.toml'] = codex.joinpath('agents', agent + '.toml').read_bytes()
     for name in ('conversation.md', 'format.md', 'outline.md', 'brainstorming.md',
-                 'agents.md', 'manuscript.md', 'research.md', 'review.md'):
+                 'agents.md', 'manuscript.md', 'research.md', 'review.md',
+                 'clarify.md', 'analyze.md', 'help.md'):
         planned['.novel-notebook/workflows/' + name] = shared.joinpath('workflows', name).read_bytes()
     planned['.novel-notebook/languages/' + language + '.md'] = shared.joinpath('languages', language + '.md').read_bytes()
     for kind, filename, identifier in (('project', 'project.md', 'project'),

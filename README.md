@@ -11,27 +11,21 @@ setup, read the generated project instructions and continue in the same
 conversation. See [agent-led setup](workflows/start-here.md#ask-your-agent-to-set-up-a-story)
 for prerequisites, safe destinations and host access limits.
 
-**Novel Creator 0.6.0 is the latest published release on PyPI, 2026-11-06.** It adds
-fresh small legacy working context with targeted record/source retrieval, and focused notebook
-memory guidance. Read the [0.6.0 release notes](docs/releases/0.6.0.md) for
-compatibility and [successful automated Windows/Linux qualification](tests/evaluations/release-0.6.0.md).
-Public artifact hashes match the qualified candidate. Context volume reduction
-does not establish faster voice responses; actual pause timing and cause remain unverified.
+**0.7.0 is an unpublished release candidate.** It adds targeted clarification,
+read-only analysis and writer help to new notebooks. Release qualification and
+publication remain pending; see the [0.7.0 notes](docs/releases/0.7.0.md) for
+changes, compatibility and the install command to use after verified publication.
 
-The previous [0.5.0 release](docs/releases/0.5.0.md) added six writing
-roles with scene/chapter manuscripts, research and review guidance for new
-notebooks. Its writing roles are retained in 0.6.0.
-Agent-led setup handoff improvements and explicit legacy realtime input capture
-were introduced in 0.4.1.
-
-Installing a package does not rewrite existing project guidance. The exact
-published artifacts passed automated Windows/Linux release qualification. Public
-hashes matched, and Windows/Linux public installation checks and an independent
-clean named-package installation passed. The Linux check passed on retry after
-an initial package-index propagation delay; the upload was not repeated. Native
-specialist interaction in Codex Desktop remains unverified. See the
-[0.6.0 release notes](docs/releases/0.6.0.md) and
-[release evidence](tests/evaluations/release-0.6.0.md) for scope and host requirements.
+**0.6.0 remains the latest verified published release on PyPI, published
+2026-11-06.** It adds fresh legacy working context, targeted retrieval and focused
+notebook memory guidance, retaining the writing roles introduced in 0.5.0.
+Its public artifact hashes matched the qualified candidate and Windows/Linux
+installation checks passed; the Linux check passed on retry after an initial index
+propagation delay without repeating the upload. See the
+[0.6.0 notes](docs/releases/0.6.0.md) and
+[release evidence](tests/evaluations/release-0.6.0.md). Native specialist interaction,
+voice timing and spoken fidelity remain unverified. Installing a package does not
+rewrite existing project guidance.
 
 **New to the tools?** Start with the [beginner guide](https://github.com/bjarkig82/novel-creator/blob/main/workflows/start-here.md),
 which explains setup, everyday writing, and the Windows, Linux, and Mac limits.
@@ -117,6 +111,25 @@ or updater command. See [focused evidence](tests/evaluations/writing-agents.md)
 and the [pending desktop checkpoint](tests/evaluations/writing-agents-host.md).
 
 ## Project status
+
+**0.7.0 candidate clarification and analysis:** new notebooks initialized from this
+candidate include `$novel-clarify` for one-at-a-time questions about a character,
+outline or other target, with clear answers saved in owning notes, and
+`$novel-analyze` for read-only, evidence-based checks of scenes, chapters and
+related notes. For example: “Ask me clarifying questions about Elin's motivation”
+or “Analyze chapter two against the outline.” Analysis returns findings without
+changing files; `$novel-review` remains available for saved reviews. See the
+[usage examples](docs/writing-agents-usage.md#clarify-and-analyze-070).
+These additions are not in published 0.6.0 and do not update existing notebooks
+or legacy novels automatically.
+
+**0.7.0 candidate writer help:** `$novel-help` offers a few suitable next steps and
+explains installed chat skills, accepted inputs, save effects and examples.
+No input is required; try `$novel-help novel-clarify` or `$novel-help commands`.
+Names/descriptions work as targets; IDs and file paths are optional. Help is
+read-only and does not execute its examples. It ships only to new notebooks
+initialized from this candidate, not published 0.6.0 or existing notebooks.
+See [help usage](docs/writing-agents-usage.md#help-choosing-a-next-step-070).
 
 **Existing-book updater (0.3.0 release target):** this checkout implements explicit published
 release checks, reviewed previews, framework-only local update commits and exact
@@ -270,7 +283,7 @@ wheel from the configured dependency environment:
 
 ```bash
 python -m pip wheel . --no-deps --wheel-dir dist
-python tests/verify_wheel.py dist/novel_creator-0.6.0-py3-none-any.whl
+python tests/verify_wheel.py dist/novel_creator-0.7.0-py3-none-any.whl
 ```
 
 Use the actual versioned filename produced by the build. The verifier installs

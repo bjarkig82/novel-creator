@@ -1,5 +1,10 @@
 # Independent manuscript review
 
+For an explicitly read-only analysis or `$novel-analyze`, use [analysis](analyze.md)
+instead: return findings in the conversation without writing notes, reviews or
+checkpoints. The ordinary review workflow below saves substantial requested
+reviews; do not apply that save behavior to a read-only analysis pass.
+
 Follow [roles and ownership](agents.md), [conversation and saves](conversation.md)
 and [format-1 authority](format.md). Review the requested material and concerns,
 not an assumed whole novel. Selecting the reviewer alone is not a review

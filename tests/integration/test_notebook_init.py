@@ -4,6 +4,7 @@ import importlib.util
 import json
 import os
 from pathlib import Path
+import shutil
 import subprocess
 import tempfile
 import unittest
@@ -93,7 +94,7 @@ class NotebookInitialization(unittest.TestCase):
             with self.subTest(language=language):
                 self.target = self.parent / language
                 self.initialize(language=language)
-                self.assertEqual(verify_writing_resources(self.target, expected), 26)
+                self.assertEqual(verify_writing_resources(self.target, expected), len(expected))
 
     def test_project_instructions_and_handoff_are_installed_for_continuation(self):
         from importlib.resources import files
@@ -113,6 +114,29 @@ class NotebookInitialization(unittest.TestCase):
             self.assertTrue((self.target / relative).is_file())
         self.assertIn('Continue in this notebook folder', handoff)
         self.assertIn('do not initialize it again', handoff)
+
+    def test_focused_guidance_resources_are_required_before_creation(self):
+        from importlib.resources import files
+
+        for name in ('clarify', 'analyze', 'help'):
+            for kind in ('workflow', 'skill'):
+                with self.subTest(name=name, kind=kind):
+                    self.target = self.parent / f'{name}-{kind}-notebook'
+                    package = ('novel_creator.notebook_resources' if kind == 'workflow'
+                               else 'novel_creator.codex')
+                    replacement = self.parent / f'{name}-{kind}-resources'
+                    shutil.copytree(files(package), replacement)
+                    relative = (f'workflows/{name}.md' if kind == 'workflow'
+                                else f'notebook/skills/novel-{name}/SKILL.md')
+                    (replacement / relative).unlink()
+
+                    def resources(requested):
+                        return replacement if requested == package else files(requested)
+
+                    with patch.object(self.module, 'files', side_effect=resources):
+                        with self.assertRaises(FileNotFoundError):
+                            self.initialize()
+                    self.assertFalse(self.target.exists(), 'Incomplete resources must not create a notebook')
 
     def test_outline_skill_is_installed_with_resolvable_shared_guidance(self):
         import re
@@ -322,12 +346,13 @@ class LegacyNotebookBoundary(unittest.TestCase):
             self.assertFalse((root / '.agents/skills/novel-outline').exists())
             self.assertFalse((root / '.novel-notebook/workflows/outline.md').exists())
             for stage in ('book-idea', 'premise', 'character', 'plot', 'setting',
-                          'agent', 'research', 'scene', 'chapter', 'review'):
+                          'agent', 'research', 'scene', 'chapter', 'review',
+                          'clarify', 'analyze', 'help'):
                 skill = f'.agents/skills/novel-{stage}/SKILL.md'
                 self.assertNotIn(skill, exported)
                 self.assertFalse((root / skill).exists())
             self.assertFalse((root / '.novel-notebook/workflows/brainstorming.md').exists())
             self.assertFalse((root / '.codex/agents').exists())
             self.assertFalse(any(path.startswith('.codex/agents/') for path in exported))
-            for workflow in ('agents', 'manuscript', 'research', 'review'):
+            for workflow in ('agents', 'manuscript', 'research', 'review', 'clarify', 'analyze', 'help'):
                 self.assertFalse((root / f'.novel-notebook/workflows/{workflow}.md').exists())

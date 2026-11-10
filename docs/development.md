@@ -79,7 +79,7 @@ The local full-suite/build commands are:
 ```bash
 python -m unittest discover -q
 python -m pip wheel . --no-deps --wheel-dir dist
-python tests/verify_wheel.py dist/novel_creator-0.6.0-py3-none-any.whl
+python tests/verify_wheel.py dist/novel_creator-0.7.0-py3-none-any.whl
 ```
 
 Use the actual versioned filename produced by the build. The wheel verifier
