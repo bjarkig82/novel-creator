@@ -1,7 +1,8 @@
 # 0.7.2 release evidence
 
-Status: qualified unpublished candidate; protected PyPI publication awaits
-owner approval. No 0.7.2 artifacts have been published yet.
+Status: published and verified on 2026-11-11. Qualified archive hashes, public
+Windows/Linux installation checks, independent clean installation and the
+remote annotated source tag are verified.
 
 The release adds suggested answers and custom typed answers to notebook and
 legacy clarification. Existing notebooks need a reviewed update that recognizes
@@ -20,8 +21,8 @@ passed. These checks establish resource contracts, not native host behavior.
 Release preparation includes additional updater ownership/preservation tests,
 actual previous-release upgrades, complete candidate qualification, clean wheel
 and source installation, public verification and an annotated source-bound tag.
-Completed qualification results and immutable identities are recorded below;
-public verification and the source-bound version tag remain pending publication.
+Completed qualification, public verification, immutable identities and the
+source-bound version tag are recorded below.
 
 The completed local preflight passed 54 tests in these focused modules:
 `tests.contract.test_clarify_suggestions`,
@@ -76,24 +77,47 @@ The [candidate record](release-0.7.2-candidate.json) records those identities an
 actual results. These checks are automated package qualification, not native
 Codex conversation or menu evidence.
 
-## Protected publication
+## Publication and public checks
 
 [Publish run 43040427236](https://github.com/bjarkig82/novel-creator/actions/runs/43040427236)
 was dispatched once with the exact candidate run/attempt, artifact, source and
 hashes above. Immediately before dispatch, PyPI's 0.7.2 JSON endpoint returned
-404. The run is waiting for the existing protected `pypi` environment review by
-`bjarkig82` (environment `25700067917`). Although the pending-review API reports
-that the current user can approve, the integration's approval POST returned
+404. The run initially waited for the existing protected `pypi` environment review
+by `bjarkig82` (environment `25700067917`). Although the pending-review API reported
+that the current user could approve, the integration's approval POST returned
 HTTP 403, `Resource not accessible by integration`. This was a GitHub permission
 failure, not an automatic approval-review rejection. No protection was changed.
 
-No upload has started. Owner action in GitHub is required before the normal
-publication workflow can proceed. This chat has no browser controls with which
-to complete that owner review. Public artifact/hash and named-install checks
-remain pending. The annotated `v0.7.2` tag must be created only after verified
-publication and must point to `ecf9bffcd6081c3e764fc81d2f7b717eeedb6d7d`,
-not a later evidence commit. Never repeat the upload or move an existing tag to
-resolve uncertainty; inspect the existing workflow and public package first.
+The owner subsequently approved in GitHub and the original publish job
+`130590436719` succeeded, completing at 14:44:59 UTC on 2026-11-11. PyPI's wheel
+and source archive were uploaded at 14:44:55 and 14:44:56 UTC, respectively. Both
+public archive identities exactly match the qualified hashes above.
+
+The initial Linux public check (`130594110413`) failed because the newly uploaded
+version was not yet exposed through the PyPI simple index to pip. Windows public
+check `130594110507` passed on the first attempt. After index propagation, only
+the failed Linux job was rerun: `130595577834` passed at 14:48:19 UTC. The workflow
+completed successfully on attempt 2. The already successful upload and Windows
+check were carried forward; neither was executed again.
+
+Independent `tests/verify_package_install.py --package novel-creator==0.7.2
+--manifest /tmp/novel-072-candidate/manifest.json` verification passed on the
+third normal named-package attempt, after two initial pip index-propagation
+failures. It downloaded and hashed both public distributions, checked pip's
+selected wheel origin/hash, installed clean dependencies, exercised new project
+initialization, and passed actual 0.7.1 legacy/notebook upgrade probes. All 94
+installed product files matched the upgrade target. No alternate index, product
+change, installation-check bypass or repeated upload was used.
+
+## Annotated version tag
+
+The annotated `v0.7.2` tag was created after verified publication and pushed to
+origin. Remote tag object `f627a3389ca023d6af4ac2095b5af953215ae886` peels to
+qualified source `ecf9bffcd6081c3e764fc81d2f7b717eeedb6d7d`, rather than a later
+evidence commit. GitHub's tag API independently confirmed the annotation,
+commit object type and target. The annotation is “Novel Creator 0.7.2:
+clarification suggestions and custom answers”; its tagger date is
+2026-11-11T14:49:41Z. No existing tag was moved or overwritten.
 
 ## Previous published release
 

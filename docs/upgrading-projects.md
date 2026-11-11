@@ -5,10 +5,9 @@ instructions require an explicit project update as well. Keep the configured
 Python environment outside the novel and open the intended novel folder in Codex.
 Do not initialize over an existing novel or convert formats to obtain a skill.
 
-[0.7.1](releases/0.7.1.md) is the latest published package. The
-[0.7.2 candidate](releases/0.7.2.md) adds suggested clarification answers and
-custom input in both formats. The version-pinned 0.7.2 commands below are usable
-only after publication; during qualification use the candidate installation.
+[0.7.2](releases/0.7.2.md), published 2026-11-11, is the latest package. It adds
+suggested clarification answers and custom input in both formats. Install the
+exact version in your configured environment:
 
 ```text
 python -m pip install --upgrade novel-creator==0.7.2
@@ -23,7 +22,7 @@ package installation alone does not refresh their pinned resources.
 A legacy novel contains `.novel-creator/`. Ask the agent in that novel to preview
 an update to 0.7.2 using `$novel-update` and its external controller. The controller
 is the absolute path to the compatible Python installation outside the novel;
-retain the verified runtime interpreter if it differs. After publication:
+retain the verified runtime interpreter if it differs:
 
 ```text
 CONTROLLER -I -B -m novel_creator update --novel BOOK --python RUNTIME --version 0.7.2 --json

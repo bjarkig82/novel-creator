@@ -247,7 +247,7 @@ Clear answers update owning notes incrementally with stable IDs, decision origin
 and recoverable history. Deferred questions remain open; intentional ambiguity,
 freeform answers and early stopping are supported. It does not rewrite manuscripts.
 
-The [0.7.2 unpublished candidate](releases/0.7.2.md) adds suggested answers in both
+The [0.7.2 release](releases/0.7.2.md) adds suggested answers in both
 formats: each substantive question normally offers 2–4 concise labeled
 possibilities plus **Custom — type your own answer**. Writers can reply with a
 label, adapt a suggestion or supply their own answer, and can request fewer or no
@@ -353,18 +353,21 @@ See [the update workflow](../workflows/update.md) for commands and recovery boun
 
 ## Delivery status and limits
 
-The [0.7.2 candidate](releases/0.7.2.md) adds clarification suggestions,
-custom answers and an explicit replacement path for unchanged published notebook
-clarification resources. Full Linux/Windows qualification passed; publication
-awaits the existing protected PyPI owner approval in the
-[publish run](https://github.com/bjarkig82/novel-creator/actions/runs/43040427236).
+The latest published package is [0.7.2](releases/0.7.2.md), published
+2026-11-11. It adds clarification suggestions, custom answers and an explicit
+replacement path for unchanged published notebook clarification resources.
+Full Linux/Windows qualification passed and public PyPI wheel/source hashes match
+the exact qualified artifacts. Windows/Linux public installation checks passed
+and the annotated version tag is verified at the qualified source. Independent
+clean named-package installation and prior-project updates passed on the third
+attempt after two initial index propagation delays. See the
+[release evidence](../tests/evaluations/release-0.7.2.md).
 
-The latest verified published package is [0.7.1](releases/0.7.1.md), published
-2026-11-10. Its protected publication succeeded and the public PyPI wheel/source
-hashes match the corrected qualified candidate. It extends focused methods to
-legacy novels and existing notebooks through explicit project updates; see the
-[upgrade guide](upgrading-projects.md). Remote annotated-tag identity and native
-Codex behavior are not established by this package metadata verification.
+The preceding [0.7.1 package](releases/0.7.1.md), published 2026-11-10, extends
+focused methods to legacy novels and existing notebooks through explicit project
+updates. Existing projects still need reviewed application and Codex reload;
+see the [upgrade guide](upgrading-projects.md). Native Codex behavior is not
+established by package metadata or filesystem verification.
 
 The [0.7.0 release](releases/0.7.0.md), published 2026-11-10, adds the new-notebook clarification,
 read-only analysis and help methods above. Full Linux and Windows automated

@@ -3,10 +3,9 @@
 This guide covers the writing roles introduced in **published 0.5.0**, focused
 memory guidance in **published 0.6.0**, and clarification, analysis and help
 introduced in **published 0.7.0**. The latest published package is
-[0.7.1](releases/0.7.1.md), published 2026-11-10; it supplies explicit project
-updates for focused methods. The [0.7.2 unpublished candidate](releases/0.7.2.md)
-adds clarification suggestions and custom input. The earlier 0.4.1 package does
-not include these writing roles or manuscript workflows. Package installation
+[0.7.2](releases/0.7.2.md), published 2026-11-11; it adds clarification suggestions
+and custom input, with explicit project updates for both formats. The earlier
+0.4.1 package does not include these writing roles or manuscript workflows. Package installation
 leaves existing notebooks and legacy novels unchanged; follow the
 [project upgrade steps](upgrading-projects.md) to update installed guidance.
 For setup, see [start here](../workflows/start-here.md#ask-your-agent-to-set-up-a-story).
@@ -126,7 +125,7 @@ stop. Clear answers update the owning notes with their existing stable identitie
 and history. Choosing an outline order does not accept every suggested plot fact.
 Clarification does not rewrite scene or chapter prose.
 
-In the [0.7.2 unpublished candidate](releases/0.7.2.md), notebook and legacy clarification questions
+In [published 0.7.2](releases/0.7.2.md), notebook and legacy clarification questions
 normally include 2–4 short labeled suggestions plus **Custom — type your own
 answer**. Reply with a label or just type your answer; you can adapt a suggestion,
 say you are unsure, or ask for fewer/no suggestions. For example, a question about

@@ -1,6 +1,6 @@
 {
   "version": "0.7.2",
-  "status": "qualified unpublished candidate",
+  "status": "published and verified",
   "repository": "bjarkig82/novel-creator",
   "source_commit": "ecf9bffcd6081c3e764fc81d2f7b717eeedb6d7d",
   "run_id": 43030156340,
@@ -107,7 +107,7 @@
     }
   },
   "publication": {
-    "status": "waiting-protected-owner-approval",
+    "status": "published and verified",
     "run_id": 43040427236,
     "run_url": "https://github.com/bjarkig82/novel-creator/actions/runs/43040427236",
     "source_commit": "ecf9bffcd6081c3e764fc81d2f7b717eeedb6d7d",
@@ -122,20 +122,116 @@
     "pre_dispatch_version_json_http_status": 404,
     "environment": "pypi",
     "protection_changed": false,
-    "upload_started": false,
+    "upload_started": true,
     "environment_id": 25700067917,
     "required_reviewers": [
       "bjarkig82"
     ],
-    "approval_api_error": "HTTP 403 Resource not accessible by integration",
     "approval_auto_review_rejection": false,
     "current_user_can_approve_reported": true,
-    "available_browser_controls": false
+    "available_browser_controls": false,
+    "approved_by_owner": true,
+    "upload_completed": true,
+    "upload_run_attempt": 1,
+    "latest_run_attempt": 2,
+    "run_conclusion": "success",
+    "upload_repeated": false,
+    "published_files": [
+      {
+        "filename": "novel_creator-0.7.2-py3-none-any.whl",
+        "sha256": "8ee343c10bfcc8129d860a8502c669856deaa92f62b5059f915a4027fc11c9f5",
+        "upload_time": "2026-11-11T14:44:55.107303Z"
+      },
+      {
+        "filename": "novel_creator-0.7.2.tar.gz",
+        "sha256": "a4f92f7426c0a0069dcd4814bb749216675080e02568f3e997842957ccfad02d",
+        "upload_time": "2026-11-11T14:44:56.385765Z"
+      }
+    ],
+    "public_checks": {
+      "linux": {
+        "initial_job_id": 130594110413,
+        "initial_conclusion": "failure",
+        "initial_failure": "PyPI simple index had not yet exposed 0.7.2; pip reported no matching distribution",
+        "retry_job_id": 130595577834,
+        "run_attempt": 2,
+        "conclusion": "success",
+        "only_failed_job_retried": true
+      },
+      "windows": {
+        "original_job_id": 130594110507,
+        "carried_forward_job_id": 130595580083,
+        "run_attempt": 1,
+        "conclusion": "success",
+        "rerun": false
+      }
+    },
+    "successful_jobs": [
+      {
+        "job_id": 130595577834,
+        "name": "public-checks (ubuntu-latest)",
+        "started_at": "2026-11-11T14:47:45Z",
+        "completed_at": "2026-11-11T14:48:19Z",
+        "successful_steps": [
+          "Set up job",
+          "Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a",
+          "Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+          "Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333",
+          "Check named production install and selected archive hash",
+          "Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9",
+          "Post Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+          "Post Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a",
+          "Complete job"
+        ]
+      },
+      {
+        "job_id": 130595578445,
+        "name": "publish",
+        "started_at": "2026-11-11T14:44:40Z",
+        "completed_at": "2026-11-11T14:44:59Z",
+        "successful_steps": [
+          "Set up job",
+          "Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a",
+          "Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+          "Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333",
+          "Run python tests/package_release.py verify-remote candidate",
+          "Stage only verified distribution files",
+          "Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557",
+          "Post Run pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557",
+          "Post Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+          "Post Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a",
+          "Complete job"
+        ]
+      },
+      {
+        "job_id": 130595580083,
+        "name": "public-checks (windows-latest)",
+        "started_at": "2026-11-11T14:45:12Z",
+        "completed_at": "2026-11-11T14:46:59Z",
+        "successful_steps": [
+          "Set up job",
+          "Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a",
+          "Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+          "Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333",
+          "Check named production install and selected archive hash",
+          "Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9",
+          "Post Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+          "Post Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a",
+          "Complete job"
+        ]
+      }
+    ],
+    "approval_api_error_prior_to_owner_review": "HTTP 403 Resource not accessible by integration"
   },
   "version_tag": {
     "name": "v0.7.2",
-    "status": "pending verified publication",
-    "required_source": "ecf9bffcd6081c3e764fc81d2f7b717eeedb6d7d"
+    "status": "verified annotated tag on origin",
+    "required_source": "ecf9bffcd6081c3e764fc81d2f7b717eeedb6d7d",
+    "tag_object": "f627a3389ca023d6af4ac2095b5af953215ae886",
+    "peeled_commit": "ecf9bffcd6081c3e764fc81d2f7b717eeedb6d7d",
+    "remote_annotation_verified": true,
+    "annotation": "Novel Creator 0.7.2: clarification suggestions and custom answers",
+    "tagger_date": "2026-11-11T14:49:41Z"
   },
   "windows_host": false,
   "linux_host": false,
@@ -143,5 +239,178 @@
   "private_novel_content_included": false,
   "candidate_run_status": "completed",
   "conclusion": "success",
-  "remote_release_verifier": "passed against exact completed candidate, immutable artifact, source, hashes and required platform jobs"
+  "remote_release_verifier": "passed against exact completed candidate, immutable artifact, source, hashes and required platform jobs",
+  "publication_date": "2026-11-11",
+  "independent_public_installation": {
+    "status": "passed",
+    "attempt_count": 3,
+    "first_two_attempts": "failed normal named pip resolution during initial PyPI index propagation; no product change or upload repetition",
+    "final_report": {
+      "mode": "public",
+      "source": "novel-creator==0.7.2",
+      "version": "novel-creator 0.7.2",
+      "dependencies": [
+        {
+          "name": "attrs",
+          "version": "26.1.0"
+        },
+        {
+          "name": "jsonschema",
+          "version": "4.26.0"
+        },
+        {
+          "name": "jsonschema_rs",
+          "version": "0.59.0"
+        },
+        {
+          "name": "jsonschema-specifications",
+          "version": "2025.9.1"
+        },
+        {
+          "name": "novel-creator",
+          "version": "0.7.2"
+        },
+        {
+          "name": "packaging",
+          "version": "26.3"
+        },
+        {
+          "name": "pip",
+          "version": "26.3"
+        },
+        {
+          "name": "referencing",
+          "version": "0.37.0"
+        },
+        {
+          "name": "rpds-py",
+          "version": "2026.9.1"
+        },
+        {
+          "name": "typing_extensions",
+          "version": "4.16.0"
+        }
+      ],
+      "validated": true,
+      "guide_sha256": "56759bae4a8ffee86c44abb28337ebcad791af60c5e40e372f651e29615eeebf",
+      "wheel_sha256": null,
+      "public_artifact_hashes": {
+        "novel_creator-0.7.2-py3-none-any.whl": "8ee343c10bfcc8129d860a8502c669856deaa92f62b5059f915a4027fc11c9f5",
+        "novel_creator-0.7.2.tar.gz": "a4f92f7426c0a0069dcd4814bb749216675080e02568f3e997842957ccfad02d"
+      },
+      "installed_product": {
+        "name": "novel-creator",
+        "version": "0.7.2",
+        "filename": "novel_creator-0.7.2-py3-none-any.whl",
+        "sha256": "8ee343c10bfcc8129d860a8502c669856deaa92f62b5059f915a4027fc11c9f5",
+        "url": "https://files.pythonhosted.org/packages/a0/63/005aa23e92a8af06b29a461742c9b2cc4b2469c9207434c2bd7bd14ad9e0/novel_creator-0.7.2-py3-none-any.whl"
+      },
+      "context_views": {
+        "default_full_compatible": true,
+        "current": true,
+        "working": true,
+        "focused_complete_record": true,
+        "lexical_query_miss": true,
+        "source_checkpoint": {
+          "git_head": "ef0c761b21d90e58652c90c25ee032af051e1bb0",
+          "exchange_id": "0e287107-2dad-427a-a91b-954e8af2da4c",
+          "sequence": 1
+        },
+        "installed_and_pinned_memory": true
+      },
+      "settings_cases": [
+        {
+          "name": "Folder",
+          "title": "Br\u00e9f fr\u00e1 morgundeginum",
+          "language": "is",
+          "preserved": true
+        },
+        {
+          "name": "English",
+          "title": "A working title",
+          "language": "en",
+          "preserved": true
+        },
+        {
+          "name": "A Novel",
+          "title": "A Novel",
+          "language": "en",
+          "preserved": true
+        }
+      ],
+      "notebook_cases": [
+        {
+          "language": "en",
+          "created": true,
+          "guidance_links": true,
+          "outline_skill": true,
+          "brainstorming_skills": true,
+          "writing_agents": true,
+          "verified_resource_count": 32,
+          "explicit_notebook_retrofit": true
+        },
+        {
+          "language": "is",
+          "created": true,
+          "guidance_links": true,
+          "outline_skill": true,
+          "brainstorming_skills": true,
+          "writing_agents": true,
+          "verified_resource_count": 32,
+          "explicit_notebook_retrofit": true
+        }
+      ],
+      "previous_published_release_upgrades": {
+        "source_version": "0.7.1",
+        "source_sha256": "cbbd487cee102003160f1966b5748efac73ac9733532744b015abb1f9e6393ba",
+        "target_version": "0.7.2",
+        "legacy_target_matches_installed_product_files": 94,
+        "legacy_target_wheel_sha256": "8ee343c10bfcc8129d860a8502c669856deaa92f62b5059f915a4027fc11c9f5",
+        "notebooks": [
+          {
+            "language": "en",
+            "source_version": "0.7.1",
+            "two_clarify_resources_refreshed": true,
+            "links_and_suggestions": true,
+            "story_history_custom_instructions_staging_preserved": true
+          },
+          {
+            "language": "is",
+            "source_version": "0.7.1",
+            "two_clarify_resources_refreshed": true,
+            "links_and_suggestions": true,
+            "story_history_custom_instructions_staging_preserved": true
+          }
+        ],
+        "legacy": {
+          "ok": true,
+          "scope": "offline disposable installed-controller CLI qualification; not native host or publication",
+          "cases": [
+            {
+              "source_version": "0.7.1",
+              "source_sha256": "cbbd487cee102003160f1966b5748efac73ac9733532744b015abb1f9e6393ba",
+              "language": "is",
+              "target_version": "0.7.2",
+              "target_sha256": "8ee343c10bfcc8129d860a8502c669856deaa92f62b5059f915a4027fc11c9f5",
+              "preview_read_only": true,
+              "framework_commit": "93dacca3f2507ada3b1b949e23f2893efdb0d170",
+              "single_update_commit": true,
+              "history_and_writer_work_preserved": true,
+              "guided_session_restored": true,
+              "pinned_product_origins": true,
+              "subsequent_synthetic_save": true,
+              "completed_status_after_subsequent_save": true,
+              "completed_recovery_inspection_after_subsequent_save": true,
+              "changed_recovery_checkpoint_refused": true
+            }
+          ]
+        },
+        "native_host_evidence": false,
+        "legacy_target_origin": "hash-verified published candidate wheel"
+      },
+      "invalid_input_cases": 5,
+      "host_walkthrough": "not performed",
+      "dependency_inheritance": false
+    }
+  }
 }

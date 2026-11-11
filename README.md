@@ -4,15 +4,16 @@ A home for developing an app that helps writers plan and create novels.
 
 ## Getting started
 
-**0.7.2 qualified unpublished candidate:** Clarify offers a few suggested answers and an
-explicit custom-answer option in both story formats. Existing projects need an
-explicit update after package installation; see the
-[upgrade guide](docs/upgrading-projects.md) and [candidate notes](docs/releases/0.7.2.md).
-Full Linux/Windows qualification passed. The
-[publish run](https://github.com/bjarkig82/novel-creator/actions/runs/43040427236)
-awaits the existing protected PyPI owner approval; no upload has started.
-See the [release evidence](tests/evaluations/release-0.7.2.md). This candidate is
-not yet available on PyPI.
+**Novel Creator 0.7.2 is published, 2026-11-11.** Clarify offers a few
+suggested answers and an explicit custom-answer option in both story formats.
+Existing projects need an explicit update after package installation; see the
+[upgrade guide](docs/upgrading-projects.md) and [release notes](docs/releases/0.7.2.md).
+Full Linux/Windows qualification passed and public PyPI archive hashes match the
+qualified artifacts. Windows/Linux public installation checks passed and the
+annotated version tag is verified at the qualified source. Independent clean
+installation and prior-project updates passed on the third attempt after two
+initial index propagation delays. See the
+[release evidence](tests/evaluations/release-0.7.2.md).
 
 Start by asking your agent to set up a story, for example: “Use Novel Creator
 to create a new English story notebook called My Novel at /path/to/My Novel.
@@ -21,7 +22,7 @@ setup, read the generated project instructions and continue in the same
 conversation. See [agent-led setup](workflows/start-here.md#ask-your-agent-to-set-up-a-story)
 for prerequisites, safe destinations and host access limits.
 
-**Novel Creator 0.7.1 is the latest verified published package, 2026-11-10.**
+**The previous 0.7.1 package was published 2026-11-10.**
 It makes Clarify, Analyze and Help available to existing notebooks through an
 explicit retrofit and to legacy novels through their supported updater. The
 protected publication succeeded and PyPI archive hashes match the qualified
@@ -44,11 +45,11 @@ which explains setup, everyday writing, and the Windows, Linux, and Mac limits.
 If someone has already prepared your novel, go straight to
 [everyday writing](https://github.com/bjarkig82/novel-creator/blob/main/workflows/everyday-writing.md).
 
-Install or upgrade [Novel Creator 0.7.1 from PyPI](https://pypi.org/project/novel-creator/0.7.1/)
+Install or upgrade [Novel Creator 0.7.2 from PyPI](https://pypi.org/project/novel-creator/0.7.2/)
 in your configured environment:
 
 ```text
-python -m pip install --upgrade novel-creator==0.7.1
+python -m pip install --upgrade novel-creator==0.7.2
 ```
 
 Existing legacy novels need an [explicit supported update](workflows/getting-started.md#updating-an-existing-book)
@@ -125,14 +126,13 @@ and the [pending desktop checkpoint](tests/evaluations/writing-agents-host.md).
 
 ## Project status
 
-**0.7.2 candidate clarification:** each substantive question normally includes
+**0.7.2 clarification:** each substantive question normally includes
 2–4 concise labeled suggestions plus **Custom — type your own answer**. Reply
 with a label or your own words, adapt a suggestion, or leave the question open.
-Nothing is chosen automatically. The candidate updates both formats and adds a
+Nothing is chosen automatically. The release updates both formats and adds a
 reviewed replacement path for unchanged published notebook clarification files.
-See the [candidate notes](docs/releases/0.7.2.md). Qualification passed;
-[publication](https://github.com/bjarkig82/novel-creator/actions/runs/43040427236)
-awaits protected PyPI owner approval.
+See the [release notes](docs/releases/0.7.2.md) for qualification, upgrade steps
+and the scope of public verification.
 
 **0.7.0 clarification and analysis:** new notebooks initialized with this release
 include `$novel-clarify` for one-at-a-time questions about a character,
