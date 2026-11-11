@@ -353,9 +353,11 @@ See [the update workflow](../workflows/update.md) for commands and recovery boun
 
 ## Delivery status and limits
 
-The [0.7.2 candidate](releases/0.7.2.md) prepares clarification suggestions,
+The [0.7.2 candidate](releases/0.7.2.md) adds clarification suggestions,
 custom answers and an explicit replacement path for unchanged published notebook
-clarification resources. Qualification and publication remain pending.
+clarification resources. Full Linux/Windows qualification passed; publication
+awaits the existing protected PyPI owner approval in the
+[publish run](https://github.com/bjarkig82/novel-creator/actions/runs/43040427236).
 
 The latest verified published package is [0.7.1](releases/0.7.1.md), published
 2026-11-10. Its protected publication succeeded and the public PyPI wheel/source

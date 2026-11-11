@@ -1,0 +1,147 @@
+{
+  "version": "0.7.2",
+  "status": "qualified unpublished candidate",
+  "repository": "bjarkig82/novel-creator",
+  "source_commit": "ecf9bffcd6081c3e764fc81d2f7b717eeedb6d7d",
+  "run_id": 43030156340,
+  "run_attempt": 1,
+  "run_url": "https://github.com/bjarkig82/novel-creator/actions/runs/43030156340",
+  "artifact_id": 13858838946,
+  "artifact_zip_sha256": "44ad8680cf00eac15ee9be2bb49228689525c32055cf33aa471fc15e317e1db0",
+  "artifact_zip_digest_verified": true,
+  "manifest": {
+    "windows_suite": "full",
+    "windows_baseline": "8df4ca09e58f71d800211a4dad794dd6c1f0c610",
+    "windows_reason": "Changes require full qualification: src/novel_creator/cli.py, src/novel_creator/notebook.py, tests/contract/test_clarify_suggestions.py, tests/contract/test_legacy_focused_methods.py, tests/contract/test_notebook_package_verifier.py, tests/integration/test_notebook_init.py, tests/integration/test_notebook_package.py, tests/integration/test_notebook_update.py, tests/integration/test_update_apply.py, tests/notebook_resource_checks.py, tests/verify_package_install.py, tests/verify_previous_release.py, tests/verify_wheel.py",
+    "repository": "bjarkig82/novel-creator",
+    "run_id": "43030156340",
+    "run_attempt": "1",
+    "source_commit": "ecf9bffcd6081c3e764fc81d2f7b717eeedb6d7d",
+    "distribution": "novel-creator",
+    "version": "0.7.2",
+    "files": {
+      "novel_creator-0.7.2-py3-none-any.whl": "8ee343c10bfcc8129d860a8502c669856deaa92f62b5059f915a4027fc11c9f5",
+      "novel_creator-0.7.2.tar.gz": "a4f92f7426c0a0069dcd4814bb749216675080e02568f3e997842957ccfad02d"
+    }
+  },
+  "manifest_identity_and_files_verified": true,
+  "exact_candidate_product_files_compared": 94,
+  "candidate_source_bytes_match": true,
+  "local_preflight": {
+    "focused_tests": 54,
+    "later_package_verifier_contract_tests": 22,
+    "clean_wheel_install": "passed",
+    "clean_sdist_install": "passed",
+    "final_installed_previous_release_probe": {
+      "source_version": "0.7.1",
+      "source_sha256": "cbbd487cee102003160f1966b5748efac73ac9733532744b015abb1f9e6393ba",
+      "target_version": "0.7.2",
+      "legacy_target_matches_installed_product_files": 94,
+      "legacy_target_wheel_sha256": "bd29d982ea148cda5a56b9580ae951129419d60f701972f5b26b374b9d5c92d6",
+      "notebooks": [
+        {
+          "language": "en",
+          "source_version": "0.7.1",
+          "two_clarify_resources_refreshed": true,
+          "links_and_suggestions": true,
+          "story_history_custom_instructions_staging_preserved": true
+        },
+        {
+          "language": "is",
+          "source_version": "0.7.1",
+          "two_clarify_resources_refreshed": true,
+          "links_and_suggestions": true,
+          "story_history_custom_instructions_staging_preserved": true
+        }
+      ],
+      "legacy": {
+        "ok": true,
+        "scope": "offline disposable installed-controller CLI qualification; not native host or publication",
+        "cases": [
+          {
+            "source_version": "0.7.1",
+            "source_sha256": "cbbd487cee102003160f1966b5748efac73ac9733532744b015abb1f9e6393ba",
+            "language": "is",
+            "target_version": "0.7.2",
+            "target_sha256": "bd29d982ea148cda5a56b9580ae951129419d60f701972f5b26b374b9d5c92d6",
+            "preview_read_only": true,
+            "framework_commit": "5a89a4d5ec88ecf62a9b59e1136dc185e83b880c",
+            "single_update_commit": true,
+            "history_and_writer_work_preserved": true,
+            "guided_session_restored": true,
+            "pinned_product_origins": true,
+            "subsequent_synthetic_save": true,
+            "completed_status_after_subsequent_save": true,
+            "completed_recovery_inspection_after_subsequent_save": true,
+            "changed_recovery_checkpoint_refused": true
+          }
+        ]
+      },
+      "native_host_evidence": false
+    }
+  },
+  "platforms": {
+    "linux": {
+      "job_id": 130554991418,
+      "status": "completed",
+      "suite": "full",
+      "conclusion": "success",
+      "test_count": 465,
+      "skipped_tests": 3,
+      "test_seconds": 524.093,
+      "early_upgrade_tests": 21,
+      "early_upgrade_test_seconds": 2.942,
+      "all_package_and_bash_gates": "passed"
+    },
+    "windows": {
+      "job_id": 130554991464,
+      "status": "completed",
+      "suite": "full",
+      "conclusion": "success",
+      "test_count": 465,
+      "skipped_tests": 0,
+      "test_seconds": 3504.374,
+      "early_upgrade_tests": 21,
+      "early_upgrade_test_seconds": 39.302,
+      "all_package_gates": "passed"
+    }
+  },
+  "publication": {
+    "status": "waiting-protected-owner-approval",
+    "run_id": 43040427236,
+    "run_url": "https://github.com/bjarkig82/novel-creator/actions/runs/43040427236",
+    "source_commit": "ecf9bffcd6081c3e764fc81d2f7b717eeedb6d7d",
+    "candidate_run": 43030156340,
+    "candidate_attempt": 1,
+    "artifact_id": 13858838946,
+    "files": {
+      "novel_creator-0.7.2-py3-none-any.whl": "8ee343c10bfcc8129d860a8502c669856deaa92f62b5059f915a4027fc11c9f5",
+      "novel_creator-0.7.2.tar.gz": "a4f92f7426c0a0069dcd4814bb749216675080e02568f3e997842957ccfad02d"
+    },
+    "dispatch_count": 1,
+    "pre_dispatch_version_json_http_status": 404,
+    "environment": "pypi",
+    "protection_changed": false,
+    "upload_started": false,
+    "environment_id": 25700067917,
+    "required_reviewers": [
+      "bjarkig82"
+    ],
+    "approval_api_error": "HTTP 403 Resource not accessible by integration",
+    "approval_auto_review_rejection": false,
+    "current_user_can_approve_reported": true,
+    "available_browser_controls": false
+  },
+  "version_tag": {
+    "name": "v0.7.2",
+    "status": "pending verified publication",
+    "required_source": "ecf9bffcd6081c3e764fc81d2f7b717eeedb6d7d"
+  },
+  "windows_host": false,
+  "linux_host": false,
+  "native_skill_discovery_and_invocation": "unverified",
+  "private_novel_content_included": false,
+  "candidate_run_status": "completed",
+  "conclusion": "success",
+  "remote_release_verifier": "passed against exact completed candidate, immutable artifact, source, hashes and required platform jobs"
+}

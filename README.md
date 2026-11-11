@@ -4,11 +4,15 @@ A home for developing an app that helps writers plan and create novels.
 
 ## Getting started
 
-**0.7.2 unpublished candidate:** Clarify offers a few suggested answers and an
+**0.7.2 qualified unpublished candidate:** Clarify offers a few suggested answers and an
 explicit custom-answer option in both story formats. Existing projects need an
 explicit update after package installation; see the
 [upgrade guide](docs/upgrading-projects.md) and [candidate notes](docs/releases/0.7.2.md).
-This candidate is not yet available on PyPI.
+Full Linux/Windows qualification passed. The
+[publish run](https://github.com/bjarkig82/novel-creator/actions/runs/43040427236)
+awaits the existing protected PyPI owner approval; no upload has started.
+See the [release evidence](tests/evaluations/release-0.7.2.md). This candidate is
+not yet available on PyPI.
 
 Start by asking your agent to set up a story, for example: “Use Novel Creator
 to create a new English story notebook called My Novel at /path/to/My Novel.
@@ -126,8 +130,9 @@ and the [pending desktop checkpoint](tests/evaluations/writing-agents-host.md).
 with a label or your own words, adapt a suggestion, or leave the question open.
 Nothing is chosen automatically. The candidate updates both formats and adds a
 reviewed replacement path for unchanged published notebook clarification files.
-See the [candidate notes](docs/releases/0.7.2.md); qualification and publication
-remain pending.
+See the [candidate notes](docs/releases/0.7.2.md). Qualification passed;
+[publication](https://github.com/bjarkig82/novel-creator/actions/runs/43040427236)
+awaits protected PyPI owner approval.
 
 **0.7.0 clarification and analysis:** new notebooks initialized with this release
 include `$novel-clarify` for one-at-a-time questions about a character,
