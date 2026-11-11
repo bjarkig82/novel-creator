@@ -247,6 +247,19 @@ Clear answers update owning notes incrementally with stable IDs, decision origin
 and recoverable history. Deferred questions remain open; intentional ambiguity,
 freeform answers and early stopping are supported. It does not rewrite manuscripts.
 
+The [0.7.2 unpublished candidate](releases/0.7.2.md) adds suggested answers in both
+formats: each substantive question normally offers 2–4 concise labeled
+possibilities plus **Custom — type your own answer**. Writers can reply with a
+label, adapt a suggestion or supply their own answer, and can request fewer or no
+suggestions. Unknown, skip and defer remain available; nothing is selected
+automatically. Package installation does not refresh project-local copies.
+New projects receive the guidance at initialization; existing legacy novels use
+their reviewed framework update. Existing notebooks use a previewed update that
+adds missing resources or replaces original published 0.7.0/0.7.1 clarify files
+identified by frozen normalized ownership hashes. Customized files are refused;
+story notes, history, custom instructions and unrelated staging are preserved.
+See the complete [upgrade steps](upgrading-projects.md), including Codex reload.
+
 [Analysis](../notebook/workflows/analyze.md) compares selected material with
 relevant accepted notes, directions and outlines, returning prioritized findings
 with actual evidence, stable finding IDs, revision basis and limits. It checks
@@ -340,12 +353,23 @@ See [the update workflow](../workflows/update.md) for commands and recovery boun
 
 ## Delivery status and limits
 
+The [0.7.2 candidate](releases/0.7.2.md) prepares clarification suggestions,
+custom answers and an explicit replacement path for unchanged published notebook
+clarification resources. Qualification and publication remain pending.
+
+The latest verified published package is [0.7.1](releases/0.7.1.md), published
+2026-11-10. Its protected publication succeeded and the public PyPI wheel/source
+hashes match the corrected qualified candidate. It extends focused methods to
+legacy novels and existing notebooks through explicit project updates; see the
+[upgrade guide](upgrading-projects.md). Remote annotated-tag identity and native
+Codex behavior are not established by this package metadata verification.
+
 The [0.7.0 release](releases/0.7.0.md), published 2026-11-10, adds the new-notebook clarification,
 read-only analysis and help methods above. Full Linux and Windows automated
 release qualification, actual public archive hashes, public CI checks and
 independent clean installation passed. The independent local installation passed
 on retry after initial index propagation; publication and CI were not repeated.
-Version 0.7.0 is the latest verified published release. See the
+See the
 [release evidence](../tests/evaluations/release-0.7.0.md) for scope and provenance.
 
 The [0.6.0 release](releases/0.6.0.md), published 2026-11-06, adds the working-context

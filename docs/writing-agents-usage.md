@@ -1,14 +1,14 @@
 # Writing with notebook agents
 
-This guide covers the writing roles introduced in **published 0.5.0** and the
-focused memory/responsiveness guidance in **published 0.6.0**, plus clarification,
-analysis and help in **published 0.7.0, 2026-11-10**. Full Linux/Windows automated
-qualification, public archive hashes, public CI checks and independent clean
-installation were verified. Version 0.7.0 is the latest published release; see the
-[release notes](releases/0.7.0.md) for installation and compatibility.
-The earlier 0.4.1 package does not include these writing roles or manuscript
-workflows. Package installation leaves existing notebooks and legacy novels
-unchanged; there is no migration or new updater command for these additions.
+This guide covers the writing roles introduced in **published 0.5.0**, focused
+memory guidance in **published 0.6.0**, and clarification, analysis and help
+introduced in **published 0.7.0**. The latest published package is
+[0.7.1](releases/0.7.1.md), published 2026-11-10; it supplies explicit project
+updates for focused methods. The [0.7.2 unpublished candidate](releases/0.7.2.md)
+adds clarification suggestions and custom input. The earlier 0.4.1 package does
+not include these writing roles or manuscript workflows. Package installation
+leaves existing notebooks and legacy novels unchanged; follow the
+[project upgrade steps](upgrading-projects.md) to update installed guidance.
 For setup, see [start here](../workflows/start-here.md#ask-your-agent-to-set-up-a-story).
 The [everyday-writing guide](../workflows/everyday-writing.md) covers legacy novels.
 
@@ -104,7 +104,7 @@ detailed guidance.
 
 ## Clarify and analyze (0.7.0)
 
-The [0.7.1 patch candidate](releases/0.7.1.md) extends these methods to existing
+The published [0.7.1 patch](releases/0.7.1.md) extends these methods to existing
 projects through explicit updates; see [upgrading projects](upgrading-projects.md).
 Legacy novels receive format-specific skills through their supported updater.
 Older notebooks receive an additive retrofit. The original 0.7.0 limitations
@@ -125,6 +125,20 @@ answer freely, select an offered alternative, leave something unknown, skip or
 stop. Clear answers update the owning notes with their existing stable identities
 and history. Choosing an outline order does not accept every suggested plot fact.
 Clarification does not rewrite scene or chapter prose.
+
+In the [0.7.2 unpublished candidate](releases/0.7.2.md), notebook and legacy clarification questions
+normally include 2–4 short labeled suggestions plus **Custom — type your own
+answer**. Reply with a label or just type your answer; you can adapt a suggestion,
+say you are unsure, or ask for fewer/no suggestions. For example, a question about
+why Elin hides the letter might offer “A: To protect someone” and “B: To protect
+herself”, while you can answer “Neither—she wants time to verify it.” Only your
+selected or custom proposition is established. Existing project-local guidance
+is not silently refreshed by a package upgrade. Existing legacy novels need their
+reviewed framework update; existing notebooks need a previewed update. The 0.7.2
+notebook updater recognizes original published 0.7.0/0.7.1 clarification files,
+replaces those unchanged copies, and refuses customized resources. See
+[upgrading projects](upgrading-projects.md) for package installation, preview/apply
+and reloading instructions and skills in Codex.
 
 > Ask me clarifying questions about the midpoint of the outline. Keep the
 > sender's identity unresolved.

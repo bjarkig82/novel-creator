@@ -42,10 +42,30 @@ finish without manufacturing questions.
 Ask exactly one focused question at a time and briefly explain its story stake.
 Default to at most five substantive questions in one pass; honor a writer's
 different limit. Do not reveal a queue of questions or combine several decisions
-into one prompt. Offer a few concise alternatives only when useful, always allowing
-a freeform answer, uncertainty or deferral. Recommendations and examples stay
-proposals until chosen. Do not impose Spec Kit files, hooks or software planning
-stages on a novel.
+into one prompt. Recommendations and examples stay proposals until chosen. Do not
+impose Spec Kit files, hooks or software planning stages on a novel.
+
+## Offer answer suggestions
+
+By default, accompany each substantive question with 2–4 concise, plausible
+suggested answers grounded in the known story and the question's stakes. Present
+them as a short labeled list (A, B, C, D as needed), with each answer expressing
+one distinct proposition. Keep hypothetical details visibly provisional; do not
+present invented details as known facts. If fewer useful alternatives exist,
+offer only those; never pad the list to meet a count. Honor requests for fewer
+or no suggestions.
+
+Always add an explicit **Custom — type your own answer** choice. Tell the writer
+they can reply with a label or in their own words, including replacing or adapting
+a suggestion. They can also say they are unsure, skip or defer the question.
+The custom choice is additional to the suggested story answers, not one of them.
+Never auto-select an answer or treat silence as acceptance. A custom answer has
+the same standing as a selected suggestion under the existing authority rules.
+
+Use plain chat so labels and free-text replies work without a selection widget,
+special tool or plan mode. An available native selection widget is optional and
+must preserve custom free-text input. Use the conversation's language for the
+question, suggestions and custom-answer invitation.
 
 ## Integrate each answer before continuing
 

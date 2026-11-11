@@ -21,7 +21,33 @@ truth, character knowledge/belief and reader revelation. Do not re-ask accepted
 answers, impose a narrative formula or label deliberate mystery an error. Ask
 exactly one focused question at a time with a brief reason. Default to at most
 five substantive questions per pass; honor another requested limit. Examples and
-options remain proposals until selected. Allow freeform answers and uncertainty.
+options remain proposals until selected.
+
+## Offer answer suggestions
+
+By default, accompany each substantive question with 2–4 concise, plausible
+suggested answers grounded in the known story and the question's stakes. Present
+them as a short labeled list (A, B, C, D as needed), with each answer expressing
+one distinct proposition. Keep hypothetical details visibly provisional; do not
+present invented details as known facts. If fewer useful alternatives exist,
+offer only those; never pad the list to meet a count. Honor requests for fewer
+or no suggestions.
+
+Always add an explicit **Custom — type your own answer** choice. Tell the writer
+they can reply with a label or in their own words, including replacing or adapting
+a suggestion. They can also say they are unsure, skip or defer the question.
+The custom choice is additional to the suggested story answers, not one of them.
+Never auto-select an answer or treat silence as acceptance. A custom answer has
+the same standing as a selected suggestion under the existing authority rules.
+
+Use plain chat so labels and free-text replies work without a selection widget,
+special tool or plan mode. An available native selection widget is optional and
+must preserve custom free-text input. Use the conversation's language for the
+question, suggestions and custom-answer invitation. Prepare and save the whole
+question, suggested answers and custom-answer invitation before displaying them,
+following the ordinary legacy save-before-display protocol.
+
+## Integrate and stop
 
 Integrate each clear answer in source-backed typed records in the same saved
 exchange as the exact user input and prepared response, before the next substantive

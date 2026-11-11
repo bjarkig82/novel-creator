@@ -201,6 +201,39 @@ def verify(*, wheel=None, package=None, manifest=None):
                 raise RuntimeError('Invalid input changed a novel or reported success')
         notebook_cases = verify_notebook_install(console, root, env, package, version,
                                                 verified_wheel=verified_wheel)
+        try:
+            from tests.verify_previous_release import applies, verify as verify_previous
+        except ModuleNotFoundError:
+            from verify_previous_release import applies, verify as verify_previous
+        previous_release = None
+        if applies(version):
+            target_version = version.removeprefix('novel-creator ')
+            target_name = f'novel_creator-{target_version}-py3-none-any.whl'
+            if package:
+                target_wheel = root / target_name
+                target_wheel.write_bytes(verified_wheel)
+                target_origin = 'hash-verified published candidate wheel'
+            elif Path(source).suffix == '.whl':
+                target_wheel = Path(source)
+                target_origin = 'candidate input wheel'
+            elif (Path(source).parent / target_name).is_file():
+                target_wheel = Path(source).parent / target_name
+                target_origin = 'sibling candidate wheel; controller installed from sdist'
+            else:
+                built = root / 'upgrade-target-wheel'
+                built.mkdir()
+                run([sys.executable, '-I', '-m', 'pip', '--isolated', 'wheel', '--no-deps',
+                     '--wheel-dir', built, source], cwd=root, env=env)
+                target_wheel = built / target_name
+                target_origin = 'temporary probe wheel rebuilt from candidate sdist'
+            with zipfile.ZipFile(target_wheel) as archive:
+                metadata_names = [name for name in archive.namelist() if name.endswith('.dist-info/METADATA')]
+                from email.parser import BytesParser
+                metadata = BytesParser().parsebytes(archive.read(metadata_names[0]))
+                if metadata['Version'] != target_version or metadata['Name'] != 'novel-creator':
+                    raise ValueError('Upgrade target wheel does not match installed candidate')
+            previous_release = verify_previous(python, console, root, env, version, target_wheel)
+            previous_release['legacy_target_origin'] = target_origin
         dependencies = json.loads(run([python, '-I', '-m', 'pip', 'list', '--format=json'], cwd=root, env=env))
         return {'mode': 'candidate' if wheel else 'public', 'source': Path(source).name if wheel else source,
                 'version': version, 'dependencies': dependencies, 'validated': True,
@@ -209,7 +242,8 @@ def verify(*, wheel=None, package=None, manifest=None):
                 'public_artifact_hashes': public_hashes,
                 'installed_product': installed_product,
                 'context_views': context_views,
-                'settings_cases': settings_cases, 'notebook_cases': notebook_cases, 'invalid_input_cases': 5,
+                'settings_cases': settings_cases, 'notebook_cases': notebook_cases,
+                'previous_published_release_upgrades': previous_release, 'invalid_input_cases': 5,
                 'host_walkthrough': 'not performed', 'dependency_inheritance': False}
 
 

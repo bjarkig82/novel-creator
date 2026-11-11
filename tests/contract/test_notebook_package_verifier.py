@@ -12,6 +12,51 @@ from tests import verify_package_install
 
 
 class NotebookPackageVerifierTest(unittest.TestCase):
+    def test_previous_release_probe_is_gated_to_newer_stable_versions(self):
+        from tests.verify_previous_release import applies, verify
+
+        for version in ('0.7.0', 'novel-creator 0.7.1', '0.7.2rc1', 'invalid'):
+            with self.subTest(version=version):
+                self.assertFalse(applies(version))
+                with patch('tests.verify_previous_release._source') as source:
+                    with self.assertRaisesRegex(ValueError, 'newer stable'):
+                        verify(None, None, None, None, version, None)
+                    source.assert_not_called()
+        self.assertTrue(applies('novel-creator 0.7.2'))
+
+    def test_previous_release_source_requires_the_frozen_public_wheel_digest(self):
+        from tests.verify_previous_release import checked_source
+
+        with self.assertRaisesRegex(ValueError, 'hash mismatch'):
+            checked_source(b'A rebuilt or corrupted historical archive')
+
+    def test_prior_probe_rejects_same_version_wheel_with_different_product_resources(self):
+        import hashlib
+        import json
+        from tests.verify_previous_release import check_target_inventory
+
+        product = {'novel_creator/__init__.py': b'__version__ = "0.7.2"\n',
+                   'novel_creator/notebook_resources/workflows/clarify.md': b'Installed custom answer guidance\n'}
+        installed = {name: hashlib.sha256(raw).hexdigest() for name, raw in product.items()}
+        with tempfile.TemporaryDirectory() as directory:
+            wheel = Path(directory) / 'novel_creator-0.7.2-py3-none-any.whl'
+            for mismatch in (False, True):
+                with self.subTest(mismatch=mismatch):
+                    with zipfile.ZipFile(wheel, 'w') as archive:
+                        archive.writestr('novel_creator-0.7.2.dist-info/METADATA',
+                                         'Name: novel-creator\nVersion: 0.7.2\n')
+                        for name, raw in product.items():
+                            archive.writestr(name, b'Divergent same-version guidance\n'
+                                             if mismatch and name.endswith('clarify.md') else raw)
+                    with patch('tests.verify_previous_release._run', return_value=json.dumps(installed)) as probe:
+                        if mismatch:
+                            with self.assertRaisesRegex(ValueError, 'inventory differs'):
+                                check_target_inventory('installed-python', wheel, '0.7.2', cwd=directory, env={})
+                        else:
+                            self.assertEqual(check_target_inventory('installed-python', wheel, '0.7.2',
+                                                                    cwd=directory, env={}), 2)
+                        self.assertEqual(probe.call_args.args[0][:4], ['installed-python', '-I', '-B', '-c'])
+
     def test_public_050_uses_approved_wheel_resources_and_current_stays_source_strict(self):
         from novel_creator.notebook import initialize
         from tests.notebook_resource_checks import resource_paths, verify_writing_resources

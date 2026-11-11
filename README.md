@@ -4,10 +4,11 @@ A home for developing an app that helps writers plan and create novels.
 
 ## Getting started
 
-**0.7.1 patch candidate:** fixes missing Clarify, Analyze and Help entries in
-existing projects. Package installation is followed by an explicit project
-update; see the [upgrade guide](docs/upgrading-projects.md) and
-[candidate notes](docs/releases/0.7.1.md). The patch is not yet published.
+**0.7.2 unpublished candidate:** Clarify offers a few suggested answers and an
+explicit custom-answer option in both story formats. Existing projects need an
+explicit update after package installation; see the
+[upgrade guide](docs/upgrading-projects.md) and [candidate notes](docs/releases/0.7.2.md).
+This candidate is not yet available on PyPI.
 
 Start by asking your agent to set up a story, for example: “Use Novel Creator
 to create a new English story notebook called My Novel at /path/to/My Novel.
@@ -16,13 +17,12 @@ setup, read the generated project instructions and continue in the same
 conversation. See [agent-led setup](workflows/start-here.md#ask-your-agent-to-set-up-a-story)
 for prerequisites, safe destinations and host access limits.
 
-**Novel Creator 0.7.0 is the latest verified published release, 2026-11-10.**
-It adds targeted clarification, read-only analysis and writer help to new
-notebooks. Full Linux/Windows qualification, both public CI installation checks,
-public archive hashes and independent clean installation passed. The additional
-independent installation passed on retry after initial index propagation; no
-upload or CI check was repeated. See the [0.7.0 notes](docs/releases/0.7.0.md)
-and [release evidence](tests/evaluations/release-0.7.0.md) for scope and compatibility.
+**Novel Creator 0.7.1 is the latest verified published package, 2026-11-10.**
+It makes Clarify, Analyze and Help available to existing notebooks through an
+explicit retrofit and to legacy novels through their supported updater. The
+protected publication succeeded and PyPI archive hashes match the qualified
+candidate. See the [0.7.1 notes](docs/releases/0.7.1.md) for verification scope and
+compatibility, and the [upgrade guide](docs/upgrading-projects.md) for project steps.
 
 The previous **0.6.0 release, published 2026-11-06**, adds fresh legacy working
 context, targeted retrieval and focused notebook memory guidance, retaining the
@@ -40,16 +40,17 @@ which explains setup, everyday writing, and the Windows, Linux, and Mac limits.
 If someone has already prepared your novel, go straight to
 [everyday writing](https://github.com/bjarkig82/novel-creator/blob/main/workflows/everyday-writing.md).
 
-Install or upgrade [Novel Creator 0.7.0 from PyPI](https://pypi.org/project/novel-creator/0.7.0/)
+Install or upgrade [Novel Creator 0.7.1 from PyPI](https://pypi.org/project/novel-creator/0.7.1/)
 in your configured environment:
 
 ```text
-python -m pip install --upgrade novel-creator==0.7.0
+python -m pip install --upgrade novel-creator==0.7.1
 ```
 
 Existing legacy novels need an [explicit supported update](workflows/getting-started.md#updating-an-existing-book)
-to change pinned resources. Existing notebooks are not automatically updated or
-migrated.
+to change pinned resources. Existing notebooks use the explicit
+[notebook update procedure](docs/upgrading-projects.md#existing-markdown-notebooks);
+package installation does not update either format automatically.
 
 For new notebooks, use the setup route below. The
 [legacy getting-started guide](https://github.com/bjarkig82/novel-creator/blob/v0.4.0/workflows/getting-started.md)
@@ -119,6 +120,14 @@ or updater command. See [focused evidence](tests/evaluations/writing-agents.md)
 and the [pending desktop checkpoint](tests/evaluations/writing-agents-host.md).
 
 ## Project status
+
+**0.7.2 candidate clarification:** each substantive question normally includes
+2–4 concise labeled suggestions plus **Custom — type your own answer**. Reply
+with a label or your own words, adapt a suggestion, or leave the question open.
+Nothing is chosen automatically. The candidate updates both formats and adds a
+reviewed replacement path for unchanged published notebook clarification files.
+See the [candidate notes](docs/releases/0.7.2.md); qualification and publication
+remain pending.
 
 **0.7.0 clarification and analysis:** new notebooks initialized with this release
 include `$novel-clarify` for one-at-a-time questions about a character,
@@ -291,7 +300,7 @@ wheel from the configured dependency environment:
 
 ```bash
 python -m pip wheel . --no-deps --wheel-dir dist
-python tests/verify_wheel.py dist/novel_creator-0.7.0-py3-none-any.whl
+python tests/verify_wheel.py dist/novel_creator-0.7.2-py3-none-any.whl
 ```
 
 Use the actual versioned filename produced by the build. The verifier installs
