@@ -1,12 +1,21 @@
 # Start here: Novel Creator for writers
 
-For the 0.7.1 patch candidate, existing projects have explicit update paths for
-Clarify, Analyze and Help. Package installation alone still does not add skills
-to your novel. Follow `docs/upgrading-projects.md` in the updated source checkout:
-legacy novels use the reviewed framework updater; notebooks use the additive
-`novel-creator notebook update --path BOOK --json` preview and explicit apply.
-Do not initialize over an existing novel. This supersedes the older releases'
-new-notebook-only availability descriptions below once 0.7.1 is published.
+The latest verified PyPI release is 0.7.2, published 2026-11-11. Existing projects
+have explicit update paths for Clarify, Analyze
+and Help, including clarification suggestions/custom answers. Package installation
+alone does not add skills to your novel. Legacy novels use the reviewed framework
+updater; original-layout notebooks use a preview and explicit apply. Do not
+initialize over an existing novel. Follow `docs/upgrading-projects.md` in the
+updated source checkout.
+
+**0.8.0 is an unpublished candidate** with marketplace setup for new notebooks
+in Codex or Claude Code on Windows/Linux. Follow the
+marketplace guide at `docs/plugin-marketplaces.md` in the updated source checkout for local candidate
+installation, the exact local-wheel runtime and host prerequisites. Its expected
+Help syntax is Codex `$novel-creator:novel-help` or Claude Code
+`/novel-creator:novel-help`; actual native discovery remains pending. Existing
+notebooks keep their installed routing; marketplace adoption and a legacy host
+port are deferred. The standalone Codex route below remains supported.
 
 Novel Creator helps you develop a novel through conversations in Codex. You can
 start with a detailed idea, a few loose thoughts, or no idea at all. It keeps a
@@ -36,7 +45,7 @@ not require a new chat or repeated
 skill commands, and starting brainstorming is your choice. Outlining remains an
 explicit request.
 
-The published 0.4.1 package includes notebook setup and the improved generated
+The published package includes notebook setup and the improved generated
 instructions and continuation messages described here. Existing projects keep
 their installed instructions; installing a package does not update them.
 
@@ -134,11 +143,12 @@ command explanations. No input is required; try `$novel-help novel-clarify` to
 learn what targets it accepts, or `$novel-help commands` for installed entries.
 A character name or description is enough when clear; IDs/file paths are optional.
 Help is read-only, does not run its examples and works before you have a story
-idea. Full Linux/Windows automated qualification, public archive hashes and public
-installation checks passed. Version 0.7.0, published 2026-11-10, is the latest
-verified release. Existing notebooks and legacy novels stay unchanged. Release
-notes are in `docs/releases/0.7.0.md` in the source checkout; the version-pinned
-0.7.0 installation command there is usable now.
+idea. The historical 0.7.0 release passed full Linux/Windows automated
+qualification, public archive hashes and public installation checks. Current
+0.7.2 includes these methods and adds suggestions/custom answers; existing
+projects need an explicit update. See `docs/upgrading-projects.md` and
+`docs/releases/README.md` in the updated source checkout for procedures and
+each version's scope.
 
 The rest of this page describes the existing legacy workflow.
 

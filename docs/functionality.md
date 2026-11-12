@@ -9,6 +9,30 @@ Start with the [beginner guide](../workflows/start-here.md) or
 [everyday writing](../workflows/everyday-writing.md). Legacy setup and update
 commands are in [getting started](../workflows/getting-started.md).
 
+## Marketplace candidate (0.8.0)
+
+Version 0.8.0 is unpublished; 0.7.2 remains the latest verified PyPI release.
+The candidate adds Codex and Claude Code plugins for **new notebooks** on
+Windows/Linux, retaining fourteen writing methods and six writing roles.
+Setup uses a separate exact-version Python runtime, then creates host
+instructions, role files and pinned shared workflows. Plugin books carry
+`.novel-notebook/integration.json` and no duplicate project-local skills.
+Cached entries select the book explicitly. Help and Analyze remain read-only;
+Clarify retains suggestions/custom answers and writer authority. Outline stays
+explicit-only. See [marketplace setup](plugin-marketplaces.md).
+
+Direct notebook setup accepts `--host codex|claude|both` and
+`--skill-source project|plugin`; omitted options retain Codex/project defaults.
+Installing/updating a package or plugin leaves existing book resources and data
+unchanged. Existing legacy books and original-layout notebooks retain their
+[supported explicit updates](upgrading-projects.md); the notebook updater
+refuses host/plugin layouts before writing and is not an adoption tool. New and
+existing legacy books remain standalone, and existing notebooks keep their
+installed routing. Marketplace adoption, a legacy host port, macOS, MCP and
+public-directory submission are deferred. Native Windows execution, GUI
+discovery, authenticated conversations and specialist interaction remain
+pending; Linux structural/install checks do not establish these behaviors.
+
 ## Setup and creative guidance
 
 Legacy `novel-creator init "My Novel"` creates an independent project with pinned

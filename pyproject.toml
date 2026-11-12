@@ -21,8 +21,8 @@ test = ["setuptools>=77"]
 novel-creator = "novel_creator.cli:main"
 
 [tool.setuptools]
-packages = ["novel_creator", "novel_creator.schemas", "novel_creator.schemas.v1", "novel_creator.workflows", "novel_creator.languages", "novel_creator.codex", "novel_creator.notebook_resources"]
-package-dir = {"novel_creator" = "src/novel_creator", "novel_creator.schemas" = "schemas", "novel_creator.workflows" = "workflows", "novel_creator.languages" = "languages", "novel_creator.codex" = "adapters/codex", "novel_creator.notebook_resources" = "notebook"}
+packages = ["novel_creator", "novel_creator.schemas", "novel_creator.schemas.v1", "novel_creator.workflows", "novel_creator.languages", "novel_creator.codex", "novel_creator.claude", "novel_creator.notebook_resources"]
+package-dir = {"novel_creator" = "src/novel_creator", "novel_creator.schemas" = "schemas", "novel_creator.workflows" = "workflows", "novel_creator.languages" = "languages", "novel_creator.codex" = "adapters/codex", "novel_creator.claude" = "adapters/claude", "novel_creator.notebook_resources" = "notebook"}
 
 [tool.setuptools.package-data]
 "novel_creator" = ["update-release.json"]
@@ -30,6 +30,7 @@ package-dir = {"novel_creator" = "src/novel_creator", "novel_creator.schemas" = 
 "novel_creator.workflows" = ["*.md"]
 "novel_creator.languages" = ["*.md"]
 "novel_creator.codex" = ["*.md", "skills/*/SKILL.md", "notebook/*.md", "notebook/agents/*.toml", "notebook/skills/*/SKILL.md"]
+"novel_creator.claude" = ["notebook/*.md"]
 "novel_creator.notebook_resources" = ["workflows/*.md", "languages/*.md", "templates/*.md"]
 
 [tool.setuptools.dynamic]

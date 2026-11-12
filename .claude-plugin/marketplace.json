@@ -1,0 +1,15 @@
+{
+  "name": "novel-creator-marketplace",
+  "description": "Independent story notebooks with shared writing workflows for Codex and Claude Code.",
+  "owner": {
+    "name": "bjarkig82"
+  },
+  "plugins": [
+    {
+      "name": "novel-creator",
+      "source": "./plugins/novel-creator",
+      "description": "Independent story notebooks with shared writing workflows for Codex and Claude Code.",
+      "version": "0.8.0"
+    }
+  ]
+}

@@ -4,13 +4,75 @@ import os
 from pathlib import Path
 import re
 import subprocess
+import tomllib
 from importlib.resources import files
 
 from .cli import ToolError
 
 
-def initialize(target, *, title=None, language='en'):
+_SKILLS = ('novel-outline', 'novel-book-idea', 'novel-premise',
+           'novel-character', 'novel-plot', 'novel-setting', 'novel-agent',
+           'novel-research', 'novel-scene', 'novel-chapter', 'novel-review',
+           'novel-clarify', 'novel-analyze', 'novel-help')
+_AGENTS = ('novel_orchestrator', 'novel_brainstormer', 'novel_researcher',
+           'novel_scene_writer', 'novel_chapter_writer', 'novel_reviewer')
+_INTEGRATION = '.novel-notebook/integration.json'
+
+
+def _host_text(text, host, skill_source):
+    """Render host entry syntax without changing shared creative behavior."""
+    def invocation(match):
+        name = match[1]
+        codex = '$' + ('novel-creator:' if skill_source == 'plugin' else '') + name
+        claude = '/' + ('novel-creator:' if skill_source == 'plugin' else '') + name
+        if host == 'both':
+            return '`' + codex + '` (Codex) or `' + claude + '` (Claude Code)'
+        return '`' + (codex if host == 'codex' else claude) + '`'
+
+    text = re.sub(r'`\$(novel-[a-z-]+)`', invocation, text)
+    # Skill descriptions do not surround invocations in code quotes.
+    if host == 'claude':
+        for name in _AGENTS:
+            text = text.replace(name, name.replace('_', '-'))
+        text = re.sub(r'\$(novel-[a-z-]+)', lambda m: '/' + m[1], text)
+        text = text.replace("Codex's native", "Claude Code's native")
+    elif host == 'both':
+        for name in _AGENTS:
+            text = text.replace('`' + name + '`', '`' + name + '` (Codex) / `' + name.replace('_', '-') + '` (Claude Code)')
+        text = text.replace("Codex's native", "the active host's native")
+    if skill_source == 'plugin':
+        text = text.replace(
+            "Inspect the notebook's actually installed `.agents/skills/` entries and read the",
+            "Inspect the active host's actually enabled `novel-creator` plugin skills and read the")
+    elif host == 'claude':
+        text = text.replace('`.agents/skills/`', '`.claude/skills/`')
+    elif host == 'both':
+        text = text.replace('`.agents/skills/`', '`.agents/skills/` (Codex) or `.claude/skills/` (Claude Code)')
+    return text
+
+
+def _instructions(codex, host, skill_source):
+    text = codex.joinpath('AGENTS.md').read_text(encoding='utf-8')
+    if skill_source == 'plugin':
+        text = text.replace('[outline skill](.agents/skills/novel-outline/SKILL.md)',
+                            '[outline workflow](.novel-notebook/workflows/outline.md)')
+        text += ('\nSkills come from the enabled `novel-creator` plugin, not this notebook. '
+                 'Check actual host skill availability before claiming an invocation is available. '
+                 'Do not install duplicate project skill copies.\n')
+    elif host == 'claude':
+        text = text.replace('.agents/skills/', '.claude/skills/')
+    if host == 'claude':
+        text = text.replace('`.codex/agents/`', '`.claude/agents/`')
+        for name in _AGENTS:
+            text = text.replace(name, name.replace('_', '-'))
+        text += files('novel_creator.claude').joinpath('notebook', 'CLAUDE.fragment.md').read_text(encoding='utf-8')
+    return _host_text(text, host, skill_source).encode('utf-8')
+
+
+def initialize(target, *, title=None, language='en', host='codex', skill_source='project'):
     """Create only a nonexistent destination; preserve all partial failures."""
+    if host not in ('codex', 'claude', 'both') or skill_source not in ('project', 'plugin'):
+        raise ToolError(2, 'Notebook host must be codex, claude or both; skill source must be project or plugin')
     root = Path(target).absolute()
     title = root.name if title is None else title
     if language not in ('en', 'is') or not isinstance(title, str) or not title.strip():
@@ -51,22 +113,43 @@ def initialize(target, *, title=None, language='en'):
     # Read and render the entire small resource set before creating anything.
     shared = files('novel_creator.notebook_resources')
     codex = files('novel_creator.codex').joinpath('notebook')
-    planned = {'AGENTS.md': codex.joinpath('AGENTS.md').read_bytes(),
-               '.gitignore': b'.env\n.env.*\n*.key\n*.pem\n',
+    default_layout = host == 'codex' and skill_source == 'project'
+    hosts = ('codex', 'claude') if host == 'both' else (host,)
+    planned = {'.gitignore': b'.env\n.env.*\n*.key\n*.pem\n',
                '.gitattributes': b'*.md text eol=lf\n'}
-    for skill in ('novel-outline', 'novel-book-idea', 'novel-premise',
-                  'novel-character', 'novel-plot', 'novel-setting',
-                  'novel-agent', 'novel-research', 'novel-scene',
-                  'novel-chapter', 'novel-review', 'novel-clarify', 'novel-analyze',
-                  'novel-help'):
-        planned[f'.agents/skills/{skill}/SKILL.md'] = codex.joinpath('skills', skill, 'SKILL.md').read_bytes()
-    for agent in ('novel_orchestrator', 'novel_brainstormer', 'novel_researcher',
-                  'novel_scene_writer', 'novel_chapter_writer', 'novel_reviewer'):
-        planned[f'.codex/agents/{agent}.toml'] = codex.joinpath('agents', agent + '.toml').read_bytes()
+    for selected in hosts:
+        instruction_name = 'AGENTS.md' if selected == 'codex' else 'CLAUDE.md'
+        planned[instruction_name] = (codex.joinpath('AGENTS.md').read_bytes() if default_layout
+                                     else _instructions(codex, selected, skill_source))
+        if skill_source == 'project':
+            for skill in _SKILLS:
+                raw = codex.joinpath('skills', skill, 'SKILL.md').read_bytes()
+                if selected == 'claude':
+                    raw = _host_text(raw.decode('utf-8'), selected, skill_source).encode('utf-8')
+                directory = '.agents' if selected == 'codex' else '.claude'
+                planned[f'{directory}/skills/{skill}/SKILL.md'] = raw
+        for agent in _AGENTS:
+            raw = codex.joinpath('agents', agent + '.toml').read_bytes()
+            if selected == 'codex':
+                planned[f'.codex/agents/{agent}.toml'] = raw
+            else:
+                definition = tomllib.loads(raw.decode('utf-8'))
+                name = agent.replace('_', '-')
+                # JSON strings are valid YAML scalars; no optional YAML dependency.
+                markdown = ('---\nname: ' + name + '\ndescription: ' +
+                            json.dumps(definition['description'], ensure_ascii=False) +
+                            '\n---\n\n' + _host_text(definition['developer_instructions'], selected, skill_source))
+                planned[f'.claude/agents/{name}.md'] = markdown.encode('utf-8')
+    if not default_layout:
+        planned[_INTEGRATION] = (json.dumps({'version': 1, 'host': host,
+                                            'skill_source': skill_source}, indent=2) + '\n').encode('utf-8')
     for name in ('conversation.md', 'format.md', 'outline.md', 'brainstorming.md',
                  'agents.md', 'manuscript.md', 'research.md', 'review.md',
                  'clarify.md', 'analyze.md', 'help.md'):
-        planned['.novel-notebook/workflows/' + name] = shared.joinpath('workflows', name).read_bytes()
+        raw = shared.joinpath('workflows', name).read_bytes()
+        if not default_layout:
+            raw = _host_text(raw.decode('utf-8'), host, skill_source).encode('utf-8')
+        planned['.novel-notebook/workflows/' + name] = raw
     planned['.novel-notebook/languages/' + language + '.md'] = shared.joinpath('languages', language + '.md').read_bytes()
     for kind, filename, identifier in (('project', 'project.md', 'project'),
                                        ('summary', 'working-summary.md', 'working-summary')):
@@ -94,9 +177,11 @@ def initialize(target, *, title=None, language='en'):
     except (OSError, ToolError) as error:
         raise ToolError(5, 'Notebook setup is partial; files were preserved. Inspect them or choose a new destination; do not overwrite this folder',
                         data={'ready': False, 'partial': True, 'novel_path': str(root)}) from error
+    instructions = ' and '.join('AGENTS.md' if h == 'codex' else 'CLAUDE.md' for h in hosts)
     return {'ok': True, 'data': {'ready': True, 'format': 'novel-notebook', 'version': 1,
                                  'novel_path': str(root), 'language': language,
-                                 'next_action': 'Continue in this notebook folder before any creative reply: use novel_path as the working directory and read its AGENTS.md, linked guides, notebook/project.md and notebook/working-summary.md. Use native file and Git tools; brainstorming is optional. If the agent cannot access this folder, select/open the initialized project in the host; do not initialize it again.'}}
+                                 'host': host, 'skill_source': skill_source,
+                                 'next_action': 'Continue in this notebook folder before any creative reply: use novel_path as the working directory and read its ' + instructions + ', linked guides, notebook/project.md and notebook/working-summary.md. Use native file and Git tools; brainstorming is optional. If the agent cannot access this folder, select/open the initialized project in the host; do not initialize it again.'}}
 
 
 # Only these exact published 0.7.0/0.7.1 notebook resources may be refreshed.
@@ -151,6 +236,9 @@ def update(target, *, apply=False, preview_id=None, expected_head=None):
         return path
 
     safe(root)
+    marker = safe(root / _INTEGRATION)
+    if marker.exists():
+        raise ToolError(3, 'Notebook update does not support host/plugin integration layouts; existing files were preserved')
     if not root.is_dir() or not safe(root / '.git').is_dir():
         raise ToolError(3, 'Notebook update requires its independent Git repository root')
     if (root / '.novel-creator').exists():

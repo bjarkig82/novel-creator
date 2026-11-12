@@ -1,0 +1,6 @@
+recursive-include plugins/novel-creator *.json *.md *.py
+include plugins/novel-creator/.claude-plugin/plugin.json
+include scripts/build_plugins.py
+include .agents/plugins/marketplace.json
+include .claude-plugin/marketplace.json
+global-exclude __pycache__ *.py[cod]

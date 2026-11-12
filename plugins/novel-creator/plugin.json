@@ -1,0 +1,21 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "novel-creator",
+  "version": "0.8.0",
+  "description": "Independent story notebooks with shared writing workflows for Codex and Claude Code.",
+  "author": {
+    "name": "bjarkig82"
+  },
+  "repository": "https://github.com/bjarkig82/novel-creator",
+  "extensions": {
+    "com.openai": {
+      "onboardingSkill": "./skills/setup/SKILL.md",
+      "interface": {
+        "displayName": "Novel Creator",
+        "shortDescription": "Create and write independent story notebooks.",
+        "developerName": "bjarkig82",
+        "category": "Productivity"
+      }
+    }
+  }
+}

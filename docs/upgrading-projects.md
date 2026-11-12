@@ -17,6 +17,29 @@ New legacy novels and new notebooks initialized with 0.7.2 receive the guidance
 during setup. Existing projects follow the format-specific procedure below;
 package installation alone does not refresh their pinned resources.
 
+## Marketplace candidate (0.8.0)
+
+Version [0.8.0](releases/0.8.0.md) is unpublished; the installation command above
+remains the current public release. New notebooks can opt into the
+[marketplace plugin](plugin-marketplaces.md). New and existing legacy novels
+remain standalone. Existing notebooks keep their installed host routing and
+project-local resources; original Codex/project notebooks retain the focused
+Clarify/Analyze/Help update procedure below when using the candidate CLI from
+its local wheel.
+
+This updater refuses notebooks with a nondefault host/plugin integration marker
+at `.novel-notebook/integration.json` before writing. It is not an adoption tool;
+do not add/remove the marker or reinitialize an existing book to bypass it.
+Marketplace adoption and plugin-book snapshot migration are deferred.
+
+Plugin updates replace cached entries; book workflows, role definitions and
+instructions remain pinned. Python installation alone still does not update a
+book. Plugin uninstall leaves book data/history and its independent runtime in
+place. After a plugin update, reload it in the actual host, open the book folder
+itself and reread its applicable `AGENTS.md`/`CLAUDE.md` and linked workflows.
+Native discovery needs its own host check. For standalone projects, continue
+the complete package → project preview/apply → Codex reload sequence below.
+
 ## Legacy novels
 
 A legacy novel contains `.novel-creator/`. Ask the agent in that novel to preview

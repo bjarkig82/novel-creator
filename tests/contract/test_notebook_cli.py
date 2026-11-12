@@ -38,6 +38,24 @@ class NotebookCLI(unittest.TestCase):
         self.assertEqual(create.call_args.kwargs['title'], 'Þóra')
         self.assertEqual(create.call_args.kwargs['language'], 'is')
 
+    def test_host_and_skill_source_dispatch(self):
+        with patch('novel_creator.notebook.initialize', return_value={
+                'ok': True, 'data': {'ready': True}}) as create:
+            code, out, _ = self.call('notebook', 'init', 'Folder', '--host', 'both',
+                                     '--skill-source', 'plugin', '--json')
+        self.assertEqual(code, 0)
+        self.assertEqual(create.call_args.kwargs['host'], 'both')
+        self.assertEqual(create.call_args.kwargs['skill_source'], 'plugin')
+
+    def test_invalid_or_repeated_host_options_never_initialize(self):
+        for args in (('--host', 'other'), ('--skill-source', 'other'),
+                     ('--host', 'both', '--host', 'claude'),
+                     ('--skill-source', 'plugin', '--skill-source', 'project')):
+            with self.subTest(args=args), patch('novel_creator.notebook.initialize') as create:
+                code, out, _ = self.call('notebook', 'init', 'Folder', *args, '--json')
+                self.assertEqual(code, 2)
+                create.assert_not_called()
+
     def test_human_success_reports_format_version_language_and_next_action(self):
         with patch('novel_creator.notebook.initialize', return_value={
                 'ok': True, 'data': {'ready': True, 'novel_path': 'Story folder',

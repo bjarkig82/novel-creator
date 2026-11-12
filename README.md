@@ -4,6 +4,14 @@ A home for developing an app that helps writers plan and create novels.
 
 ## Getting started
 
+**0.8.0 is an unpublished candidate** for creating new notebooks through the
+Novel Creator plugin in Codex or Claude Code on Windows/Linux. See
+[marketplace setup](docs/plugin-marketplaces.md) for local candidate installation,
+the isolated Python runtime and host limits, and the
+[candidate notes](docs/releases/0.8.0.md) for compatibility. PyPI publication and
+release verification are pending. Existing notebook adoption and a legacy host
+port are deferred.
+
 **Novel Creator 0.7.2 is published, 2026-11-11.** Clarify offers a few
 suggested answers and an explicit custom-answer option in both story formats.
 Existing projects need an explicit update after package installation; see the
@@ -68,9 +76,13 @@ unverified. The developer/older POC instructions below remain reference material
 See the [release history](docs/releases/README.md) for version changes and
 compatibility. Candidate verification precedes publication.
 
-## New story notebook (0.4.0)
+## New story notebook
 
-The published 0.4.0 package adds a native Codex Markdown notebook for **new novels**.
+The published package includes a native Codex Markdown notebook for **new novels**,
+first introduced in 0.4.0. The default setup remains standalone Codex with
+project-local skills. Candidate 0.8.0 adds optional `--host codex|claude|both` and
+`--skill-source project|plugin` initialization; the plugin setup uses
+`--host both --skill-source plugin`. See [marketplace setup](docs/plugin-marketplaces.md).
 Install it in a Python 3.11+
 virtual environment, with Git 2.39+ and your Git identity configured. The
 older 0.3.0 package does not contain this command. Your agent can execute

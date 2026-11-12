@@ -124,6 +124,8 @@ def parser():
         notebook_init.add_argument('--path', action=Once)
         notebook_init.add_argument('--title', action=Once)
         notebook_init.add_argument('--language', choices=('en', 'is'), action=Once)
+        notebook_init.add_argument('--host', choices=('codex', 'claude', 'both'), action=Once)
+        notebook_init.add_argument('--skill-source', choices=('project', 'plugin'), action=Once)
         notebook_init.add_argument('--json', action=SwitchOnce)
         notebook_init.set_defaults(brief_file=None)
         notebook_update = notebook_actions.add_parser('update', description='Preview or explicitly add focused methods to an existing story notebook')
@@ -248,7 +250,8 @@ def main(argv=None):
             request = _init_request(args)
             result = initialize(request['resolved_destination'],
                                 title=args.title if args.title is not None else args.name,
-                                language=args.language or 'en')
+                                language=args.language or 'en',
+                                host=args.host or 'codex', skill_source=args.skill_source or 'project')
             if args.json:
                 print(json.dumps(result, ensure_ascii=False, allow_nan=False))
             else:
