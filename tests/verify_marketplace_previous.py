@@ -7,6 +7,7 @@ import argparse
 import hashlib
 import json
 import os
+import re
 from pathlib import Path
 import sys
 import tempfile
@@ -140,12 +141,90 @@ def verify(*, plugin, wheel, previous=None, source_version=PREVIOUS_VERSION, sdi
                           'target_version': runtime['version'],
                           'story_custom_instructions_history_and_staging_preserved': True,
                           'focused_update': 'compatible', 'implicit_plugin_adoption': False})
-        return {'ok': True, 'source_sha256': PUBLIC_WHEELS[source_version][1],
+        manual = (verify_manual(python, old_product, old_cli, scratch, env)
+                  if source_version == '0.8.0' else [])
+        return {'ok': True, 'manual_notebooks': manual,
+                'source_sha256': PUBLIC_WHEELS[source_version][1],
                 'verified_product_files': runtime['verified_product_files'],
                 'candidate_artifact': 'sdist' if sdist else 'wheel',
                 'candidate_artifact_sha256': hashlib.sha256((sdist or wheel).read_bytes()).hexdigest(),
                 'candidate_wheel_sha256': hashlib.sha256(wheel.read_bytes()).hexdigest(),
                 'notebooks': cases}
+
+
+def verify_manual(python, old_product, old_cli, scratch, env):
+    """Execute the guide in actual public 0.8 books under this installed artifact."""
+    doc = (ROOT / 'docs/character-development.md').read_text(encoding='utf-8')
+    snippets = re.findall(r'```python\n(.*?)\n```', doc, re.S)
+    require(len(snippets) == 1, 'Expected the actual one-off documented procedure')
+    procedure = snippets[0]
+    cases = []
+    for host in ('codex', 'claude', 'both'):
+        for source in ('project', 'plugin'):
+            for language in ('en', 'is'):
+                book = scratch / f'Manual {host} {source} {language}'
+                created = json.loads(run([python, '-I', '-B', '-c', old_cli, old_product,
+                                          'notebook', 'init', book.name, '--path', book,
+                                          '--language', language, '--host', host,
+                                          '--skill-source', source, '--json'], env=env, cwd=scratch))
+                require(created.get('ok') and created['data']['ready'], 'Public 0.8 init failed')
+                hosts = ('codex', 'claude') if host == 'both' else (host,)
+                roots = ['AGENTS.md' if selected == 'codex' else 'CLAUDE.md' for selected in hosts]
+                for name in roots:
+                    path = book / name
+                    path.write_bytes(path.read_bytes() + b'\nCustom writer direction.\n'
+                                     b'[Unrelated custom link](outside.md)\n')
+                (book / 'notebook/writer-preserved.md').write_bytes(b'Accepted writer text.\n')
+                staged = book / 'writer-staging.txt'
+                staged.write_bytes(b'Staged writer bytes\n')
+                run(['git', '-C', book, 'add', '--', staged.name], env=env, cwd=scratch)
+                staged.write_bytes(b'Unstaged writer bytes\n')
+                root_bytes = {name: (book / name).read_bytes() for name in roots}
+                before = snapshot(book)
+                head = run(['git', '-C', book, 'rev-parse', 'HEAD'], env=env, cwd=scratch)
+                index = (book / '.git/index').read_bytes()
+                command = [python, '-I', '-B', '-c', procedure]
+                run(command, env=env, cwd=book)
+                after = snapshot(book)
+                skills = {f'{".agents" if selected == "codex" else ".claude"}/skills/'
+                          'novel-character-develop/SKILL.md' for selected in hosts} if source == 'project' else set()
+                additions = skills | {'.novel-notebook/workflows/character-development.md'}
+                require(set(after) - set(before) == additions, 'Unexpected manual resource additions')
+                require({name for name in before if before[name] != after[name]} == set(roots),
+                        'Manual installation changed unrelated files')
+                for name in roots:
+                    require((book / name).read_bytes().startswith(root_bytes[name]), 'Custom root bytes changed')
+                # Compare actual bytes to the installed artifact rendered exactly as new setup.
+                probe = ("from novel_creator.notebook import initialize;from pathlib import Path;"
+                         f"initialize(Path({str(scratch / ('Expected ' + book.name))!r}), "
+                         f"language={language!r},host={host!r},skill_source={source!r})")
+                run([python, '-I', '-B', '-c', probe], env=env, cwd=scratch)
+                expected = scratch / ('Expected ' + book.name)
+                for name in additions:
+                    require((book / name).read_bytes() == (expected / name).read_bytes(),
+                            'Rendered feature bytes differ')
+                for name in roots:
+                    text = (expected / name).read_text(encoding='utf-8')
+                    section = re.search(r'^## Character development\n.*?(?=^## |\Z)',
+                                        text, re.M | re.S).group().rstrip() + '\n'
+                    require((book / name).read_bytes().endswith(section.encode('utf-8')),
+                            'Rendered root feature section differs')
+                run(command, env=env, cwd=book)
+                require(snapshot(book) == after, 'Manual retry changed files')
+                feature = book / '.novel-notebook/workflows/character-development.md'
+                original = feature.read_bytes()
+                feature.write_bytes(original + b'Writer divergent feature policy\n')
+                conflicted = snapshot(book)
+                run(command, env=env, cwd=book, expected_exit=1)
+                require(snapshot(book) == conflicted, 'Manual conflict mutated files')
+                feature.write_bytes(original)
+                require((book / '.git/index').read_bytes() == index, 'Manual installation changed staging')
+                require(run(['git', '-C', book, 'rev-parse', 'HEAD'], env=env, cwd=scratch) == head,
+                        'Manual installation changed history')
+                cases.append(dict(host=host, skill_source=source, language=language,
+                                  source_version='0.8.0', exact_rendered_bytes=True,
+                                  conflict_retry_story_custom_instructions_index_history_preserved=True))
+    return cases
 
 
 def probe_guards(command, book, scratch, env):

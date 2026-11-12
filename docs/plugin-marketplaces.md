@@ -1,5 +1,15 @@
 # Marketplace setup for new notebooks
 
+The **0.9.0 candidate is unpublished** and adds Character development as the
+fifteenth writing entry (sixteen entries including setup). Its drafts/revisions
+stay in chat until explicit approval to save current or selected additions.
+Use `$novel-creator:novel-character-develop` in Codex or
+`/novel-creator:novel-character-develop` in Claude Code. New notebooks receive
+the workflow; existing plugin books require the [explicit manual snapshot update](character-development.md#manually-install-into-an-existing-format-1-notebook)
+after upgrading/enabling the plugin. Cached plugin updates alone do not rewrite
+books. See [candidate notes](releases/0.9.0.md). The instructions below describe
+the currently published 0.8.0 release.
+
 Version **0.8.0 is published, 2026-11-12**; see the
 [release notes](releases/0.8.0.md). Full Windows/Linux automated qualification,
 public package installation and normal published-index bootstrap passed.

@@ -1,7 +1,7 @@
 # Character development: scenarios and evidence
 
-November 12, 2026. Unpublished source work for format-1 notebooks, absent from
-published 0.6.0. This ledger distinguishes resource delivery from agent behavior,
+November 12, 2026. Unpublished 0.9.0 candidate for format-1 notebooks, absent from
+published 0.8.0. This ledger distinguishes resource delivery from agent behavior,
 native host discovery and literary quality. No real novel is an evaluation target.
 See the [usage/manual-install guide](../../docs/character-development.md) and
 [behavioral workflow](../../notebook/workflows/character-development.md).
@@ -37,26 +37,26 @@ full rubric and human literary assessment remain unrun.
 ## Automated delivery and manual-install evidence
 
 The focused `tests.integration.test_character_development_install` module executes
-the actual Python snippet from the guide using installed package resource bytes.
-Its disposable older-format notebooks retain custom `AGENTS.md` instructions,
-story notes, a navigation edit, and both staged and unstaged writer changes.
-Five tests passed: English/Icelandic installation with backtick/tilde metadata
-fences plus identical retry, divergent
-workflow/skill/root-section refusal before writes, and missing shared guidance,
-configured-language resource or unsupported format refusal, plus CRLF root-section
-divergence refusal and identical CRLF reinstallation without changing original
-bytes. Both CRLF regressions failed against the previous snippet before its
-section-detection text was normalized, then passed after the fix. Assertions compare
-all non-Git file bytes, exact resource bytes, the complete Git index entries and
-HEAD for successful installation; divergence also preserves the index. Only two
-new resources and the appended root section change on success.
+the actual Python snippet from the guide against installed package resources.
+The matrix covers Codex/Claude/both × project/plugin × English/Icelandic,
+backtick/tilde format-1 metadata, rendered workflow/skill bytes, identical retry,
+custom root directions and unrelated links, story notes, index and HEAD.
+Project layouts get only their host skills; plugin layouts get no local copies.
+Failure cases cover divergent feature files, missing prerequisites or roots,
+unsupported format/language, malformed/unsupported/unreadable integration markers,
+redirected paths and both root files with identical/divergent CRLF sections.
+These are structural delivery checks, not native conversation observations.
 
-The coordinator separately reported six focused package/CLI tests passing,
-including wheel and source-distribution inventories of 28 resources and isolated
-English/Icelandic notebook initialization. It also reported 28 focused Task 1
-initializer/verifier tests passing. Those are structural resource-delivery checks,
-not evidence of conversation quality or native skill discovery. This task does
-not rerun full release qualification or the full suite.
+The existing release gate `tests/verify_marketplace_previous.py` retains its
+frozen public 0.7.2 and 0.8.0 default-updater checks. For public 0.8.0 it also
+executes the actual documented procedure in every host/source/language layout,
+from installed candidate wheel and source-distribution runtimes. It compares
+feature bytes with the same artifact's initializer, verifies exact changed scope,
+custom directions, story, index/history, conflict refusal and identical retry.
+The existing Linux/Windows candidate workflow invokes that probe with both
+artifacts. Final platform outcomes and candidate identities belong in the
+[release ledger](release-0.9.0.md); focused local passes do not imply full release
+qualification or native discovery. No real novel is edited.
 
 ## Controlled agent-runtime exercise
 

@@ -218,8 +218,8 @@ def complete_release(selection, assets, output, *, publish=False):
     source = selection['source_commit']
     notes = output / 'notes.md'
     notes.write_text(
-        f"Novel Creator {selection['version']} adds installable Codex and Claude Code plugins, "
-        "with guided English/Icelandic notebook setup and fifteen shared writing skills.\n\n"
+        f"Novel Creator {selection['version']} package distributions and reproducible "
+        "Codex and Claude Code plugin/marketplace archives.\n\n"
         f"- [Release notes]({base}/blob/main/docs/releases/{selection['version']}.md)\n"
         f"- [Marketplace installation guide]({base}/blob/main/docs/plugin-marketplaces.md)\n"
         f"- [Qualified source]({base}/commit/{source})\n"

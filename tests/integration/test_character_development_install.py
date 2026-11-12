@@ -9,8 +9,9 @@ import tempfile
 import unittest
 from unittest.mock import patch
 
-from novel_creator.notebook import initialize
+from novel_creator.notebook import initialize, _host_text, _instructions
 from tests.notebook_contract_helpers import validate_notebook
+from tests.integration import test_path_redirection
 
 
 class CharacterDevelopmentManualInstall(unittest.TestCase):
@@ -46,18 +47,38 @@ class CharacterDevelopmentManualInstall(unittest.TestCase):
     def git(self, root, *arguments):
         return subprocess.check_output(['git', '-C', str(root), *arguments])
 
-    def older_notebook(self, language):
-        root = self.area / language
-        initialize(root, language=language)
+    def older_notebook(self, language, host='codex', source='project'):
+        root = self.area / f'{language}-{host}-{source}'
+        initialize(root, language=language, host=host, skill_source=source)
+        hosts = ('codex', 'claude') if host == 'both' else (host,)
+        codex = files('novel_creator.codex').joinpath('notebook')
+        self.resources = {'.novel-notebook/workflows/character-development.md':
+                          _host_text(files('novel_creator.notebook_resources').joinpath(
+                              'workflows/character-development.md').read_text(encoding='utf-8'),
+                              host, source).encode()}
+        self.sections = {}
+        for selected in hosts:
+            name = 'AGENTS.md' if selected == 'codex' else 'CLAUDE.md'
+            text = _instructions(codex, selected, source).decode()
+            section = re.search(r'^## Character development\n.*?(?=^## |\Z)',
+                                text, re.M | re.S).group().rstrip() + '\n'
+            self.sections[name] = section
+            if source == 'project':
+                directory = '.agents' if selected == 'codex' else '.claude'
+                self.resources[f'{directory}/skills/novel-character-develop/SKILL.md'] = (
+                    _host_text(codex.joinpath('skills/novel-character-develop/SKILL.md').read_text(
+                        encoding='utf-8'), selected, source).encode())
         if language == 'is':
             project = root / 'notebook/project.md'
             project.write_bytes(project.read_bytes().replace(b'```', b'~~~'))
         for relative in self.resources:
             (root / relative).unlink()
-        agents = root / 'AGENTS.md'
-        old = agents.read_text(encoding='utf-8').replace(self.section, '')
-        agents.write_text(old + '\n## Writer custom guidance\n\n'
-                          'Use restrained language. Preserve my spelling: Elín.\n', encoding='utf-8')
+        for name, section in self.sections.items():
+            instructions = root / name
+            old = instructions.read_text(encoding='utf-8').replace(section, '')
+            instructions.write_text(old + '\n## Writer custom guidance\n\n'
+                                    'Use restrained language. Preserve my spelling: Elín.\n'
+                                    '[Custom unrelated reference](outside-custom.md)\n', encoding='utf-8')
         topic = root / 'notebook/topics/elin.md'
         topic.parent.mkdir()
         topic.write_text('```json\n{"format":"novel-notebook","version":1,'
@@ -91,28 +112,31 @@ class CharacterDevelopmentManualInstall(unittest.TestCase):
         return result
 
     def test_documented_install_and_identical_retry_preserve_story_and_index(self):
-        for language in ('en', 'is'):
-            with self.subTest(language=language):
-                root = self.older_notebook(language)
-                before = self.snapshot(root)
-                index = self.git(root, 'ls-files', '--stage', '-z')
-                head = self.git(root, 'rev-parse', 'HEAD')
-                self.run_procedure(root)
-                after = self.snapshot(root)
-                self.assertEqual(set(after) - set(before), set(self.resources))
-                self.assertEqual({p for p in before if before[p] != after[p]}, {'AGENTS.md'})
-                self.assertTrue(after['AGENTS.md'].startswith(before['AGENTS.md']))
-                self.assertEqual(after['AGENTS.md'].decode().count(self.section), 1)
-                for relative, raw in self.resources.items():
-                    self.assertEqual(after[relative], raw)
-                    path = root / relative
-                    for link in re.findall(r'\]\(([^)]+)\)', raw.decode()):
-                        self.assertTrue((path.parent / link).is_file(), link)
-                self.assertEqual(self.git(root, 'ls-files', '--stage', '-z'), index)
-                self.assertEqual(self.git(root, 'rev-parse', 'HEAD'), head)
-                self.run_procedure(root)
-                self.assertEqual(self.snapshot(root), after)
-                self.assertEqual(self.git(root, 'ls-files', '--stage', '-z'), index)
+        for host in ('codex', 'claude', 'both'):
+            for source in ('project', 'plugin'):
+                for language in ('en', 'is'):
+                    with self.subTest(host=host, source=source, language=language):
+                        root = self.older_notebook(language, host, source)
+                        before = self.snapshot(root)
+                        index = self.git(root, 'ls-files', '--stage', '-z')
+                        head = self.git(root, 'rev-parse', 'HEAD')
+                        self.run_procedure(root)
+                        after = self.snapshot(root)
+                        self.assertEqual(set(after) - set(before), set(self.resources))
+                        self.assertEqual({p for p in before if before[p] != after[p]}, set(self.sections))
+                        for name, section in self.sections.items():
+                            self.assertTrue(after[name].startswith(before[name]))
+                            self.assertEqual(after[name].decode().count(section), 1)
+                        for relative, raw in self.resources.items():
+                            self.assertEqual(after[relative], raw)
+                        self.assertEqual(self.git(root, 'ls-files', '--stage', '-z'), index)
+                        self.assertEqual(self.git(root, 'rev-parse', 'HEAD'), head)
+                        self.run_procedure(root)
+                        self.assertEqual(self.snapshot(root), after)
+                        self.assertEqual(self.git(root, 'ls-files', '--stage', '-z'), index)
+                        if source == 'plugin':
+                            self.assertFalse((root / '.agents/skills').exists())
+                            self.assertFalse((root / '.claude/skills').exists())
 
     def test_divergent_destinations_stop_before_any_writes(self):
         for number, relative in enumerate((*self.resources, 'AGENTS.md')):
@@ -152,33 +176,131 @@ class CharacterDevelopmentManualInstall(unittest.TestCase):
                 self.assertEqual(self.snapshot(root), before)
                 root.rename(self.area / f'missing-{number}')
 
-    def test_crlf_divergent_root_section_stops_before_any_writes(self):
-        root = self.older_notebook('en')
-        agents = root / 'AGENTS.md'
-        guidance = agents.read_bytes() + (
-            b'\n## Character development\n\nCustom rule: save suggestions automatically.\n')
-        agents.write_bytes(guidance.replace(b'\n', b'\r\n'))
-        before = self.snapshot(root)
-        index = self.git(root, 'ls-files', '--stage', '-z')
-        result = self.run_procedure(root, success=False)
-        self.assertIn('Divergent root feature section', result.stderr)
-        self.assertEqual(self.snapshot(root), before)
-        self.assertEqual(self.git(root, 'ls-files', '--stage', '-z'), index)
+    def test_both_crlf_roots_identical_or_divergent_preflight(self):
+        for conflict in (None, 'AGENTS.md', 'CLAUDE.md'):
+            with self.subTest(conflict=conflict):
+                root = self.older_notebook('en', 'both')
+                for name, section in self.sections.items():
+                    raw = (root / name).read_bytes() + b'\n' + section.encode()
+                    if name == conflict:
+                        raw += b'Writer divergent addition.\n'
+                    (root / name).write_bytes(raw.replace(b'\n', b'\r\n'))
+                if conflict is None:
+                    for relative, raw in self.resources.items():
+                        path = root / relative
+                        path.parent.mkdir(parents=True, exist_ok=True)
+                        path.write_bytes(raw.replace(b'\n', b'\r\n'))
+                before = self.snapshot(root)
+                index = self.git(root, 'ls-files', '--stage', '-z')
+                self.run_procedure(root, success=conflict is None)
+                self.assertEqual(self.snapshot(root), before)
+                self.assertEqual(self.git(root, 'ls-files', '--stage', '-z'), index)
+                root.rename(self.area / f'crlf-{conflict}')
 
-    def test_crlf_identical_root_section_reinstallation_preserves_exact_bytes(self):
-        root = self.older_notebook('en')
-        agents = root / 'AGENTS.md'
-        guidance = agents.read_bytes() + b'\n' + self.section.encode('utf-8')
-        agents.write_bytes(guidance.replace(b'\n', b'\r\n'))
-        for relative, raw in self.resources.items():
-            path = root / relative
-            path.parent.mkdir(parents=True, exist_ok=True)
-            path.write_bytes(raw)
-        before = self.snapshot(root)
+    def test_invalid_and_unreadable_markers_stop_before_writes(self):
+        markers = (b'{', b'[]', b'{"version":true,"host":"both","skill_source":"plugin"}',
+                   b'{"version":2,"host":"both","skill_source":"plugin"}',
+                   b'{"version":1,"host":"other","skill_source":"plugin"}',
+                   b'{"version":1,"host":"codex","skill_source":"other"}', None)
+        for number, marker in enumerate(markers):
+            with self.subTest(marker=marker):
+                root = self.older_notebook('en', 'both', 'plugin')
+                path = root / '.novel-notebook/integration.json'
+                if marker is None:
+                    path.chmod(0)
+                    if path.stat().st_mode & 0o444:
+                        # Windows chmod does not remove read permission.
+                        path.chmod(0o644)
+                        root.rename(self.area / f'marker-{number}')
+                        continue
+                else:
+                    path.write_bytes(marker)
+                before = self.snapshot(root) if marker is not None else None
+                try:
+                    self.run_procedure(root, success=False)
+                finally:
+                    if marker is None:
+                        path.chmod(0o644)
+                if marker is None:
+                    self.assertFalse((root / '.novel-notebook/workflows/character-development.md').exists())
+                else:
+                    self.assertEqual(self.snapshot(root), before)
+                root.rename(self.area / f'marker-{number}')
+
+    def test_partial_install_retry_preserves_completed_resources(self):
+        root = self.older_notebook('is', 'both', 'project')
+        workflow = '.novel-notebook/workflows/character-development.md'
+        (root / workflow).write_bytes(self.resources[workflow].replace(b'\n', b'\r\n'))
+        root_name = 'AGENTS.md'
+        path = root / root_name
+        path.write_bytes(path.read_bytes() + b'\n' + self.sections[root_name].encode())
+        before_workflow, before_root = (root / workflow).read_bytes(), path.read_bytes()
         index = self.git(root, 'ls-files', '--stage', '-z')
         self.run_procedure(root)
-        self.assertEqual(self.snapshot(root), before)
+        self.assertEqual((root / workflow).read_bytes(), before_workflow)
+        self.assertEqual(path.read_bytes(), before_root)
         self.assertEqual(self.git(root, 'ls-files', '--stage', '-z'), index)
+        after = self.snapshot(root)
+        self.run_procedure(root)
+        self.assertEqual(self.snapshot(root), after)
+
+    def test_marker_read_denial_preserves_all_files(self):
+        root = self.older_notebook('en', 'both', 'plugin')
+        prefix = ("from pathlib import Path\n"
+                  "read_original = Path.read_bytes\n"
+                  "def denied(path):\n"
+                  "    if path.name == 'integration.json': raise PermissionError('marker denied')\n"
+                  "    return read_original(path)\n"
+                  "Path.read_bytes = denied\n")
+        before = self.snapshot(root)
+        result = subprocess.run([sys.executable, '-I', '-c', prefix + self.procedure],
+                                cwd=root, capture_output=True, text=True)
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn('marker denied', result.stderr)
+        self.assertEqual(self.snapshot(root), before)
+
+    @unittest.skipUnless(os.name == 'nt', 'Windows junction guard')
+    def test_windows_junction_preflight(self):
+        root = self.older_notebook('en', 'both')
+        parent = root / '.claude/skills/novel-character-develop'
+        parent.rmdir()
+        for outside in (self.area / 'junction-target', root / 'writer-owned-dir'):
+            outside.mkdir()
+            test_path_redirection.PathRedirectionTests.junction(parent, outside)
+            try:
+                before = self.snapshot(root)
+                self.run_procedure(root, success=False)
+                self.assertEqual(self.snapshot(root), before)
+                self.assertEqual(list(outside.iterdir()), [])
+            finally:
+                os.rmdir(parent)
+
+    def test_missing_second_root_and_redirected_destination_preflight(self):
+        for case in ('missing-root', 'hardlink', 'symlink', 'parent-file'):
+            with self.subTest(case=case):
+                root = self.older_notebook('en', 'both')
+                if case == 'missing-root':
+                    (root / 'CLAUDE.md').unlink()
+                elif case == 'parent-file':
+                    parent = root / '.claude/skills/novel-character-develop'
+                    parent.rmdir()
+                    parent.write_bytes(b'Writer file')
+                else:
+                    target = self.area / ('outside-' + case)
+                    target.write_bytes(b'Outside writer bytes')
+                    destination = root / '.novel-notebook/workflows/character-development.md'
+                    if case == 'hardlink':
+                        os.link(target, destination)
+                    else:
+                        try:
+                            destination.symlink_to(target)
+                        except OSError:
+                            root.rename(self.area / f'preflight-{case}')
+                            continue  # Windows may not permit unprivileged symlinks.
+                before = self.snapshot(root)
+                self.run_procedure(root, success=False)
+                self.assertEqual(self.snapshot(root), before)
+                root.rename(self.area / f'preflight-{case}')
 
 
 if __name__ == '__main__':

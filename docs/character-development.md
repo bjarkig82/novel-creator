@@ -1,6 +1,6 @@
 # Develop a character profile
 
-This feature is **unpublished source work**, not part of published 0.6.0. A
+This feature is an **unpublished 0.9.0 candidate**, compared with published 0.8.0. A
 package containing these resources installs them into new format-1 notebooks;
 installing or upgrading a package does not change existing notebooks. Existing
 notebooks can use the explicit manual procedure below. Legacy novels are outside
@@ -12,6 +12,11 @@ In an equipped notebook, ask naturally or use the optional skill:
 > her brother. Preserve what we already know.
 
 > $novel-character-develop Develop Elin's profile where it most needs depth.
+
+Standalone Claude Code uses `/novel-character-develop`. With the enabled plugin,
+use `$novel-creator:novel-character-develop` in Codex or
+`/novel-creator:novel-character-develop` in Claude Code. Ordinary language works
+with every equipped layout.
 
 Without a focus, the agent chooses useful gaps from the owning notes and briefly
 explains its choice. Expect a summary of at most about 100 words, then 2–3
@@ -51,12 +56,27 @@ separates structural checks from unverified native conversation and literary qua
 Use a trusted source checkout or package artifact containing this feature, in an
 isolated Python environment (Python 3.11+). For a source checkout, install that
 reviewed checkout with `python -m pip install /absolute/path/to/novel-creator`.
-There is no released version number to request for this feature. The capability
-probe below uses `importlib.resources`, so a published 0.6.0 installation lacking
+After publication, install `novel-creator==0.9.0`; until then use the reviewed candidate. The capability
+probe below uses `importlib.resources`, so a published 0.8.0 installation lacking
 the resources stops before notebook changes. It prints the selected package
 resource locations; check they belong to the intended installation.
 
-Open the actual notebook folder and inspect `git status` and its `AGENTS.md` first.
+For default standalone Codex/project notebooks, prefer the reviewed
+[preview/apply updater](upgrading-projects.md#existing-markdown-notebooks) from
+0.9.0. This manual alternative also supports Codex, Claude Code and both hosts,
+with project or plugin skills, in English and Icelandic. A valid integration
+marker selects nondefault routing; absent markers mean Codex/project. Malformed,
+unsupported or unreadable markers stop before writes. Never remove a marker,
+adopt a plugin, reinitialize or convert a book to bypass a refusal.
+
+For plugin notebooks, upgrade and enable the 0.9.0 plugin in the actual host first;
+this procedure updates the book's workflow snapshot and root approval sections,
+without installing duplicate local skills. Project layouts get the matching
+`.agents/skills/` and/or `.claude/skills/` entries. The existing Help catalog is
+retained; discover this addition from its root section and actual installed entry.
+
+Open the actual notebook folder and inspect `git status` and its selected
+`AGENTS.md` and/or `CLAUDE.md` first.
 Read the supplied [root Character development section](../adapters/codex/notebook/AGENTS.md#character-development).
 Reconcile custom instructions that explicitly conflict with its chat-only
 exception intentionally, retaining the writer's original guidance. Do not blindly
@@ -77,24 +97,40 @@ from importlib.resources import files
 from pathlib import Path
 import json
 import re
+from novel_creator.notebook import _host_text, _instructions
 
 root = Path.cwd().resolve()  # Must be the intended notebook root.
-shared = files('novel_creator.notebook_resources')
-codex = files('novel_creator.codex').joinpath('notebook')
-copies = {
-    '.novel-notebook/workflows/character-development.md':
-        shared.joinpath('workflows/character-development.md').read_bytes(),
-    '.agents/skills/novel-character-develop/SKILL.md':
-        codex.joinpath('skills/novel-character-develop/SKILL.md').read_bytes(),
-}
-supplied = codex.joinpath('AGENTS.md').read_text(encoding='utf-8')
-section_match = re.search(r'^## Character development\n.*?(?=^## |\Z)',
-                          supplied, re.M | re.S)
-assert section_match, 'Package lacks the root feature section; stop.'
-section = section_match.group().rstrip() + '\n'
-print('Package resources:', shared, codex)
 
-project = (root / 'notebook/project.md').read_text(encoding='utf-8')
+def regular(relative, required=False):
+    path = root / relative
+    assert path.resolve() == path, f'Redirected path: {relative}; stop.'
+    assert not any(p.is_symlink() for p in (path, *path.parents)), (
+        f'Symlink path: {relative}; stop.')
+    for parent in path.parents:
+        assert not parent.exists() or parent.is_dir(), f'Invalid parent: {relative}; stop.'
+    if path.exists():
+        assert path.is_file() and path.stat().st_nlink == 1, f'Unsafe file: {relative}; stop.'
+        assert path.stat().st_mode & 0o444, f'Unreadable file: {relative}; stop.'
+    else:
+        assert not required, f'Missing prerequisite: {relative}; stop.'
+    return path
+
+def normalized(raw):
+    return raw.decode('utf-8').replace('\r\n', '\n')
+
+marker = regular('.novel-notebook/integration.json')
+host, source = 'codex', 'project'
+if marker.exists():
+    integration = json.loads(marker.read_bytes())
+    assert isinstance(integration, dict) and set(integration) == {
+        'version', 'host', 'skill_source'}, 'Invalid integration marker; stop.'
+    assert type(integration['version']) is int and integration['version'] == 1, (
+        'Unsupported integration marker; stop.')
+    host, source = integration['host'], integration['skill_source']
+    assert host in ('codex', 'claude', 'both') and source in ('project', 'plugin'), (
+        'Unsupported integration marker; stop.')
+hosts = ('codex', 'claude') if host == 'both' else (host,)
+project = normalized(regular('notebook/project.md', True).read_bytes())
 envelope = re.match(r'\A(```|~~~)json\n(.*?)\n\1\n', project, re.S)
 assert envelope, 'Missing format metadata; stop.'
 meta = json.loads(envelope[2])
@@ -109,25 +145,57 @@ for relative in ('notebook/working-summary.md',
                  '.novel-notebook/workflows/agents.md',
                  '.novel-notebook/workflows/brainstorming.md',
                  f'.novel-notebook/languages/{language}.md'):
-    assert (root / relative).is_file(), f'Missing prerequisite: {relative}; stop.'
+    normalized(regular(relative, True).read_bytes())
 
-agents_path = root / 'AGENTS.md'
-original = agents_path.read_bytes()
-text = original.decode('utf-8').replace('\r\n', '\n')  # Compare text; preserve original bytes.
-existing = re.search(r'^## Character development\n.*?(?=^## |\Z)',
-                     text, re.M | re.S)
-assert not existing or existing.group().rstrip() == section.rstrip(), (
-    'Divergent root feature section; preserve and reconcile before retrying.')
-merged = original if existing else original + (
-    ('\n' if original.endswith(b'\n') else '\n\n') + section).encode('utf-8')
-planned = {**copies, 'AGENTS.md': merged}
+shared = files('novel_creator.notebook_resources')
+codex = files('novel_creator.codex').joinpath('notebook')
+print('Package resources:', shared, codex, 'layout:', host, source)
+workflow = shared.joinpath('workflows/character-development.md').read_text(encoding='utf-8')
+copies = {'.novel-notebook/workflows/character-development.md':
+          _host_text(workflow, host, source).encode('utf-8')}
+sections = {}
+for selected in hosts:
+    name = 'AGENTS.md' if selected == 'codex' else 'CLAUDE.md'
+    supplied = _instructions(codex, selected, source).decode('utf-8')
+    match = re.search(r'^## Character development\n.*?(?=^## |\Z)', supplied, re.M | re.S)
+    assert match, 'Package lacks the root feature section; stop.'
+    sections[name] = match.group().rstrip() + '\n'
+    if source == 'project':
+        directory = '.agents' if selected == 'codex' else '.claude'
+        skill = codex.joinpath('skills/novel-character-develop/SKILL.md').read_text(encoding='utf-8')
+        copies[f'{directory}/skills/novel-character-develop/SKILL.md'] = (
+            _host_text(skill, selected, source).encode('utf-8'))
+
+# Preflight every destination before any writes. Retain existing identical bytes.
+planned, originals, link_text = {}, {}, {}
+for relative, desired in copies.items():
+    path = regular(relative)
+    original = path.read_bytes() if path.exists() else None
+    assert original is None or normalized(original) == normalized(desired), (
+        f'Divergent {relative}; preserve and reconcile.')
+    originals[relative] = original
+    planned[relative] = desired if original is None else original
+    link_text[relative] = normalized(desired)
+for relative, section in sections.items():
+    path = regular(relative, True)
+    original = path.read_bytes()
+    existing = re.findall(r'^## Character development\n.*?(?=^## |\Z)',
+                          normalized(original), re.M | re.S)
+    assert len(existing) <= 1 and (not existing or existing[0].rstrip() == section.rstrip()), (
+        f'Divergent root feature section in {relative}; preserve and reconcile.')
+    originals[relative] = original
+    planned[relative] = original if existing else original + (
+        ('\n' if original.endswith(b'\n') else '\n\n') + section).encode('utf-8')
+    link_text[relative] = section  # Unrelated custom root links are not feature links.
 for relative, raw in planned.items():
+    if raw == originals[relative]:
+        continue
     path = root / relative
-    assert not any(p.is_symlink() for p in (path, *path.parents)), (
-        f'Symlink destination: {relative}; stop.')
-    if relative != 'AGENTS.md' and path.exists():
-        assert path.read_bytes() == raw, f'Divergent {relative}; preserve and reconcile.'
-    for link in re.findall(r'\]\(([^)#]+)(?:#[^)]*)?\)', raw.decode('utf-8')):
+    owner = path if path.exists() else next(p for p in path.parents if p.exists())
+    assert owner.stat().st_mode & 0o222, f'Unwritable destination: {relative}; stop.'
+for relative, text in link_text.items():
+    path = root / relative
+    for link in re.findall(r'\]\(([^)#]+)(?:#[^)]*)?\)', text):
         if re.match(r'^[a-zA-Z][a-zA-Z0-9+.-]*:', link):
             continue
         target = (path.parent / link).resolve()
@@ -135,26 +203,28 @@ for relative, raw in planned.items():
             target.relative_to(root).as_posix() in planned or target.is_file()), (
                 f'Unresolved local link in {relative}: {link}; stop.')
 
-for relative, raw in copies.items():
-    path = root / relative
-    if not path.exists():
+for relative, raw in planned.items():
+    path = regular(relative)
+    original = originals[relative]
+    assert (path.read_bytes() if path.exists() else None) == original, (
+        f'Changed during maintenance: {relative}; stop and reconcile.')
+    if original is None:
         path.parent.mkdir(parents=True, exist_ok=True)
         with path.open('xb') as stream:
             stream.write(raw)
-if merged != original:
-    assert agents_path.read_bytes() == original, 'AGENTS.md changed; stop and reconcile.'
-    agents_path.write_bytes(merged)
+    elif raw != original:
+        path.write_bytes(raw)
 for relative, raw in planned.items():
-    assert (root / relative).read_bytes() == raw, f'Verification failed: {relative}'
-print('Verified two feature resources and merged root section; Git staging/history untouched.')
+    assert regular(relative, True).read_bytes() == raw, f'Verification failed: {relative}'
+print('Verified rendered feature resources and root sections; Git staging/history untouched.')
 ```
 
-Review the resulting diff: only the two new resources and the root feature
-section should change. All story bytes, existing index entries and custom root
+Review the resulting diff: only the feature workflow, selected project skill entries (if applicable) and
+appended root feature section(s) should change. All story bytes, existing index entries and custom root
 guidance must remain intact. The snippet leaves Git staging and history alone;
 it is not a cross-file transaction. On write failure, inspect the actual files,
 preserve partial work and rerun only after reconciliation. For an optional local
-checkpoint, follow the notebook's native focused Git guidance for these three
+checkpoint, follow the notebook's native focused Git guidance for the exact changed
 paths, preserving unrelated staged writer edits; do not use a blanket `git add`
 or automatically push.
 

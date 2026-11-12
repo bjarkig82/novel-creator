@@ -151,4 +151,23 @@ class GithubReleaseAssets(unittest.TestCase):
             verify.assert_called_once_with(SELECTION, created, assets)
             notes = (root / 'notes.md').read_text()
             self.assertIn(SELECTION['source_commit'], notes)
+            self.assertIn('package distributions and reproducible', notes)
+            self.assertNotIn('fifteen', notes)
+            self.assertNotIn('adds installable', notes)
+            self.assertIn('/docs/releases/0.8.0.md', notes)
             self.assertIn('remain unverified', notes)
+
+    def test_candidate_release_description_uses_versioned_notes_without_fixed_skill_count(self):
+        selection = dict(SELECTION, version='0.9.0')
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            assets = root / 'assets'
+            assets.mkdir()
+            with patch.object(release, 'api', side_effect=[None, {'html_url': 'https://example.test'}]), \
+                 patch.object(release, 'run'), patch.object(release, 'verify_release'):
+                release.complete_release(selection, assets, root, publish=True)
+            notes = (root / 'notes.md').read_text()
+            self.assertIn('Novel Creator 0.9.0 package distributions', notes)
+            self.assertIn('/docs/releases/0.9.0.md', notes)
+            self.assertNotIn('fifteen', notes)
+            self.assertNotIn('adds installable', notes)

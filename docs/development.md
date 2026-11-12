@@ -79,7 +79,7 @@ The local full-suite/build commands are:
 ```bash
 python -m unittest discover -q
 python -m pip wheel . --no-deps --wheel-dir dist
-python tests/verify_wheel.py dist/novel_creator-0.8.0-py3-none-any.whl
+python tests/verify_wheel.py dist/novel_creator-0.9.0-py3-none-any.whl
 ```
 
 Use the actual versioned filename produced by the build. The wheel verifier
@@ -95,7 +95,7 @@ For every requested PyPI release, prepare versioned notes and update the
 
 ### Plugin artifacts and installation checks
 
-Version 0.8.0 is an unpublished candidate; 0.7.2 remains the latest verified PyPI
+Version 0.9.0 is an unpublished candidate; 0.8.0 remains the latest verified PyPI
 release. Generate plugin manifests/catalogs and deterministic archives from the
 package version, then check for drift without writes:
 
@@ -104,11 +104,11 @@ python scripts/build_plugins.py
 python scripts/build_plugins.py --check
 ```
 
-The default outputs are `dist/novel-creator-plugin-0.8.0.zip` (plugin root) and
-`dist/novel-creator-marketplace-0.8.0.zip` (both catalogs and the plugin tree).
+The default outputs are `dist/novel-creator-plugin-0.9.0.zip` (plugin root) and
+`dist/novel-creator-marketplace-0.9.0.zip` (both catalogs and the plugin tree).
 Use `--output DIR` for a disposable destination. Both archives exclude runtime
 caches, credentials and bytecode. `tests.contract.test_plugin_bundle` checks
-manifest/version consistency, all fifteen skills and relative links, actual ZIP
+manifest/version consistency, all sixteen entries (fifteen writing skills plus setup) and relative links, actual ZIP
 membership, wheel resources and source-distribution inputs; it also rebuilds the
 plugin from the extracted source distribution. Focused checks are:
 
@@ -118,14 +118,14 @@ python -m unittest tests.unit.test_plugin_bootstrap tests.contract.test_plugin_b
 
 The following opt-in helpers perform real installations into temporary runtimes
 and books, outside the checkout. They can download dependencies; the previous
-release helper also downloads the frozen hash-verified public 0.7.2 wheel unless
-`--previous-wheel PATH` supplies it locally. They are not unittest discovery
+release helper also downloads the frozen hash-verified public 0.7.2 and 0.8.0 wheels unless
+`--previous-wheel PATH` / `--previous-080-wheel PATH` supply them locally. They are not unittest discovery
 modules. They need Python 3.11+, Git 2.39+ and Windows/Linux; they set disposable
 Git identities only in subprocess environments and do not modify global settings.
 
 ```text
-python tests/verify_plugin_install.py --wheel dist/novel_creator-0.8.0-py3-none-any.whl --report /tmp/plugin-install.json
-python tests/verify_marketplace_previous.py --wheel dist/novel_creator-0.8.0-py3-none-any.whl --report /tmp/marketplace-previous.json
+python tests/verify_plugin_install.py --wheel dist/novel_creator-0.9.0-py3-none-any.whl --report /tmp/plugin-install.json
+python tests/verify_marketplace_previous.py --wheel dist/novel_creator-0.9.0-py3-none-any.whl --sdist dist/novel_creator-0.9.0.tar.gz --report /tmp/marketplace-previous.json
 ```
 
 On Windows choose a writable report path such as `$env:TEMP\plugin-install.json`.
@@ -133,9 +133,13 @@ Both helpers accept `--plugin PATH`; point it at the actual installed cache to
 qualify cached bytes rather than the default source plugin. The first verifies
 runtime creation/reuse, English/Icelandic dual-host plugin notebooks, links,
 clean Git state and updater refusal without mutation. The second creates real
-0.7.2 standalone notebooks, applies the installed candidate's supported update,
+0.7.2 and 0.8.0 standalone notebooks, applies the installed candidate's supported update,
 and checks custom instructions, story files, HEAD and unrelated staging with no
-implicit marketplace adoption. These checks do not prove GUI skill discovery,
+implicit marketplace adoption. The same gate executes the documented manual procedure
+in actual public 0.8.0 notebooks for all twelve host/source/language layouts
+under installed wheel and source-distribution runtimes. It checks rendered
+resource bytes, conflicts, retry, story/custom directions, index and HEAD.
+These checks do not prove GUI skill discovery,
 native conversations or writing quality.
 
 Use the [marketplace guide](plugin-marketplaces.md) for host installation and
@@ -143,7 +147,7 @@ candidate wheel bootstrap. In release preparation, preserve the full Linux
 suite, complete rebuilt-wheel verifier and all existing workflow gates. CLI and
 resource changes select full Windows qualification under the
 [Windows release policy](testing-and-completion-guide.md#windows-release-selection).
-See the [candidate evidence ledger](../tests/evaluations/marketplace-0.8.0.md).
+See the [candidate evidence ledger](../tests/evaluations/release-0.9.0.md).
 
 ### Completing GitHub release assets
 

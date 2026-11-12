@@ -18,6 +18,43 @@ New legacy novels and new notebooks initialized with 0.8.0 receive the guidance
 during setup. Existing projects follow the format-specific procedure below;
 package installation alone does not refresh their pinned resources.
 
+## Candidate 0.9.0 character development
+
+Version [0.9.0](releases/0.9.0.md) is unpublished; 0.8.0 remains the published
+release. Use a reviewed candidate environment for validation. The exact command
+below becomes usable after publication:
+
+```text
+python -m pip install --upgrade novel-creator==0.9.0
+```
+
+For an original standalone Codex/project notebook (no integration marker), use
+the preview/apply commands under [Existing Markdown notebooks](#existing-markdown-notebooks)
+with the 0.9.0 CLI. It additionally installs Character development, its workflow
+and absent prerequisites, appends a separately protected approval section, and
+refreshes only the provenance-verified public Help catalog. Customized Help and
+differing feature resources block before application; LF/CRLF alone is harmless.
+
+For Codex, Claude Code or both with a valid nondefault integration marker,
+use the [manual character-development procedure](character-development.md#manually-install-into-an-existing-format-1-notebook).
+An explicit manual alternative is also available for the default layout. It
+preflights all selected root files, installs rendered project skills or uses
+the enabled upgraded plugin without duplicates, and adds only the feature
+workflow and bounded root approval sections. It preserves the older Help catalog;
+consult the root routing and actual enabled entry to discover the new method.
+Do not use the unsupported updater or remove a marker for these layouts.
+Neither route adopts plugins, replaces broad instructions or changes story bytes,
+existing history or unrelated staging. Review actual changed paths after completion.
+
+After updating, have the active host reread the selected `AGENTS.md`/`CLAUDE.md`,
+entry and workflow. Use actual host reload/reopen controls if available, possibly
+a new chat. For plugin books update/enable the matching plugin first. Verify
+`$novel-character-develop` (standalone Codex), `/novel-character-develop`
+(standalone Claude Code), `$novel-creator:novel-character-develop` (Codex plugin)
+or `/novel-creator:novel-character-develop` (Claude Code plugin) as applicable.
+Installed files do not prove native discovery or reload; chat-only drafts have
+no guaranteed recovery. Legacy novels receive no new profile-development method.
+
 ## Marketplace integration (0.8.0)
 
 New notebooks can opt into the

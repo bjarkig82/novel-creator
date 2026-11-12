@@ -4,6 +4,14 @@ A home for developing an app that helps writers plan and create novels.
 
 ## Getting started
 
+**Novel Creator 0.9.0 is an unpublished candidate.** It adds bounded character
+profile development: one batch of proposed prose, with drafts and revisions kept
+in chat until explicit current/selected-save approval. New English/Icelandic
+notebooks support every Codex/Claude Code and project/plugin layout. Existing
+notebooks need the [explicit update](docs/upgrading-projects.md#candidate-090-character-development).
+See [candidate notes](docs/releases/0.9.0.md) and [release history](docs/releases/README.md).
+Package or plugin upgrades do not refresh a book's pinned snapshots.
+
 **Novel Creator 0.8.0 is published, 2026-11-12.** New Windows/Linux notebooks
 can use the Novel Creator plugin in Codex or Claude Code, with fourteen writing
 methods, setup and six roles per selected host. See [marketplace setup](docs/plugin-marketplaces.md)
