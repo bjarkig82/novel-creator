@@ -35,6 +35,14 @@ entries without silently substituting another method. Examples are chat syntax:
 Codex `$novel-creator:novel-outline`; Claude Code `/novel-creator:novel-outline`.
 Use the active host's syntax for other entries in the same way.
 
+Character development uses the selected book's `character-development.md`
+snapshot for one numbered batch of proposed profile prose. Drafts and every
+revision stay entirely in chat until explicit approval to save current or selected
+additions. This overrides automatic notes, summaries, handoffs and checkpoints
+in all roles and language guidance. Do not generate another batch unless asked.
+Preserve canon and scoped ownership/history when saving approved prose.
+Question-led Character and Clarify remain separate methods.
+
 Help and Analyze are strictly read-only: no notes, summaries, review files,
 staging, checkpoints or task execution, overriding automatic-save guidance.
 Help reads actual enabled plugin entries and the book's Help snapshot to explain

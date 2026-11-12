@@ -76,11 +76,19 @@ class NotebookPackageVerifierTest(unittest.TestCase):
             'conversation', 'format', 'outline', 'brainstorming', 'agents',
             'manuscript', 'research', 'review'))
         self.assertEqual(len(historical_paths), 26)
+        self.assertEqual(len(current), 34)
         historical = {relative: current[relative] for relative in historical_paths}
+        historical['.codex/agents/novel_brainstormer.toml'] = (
+            b'name = "novel_brainstormer"\ndescription = "Historical fixture"\n'
+            b'developer_instructions = "Read [format](../../.novel-notebook/workflows/format.md)."\n')
+        historical['.agents/skills/novel-character/SKILL.md'] = (
+            b'---\nname: novel-character\ndescription: Historical character fixture\n---\n'
+            b'Read [brainstorming](../../../.novel-notebook/workflows/brainstorming.md).\n')
         # Minimal historical guidance fixtures cannot link to future workflows.
         # The approved fixture bytes must still be checked exactly on install.
         for relative in ('AGENTS.md', '.novel-notebook/workflows/conversation.md',
-                         '.novel-notebook/workflows/agents.md', '.novel-notebook/workflows/review.md'):
+                         '.novel-notebook/workflows/agents.md', '.novel-notebook/workflows/review.md',
+                         '.novel-notebook/workflows/brainstorming.md'):
             historical[relative] = b'# Historical 0.5.0 guidance fixture.\n'
         archive_bytes = io.BytesIO()
         with zipfile.ZipFile(archive_bytes, 'w') as archive:
@@ -118,6 +126,17 @@ class NotebookPackageVerifierTest(unittest.TestCase):
                     self.assertEqual([len(current), len(current)], verify_package_install.verify_notebook_install(
                         'console', root.parent, {}, package, 'novel-creator 0.6.0',
                         verified_wheel=archive_bytes.getvalue()))
+                # Current checks must require both newly introduced resources.
+                for relative in set(current) - set(historical):
+                    resource = root / relative
+                    raw = resource.read_bytes()
+                    resource.unlink()
+                    for package in (None, 'novel-creator==0.6.0'):
+                        with self.subTest(package=package, missing=relative), self.assertRaises(FileNotFoundError):
+                            verify_package_install.verify_notebook_install(
+                                'console', root.parent, {}, package, 'novel-creator 0.6.0',
+                                verified_wheel=archive_bytes.getvalue())
+                    resource.write_bytes(raw)
                 # Historical checks still require the exact approved bytes.
                 with self.assertRaisesRegex(AssertionError, 'AGENTS.md'):
                     verify_package_install.verify_notebook_install(

@@ -3,6 +3,7 @@ import contextlib
 import io
 import json
 import os
+import re
 from pathlib import Path
 import subprocess
 import unittest
@@ -130,11 +131,11 @@ class NotebookUpdate(unittest.TestCase):
     snapshot = notebook_init_tests.NotebookInitialization.snapshot
     def old_notebook(self, language='en', *, old_roles=False):
         self.initialize(language=language)
-        for name in ('clarify', 'analyze', 'help'):
+        for name in ('clarify', 'analyze', 'help', 'character-develop'):
             (self.target / f'.agents/skills/novel-{name}/SKILL.md').unlink()
-            (self.target / f'.novel-notebook/workflows/{name}.md').unlink()
+            (self.target / f'.novel-notebook/workflows/{"character-development" if name == "character-develop" else name}.md').unlink()
         if old_roles:
-            for name in ('agents', 'manuscript', 'research', 'review'):
+            for name in ('agents', 'manuscript', 'research', 'review', 'brainstorming'):
                 (self.target / f'.novel-notebook/workflows/{name}.md').unlink()
         (self.target / 'AGENTS.md').write_text('# My story instructions\n\nKeep my custom directions.\n', encoding='utf-8')
         (self.target / 'notebook/accepted.md').write_text('Accepted writer content.\n', encoding='utf-8')
@@ -173,9 +174,9 @@ class NotebookUpdate(unittest.TestCase):
                 self.assertEqual(staged.read_bytes(), b'unstaged writer version\n')
                 self.assertEqual((self.target / 'notebook/accepted.md').read_bytes(), accepted)
                 self.assertTrue((self.target / 'AGENTS.md').read_bytes().startswith(agents))
-                for name in ('clarify', 'analyze', 'help'):
+                for name in ('clarify', 'analyze', 'help', 'character-develop'):
                     self.assertTrue((self.target / f'.agents/skills/novel-{name}/SKILL.md').is_file())
-                    self.assertTrue((self.target / f'.novel-notebook/workflows/{name}.md').is_file())
+                    self.assertTrue((self.target / f'.novel-notebook/workflows/{"character-development" if name == "character-develop" else name}.md').is_file())
                 self.assertTrue(notebook.update(self.target)['data']['already_current'])
                 after = self.snapshot()
                 self.assertTrue(self.apply()['data']['ready'])
@@ -236,7 +237,8 @@ class NotebookUpdate(unittest.TestCase):
         self.initialize(language=language)
         for relative, original in PUBLISHED_CLARIFY.items():
             (self.target / relative).write_bytes(original.replace(b'\n', newline))
-        (self.target / 'AGENTS.md').write_bytes(b'# Custom writer directions\n\nKeep this.\n' + notebook._ROUTING)
+        section = re.search(r'^## Character development\n.*', (self.target / 'AGENTS.md').read_text(), re.S | re.M).group().encode()
+        (self.target / 'AGENTS.md').write_bytes(b'# Custom writer directions\n\nKeep this.\n' + notebook._ROUTING + b'\n' + section)
         (self.target / 'notebook/accepted.md').write_bytes(b'Accepted story facts.\n')
         (self.target / 'manuscript').mkdir()
         (self.target / 'manuscript/scene.md').write_bytes(b'Writer manuscript prose.\n')
@@ -419,6 +421,59 @@ class NotebookUpdate(unittest.TestCase):
         self.assertEqual((self.target / '.novel-notebook/workflows/clarify.md').read_bytes(),
                          PUBLISHED_CLARIFY['.novel-notebook/workflows/clarify.md'])
         self.assertFalse(list(self.target.rglob('.novel-clarify-*')))
+
+    def test_character_resources_and_root_section_refuse_divergence_before_writes(self):
+        self.old_notebook()
+        paths = ('.agents/skills/novel-character-develop/SKILL.md',
+                 '.novel-notebook/workflows/character-development.md', 'AGENTS.md')
+        for relative in paths:
+            with self.subTest(path=relative):
+                path = self.target / relative
+                original = path.read_bytes() if path.exists() else None
+                path.parent.mkdir(parents=True, exist_ok=True)
+                path.write_bytes((original or b'') + b'\n## Character development\nCustom save policy.\n')
+                before = self.snapshot()
+                index = self.git('ls-files', '--stage', '-z')
+                with self.assertRaisesRegex(ToolError, 'Customized'):
+                    notebook.update(self.target)
+                self.assertEqual(self.snapshot(), before)
+                self.assertEqual(self.git('ls-files', '--stage', '-z'), index)
+                if original is None:
+                    path.unlink()
+                else:
+                    path.write_bytes(original)
+
+    def test_character_identical_crlf_resources_are_harmless_and_keep_bytes(self):
+        self.old_notebook()
+        self.apply()
+        for relative in ('AGENTS.md', '.agents/skills/novel-character-develop/SKILL.md',
+                         '.novel-notebook/workflows/character-development.md'):
+            path = self.target / relative
+            path.write_bytes(path.read_bytes().replace(b'\n', b'\r\n'))
+        before = self.snapshot()
+        self.assertTrue(notebook.update(self.target)['data']['already_current'])
+        self.apply()
+        self.assertEqual(self.snapshot(), before)
+
+    def test_stale_character_preview_and_redirected_destination_preserve_files(self):
+        self.old_notebook()
+        preview = notebook.update(self.target)
+        resource = self.target / '.novel-notebook/workflows/character-development.md'
+        resource.write_bytes(b'Concurrent writer feature guidance.\n')
+        before = self.snapshot()
+        with self.assertRaises(ToolError):
+            self.apply(preview)
+        self.assertEqual(self.snapshot(), before)
+        outside = self.parent / 'writer-owned-feature.md'
+        outside.write_bytes(resource.read_bytes())
+        resource.unlink()
+        try:
+            resource.symlink_to(outside)
+        except OSError:
+            self.skipTest('Symlinks unavailable')
+        with self.assertRaisesRegex(ToolError, 'symlinks'):
+            notebook.update(self.target)
+        self.assertEqual(outside.read_bytes(), b'Concurrent writer feature guidance.\n')
 
     def test_custom_resource_conflicts_stop_before_any_write(self):
         self.old_notebook()

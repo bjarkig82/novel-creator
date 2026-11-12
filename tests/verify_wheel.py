@@ -120,6 +120,15 @@ def verify_notebook(console, scratch, env, language, expected_resources=None):
         assert any((brainstorm_skill.parent / link).resolve() ==
                    (root / '.novel-notebook/workflows/brainstorming.md').resolve()
                    for link in re.findall(r'\]\(([^)]+)\)', brainstorm_skill.read_text(encoding='utf-8')))
+    development_skill = root / '.agents/skills/novel-character-develop/SKILL.md'
+    development_workflow = root / '.novel-notebook/workflows/character-development.md'
+    development_required = (expected_resources is None or
+                            development_skill.relative_to(root).as_posix() in expected_resources)
+    if development_required:
+        assert development_skill.is_file()
+        assert development_workflow.is_file()
+        assert any((development_skill.parent / link).resolve() == development_workflow.resolve()
+                   for link in re.findall(r'\]\(([^)]+)\)', development_skill.read_text(encoding='utf-8')))
     for reference in ('.novel-notebook/workflows/conversation.md', '.novel-notebook/workflows/format.md',
                       '.novel-notebook/workflows/outline.md', '.novel-notebook/workflows/brainstorming.md',
                       'notebook/project.md', 'notebook/working-summary.md'):
@@ -144,15 +153,16 @@ def verify_notebook(console, scratch, env, language, expected_resources=None):
         retrofit = verify_notebook_retrofit(console, root, scratch, env, expected_resources)
     return {'language': language, 'created': True, 'guidance_links': True,
             'outline_skill': True, 'brainstorming_skills': True,
-            'writing_agents': True, 'verified_resource_count': resource_count,
+            'writing_agents': True, 'character_development': development_required,
+            'verified_resource_count': resource_count,
             'explicit_notebook_retrofit': retrofit}
 
 
 def verify_notebook_retrofit(console, root, scratch, env, expected_resources):
     """Use the installed CLI against a notebook missing the 0.7 additions."""
-    for name in ('clarify', 'analyze', 'help'):
+    for name in ('clarify', 'analyze', 'help', 'character-develop'):
         (root / f'.agents/skills/novel-{name}/SKILL.md').unlink()
-        (root / f'.novel-notebook/workflows/{name}.md').unlink()
+        (root / f'.novel-notebook/workflows/{"character-development" if name == "character-develop" else name}.md').unlink()
     custom = b'# Existing notebook directions\n\nPreserve the writer direction.\n'
     (root / 'AGENTS.md').write_bytes(custom)
     accepted = root / 'notebook/accepted-verifier.md'
@@ -181,8 +191,8 @@ def verify_notebook_retrofit(console, root, scratch, env, expected_resources):
     assert accepted.read_bytes() == b'Accepted story content must remain unchanged.\n'
     assert (root / 'AGENTS.md').read_bytes().startswith(custom)
     assert b'Analysis and help are strictly read-only' in (root / 'AGENTS.md').read_bytes()
-    for name in ('clarify', 'analyze', 'help'):
-        for relative in (f'.agents/skills/novel-{name}/SKILL.md', f'.novel-notebook/workflows/{name}.md'):
+    for name in ('clarify', 'analyze', 'help', 'character-develop'):
+        for relative in (f'.agents/skills/novel-{name}/SKILL.md', f'.novel-notebook/workflows/{"character-development" if name == "character-develop" else name}.md'):
             assert (root / relative).read_bytes() == expected_resources[relative].replace(b'\r\n', b'\n')
     assert json.loads(run([console, 'notebook', 'update', '--path', root, '--json'],
                           cwd=scratch, env=env))['data']['already_current']

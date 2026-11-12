@@ -90,6 +90,17 @@ files before integration, reconciles writer edits and checks source ownership,
 links and relevant fact states. A delegate's fluent result is not acceptance of
 its inventions. Preserve proposals and open questions under the format rules.
 
+## Character-development save boundary
+
+Every role, direct or delegated, follows [character development](character-development.md)
+when the writer requests profile enrichment, gap filling or `$novel-character-develop`.
+Keep its entire draft and revisions in chat until clear approval to save current
+content. This overrides automatic topic, summary, handoff/draft file writes and
+Git checkpoints below; delegate ownership never supplies save approval. Preserve
+ordinary question-led brainstorming for other character exploration. Carry this
+boundary and the current numbered text/selection into any relevant handoff
+without writing a handoff file before approval.
+
 ## Direct work and persistence
 
 A directly selected specialist may save relevant notes and the requested output,

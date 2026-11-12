@@ -120,9 +120,15 @@ assert Path(novel_creator.__file__).resolve().is_relative_to(Path(sys.prefix))
 assert novel_creator.__version__ == sys.argv[1]
 resources = files('novel_creator.notebook_resources')
 codex = files('novel_creator.codex')
-print(json.dumps({
+expected = {
  '.agents/skills/novel-clarify/SKILL.md': base64.b64encode(codex.joinpath('notebook/skills/novel-clarify/SKILL.md').read_bytes()).decode(),
- '.novel-notebook/workflows/clarify.md': base64.b64encode(resources.joinpath('workflows/clarify.md').read_bytes()).decode()}))
+ '.novel-notebook/workflows/clarify.md': base64.b64encode(resources.joinpath('workflows/clarify.md').read_bytes()).decode()}
+feature = codex.joinpath('notebook/skills/novel-character-develop/SKILL.md')
+if feature.is_file():
+ expected['.agents/skills/novel-character-develop/SKILL.md'] = base64.b64encode(feature.read_bytes()).decode()
+ for name in ('character-development', 'help'):
+  expected['.novel-notebook/workflows/' + name + '.md'] = base64.b64encode(resources.joinpath('workflows/' + name + '.md').read_bytes()).decode()
+print(json.dumps(expected))
 '''
     expected = {path: base64.b64decode(raw).replace(b'\r\n', b'\n') for path, raw in json.loads(
         _run([python, '-I', '-B', '-c', probe, current_version], cwd=scratch, env=env)).items()}
@@ -161,16 +167,19 @@ assert initialize(sys.argv[2], title='Published notebook', language=sys.argv[3])
                                   cwd=scratch, env=env))['data']
         assert _snapshot(root) == before
         replacements = {item['path'] for item in preview['changes'] if item['action'] == 'replace'}
-        assert replacements == set(CLARIFY_PATHS), preview
+        expected_replacements = set(CLARIFY_PATHS)
+        if '.novel-notebook/workflows/help.md' in expected:
+            expected_replacements.add('.novel-notebook/workflows/help.md')
+        assert replacements == expected_replacements, preview
         result = json.loads(_run([console, 'notebook', 'update', '--path', root, '--apply',
                                  '--preview', preview['preview_id'], '--expected-head', preview['reviewed_head'],
                                  '--json'], cwd=scratch, env=env))['data']
         assert result['ready'] and result['applied']
         assert git('rev-parse', 'HEAD') == head and git('ls-files', '--stage', '-z') == index
         after = _snapshot(root)
-        assert {name for name in before.keys() | after.keys() if before.get(name) != after.get(name)} <= set(CLARIFY_PATHS) | {'AGENTS.md'}
+        assert {name for name in before.keys() | after.keys() if before.get(name) != after.get(name)} <= set(expected) | {'AGENTS.md'}
         assert after['AGENTS.md'].startswith(custom)
-        for name in CLARIFY_PATHS:
+        for name in expected:
             assert after[name] == expected[name], name
             text = after[name].decode()
             for link in re.findall(r'\]\(([^)#]+)(?:#[^)]*)?\)', text):

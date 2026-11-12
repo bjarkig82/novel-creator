@@ -94,6 +94,7 @@ details; all saves preserve writer authority, existing prose and scoped history.
 | `$novel-book-idea` | Discover a book idea; interests, feelings or fragments are optional. No concept required. | Useful proposals and open questions in notes. |
 | `$novel-premise` | Explore a seed or situation, supplied now or clear from context; ask a focused question if missing. | Notes; alternatives remain provisional. |
 | `$novel-character` | Explore a person, motivation or relationship; a name, description, seed or clear current person is enough. | Character/topic notes, not manuscript prose. |
+| `$novel-character-develop` | Deepen a named/described character or clear current profile; optional focus. | One numbered batch of actual profile prose; drafts/revisions stay in chat until explicit approval to save current or selected additions. |
 | `$novel-plot` | Explore events and consequences; supply a thread/problem or use the current focus. | Plot/topic notes; no automatic outline or manuscript. |
 | `$novel-setting` | Explore a place, society or world constraint; name/describe it or use the current focus. | Setting/topic notes. |
 | `$novel-outline` | Explicitly request an outline proposal/revision; use current brief/notes, with optional scope, structure or constraints. | Linked outline topic; no scene/chapter prose files. |

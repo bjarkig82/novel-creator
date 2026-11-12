@@ -113,6 +113,13 @@ edits and history, and keeps proposed facts and open questions distinct from
 accepted structure. It creates no chapter or scene manuscript files and adds no
 CLI command. Existing notebooks do not acquire the skill automatically.
 
+**Unpublished source addition:** [character profile development](docs/character-development.md)
+offers one small batch of connected profile additions through
+`$novel-character-develop` or a natural fill-gap request. Drafts and revisions
+stay in chat until explicit saving approval. It ships into new notebooks from
+a package containing the feature; the guide includes a manual installation for
+existing format-1 notebooks. Published 0.6.0 does not contain it.
+
 Notebook brainstorming adapts to the book's stage and your chosen topic or method.
 With no concept, it starts broadly and asks one question at a time. Optional
 `$novel-book-idea`, `$novel-premise`, `$novel-character`, `$novel-plot` and

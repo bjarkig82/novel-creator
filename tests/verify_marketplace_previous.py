@@ -1,4 +1,4 @@
-"""Opt-in 0.7.2 notebook update checks against a locally installed candidate.
+"""Opt-in 0.7.2 and 0.8.0 notebook update checks against a locally installed candidate.
 
 Downloads the frozen public previous wheel unless --previous-wheel is supplied.
 All installations, books and Git identities are disposable process-local state.
@@ -15,7 +15,9 @@ from urllib.parse import urlparse
 
 try:
     from tests.verify_plugin_install import bootstrap, require, run, snapshot, temporary_environment, write_report
+    from tests.verify_previous_release import check_target_inventory
 except ModuleNotFoundError:
+    from verify_previous_release import check_target_inventory
     from verify_plugin_install import bootstrap, require, run, snapshot, temporary_environment, write_report
 
 
@@ -23,47 +25,71 @@ ROOT = Path(__file__).resolve().parents[1]
 PREVIOUS_VERSION = '0.7.2'
 PREVIOUS_FILENAME = 'novel_creator-0.7.2-py3-none-any.whl'
 PREVIOUS_SHA256 = '8ee343c10bfcc8129d860a8502c669856deaa92f62b5059f915a4027fc11c9f5'
+PUBLIC_WHEELS = {
+    '0.7.2': (PREVIOUS_FILENAME, PREVIOUS_SHA256),
+    '0.8.0': ('novel_creator-0.8.0-py3-none-any.whl',
+              '390c6e208fe71a803783cd2cf979bada3e20988518a0032572fcf9a1b8711c5b'),
+}
 
 
-def previous_wheel(scratch, supplied):
+def previous_wheel(scratch, supplied=None, *, version=PREVIOUS_VERSION):
+    filename, digest = PUBLIC_WHEELS[version]
     if supplied is not None:
         path = supplied.resolve()
         raw = path.read_bytes()
     else:
-        with urllib.request.urlopen(f'https://pypi.org/pypi/novel-creator/{PREVIOUS_VERSION}/json',
+        with urllib.request.urlopen(f'https://pypi.org/pypi/novel-creator/{version}/json',
                                     timeout=30) as response:
             metadata = json.load(response)
         entries = [entry for entry in metadata['urls']
-                   if entry['packagetype'] == 'bdist_wheel' and entry['filename'] == PREVIOUS_FILENAME]
+                   if entry['packagetype'] == 'bdist_wheel' and entry['filename'] == filename]
         require(len(entries) == 1, 'Expected exactly one frozen previous-release wheel')
         entry = entries[0]
-        require(entry['digests']['sha256'] == PREVIOUS_SHA256, 'Public wheel identity changed')
+        require(entry['digests']['sha256'] == digest, 'Public wheel identity changed')
         url = urlparse(entry['url'])
         require(url.scheme == 'https' and url.hostname == 'files.pythonhosted.org',
                 'Unexpected previous-wheel download origin')
         with urllib.request.urlopen(entry['url'], timeout=60) as response:
             raw = response.read()
-        path = scratch / PREVIOUS_FILENAME
+        path = scratch / filename
         path.write_bytes(raw)
-    require(hashlib.sha256(raw).hexdigest() == PREVIOUS_SHA256, 'Previous wheel SHA-256 mismatch')
+    require(hashlib.sha256(raw).hexdigest() == digest, 'Previous wheel SHA-256 mismatch')
     return path
 
 
-def verify(*, plugin, wheel, previous):
+def candidate_runtime(plugin, wheel, scratch, env, *, sdist=None):
+    """Disposable installed candidate; shared by manual host-layout probes."""
+    runtime = bootstrap(plugin, wheel, scratch, env)
+    if sdist is not None:
+        run([runtime['runtime_python'], '-I', '-m', 'pip', 'install', '--no-input',
+             '--disable-pip-version-check', '--no-deps', '--no-user', '--no-cache-dir',
+             '--force-reinstall', sdist], env=dict(env, PIP_CONFIG_FILE=os.devnull), cwd=scratch)
+    runtime['verified_product_files'] = check_target_inventory(
+        runtime['runtime_python'], wheel, runtime['version'], cwd=scratch, env=env)
+    return runtime
+
+
+def install_previous(python, scratch, env, *, version, supplied=None):
+    """Hash-verify and privately install a frozen public notebook initializer."""
+    old_wheel = previous_wheel(scratch, supplied, version=version)
+    old_product = scratch / ('old-product-' + version)
+    run([python, '-I', '-m', 'pip', 'install', '--no-input', '--disable-pip-version-check',
+         '--no-deps', '--no-user', '--target', old_product, old_wheel],
+        env=dict(env, PIP_CONFIG_FILE=os.devnull), cwd=scratch)
+    old_cli = ('import sys;sys.path.insert(0,sys.argv[1]);import novel_creator;'
+               f'assert novel_creator.__version__ == {version!r};'
+               'from novel_creator.cli import main;raise SystemExit(main(sys.argv[2:]))')
+    return old_product, old_cli
+
+
+def verify(*, plugin, wheel, previous=None, source_version=PREVIOUS_VERSION, sdist=None):
     with tempfile.TemporaryDirectory(prefix='novel-marketplace-previous-') as temporary:
         scratch = Path(temporary).resolve()
         env = temporary_environment(scratch)
-        old_wheel = previous_wheel(scratch, previous)
-        runtime = bootstrap(plugin, wheel, scratch, env)
+        runtime = candidate_runtime(plugin, wheel, scratch, env, sdist=sdist)
         python = runtime['runtime_python']
-        old_product = scratch / 'old-product'
-        # The already hash-verified wheel has no dependencies to resolve here.
-        install_env = dict(env, PIP_CONFIG_FILE=os.devnull)
-        run([python, '-I', '-m', 'pip', 'install', '--no-input', '--disable-pip-version-check',
-             '--no-deps', '--no-user', '--target', old_product, old_wheel], env=install_env, cwd=scratch)
-        old_cli = ('import sys;sys.path.insert(0,sys.argv[1]);import novel_creator;'
-                   f'assert novel_creator.__version__ == {PREVIOUS_VERSION!r};'
-                   'from novel_creator.cli import main;raise SystemExit(main(sys.argv[2:]))')
+        old_product, old_cli = install_previous(python, scratch, env,
+                                               version=source_version, supplied=previous)
         cases = []
         for language in ('en', 'is'):
             book = scratch / f'Book {language}'
@@ -92,7 +118,17 @@ def verify(*, plugin, wheel, previous):
             require((book / 'AGENTS.md').read_bytes().startswith(instructions),
                     'Update changed existing custom instructions')
             changed = {name for name in before.keys() | after.keys() if before.get(name) != after.get(name)}
-            require(changed <= {'AGENTS.md'}, f'Unexpected resource changes: {sorted(changed)}')
+            allowed = {'AGENTS.md', '.agents/skills/novel-character-develop/SKILL.md',
+                       '.novel-notebook/workflows/character-development.md',
+                       '.novel-notebook/workflows/help.md'}
+            require(changed == allowed, f'Unexpected resource changes: {sorted(changed)}')
+            require(b'## Character development' in (book / 'AGENTS.md').read_bytes(),
+                    'Character-development routing missing')
+            require(b'chat-only' in (book / '.novel-notebook/workflows/character-development.md').read_bytes(),
+                    'Character-development save boundary missing')
+            require(b'novel-character-develop' in (book / '.novel-notebook/workflows/help.md').read_bytes(),
+                    'Help catalog lacks the installed skill')
+            probe_guards(command, book, scratch, env)
             require((book / '.git/index').read_bytes() == index, 'Update changed unrelated staging')
             require(run(['git', '-C', book, 'rev-parse', 'HEAD'], env=env, cwd=scratch) == head,
                     'Update changed project history')
@@ -100,13 +136,51 @@ def verify(*, plugin, wheel, previous):
                     'Update silently adopted plugin integration')
             current = json.loads(run([*command, '--json'], env=env, cwd=scratch))['data']
             require(current['already_current'], 'Repeated update did not report current resources')
-            cases.append({'language': language, 'source_version': PREVIOUS_VERSION,
+            cases.append({'language': language, 'source_version': source_version,
                           'target_version': runtime['version'],
                           'story_custom_instructions_history_and_staging_preserved': True,
                           'focused_update': 'compatible', 'implicit_plugin_adoption': False})
-        return {'ok': True, 'source_sha256': PREVIOUS_SHA256,
+        return {'ok': True, 'source_sha256': PUBLIC_WHEELS[source_version][1],
+                'verified_product_files': runtime['verified_product_files'],
+                'candidate_artifact': 'sdist' if sdist else 'wheel',
+                'candidate_artifact_sha256': hashlib.sha256((sdist or wheel).read_bytes()).hexdigest(),
                 'candidate_wheel_sha256': hashlib.sha256(wheel.read_bytes()).hexdigest(),
                 'notebooks': cases}
+
+
+def probe_guards(command, book, scratch, env):
+    """Installed updater must reject customized/stale/redirected feature copies."""
+    resource = book / '.novel-notebook/workflows/character-development.md'
+    original = resource.read_bytes()
+    resource.write_bytes(original + b'Writer custom feature guidance.\n')
+    before = snapshot(book)
+    refused = json.loads(run([*command, '--json'], env=env, cwd=scratch, expected_exit=3))
+    require(not refused['ok'] and snapshot(book) == before, 'Divergent feature resource was mutated')
+    resource.write_bytes(original)
+    preview = json.loads(run([*command, '--json'], env=env, cwd=scratch))['data']
+    agents = book / 'AGENTS.md'
+    original_agents = agents.read_bytes()
+    agents.write_bytes(agents.read_bytes() + b'\n## Writer change after preview\n')
+    before = snapshot(book)
+    refused = json.loads(run([*command, '--apply', '--preview', preview['preview_id'],
+                              '--expected-head', preview['reviewed_head'], '--json'],
+                             env=env, cwd=scratch, expected_exit=3))
+    require(not refused['ok'] and snapshot(book) == before, 'Stale preview changed files')
+    agents.write_bytes(original_agents)
+    # Hard links are supported without Windows developer-mode symlink privileges.
+    outside = scratch / ('redirect-' + book.name + '.md')
+    outside.write_bytes(original + b'Outside writer text.\n')
+    redirected = outside.read_bytes()
+    resource.unlink()
+    try:
+        os.link(outside, resource)
+        before = snapshot(book)
+        refused = json.loads(run([*command, '--json'], env=env, cwd=scratch, expected_exit=3))
+        require(not refused['ok'] and snapshot(book) == before and outside.read_bytes() == redirected,
+                'Redirected divergent feature resource was changed')
+    finally:
+        resource.unlink(missing_ok=True)
+        resource.write_bytes(original)
 
 
 def main():
@@ -114,10 +188,16 @@ def main():
     parser.add_argument('--wheel', type=Path, required=True, help='Exact local candidate wheel')
     parser.add_argument('--plugin', type=Path, default=ROOT / 'plugins/novel-creator', help='Candidate plugin root')
     parser.add_argument('--previous-wheel', type=Path, help='Use a local hash-verified 0.7.2 wheel instead of downloading')
+    parser.add_argument('--previous-080-wheel', type=Path, help='Local hash-verified public 0.8.0 wheel')
+    parser.add_argument('--sdist', type=Path, help='Also test installation from the exact candidate sdist')
     parser.add_argument('--report', type=Path, required=True, help='Success JSON report destination')
     args = parser.parse_args()
-    write_report(args.report.resolve(), verify(plugin=args.plugin.resolve(), wheel=args.wheel.resolve(),
-                                              previous=args.previous_wheel))
+    reports = []
+    for source_version, previous in (('0.7.2', args.previous_wheel), ('0.8.0', args.previous_080_wheel)):
+        for sdist in ((None, args.sdist.resolve()) if args.sdist else (None,)):
+            reports.append(verify(plugin=args.plugin.resolve(), wheel=args.wheel.resolve(),
+                                  previous=previous, source_version=source_version, sdist=sdist))
+    write_report(args.report.resolve(), {'ok': True, 'checks': reports})
 
 
 if __name__ == '__main__':

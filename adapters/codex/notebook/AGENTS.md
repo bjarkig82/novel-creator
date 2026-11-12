@@ -85,3 +85,24 @@ drafting, incorporation and revisions, and
 do not authorize rewriting prose. Draft inventions do not automatically become
 accepted facts. Preserve current writer prose before replacement and disclose
 save failures, incomplete transfers and pending checkpoints separately.
+
+## Character development
+
+Use the [character-development workflow](.novel-notebook/workflows/character-development.md)
+for `$novel-character-develop` or an ordinary request to fill gaps, enrich or
+deepen a character profile, optionally with a focus. Read the shared workflow
+before responding. Ordinary question-led character brainstorming remains the
+default for exploratory character work; a character topic alone does not select
+this mode. Offer one connected batch of proposed profile prose, then stop until
+the writer requests further work.
+
+In this mode, keep the entire draft and revisions in chat until the writer
+clearly approves saving the current draft or specific current additions. This
+exception overrides automatic notes, meaningful-turn saves, summaries, handoff
+or draft files and Git checkpoints in all roles and language guidance: make no
+notebook file writes before that approval. Praise, tentative acceptance,
+selection, discussion or modification alone is not save authority. Do not ask
+again for an unambiguous save. Save only approved current content under the shared
+workflow's identity, canon, ownership and history rules; unsaved additions stay
+chat-only, including after cancellation or a topic change. Chat-only drafts have
+no guaranteed recovery in another chat or after interruption.

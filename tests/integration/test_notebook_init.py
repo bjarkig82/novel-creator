@@ -185,6 +185,31 @@ class NotebookInitialization(unittest.TestCase):
                         self.assertTrue((path.parent / link).is_file(), (path, link))
                 self.assertFalse((self.target / 'notebook/topics').exists())
 
+    def test_character_development_skill_links_to_installed_workflow(self):
+        import re
+
+        checkout = Path(__file__).resolve().parents[2]
+        for language in ('en', 'is'):
+            with self.subTest(language=language):
+                self.target = self.parent / language
+                self.initialize(language=language)
+                relatives = ('.agents/skills/novel-character-develop/SKILL.md',
+                             '.novel-notebook/workflows/character-development.md')
+                resources = resource_paths(checkout)
+                for relative in relatives:
+                    source, _ = resources[relative]
+                    self.assertEqual((self.target / relative).read_bytes(), source.read_bytes())
+                    tracked = subprocess.check_output(
+                        ['git', '-C', str(self.target), 'ls-files', '--', relative], text=True)
+                    self.assertEqual(tracked.strip(), relative)
+                skill, workflow = (self.target / relative for relative in relatives)
+                destinations = {(skill.parent / link).resolve() for link in re.findall(
+                    r'\]\(([^)]+)\)', skill.read_text(encoding='utf-8'))}
+                self.assertIn(workflow.resolve(), destinations)
+                self.assertFalse((self.target / 'notebook/topics').exists())
+                self.assertEqual(subprocess.check_output(
+                    ['git', '-C', str(self.target), 'status', '--porcelain']), b'')
+
     def test_existing_empty_directory_is_preserved(self):
         self.target.mkdir()
         with self.assertRaises(ToolError):
@@ -345,7 +370,7 @@ class LegacyNotebookBoundary(unittest.TestCase):
             self.assertNotIn('.agents/skills/novel-outline/SKILL.md', exported)
             self.assertFalse((root / '.agents/skills/novel-outline').exists())
             self.assertFalse((root / '.novel-notebook/workflows/outline.md').exists())
-            for stage in ('book-idea', 'premise', 'character', 'plot', 'setting',
+            for stage in ('book-idea', 'premise', 'character', 'character-develop', 'plot', 'setting',
                           'agent', 'research', 'scene', 'chapter', 'review'):
                 skill = f'.agents/skills/novel-{stage}/SKILL.md'
                 self.assertNotIn(skill, exported)

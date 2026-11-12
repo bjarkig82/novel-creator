@@ -107,7 +107,7 @@ jobs:
       - name: Verify plugin runtime installation
         run: python tests/verify_plugin_install.py --wheel candidate/*.whl --report plugin-runtime-check.json
       - name: Verify previous published notebook compatibility
-        run: python tests/verify_marketplace_previous.py --wheel candidate/*.whl --report plugin-previous-check.json
+        run: python tests/verify_marketplace_previous.py --wheel candidate/*.whl --sdist candidate/*.tar.gz --report plugin-previous-check.json
       - name: Run full unit suite
         if: runner.os == 'Linux' || steps.qualification.outputs.windows_suite == 'full'
         run: python -m unittest discover -q

@@ -56,6 +56,17 @@ A useful early response does not replace required work. Complete meaningful save
 by turn completion and follow the scoped Git checkpoint rules below. Do not claim
 a save succeeded before it does; disclose persistence failures as usual.
 
+## Character-development drafts
+
+For `$novel-character-develop` or an ordinary request to fill gaps, enrich or
+deepen a character profile, follow [character development](character-development.md).
+This mode keeps the entire draft and revisions in chat until clear approval to
+save the current draft or specific additions. Its no-write exception overrides
+automatic notes, meaningful-turn saves, summaries, handoff/draft files and Git
+checkpoints in this workflow, including in specialists and language guidance. Praise,
+selection or revision alone is not save authority. Ordinary question-led
+character exploration retains the usual brainstorming and automatic-note rules.
+
 ## Automatic notes
 
 Exception: a requested [read-only analysis](analyze.md), including

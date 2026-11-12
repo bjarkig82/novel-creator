@@ -5,6 +5,13 @@ notes, acceptance and history. This workflow explores story possibilities; it
 never creates manuscripts or automatically invokes [outlining](outline.md).
 Use the configured language and follow explicit conversation-language requests.
 
+For `$novel-character-develop` or a request to fill gaps, enrich or deepen a
+character profile, use [character development](character-development.md) instead:
+one batch of proposed profile prose, kept entirely in chat until clear approval
+to save current content. Its no-write exception overrides automatic note rules
+for that mode. Ordinary character exploration and `$novel-character` remain
+question-led here unless the writer requests that development mode.
+
 ## Choose a useful starting point
 
 Read the project brief and relevant available notes, then interpret the current

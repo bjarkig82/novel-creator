@@ -44,6 +44,11 @@ class PluginBundleTests(unittest.TestCase):
         for term in ('one question at a time', 'suggested answers', 'custom', 'clear answers'):
             self.assertIn(term, clarify)
         self.assertIn('explicit', (PLUGIN / 'skills/novel-outline/SKILL.md').read_text())
+        development = (PLUGIN / 'skills/novel-character-develop/SKILL.md').read_text()
+        for term in ('character-development.md', 'selected', 'chat', 'explicit approval',
+                     'every role', 'another batch', 'canon', 'history'):
+            self.assertIn(term, development)
+
 
     def test_setup_contract(self):
         text = (PLUGIN / 'skills/setup/SKILL.md').read_text()
@@ -85,7 +90,7 @@ class PluginBundleTests(unittest.TestCase):
                     prefix = '' if suffix == 'plugin' else 'plugins/novel-creator/'
                     self.assertIn(prefix + 'plugin.json', names)
                     self.assertIn(prefix + 'scripts/bootstrap.py', names)
-                    self.assertEqual(sum(n.endswith('/SKILL.md') for n in names), 15)
+                    self.assertEqual(sum(n.endswith('/SKILL.md') for n in names), 16)
                     if suffix == 'marketplace':
                         self.assertIn('.agents/plugins/marketplace.json', names)
                         self.assertIn('.claude-plugin/marketplace.json', names)
@@ -138,7 +143,7 @@ class PluginBundleTests(unittest.TestCase):
                              'plugins/novel-creator/scripts/bootstrap.py', 'scripts/build_plugins.py',
                              '.agents/plugins/marketplace.json', '.claude-plugin/marketplace.json'):
                     self.assertIn(prefix + name, names)
-                self.assertEqual(sum('/plugins/novel-creator/skills/' in name and name.endswith('/SKILL.md') for name in names), 15)
+                self.assertEqual(sum('/plugins/novel-creator/skills/' in name and name.endswith('/SKILL.md') for name in names), 16)
                 for member in archive.getmembers():
                     self.assertFalse(member.issym() or member.islnk())
                     self.assertNotIn('..', Path(member.name).parts)

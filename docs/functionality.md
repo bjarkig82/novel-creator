@@ -297,6 +297,24 @@ retains its saved-review behavior. These additions change neither legacy
 persistence nor existing notebooks; no migration, new CLI command or automatic
 resource update is added. See [usage examples](writing-agents-usage.md#clarify-and-analyze-070).
 
+### Character profile development (unpublished source)
+
+`$novel-character-develop` or an ordinary request to fill gaps or enrich a
+character profile offers a short current-profile summary and 2–3 connected
+additions, optionally focused by the writer. Each batch waits for discussion,
+revision or selective saving. Drafts remain entirely in chat until explicit
+approval to save current content; praise and selection alone do not authorize
+notes, summary changes or checkpoints. Approved saves preserve canon authority,
+stable identities, ownership, provenance, history and unresolved questions.
+Ordinary question-led character exploration remains available.
+
+This notebook-only English/Icelandic addition is absent from published 0.6.0.
+Resources ship into new notebooks from a package containing the feature; existing
+notebooks stay unchanged. See [usage and manual installation](character-development.md),
+the [shared workflow](../notebook/workflows/character-development.md) and the
+[evaluation rubric and evidence](../tests/evaluations/character-development.md).
+No CLI/schema/provider change, additional role or automatic migration is added.
+
 ### Writing roles and manuscripts (0.5.0)
 
 New notebooks initialized with published 0.5.0 install six

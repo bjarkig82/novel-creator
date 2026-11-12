@@ -11,9 +11,12 @@ from .cli import ToolError
 
 
 _SKILLS = ('novel-outline', 'novel-book-idea', 'novel-premise',
-           'novel-character', 'novel-plot', 'novel-setting', 'novel-agent',
+           'novel-character', 'novel-character-develop', 'novel-plot', 'novel-setting', 'novel-agent',
            'novel-research', 'novel-scene', 'novel-chapter', 'novel-review',
            'novel-clarify', 'novel-analyze', 'novel-help')
+_WORKFLOWS = ('conversation.md', 'format.md', 'outline.md', 'brainstorming.md',
+              'agents.md', 'manuscript.md', 'research.md', 'review.md',
+              'clarify.md', 'analyze.md', 'help.md', 'character-development.md')
 _AGENTS = ('novel_orchestrator', 'novel_brainstormer', 'novel_researcher',
            'novel_scene_writer', 'novel_chapter_writer', 'novel_reviewer')
 _INTEGRATION = '.novel-notebook/integration.json'
@@ -143,9 +146,7 @@ def initialize(target, *, title=None, language='en', host='codex', skill_source=
     if not default_layout:
         planned[_INTEGRATION] = (json.dumps({'version': 1, 'host': host,
                                             'skill_source': skill_source}, indent=2) + '\n').encode('utf-8')
-    for name in ('conversation.md', 'format.md', 'outline.md', 'brainstorming.md',
-                 'agents.md', 'manuscript.md', 'research.md', 'review.md',
-                 'clarify.md', 'analyze.md', 'help.md'):
+    for name in _WORKFLOWS:
         raw = shared.joinpath('workflows', name).read_bytes()
         if not default_layout:
             raw = _host_text(raw.decode('utf-8'), host, skill_source).encode('utf-8')
@@ -193,6 +194,10 @@ _CLARIFY_ORIGINALS = {
     '.novel-notebook/workflows/clarify.md':
         '7a0b29f981ff25dbd835c9ebde8ef4a1ceb2a18ca9f1dc8b1a69c74cb66f5d93',
 }
+# Original Help snapshot verified in the public 0.8.0 wheel; refreshing its
+# catalog adds the new entry while customized copies remain protected.
+_CLARIFY_ORIGINALS['.novel-notebook/workflows/help.md'] = (
+    '6fb17350dcf24828279d1ab7417fb05fc6cba4df2dd7cede83ab0ff5279908e0')
 _FOCUS = ('clarify', 'analyze', 'help')
 _ROUTING_START = '<!-- novel-creator:focused-methods:start -->'
 _ROUTING_END = '<!-- novel-creator:focused-methods:end -->'
@@ -298,9 +303,13 @@ def update(target, *, apply=False, preview_id=None, expected_head=None):
             'skills', f'novel-{name}', 'SKILL.md').read_bytes().replace(b'\r\n', b'\n')
         desired[f'.novel-notebook/workflows/{name}.md'] = shared.joinpath(
             name + '.md').read_bytes().replace(b'\r\n', b'\n')
+    desired['.agents/skills/novel-character-develop/SKILL.md'] = codex.joinpath(
+        'skills', 'novel-character-develop', 'SKILL.md').read_bytes().replace(b'\r\n', b'\n')
+    desired['.novel-notebook/workflows/character-development.md'] = shared.joinpath(
+        'character-development.md').read_bytes().replace(b'\r\n', b'\n')
     # 0.4 notebooks predate role/research/manuscript workflows. Add absent
     # prerequisites, but never replace the writer's existing versions.
-    for name in ('agents', 'manuscript', 'research', 'review'):
+    for name in ('agents', 'manuscript', 'research', 'review', 'brainstorming'):
         relative = f'.novel-notebook/workflows/{name}.md'
         if read(relative) is None:
             desired[relative] = shared.joinpath(name + '.md').read_bytes().replace(b'\r\n', b'\n')
@@ -313,6 +322,19 @@ def update(target, *, apply=False, preview_id=None, expected_head=None):
             raise ToolError(3, 'Customized focused-method instructions conflict with the notebook retrofit')
     elif comparable_agents != default_agents:
         desired['AGENTS.md'] = agents + (b'\n' if agents.endswith(b'\n') else b'\n\n') + _ROUTING
+    # Character development has a separate append-only root section. Existing
+    # focused-method blocks remain byte-compatible with previous updates.
+    section = re.search(rb'^## Character development\n.*?(?=^## |\Z)',
+                        default_agents, re.M | re.S).group().rstrip() + b'\n'
+    existing_section = re.search(rb'^## Character development\n.*?(?=^## |\Z)',
+                                 comparable_agents, re.M | re.S)
+    if existing_section:
+        if (len(re.findall(rb'^## Character development$', comparable_agents, re.M)) != 1
+                or existing_section.group().rstrip() + b'\n' != section):
+            raise ToolError(3, 'Customized character-development root section conflicts with the notebook retrofit')
+    else:
+        base = desired.get('AGENTS.md', agents)
+        desired['AGENTS.md'] = base + (b'\n' if base.endswith(b'\n') else b'\n\n') + section
     changes = []
     replacement_identities = {}
     for relative, raw in desired.items():
@@ -349,7 +371,7 @@ def update(target, *, apply=False, preview_id=None, expected_head=None):
     data = {'ready': False, 'novel_path': str(root), 'format': 'novel-notebook',
             'target_version': __version__, 'reviewed_head': head, 'preview_id': digest,
             'changes': changes, 'already_current': not changes, 'applied': False,
-            'next_action': 'Review these resource additions and known clarification refreshes, then explicitly apply this preview. No story files, staging or commits are changed.'}
+            'next_action': 'Review these resource additions and known framework refreshes, then explicitly apply this preview. No story files, staging or commits are changed.'}
     if not apply:
         return {'ok': True, 'data': data}
     if expected_head != head or preview_id != digest:

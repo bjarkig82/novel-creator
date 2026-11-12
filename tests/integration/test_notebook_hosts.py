@@ -3,6 +3,7 @@ import json
 from pathlib import Path
 import re
 import subprocess
+import tomllib
 import unittest
 
 from novel_creator.cli import ToolError
@@ -34,7 +35,7 @@ class NotebookHosts(unittest.TestCase):
                         for directory, selected in (('.agents', host in ('codex', 'both')),
                                                     ('.claude', host in ('claude', 'both'))):
                             skills = list((target / directory / 'skills').glob('*/SKILL.md'))
-                            self.assertEqual(len(skills), 14 if source == 'project' and selected else 0)
+                            self.assertEqual(len(skills), 15 if source == 'project' and selected else 0)
                         for path in target.rglob('*'):
                             if path.is_file() and path.suffix in ('.md', '.toml'):
                                 for link in re.findall(r'\]\(([^)#]+)(?:#[^)]*)?\)', path.read_text()):
@@ -53,9 +54,57 @@ class NotebookHosts(unittest.TestCase):
                             self.assertIn('actually enabled `novel-creator` plugin skills', help_text)
                         if host == 'both' and source == 'plugin':
                             self.assertIn('$novel-creator:novel-clarify', help_text)
+                        development = (target / '.novel-notebook/workflows/character-development.md').read_text()
+                        self.assertIn('keep the entire draft', (target / ('AGENTS.md' if host != 'claude' else 'CLAUDE.md')).read_text().lower())
+                        self.assertIn('every revision in this chat', development)
+                        self.assertIn('2–3 connected additions', development)
+                        self.assertIn('novel-character-develop', help_text)
+                        for active in (('codex', 'claude') if host == 'both' else (host,)):
+                            invocation = ('$' if active == 'codex' else '/')
+                            invocation += ('novel-creator:' if source == 'plugin' else '') + 'novel-character-develop'
+                            self.assertIn(invocation, development)
+                            instructions = target / ('AGENTS.md' if active == 'codex' else 'CLAUDE.md')
+                            self.assertIn(invocation, instructions.read_text())
+                            if source == 'project':
+                                skill = target / ('.agents' if active == 'codex' else '.claude') / 'skills/novel-character-develop/SKILL.md'
+                                self.assertIn(invocation, skill.read_text())
                         project = (target / 'notebook/project.md').read_text()
                         self.assertEqual(json.loads(project.split('```json\n')[1].split('```')[0])['language'], language)
                         self.assertEqual(subprocess.check_output(['git', '-C', str(target), 'status', '--porcelain']), b'')
+
+    def test_brainstormer_routes_through_available_entries_or_selected_workflows(self):
+        plugin_skills = Path(__file__).resolve().parents[2] / 'plugins/novel-creator/skills'
+        for host in ('codex', 'claude', 'both'):
+            for source in ('project', 'plugin'):
+                with self.subTest(host=host, source=source):
+                    target = self.parent / f'brainstormer-{host}-{source}'
+                    initialize(target, host=host, skill_source=source)
+                    active_hosts = ('codex', 'claude') if host == 'both' else (host,)
+                    for active in active_hosts:
+                        if active == 'codex':
+                            agent = target / '.codex/agents/novel_brainstormer.toml'
+                            text = tomllib.loads(agent.read_text())['developer_instructions']
+                        else:
+                            agent = target / '.claude/agents/novel-brainstormer.md'
+                            text = agent.read_text()
+                        directory = plugin_skills if source == 'plugin' else (
+                            target / ('.agents' if active == 'codex' else '.claude') / 'skills')
+                        available = {('novel-creator:' if source == 'plugin' else '') + path.parent.name
+                                     for path in directory.glob('*/SKILL.md')}
+                        # Named entries, when present, must use actual host inventory.
+                        # Descriptive routing through a pinned workflow is also valid.
+                        for symbol, entry in re.findall(r'([$\/])((?:novel-creator:)?novel-[a-z-]+)', text):
+                            self.assertEqual(symbol, '$' if active == 'codex' else '/', (agent, entry))
+                            self.assertIn(entry, available, (agent, entry))
+                        links = [(agent.parent / link).resolve() for link in
+                                 re.findall(r'\]\(([^)#]+)(?:#[^)]*)?\)', text)]
+                        workflow = target / '.novel-notebook/workflows/character-development.md'
+                        self.assertIn(workflow.resolve(), links)
+                        for destination in links:
+                            self.assertTrue(destination.is_relative_to(target.resolve()))
+                            self.assertTrue(destination.is_file())
+                        self.assertIn('no notebook writes or checkpoints until clear approval', text)
+                        self.assertIn('profile enrichment/gap filling', text)
 
     def test_update_refuses_nondefault_integrations_without_changes(self):
         for host, source in (('both', 'plugin'), ('claude', 'project'), ('codex', 'plugin')):

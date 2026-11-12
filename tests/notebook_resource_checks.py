@@ -7,12 +7,12 @@ import tomllib
 AGENT_NAMES = ('novel_orchestrator', 'novel_brainstormer', 'novel_researcher',
                'novel_scene_writer', 'novel_chapter_writer', 'novel_reviewer')
 SKILL_NAMES = ('novel-outline', 'novel-book-idea', 'novel-premise', 'novel-character',
-               'novel-plot', 'novel-setting', 'novel-agent', 'novel-research',
+               'novel-character-develop', 'novel-plot', 'novel-setting', 'novel-agent', 'novel-research',
                'novel-scene', 'novel-chapter', 'novel-review', 'novel-clarify',
                'novel-analyze', 'novel-help')
 WORKFLOW_NAMES = ('conversation', 'format', 'outline', 'brainstorming',
                   'agents', 'manuscript', 'research', 'review', 'clarify', 'analyze',
-                  'help')
+                  'help', 'character-development')
 
 # Frozen published layout: future notebook additions must not become requirements
 # when verifying the already approved public 0.5.0 artifact.
