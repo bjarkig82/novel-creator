@@ -1,0 +1,28 @@
+{
+  "version": "0.8.0",
+  "repository": "bjarkig82/novel-creator",
+  "candidate_run": "43218783499",
+  "candidate_attempt": "1",
+  "artifact_id": "13945000853",
+  "source_commit": "9491664acccec5c9cb1f9c2ce6315883328aaeeb",
+  "host_evidence": {
+    "candidate_run": "43218783499",
+    "candidate_attempt": "1",
+    "artifact_id": "13945000853",
+    "source_commit": "9491664acccec5c9cb1f9c2ce6315883328aaeeb",
+    "files": {
+      "novel_creator-0.8.0-py3-none-any.whl": "390c6e208fe71a803783cd2cf979bada3e20988518a0032572fcf9a1b8711c5b",
+      "novel_creator-0.8.0.tar.gz": "ad5b9fb1ad534c9e1268793743fd26f3f57679426f023920b468ec855d37f210"
+    },
+    "qualification": "automated-only",
+    "windows_host": false,
+    "linux_host": false
+  },
+  "publish_run": "43230160921",
+  "publish_attempt": "2",
+  "tag_object": "8484e06ea3c9bc55e80fe21ec226b826097bb064",
+  "plugin_archives": {
+    "novel-creator-plugin-0.8.0.zip": "08ef3d9d33d06cf1696be1199ba4e28f634d4359114f427896a7a22cc8708d01",
+    "novel-creator-marketplace-0.8.0.zip": "36ba44febb12bbcf06fe92a7c85e3805b45fd234239f43c521f4ffe2d0e33cac"
+  }
+}

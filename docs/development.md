@@ -145,6 +145,40 @@ resource changes select full Windows qualification under the
 [Windows release policy](testing-and-completion-guide.md#windows-release-selection).
 See the [candidate evidence ledger](../tests/evaluations/marketplace-0.8.0.md).
 
+### Completing GitHub release assets
+
+The manually dispatched [GitHub assets workflow](../.github/workflows/github-release-assets.yml)
+completes the already published 0.8.0 release using the normal Actions token.
+Its [reviewed selection](../.github/release-assets-0.8.0.json) deliberately pins
+candidate run 43218783499, attempt 1, artifact 13945000853, the qualified source,
+successful publish run 43230160921 attempt 2, annotated tag object and ZIP hashes.
+These are version-specific recovery pins; dispatch has no inputs. It does not
+publish to PyPI or replace the existing package release gates.
+
+The helper runs the qualified source's `verify-remote` against the downloaded
+candidate, requires successful Windows/Linux public-install checks at the same
+source, verifies the remote annotated tag and both public PyPI archives, and
+rebuilds the two deterministic plugin ZIPs from the verified candidate sdist.
+The workflow's current checkout supplies only the helper and reviewed selection;
+it supplies no release payload. An existing public release is reused only after
+its exact four-asset inventory and downloaded bytes match. Missing or different
+assets fail without replacement; tags are never created, moved or deleted.
+
+For a local read-only rehearsal, use a separate checkout at the selected source,
+the downloaded candidate directory, a fresh output directory and a GitHub token
+with read access:
+
+```text
+python scripts/github_release_assets.py --selection .github/release-assets-0.8.0.json --source QUALIFIED_CHECKOUT --candidate CANDIDATE_DIR --output FRESH_OUTPUT_DIR
+python -m unittest tests.contract.test_github_release_assets -q
+```
+
+Only `--publish` permits creation of the GitHub release and upload of its four
+assets. The helper never overwrites an existing release asset. A partial or
+mismatched release requires investigation; rerunning cannot silently repair it.
+These checks remain automated evidence, with the native host limits stated in
+the generated release notes.
+
 ## Compatibility and evidence
 
 Preserve legacy pinned resources, record identity, history, writer authority and
