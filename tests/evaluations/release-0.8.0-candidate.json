@@ -1,0 +1,642 @@
+{
+  "version": "0.8.0",
+  "status": "candidate qualified; publication pending protected pypi approval",
+  "evidence_date": "2026-11-12",
+  "repository": "bjarkig82/novel-creator",
+  "source_commit": "9491664acccec5c9cb1f9c2ce6315883328aaeeb",
+  "source_branch": "main",
+  "run_id": 43218783499,
+  "run_attempt": 1,
+  "run_url": "https://github.com/bjarkig82/novel-creator/actions/runs/43218783499",
+  "artifact_id": 13945000853,
+  "artifact_name": "candidate-43218783499-1",
+  "artifact_zip_sha256": "1f39564e754fba811536fc1913a28ed14d2c8c64e49ea03fedb18ff2377f4b66",
+  "artifact_zip_digest_verified": true,
+  "manifest": {
+    "windows_suite": "full",
+    "windows_baseline": "8df4ca09e58f71d800211a4dad794dd6c1f0c610",
+    "windows_reason": "Manual full qualification requested",
+    "repository": "bjarkig82/novel-creator",
+    "run_id": "43218783499",
+    "run_attempt": "1",
+    "source_commit": "9491664acccec5c9cb1f9c2ce6315883328aaeeb",
+    "distribution": "novel-creator",
+    "version": "0.8.0",
+    "files": {
+      "novel_creator-0.8.0-py3-none-any.whl": "390c6e208fe71a803783cd2cf979bada3e20988518a0032572fcf9a1b8711c5b",
+      "novel_creator-0.8.0.tar.gz": "ad5b9fb1ad534c9e1268793743fd26f3f57679426f023920b468ec855d37f210"
+    }
+  },
+  "manifest_identity_and_files_verified": true,
+  "candidate_run_status": "completed",
+  "conclusion": "success",
+  "remote_release_verifier": "passed against exact completed candidate, immutable artifact, source, hashes and required platform jobs",
+  "platforms": {
+    "linux": {
+      "job_id": 131184997980,
+      "job_url": "https://github.com/bjarkig82/novel-creator/actions/runs/43218783499/job/131184997980",
+      "status": "completed",
+      "suite": "full",
+      "conclusion": "success",
+      "test_count": 509,
+      "skipped_tests": 3,
+      "test_seconds": 612.714,
+      "early_upgrade_tests": 21,
+      "early_upgrade_test_seconds": 3.504,
+      "successful_steps": [
+        "Set up job",
+        "Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a",
+        "Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+        "Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333",
+        "Verify candidate manifest",
+        "Run python -m pip install -e '.[test]'",
+        "Check project skill upgrades",
+        "Verify plugin runtime installation",
+        "Verify previous published notebook compatibility",
+        "Run full unit suite",
+        "Verify wheel bytes and legacy journeys",
+        "Verify clean wheel installation",
+        "Verify clean installation from the candidate sdist",
+        "Follow the literal Bash getting-started guide",
+        "Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9",
+        "Post Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+        "Post Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a",
+        "Complete job"
+      ],
+      "reports": {
+        "candidate-check": {
+          "mode": "candidate",
+          "source": "novel_creator-0.8.0-py3-none-any.whl",
+          "version": "novel-creator 0.8.0",
+          "dependencies": [
+            {
+              "name": "attrs",
+              "version": "26.1.0"
+            },
+            {
+              "name": "jsonschema",
+              "version": "4.26.0"
+            },
+            {
+              "name": "jsonschema_rs",
+              "version": "0.59.0"
+            },
+            {
+              "name": "jsonschema-specifications",
+              "version": "2025.9.1"
+            },
+            {
+              "name": "novel-creator",
+              "version": "0.8.0"
+            },
+            {
+              "name": "packaging",
+              "version": "26.3"
+            },
+            {
+              "name": "pip",
+              "version": "26.3"
+            },
+            {
+              "name": "referencing",
+              "version": "0.37.0"
+            },
+            {
+              "name": "rpds-py",
+              "version": "2026.9.1"
+            }
+          ],
+          "validated": true,
+          "guide_sha256": "56759bae4a8ffee86c44abb28337ebcad791af60c5e40e372f651e29615eeebf",
+          "wheel_sha256": "390c6e208fe71a803783cd2cf979bada3e20988518a0032572fcf9a1b8711c5b",
+          "public_artifact_hashes": {},
+          "installed_product": null,
+          "context_views": {
+            "default_full_compatible": true,
+            "current": true,
+            "working": true,
+            "focused_complete_record": true,
+            "lexical_query_miss": true,
+            "source_checkpoint": {
+              "git_head": "1685c25728efb1760935afabb4becd0462e0f047",
+              "exchange_id": "ca78e921-673c-444b-9bdd-753869490b39",
+              "sequence": 1
+            },
+            "installed_and_pinned_memory": true
+          },
+          "settings_cases": [
+            {
+              "name": "Folder",
+              "title": "Bréf frá morgundeginum",
+              "language": "is",
+              "preserved": true
+            },
+            {
+              "name": "English",
+              "title": "A working title",
+              "language": "en",
+              "preserved": true
+            },
+            {
+              "name": "A Novel",
+              "title": "A Novel",
+              "language": "en",
+              "preserved": true
+            }
+          ],
+          "notebook_cases": [
+            {
+              "language": "en",
+              "created": true,
+              "guidance_links": true,
+              "outline_skill": true,
+              "brainstorming_skills": true,
+              "writing_agents": true,
+              "verified_resource_count": 32,
+              "explicit_notebook_retrofit": true
+            },
+            {
+              "language": "is",
+              "created": true,
+              "guidance_links": true,
+              "outline_skill": true,
+              "brainstorming_skills": true,
+              "writing_agents": true,
+              "verified_resource_count": 32,
+              "explicit_notebook_retrofit": true
+            }
+          ],
+          "previous_published_release_upgrades": {
+            "source_version": "0.7.1",
+            "source_sha256": "cbbd487cee102003160f1966b5748efac73ac9733532744b015abb1f9e6393ba",
+            "target_version": "0.8.0",
+            "legacy_target_matches_installed_product_files": 96,
+            "legacy_target_wheel_sha256": "390c6e208fe71a803783cd2cf979bada3e20988518a0032572fcf9a1b8711c5b",
+            "notebooks": [
+              {
+                "language": "en",
+                "source_version": "0.7.1",
+                "two_clarify_resources_refreshed": true,
+                "links_and_suggestions": true,
+                "story_history_custom_instructions_staging_preserved": true
+              },
+              {
+                "language": "is",
+                "source_version": "0.7.1",
+                "two_clarify_resources_refreshed": true,
+                "links_and_suggestions": true,
+                "story_history_custom_instructions_staging_preserved": true
+              }
+            ],
+            "legacy": {
+              "ok": true,
+              "scope": "offline disposable installed-controller CLI qualification; not native host or publication",
+              "cases": [
+                {
+                  "source_version": "0.7.1",
+                  "source_sha256": "cbbd487cee102003160f1966b5748efac73ac9733532744b015abb1f9e6393ba",
+                  "language": "is",
+                  "target_version": "0.8.0",
+                  "target_sha256": "390c6e208fe71a803783cd2cf979bada3e20988518a0032572fcf9a1b8711c5b",
+                  "preview_read_only": true,
+                  "framework_commit": "4f177e4cefa2ab3b8d96b403ebb470a6a73ac018",
+                  "single_update_commit": true,
+                  "history_and_writer_work_preserved": true,
+                  "guided_session_restored": true,
+                  "pinned_product_origins": true,
+                  "subsequent_synthetic_save": true,
+                  "completed_status_after_subsequent_save": true,
+                  "completed_recovery_inspection_after_subsequent_save": true,
+                  "changed_recovery_checkpoint_refused": true
+                }
+              ]
+            },
+            "native_host_evidence": false,
+            "legacy_target_origin": "candidate input wheel"
+          },
+          "invalid_input_cases": 5,
+          "host_walkthrough": "not performed",
+          "dependency_inheritance": false
+        },
+        "plugin-previous-check": {
+          "ok": true,
+          "source_sha256": "8ee343c10bfcc8129d860a8502c669856deaa92f62b5059f915a4027fc11c9f5",
+          "candidate_wheel_sha256": "390c6e208fe71a803783cd2cf979bada3e20988518a0032572fcf9a1b8711c5b",
+          "notebooks": [
+            {
+              "language": "en",
+              "source_version": "0.7.2",
+              "target_version": "0.8.0",
+              "story_custom_instructions_history_and_staging_preserved": true,
+              "focused_update": "compatible",
+              "implicit_plugin_adoption": false
+            },
+            {
+              "language": "is",
+              "source_version": "0.7.2",
+              "target_version": "0.8.0",
+              "story_custom_instructions_history_and_staging_preserved": true,
+              "focused_update": "compatible",
+              "implicit_plugin_adoption": false
+            }
+          ]
+        },
+        "plugin-runtime-check": {
+          "ok": true,
+          "version": "0.8.0",
+          "wheel_sha256": "390c6e208fe71a803783cd2cf979bada3e20988518a0032572fcf9a1b8711c5b",
+          "plugin_root": "/home/runner/work/novel-creator/novel-creator/plugins/novel-creator",
+          "runtime_created": true,
+          "runtime_reused": true,
+          "isolated_dependency_checks": "passed",
+          "notebooks": [
+            {
+              "language": "en",
+              "host": "both",
+              "skill_source": "plugin",
+              "instructions": 2,
+              "native_agents": 12,
+              "local_skills": 0,
+              "links": "resolved",
+              "git": "clean",
+              "updater": "refused without mutation"
+            },
+            {
+              "language": "is",
+              "host": "both",
+              "skill_source": "plugin",
+              "instructions": 2,
+              "native_agents": 12,
+              "local_skills": 0,
+              "links": "resolved",
+              "git": "clean",
+              "updater": "refused without mutation"
+            }
+          ]
+        }
+      },
+      "report_sha256": {
+        "candidate-check.json": "78be587ffd8290035f3997fdb8adeff7ebf62e158ae6238d8b9636363c263f3e",
+        "plugin-previous-check.json": "14f044ae2668280a7da9f587a345c0d149497e96f74ec1b5cb7722332e351bcf",
+        "plugin-runtime-check.json": "c2cb61e429fbae551093042400cb56c07bfdb06c13cb61cf368691eb0e8d47fa"
+      }
+    },
+    "windows": {
+      "job_id": 131184997971,
+      "job_url": "https://github.com/bjarkig82/novel-creator/actions/runs/43218783499/job/131184997971",
+      "status": "completed",
+      "suite": "full",
+      "conclusion": "success",
+      "test_count": 509,
+      "skipped_tests": 0,
+      "test_seconds": 3660.762,
+      "early_upgrade_tests": 21,
+      "early_upgrade_test_seconds": 38.593,
+      "successful_steps": [
+        "Set up job",
+        "Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a",
+        "Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+        "Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333",
+        "Verify candidate manifest",
+        "Run python -m pip install -e '.[test]'",
+        "Check project skill upgrades",
+        "Verify plugin runtime installation",
+        "Verify previous published notebook compatibility",
+        "Run full unit suite",
+        "Verify wheel bytes and legacy journeys",
+        "Verify clean wheel installation",
+        "Verify clean installation from the candidate sdist",
+        "Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9",
+        "Post Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+        "Post Run actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a",
+        "Complete job"
+      ],
+      "reports": {
+        "candidate-check": {
+          "mode": "candidate",
+          "source": "novel_creator-0.8.0-py3-none-any.whl",
+          "version": "novel-creator 0.8.0",
+          "dependencies": [
+            {
+              "name": "attrs",
+              "version": "26.1.0"
+            },
+            {
+              "name": "jsonschema",
+              "version": "4.26.0"
+            },
+            {
+              "name": "jsonschema_rs",
+              "version": "0.59.0"
+            },
+            {
+              "name": "jsonschema-specifications",
+              "version": "2025.9.1"
+            },
+            {
+              "name": "novel-creator",
+              "version": "0.8.0"
+            },
+            {
+              "name": "packaging",
+              "version": "26.3"
+            },
+            {
+              "name": "pip",
+              "version": "26.3"
+            },
+            {
+              "name": "referencing",
+              "version": "0.37.0"
+            },
+            {
+              "name": "rpds-py",
+              "version": "2026.9.1"
+            }
+          ],
+          "validated": true,
+          "guide_sha256": "56759bae4a8ffee86c44abb28337ebcad791af60c5e40e372f651e29615eeebf",
+          "wheel_sha256": "390c6e208fe71a803783cd2cf979bada3e20988518a0032572fcf9a1b8711c5b",
+          "public_artifact_hashes": {},
+          "installed_product": null,
+          "context_views": {
+            "default_full_compatible": true,
+            "current": true,
+            "working": true,
+            "focused_complete_record": true,
+            "lexical_query_miss": true,
+            "source_checkpoint": {
+              "git_head": "f969bbcaa36ae11eb1100803c08a504b2edc245f",
+              "exchange_id": "37c37745-fdc3-49c9-9739-289ba1c1145f",
+              "sequence": 1
+            },
+            "installed_and_pinned_memory": true
+          },
+          "settings_cases": [
+            {
+              "name": "Folder",
+              "title": "Bréf frá morgundeginum",
+              "language": "is",
+              "preserved": true
+            },
+            {
+              "name": "English",
+              "title": "A working title",
+              "language": "en",
+              "preserved": true
+            },
+            {
+              "name": "A Novel",
+              "title": "A Novel",
+              "language": "en",
+              "preserved": true
+            }
+          ],
+          "notebook_cases": [
+            {
+              "language": "en",
+              "created": true,
+              "guidance_links": true,
+              "outline_skill": true,
+              "brainstorming_skills": true,
+              "writing_agents": true,
+              "verified_resource_count": 32,
+              "explicit_notebook_retrofit": true
+            },
+            {
+              "language": "is",
+              "created": true,
+              "guidance_links": true,
+              "outline_skill": true,
+              "brainstorming_skills": true,
+              "writing_agents": true,
+              "verified_resource_count": 32,
+              "explicit_notebook_retrofit": true
+            }
+          ],
+          "previous_published_release_upgrades": {
+            "source_version": "0.7.1",
+            "source_sha256": "cbbd487cee102003160f1966b5748efac73ac9733532744b015abb1f9e6393ba",
+            "target_version": "0.8.0",
+            "legacy_target_matches_installed_product_files": 96,
+            "legacy_target_wheel_sha256": "390c6e208fe71a803783cd2cf979bada3e20988518a0032572fcf9a1b8711c5b",
+            "notebooks": [
+              {
+                "language": "en",
+                "source_version": "0.7.1",
+                "two_clarify_resources_refreshed": true,
+                "links_and_suggestions": true,
+                "story_history_custom_instructions_staging_preserved": true
+              },
+              {
+                "language": "is",
+                "source_version": "0.7.1",
+                "two_clarify_resources_refreshed": true,
+                "links_and_suggestions": true,
+                "story_history_custom_instructions_staging_preserved": true
+              }
+            ],
+            "legacy": {
+              "ok": true,
+              "scope": "offline disposable installed-controller CLI qualification; not native host or publication",
+              "cases": [
+                {
+                  "source_version": "0.7.1",
+                  "source_sha256": "cbbd487cee102003160f1966b5748efac73ac9733532744b015abb1f9e6393ba",
+                  "language": "is",
+                  "target_version": "0.8.0",
+                  "target_sha256": "390c6e208fe71a803783cd2cf979bada3e20988518a0032572fcf9a1b8711c5b",
+                  "preview_read_only": true,
+                  "framework_commit": "9f1439a64e876a1bec9e9be727a90e909fe2be35",
+                  "single_update_commit": true,
+                  "history_and_writer_work_preserved": true,
+                  "guided_session_restored": true,
+                  "pinned_product_origins": true,
+                  "subsequent_synthetic_save": true,
+                  "completed_status_after_subsequent_save": true,
+                  "completed_recovery_inspection_after_subsequent_save": true,
+                  "changed_recovery_checkpoint_refused": true
+                }
+              ]
+            },
+            "native_host_evidence": false,
+            "legacy_target_origin": "candidate input wheel"
+          },
+          "invalid_input_cases": 5,
+          "host_walkthrough": "not performed",
+          "dependency_inheritance": false
+        },
+        "plugin-previous-check": {
+          "ok": true,
+          "source_sha256": "8ee343c10bfcc8129d860a8502c669856deaa92f62b5059f915a4027fc11c9f5",
+          "candidate_wheel_sha256": "390c6e208fe71a803783cd2cf979bada3e20988518a0032572fcf9a1b8711c5b",
+          "notebooks": [
+            {
+              "language": "en",
+              "source_version": "0.7.2",
+              "target_version": "0.8.0",
+              "story_custom_instructions_history_and_staging_preserved": true,
+              "focused_update": "compatible",
+              "implicit_plugin_adoption": false
+            },
+            {
+              "language": "is",
+              "source_version": "0.7.2",
+              "target_version": "0.8.0",
+              "story_custom_instructions_history_and_staging_preserved": true,
+              "focused_update": "compatible",
+              "implicit_plugin_adoption": false
+            }
+          ]
+        },
+        "plugin-runtime-check": {
+          "ok": true,
+          "version": "0.8.0",
+          "wheel_sha256": "390c6e208fe71a803783cd2cf979bada3e20988518a0032572fcf9a1b8711c5b",
+          "plugin_root": "D:\\a\\novel-creator\\novel-creator\\plugins\\novel-creator",
+          "runtime_created": true,
+          "runtime_reused": true,
+          "isolated_dependency_checks": "passed",
+          "notebooks": [
+            {
+              "language": "en",
+              "host": "both",
+              "skill_source": "plugin",
+              "instructions": 2,
+              "native_agents": 12,
+              "local_skills": 0,
+              "links": "resolved",
+              "git": "clean",
+              "updater": "refused without mutation"
+            },
+            {
+              "language": "is",
+              "host": "both",
+              "skill_source": "plugin",
+              "instructions": 2,
+              "native_agents": 12,
+              "local_skills": 0,
+              "links": "resolved",
+              "git": "clean",
+              "updater": "refused without mutation"
+            }
+          ]
+        }
+      },
+      "report_sha256": {
+        "candidate-check.json": "5863520deef09a8d47a798bcf566c9b3cc2fab16ba88e3f46daf598998f01e76",
+        "plugin-previous-check.json": "930d01b1400bf54f121393b58e67ea59229fdd609d386b0e41d6ff70b26c8365",
+        "plugin-runtime-check.json": "c9ed842375d75bb526f974c617447b23eb5e38e6e7f63f9c45837376d4d53396"
+      }
+    }
+  },
+  "suite_log_excerpts": {
+    "windows": [
+      "2026-11-12T12:34:17.5043203Z Ran 21 tests in 38.593s\r",
+      "2026-11-12T12:34:17.5043861Z OK\r",
+      "2026-11-12T13:35:44.5237197Z Ran 509 tests in 3660.762s\r",
+      "2026-11-12T13:35:44.5237761Z OK\r"
+    ],
+    "linux": [
+      "2026-11-12T12:33:04.2409878Z ----------------------------------------------------------------------\n2026-11-12T12:33:04.2410534Z Ran 21 tests in 3.504s\n2026-11-12T12:33:04.2410774Z \n2026-11-12T12:33:04.2410885Z OK\n2026-11-12T12:33:04.2726821Z ##[group]Run python tests/verify_plugin_install.py --wheel candidate/*.whl --report plugin-runtime-check.json",
+      "2026-11-12T12:43:29.1449702Z ----------------------------------------------------------------------\n2026-11-12T12:43:29.1450319Z Ran 509 tests in 612.714s\n2026-11-12T12:43:29.1450504Z \n2026-11-12T12:43:29.1450606Z OK (skipped=3)\n2026-11-12T12:43:29.1824400Z ##[group]Run python tests/verify_wheel.py candidate/*.whl"
+    ]
+  },
+  "plugin_archives": {
+    "status": "candidate assets built from qualified source; not published",
+    "files": {
+      "novel-creator-plugin-0.8.0.zip": {
+        "sha256": "08ef3d9d33d06cf1696be1199ba4e28f634d4359114f427896a7a22cc8708d01",
+        "bytes": 21565
+      },
+      "novel-creator-marketplace-0.8.0.zip": {
+        "sha256": "36ba44febb12bbcf06fe92a7c85e3805b45fd234239f43c521f4ffe2d0e33cac",
+        "bytes": 23166
+      }
+    }
+  },
+  "marketplace_cli": {
+    "historical_preflight_ledger": "marketplace-0.8.0.md",
+    "claude_code": {
+      "version": "2.1.322",
+      "configuration": "isolated task-local CLAUDE_CONFIG_DIR",
+      "github_marketplace_add": {
+        "command": "marketplace-add",
+        "outcome": "ok",
+        "marketplace": "novel-creator-marketplace",
+        "message": "SSH not configured, cloning via HTTPS: https://github.com/bjarkig82/novel-creator.git\nRefreshing marketplace cache (timeout: 120s)…\nCloning repository (timeout: 120s): https://github.com/bjarkig82/novel-creator.git\nClone complete, validating marketplace…\nCleaning up old marketplace cache…\nSuccessfully added marketplace: novel-creator-marketplace (declared in user settings)"
+      },
+      "github_plugin_install": {
+        "command": "install",
+        "outcome": "ok",
+        "plugin": "novel-creator@novel-creator-marketplace",
+        "pluginId": "novel-creator@novel-creator-marketplace",
+        "scope": "user",
+        "message": "Successfully installed plugin: novel-creator@novel-creator-marketplace (scope: user)"
+      },
+      "inventory": {
+        "version": "0.8.0",
+        "skills": 15,
+        "agents": 0,
+        "hooks": 0,
+        "mcp_servers": 0,
+        "lsp_servers": 0
+      },
+      "gui_discovery_verified": false,
+      "authenticated_conversations_verified": false
+    },
+    "codex": {
+      "version": "0.163.0",
+      "observed": "transient local-catalog discovery reported 0.8.0 available, not installed",
+      "scope": "historical marketplace preflight CLI evidence",
+      "native_installation_verified": false,
+      "gui_discovery_verified": false,
+      "app_server_read": "failed: default home read-only despite task-local SQLite/log overrides"
+    }
+  },
+  "publication": {
+    "status": "pending protected pypi approval",
+    "run_id": 43230160921,
+    "run_url": "https://github.com/bjarkig82/novel-creator/actions/runs/43230160921",
+    "environment": "pypi",
+    "source_commit": "9491664acccec5c9cb1f9c2ce6315883328aaeeb",
+    "candidate_run": 43218783499,
+    "candidate_attempt": 1,
+    "artifact_id": 13945000853,
+    "files": {
+      "novel_creator-0.8.0-py3-none-any.whl": "390c6e208fe71a803783cd2cf979bada3e20988518a0032572fcf9a1b8711c5b",
+      "novel_creator-0.8.0.tar.gz": "ad5b9fb1ad534c9e1268793743fd26f3f57679426f023920b468ec855d37f210"
+    },
+    "approval_api_error": "HTTP 403 Resource not accessible by integration",
+    "protection_changed": false,
+    "pypi_published": false,
+    "public_archive_hashes_verified": false,
+    "public_checks": {
+      "linux": "pending",
+      "windows": "pending"
+    },
+    "independent_public_installation": "pending",
+    "published_index_remote_plugin_bootstrap": "pending"
+  },
+  "version_tag": {
+    "name": "v0.8.0",
+    "status": "pending",
+    "required_source": "9491664acccec5c9cb1f9c2ce6315883328aaeeb"
+  },
+  "github_release": {
+    "status": "pending"
+  },
+  "qualification": "automated-only",
+  "windows_host": false,
+  "linux_host": false,
+  "native_skill_discovery_and_invocation": "unverified",
+  "native_specialist_controls_and_conversations": "unverified",
+  "literary_quality_and_voice": "unverified",
+  "private_novel_content_included": false,
+  "limitations": [
+    "Disposable synthetic projects and structural/CLI checks do not establish authenticated host conversations or GUI behavior.",
+    "Plugin runtime report native_agents counts project-local role definitions, not observed specialist invocation.",
+    "Existing notebook plugin adoption and legacy host port remain deferred; supported existing-format updates preserve standalone layout.",
+    "macOS, MCP and public-directory submission are deferred."
+  ]
+}
