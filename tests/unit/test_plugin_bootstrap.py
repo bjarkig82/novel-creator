@@ -10,6 +10,8 @@ import unittest
 from unittest.mock import patch
 import zipfile
 
+from novel_creator import __version__ as PACKAGE_VERSION
+
 ROOT = Path(__file__).resolve().parents[2]
 SCRIPT = ROOT / 'plugins/novel-creator/scripts/bootstrap.py'
 
@@ -27,14 +29,15 @@ class BootstrapTests(unittest.TestCase):
         spec = importlib.util.spec_from_file_location('plugin_bootstrap', SCRIPT)
         self.bootstrap = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(self.bootstrap)
+        self.assertEqual(self.bootstrap.VERSION, PACKAGE_VERSION)
         self.env = patch.dict(os.environ, {'XDG_CACHE_HOME': str(self.root / 'cache')})
         self.env.start()
         self.addCleanup(self.env.stop)
-        self.runtime = self.root / 'cache/novel-creator/runtimes/0.8.0'
+        self.runtime = self.root / 'cache/novel-creator/runtimes' / PACKAGE_VERSION
         self.installs = []
         self.healthy = False
 
-    def wheel(self, name='novel_creator', version='0.8.0', extra=''):
+    def wheel(self, name='novel_creator', version=PACKAGE_VERSION, extra=''):
         path = self.root / ('candidate' + extra + '.whl')
         with zipfile.ZipFile(path, 'w') as archive:
             archive.writestr(f'{name}-{version}.dist-info/METADATA',
@@ -62,7 +65,8 @@ class BootstrapTests(unittest.TestCase):
         second = self.setup_runtime()
         self.assertFalse(first['reused'])
         self.assertTrue(second['reused'])
-        self.assertEqual(self.installs, ['novel-creator==0.8.0'])
+        self.assertEqual(self.installs, [f'novel-creator=={PACKAGE_VERSION}'])
+        self.assertEqual(first['version'], PACKAGE_VERSION)
         self.assertEqual(first['runtime_python'], str(self.bootstrap.runtime_python(self.runtime)))
 
     def test_unknown_runtime_preserved(self):
@@ -78,7 +82,7 @@ class BootstrapTests(unittest.TestCase):
         self.runtime.mkdir(parents=True)
         marker = self.runtime / '.novel-creator-runtime.json'
         marker.write_text(json.dumps({'owner': 'novel-creator-plugin', 'format': 1,
-                                      'version': '0.8.0', 'source': {'kind': 'pypi', 'requirement': 'novel-creator==0.8.0'},
+                                      'version': PACKAGE_VERSION, 'source': {'kind': 'pypi', 'requirement': f'novel-creator=={PACKAGE_VERSION}'},
                                       'phase': 'unknown'}))
         before = marker.read_bytes()
         with self.assertRaisesRegex(self.bootstrap.SetupError, 'unrecognized'):
@@ -106,7 +110,7 @@ class BootstrapTests(unittest.TestCase):
         self.assertFalse((SCRIPT.parents[1] / 'cache').exists())
 
     def test_wheel_product_version_and_provenance(self):
-        for name, version in [('other', '0.8.0'), ('novel_creator', '0.7.2')]:
+        for name, version in [('other', PACKAGE_VERSION), ('novel_creator', '0.7.2')]:
             with self.subTest(name=name, version=version):
                 with self.assertRaisesRegex(self.bootstrap.SetupError, 'wheel'):
                     self.setup_runtime(wheel=self.wheel(name, version))
@@ -126,7 +130,7 @@ class BootstrapTests(unittest.TestCase):
                 self.bootstrap.bootstrap()
         self.assertTrue(self.runtime.is_dir())
         self.assertTrue((self.runtime / '.novel-creator-runtime.json').is_file())
-        self.assertFalse((self.runtime.parent / '0.8.0.lock').exists())
+        self.assertFalse((self.runtime.parent / (PACKAGE_VERSION + '.lock')).exists())
         self.assertFalse(self.setup_runtime()['reused'])
 
     def test_venv_creation_failure_preserves_partial(self):
@@ -155,7 +159,7 @@ class BootstrapTests(unittest.TestCase):
     def test_windows_cache_location_and_interpreter(self):
         with patch('sys.platform', 'win32'), patch.dict(os.environ, {'LOCALAPPDATA': str(self.root / 'local')}):
             runtime = self.bootstrap.runtime_directory()
-            self.assertEqual(runtime, self.root / 'local/NovelCreator/runtimes/0.8.0')
+            self.assertEqual(runtime, self.root / 'local/NovelCreator/runtimes' / PACKAGE_VERSION)
             self.assertEqual(self.bootstrap.runtime_python(runtime), runtime / 'Scripts/python.exe')
 
     def test_windows_reparse_attributes_rejected(self):
@@ -195,7 +199,7 @@ class BootstrapTests(unittest.TestCase):
         self.runtime.parent.mkdir(parents=True)
         target = self.root / 'other-lock'
         target.write_text('preserve')
-        lock = self.runtime.parent / '0.8.0.lock'
+        lock = self.runtime.parent / (PACKAGE_VERSION + '.lock')
         try:
             lock.symlink_to(target)
         except OSError:
@@ -207,7 +211,7 @@ class BootstrapTests(unittest.TestCase):
 
     def test_concurrent_lock_is_never_removed(self):
         self.runtime.parent.mkdir(parents=True)
-        lock = self.runtime.parent / '0.8.0.lock'
+        lock = self.runtime.parent / (PACKAGE_VERSION + '.lock')
         lock.write_text('another process')
         with self.assertRaisesRegex(self.bootstrap.SetupError, 'lock|concurrent'):
             self.setup_runtime()
@@ -215,7 +219,7 @@ class BootstrapTests(unittest.TestCase):
         self.assertFalse(self.runtime.exists())
 
     def test_lock_descriptor_closed_before_unlink(self):
-        lock = self.runtime.parent / '0.8.0.lock'
+        lock = self.runtime.parent / (PACKAGE_VERSION + '.lock')
         closed = False
         original_close = os.close
         original_unlink = Path.unlink
@@ -232,7 +236,7 @@ class BootstrapTests(unittest.TestCase):
         self.assertFalse(lock.exists())
 
     def test_lock_replaced_after_close_is_preserved(self):
-        lock = self.runtime.parent / '0.8.0.lock'
+        lock = self.runtime.parent / (PACKAGE_VERSION + '.lock')
         original_close = os.close
         def close(descriptor):
             original_close(descriptor)
@@ -350,7 +354,7 @@ class BootstrapTests(unittest.TestCase):
             output = "global.proxy='https://proxy.invalid'\n" if command[-2:] == ['config', 'list'] else ''
             return subprocess.CompletedProcess(command, 0, output, '')
         with patch.dict(os.environ, {}, clear=True), patch.object(self.bootstrap.subprocess, 'run', side_effect=run):
-            self.bootstrap.install_package(Path('/runtime/bin/python'), 'novel-creator==0.8.0')
+            self.bootstrap.install_package(Path('/runtime/bin/python'), f'novel-creator=={PACKAGE_VERSION}')
         installs = [kwargs for command, kwargs in calls if 'install' in command]
         self.assertEqual(len(installs), 1)
         self.assertEqual(installs[0]['env']['PIP_PROXY'], 'https://proxy.invalid')
