@@ -1,0 +1,50 @@
+name: Complete GitHub release assets (0.9.0)
+
+# Deliberately pinned recovery/completion of the published 0.9.0 candidate.
+# This workflow never publishes to PyPI or builds distributions from current main.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: github-release-assets-0.9.0
+  cancel-in-progress: false
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
+      actions: read
+    env:
+      PYTHONUTF8: "1"
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a
+        with:
+          path: tooling
+          persist-credentials: false
+      - uses: actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a
+        with:
+          ref: 73973ea1a15dadf38a2123511e420b35fcb3c9fd
+          path: qualified-source
+          persist-credentials: false
+          fetch-depth: 0
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
+        with:
+          python-version: '3.13'
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333
+        with:
+          artifact-ids: '13982904277'
+          run-id: '43307264896'
+          github-token: ${{ github.token }}
+          path: candidate
+      - name: Verify published candidate and complete the GitHub release
+        run: >-
+          python tooling/scripts/github_release_assets.py
+          --selection tooling/.github/release-assets-0.9.0.json
+          --source qualified-source --candidate candidate --output release-assets
+          --publish

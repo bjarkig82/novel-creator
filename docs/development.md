@@ -95,9 +95,10 @@ For every requested PyPI release, prepare versioned notes and update the
 
 ### Plugin artifacts and installation checks
 
-Version 0.9.0 is an unpublished candidate; 0.8.0 remains the latest verified PyPI
-release. Generate plugin manifests/catalogs and deterministic archives from the
-package version, then check for drift without writes:
+Version 0.9.0 is the latest verified PyPI release, published 2026-11-12. Its
+GitHub release ZIP completion remains pending. Generate plugin manifests/catalogs
+and deterministic archives from the package version, then check for drift
+without writes:
 
 ```text
 python scripts/build_plugins.py
@@ -147,17 +148,22 @@ candidate wheel bootstrap. In release preparation, preserve the full Linux
 suite, complete rebuilt-wheel verifier and all existing workflow gates. CLI and
 resource changes select full Windows qualification under the
 [Windows release policy](testing-and-completion-guide.md#windows-release-selection).
-See the [candidate evidence ledger](../tests/evaluations/release-0.9.0.md).
+See the [release evidence ledger](../tests/evaluations/release-0.9.0.md).
 
 ### Completing GitHub release assets
 
-The manually dispatched [GitHub assets workflow](../.github/workflows/github-release-assets.yml)
-completes the already published 0.8.0 release using the normal Actions token.
-Its [reviewed selection](../.github/release-assets-0.8.0.json) deliberately pins
-candidate run 43218783499, attempt 1, artifact 13945000853, the qualified source,
-successful publish run 43230160921 attempt 2, annotated tag object and ZIP hashes.
-These are version-specific recovery pins; dispatch has no inputs. It does not
-publish to PyPI or replace the existing package release gates.
+The manually dispatched [0.9.0 GitHub assets workflow](../.github/workflows/github-release-assets-0.9.0.yml)
+completes the published 0.9.0 package release using the normal Actions token.
+Its [reviewed selection](../.github/release-assets-0.9.0.json) pins candidate run
+43307264896, attempt 1, artifact 13982904277, qualified source
+`73973ea1a15dadf38a2123511e420b35fcb3c9fd`, successful publish run
+43318747681 attempt 2, the verified annotated tag object and exact ZIP hashes.
+GitHub release/ZIP publication is pending. Dispatch has no inputs and does not
+publish to PyPI or replace any package release gate.
+
+The earlier [0.8.0 workflow](../.github/workflows/github-release-assets.yml) and
+[selection](../.github/release-assets-0.8.0.json) remain frozen for that release's
+recovery/completion; never repoint their pins to a new version.
 
 The helper runs the qualified source's `verify-remote` against the downloaded
 candidate, requires successful Windows/Linux public-install checks at the same
@@ -173,7 +179,7 @@ the downloaded candidate directory, a fresh output directory and a GitHub token
 with read access:
 
 ```text
-python scripts/github_release_assets.py --selection .github/release-assets-0.8.0.json --source QUALIFIED_CHECKOUT --candidate CANDIDATE_DIR --output FRESH_OUTPUT_DIR
+python scripts/github_release_assets.py --selection .github/release-assets-0.9.0.json --source QUALIFIED_CHECKOUT --candidate CANDIDATE_DIR --output FRESH_OUTPUT_DIR
 python -m unittest tests.contract.test_github_release_assets -q
 ```
 

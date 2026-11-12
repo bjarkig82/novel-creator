@@ -1,7 +1,7 @@
 # Develop a character profile
 
-This feature is an **unpublished 0.9.0 candidate**, compared with published 0.8.0. A
-package containing these resources installs them into new format-1 notebooks;
+This feature is included in **published 0.9.0**, released 2026-11-12, and was absent
+from 0.8.0. The package installs these resources into new format-1 notebooks;
 installing or upgrading a package does not change existing notebooks. Existing
 notebooks can use the explicit manual procedure below. Legacy novels are outside
 this workflow. No CLI command, provider, schema or additional writing role is added.
@@ -56,8 +56,8 @@ separates structural checks from unverified native conversation and literary qua
 Use a trusted source checkout or package artifact containing this feature, in an
 isolated Python environment (Python 3.11+). For a source checkout, install that
 reviewed checkout with `python -m pip install /absolute/path/to/novel-creator`.
-After publication, install `novel-creator==0.9.0`; until then use the reviewed candidate. The capability
-probe below uses `importlib.resources`, so a published 0.8.0 installation lacking
+For the published package, run `python -m pip install novel-creator==0.9.0`.
+The capability probe below uses `importlib.resources`, so a published 0.8.0 installation lacking
 the resources stops before notebook changes. It prints the selected package
 resource locations; check they belong to the intended installation.
 

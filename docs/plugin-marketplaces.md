@@ -1,21 +1,22 @@
 # Marketplace setup for new notebooks
 
-The **0.9.0 candidate is unpublished** and adds Character development as the
+Version **0.9.0 is published, 2026-11-12** and adds Character development as the
 fifteenth writing entry (sixteen entries including setup). Its drafts/revisions
 stay in chat until explicit approval to save current or selected additions.
 Use `$novel-creator:novel-character-develop` in Codex or
 `/novel-creator:novel-character-develop` in Claude Code. New notebooks receive
 the workflow; existing plugin books require the [explicit manual snapshot update](character-development.md#manually-install-into-an-existing-format-1-notebook)
 after upgrading/enabling the plugin. Cached plugin updates alone do not rewrite
-books. See [candidate notes](releases/0.9.0.md). The instructions below describe
-the currently published 0.8.0 release.
+books. See [release notes](releases/0.9.0.md).
 
-Version **0.8.0 is published, 2026-11-12**; see the
-[release notes](releases/0.8.0.md). Full Windows/Linux automated qualification,
-public package installation and normal published-index bootstrap passed.
-An isolated Claude Code GitHub marketplace installation reported fifteen skills.
-Native Codex/Claude Code conversations, GUI discovery and specialist interaction
-remain unverified; CLI installation and file checks do not establish them.
+Full Windows/Linux automated qualification, both public package installation
+checks and an independent clean public installation passed. Public wheel/source
+hashes and the annotated source tag are verified. GitHub release and ZIP
+completion remain pending. The earlier isolated Claude Code GitHub marketplace
+installation reported fifteen skills for 0.8.0; that historical observation does
+not establish 0.9.0 host inventory. Native Codex/Claude Code conversations, GUI
+discovery/reload and specialist interaction remain unverified; CLI installation
+and file checks do not establish them.
 
 The plugin creates new independent Markdown notebooks. Existing notebook
 adoption, a legacy-format host port, macOS, MCP and public-directory submission
@@ -44,7 +45,7 @@ plugin does not prove the matching Python package has been published.
 
 The permanent plugin name is `novel-creator` and the catalog is
 `novel-creator-marketplace`. Enable the plugin in your actual host and inspect
-its available skills. It contains `setup` and fourteen writing entries; the six
+its available skills. It contains `setup` and fifteen writing entries; the six
 writing roles are installed in the book during setup, so the plugin inventory
 itself can report zero agents. Expected writing invocation syntax is Codex
 `$novel-creator:novel-help` and Claude Code `/novel-creator:novel-help`.
@@ -72,7 +73,7 @@ archive can be added by absolute path instead of the GitHub repository. Supply
 the exact matching local wheel to validate that artifact explicitly:
 
 ```text
-python /absolute/path/to/plugin/scripts/bootstrap.py --wheel /absolute/path/to/novel_creator-0.8.0-py3-none-any.whl --novel "/path/to/My Novel"
+python /absolute/path/to/plugin/scripts/bootstrap.py --wheel /absolute/path/to/novel_creator-0.9.0-py3-none-any.whl --novel "/path/to/My Novel"
 ```
 
 Here `/absolute/path/to/plugin` is the installed plugin directory, not the
@@ -91,9 +92,9 @@ Codex/project setup. Never initialize over an existing notebook to change hosts.
 
 The runtime is an isolated virtual environment for the exact plugin version,
 outside the plugin cache and the book. Windows uses
-`%LOCALAPPDATA%/NovelCreator/runtimes/0.8.0`; Linux uses
-`$XDG_CACHE_HOME/novel-creator/runtimes/0.8.0`, falling back to
-`~/.cache/novel-creator/runtimes/0.8.0`. Reuse checks the installed version,
+`%LOCALAPPDATA%/NovelCreator/runtimes/0.9.0`; Linux uses
+`$XDG_CACHE_HOME/novel-creator/runtimes/0.9.0`, falling back to
+`~/.cache/novel-creator/runtimes/0.9.0`. Reuse checks the installed version,
 dependencies and installation source; a local wheel's SHA-256 binds its
 provenance. A changed candidate wheel or switching from wheel to PyPI needs a
 separate cache location. Proxy, CA and package-index transport settings are
@@ -105,7 +106,7 @@ use a matching local wheel only when it is available for the intended setup.
 To install or upgrade the separate package in your configured environment:
 
 ```text
-python -m pip install --upgrade novel-creator==0.8.0
+python -m pip install --upgrade novel-creator==0.9.0
 ```
 
 If setup fails, preserve its partial files and follow the reported recovery
@@ -121,9 +122,10 @@ Open the initialized book folder itself in the host. Read its applicable
 `notebook/working-summary.md` before continuing. Setup cannot guarantee an
 automatic host project switch or access to another folder.
 
-The fourteen methods cover book ideas, premises, characters, plots, settings,
+The fifteen methods cover book ideas, premises, characters, plots, settings,
 outlines, role selection, scenes, chapters, research, review, clarification,
-analysis and help. The six roles are orchestrator, brainstormer, researcher,
+analysis, help and character profile development. The six roles are orchestrator,
+brainstormer, researcher,
 scene writer, chapter writer and reviewer. Their native selection and ongoing
 specialist turns depend on the host. Help and Analyze remain read-only; Clarify
 offers concise suggestions plus custom answers, and only clear writer choices
@@ -144,13 +146,16 @@ or upgrading the Python package also leaves books unchanged. Uninstalling the
 plugin leaves book data and its independent runtime in place; plugin entries
 then require re-enabling a compatible plugin before use.
 
-The notebook updater supports the original standalone Codex/project layout and
-focused Clarify/Analyze/Help resources. It refuses host/plugin integration
-layouts before writing and is not a marketplace adoption or snapshot updater.
-There is no supported in-place adoption or snapshot migration for plugin books
-in 0.8.0. Preserve their pinned workflows. Existing legacy books use
-their existing reviewed updater; see the [upgrade guide](upgrading-projects.md).
+The notebook updater supports the original standalone Codex/project layout,
+including focused Clarify/Analyze/Help resources and Character development.
+It refuses host/plugin integration layouts before writing and is not a marketplace
+adoption tool. For Character development in existing plugin or other supported
+host layouts, follow the [manual update](character-development.md#manually-install-into-an-existing-format-1-notebook)
+with the published 0.9.0 package and matching enabled plugin. This changes only
+the feature workflow and bounded root sections and retains older Help; it does
+not migrate the whole book snapshot. Existing legacy books use their reviewed
+updater without this notebook-only method; see the [upgrade guide](upgrading-projects.md).
 
-See [release notes](releases/0.8.0.md),
+See [release notes](releases/0.9.0.md),
 [development checks](development.md#plugin-artifacts-and-installation-checks) and
-[qualification evidence](../tests/evaluations/release-0.8.0.md) for exact scope.
+[qualification evidence](../tests/evaluations/release-0.9.0.md) for exact scope.

@@ -1,9 +1,13 @@
 # Start here: Novel Creator for writers
 
-The latest verified PyPI release is 0.8.0, published 2026-11-12. Existing projects
-have explicit update paths for Clarify, Analyze
-and Help, including clarification suggestions/custom answers. Package installation
-alone does not add skills to your novel. Legacy novels use the reviewed framework
+The latest verified PyPI release is 0.9.0, published 2026-11-12. It adds Character
+development for notebooks: a batch of proposed profile prose stays in chat until
+you explicitly approve a current or selected save. Existing notebooks need an
+explicit project update; the upgrade guide includes every supported host/plugin
+layout. Legacy novels retain their existing methods. Existing projects also
+have explicit update paths for Clarify, Analyze and Help, including clarification
+suggestions/custom answers. Package installation alone does not add skills to
+your novel. Legacy novels use the reviewed framework
 updater; original-layout notebooks use a preview and explicit apply. Do not
 initialize over an existing novel. Follow `docs/upgrading-projects.md` in the
 updated source checkout.

@@ -297,7 +297,7 @@ retains its saved-review behavior. These additions change neither legacy
 persistence nor existing notebooks; no migration, new CLI command or automatic
 resource update is added. See [usage examples](writing-agents-usage.md#clarify-and-analyze-070).
 
-### Character profile development (0.9.0 candidate)
+### Character profile development (0.9.0)
 
 `$novel-character-develop` or an ordinary request to fill gaps or enrich a
 character profile offers a short current-profile summary and 2–3 connected
@@ -308,8 +308,8 @@ notes, summary changes or checkpoints. Approved saves preserve canon authority,
 stable identities, ownership, provenance, history and unresolved questions.
 Ordinary question-led character exploration remains available.
 
-This notebook-only English/Icelandic addition is an unpublished 0.9.0 candidate,
-absent from published 0.8.0. New notebooks receive rendered host/project or plugin
+This notebook-only English/Icelandic addition ships in published 0.9.0 and was
+absent from 0.8.0. New notebooks receive rendered host/project or plugin
 routing. Existing default Codex/project notebooks use the preview/apply updater;
 other supported layouts use the explicit manual procedure. Legacy novels retain
 their existing methods without this feature. Package/plugin installation alone
@@ -399,14 +399,18 @@ See [the update workflow](../workflows/update.md) for commands and recovery boun
 
 ## Delivery status and limits
 
-The latest published package is [0.8.0](releases/0.8.0.md), published
-2026-11-12. Its full Linux/Windows qualification, public installation checks,
-independent public installation and published-index plugin bootstrap passed.
-Public wheel/source hashes match the qualified candidate and the annotated tag
-is verified at that source. The
-[GitHub release](https://github.com/bjarkig82/novel-creator/releases/tag/v0.8.0)
-contains both qualified distributions and verified reproducible plugin ZIPs.
-See the [release evidence](../tests/evaluations/release-0.8.0.md).
+The latest published package is [0.9.0](releases/0.9.0.md), published
+2026-11-12. Full Linux and full Windows qualification, both public installation
+checks and an independent clean public install passed. Public wheel/source
+hashes match the qualified candidate and the annotated tag is verified at that
+source. GitHub release and plugin/marketplace ZIP completion remain pending.
+Native conversations, discovery/reload and literary quality remain unverified.
+See the [release evidence](../tests/evaluations/release-0.9.0.md).
+
+The previous [0.8.0 package](releases/0.8.0.md), published 2026-11-12, added
+marketplace setup. Its public package, published-index bootstrap, annotated tag
+and all four GitHub assets were verified; see its
+[historical release evidence](../tests/evaluations/release-0.8.0.md).
 
 The previous [0.7.2 package](releases/0.7.2.md) was published 2026-11-11. It adds
 clarification suggestions, custom answers and an explicit
