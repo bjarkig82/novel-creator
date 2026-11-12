@@ -13,7 +13,9 @@ See [release notes](docs/releases/0.9.0.md) and [release history](docs/releases/
 Package or plugin upgrades do not refresh a book's pinned snapshots. Full Linux
 and Windows qualification, public installation checks and an independent clean
 public install passed. Public wheel/source hashes and the annotated source tag
-are verified; GitHub release ZIP completion remains pending. Native host discovery,
+are verified. The [GitHub release](https://github.com/bjarkig82/novel-creator/releases/tag/v0.9.0)
+contains all four assets with verified downloaded hashes and sizes. Native host
+discovery,
 conversations and literary quality remain unverified. See the
 [release evidence](tests/evaluations/release-0.9.0.md).
 

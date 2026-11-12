@@ -1,6 +1,6 @@
 {
   "version": "0.9.0",
-  "status": "published on PyPI; public checks and annotated source tag verified; GitHub release assets pending",
+  "status": "published on PyPI; public checks, annotated source tag and all four GitHub release assets verified",
   "evidence_date": "2026-11-12",
   "repository": "bjarkig82/novel-creator",
   "source_commit": "73973ea1a15dadf38a2123511e420b35fcb3c9fd",
@@ -324,7 +324,7 @@
     "annotation": "Novel Creator 0.9.0: reviewable character development\n\nQualified source 73973ea1a15dadf38a2123511e420b35fcb3c9fd; full Windows/Linux candidate 43307264896/1. Published qualified distributions verified against candidate hashes.\n"
   },
   "github_release": {
-    "status": "not yet published",
+    "status": "published and independently verified: exact four asset downloads/sizes/hashes",
     "selection": ".github/release-assets-0.9.0.json",
     "workflow": ".github/workflows/github-release-assets-0.9.0.yml",
     "read_only_rehearsal": {
@@ -338,7 +338,61 @@
         "public PyPI archive bytes",
         "four assets prepared with exact reproduced ZIP hashes"
       ]
-    }
+    },
+    "release_id": 443593362,
+    "url": "https://github.com/bjarkig82/novel-creator/releases/tag/v0.9.0",
+    "tag_name": "v0.9.0",
+    "published_at": "2026-11-12T22:39:42Z",
+    "draft": false,
+    "prerelease": false,
+    "assets": [
+      {
+        "id": 741360499,
+        "name": "novel-creator-marketplace-0.9.0.zip",
+        "size": 24467,
+        "sha256": "838f9c5bb8904c6262f4e40052139668a95419f00ba86434d70ad5a1a9f9a245",
+        "url": "https://github.com/bjarkig82/novel-creator/releases/download/v0.9.0/novel-creator-marketplace-0.9.0.zip",
+        "download_verified": true
+      },
+      {
+        "id": 741360496,
+        "name": "novel-creator-plugin-0.9.0.zip",
+        "size": 22823,
+        "sha256": "7ff5fbd64408ec25343b5c2ada8e7a9a8605277f2d9b7b2bb2020906a6dca15b",
+        "url": "https://github.com/bjarkig82/novel-creator/releases/download/v0.9.0/novel-creator-plugin-0.9.0.zip",
+        "download_verified": true
+      },
+      {
+        "id": 741360503,
+        "name": "novel_creator-0.9.0-py3-none-any.whl",
+        "size": 248522,
+        "sha256": "59050772544faa3056fa173f06c7c410e5f07e352fdad38d41bf88185e86667f",
+        "url": "https://github.com/bjarkig82/novel-creator/releases/download/v0.9.0/novel_creator-0.9.0-py3-none-any.whl",
+        "download_verified": true
+      },
+      {
+        "id": 741360498,
+        "name": "novel_creator-0.9.0.tar.gz",
+        "size": 221732,
+        "sha256": "1e2bf80c94db2fc464c3b90814fd9cf13ab82747cd39a52978ffcf385d9b5fe4",
+        "url": "https://github.com/bjarkig82/novel-creator/releases/download/v0.9.0/novel_creator-0.9.0.tar.gz",
+        "download_verified": true
+      }
+    ],
+    "asset_workflow_run": 43321912238,
+    "asset_workflow_attempt": 1,
+    "asset_workflow_url": "https://github.com/bjarkig82/novel-creator/actions/runs/43321912238",
+    "asset_workflow_head_sha": "2d7b18dab8e7a4ee2633cdcc4c2997c71b9d116a",
+    "asset_workflow_status": "completed",
+    "asset_workflow_conclusion": "success",
+    "asset_workflow_job_id": 131544464547,
+    "qualified_source_commit": "73973ea1a15dadf38a2123511e420b35fcb3c9fd",
+    "tag_object": "ac473d4de57f689f6600180b8e73acd84e8507d1",
+    "tag_peeled_commit": "73973ea1a15dadf38a2123511e420b35fcb3c9fd",
+    "tag_rechecked_after_assets": true,
+    "remote_asset_bytes_downloaded_and_hashed_in_ci": true,
+    "independent_public_asset_downloads_verified": true,
+    "pypi_publication_repeated": false
   },
   "qualification": "automated-only",
   "windows_host": false,
@@ -362,7 +416,6 @@
     "Automated disposable synthetic-project checks do not establish native host discovery, active-chat reload, authenticated conversations, GUI behavior or literary quality.",
     "Plugin skill/resource inventories and project-local role definitions do not establish host discovery or specialist invocation.",
     "Character development is notebook-only; legacy novels retain their existing methods.",
-    "Existing notebook marketplace adoption, whole plugin-book snapshot migration, legacy host port, macOS, MCP and public-directory submission remain deferred.",
-    "GitHub release and four remote asset hashes/sizes are not yet verified; expected ZIP hashes record candidate reproduction only."
+    "Existing notebook marketplace adoption, whole plugin-book snapshot migration, legacy host port, macOS, MCP and public-directory submission remain deferred."
   ]
 }

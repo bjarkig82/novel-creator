@@ -3,7 +3,7 @@
 November 12, 2026. Implementation evidence collected during 0.9.0 preparation
 for format-1 notebooks; the feature was absent from 0.8.0. The
 [release ledger](release-0.9.0.md) records subsequent verified PyPI publication,
-platform qualification and pending GitHub assets. This ledger distinguishes
+platform qualification and verified GitHub assets. This ledger distinguishes
 resource delivery from agent behavior,
 native host discovery and literary quality. No real novel is an evaluation target.
 See the [usage/manual-install guide](../../docs/character-development.md) and

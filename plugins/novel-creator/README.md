@@ -5,8 +5,10 @@ Claude Code. The 15 writing entries share creative workflows saved with the
 selected book; the setup entry creates new format-1 notebooks for both hosts.
 The permanent plugin name is `novel-creator` in `novel-creator-marketplace`.
 
-Version 0.9.0 is verified published on PyPI, 2026-11-12. GitHub release and
-plugin/marketplace ZIP completion remain pending. It supports Windows and Linux
+Version 0.9.0 is verified published on PyPI, 2026-11-12. The
+[GitHub release](https://github.com/bjarkig82/novel-creator/releases/tag/v0.9.0)
+includes both qualified distributions and plugin/marketplace ZIPs, with all four
+public asset downloads, hashes and sizes verified. It supports Windows and Linux
 with Python >=3.11 and Git >=2.39. Native host discovery, active-chat reload,
 conversations and literary quality remain unverified.
 Runtime setup normally installs the exact manifest version from PyPI. Use

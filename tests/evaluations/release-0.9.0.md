@@ -2,8 +2,8 @@
 
 Status on 2026-11-12: **verified published on PyPI; public checks and annotated
 source tag verified**. Full Linux and full Windows qualification, both public CI
-installation checks and an independent clean public installation passed. GitHub
-release and plugin/marketplace ZIP completion remain pending.
+installation checks and an independent clean public installation passed. The
+GitHub release and all four public asset downloads, hashes and sizes are verified.
 
 The [release notes](../../docs/releases/0.9.0.md) describe the change from 0.8.0.
 The [machine-readable candidate record](release-0.9.0-candidate.json) preserves
@@ -33,7 +33,7 @@ plugin archives matched that source distribution and reproduced byte-for-byte.
 Published distributions and release ZIPs retain the exact qualified source bytes;
 later repository documentation corrections do not rebuild or replace them.
 
-| Reproduced plugin archive (not yet published as a GitHub asset) | SHA-256 |
+| Published and verified plugin archive | SHA-256 |
 | --- | --- |
 | `novel-creator-plugin-0.9.0.zip` | `7ff5fbd64408ec25343b5c2ada8e7a9a8605277f2d9b7b2bb2020906a6dca15b` |
 | `novel-creator-marketplace-0.9.0.zip` | `838f9c5bb8904c6262f4e40052139668a95419f00ba86434d70ad5a1a9f9a245` |
@@ -103,24 +103,48 @@ Annotated tag `v0.9.0` is pushed and remotely verified, with tag object
 qualified source and candidate. The tag points to the immutable published source,
 not a later documentation or asset-workflow commit.
 
-## Pending GitHub asset completion
+## Verified GitHub release assets
 
 The [0.9.0 selection](../../.github/release-assets-0.9.0.json) and separate
 [0.9.0 workflow](../../.github/workflows/github-release-assets-0.9.0.yml) pin the
 actual candidate, successful publish attempt, source, annotated tag object and
-reproduced ZIP hashes above. They use the existing unchanged publisher and normal
-Actions contents-write/actions-read permissions, with no dispatch inputs. The
-old 0.8.0 selection and workflow remain unchanged.
+ZIP hashes above. They use the existing unchanged publisher and normal Actions
+contents-write/actions-read permissions, with no dispatch inputs. The old 0.8.0
+selection and workflow remain unchanged.
 
-A read-only publisher rehearsal passed against the real candidate, successful
-publish attempt, annotated tag and public PyPI bytes, preparing all four exact
-assets and verifying reproduced ZIP hashes. It reported that the GitHub release
-was absent; `--publish` was omitted. GitHub release creation/upload and remote
-four-asset byte/hash/size verification remain pending. The expected ZIP hashes above establish candidate reproduction,
-not remote availability. The publisher preserves all existing source-bound gates,
-requires both public checks, verifies the annotated tag and public PyPI bytes,
-and refuses to overwrite mismatched existing release assets. It never repeats
-PyPI publication or moves a tag.
+Before publication, a read-only publisher rehearsal passed against the real
+candidate, successful publish attempt, annotated tag and public PyPI bytes,
+preparing all four exact assets and verifying reproduced ZIP hashes. It reported
+that the GitHub release was absent; `--publish` was omitted for that rehearsal.
+
+[Asset completion run 43321912238, attempt 1](https://github.com/bjarkig82/novel-creator/actions/runs/43321912238/attempts/1)
+completed successfully, including release job `131544464547`. Its workflow head
+was `2d7b18dab8e7a4ee2633cdcc4c2997c71b9d116a`, the later metadata/configuration
+commit; its pinned source checkout and all payload bytes remained bound to
+qualified commit `73973ea1a15dadf38a2123511e420b35fcb3c9fd`.
+The [public GitHub release](https://github.com/bjarkig82/novel-creator/releases/tag/v0.9.0), ID `443593362`,
+was published at `2026-11-12T22:39:42Z`, with `draft: false` and
+`prerelease: false`.
+
+| Public asset download | Asset ID | Verified size |
+| --- | --- | --- |
+| [novel-creator-marketplace-0.9.0.zip](https://github.com/bjarkig82/novel-creator/releases/download/v0.9.0/novel-creator-marketplace-0.9.0.zip) | `741360499` | 24467 bytes |
+| [novel-creator-plugin-0.9.0.zip](https://github.com/bjarkig82/novel-creator/releases/download/v0.9.0/novel-creator-plugin-0.9.0.zip) | `741360496` | 22823 bytes |
+| [novel_creator-0.9.0-py3-none-any.whl](https://github.com/bjarkig82/novel-creator/releases/download/v0.9.0/novel_creator-0.9.0-py3-none-any.whl) | `741360503` | 248522 bytes |
+| [novel_creator-0.9.0.tar.gz](https://github.com/bjarkig82/novel-creator/releases/download/v0.9.0/novel_creator-0.9.0.tar.gz) | `741360498` | 221732 bytes |
+
+The workflow downloaded and hashed remote asset bytes. Independent downloads of
+all four public assets also matched the exact candidate/reproduced SHA-256 values
+in the tables above and the sizes here; their identities and download proof are
+preserved in the machine-readable record. The annotated remote tag was rechecked
+after asset publication: object `ac473d4de57f689f6600180b8e73acd84e8507d1`
+still peels to the qualified source. PyPI publication was not repeated; the tag
+was not moved. Later repository documentation changes do not rebuild or replace
+these qualified payload bytes.
+
+The publisher preserves all source-bound gates, requires both public checks,
+verifies the annotated tag and public PyPI bytes, and refuses to overwrite
+mismatched existing release assets.
 
 ## Limits
 

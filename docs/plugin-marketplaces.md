@@ -11,8 +11,11 @@ books. See [release notes](releases/0.9.0.md).
 
 Full Windows/Linux automated qualification, both public package installation
 checks and an independent clean public installation passed. Public wheel/source
-hashes and the annotated source tag are verified. GitHub release and ZIP
-completion remain pending. The earlier isolated Claude Code GitHub marketplace
+hashes and the annotated source tag are verified. The
+[GitHub release](https://github.com/bjarkig82/novel-creator/releases/tag/v0.9.0)
+contains both qualified distributions and plugin/marketplace ZIPs; all four public
+asset downloads, hashes and sizes are verified. The earlier isolated Claude Code
+GitHub marketplace
 installation reported fifteen skills for 0.8.0; that historical observation does
 not establish 0.9.0 host inventory. Native Codex/Claude Code conversations, GUI
 discovery/reload and specialist interaction remain unverified; CLI installation

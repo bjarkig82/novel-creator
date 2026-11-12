@@ -96,7 +96,9 @@ For every requested PyPI release, prepare versioned notes and update the
 ### Plugin artifacts and installation checks
 
 Version 0.9.0 is the latest verified PyPI release, published 2026-11-12. Its
-GitHub release ZIP completion remains pending. Generate plugin manifests/catalogs
+[GitHub release assets](https://github.com/bjarkig82/novel-creator/releases/tag/v0.9.0)
+are published with all four downloaded hashes and sizes verified. Generate plugin
+manifests/catalogs
 and deterministic archives from the package version, then check for drift
 without writes:
 
@@ -158,7 +160,9 @@ Its [reviewed selection](../.github/release-assets-0.9.0.json) pins candidate ru
 43307264896, attempt 1, artifact 13982904277, qualified source
 `73973ea1a15dadf38a2123511e420b35fcb3c9fd`, successful publish run
 43318747681 attempt 2, the verified annotated tag object and exact ZIP hashes.
-GitHub release/ZIP publication is pending. Dispatch has no inputs and does not
+[Asset run 43321912238, attempt 1](https://github.com/bjarkig82/novel-creator/actions/runs/43321912238/attempts/1)
+completed successfully; the public release and all four independent asset downloads,
+hashes and sizes are verified. Dispatch has no inputs and does not
 publish to PyPI or replace any package release gate.
 
 The earlier [0.8.0 workflow](../.github/workflows/github-release-assets.yml) and

@@ -403,7 +403,9 @@ The latest published package is [0.9.0](releases/0.9.0.md), published
 2026-11-12. Full Linux and full Windows qualification, both public installation
 checks and an independent clean public install passed. Public wheel/source
 hashes match the qualified candidate and the annotated tag is verified at that
-source. GitHub release and plugin/marketplace ZIP completion remain pending.
+source. The [GitHub release](https://github.com/bjarkig82/novel-creator/releases/tag/v0.9.0)
+contains both qualified distributions and plugin/marketplace ZIPs; all four public
+asset downloads, hashes and sizes are verified.
 Native conversations, discovery/reload and literary quality remain unverified.
 See the [release evidence](../tests/evaluations/release-0.9.0.md).
 
