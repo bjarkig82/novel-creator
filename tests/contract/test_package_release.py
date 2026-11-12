@@ -95,7 +95,9 @@ class PackageRelease(unittest.TestCase):
                        CANDIDATE_ARTIFACT='34', CANDIDATE_COMMIT='a' * 40)
             common_steps = ['Verify candidate manifest', 'Run full unit suite',
                             'Verify wheel bytes and legacy journeys', 'Verify clean wheel installation',
-                            'Verify clean installation from the candidate sdist']
+                            'Verify clean installation from the candidate sdist',
+                            'Verify plugin runtime installation',
+                            'Verify previous published notebook compatibility']
             jobs = dict(total_count=2, jobs=[dict(name='candidate-checks (' + platform + ')',
                 run_id=12, head_sha='a' * 40, status='completed', conclusion='success',
                 steps=[dict(name=name, status='completed', conclusion='success') for name in
@@ -145,6 +147,27 @@ class PackageRelease(unittest.TestCase):
                         with self.assertRaises(ValueError):
                             verify_remote(root)
 
+            # A successful job cannot hide omitted or unsuccessful real plugin checks.
+            for platform in ['windows-latest', 'ubuntu-latest']:
+                for step_name in ['Verify plugin runtime installation',
+                                  'Verify previous published notebook compatibility']:
+                    for conclusion in ['skipped', 'failure', 'missing']:
+                        current = dict(run=copy.deepcopy(run), artifact=copy.deepcopy(artifact),
+                                       evidence=copy.deepcopy(evidence), jobs=copy.deepcopy(jobs))
+                        job = next(job for job in current['jobs']['jobs']
+                                   if job['name'] == f'candidate-checks ({platform})')
+                        if conclusion == 'missing':
+                            job['steps'] = [step for step in job['steps'] if step['name'] != step_name]
+                        else:
+                            step = next(step for step in job['steps'] if step['name'] == step_name)
+                            step['conclusion'] = conclusion
+                        with self.subTest(platform=platform, step=step_name, conclusion=conclusion), \
+                             patch.dict('os.environ', dict(env, HOST_EVIDENCE=json.dumps(evidence))), \
+                             patch('tests.package_release.api', side_effect=fake_api):
+                            with self.assertRaisesRegex(ValueError,
+                                    'Required automated candidate check did not pass: ' + step_name):
+                                verify_remote(root)
+
     def test_windows_coverage_profiles_fail_closed(self):
         from contextlib import chdir
         import subprocess
@@ -173,6 +196,8 @@ class PackageRelease(unittest.TestCase):
                         jobs = []
                         for os_name in ['windows-latest', 'ubuntu-latest']:
                             names = ['Verify candidate manifest', ('Run Windows compatibility suite' if profile == 'compatibility' and os_name == 'windows-latest' else 'Run full unit suite'), 'Verify wheel bytes and legacy journeys', 'Verify clean wheel installation', 'Verify clean installation from the candidate sdist']
+                            names += ['Verify plugin runtime installation',
+                                      'Verify previous published notebook compatibility']
                             if os_name == 'ubuntu-latest': names.append('Follow the literal Bash getting-started guide')
                             steps = [dict(name=n, status='completed', conclusion='success') for n in names]
                             if os_name == platform:

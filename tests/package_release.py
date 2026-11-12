@@ -110,6 +110,8 @@ def verify_remote(root):
         raise ValueError('Candidate job response is incomplete')
     profile = validate_windows_suite(data)
     common_steps = {'Verify candidate manifest',
+                    'Verify plugin runtime installation',
+                    'Verify previous published notebook compatibility',
                     'Verify wheel bytes and legacy journeys', 'Verify clean wheel installation',
                     'Verify clean installation from the candidate sdist'}
     for platform in ['windows-latest', 'ubuntu-latest']:

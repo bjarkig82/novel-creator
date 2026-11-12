@@ -104,6 +104,10 @@ jobs:
       - run: python -m pip install -e '.[test]'
       - name: Check project skill upgrades
         run: python -m unittest tests.integration.test_notebook_update tests.contract.test_legacy_focused_methods -q
+      - name: Verify plugin runtime installation
+        run: python tests/verify_plugin_install.py --wheel candidate/*.whl --report plugin-runtime-check.json
+      - name: Verify previous published notebook compatibility
+        run: python tests/verify_marketplace_previous.py --wheel candidate/*.whl --report plugin-previous-check.json
       - name: Run full unit suite
         if: runner.os == 'Linux' || steps.qualification.outputs.windows_suite == 'full'
         run: python -m unittest discover -q
@@ -122,7 +126,10 @@ jobs:
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
         with:
           name: candidate-check-${{ matrix.os }}-${{ github.run_id }}-${{ github.run_attempt }}
-          path: candidate-check.json
+          path: |
+            candidate-check.json
+            plugin-runtime-check.json
+            plugin-previous-check.json
           if-no-files-found: error
 
   publish:
