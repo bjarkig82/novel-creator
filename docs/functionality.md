@@ -9,11 +9,11 @@ Start with the [beginner guide](../workflows/start-here.md) or
 [everyday writing](../workflows/everyday-writing.md). Legacy setup and update
 commands are in [getting started](../workflows/getting-started.md).
 
-## Marketplace candidate (0.8.0)
+## Marketplace integration (0.8.0)
 
-Version 0.8.0 is unpublished; 0.7.2 remains the latest verified PyPI release.
-The candidate adds Codex and Claude Code plugins for **new notebooks** on
-Windows/Linux, retaining fourteen writing methods and six writing roles.
+Version 0.8.0 is published, 2026-11-12. It adds Codex and Claude Code plugins for
+**new notebooks** on Windows/Linux, retaining fourteen writing methods and six
+writing roles.
 Setup uses a separate exact-version Python runtime, then creates host
 instructions, role files and pinned shared workflows. Plugin books carry
 `.novel-notebook/integration.json` and no duplicate project-local skills.
@@ -29,9 +29,10 @@ unchanged. Existing legacy books and original-layout notebooks retain their
 refuses host/plugin layouts before writing and is not an adoption tool. New and
 existing legacy books remain standalone, and existing notebooks keep their
 installed routing. Marketplace adoption, a legacy host port, macOS, MCP and
-public-directory submission are deferred. Native Windows execution, GUI
-discovery, authenticated conversations and specialist interaction remain
-pending; Linux structural/install checks do not establish these behaviors.
+public-directory submission are deferred. Full Windows/Linux automated package
+qualification and public installations passed. Native GUI discovery,
+authenticated conversations and specialist interaction remain unverified;
+structural/install checks do not establish these behaviors.
 
 ## Setup and creative guidance
 
@@ -377,8 +378,17 @@ See [the update workflow](../workflows/update.md) for commands and recovery boun
 
 ## Delivery status and limits
 
-The latest published package is [0.7.2](releases/0.7.2.md), published
-2026-11-11. It adds clarification suggestions, custom answers and an explicit
+The latest published package is [0.8.0](releases/0.8.0.md), published
+2026-11-12. Its full Linux/Windows qualification, public installation checks,
+independent public installation and published-index plugin bootstrap passed.
+Public wheel/source hashes match the qualified candidate and the annotated tag
+is verified at that source. The
+[GitHub release](https://github.com/bjarkig82/novel-creator/releases/tag/v0.8.0)
+contains both qualified distributions and verified reproducible plugin ZIPs.
+See the [release evidence](../tests/evaluations/release-0.8.0.md).
+
+The previous [0.7.2 package](releases/0.7.2.md) was published 2026-11-11. It adds
+clarification suggestions, custom answers and an explicit
 replacement path for unchanged published notebook clarification resources.
 Full Linux/Windows qualification passed and public PyPI wheel/source hashes match
 the exact qualified artifacts. Windows/Linux public installation checks passed

@@ -1,12 +1,12 @@
 # 0.8.0 release evidence
 
-Status on 2026-11-12: **candidate qualified; publication pending protected PyPI
-approval**. Full Linux and full Windows candidate qualification passed. PyPI
-publication, public installation checks, the annotated version tag and the
-GitHub release remain pending. No publication date is asserted.
+Status on 2026-11-12: **published on PyPI; public checks and annotated tag
+verified**. Full Linux and full Windows qualification, both public CI installation
+checks, independent public installation and published-index plugin bootstrap
+passed. The GitHub release and all four asset hashes are verified.
 
-The [release notes](../../docs/releases/0.8.0.md) describe the candidate. This is
-the canonical release qualification ledger; the accompanying
+The [release notes](../../docs/releases/0.8.0.md) describe the published release.
+This is the canonical release qualification ledger; the accompanying
 [candidate record](release-0.8.0-candidate.json) preserves immutable identities,
 both platforms' reports and workflow results. The earlier
 [marketplace ledger](marketplace-0.8.0.md) records implementation/preflight
@@ -33,14 +33,15 @@ artifact, source, hashes and required platform jobs. Windows selection is
 `full`, reason “Manual full qualification requested”, with source-policy
 baseline `8df4ca09e58f71d800211a4dad794dd6c1f0c610`.
 
-Candidate plugin assets built from the qualified source were also hashed:
+Plugin assets reproduced from the qualified source distribution were also hashed:
 
-| Candidate plugin asset | SHA-256 |
+| Reproducible plugin asset | SHA-256 |
 | --- | --- |
 | `novel-creator-plugin-0.8.0.zip` | `08ef3d9d33d06cf1696be1199ba4e28f634d4359114f427896a7a22cc8708d01` |
 | `novel-creator-marketplace-0.8.0.zip` | `36ba44febb12bbcf06fe92a7c85e3805b45fd234239f43c521f4ffe2d0e33cac` |
 
-These are candidate identities, with no claim of PyPI or GitHub asset publication.
+The distributions above match published PyPI hashes. All four files are attached
+to the verified GitHub release with matching SHA-256 digests and sizes.
 
 ## Linux and Windows qualification
 
@@ -99,26 +100,51 @@ do not establish native Codex installation or GUI inventory. The synthetic
 metadata-only Claude update to 0.8.1 in that ledger is a lifecycle probe, not a
 qualified release or runtime-upgrade result.
 
-Normal remote-plugin bootstrap through the published PyPI index remains pending
-until 0.8.0 is published. Candidate wheel/runtime checks do not establish that
-post-publication path.
+Normal bootstrap from the actual GitHub-installed Claude plugin passed through
+the published PyPI index without `--wheel`. It created and reused the isolated
+0.8.0 runtime and initialized English/Icelandic dual-host plugin notebooks. This
+is separate post-publication evidence from candidate local-wheel runtime checks.
 
 ## Publication and source tag
 
 [Publish run 43230160921](https://github.com/bjarkig82/novel-creator/actions/runs/43230160921)
-was dispatched with the exact candidate run, attempt, artifact, source and
-hashes above. It is waiting for the existing protected `pypi` environment
-approval. The approval API returned HTTP 403, “Resource not accessible by
-integration”. This is an integration permission failure. Environment protection
-has not been changed.
+completed successfully using the exact candidate run, attempt, artifact, source
+and hashes above. PyPI reports wheel upload at `2026-11-12T14:24:14.994391Z`
+and source archive upload at `2026-11-12T14:24:16.742941Z`. Public metadata and
+both downloaded archive hashes match the qualified manifest. The package is
+available at [PyPI 0.8.0](https://pypi.org/project/novel-creator/0.8.0/).
 
-The remaining release steps are verified PyPI metadata and both archive hashes,
-public Linux/Windows named-install checks, independent public installation,
-published-index bootstrap from the remote GitHub plugin, the annotated `v0.8.0`
-tag and a GitHub release with the qualified distribution/plugin assets. The tag
-must point to qualified source `9491664acccec5c9cb1f9c2ce6315883328aaeeb`,
-including after any later documentation/evidence commits. Public availability,
-publication date and remote tag annotation/peeled commit are not yet verified.
+The [Windows public check](https://github.com/bjarkig82/novel-creator/actions/runs/43230160921/job/131268431822)
+passed in publication attempt 1. The initial Linux public check failed because
+0.8.0 was not yet visible in the PyPI simple index immediately after upload.
+Only that failed public job was rerun; the
+[Linux public check](https://github.com/bjarkig82/novel-creator/actions/runs/43230160921/job/131268427664)
+passed in attempt 2, without repeating publication. Actual downloaded CI reports
+were verified against their report archive hashes. Both record named production
+installation, exact installed wheel identity, matching public wheel/source hashes,
+valid project probes and no dependency inheritance. A separate independent public
+installation also passed those checks, including prior-project update probes.
+The candidate record preserves the complete reports and their SHA-256 values.
+
+The annotated remote tag `v0.8.0` was verified with tag object
+`8484e06ea3c9bc55e80fe21ec226b826097bb064`, peeled commit
+`9491664acccec5c9cb1f9c2ce6315883328aaeeb`. It points to the immutable
+qualified/published source, including after later documentation/evidence commits.
+The [GitHub release](https://github.com/bjarkig82/novel-creator/releases/tag/v0.8.0)
+was published at `2026-11-12T15:12:05Z` with both qualified distributions and both
+reproducible plugin ZIPs. All four remote asset digests match the tables above;
+sizes are 242293 bytes (wheel), 215931 bytes (source archive), 21565 bytes
+(plugin ZIP) and 23166 bytes (marketplace ZIP). The
+[asset completion run 43245148047](https://github.com/bjarkig82/novel-creator/actions/runs/43245148047)
+passed, including downloading and hashing remote asset bytes. It reused the
+qualified candidate and published package; it did not repeat PyPI publication.
+The release tag still peels to the qualified source, rather than the later
+asset-workflow or documentation commits.
+
+Historical publication state: the run initially waited for the protected `pypi`
+environment; an approval API call returned HTTP 403, “Resource not accessible by
+integration”. The protection was not changed. That earlier pending state is
+superseded by the successful publication and public verification above.
 
 ## Limits
 

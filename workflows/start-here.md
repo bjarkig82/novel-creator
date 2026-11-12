@@ -1,6 +1,6 @@
 # Start here: Novel Creator for writers
 
-The latest verified PyPI release is 0.7.2, published 2026-11-11. Existing projects
+The latest verified PyPI release is 0.8.0, published 2026-11-12. Existing projects
 have explicit update paths for Clarify, Analyze
 and Help, including clarification suggestions/custom answers. Package installation
 alone does not add skills to your novel. Legacy novels use the reviewed framework
@@ -8,10 +8,11 @@ updater; original-layout notebooks use a preview and explicit apply. Do not
 initialize over an existing novel. Follow `docs/upgrading-projects.md` in the
 updated source checkout.
 
-**0.8.0 is an unpublished candidate** with marketplace setup for new notebooks
-in Codex or Claude Code on Windows/Linux. Follow the
-marketplace guide at `docs/plugin-marketplaces.md` in the updated source checkout for local candidate
-installation, the exact local-wheel runtime and host prerequisites. Its expected
+**0.8.0 adds marketplace setup** for new notebooks in Codex or Claude Code on
+Windows/Linux. Follow the marketplace guide at `docs/plugin-marketplaces.md` in
+the updated source checkout for GitHub installation, the exact-version PyPI
+runtime and host prerequisites. Automated Windows/Linux package and public
+installation checks passed. Its expected
 Help syntax is Codex `$novel-creator:novel-help` or Claude Code
 `/novel-creator:novel-help`; actual native discovery remains pending. Existing
 notebooks keep their installed routing; marketplace adoption and a legacy host

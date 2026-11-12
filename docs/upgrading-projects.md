@@ -5,27 +5,26 @@ instructions require an explicit project update as well. Keep the configured
 Python environment outside the novel and open the intended novel folder in Codex.
 Do not initialize over an existing novel or convert formats to obtain a skill.
 
-[0.7.2](releases/0.7.2.md), published 2026-11-11, is the latest package. It adds
-suggested clarification answers and custom input in both formats. Install the
-exact version in your configured environment:
+[0.8.0](releases/0.8.0.md), published 2026-11-12, is the latest package. It adds
+optional marketplace setup for new notebooks and retains the 0.7.2 clarification
+suggestions/custom answers and supported standalone updates. Install the exact
+version in your configured environment:
 
 ```text
-python -m pip install --upgrade novel-creator==0.7.2
+python -m pip install --upgrade novel-creator==0.8.0
 ```
 
-New legacy novels and new notebooks initialized with 0.7.2 receive the guidance
+New legacy novels and new notebooks initialized with 0.8.0 receive the guidance
 during setup. Existing projects follow the format-specific procedure below;
 package installation alone does not refresh their pinned resources.
 
-## Marketplace candidate (0.8.0)
+## Marketplace integration (0.8.0)
 
-Version [0.8.0](releases/0.8.0.md) is unpublished; the installation command above
-remains the current public release. New notebooks can opt into the
+New notebooks can opt into the
 [marketplace plugin](plugin-marketplaces.md). New and existing legacy novels
 remain standalone. Existing notebooks keep their installed host routing and
 project-local resources; original Codex/project notebooks retain the focused
-Clarify/Analyze/Help update procedure below when using the candidate CLI from
-its local wheel.
+Clarify/Analyze/Help update procedure below with the published 0.8.0 CLI.
 
 This updater refuses notebooks with a nondefault host/plugin integration marker
 at `.novel-notebook/integration.json` before writing. It is not an adoption tool;
@@ -43,19 +42,19 @@ the complete package → project preview/apply → Codex reload sequence below.
 ## Legacy novels
 
 A legacy novel contains `.novel-creator/`. Ask the agent in that novel to preview
-an update to 0.7.2 using `$novel-update` and its external controller. The controller
+an update to 0.8.0 using `$novel-update` and its external controller. The controller
 is the absolute path to the compatible Python installation outside the novel;
 retain the verified runtime interpreter if it differs:
 
 ```text
-CONTROLLER -I -B -m novel_creator update --novel BOOK --python RUNTIME --version 0.7.2 --json
+CONTROLLER -I -B -m novel_creator update --novel BOOK --python RUNTIME --version 0.8.0 --json
 ```
 
 Review the concrete target version, changed paths, blockers and HEAD. After
 requesting that exact preview's application, use its returned preview ID and HEAD:
 
 ```text
-CONTROLLER -I -B -m novel_creator update --novel BOOK --apply --preview PREVIEW_ID --version 0.7.2 --expected-head REVIEWED_HEAD --json
+CONTROLLER -I -B -m novel_creator update --novel BOOK --apply --preview PREVIEW_ID --version 0.8.0 --expected-head REVIEWED_HEAD --json
 ```
 
 Follow the [existing update procedure](../workflows/getting-started.md#updating-an-existing-book),
@@ -73,7 +72,7 @@ automatic maintenance. A request to save findings remains separate work.
 
 ## Existing Markdown notebooks
 
-A notebook contains `notebook/project.md` and `.novel-notebook/`. Use the 0.7.2
+A notebook contains `notebook/project.md` and `.novel-notebook/`. Use the 0.8.0
 CLI from your configured environment to preview the selected notebook:
 
 ```text

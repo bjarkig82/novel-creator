@@ -1,6 +1,12 @@
 # Marketplace 0.8.0 candidate evidence
 
-Status on 2026-11-12: **unpublished candidate**. PyPI 0.7.2 is the verified latest
+Current release status: **0.8.0 published 2026-11-12**. See the
+[canonical release evidence](release-0.8.0.md) for qualified/published artifact
+identities, full Linux/Windows CI results, public installations and verified tag.
+The local builds, hashes and pending gates below are historical observations;
+they are not the released artifact identities.
+
+Historical preflight status on 2026-11-12: **unpublished candidate**. PyPI 0.7.2 is the verified latest
 release; a final PyPI recheck also found 0.8.0 absent. The work branch was fast-forwarded
 from `03a55cc` to source baseline `19d87e8`; published tag `v0.7.2` peels to
 `ecf9bff`. Candidate implementation is a local uncommitted change, with no push,

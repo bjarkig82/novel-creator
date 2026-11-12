@@ -4,15 +4,19 @@ A home for developing an app that helps writers plan and create novels.
 
 ## Getting started
 
-**0.8.0 is an unpublished candidate** for creating new notebooks through the
-Novel Creator plugin in Codex or Claude Code on Windows/Linux. See
-[marketplace setup](docs/plugin-marketplaces.md) for local candidate installation,
-the isolated Python runtime and host limits, and the
-[candidate notes](docs/releases/0.8.0.md) for compatibility. PyPI publication and
-release verification are pending. Existing notebook adoption and a legacy host
-port are deferred.
+**Novel Creator 0.8.0 is published, 2026-11-12.** New Windows/Linux notebooks
+can use the Novel Creator plugin in Codex or Claude Code, with fourteen writing
+methods, setup and six roles per selected host. See [marketplace setup](docs/plugin-marketplaces.md)
+for GitHub installation and the isolated PyPI runtime, and the
+[release notes](docs/releases/0.8.0.md) for compatibility. Full Linux and Windows
+qualification, public installations and published-index plugin bootstrap passed;
+the annotated version tag is verified at the qualified source. The
+[GitHub release](https://github.com/bjarkig82/novel-creator/releases/tag/v0.8.0)
+contains the verified distributions and reproducible plugin ZIPs. Native host conversations and GUI discovery remain
+unverified. See the [release evidence](tests/evaluations/release-0.8.0.md).
+Existing notebook marketplace adoption and a legacy host port are deferred.
 
-**Novel Creator 0.7.2 is published, 2026-11-11.** Clarify offers a few
+**The previous Novel Creator 0.7.2 release was published 2026-11-11.** Clarify offers a few
 suggested answers and an explicit custom-answer option in both story formats.
 Existing projects need an explicit update after package installation; see the
 [upgrade guide](docs/upgrading-projects.md) and [release notes](docs/releases/0.7.2.md).
@@ -53,11 +57,11 @@ which explains setup, everyday writing, and the Windows, Linux, and Mac limits.
 If someone has already prepared your novel, go straight to
 [everyday writing](https://github.com/bjarkig82/novel-creator/blob/main/workflows/everyday-writing.md).
 
-Install or upgrade [Novel Creator 0.7.2 from PyPI](https://pypi.org/project/novel-creator/0.7.2/)
+Install or upgrade [Novel Creator 0.8.0 from PyPI](https://pypi.org/project/novel-creator/0.8.0/)
 in your configured environment:
 
 ```text
-python -m pip install --upgrade novel-creator==0.7.2
+python -m pip install --upgrade novel-creator==0.8.0
 ```
 
 Existing legacy novels need an [explicit supported update](workflows/getting-started.md#updating-an-existing-book)
@@ -80,7 +84,7 @@ compatibility. Candidate verification precedes publication.
 
 The published package includes a native Codex Markdown notebook for **new novels**,
 first introduced in 0.4.0. The default setup remains standalone Codex with
-project-local skills. Candidate 0.8.0 adds optional `--host codex|claude|both` and
+project-local skills. Version 0.8.0 adds optional `--host codex|claude|both` and
 `--skill-source project|plugin` initialization; the plugin setup uses
 `--host both --skill-source plugin`. See [marketplace setup](docs/plugin-marketplaces.md).
 Install it in a Python 3.11+
@@ -317,7 +321,7 @@ wheel from the configured dependency environment:
 
 ```bash
 python -m pip wheel . --no-deps --wheel-dir dist
-python tests/verify_wheel.py dist/novel_creator-0.7.2-py3-none-any.whl
+python tests/verify_wheel.py dist/novel_creator-0.8.0-py3-none-any.whl
 ```
 
 Use the actual versioned filename produced by the build. The verifier installs

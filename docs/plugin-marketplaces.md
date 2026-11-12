@@ -1,10 +1,11 @@
 # Marketplace setup for new notebooks
 
-Version **0.8.0 is an unpublished candidate**. The latest verified PyPI release is
-[0.7.2](releases/0.7.2.md). PyPI publication and release verification are pending.
-Windows and Linux are the target platforms. Native Windows execution and
-authenticated Codex/Claude Code conversations remain pending; CLI installation
-and file checks do not establish GUI discovery or writing behavior.
+Version **0.8.0 is published, 2026-11-12**; see the
+[release notes](releases/0.8.0.md). Full Windows/Linux automated qualification,
+public package installation and normal published-index bootstrap passed.
+An isolated Claude Code GitHub marketplace installation reported fifteen skills.
+Native Codex/Claude Code conversations, GUI discovery and specialist interaction
+remain unverified; CLI installation and file checks do not establish them.
 
 The plugin creates new independent Markdown notebooks. Existing notebook
 adoption, a legacy-format host port, macOS, MCP and public-directory submission
@@ -13,24 +14,8 @@ instructions and [supported update paths](upgrading-projects.md).
 
 ## Install the plugin
 
-Use a checkout or extracted marketplace archive containing both root catalogs and
-`plugins/novel-creator/`. Replace the example with its absolute path. In Codex
-CLI 0.163.0 the install command is `plugin add`:
-
-```text
-codex plugin marketplace add /absolute/path/to/repo
-codex plugin add novel-creator@novel-creator-marketplace
-```
-
-In Claude Code:
-
-```text
-claude plugin marketplace add /absolute/path/to/repo
-claude plugin install novel-creator@novel-creator-marketplace
-```
-
-Once the marketplace catalogs are pushed to the GitHub repository, the same
-plugin can be installed directly from that repository. In Codex:
+Install from the GitHub repository. In Codex CLI 0.163.0 the install command
+is `plugin add`:
 
 ```text
 codex plugin marketplace add https://github.com/bjarkig82/novel-creator.git
@@ -72,8 +57,9 @@ PyPI through the configured package index:
 python /absolute/path/to/plugin/scripts/bootstrap.py --novel "/path/to/My Novel"
 ```
 
-Until 0.8.0 is published, supply the exact local candidate wheel instead.
-`--wheel` also supports explicit validation of a local artifact:
+For optional development validation, a local checkout or extracted marketplace
+archive can be added by absolute path instead of the GitHub repository. Supply
+the exact matching local wheel to validate that artifact explicitly:
 
 ```text
 python /absolute/path/to/plugin/scripts/bootstrap.py --wheel /absolute/path/to/novel_creator-0.8.0-py3-none-any.whl --novel "/path/to/My Novel"
@@ -106,7 +92,7 @@ preserved while pip destination overrides are excluded. See the
 
 If the pinned version is missing from the index, report that actual failure;
 use a matching local wheel only when it is available for the intended setup.
-This separate package command is **usable only after 0.8.0 publication**:
+To install or upgrade the separate package in your configured environment:
 
 ```text
 python -m pip install --upgrade novel-creator==0.8.0
@@ -152,9 +138,9 @@ The notebook updater supports the original standalone Codex/project layout and
 focused Clarify/Analyze/Help resources. It refuses host/plugin integration
 layouts before writing and is not a marketplace adoption or snapshot updater.
 There is no supported in-place adoption or snapshot migration for plugin books
-in this candidate. Preserve their pinned workflows. Existing legacy books use
+in 0.8.0. Preserve their pinned workflows. Existing legacy books use
 their existing reviewed updater; see the [upgrade guide](upgrading-projects.md).
 
-See [candidate release notes](releases/0.8.0.md),
+See [release notes](releases/0.8.0.md),
 [development checks](development.md#plugin-artifacts-and-installation-checks) and
-[qualification evidence](../tests/evaluations/marketplace-0.8.0.md) for exact scope.
+[qualification evidence](../tests/evaluations/release-0.8.0.md) for exact scope.
