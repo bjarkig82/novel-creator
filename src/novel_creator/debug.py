@@ -229,23 +229,45 @@ def setup(novel):
     root, kind, base = _project(novel)
     if kind != 'novel-notebook':
         raise ToolError(3, 'Legacy debugging support uses the existing explicit framework-update route')
+    from .notebook import _host_text
+    marker = _guard(root / '.novel-notebook/integration.json')
+    host, skill_source = 'codex', 'project'
+    if marker.exists():
+        try:
+            integration = _loads(marker.read_bytes())
+            if (not isinstance(integration, dict) or type(integration.get('version')) is not int or integration['version'] != 1 or
+                    integration.get('host') not in ('codex', 'claude', 'both') or
+                    integration.get('skill_source') not in ('project', 'plugin')):
+                raise ValueError()
+            host, skill_source = integration['host'], integration['skill_source']
+        except (ValueError, UnicodeError, TypeError, RecursionError) as error:
+            raise ToolError(3, 'Notebook integration settings are invalid; preserve them and inspect the project') from error
     resource = resources('novel_creator.notebook_resources').joinpath('workflows/debugging.md').read_bytes().replace(b'\r\n', b'\n')
+    if (host, skill_source) != ('codex', 'project'):
+        resource = _host_text(resource.decode('utf-8'), host, skill_source).encode('utf-8')
     workflow = _guard(root / '.novel-notebook/workflows/debugging.md')
-    agents = _guard(root / 'AGENTS.md')
     ignore = _guard(root / '.gitignore')
-    original_agents = agents.read_bytes() if agents.exists() else b''
     original_ignore = ignore.read_bytes() if ignore.exists() else b''
     if workflow.exists() and workflow.read_bytes() != resource:
         raise ToolError(3, 'Existing debugging guidance differs; preserve it and reconcile explicitly')
-    if b'<!-- novel-creator-debug:' in original_agents and _POINTER not in original_agents:
-        raise ToolError(3, 'Existing debugging instruction block differs; preserve it and reconcile explicitly')
     additions = []
     if not workflow.exists():
         additions.append((workflow, resource))
-    if b'.novel-notebook/workflows/debugging.md' not in original_agents:
-        additions.append((agents, original_agents + (b'\n' if original_agents and not original_agents.endswith(b'\n') else b'') + b'\n' + _POINTER))
+    names = ('AGENTS.md', 'CLAUDE.md') if host == 'both' else (('AGENTS.md',) if host == 'codex' else ('CLAUDE.md',))
+    for name in names:
+        instructions = _guard(root / name)
+        if not instructions.is_file():
+            raise ToolError(3, 'Notebook host instructions are missing; preserve the project and inspect its integration settings')
+        original = instructions.read_bytes()
+        if b'<!-- novel-creator-debug:' in original and _POINTER not in original:
+            raise ToolError(3, 'Existing debugging instruction block differs; preserve it and reconcile explicitly')
+        if b'.novel-notebook/workflows/debugging.md' not in original:
+            additions.append((instructions, original + (b'\n' if original and not original.endswith(b'\n') else b'') + b'\n' + _POINTER))
     if b'.novel-notebook/local/' not in original_ignore.splitlines():
         additions.append((ignore, original_ignore + (b'\n' if original_ignore and not original_ignore.endswith(b'\n') else b'') + b'.novel-notebook/local/\n'))
+    for path, _ in additions:
+        if path.exists() and path.stat().st_nlink != 1:
+            raise ToolError(3, 'Notebook debugging setup refuses hard-linked resources; preserve and inspect them')
     for path, raw in additions:
         _guard(path).write_bytes(raw)
     _ignored(root, base)

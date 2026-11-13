@@ -170,6 +170,70 @@ class DebugRecorder(unittest.TestCase):
                 debug.setup(self.root)
             self.assertEqual((self.root / 'AGENTS.md').read_bytes(), agents)
 
+    def test_setup_routes_each_host_and_skill_source_without_touching_index(self):
+        for host in ('codex', 'claude', 'both'):
+            for source in ('project', 'plugin'):
+                with self.subTest(host=host, source=source), tempfile.TemporaryDirectory() as area:
+                    root = Path(area).resolve()
+                    subprocess.run(['git', 'init', '-q', str(root)], env=self.env, check=True)
+                    (root / 'notebook').mkdir()
+                    (root / 'notebook/project.md').write_text('Notebook', encoding='utf-8')
+                    (root / '.novel-notebook/workflows').mkdir(parents=True)
+                    (root / '.novel-notebook/integration.json').write_text(json.dumps(
+                        {'version': 1, 'host': host, 'skill_source': source}), encoding='utf-8')
+                    selected = ['AGENTS.md'] if host == 'codex' else ['CLAUDE.md'] if host == 'claude' else ['AGENTS.md', 'CLAUDE.md']
+                    for name in selected:
+                        (root / name).write_text('Custom instruction.\n', encoding='utf-8')
+                    (root / '.gitignore').write_text('# Existing\n', encoding='utf-8')
+                    subprocess.run(['git', '-C', str(root), 'add', '--', *selected], env=self.env, check=True)
+                    before = (root / '.git/index').read_bytes()
+                    result = debug.setup(root)
+                    self.assertTrue(result['ready'])
+                    self.assertEqual((root / '.git/index').read_bytes(), before)
+                    for name in selected:
+                        content = (root / name).read_text(encoding='utf-8')
+                        self.assertTrue(content.startswith('Custom instruction.\n'))
+                        self.assertIn('.novel-notebook/workflows/debugging.md', content)
+                    for name in {'AGENTS.md', 'CLAUDE.md'} - set(selected):
+                        self.assertFalse((root / name).exists())
+                    self.assertEqual(debug.setup(root)['changed_paths'], [])
+                    self.assertTrue(debug.start(root)['debug_session'])
+
+    def test_setup_rejects_invalid_host_marker_before_writes(self):
+        marker = self.root / '.novel-notebook/integration.json'
+        marker.write_text('{"version":1,"host":"unknown","skill_source":"plugin"}', encoding='utf-8')
+        original = (self.root / 'AGENTS.md').read_bytes()
+        with self.assertRaises(ToolError):
+            debug.setup(self.root)
+        self.assertEqual((self.root / 'AGENTS.md').read_bytes(), original)
+        self.assertFalse((self.root / '.novel-notebook/workflows/debugging.md').exists())
+
+    @unittest.skipUnless(hasattr(os, 'link'), 'hard links unavailable')
+    def test_setup_rejects_hard_linked_targets_before_any_writes(self):
+        marker = self.root / '.novel-notebook/integration.json'
+        marker.write_text('{"version":1,"host":"both","skill_source":"project"}', encoding='utf-8')
+        (self.root / 'CLAUDE.md').write_text('Custom Claude instructions.\n', encoding='utf-8')
+        (self.root / '.gitignore').write_text('# Existing\n', encoding='utf-8')
+        for name in ('AGENTS.md', 'CLAUDE.md', '.gitignore'):
+            with self.subTest(name=name), tempfile.TemporaryDirectory() as directory:
+                target = self.root / name
+                original = target.read_bytes()
+                outside = Path(directory) / 'outside'
+                target.unlink()
+                outside.write_bytes(original)
+                try:
+                    os.link(outside, target)
+                except OSError as error:
+                    self.skipTest('hard links unavailable: ' + str(error))
+                try:
+                    with self.assertRaises(ToolError):
+                        debug.setup(self.root)
+                    self.assertEqual(outside.read_bytes(), original)
+                    self.assertFalse((self.root / '.novel-notebook/workflows/debugging.md').exists())
+                finally:
+                    target.unlink()
+                    target.write_bytes(original)
+
     def test_unignored_or_redirected_local_paths_are_rejected(self):
         (self.root / '.gitignore').write_text('', encoding='utf-8')
         with self.assertRaises(ToolError):

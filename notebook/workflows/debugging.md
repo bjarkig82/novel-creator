@@ -8,7 +8,11 @@ continues with native file/Git tools and needs no Python when debugging is off.
 
 ## Start and retain the session identity
 
-Use the installed Novel Creator command in its configured Python environment:
+Use the installed Novel Creator command in its configured Python environment.
+When a plugin installed an isolated runtime, use the bootstrap's verified
+`runtime_python` followed by `-m novel_creator` in place of `novel-creator`
+in these commands. In a later chat, verify an available compatible runtime
+before using it; do not assume its location or silently install globally:
 
 ```text
 novel-creator debug start --novel PATH --json

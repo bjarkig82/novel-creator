@@ -9,7 +9,7 @@
       "name": "novel-creator",
       "source": "./plugins/novel-creator",
       "description": "Independent story notebooks with shared writing workflows for Codex and Claude Code.",
-      "version": "0.9.0"
+      "version": "0.10.0"
     }
   ]
 }

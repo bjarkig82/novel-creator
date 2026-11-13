@@ -9,7 +9,7 @@ from tests import verify_marketplace_previous as previous
 
 class MarketplacePreviousTests(unittest.TestCase):
     def test_both_public_sources_fail_closed_on_a_corrupt_local_wheel(self):
-        self.assertEqual(set(previous.PUBLIC_WHEELS), {'0.7.2', '0.8.0'})
+        self.assertEqual(set(previous.PUBLIC_WHEELS), {'0.7.2', '0.8.0', '0.9.0'})
         self.assertEqual(previous.PUBLIC_WHEELS['0.8.0'][1],
                          '390c6e208fe71a803783cd2cf979bada3e20988518a0032572fcf9a1b8711c5b')
         with tempfile.TemporaryDirectory() as temporary:
@@ -28,7 +28,8 @@ class MarketplacePreviousTests(unittest.TestCase):
             previous.main()
         self.assertEqual([(call.kwargs['source_version'], call.kwargs['sdist'] is not None)
                           for call in verify.call_args_list],
-                         [('0.7.2', False), ('0.7.2', True), ('0.8.0', False), ('0.8.0', True)])
-        self.assertEqual(len(report.call_args.args[1]['checks']), 4)
+                         [('0.7.2', False), ('0.7.2', True), ('0.8.0', False), ('0.8.0', True),
+                          ('0.9.0', False), ('0.9.0', True)])
+        self.assertEqual(len(report.call_args.args[1]['checks']), 6)
         workflow = (Path(__file__).resolve().parents[2] / '.github/workflows/package-release.yml').read_text()
         self.assertIn('tests/verify_marketplace_previous.py --wheel candidate/*.whl --sdist candidate/*.tar.gz', workflow)

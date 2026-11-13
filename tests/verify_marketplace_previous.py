@@ -1,4 +1,4 @@
-"""Opt-in 0.7.2 and 0.8.0 notebook update checks against a locally installed candidate.
+"""Opt-in public notebook upgrade checks against a locally installed candidate.
 
 Downloads the frozen public previous wheel unless --previous-wheel is supplied.
 All installations, books and Git identities are disposable process-local state.
@@ -30,6 +30,8 @@ PUBLIC_WHEELS = {
     '0.7.2': (PREVIOUS_FILENAME, PREVIOUS_SHA256),
     '0.8.0': ('novel_creator-0.8.0-py3-none-any.whl',
               '390c6e208fe71a803783cd2cf979bada3e20988518a0032572fcf9a1b8711c5b'),
+    '0.9.0': ('novel_creator-0.9.0-py3-none-any.whl',
+              '59050772544faa3056fa173f06c7c410e5f07e352fdad38d41bf88185e86667f'),
 }
 
 
@@ -91,6 +93,16 @@ def verify(*, plugin, wheel, previous=None, source_version=PREVIOUS_VERSION, sdi
         python = runtime['runtime_python']
         old_product, old_cli = install_previous(python, scratch, env,
                                                version=source_version, supplied=previous)
+        if source_version == '0.9.0':
+            source = previous_wheel(scratch, previous or (scratch / PUBLIC_WHEELS[source_version][0]),
+                                    version=source_version)
+            return {'ok': True, 'source_sha256': PUBLIC_WHEELS[source_version][1],
+                    'verified_product_files': runtime['verified_product_files'],
+                    'candidate_artifact': 'sdist' if sdist else 'wheel',
+                    'candidate_artifact_sha256': hashlib.sha256((sdist or wheel).read_bytes()).hexdigest(),
+                    'candidate_wheel_sha256': hashlib.sha256(wheel.read_bytes()).hexdigest(),
+                    'notebooks': verify_debug_upgrade(python, old_product, old_cli, scratch, env),
+                    'legacy': verify_debug_legacy(python, source, wheel, scratch, env, runtime['version'])}
         cases = []
         for language in ('en', 'is'):
             book = scratch / f'Book {language}'
@@ -150,6 +162,116 @@ def verify(*, plugin, wheel, previous=None, source_version=PREVIOUS_VERSION, sdi
                 'candidate_artifact_sha256': hashlib.sha256((sdist or wheel).read_bytes()).hexdigest(),
                 'candidate_wheel_sha256': hashlib.sha256(wheel.read_bytes()).hexdigest(),
                 'notebooks': cases}
+
+
+def verify_debug_legacy(python, source, wheel, scratch, env, version):
+    """Upgrade a real 0.9.0 pinned book via the installed candidate controller."""
+    probe = '''
+import json,sys
+from pathlib import Path
+from contextlib import contextmanager
+import novel_creator
+assert Path(novel_creator.__file__).resolve().is_relative_to(Path(sys.prefix))
+assert novel_creator.__version__ == sys.argv[4]
+sys.path.append(sys.argv[1])
+from tests import update_helpers
+from tests.verify_update import installed_matrix
+update_helpers.SOURCE_WHEELS['0.9.0'] = (sys.argv[2], sys.argv[5])
+original = update_helpers.historical_book
+@contextmanager
+def checked_book(*args, **kwargs):
+ with original(*args, **kwargs) as book:
+  yield book
+  pinned = book.root / '.novel-creator/src/novel_creator/debug.py'
+  assert pinned.is_file()
+  assert (book.root / '.novel-creator/workflows/debugging.md').is_file()
+  started = book.launch('debug','start','--novel',book.root,'--json')
+  assert started.returncode == 0, started.stderr
+  session = json.loads(started.stdout)['data']['debug_session']
+  stopped = book.launch('debug','stop','--novel',book.root,'--debug-session',session,'--json')
+  assert stopped.returncode == 0, stopped.stderr
+  exported = book.launch('debug','export','--novel',book.root,'--debug-session',session,'--json')
+  assert exported.returncode == 0, exported.stderr
+  result = json.loads(exported.stdout)['data']
+  assert Path(result['output']).is_file() and not result['partial']
+update_helpers.historical_book = checked_book
+result = installed_matrix([sys.argv[2]], sys.argv[3])
+print(json.dumps(result))
+'''
+    return json.loads(run([python, '-I', '-B', '-X', 'utf8', '-c', probe, ROOT, source, wheel,
+                           version, PUBLIC_WHEELS['0.9.0'][1]], env=env, cwd=scratch))
+
+
+def verify_debug_upgrade(python, old_product, old_cli, scratch, env):
+    """Use the real previous initializer and installed candidate on disposable books."""
+    cases = []
+    for host in ('codex', 'claude', 'both'):
+        for source in ('project', 'plugin'):
+            for language in ('en', 'is'):
+                book = scratch / f'Debug {host} {source} {language}'
+                created = json.loads(run([python, '-I', '-B', '-c', old_cli, old_product,
+                                          'notebook', 'init', book.name, '--path', book,
+                                          '--language', language, '--host', host,
+                                          '--skill-source', source, '--json'], env=env, cwd=scratch))
+                require(created.get('ok') and created['data']['ready'], 'Public 0.9.0 init failed')
+                roots = (['AGENTS.md', 'CLAUDE.md'] if host == 'both' else
+                         ['AGENTS.md' if host == 'codex' else 'CLAUDE.md'])
+                for name in roots:
+                    path = book / name
+                    path.write_bytes(path.read_bytes() + b'\nPreserve custom writer instructions.\n')
+                (book / 'notebook/writer-preserved.md').write_bytes(b'Accepted writer text.\n')
+                staged = book / 'writer-staging.txt'
+                staged.write_bytes(b'Staged writer bytes\n')
+                run(['git', '-C', book, 'add', '--', staged.name], env=env, cwd=scratch)
+                staged.write_bytes(b'Unstaged writer bytes\n')
+                before = snapshot(book)
+                instructions = {name: (book / name).read_bytes() for name in roots}
+                head = run(['git', '-C', book, 'rev-parse', 'HEAD'], env=env, cwd=scratch)
+                index = (book / '.git/index').read_bytes()
+                command = [python, '-I', '-m', 'novel_creator', 'debug']
+                setup = json.loads(run([*command, 'setup', '--novel', book, '--json'], env=env, cwd=scratch))
+                require(setup.get('ok'), 'Debug setup failed on public 0.9.0 notebook')
+                after = snapshot(book)
+                allowed = set(roots) | {'.gitignore', '.novel-notebook/workflows/debugging.md'}
+                changed = {name for name in before.keys() | after.keys() if before.get(name) != after.get(name)}
+                require(changed <= allowed and '.novel-notebook/workflows/debugging.md' in changed,
+                        f'Unexpected debug setup changes: {sorted(changed)}')
+                for name in roots:
+                    data = (book / name).read_bytes()
+                    require(data.startswith(instructions[name]) and b'.novel-notebook/workflows/debugging.md' in data,
+                            'Custom host instructions or debug routing not preserved')
+                require((book / 'notebook/writer-preserved.md').read_bytes() == b'Accepted writer text.\n',
+                        'Story content changed')
+                repeat = json.loads(run([*command, 'setup', '--novel', book, '--json'], env=env, cwd=scratch))
+                require(repeat['data']['changed_paths'] == [] and snapshot(book) == after,
+                        'Repeated debug setup changed the book')
+                workflow = book / '.novel-notebook/workflows/debugging.md'
+                original = workflow.read_bytes()
+                workflow.write_bytes(original + b'Custom divergent guidance.\n')
+                conflicted = snapshot(book)
+                refused = json.loads(run([*command, 'setup', '--novel', book, '--json'],
+                                         env=env, cwd=scratch, expected_exit=3))
+                require(not refused['ok'] and snapshot(book) == conflicted, 'Customized debug guidance changed')
+                workflow.write_bytes(original)
+                started = json.loads(run([*command, 'start', '--novel', book, '--json'], env=env, cwd=scratch))
+                session = started['data']['debug_session']
+                event = scratch / 'debug-event.json'
+                event.write_text(json.dumps({'operation': 'context.read', 'content': 'Þóra',
+                    'files': [{'path': 'notebook/project.md', 'phase': 'context'}]}, ensure_ascii=False), encoding='utf-8')
+                run([*command, 'record', '--novel', book, '--debug-session', session,
+                     '--input', event, '--json'], env=env, cwd=scratch)
+                run([*command, 'stop', '--novel', book, '--debug-session', session, '--json'], env=env, cwd=scratch)
+                output = scratch / (book.name + '.zip')
+                exported = json.loads(run([*command, 'export', '--novel', book, '--debug-session', session,
+                                           '--output', output, '--json'], env=env, cwd=scratch))
+                require(exported['ok'] and output.is_file() and not exported['data']['partial'], 'Debug export failed')
+                require((book / '.git/index').read_bytes() == index, 'Debug setup changed unrelated staging')
+                require(run(['git', '-C', book, 'rev-parse', 'HEAD'], env=env, cwd=scratch) == head,
+                        'Debug setup changed project history')
+                cases.append(dict(host=host, skill_source=source, language=language,
+                                  source_version='0.9.0', debug_setup_and_export=True,
+                                  story_custom_instructions_index_history_preserved=True))
+    return cases
 
 
 def verify_manual(python, old_product, old_cli, scratch, env):
@@ -268,11 +390,13 @@ def main():
     parser.add_argument('--plugin', type=Path, default=ROOT / 'plugins/novel-creator', help='Candidate plugin root')
     parser.add_argument('--previous-wheel', type=Path, help='Use a local hash-verified 0.7.2 wheel instead of downloading')
     parser.add_argument('--previous-080-wheel', type=Path, help='Local hash-verified public 0.8.0 wheel')
+    parser.add_argument('--previous-090-wheel', type=Path, help='Local hash-verified public 0.9.0 wheel')
     parser.add_argument('--sdist', type=Path, help='Also test installation from the exact candidate sdist')
     parser.add_argument('--report', type=Path, required=True, help='Success JSON report destination')
     args = parser.parse_args()
     reports = []
-    for source_version, previous in (('0.7.2', args.previous_wheel), ('0.8.0', args.previous_080_wheel)):
+    for source_version, previous in (('0.7.2', args.previous_wheel), ('0.8.0', args.previous_080_wheel),
+                                     ('0.9.0', args.previous_090_wheel)):
         for sdist in ((None, args.sdist.resolve()) if args.sdist else (None,)):
             reports.append(verify(plugin=args.plugin.resolve(), wheel=args.wheel.resolve(),
                                   previous=previous, source_version=source_version, sdist=sdist))
