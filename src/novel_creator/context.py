@@ -1,5 +1,5 @@
 """Read one committed snapshot; context is derived and never a second authority."""
-from . import records, storage
+from . import records, storage, debug
 from .cli import ToolError
 
 
@@ -27,6 +27,7 @@ def direct_impact(state, identifiers):
             any(mentions(value) for key, value in r.items() if key not in ('id', 'source_refs', 'created_exchange_id'))]
 
 
+@debug.span('context.read')
 def read(novel, *, operation='context', session=None, kind=None, identifier=None, revision=None,
          view='full', focus=None, query=None, limit=None):
     from .memory import validate_options, working
@@ -37,7 +38,8 @@ def read(novel, *, operation='context', session=None, kind=None, identifier=None
     from .maintenance import ensure_ready
     ensure_ready(root, read_only=True)
     commit = storage.head(root)
-    history, chain = storage.read_snapshot(root, commit)
+    with debug.span('context.snapshot'):
+        history, chain = storage.read_snapshot(root, commit)
     if not history:
         raise ToolError(4, 'No confirmed novel checkpoint')
     point = storage.checkpoint(root, history, commit)
@@ -79,7 +81,8 @@ def read(novel, *, operation='context', session=None, kind=None, identifier=None
                     exchanges=history, directly_affected=direct_impact(state, [r['id'] for r in selected]),
                     impact_scope='recorded direct links only')
     elif view == 'working':
-        data.update(working(state, history, point, session=session, focus=focus, query=query, limit=limit))
+        with debug.span('context.projection'):
+            data.update(working(state, history, point, session=session, focus=focus, query=query, limit=limit))
     else:
         visible = set(state)
         if session:

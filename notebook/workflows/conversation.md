@@ -110,9 +110,13 @@ unresolved conflict or protected direction needs clarification.
 ## Native file saves and history
 
 Use the host's native file/Git tools. Save meaningful material by completion of
-its turn whenever tools permit. There is no transcript archive, exact-message
+its turn whenever tools permit. There is no ordinary transcript archive, exact-message
 capture, exchange envelope, per-turn Python validator or save-before-display
 protocol. Do not copy hidden reasoning or credentials into notes.
+
+Only an explicit session-debugging request enables the optional
+[debug recorder](debugging.md), including its local working-set content capture.
+It does not change notebook authority or require capture during ordinary writing.
 
 Read current files and Git status before targeted edits. If a file changed since
 it was read, reload and reconcile, preserving direct writer edits. If the change

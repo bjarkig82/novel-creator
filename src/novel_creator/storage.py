@@ -19,7 +19,7 @@ import sys
 import tempfile
 import uuid
 
-from . import records, validation, validation_cache
+from . import records, validation, validation_cache, debug
 from .cli import ToolError
 
 
@@ -85,19 +85,26 @@ def _bundle_leaf_mode(path):
 
 
 def git(root, *args, env=None, input=None, check=True):
-    environment = {k: v for k, v in os.environ.items() if not k.startswith('GIT_')}
-    environment.update({'GIT_TERMINAL_PROMPT': '0', 'GIT_CONFIG_NOSYSTEM': '1'})
-    if env:
-        environment.update(env)
-    try:
-        result = subprocess.run(['git', '-C', str(root), *args], env=environment,
-                                input=input, capture_output=True)
-    except FileNotFoundError as error:
-        raise ToolError(5, 'Git executable is unavailable; install Git >=2.39 and check PATH') from error
-    if check and result.returncode:
-        # Avoid leaking story contents or config via Git diagnostics.
-        raise ToolError(5, 'Local Git operation failed')
-    return result.stdout if check else result
+    # Record only known command names, never arguments, environment or output.
+    known = {'--version', 'rev-parse', 'symbolic-ref', 'for-each-ref', 'ls-tree',
+             'ls-files', 'show', 'cat-file', 'log', 'hash-object', 'read-tree',
+             'update-index', 'write-tree', 'commit-tree', 'update-ref', 'diff',
+             'diff-index', 'status', 'config', 'var', 'init', 'add', 'commit'}
+    command = args[0] if args and args[0] in known else 'other'
+    with debug.span('git', metadata={'subcommand': command}):
+        environment = {k: v for k, v in os.environ.items() if not k.startswith('GIT_')}
+        environment.update({'GIT_TERMINAL_PROMPT': '0', 'GIT_CONFIG_NOSYSTEM': '1'})
+        if env:
+            environment.update(env)
+        try:
+            result = subprocess.run(['git', '-C', str(root), *args], env=environment,
+                                    input=input, capture_output=True)
+        except FileNotFoundError as error:
+            raise ToolError(5, 'Git executable is unavailable; install Git >=2.39 and check PATH') from error
+        if check and result.returncode:
+            # Avoid leaking story contents or config via Git diagnostics.
+            raise ToolError(5, 'Local Git operation failed')
+        return result.stdout if check else result
 
 
 def head(root):
@@ -800,14 +807,23 @@ def _save(root, bundle, *, fault=None):
             raise ToolError(5, 'Exchange save failed; pending work is not confirmed', checkpoint=confirmed, pending=pending_id) from error
 
 
+@debug.span('persistence.save')
 def save(root, bundle, *, fault=None):
     from .maintenance import normal_operation
     root = root_path(root)
-    bundle_path(bundle)
+    relative = bundle_path(bundle)
     if safe_path(root, '.novel-creator/local/write.lock').exists():
         raise _writer_lock_error(root, bundle['exchange_id'])
     with normal_operation(root):
-        return _save_with_cleanup(root, bundle, fault=fault)
+        debug.capture('exchange.file', files=[{'path': relative, 'phase': 'before'}],
+                      correlation_ids={'exchange_id': bundle['exchange_id']})
+        try:
+            return _save_with_cleanup(root, bundle, fault=fault)
+        finally:
+            # Observe partial writes as well as completed saves; the enclosing
+            # persistence span records whether the transaction succeeded.
+            debug.capture('exchange.file', files=[{'path': relative, 'phase': 'after'}],
+                          correlation_ids={'exchange_id': bundle['exchange_id']})
 
 
 def _save_with_cleanup(root, bundle, *, fault=None):
@@ -838,6 +854,7 @@ def _save_with_cleanup(root, bundle, *, fault=None):
                         pending=bundle.get('exchange_id') if isinstance(bundle, dict) else None) from error
 
 
+@debug.span('persistence.recover')
 def recover(root, exchange_id, *, retry=False, expected_head=None):
     from .maintenance import ensure_ready, normal_operation
     root = root_path(root)
@@ -877,6 +894,8 @@ def _recover(root, exchange_id, *, retry=False, expected_head=None):
     if bundle is None:
         raise ToolError(4, 'No saved or pending exchange with this identity', checkpoint=confirmed)
     paths = [bundle_path(bundle)]
+    debug.capture('recovery.file', files=[{'path': paths[0], 'phase': 'context'}],
+                  correlation_ids={'exchange_id': exchange_id})
     saved_commit = None
     if published:
         saved_commit = git(root, 'log', '-1', '--format=%H', initial, '--', paths[0]).decode().strip()

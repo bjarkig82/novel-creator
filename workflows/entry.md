@@ -7,6 +7,10 @@ assume nested project instructions were automatically loaded. For future session
 select/open the novel root in the host. If it is inaccessible, disclose the actual
 limit before continuing; do not initialize again or invent saved context.
 
+On an explicit request to start debugging or export a debug report, follow
+[session debugging](debugging.md). Debugging is off unless explicitly started for
+this writing session. It does not relax the provenance or save/display rules below.
+
 ## Discover and verify the legacy runtime
 
 In commands below, `python` means a verified compatible environment, not an

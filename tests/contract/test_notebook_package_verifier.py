@@ -76,7 +76,7 @@ class NotebookPackageVerifierTest(unittest.TestCase):
             'conversation', 'format', 'outline', 'brainstorming', 'agents',
             'manuscript', 'research', 'review'))
         self.assertEqual(len(historical_paths), 26)
-        self.assertEqual(len(current), 34)
+        self.assertEqual(len(current), 35)
         historical = {relative: current[relative] for relative in historical_paths}
         historical['.codex/agents/novel_brainstormer.toml'] = (
             b'name = "novel_brainstormer"\ndescription = "Historical fixture"\n'

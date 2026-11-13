@@ -193,6 +193,17 @@ exact input capture and save-before-display behavior is preserved. Actual
 Codex voice latency and playback remain unverified; no measured improvement or
 cause of a voice pause has been established.
 
+## Optional debugging
+
+With this checkout's debugging support, explicitly ask “start this session with
+debugging,” then “stop debugging and export a report.” The
+[debugging workflow](../notebook/workflows/debugging.md) records available public
+conversation, working context, file changes and role/handoff observations in a
+local ZIP. Ordinary writing still requires no Python recorder. Existing notebooks
+can opt into only this addition with `novel-creator debug setup --novel PATH`;
+this does not update their other guidance or change their story files. Actual
+host conversation capture remains dependent on available public tools.
+
 ## Shared notes and manuscript ownership
 
 All roles use the same project brief and authoritative notebook topics. The

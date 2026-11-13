@@ -197,8 +197,19 @@ the generated release notes.
 
 Preserve legacy pinned resources, record identity, history, writer authority and
 unrelated staged work. A package upgrade does not update a book. Notebook setup
-is independent of legacy persistence; do not introduce transcript capture or
-legacy runtime dependencies into native notebook writing.
+is independent of legacy persistence; ordinary notebook writing has no transcript
+capture or legacy runtime dependency. Explicit session debugging is a separate
+optional installed-package recorder; leave it off unless requested.
+
+Debugging resources ship in both wheel and source distributions. Focused checks
+include `tests.unit.test_debug`, `tests.contract.test_debug_cli`, notebook setup
+and resource checks, and `tests.integration.test_notebook_package` for isolated
+wheel/source-distribution start, capture and ZIP export. Choose the applicable
+modules after inspecting the change. Package-measured phases and agent-recorded
+observations must stay distinct; a live Codex smoke test is needed before claiming
+public conversation capture in that host. No debug test needs model credentials,
+external uploads or a real writer's novel. See
+[debugging guidance](../notebook/workflows/debugging.md) for capture boundaries.
 
 Keep checks proportional to the change. Record failures and unsupported coverage
 honestly; structural validity does not establish narrative quality. Read/save

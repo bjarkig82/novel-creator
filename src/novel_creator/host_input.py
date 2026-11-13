@@ -4,6 +4,8 @@ import json
 import re
 import uuid
 
+from . import debug
+
 
 DELEGATION = re.compile(
     r'\A<codex_delegation>\r?\n  <source_thread_id>([^<>\r\n]+)</source_thread_id>'
@@ -64,6 +66,7 @@ def validate_provenance(value, user_text):
         raise ValueError('Unreadable host-input provenance') from error
 
 
+@debug.span('input.capture')
 def capture(snapshot, *, thread_id=None, turn_id=None, source, source_thread_id=None, evaluation_only=False):
     """Parse the explicit current source container; never infer a fallback or host IDs."""
     try:

@@ -1,5 +1,6 @@
 """Install both built distributions offline and initialize outside the checkout."""
 import os
+import json
 from pathlib import Path
 import subprocess
 import sys
@@ -33,9 +34,15 @@ class NotebookPackageTest(unittest.TestCase):
             run([sys.executable, '-c', build], cwd=checkout, env=env)
             wheel = next(artifacts.glob('*.whl'))
             sdist = next(artifacts.glob('*.tar.gz'))
+            added = {
+                'src/novel_creator/debug.py': 'novel_creator/debug.py',
+                'workflows/debugging.md': 'novel_creator/workflows/debugging.md',
+            }
             with zipfile.ZipFile(wheel) as archive:
                 for relative, (_, member) in resources.items():
                     self.assertEqual(archive.read(member), expected[relative], member)
+                for source, member in added.items():
+                    self.assertEqual(archive.read(member), (checkout / source).read_bytes(), member)
             with tarfile.open(sdist, 'r:gz') as archive:
                 prefix = sdist.name.removesuffix('.tar.gz')
                 for relative, (source, _) in resources.items():
@@ -44,6 +51,12 @@ class NotebookPackageTest(unittest.TestCase):
                     self.assertIsNotNone(stream, member)
                     with stream:
                         self.assertEqual(stream.read(), expected[relative], member)
+                for source in added:
+                    member = prefix + '/' + source
+                    stream = archive.extractfile(member)
+                    self.assertIsNotNone(stream, member)
+                    with stream:
+                        self.assertEqual(stream.read(), (checkout / source).read_bytes(), member)
             for label, archive in [('wheel', wheel), ('sdist', sdist)]:
                 with self.subTest(artifact=label):
                     area = scratch / label
@@ -63,8 +76,41 @@ class NotebookPackageTest(unittest.TestCase):
                     for language in ('en', 'is'):
                         result = verify_notebook(console, area, env, language, expected)
                         self.assertEqual(result['verified_resource_count'], len(expected))
+                    self.verify_debug(console, area, env)
                     print(f'{label}: {len(resources)} artifact resources match source bytes; '
                           'isolated install and en/is notebook resource checks passed')
+
+    def verify_debug(self, console, area, env):
+        """Exercise the recorder from the installed distribution, outside source."""
+        root = area / 'Bréf notebook en'
+        def debug(*args):
+            result = json.loads(run([console, 'debug', *args, '--novel', root, '--json'],
+                                    cwd=area, env=env))
+            self.assertTrue(result['ok'], result)
+            return result['data']
+
+        # Existing-book setup must preserve the installed guidance and Git state.
+        before = run(['git', '-C', root, 'status', '--porcelain'], cwd=area, env=env)
+        debug('setup')
+        self.assertEqual(run(['git', '-C', root, 'status', '--porcelain'], cwd=area, env=env), before)
+        session = debug('start')['debug_session']
+        payload = area / 'debug-input.json'
+        content = '  Þóra\r\n\nPublic observation.  '
+        payload.write_text(json.dumps({'events': [{
+            'operation': 'context.read', 'content': content,
+            'files': [{'path': 'notebook/project.md', 'phase': 'context'}]}]}, ensure_ascii=False), encoding='utf-8')
+        debug('record', '--debug-session', session, '--input', payload)
+        debug('stop', '--debug-session', session)
+        output = area / 'debug-report.zip'
+        debug('export', '--debug-session', session, '--output', output)
+        with zipfile.ZipFile(output) as report:
+            self.assertIn('report.md', report.namelist())
+            events = [json.loads(line) for line in report.read('events.jsonl').decode('utf-8').splitlines()]
+            self.assertTrue(any(event['operation'] == 'context.read' for event in events))
+            self.assertTrue(any(json.loads(report.read(name)) == content
+                                for name in report.namelist() if name.startswith('attachments/')
+                                and name.endswith('.json')))
+        self.assertEqual(run(['git', '-C', root, 'status', '--porcelain'], cwd=area, env=env), before)
 
 
 if __name__ == '__main__':

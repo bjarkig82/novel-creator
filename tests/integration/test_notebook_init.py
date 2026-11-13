@@ -86,6 +86,24 @@ class NotebookInitialization(unittest.TestCase):
                     self.assertNotIn('Concept', project)
                     self.assertNotIn('Working summary', summary)
 
+    def test_debug_guidance_is_installed_without_enabling_capture_and_logs_are_ignored(self):
+        self.initialize()
+        workflow = self.target / '.novel-notebook/workflows/debugging.md'
+        self.assertTrue(workflow.is_file())
+        self.assertIn('.novel-notebook/workflows/debugging.md',
+                      (self.target / 'AGENTS.md').read_text(encoding='utf-8'))
+        local = self.target / '.novel-notebook/local'
+        self.assertFalse(local.exists(), 'Notebook initialization must not activate debugging')
+        debug = local / 'debug'
+        debug.mkdir(parents=True)
+        (debug / 'events.jsonl').write_text('{"private":"writing"}\n', encoding='utf-8')
+        self.assertEqual(subprocess.check_output(
+            ['git', '-C', str(self.target), 'status', '--porcelain']), b'')
+        ignored = subprocess.check_output(
+            ['git', '-C', str(self.target), 'check-ignore', '--',
+             '.novel-notebook/local/debug/events.jsonl'], text=True)
+        self.assertIn('.novel-notebook/local/debug/events.jsonl', ignored)
+
     def test_writing_agents_and_guidance_are_installed_unchanged_and_tracked(self):
         checkout = Path(__file__).resolve().parents[2]
         expected = {relative: source.read_bytes()

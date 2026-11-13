@@ -10,7 +10,7 @@ from functools import lru_cache
 from jsonschema import Draft202012Validator, FormatChecker
 from referencing import Registry, Resource
 
-from . import records
+from . import records, debug
 
 
 @lru_cache(maxsize=1)
@@ -87,6 +87,7 @@ class ExchangeValidator:
         if self._ids.intersection(self._state):
             raise ValueError('Message/artifact ID collides with record')
 
+    @debug.span('validation.exchange')
     def append(self, bundle):
         self._append_owned(copy.deepcopy(bundle))
 

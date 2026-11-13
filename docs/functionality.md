@@ -33,6 +33,43 @@ public-directory submission are deferred. Full Windows/Linux automated package
 qualification and public installations passed. Native GUI discovery,
 authenticated conversations and specialist interaction remain unverified;
 structural/install checks do not establish these behaviors.
+## Optional session debugging
+
+This checkout adds opt-in debugging for both formats. Ask “start this session
+with debugging” and later “stop debugging and export a report,” or use
+`novel-creator debug setup|start|status|record|stop|export`. All commands select
+`--novel PATH`; recording, stopping and exporting select `--debug-session ID`.
+Use `record --input FILE` for batched agent observations and optional
+`export --output PATH` for a chosen new local ZIP. See the
+[legacy commands](../workflows/debugging.md) and
+[notebook capture workflow](../notebook/workflows/debugging.md).
+
+Capture includes available public messages, context actually retrieved, relevant
+file snapshots before/after edits, role/handoff observations, saves, failures and
+measured package-operation durations. Agent observations are labeled separately
+from package measurements. Unknown host/model data and unobserved timing remain
+unknown; gaps do not identify voice latency or its cause. Debugging adds overhead
+and is not a complete host trace. Ordinary notebook writing requires no recorder
+or Python runtime when debugging is off.
+
+Sessions have independent IDs, require explicit activation and never automatically
+attach to another chat. Interrupted logs remain available for partial export.
+The ZIP contains `report.md`, metadata, `events.jsonl` and content attachments.
+Default logs/exports are Git-ignored under `.novel-notebook/local/debug/` or
+`.novel-creator/local/debug/`; exports never overwrite an existing destination.
+Private writing stays local. No hidden reasoning, credential files, environment
+dumps, private host storage, unrelated files or whole-book snapshots are included.
+Do not put secrets into observation payloads. Nothing is uploaded or published.
+
+New notebooks install optional debugging guidance and its ignore rule. Explicit
+`debug setup` equips existing notebooks without replacing custom guidance, editing
+story files or committing; conflicts are reported. Existing legacy books need
+their supported explicit framework update. Package installation alone changes
+neither book format. Automated CLI/package checks do not establish real Codex
+conversation capture; a host smoke test is still required for that claim.
+During a legacy update hold, the pinned launcher remains blocked. Use the
+separately installed external configured runtime for `debug status`, `stop` or
+`export`; this does not bypass or finish framework update recovery.
 
 ## Setup and creative guidance
 

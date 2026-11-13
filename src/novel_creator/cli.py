@@ -113,6 +113,18 @@ def parser():
     p = Parser(prog="novel-creator", epilog='Getting started: ' + guide)
     p.add_argument('--version', action='version', version='%(prog)s ' + __version__)
     commands = p.add_subparsers(dest="command", required=True)
+    debugging = commands.add_parser('debug', description='Explicit local session diagnostics and report export')
+    actions = debugging.add_subparsers(dest='debug_action', required=True)
+    for action in ('setup', 'start', 'status', 'record', 'stop', 'export'):
+        target = actions.add_parser(action)
+        target.add_argument('--novel', required=True, action=Once)
+        if action in ('status', 'record', 'stop', 'export'):
+            target.add_argument('--debug-session', required=action != 'status', action=Once)
+        if action == 'record':
+            target.add_argument('--input', required=True, action=Once)
+        if action == 'export':
+            target.add_argument('--output', action=Once)
+        target.add_argument('--json', action=SwitchOnce)
     # A pinned legacy launcher lives beside its src directory. It does not
     # contain the setup resources, even if an editable package is also installed.
     from pathlib import Path
@@ -182,6 +194,8 @@ def parser():
     init.add_argument('--language', action=Once, choices=('en', 'is'), help='Manuscript language; defaults to en')
     capture = commands.add_parser('input').add_subparsers(dest='action', required=True).add_parser('capture')
     capture.add_argument('--capture-file', required=True)
+    capture.add_argument('--novel', action=Once)
+    capture.add_argument('--debug-session', action=Once)
     capture.add_argument('--source', choices=('native_user', 'delegated', 'realtime_delegation'), required=True)
     capture.add_argument('--thread-id')
     capture.add_argument('--turn-id')
@@ -214,6 +228,7 @@ def parser():
             sub.add_argument("--expected-head")
     for sub in operations:
         sub.add_argument("--novel", required=True)
+        sub.add_argument("--debug-session", action=Once)
     for sub in [init, *operations]:
         sub.add_argument("--json", action="store_true")
     return p
@@ -228,130 +243,19 @@ def main(argv=None):
             stream.reconfigure(encoding='utf-8')
     try:
         args = parser().parse_args(argv)
-        if args.command == 'notebook' and args.notebook_action == 'update':
-            from .notebook import update
-            if not args.path:
-                raise ToolError(2, 'Notebook update requires a nonempty --path')
-            result = update(args.path, apply=bool(args.apply), preview_id=args.preview,
-                            expected_head=args.expected_head)
-            if args.json:
-                print(json.dumps(result, ensure_ascii=False, allow_nan=False))
-            else:
-                data = result['data']
-                print(('Notebook methods installed: ' if data['applied'] else 'Notebook update preview: ') + data['novel_path'])
-                print('Reviewed HEAD: ' + data['reviewed_head'])
-                print('Preview ID: ' + data['preview_id'])
-                for change in data['changes']:
-                    print(change['action'] + ': ' + change['path'])
-                print(data['next_action'])
-            return 0
-        if args.command == 'notebook':
-            from .notebook import initialize
-            request = _init_request(args)
-            result = initialize(request['resolved_destination'],
-                                title=args.title if args.title is not None else args.name,
-                                language=args.language or 'en',
-                                host=args.host or 'codex', skill_source=args.skill_source or 'project')
-            if args.json:
-                print(json.dumps(result, ensure_ascii=False, allow_nan=False))
-            else:
-                print('Story notebook ready: ' + result['data']['novel_path'])
-                print('Format: ' + result['data']['format'] + ' version ' + str(result['data']['version']))
-                print('Language: ' + result['data']['language'])
-                print(result['data']['next_action'])
-            return 0
-        if args.command == 'update':
-            try:
-                result = _update_dispatch(args)
-            except (ValueError, TypeError, KeyError, AttributeError, RecursionError) as malformed:
-                raise ToolError(4, 'Unsupported or inconsistent update metadata; preserve the book and inspect its release/operation evidence',
-                    data={'operation_id': args.operation, 'preview_id': args.preview, 'ready': False}) from malformed
-            except OSError as failure:
-                raise ToolError(5, 'Update filesystem/preparation operation failed; preserve the operation evidence before recovery',
-                    data={'operation_id': args.operation, 'preview_id': args.preview, 'ready': False}) from failure
-            except ToolError as error:
-                if error.data is None:
-                    error.data = {'operation_id': args.operation, 'preview_id': args.preview, 'ready': False}
-                raise
-            print(json.dumps(result, ensure_ascii=False, allow_nan=False))
-            return 0
-        if getattr(args, 'novel', None) and args.command != 'update':
-            from .maintenance import ensure_ready
-            ensure_ready(args.novel, read_only=args.command in ('context', 'inspect', 'validate', 'session'))
-        if args.command == 'retro':
-            from .retro import dispatch
-            result = dispatch(args)
-            print(json.dumps({'ok': True, 'data': result}, ensure_ascii=False, allow_nan=False))
-            return 0
-        if args.command == 'input':
-            from pathlib import Path
-            from . import host_input, records
-            try:
-                data = host_input.capture(records.loads(Path(args.capture_file).read_bytes()),
-                    thread_id=args.thread_id, turn_id=args.turn_id, source=args.source,
-                    source_thread_id=args.source_thread_id, evaluation_only=args.evaluation_only)
-            except (ValueError, TypeError) as error:
-                raise ToolError(2, str(error)) from error
-            print(json.dumps({'ok': True, 'data': data}, ensure_ascii=False, allow_nan=False))
-            return 0
-        if args.command == 'init':
-            from pathlib import Path
-            from .install import initialize
-            request = _init_request(args)
-            if request is None:
+        if getattr(args, 'debug_session', None) and args.command != 'debug':
+            if not getattr(args, 'novel', None):
+                raise ToolError(2, '--debug-session requires --novel')
+            from . import debug
+            operation = args.command + ('.' + args.action if hasattr(args, 'action') else '')
+            with debug.activate(args.novel, args.debug_session, operation):
                 try:
-                    raw = Path(args.brief_file).read_bytes().decode('utf-8', errors='strict')
-                except UnicodeError as error:
-                    raise ToolError(2, 'Brief must be strict UTF-8 JSON') from error
-                result = initialize(args.path, raw)
-            else:
-                brief = {'title': args.title if args.title is not None else args.name}
-                if args.language is not None:
-                    brief['manuscript_language'] = args.language
-                raw = json.dumps(brief, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
-                result = initialize(request['resolved_destination'], raw, request=request)
-            if request is None or args.json:
-                print(json.dumps(result, ensure_ascii=False, allow_nan=False))
-            else:
-                data = result['data']
-                status = 'Novel ready' if data['ready'] else 'Novel saved; recovery required'
-                if data.get('already_initialized'):
-                    status = 'Existing novel; settings and installed workflows preserved'
-                print(status + ': ' + data['novel_path'])
-                print('Python interpreter: ' + data['runtime_python'])
-                print('Pinned launcher: ' + data['launcher_path'])
-                print('Getting started: ' + data['getting_started_path'])
-                for warning in result.get('warnings', []):
-                    print('Note: ' + str(warning))
-                print(data['next_action'])
-            return 0
-        if args.command == 'recover':
-            from .storage import recover
-            if args.retry and args.expected_head is None:
-                raise ToolError(2, 'Recovery retry requires --expected-head (use unborn before the first commit)')
-            result = recover(args.novel, args.exchange, retry=args.retry, expected_head=args.expected_head)
-            print(json.dumps(result, ensure_ascii=False, allow_nan=False))
-            return 0
-        if args.command in ('context', 'validate', 'inspect') or (args.command == 'session' and args.action == 'list'):
-            from .context import read
-            result = read(args.novel, operation=args.command, session=getattr(args, 'session', None),
-                          kind=getattr(args, 'kind', None), identifier=getattr(args, 'id', None),
-                          revision=getattr(args, 'revision', None), view=getattr(args, 'view', None) or 'full',
-                          focus=getattr(args, 'focus', None), query=getattr(args, 'query', None),
-                          limit=getattr(args, 'limit', None))
-            print(json.dumps(result, ensure_ascii=False, allow_nan=False))
-            return 0
-        if args.command == "exchange" and args.action == "save":
-            from pathlib import Path
-            from . import records, storage
-            try:
-                payload = records.loads(Path(args.input).read_bytes())
-            except (ValueError, TypeError) as error:
-                raise ToolError(2, "Input must be strict UTF-8 JSON") from error
-            result = storage.save(args.novel, payload)
-            print(json.dumps(result, ensure_ascii=False, allow_nan=False))
-            return 0
-        raise ToolError(4, "This operation is not yet implemented")
+                    return _dispatch(args)
+                except ToolError as error:
+                    debug.capture('command.error', outcome='failure', content=str(error),
+                                  metadata={'error_type': type(error).__name__, 'code': error.code})
+                    raise
+        return _dispatch(args)
     except ModuleNotFoundError as missing:
         if missing.name not in ('jsonschema', 'jsonschema_rs', 'packaging'):
             raise
@@ -371,3 +275,150 @@ def main(argv=None):
         print(json.dumps(error.result(), ensure_ascii=False, allow_nan=False))
         print(str(error), file=sys.stderr)
         return error.code
+
+
+def _dispatch(args):
+    if args.command == 'debug':
+        from .debug import dispatch
+        result = dispatch(args)
+        print(json.dumps({'ok': True, 'data': result}, ensure_ascii=False, allow_nan=False))
+        return 0
+    if args.command == 'notebook' and args.notebook_action == 'update':
+        from .notebook import update
+        if not args.path:
+            raise ToolError(2, 'Notebook update requires a nonempty --path')
+        result = update(args.path, apply=bool(args.apply), preview_id=args.preview,
+                        expected_head=args.expected_head)
+        if args.json:
+            print(json.dumps(result, ensure_ascii=False, allow_nan=False))
+        else:
+            data = result['data']
+            print(('Notebook methods installed: ' if data['applied'] else 'Notebook update preview: ') + data['novel_path'])
+            print('Reviewed HEAD: ' + data['reviewed_head'])
+            print('Preview ID: ' + data['preview_id'])
+            for change in data['changes']:
+                print(change['action'] + ': ' + change['path'])
+            print(data['next_action'])
+        return 0
+    if args.command == 'notebook':
+        from .notebook import initialize
+        request = _init_request(args)
+        result = initialize(request['resolved_destination'],
+                            title=args.title if args.title is not None else args.name,
+                            language=args.language or 'en',
+                            host=args.host or 'codex', skill_source=args.skill_source or 'project')
+        if args.json:
+            print(json.dumps(result, ensure_ascii=False, allow_nan=False))
+        else:
+            print('Story notebook ready: ' + result['data']['novel_path'])
+            print('Format: ' + result['data']['format'] + ' version ' + str(result['data']['version']))
+            print('Language: ' + result['data']['language'])
+            print(result['data']['next_action'])
+        return 0
+    if args.command == 'update':
+        try:
+            result = _update_dispatch(args)
+        except (ValueError, TypeError, KeyError, AttributeError, RecursionError) as malformed:
+            raise ToolError(4, 'Unsupported or inconsistent update metadata; preserve the book and inspect its release/operation evidence',
+                data={'operation_id': args.operation, 'preview_id': args.preview, 'ready': False}) from malformed
+        except OSError as failure:
+            raise ToolError(5, 'Update filesystem/preparation operation failed; preserve the operation evidence before recovery',
+                data={'operation_id': args.operation, 'preview_id': args.preview, 'ready': False}) from failure
+        except ToolError as error:
+            if error.data is None:
+                error.data = {'operation_id': args.operation, 'preview_id': args.preview, 'ready': False}
+            raise
+        print(json.dumps(result, ensure_ascii=False, allow_nan=False))
+        return 0
+    if getattr(args, 'novel', None) and args.command != 'update':
+        from .maintenance import ensure_ready
+        ensure_ready(args.novel, read_only=args.command in ('context', 'inspect', 'validate', 'session'))
+    if args.command == 'retro':
+        from .retro import dispatch
+        result = dispatch(args)
+        print(json.dumps({'ok': True, 'data': result}, ensure_ascii=False, allow_nan=False))
+        return 0
+    if args.command == 'input':
+        from pathlib import Path
+        from . import host_input, records
+        try:
+            data = host_input.capture(records.loads(Path(args.capture_file).read_bytes()),
+                thread_id=args.thread_id, turn_id=args.turn_id, source=args.source,
+                source_thread_id=args.source_thread_id, evaluation_only=args.evaluation_only)
+        except (ValueError, TypeError) as error:
+            raise ToolError(2, str(error)) from error
+        from . import debug
+        debug.capture('input.current', content={'text': data['text'], 'source_type': data['source_type']},
+                      correlation_ids={key: value for key, value in
+                          (('thread_id', args.thread_id), ('turn_id', args.turn_id)) if value})
+        print(json.dumps({'ok': True, 'data': data}, ensure_ascii=False, allow_nan=False))
+        return 0
+    if args.command == 'init':
+        from pathlib import Path
+        from .install import initialize
+        request = _init_request(args)
+        if request is None:
+            try:
+                raw = Path(args.brief_file).read_bytes().decode('utf-8', errors='strict')
+            except UnicodeError as error:
+                raise ToolError(2, 'Brief must be strict UTF-8 JSON') from error
+            result = initialize(args.path, raw)
+        else:
+            brief = {'title': args.title if args.title is not None else args.name}
+            if args.language is not None:
+                brief['manuscript_language'] = args.language
+            raw = json.dumps(brief, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+            result = initialize(request['resolved_destination'], raw, request=request)
+        if request is None or args.json:
+            print(json.dumps(result, ensure_ascii=False, allow_nan=False))
+        else:
+            data = result['data']
+            status = 'Novel ready' if data['ready'] else 'Novel saved; recovery required'
+            if data.get('already_initialized'):
+                status = 'Existing novel; settings and installed workflows preserved'
+            print(status + ': ' + data['novel_path'])
+            print('Python interpreter: ' + data['runtime_python'])
+            print('Pinned launcher: ' + data['launcher_path'])
+            print('Getting started: ' + data['getting_started_path'])
+            for warning in result.get('warnings', []):
+                print('Note: ' + str(warning))
+            print(data['next_action'])
+        return 0
+    if args.command == 'recover':
+        from .storage import recover
+        if args.retry and args.expected_head is None:
+            raise ToolError(2, 'Recovery retry requires --expected-head (use unborn before the first commit)')
+        result = recover(args.novel, args.exchange, retry=args.retry, expected_head=args.expected_head)
+        from . import debug
+        debug.capture('recovery.result', content=result, correlation_ids={'exchange_id': args.exchange})
+        print(json.dumps(result, ensure_ascii=False, allow_nan=False))
+        return 0
+    if args.command in ('context', 'validate', 'inspect') or (args.command == 'session' and args.action == 'list'):
+        from .context import read
+        result = read(args.novel, operation=args.command, session=getattr(args, 'session', None),
+                      kind=getattr(args, 'kind', None), identifier=getattr(args, 'id', None),
+                      revision=getattr(args, 'revision', None), view=getattr(args, 'view', None) or 'full',
+                      focus=getattr(args, 'focus', None), query=getattr(args, 'query', None),
+                      limit=getattr(args, 'limit', None))
+        from . import debug
+        debug.capture('context.result', content=result, metadata={'operation': args.command})
+        print(json.dumps(result, ensure_ascii=False, allow_nan=False))
+        return 0
+    if args.command == "exchange" and args.action == "save":
+        from pathlib import Path
+        from . import records, storage
+        try:
+            payload = records.loads(Path(args.input).read_bytes())
+        except (ValueError, TypeError) as error:
+            raise ToolError(2, "Input must be strict UTF-8 JSON") from error
+        from . import debug
+        if isinstance(payload, dict):
+            debug.capture('exchange.prepared', content={key: payload.get(key) for key in
+                          ('messages', 'record_versions', 'continuity_review')},
+                          correlation_ids={key: payload[key] for key in ('exchange_id', 'session_id')
+                                           if isinstance(payload.get(key), str)})
+        result = storage.save(args.novel, payload)
+        debug.capture('exchange.result', content=result)
+        print(json.dumps(result, ensure_ascii=False, allow_nan=False))
+        return 0
+    raise ToolError(4, "This operation is not yet implemented")

@@ -16,7 +16,7 @@ _SKILLS = ('novel-outline', 'novel-book-idea', 'novel-premise',
            'novel-clarify', 'novel-analyze', 'novel-help')
 _WORKFLOWS = ('conversation.md', 'format.md', 'outline.md', 'brainstorming.md',
               'agents.md', 'manuscript.md', 'research.md', 'review.md',
-              'clarify.md', 'analyze.md', 'help.md', 'character-development.md')
+              'clarify.md', 'analyze.md', 'help.md', 'character-development.md', 'debugging.md')
 _AGENTS = ('novel_orchestrator', 'novel_brainstormer', 'novel_researcher',
            'novel_scene_writer', 'novel_chapter_writer', 'novel_reviewer')
 _INTEGRATION = '.novel-notebook/integration.json'
@@ -118,7 +118,7 @@ def initialize(target, *, title=None, language='en', host='codex', skill_source=
     codex = files('novel_creator.codex').joinpath('notebook')
     default_layout = host == 'codex' and skill_source == 'project'
     hosts = ('codex', 'claude') if host == 'both' else (host,)
-    planned = {'.gitignore': b'.env\n.env.*\n*.key\n*.pem\n',
+    planned = {'.gitignore': b'.env\n.env.*\n*.key\n*.pem\n.novel-notebook/local/\n',
                '.gitattributes': b'*.md text eol=lf\n'}
     for selected in hosts:
         instruction_name = 'AGENTS.md' if selected == 'codex' else 'CLAUDE.md'

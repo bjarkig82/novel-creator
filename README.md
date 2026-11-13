@@ -85,6 +85,13 @@ to change pinned resources. Existing notebooks use the explicit
 [notebook update procedure](docs/upgrading-projects.md#existing-markdown-notebooks);
 package installation does not update either format automatically.
 
+This checkout also provides optional [session debugging](workflows/debugging.md)
+for notebooks and legacy novels: start debugging explicitly, then export a local
+ZIP with a readable report, structured events and captured working content.
+Existing notebooks use `novel-creator debug setup --novel PATH`; legacy novels
+need their supported framework update. This addition is not a published-release
+claim; actual host capture depends on available public tools.
+
 For new notebooks, use the setup route below. The
 [legacy getting-started guide](https://github.com/bjarkig82/novel-creator/blob/v0.4.0/workflows/getting-started.md)
 covers `novel-creator init 'My Novel'`, pinned saves and returning later for the

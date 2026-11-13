@@ -12,7 +12,7 @@ SKILL_NAMES = ('novel-outline', 'novel-book-idea', 'novel-premise', 'novel-chara
                'novel-analyze', 'novel-help')
 WORKFLOW_NAMES = ('conversation', 'format', 'outline', 'brainstorming',
                   'agents', 'manuscript', 'research', 'review', 'clarify', 'analyze',
-                  'help', 'character-development')
+                  'help', 'character-development', 'debugging')
 
 # Frozen published layout: future notebook additions must not become requirements
 # when verifying the already approved public 0.5.0 artifact.
