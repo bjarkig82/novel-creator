@@ -4,7 +4,16 @@ A home for developing an app that helps writers plan and create novels.
 
 ## Getting started
 
-**Novel Creator 0.9.0 is published, 2026-11-12.** It adds bounded character
+**Novel Creator 0.10.0 is published, 2026-11-13.** It adds opt-in
+[session debugging](workflows/debugging.md) for notebooks and legacy novels,
+with local ZIP reports. Existing notebooks need `novel-creator debug setup --novel PATH`;
+legacy novels need their explicit framework update. Full Linux and Windows
+qualification passed; public artifact hashes match the candidate. The Linux public
+installation check passed on retry after an initial index propagation delay, with
+no repeat upload. See the [release notes](docs/releases/0.10.0.md) and
+[release history](docs/releases/README.md). Actual host capture remains unverified.
+
+**The previous Novel Creator 0.9.0 release was published 2026-11-12.** It adds bounded character
 profile development: one batch of proposed prose, with drafts and revisions kept
 in chat until explicit current/selected-save approval. New English/Icelandic
 notebooks support every Codex/Claude Code and project/plugin layout. Existing
@@ -73,24 +82,17 @@ which explains setup, everyday writing, and the Windows, Linux, and Mac limits.
 If someone has already prepared your novel, go straight to
 [everyday writing](https://github.com/bjarkig82/novel-creator/blob/main/workflows/everyday-writing.md).
 
-Install or upgrade [Novel Creator 0.9.0 from PyPI](https://pypi.org/project/novel-creator/0.9.0/)
+Install or upgrade [Novel Creator 0.10.0 from PyPI](https://pypi.org/project/novel-creator/0.10.0/)
 in your configured environment:
 
 ```text
-python -m pip install --upgrade novel-creator==0.9.0
+python -m pip install --upgrade novel-creator==0.10.0
 ```
 
 Existing legacy novels need an [explicit supported update](workflows/getting-started.md#updating-an-existing-book)
 to change pinned resources. Existing notebooks use the explicit
 [notebook update procedure](docs/upgrading-projects.md#existing-markdown-notebooks);
 package installation does not update either format automatically.
-
-The **0.10.0 unpublished candidate** adds optional [session debugging](workflows/debugging.md)
-for notebooks and legacy novels: start debugging explicitly, then export a local
-ZIP with a readable report, structured events and captured working content.
-Existing notebooks use `novel-creator debug setup --novel PATH`; legacy novels
-need their supported framework update. The [candidate notes](docs/releases/0.10.0.md) describe upgrade steps and
-pending qualification. Actual host capture depends on available public tools.
 
 For new notebooks, use the setup route below. The
 [legacy getting-started guide](https://github.com/bjarkig82/novel-creator/blob/v0.4.0/workflows/getting-started.md)
