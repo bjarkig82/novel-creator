@@ -252,7 +252,7 @@ class DebugRecorder(unittest.TestCase):
         (self.root / '.gitignore').write_text('.novel-creator/local/\n', encoding='utf-8')
         info = debug.start(self.root)
         self.assertEqual(info['format'], 'legacy')
-        self.assertIn('.novel-creator/local/debug', info['directory'])
+        self.assertEqual(Path(info['directory']).parent, self.root / '.novel-creator' / 'local' / 'debug')
         self.assertEqual(info['environment']['model'], 'unknown')
         self.assertEqual(info['environment']['host'], 'unknown')
         with self.assertRaises(ToolError):
