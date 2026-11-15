@@ -237,8 +237,11 @@ class NotebookUpdate(unittest.TestCase):
         self.initialize(language=language)
         for relative, original in PUBLISHED_CLARIFY.items():
             (self.target / relative).write_bytes(original.replace(b'\n', newline))
-        section = re.search(r'^## Character development\n.*', (self.target / 'AGENTS.md').read_text(), re.S | re.M).group().encode()
-        (self.target / 'AGENTS.md').write_bytes(b'# Custom writer directions\n\nKeep this.\n' + notebook._ROUTING + b'\n' + section)
+        supplied = (self.target / 'AGENTS.md').read_text(encoding='utf-8')
+        section = re.search(r'^## Character development\n.*', supplied, re.S | re.M).group().encode()
+        side = re.search(r'<!-- novel-creator:side-character:start -->.*?<!-- novel-creator:side-character:end -->',
+                         supplied, re.S).group().encode()
+        (self.target / 'AGENTS.md').write_bytes(b'# Custom writer directions\n\nKeep this.\n' + notebook._ROUTING + b'\n' + side + b'\n\n' + section)
         (self.target / 'notebook/accepted.md').write_bytes(b'Accepted story facts.\n')
         (self.target / 'manuscript').mkdir()
         (self.target / 'manuscript/scene.md').write_bytes(b'Writer manuscript prose.\n')

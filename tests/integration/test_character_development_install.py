@@ -33,7 +33,7 @@ class CharacterDevelopmentManualInstall(unittest.TestCase):
                 codex.joinpath('skills/novel-character-develop/SKILL.md').read_bytes(),
         }
         supplied = codex.joinpath('AGENTS.md').read_text(encoding='utf-8')
-        self.section = re.search(r'^## Character development\n.*?(?=^## |\Z)',
+        self.section = re.search(r'^## Character development\n.*?(?=^## |^<!-- novel-creator:[^\n]+ -->$|\Z)',
                                  supplied, re.M | re.S).group().rstrip() + '\n'
         env = {k: v for k, v in os.environ.items() if not k.startswith('GIT_')}
         env.update(GIT_CONFIG_NOSYSTEM='1', GIT_CONFIG_GLOBAL=os.devnull,
@@ -60,7 +60,7 @@ class CharacterDevelopmentManualInstall(unittest.TestCase):
         for selected in hosts:
             name = 'AGENTS.md' if selected == 'codex' else 'CLAUDE.md'
             text = _instructions(codex, selected, source).decode()
-            section = re.search(r'^## Character development\n.*?(?=^## |\Z)',
+            section = re.search(r'^## Character development\n.*?(?=^## |^<!-- novel-creator:[^\n]+ -->$|\Z)',
                                 text, re.M | re.S).group().rstrip() + '\n'
             self.sections[name] = section
             if source == 'project':
@@ -110,6 +110,18 @@ class CharacterDevelopmentManualInstall(unittest.TestCase):
         else:
             self.assertNotEqual(result.returncode, 0, result.stdout)
         return result
+
+    def test_character_section_before_independent_side_marker_is_preserved(self):
+        root = self.older_notebook('en')
+        instructions = root / 'AGENTS.md'
+        original = instructions.read_bytes().replace(
+            b'<!-- novel-creator:side-character:start -->',
+            self.sections['AGENTS.md'].encode() + b'\n<!-- novel-creator:side-character:start -->')
+        instructions.write_bytes(original)
+        self.run_procedure(root)
+        self.assertEqual(instructions.read_bytes(), original)
+        self.assertEqual(original.count(b'<!-- novel-creator:side-character:start -->'), 1)
+        self.assertTrue((root / '.novel-notebook/workflows/character-development.md').is_file())
 
     def test_documented_install_and_identical_retry_preserve_story_and_index(self):
         for host in ('codex', 'claude', 'both'):

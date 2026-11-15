@@ -5,6 +5,13 @@ notes, acceptance and history. This workflow explores story possibilities; it
 never creates manuscripts or automatically invokes [outlining](outline.md).
 Use the configured language and follow explicit conversation-language requests.
 
+For `$novel-side-character` or an ordinary request to create a complete side,
+supporting or minor character profile, use [side-character profiles](side-character.md)
+before generic enrichment, even if the same request mentions filling gaps.
+A character topic alone does not select that mode. Its intake, draft and revisions
+remain chat-only until a clear save; one “save this profile” accepts/saves the
+current complete profile. This narrow rule overrides ordinary automatic notes.
+
 For `$novel-character-develop` or a request to fill gaps, enrich or deepen a
 character profile, use [character development](character-development.md) instead:
 one batch of proposed profile prose, kept entirely in chat until clear approval

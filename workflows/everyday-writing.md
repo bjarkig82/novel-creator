@@ -2,6 +2,12 @@
 
 [Start here](start-here.md) · [First-time setup](beginner-setup.md)
 
+For the unpublished 0.10.2 checkout candidate's optional complete side-character
+mode, see [side-character profiles](side-character.md). Equipped legacy
+novels keep ordinary sourced capture/save-before-display; one clear profile save
+accepts the current complete profile. Existing projects remain pinned until an
+explicit project update; package installation alone does not equip them.
+
 Use this guide once your novel folder and Python environment are ready. Most
 steps below are **messages to send in Codex**, not terminal commands. You can
 write in ordinary language; you do not need to repeat a skill name on every turn.

@@ -18,6 +18,60 @@ New projects receive the resources appropriate to their format at setup.
 Existing projects need the format-specific updates below; package installation
 alone does not refresh their pinned resources.
 
+## Unreleased side-character profiles
+
+The `0.10.2` side-character feature is an **unpublished checkout candidate**,
+absent from published 0.10.1. First install the selected candidate source, wheel
+or source distribution in an isolated Python 3.11+ environment outside novels.
+The [complete side-character installation procedure](side-characters.md#install-or-update-the-unpublished-candidate)
+includes installation commands, the short feature-only maintenance script,
+new-project behavior, preservation/save effects and actual host reload steps.
+Installing Python or updating a plugin alone does not refresh existing books.
+
+For an existing **legacy novel**, **only after publication**, run the compatible
+external controller (not the book's pinned runtime) and retain its verified
+runtime interpreter. These commands cannot discover unpublished 0.10.2 merely
+because candidate source was installed; the ordinary stable-public-release gate
+remains in force. Candidate tests use a controlled offline fixture transport,
+not a public availability claim:
+
+```text
+CONTROLLER -I -B -m novel_creator update --novel BOOK --python RUNTIME --version 0.10.2 --json
+CONTROLLER -I -B -m novel_creator update --novel BOOK --apply --preview PREVIEW_ID --version 0.10.2 --expected-head REVIEWED_HEAD --json
+```
+
+Review the exact preview, version, changed paths, blockers and HEAD before apply.
+The ordinary framework update adds the legacy skill/workflow/routing, preserves
+structured sourced-capture semantics, custom instructions, story and unrelated
+staging, and creates its dedicated framework commit. No format conversion occurs.
+
+For an existing **default standalone Codex/project notebook** without an
+integration marker, use the isolated candidate's focused notebook updater:
+
+```text
+novel-creator notebook update --path BOOK --json
+novel-creator notebook update --path BOOK --apply --preview PREVIEW_ID --expected-head REVIEWED_HEAD --json
+```
+
+It adds the side-character skill/workflow/root section, its absent supported
+prerequisites and recognized public Help refresh. It does not replace custom
+feature resources or make a commit. Review the concrete preview before applying.
+
+For **Codex/Claude Code/both project or plugin notebook layouts**, follow the
+[bounded feature-only procedure](side-characters.md#install-or-update-the-unpublished-candidate)
+using `novel_creator.notebook_side_character.update`. It adds only this feature;
+old Help/shared workflows/roles/root custom bytes remain. Matching plugin skill
+delivery must be updated/enabled first, with no duplicate project skill copies.
+The procedure preserves markers and refuses mixed/retained-legacy state,
+missing prerequisites, unsafe paths, conflicting/custom feature resources and
+stale previews. Preserve partial results and review a fresh preview to resume.
+
+After each format's update, inspect actual skill files or enabled plugin entry,
+root routing and linked workflow, then have the host reread/reload those resources
+in the novel folder. Native discovery remains unverified until observed in that
+host. Updates save no character profile; notebook drafts remain chat-only until
+clear approval, while legacy discussion retains normal sourced capture.
+
 ## Session guidance in 0.10.1
 
 Release 0.10.1 provides an explicit [preview/apply manual procedure](session-guidance-upgrade.md)

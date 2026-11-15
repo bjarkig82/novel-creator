@@ -1,5 +1,12 @@
 # Writing with notebook agents
 
+The unpublished 0.10.2 checkout candidate also defines
+[complete side-character profiles](side-characters.md): a short optional intake,
+one provisional full profile, and one clear save instruction. In equipped
+notebooks, the entire intake/draft/revisions stay chat-only until approval in
+every writing role. Existing books need explicit project resources; a package
+upgrade alone does not add this mode.
+
 This guide covers the writing roles introduced in **published 0.5.0**, focused
 memory guidance in **published 0.6.0**, and clarification, analysis and help
 introduced in **published 0.7.0**. The latest published package is

@@ -90,7 +90,13 @@ class PluginBundleTests(unittest.TestCase):
                     prefix = '' if suffix == 'plugin' else 'plugins/novel-creator/'
                     self.assertIn(prefix + 'plugin.json', names)
                     self.assertIn(prefix + 'scripts/bootstrap.py', names)
-                    self.assertEqual(sum(n.endswith('/SKILL.md') for n in names), 17)
+                    self.assertEqual({n for n in names if n.endswith('/SKILL.md')},
+                                     {prefix + 'skills/' + name + '/SKILL.md' for name in
+                                      ('setup', 'novel-outline', 'novel-book-idea', 'novel-premise',
+                                       'novel-character', 'novel-character-develop', 'novel-side-character',
+                                       'novel-plot', 'novel-setting', 'novel-agent', 'novel-research',
+                                       'novel-scene', 'novel-chapter', 'novel-review', 'novel-clarify',
+                                       'novel-analyze', 'novel-help', 'novel-retro')})
                     if suffix == 'marketplace':
                         self.assertIn('.agents/plugins/marketplace.json', names)
                         self.assertIn('.claude-plugin/marketplace.json', names)
@@ -143,7 +149,7 @@ class PluginBundleTests(unittest.TestCase):
                              'plugins/novel-creator/scripts/bootstrap.py', 'scripts/build_plugins.py',
                              '.agents/plugins/marketplace.json', '.claude-plugin/marketplace.json'):
                     self.assertIn(prefix + name, names)
-                self.assertEqual(sum('/plugins/novel-creator/skills/' in name and name.endswith('/SKILL.md') for name in names), 17)
+                self.assertEqual(sum('/plugins/novel-creator/skills/' in name and name.endswith('/SKILL.md') for name in names), 18)
                 for member in archive.getmembers():
                     self.assertFalse(member.issym() or member.islnk())
                     self.assertNotIn('..', Path(member.name).parts)

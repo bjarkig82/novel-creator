@@ -45,6 +45,21 @@ derived local cache. For example, run the configured interpreter's
 `-I -B .novel-creator/run.py context --novel PATH --view working --json` with that
 child environment. Never invoke input capture or an exchange/session write.
 
+## Complete side-character profiles
+
+When actually installed, `$novel-side-character` or an ordinary request to create
+a complete side, supporting or minor character profile uses
+[side-character profiles](side-character.md) before generic enrichment. A name,
+description or clear current person is enough; role, cast connection, fixed traits
+and desired length are useful optional input. It asks up to three missing basics
+one at a time, then offers one provisional 400–700-word profile, shorter on request.
+One clear “save this profile” accepts/saves the current complete profile; narrower
+explicit selection is allowed. Legacy intake, generated proposals and revisions
+retain exact sourced capture and save-before-display before approval; captured
+proposals are not canon. There is no notebook chat-only exception in this format.
+Explaining this entry remains read-only. Example chat input (do not execute):
+“Create a complete minor-character profile for the harbour radio technician.”
+
 ## Session retrospective
 
 `$novel-retro` or “review this session for Novel Creator problems” follows the

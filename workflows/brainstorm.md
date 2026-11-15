@@ -1,5 +1,10 @@
 # Brainstorming turn
 
+For `$novel-side-character` or a natural request to create a complete side,
+supporting or minor character profile, follow [side-character profiles](side-character.md)
+before generic character enrichment. A character topic alone retains this normal
+exploration. The bounded profile mode keeps all legacy capture and authority rules.
+
 Read a fresh `context --view working` before every response, following
 [working-context.md](working-context.md). Load project settings, selected session,
 global findings/holds and complete records relevant to the current request;

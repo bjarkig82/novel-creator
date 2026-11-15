@@ -35,7 +35,7 @@ class NotebookHosts(unittest.TestCase):
                         for directory, selected in (('.agents', host in ('codex', 'both')),
                                                     ('.claude', host in ('claude', 'both'))):
                             skills = list((target / directory / 'skills').glob('*/SKILL.md'))
-                            self.assertEqual(len(skills), 16 if source == 'project' and selected else 0)
+                            self.assertEqual(len(skills), 17 if source == 'project' and selected else 0)
                         for path in target.rglob('*'):
                             if path.is_file() and path.suffix in ('.md', '.toml'):
                                 for link in re.findall(r'\]\(([^)#]+)(?:#[^)]*)?\)', path.read_text(encoding='utf-8')):

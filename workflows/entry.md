@@ -78,6 +78,18 @@ changes follows the ordinary scoped authority and exchange protocol.
 `$novel-clarify` follows [clarification](clarify.md) and retains normal exact
 capture and saved exchanges; it never edits manuscript files.
 
+## Side-character profile routing
+
+For `$novel-side-character` or a natural request to create a complete side,
+supporting or minor character profile, read [side-character profiles](side-character.md)
+before generic character enrichment. A character topic alone remains ordinary
+brainstorming. This route retains exact current-input capture, sourced proposals
+and save-before-display below; it is not a read-only or chat-only exception.
+One clear “save this profile” accepts and saves the current complete profile;
+clear writer answers keep normal authority. No repeated approval or next character
+automatically. Older Help catalogs are navigation: inspect the actual installed
+entry and workflow to explain availability without starting work.
+
 ## Exact current legacy input
 
 Select the current source explicitly; never fall back to an older message or

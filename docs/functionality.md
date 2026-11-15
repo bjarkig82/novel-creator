@@ -9,6 +9,13 @@ Start with the [beginner guide](../workflows/start-here.md) or
 [everyday writing](../workflows/everyday-writing.md). Legacy setup and update
 commands are in [getting started](../workflows/getting-started.md).
 
+The unpublished 0.10.2 checkout candidate adds a bounded
+[complete side-character profile](side-characters.md) mode for equipped legacy
+novels and format-1 notebooks: a short optional intake, one provisional practical
+profile, then revision/cancellation or one explicit save. Legacy sourced capture
+and notebook chat-only drafts retain their distinct save rules. Package/plugin
+installation alone leaves existing books pinned; host behavior remains unverified.
+
 ## Marketplace integration (0.8.0)
 
 Version 0.8.0 is published, 2026-11-12. It adds Codex and Claude Code plugins for

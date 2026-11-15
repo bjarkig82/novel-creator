@@ -157,7 +157,7 @@ sections = {}
 for selected in hosts:
     name = 'AGENTS.md' if selected == 'codex' else 'CLAUDE.md'
     supplied = _instructions(codex, selected, source).decode('utf-8')
-    match = re.search(r'^## Character development\n.*?(?=^## |\Z)', supplied, re.M | re.S)
+    match = re.search(r'^## Character development\n.*?(?=^## |^<!-- novel-creator:[^\n]+ -->$|\Z)', supplied, re.M | re.S)
     assert match, 'Package lacks the root feature section; stop.'
     sections[name] = match.group().rstrip() + '\n'
     if source == 'project':
@@ -179,7 +179,7 @@ for relative, desired in copies.items():
 for relative, section in sections.items():
     path = regular(relative, True)
     original = path.read_bytes()
-    existing = re.findall(r'^## Character development\n.*?(?=^## |\Z)',
+    existing = re.findall(r'^## Character development\n.*?(?=^## |^<!-- novel-creator:[^\n]+ -->$|\Z)',
                           normalized(original), re.M | re.S)
     assert len(existing) <= 1 and (not existing or existing[0].rstrip() == section.rstrip()), (
         f'Divergent root feature section in {relative}; preserve and reconcile.')

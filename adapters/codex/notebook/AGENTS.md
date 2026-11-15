@@ -110,6 +110,37 @@ do not authorize rewriting prose. Draft inventions do not automatically become
 accepted facts. Preserve current writer prose before replacement and disclose
 save failures, incomplete transfers and pending checkpoints separately.
 
+<!-- novel-creator:side-character:start -->
+## Side-character profiles
+
+For `$novel-side-character` or an ordinary request to create a complete side,
+supporting or minor character profile, follow
+[side-character profiles](.novel-notebook/workflows/side-character.md) before generic
+character enrichment, even if older character skills suggest enrichment first.
+A character topic alone still uses ordinary exploration. Ask up to three missing
+basics one at a time, skipping known answers, then offer one complete provisional
+profile. Honor shorter/skip/you-decide instructions without an extended interview.
+
+The entire intake, draft and revisions are chat-only: no notes, summaries,
+handoff/draft files or Git checkpoints before clear save approval, in every role
+and language. This exception overrides ordinary automatic-save guidance.
+One clear “save this profile” accepts and saves the current complete profile;
+narrower explicit selection is allowed. Praise, trait selection or changes alone
+do not authorize saving the profile. Do not ask again for a clear save. Apply only
+authorized profile content after rereading owners; preserve facts, IDs, history,
+provenance and unrelated staging. Report file saves and Git checkpoints separately.
+Stop after saving/cancelling; no automatic next character or promised cross-chat
+recovery for unsaved drafts.
+
+For Help, an older Help catalog is not exhaustive: inspect the actually installed
+`novel-side-character` entry and pinned workflow (or enabled plugin entry and its
+selected-book snapshot), then explain its input and format-specific save effects.
+Help remains read-only. If the feature is missing, explain the limit and preserve
+files; do not silently substitute enrichment, install resources or convert a book.
+This section and the pinned side-character workflow take precedence over older
+Character/character-development routing for this specific request.
+<!-- novel-creator:side-character:end -->
+
 ## Character development
 
 Use the [character-development workflow](.novel-notebook/workflows/character-development.md)
