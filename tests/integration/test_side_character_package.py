@@ -25,6 +25,7 @@ area, previous_python, wheel, previous_wheel, checkout = map(Path, sys.argv[1:])
 sys.path.append(str(checkout))
 from tests.update_release_helpers import release_listing
 from tests.verify_plugin_install import run
+from tests.verify_marketplace_previous import initialize_legacy_fixture
 import os
 env = dict(os.environ)
 
@@ -32,10 +33,7 @@ def git(root, *args):
     return run(['git', '-C', root, *args], cwd=area, env=env)
 
 def legacy(python, root):
-    root.mkdir()
-    git(root, 'init', '-b', 'main')
-    code = "import json,sys;from novel_creator.install import initialize;r=initialize(sys.argv[1],json.dumps({'title':'Synthetic','manuscript_language':'en'}));assert r['data']['saved'],r"
-    run([python, '-I', '-B', '-c', code, root], cwd=area, env=env)
+    initialize_legacy_fixture(python, root, 'en', area, env)
 
 def check(root, legacy=False, host='codex', source='project'):
     base = '.novel-creator' if legacy else '.novel-notebook'

@@ -200,6 +200,8 @@ class NotebookInitialization(unittest.TestCase):
                         self.assertTrue((skill.parent / link).is_file(), link)
                 for path in (self.target / '.novel-notebook/workflows').glob('*.md'):
                     for link in re.findall(r'\]\(([^)]+)\)', path.read_text(encoding='utf-8')):
+                        if re.match(r'^[a-zA-Z][a-zA-Z0-9+.-]*:', link):
+                            continue
                         self.assertTrue((path.parent / link).is_file(), (path, link))
                 self.assertFalse((self.target / 'notebook/topics').exists())
 

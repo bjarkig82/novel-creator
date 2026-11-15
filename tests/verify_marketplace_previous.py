@@ -357,6 +357,17 @@ def initialize_legacy_fixture(python, book, language, scratch, env):
              "r=initialize(sys.argv[1],json.dumps({'title':'Synthetic new legacy',"
              "'manuscript_language':sys.argv[2]}));assert r['data']['saved']")
     run([python, '-I', '-B', '-c', probe, book, language], env=env, cwd=scratch)
+    # Assert ownership on every caller, including isolated wheel/sdist probes.
+    for key, expected in (('user.name', 'Previous Release Qualification'),
+                          ('user.email', 'test@example.invalid')):
+        require(run(['git', '-C', book, 'config', '--local', '--get', key],
+                    env=env, cwd=scratch).strip() == expected,
+                'Synthetic legacy repository identity changed: ' + key)
+    identity = run(['git', '-C', book, 'log', '-1', '--format=%an%n%ae%n%cn%n%ce'],
+                   env=env, cwd=scratch).splitlines()
+    require(identity == ['Previous Release Qualification', 'test@example.invalid',
+                         'Previous Release Qualification', 'test@example.invalid'],
+            'Synthetic legacy initial commit must use its repository identity')
 
 
 def verify_debug_legacy(python, source, wheel, scratch, env, version, *, source_version="0.9.0"):

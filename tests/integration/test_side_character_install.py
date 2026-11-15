@@ -13,10 +13,10 @@ import zipfile
 
 from novel_creator import notebook
 from novel_creator.cli import ToolError
-from novel_creator.install import initialize as initialize_legacy
 from novel_creator.update_release import export_bundle
 from tests.integration import test_notebook_update as update_tests
 from tests.release_fixtures import published_wheel
+from tests.verify_marketplace_previous import initialize_legacy_fixture
 
 
 SKILL = '.agents/skills/novel-side-character/SKILL.md'
@@ -130,9 +130,12 @@ class SideCharacterInstall(unittest.TestCase):
                 self.assertIn(resolved, bundle, (relative, link))
 
     def test_new_legacy_setup_pins_feature_and_root_routing(self):
-        result = initialize_legacy(self.target, json.dumps({'title': 'Disposable profile book',
-                                                          'manuscript_language': 'en'}))
-        self.assertTrue(result['data']['saved'])
+        # The notebook fixture supplies ambient identities; legacy storage must
+        # instead find the disposable repository's explicitly configured author.
+        env = {key: value for key, value in os.environ.items()
+               if key not in ('GIT_AUTHOR_NAME', 'GIT_AUTHOR_EMAIL',
+                              'GIT_COMMITTER_NAME', 'GIT_COMMITTER_EMAIL')}
+        initialize_legacy_fixture(sys.executable, self.target, 'en', self.parent, env)
         self.assertTrue((self.target / SKILL).is_file())
         self.assertTrue((self.target / '.novel-creator/workflows/side-character.md').is_file())
         self.assertIn(b'.novel-creator/workflows/side-character.md', (self.target / 'AGENTS.md').read_bytes())

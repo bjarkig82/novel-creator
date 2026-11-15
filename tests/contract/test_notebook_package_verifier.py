@@ -76,7 +76,16 @@ class NotebookPackageVerifierTest(unittest.TestCase):
             'conversation', 'format', 'outline', 'brainstorming', 'agents',
             'manuscript', 'research', 'review'))
         self.assertEqual(len(historical_paths), 26)
-        self.assertEqual(len(current), 35)
+        current_paths = historical_paths | {
+            f'.agents/skills/novel-{name}/SKILL.md' for name in (
+                'character-develop', 'clarify', 'analyze', 'help', 'retro', 'side-character')
+        } | {
+            f'.novel-notebook/workflows/{name}.md' for name in (
+                'character-development', 'clarify', 'analyze', 'help', 'debugging',
+                'retrospective', 'side-character')
+        }
+        self.assertEqual(len(current), 39)
+        self.assertEqual(set(current), current_paths)
         historical = {relative: current[relative] for relative in historical_paths}
         historical['.codex/agents/novel_brainstormer.toml'] = (
             b'name = "novel_brainstormer"\ndescription = "Historical fixture"\n'
@@ -121,12 +130,12 @@ class NotebookPackageVerifierTest(unittest.TestCase):
                             'console', root.parent, {}, package, 'novel-creator ' + version,
                             verified_wheel=archive_bytes.getvalue())
                 for relative, raw in current.items():
-                    (root / relative).write_bytes(raw)
+                    (root / relative).write_bytes(raw.replace(b'\r\n', b'\n'))
                 for package in (None, 'novel-creator==0.6.0'):
                     self.assertEqual([len(current), len(current)], verify_package_install.verify_notebook_install(
                         'console', root.parent, {}, package, 'novel-creator 0.6.0',
                         verified_wheel=archive_bytes.getvalue()))
-                # Current checks must require both newly introduced resources.
+                # Current checks must require every newly introduced resource.
                 for relative in set(current) - set(historical):
                     resource = root / relative
                     raw = resource.read_bytes()

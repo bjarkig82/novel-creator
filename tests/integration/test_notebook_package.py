@@ -13,6 +13,7 @@ import zipfile
 from tests.release_fixtures import published_wheel
 from tests.notebook_resource_checks import resource_paths
 from tests.verify_wheel import run, verify_notebook
+from tests.verify_marketplace_previous import initialize_legacy_fixture
 
 
 class NotebookPackageTest(unittest.TestCase):
@@ -88,12 +89,7 @@ class NotebookPackageTest(unittest.TestCase):
                     self.verify_debug(console, area, env)
                     self.verify_issue_setup(console, area, env)
                     legacy = area / 'New legacy'
-                    legacy.mkdir()
-                    run(['git', '-C', legacy, 'init', '-b', 'main'], cwd=area, env=env)
-                    code = ("import json,sys; from novel_creator.install import initialize; "
-                            "r=initialize(sys.argv[1],json.dumps({'title':'Synthetic legacy','manuscript_language':'en'})); "
-                            "assert r['data']['saved'],r")
-                    run([python, '-I', '-c', code, legacy], cwd=area, env=env)
+                    initialize_legacy_fixture(python, legacy, 'en', area, env)
                     legacy_skill = legacy / '.agents/skills/novel-retro/SKILL.md'
                     self.assertTrue(legacy_skill.is_file())
                     self.assertTrue((legacy / '.novel-creator/workflows/retrospective.md').is_file())

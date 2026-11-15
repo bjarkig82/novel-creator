@@ -1,7 +1,7 @@
 # Novel Creator plugin
 
 Create independent story notebooks and use focused writing methods in Codex or
-Claude Code. The 15 writing entries share creative workflows saved with the
+Claude Code. The 17 writing entries share creative workflows saved with the
 selected book; the setup entry creates new format-1 notebooks for both hosts.
 The permanent plugin name is `novel-creator` in `novel-creator-marketplace`.
 
