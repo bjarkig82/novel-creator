@@ -258,15 +258,14 @@ See the [host evaluation](https://github.com/bjarkig82/novel-creator/blob/v0.2.0
 
 ## Development
 
-Version 0.2.0 includes **optional contributor retrospectives**, disabled by
-default for everyone. Newly initialized novels can explicitly opt in to review
-completed tasks and prepare checked draft contributions through a separate
-framework checkout. Existing novels retain their pinned bundle after a package
-upgrade. See the [qualification scope and retained limitations](tests/evaluations/automatic-retrospectives-qualification.md),
-the [contributor workflow](workflows/retrospective.md) and [0.2.0 release notes](docs/releases/0.2.0.md).
-Windows Codex native behavior and a separately authorized normal-protocol real
-draft have been verified in their recorded scopes. Linux Codex integration remains
-unverified; local fake-transport tests do not establish real GitHub effects.
+Version 0.2.0 introduced optional contributor retrospectives that could prepare
+checked draft contributions. That historical producer is retired in current
+source; existing grants support recovery only. The new unreleased
+[issue workflow](workflows/retrospective.md) requires exact author approval for
+outgoing material and creates no fixes or PRs. Existing novels retain their
+pinned resources after a package upgrade; use the supported explicit update.
+See the historical [qualification scope](tests/evaluations/automatic-retrospectives-qualification.md)
+and [0.2.0 release notes](docs/releases/0.2.0.md) for their recorded limits.
 
 Create a UTF-8 brief JSON file. `{}` starts with no concept and unknown creative
 preferences. A supplied brief can combine answers:
@@ -416,3 +415,18 @@ malformed proof or novel-supplied key cannot bypass validation or authorize cano
 The repeatable benchmark creates its own temporary external key and removes it
 afterward. `--no-validation-cache` measures the full-validation configuration.
 See [measured performance and platform limits](https://github.com/bjarkig82/novel-creator/blob/v0.2.0/tests/evaluations/performance.md).
+
+### Unreleased session issue retrospectives
+
+Current source adds explicit session reviews and optional exact-approved GitHub
+issues, replacing old automatic fix/PR creation. Automatic review requires
+active-session opt-in and explicit closure only. Debugging stops before review;
+sharing defaults to generalized local findings. The entire actual issue and
+attachments require author approval before upload. No story save/commit, code
+fix or PR is part of retro administration.
+
+This is **not included in published 0.10.1**. Package installation does not update
+project snapshots. See [all four new/existing format delivery paths](docs/upgrading-projects.md#unreleased-session-issue-retrospectives)
+and [workflow/JSON examples](workflows/retrospective.md). Existing notebooks use
+`retro issue setup` preview/application; legacy books use a future qualified
+package's normal framework updater. Historical PR recovery remains available.

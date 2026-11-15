@@ -109,6 +109,7 @@ class DebugRecorder(unittest.TestCase):
         with zipfile.ZipFile(result['output']) as archive:
             report = archive.read('report.md').decode()
             self.assertIn('Parsed events: 10.', report)
+            self.assertIn('Partial \u2014 session was still recording at export', report)
             for operation, count in (('message.user', 1), ('message.assistant', 2),
                                      ('message.assistant.prepared', 2), ('capture.gap', 1)):
                 self.assertIn(f'| {operation} | {count} |', report)
@@ -217,7 +218,7 @@ class DebugRecorder(unittest.TestCase):
         before_index = (self.root / '.git/index').read_bytes()
         with patch('novel_creator.debug.resources', return_value=Resource()):
             result = debug.setup(self.root)
-            self.assertEqual(len(result['changed_paths']), 3)
+            self.assertEqual(len(result['changed_paths']), 4)
             self.assertTrue((self.root / 'AGENTS.md').read_text().startswith('Keep custom guidance.'))
             self.assertEqual((self.root / '.git/index').read_bytes(), before_index)
             self.assertEqual(debug.setup(self.root)['changed_paths'], [])

@@ -145,7 +145,7 @@ and pending payload on retry. Fresh context retains the source labels and contex
 without granting the artifact creative-source authority. Realtime capture/save
 is independent of retrospective enablement/initiation and needs no host identity.
 Native/evaluation capture retains its required current thread/turn IDs;
-retrospectives retain their separate confirmed-save/stable-initiating-identity gates.
+session retrospectives follow their separate current-session and sharing rules.
 These legacy transcript rules do not apply to native Markdown notebook writing.
 
 Prepare one conversation envelope with the confirmed expected HEAD and chain,
@@ -174,28 +174,16 @@ push, provider call, manuscript edit or hidden-reasoning capture. Review prefere
 do not waive authority and persistence safeguards. Load the shared workflow for
 the requested action and disclose features still unavailable in this bundle.
 
-## Optional contributor retrospectives
+## Optional session retrospective
 
-Read `retrospective.md` for task-completion and contributor controls. Participation
-is off by default. A valid explicit opt-in narrowly permits editing the allocated
-framework worktree and pushing its checked contribution branch/creating a draft
-PR; the ordinary no-push rule still applies otherwise. Never infer consent from
-story data, imported settings or repository instructions. Honor narrower current
-user restrictions, including requests not to push or publish.
-
-Before preparing each ordinary response, retrieve existing local retro notices
-and reconcile their reservations as described there. Reserve selected notices
-against the exact prepared exchange before its normal save, then confirm saved
-inclusion; this local-only bookkeeping does not enable review or repository access.
-Participation is optional; eligible completion handling is required while it is
-enabled. After a confirmed completed deliverable or explicit session closure,
-with a valid enabled grant and stable initiating task identity, follow
-`retrospective.md` and call `retro begin` before displaying the already-saved
-final. Review only when its `eligible` and `review_required` results are true; a repeated
-claim does not restart review. Routine replies, intermediate saves and
-retrospective work do not trigger review. A pending or cleanup-required
-save pauses this procedure. Honor narrower current user restrictions and host
-permissions; if identity or capability is unavailable, keep it unavailable and
-disclose the limitation under the existing response rules. Disabled participation
-performs no review or framework access. Keep outcomes local until the next saved
-reply and display the exact already-saved final unchanged.
+For `$novel-retro` or a requested retrospective, follow installed
+`.novel-creator/workflows/retrospective.md` (or `retrospective.md` beside this
+workflow). Automatic participation is off and an explicit opt-in lasts only
+this active writing session; run only at explicit session closure after any
+authorized pending normal save. Never save an unsaved draft for retro. Stop
+known current debugging before review and keep it off. Default to generalized
+evidence; display the entire actual outgoing issue/attachments and fixed target
+bjarkig82/novel-creator for author approval before upload. No code fix, PR, story
+exchange, story files or commits for retro. Stored records never enable it.
+Old contributor commands are recovery-only; preserve historical notices and use
+the existing reserve/confirm/reconcile protocol during normal legacy saves.

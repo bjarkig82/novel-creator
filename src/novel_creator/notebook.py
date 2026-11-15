@@ -13,10 +13,10 @@ from .cli import ToolError
 _SKILLS = ('novel-outline', 'novel-book-idea', 'novel-premise',
            'novel-character', 'novel-character-develop', 'novel-plot', 'novel-setting', 'novel-agent',
            'novel-research', 'novel-scene', 'novel-chapter', 'novel-review',
-           'novel-clarify', 'novel-analyze', 'novel-help')
+           'novel-clarify', 'novel-analyze', 'novel-help', 'novel-retro')
 _WORKFLOWS = ('conversation.md', 'format.md', 'outline.md', 'brainstorming.md',
               'agents.md', 'manuscript.md', 'research.md', 'review.md',
-              'clarify.md', 'analyze.md', 'help.md', 'character-development.md', 'debugging.md')
+              'clarify.md', 'analyze.md', 'help.md', 'character-development.md', 'debugging.md', 'retrospective.md')
 _AGENTS = ('novel_orchestrator', 'novel_brainstormer', 'novel_researcher',
            'novel_scene_writer', 'novel_chapter_writer', 'novel_reviewer')
 _INTEGRATION = '.novel-notebook/integration.json'
@@ -314,7 +314,7 @@ def update(target, *, apply=False, preview_id=None, expected_head=None):
         'character-development.md').read_bytes().replace(b'\r\n', b'\n')
     # 0.4 notebooks predate role/research/manuscript workflows. Add absent
     # prerequisites, but never replace the writer's existing versions.
-    for name in ('agents', 'manuscript', 'research', 'review', 'brainstorming'):
+    for name in ('agents', 'manuscript', 'research', 'review', 'brainstorming', 'retrospective'):
         relative = f'.novel-notebook/workflows/{name}.md'
         if read(relative) is None:
             desired[relative] = shared.joinpath(name + '.md').read_bytes().replace(b'\r\n', b'\n')
@@ -349,7 +349,9 @@ def update(target, *, apply=False, preview_id=None, expected_head=None):
         original = before[relative] if relative in before else read(relative)
         if relative != 'AGENTS.md' and original is not None and original.replace(b'\r\n', b'\n') != raw:
             approved = _CLARIFY_ORIGINALS.get(relative)
-            if approved is None or hashlib.sha256(original.replace(b'\r\n', b'\n')).hexdigest() != approved:
+            from .retro_issue_provenance import KNOWN
+            trusted = (approved,) + (tuple(KNOWN['help.md']) if relative == '.novel-notebook/workflows/help.md' else ())
+            if hashlib.sha256(original.replace(b'\r\n', b'\n')).hexdigest() not in trusted:
                 raise ToolError(3, 'Customized notebook resource would be overwritten: ' + relative)
             identity = safe(root / relative).stat()
             if identity.st_nlink != 1:

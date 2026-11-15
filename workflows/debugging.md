@@ -92,3 +92,14 @@ launcher, remove an update hold or assume that exporting finishes recovery.
 Older pinned legacy bundles need their ordinary explicit supported framework
 update before these commands exist. Installing the package does not rewrite
 them. Debug `setup` is only for existing notebooks and is not a legacy updater.
+
+## Local notebook retrospective
+
+For an explicitly requested retrospective or current-session opt-in at explicit
+session closure, follow the [retrospective workflow](retrospective.md). Stop
+known current debugging before review and keep it off. Select exact local
+evidence; no log auto-selection, story save, commit, fix or PR. Sharing defaults
+to generalized findings; any publication/upload needs current author approval
+of the complete actual outgoing material. Debug capture consent never implies
+sharing consent. Existing notebooks need explicit `retro issue setup` preview
+and application before this new issue workflow is available.

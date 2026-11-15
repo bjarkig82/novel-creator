@@ -192,3 +192,58 @@ that project in Codex so project skills can be discovered, then search for
 `$novel-character-develop`. Open the novel itself,
 not just a parent folder. Native Codex Desktop discovery remains a separate host
 check; filesystem tests do not prove the menu reloaded.
+
+## Unreleased session issue retrospectives
+
+This feature is current-source work, **not included in published 0.10.1**.
+Package/plugin installation leaves pinned project snapshots unchanged. Once a
+future package containing the feature is qualified, install that exact version
+in the intended isolated controller environment first.
+
+Existing **legacy novels** use the ordinary external-controller framework update
+preview/application above, selecting that future newer version. Review/apply the
+exact preview/HEAD; it delivers shared retrospective guidance and the legacy
+`.agents/skills/novel-retro/SKILL.md`. Existing story/history/custom-instruction
+protections and historical recovery fences remain. No conversion is required.
+Do not apply an invented future version to a real novel from this checkout.
+
+Existing **format-1 notebooks**, including standalone pre-integration-marker
+books and Codex/Claude/both project/plugin layouts, use current source or an
+isolated qualified artifact containing this command:
+
+```text
+novel-creator retro issue setup --novel PATH --json
+novel-creator retro issue setup --novel PATH --apply --preview PREVIEW_ID --expected-head REVIEWED_HEAD --json
+```
+
+Preview binds all inspected input bytes/identities, rendered output and HEAD.
+Apply installs the retrospective snapshot and project skill (or plugin routing),
+refreshes only recognized shipped debugging/help/conversation guidance, preserves
+arbitrary root custom bytes and establishes the notebook local ignore rule.
+Conflicting custom resources, stale previews, hardlinks and redirected paths
+refuse safely. Partial application preserves completed files: inspect, take a
+fresh preview and explicitly apply the remainder. Story, index and history are
+preserved; no log conversion, debug relocation, novel save or commit occurs.
+Legacy-only books use the normal framework updater, not notebook setup.
+
+New **legacy novels** initialized from the future qualified package bundle the
+workflow and legacy adapter skill. New **notebooks** bundle the snapshot/project
+skill or selected plugin routing. Plugin delivery keeps its notebook-only scope.
+After each format's install/update, verify the actual skill file and links:
+`.agents/skills/novel-retro/SKILL.md`, `.claude/skills/novel-retro/SKILL.md`, or
+enabled plugin `novel-retro` plus the selected notebook snapshot. Reread/reload
+root instructions and host skills before invoking them. Python imports/file
+checks do not prove native Codex/Claude discovery. Checkpoint resource changes
+only through the normal authorized workflow; package installation is insufficient.
+
+Historical recovery uses `retro enable --novel PATH --checkout RECORDED_CHECKOUT
+--recovery-only --json`, then explicitly requested old-run resume/release only.
+It requires an authentic prior matching grant, creates no new grant and never
+authorizes issue publication or new PR work.
+
+The older focused notebook updater and `debug setup` may add an absent passive
+retrospective snapshot to keep current guide links complete. This alone installs
+no novel-retro skill, opts into nothing and grants no publication/upload authority.
+The issue setup also supplies absent trusted writing-guide prerequisites for
+older format-1 books, preserving existing custom prerequisite guides. Use its
+explicit preview/application to install the complete issue entry and routing.

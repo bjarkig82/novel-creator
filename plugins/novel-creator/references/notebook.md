@@ -56,3 +56,8 @@ host controls and self-review; never pretend a persona is a native specialist or
 an independent reviewer. A role choice starts no whole-book assignment. Setup
 does not imply an automatic host project switch. If the host cannot access the
 selected book, explain that limit and have the writer select/open its folder.
+
+For `novel-retro`, read the selected book's retrospective snapshot. Older books
+need explicit `retro issue setup` preview/application; package/plugin installation
+alone does not add the snapshot. Never substitute legacy producer behavior or
+duplicate project skills in plugin layout.

@@ -254,6 +254,15 @@ def setup(novel):
     additions = []
     if not workflow.exists():
         additions.append((workflow, resource))
+    # The current debug guide links this passive snapshot. Adding it never
+    # enables participation or installs an issue entry; custom copies stay put.
+    retrospective = _guard(root / '.novel-notebook/workflows/retrospective.md')
+    if retrospective.exists() and not retrospective.is_file():
+        raise ToolError(3, 'Retrospective prerequisite must be a regular file; preserve and inspect the project')
+    if not retrospective.exists():
+        raw = resources('novel_creator.notebook_resources').joinpath('workflows/retrospective.md').read_bytes().decode('utf-8')
+        additions.append((retrospective, _host_text(raw, host, skill_source).encode('utf-8')))
+
     names = ('AGENTS.md', 'CLAUDE.md') if host == 'both' else (('AGENTS.md',) if host == 'codex' else ('CLAUDE.md',))
     for name in names:
         instructions = _guard(root / name)

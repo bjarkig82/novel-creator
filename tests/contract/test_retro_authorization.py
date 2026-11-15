@@ -3,7 +3,7 @@ import tempfile
 import unittest
 from pathlib import Path
 from unittest.mock import patch
-from tests.retro_helpers import fixtures
+from tests.retro_helpers import fixtures, historical
 from novel_creator.cli import ToolError
 
 
@@ -16,7 +16,7 @@ class Authorization(unittest.TestCase):
             self.assertEqual(fake.calls, [])
             with self.assertRaises(ToolError):
                 service.enable(checkout, authorize=False)
-            service.enable(checkout, authorize=True)
+            historical(service, checkout, initial)
             self.assertTrue(service.status()['enabled'])
             service.disable()
             fake.calls.clear()
@@ -30,7 +30,7 @@ class Authorization(unittest.TestCase):
         from novel_creator.retro import Retro
         with fixtures() as (root, checkout, registry, fake, initial), tempfile.TemporaryDirectory() as tmp:
             service = Retro(root, github=fake, registry=registry)
-            service.enable(checkout, authorize=True)
+            historical(service, checkout, initial)
             copied = Path(tmp).resolve() / 'copy'
             shutil.copytree(root, copied)
             self.assertFalse(Retro(copied, github=fake, registry=registry).status()['enabled'])
@@ -39,7 +39,7 @@ class Authorization(unittest.TestCase):
         from novel_creator.retro import Retro
         with fixtures() as (root, checkout, registry, fake, initial):
             service = Retro(root, github=fake, registry=registry)
-            service.enable(checkout, authorize=True)
+            historical(service, checkout, initial)
             path = root / '.novel-creator/local/retro/authorization.json'
             path.write_text('{"retro_version":99}')
             with self.assertRaises(ToolError):

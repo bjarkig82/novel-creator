@@ -74,7 +74,7 @@ their supported explicit framework update. Package installation alone changes
 neither book format. Automated CLI/package checks do not establish real Codex
 conversation capture; a host smoke test is still required for that claim.
 The [0.10.1 release](releases/0.10.1.md) provides an exact reviewed
-[session-guidance preview/apply procedure](session-guidance-upgrade.md) for
+[version-pinned session-guidance preview/apply procedure](https://github.com/bjarkig82/novel-creator/blob/v0.10.1/docs/session-guidance-upgrade.md) for
 existing format-1 notebooks across English/Icelandic, Codex/Claude Code/both and
 project/plugin layouts. It refreshes four public-provenance shared workflows and
 appends bounded root routing, preserving skills, roles and custom root bytes.
@@ -89,11 +89,12 @@ The revised notebook rules distinguish discussion, approval, verified file saves
 and Git checkpoints, including voice continuations and role handoffs. Approved
 but unwritten work remains unsaved. An authorized Git permission retry may use
 the host's approved scoped access route after inspection; otherwise checkpointing
-remains pending. Unrelated staging stays protected. A requested local read-only
+remains pending. Unrelated staging stays protected. In published 0.10.1, a requested local read-only
 notebook retrospective uses only writer-selected public evidence, distinguishing
 observations, hypotheses and missing evidence without reconstructing omitted
 messages or inferring latency causes. It adds no legacy retrospective CLI,
-capture activation, story save, contribution opt-in or upload authority.
+capture activation, story save, contribution opt-in or upload authority. The
+unreleased issue-review replacement is described separately below.
 During a legacy update hold, the pinned launcher remains blocked. Use the
 separately installed external configured runtime for `debug status`, `stop` or
 `export`; this does not bypass or finish framework update recovery.
@@ -426,36 +427,35 @@ skills, and the shared [role](../notebook/workflows/agents.md),
 per-turn Python requirement or automatic outline step. Existing notebooks and
 legacy resources are unchanged, with no new migration or updater command.
 
-## Optional contributor retrospectives
+## Session issue retrospectives (unreleased)
 
-Legacy contributor retrospectives default to disabled for each novel. Explicit
-opt-in requires a separate framework checkout and existing GitHub access, and
-covers preparing focused fixes and publishing validated draft contributions to the
-configured project. Copied preferences do not authorize participation. Disabling
-participation stops new reviews and unfinished mutations/publication; re-enablement
-is required before reconciliation or ownership release that needs repository access.
+Current development source replaces automatic fix/PR creation with explicit
+session review and optional exact-approved issues in bjarkig82/novel-creator.
+Automatic opt-in lasts only the active session and runs only at explicit closure,
+after any authorized pending normal save. Never save an unsaved draft for retro.
+Known current debugging stops before frozen-evidence review and stays off; no
+log auto-selection. Without debugging, use visible conversation and explicitly
+selected logs, disclosing missing observations. Each independent evidenced
+problem gets a separate generalized finding by default. Discuss diagnostics,
+show the complete actual title/body/attachments and obtain author approval
+before any upload. Full ZIP sharing includes complete member inventory and
+privacy implications; credentials and hidden reasoning are excluded.
 
-After confirmed saving of a completed requested task or explicit session closure,
-a review may select at most one evidenced workflow, documentation, test or runtime
-defect. Routine replies, speculative features and missing evidence do not justify
-contributions. Reviews do not recursively trigger themselves. Generalized descriptions
-and synthetic reproductions protect private writing, transcripts, paths and secrets.
-Relevant validation and duplicate checks precede draft publication; uncertain
-publication is reconciled before retry. No automatic merge or deployment occurs.
-Failure preserves completed writing and unrelated work.
+Duplicate comparison uses bounded fixed-repository public listings and host
+semantic judgment, without private search terms or automatic comments. Body
+creation, pending/uncertain upload and observed receipt are separate outcomes.
+Unknown writes are reconciled, never blindly retried. No fix, code edits, push,
+PR, story exchange, story files or commit occurs for retro administration.
+Saved records never re-enable participation or a new chat's publication direction.
 
-A draft or problem produces a brief notice in the next normally saved reply.
-Durable association with that reply prevents duplicate notices after interrupted
-acknowledgement; failed saves retain pending notices. No unsolicited turn is started,
-previous replies remain unchanged and saved inclusion does not prove display.
-See [the retrospective workflow](../workflows/retrospective.md) for controls and recovery.
-
-Notebooks also support a requested local, read-only evidence review of a supplied
-debug archive under the [notebook debugging workflow](../notebook/workflows/debugging.md#local-notebook-retrospective).
-It reports observations and limits in chat without invoking the legacy CLI,
-discovering host transcripts or enabling contributor participation. Archive review
-alone authorizes no file changes, uploads, issues, PRs or publication. Private
-archive content stays out of framework changes; improvements use synthetic cases.
+See [workflow and JSON contracts](../workflows/retrospective.md) and
+[explicit project upgrades](upgrading-projects.md#unreleased-session-issue-retrospectives).
+New projects receive the workflow/entry; existing legacy novels use the normal
+framework updater from a future qualified package, while existing notebooks use
+preview-bound `retro issue setup`. Published 0.10.1 does not contain this feature.
+Old contribution production is retired; authentic existing grants support only
+historical reconciliation/release and retained notice recovery. Existing
+worktrees/branches/PRs are preserved and uncertain create remains blocked.
 
 ## Updating existing legacy books
 

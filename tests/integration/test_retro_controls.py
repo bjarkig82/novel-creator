@@ -1,6 +1,6 @@
 import unittest
 from unittest.mock import patch
-from tests.retro_helpers import fixtures
+from tests.retro_helpers import fixtures, historical
 from novel_creator.cli import ToolError
 
 
@@ -40,7 +40,7 @@ class Controls(unittest.TestCase):
                         return str(common).encode()
                     return original(path,*args,**kwargs)
                 with patch('novel_creator.retro.storage.git',side_effect=resolve_common):
-                    with self.assertRaises(ToolError):service.enable(checkout,authorize=True)
+                    with self.assertRaises(ToolError):service.enable(checkout,recovery_only=True)
                 self.assertEqual(fake.calls,[])
                 self.assertIsNone(service.grant())
                 self.assertFalse((common/'novel-creator-retro').exists())
@@ -50,7 +50,7 @@ class Controls(unittest.TestCase):
     def test_missing_machine_grant_is_disabled(self):
         from novel_creator.retro import Retro
         with fixtures() as (root,checkout,registry,fake,initial):
-            service=Retro(root,github=fake,registry=registry);service.enable(checkout,authorize=True)
+            service=Retro(root,github=fake,registry=registry);historical(service,checkout,initial)
             for path in registry.glob('*.json'): path.unlink()
             fake.calls.clear()
             self.assertFalse(service.status()['enabled'])
@@ -61,12 +61,14 @@ class Controls(unittest.TestCase):
         from novel_creator import retro
         with fixtures() as (root,checkout,registry,fake,initial):
             service=Retro(root,github=fake,registry=registry)
+            historical(service,checkout,initial)
+            service.disable()
             original=retro.write
             def fail_local(path,value,kind):
                 if path.name=='authorization.json': raise OSError('synthetic interrupted local publication')
                 return original(path,value,kind)
             with patch('novel_creator.retro.write',side_effect=fail_local):
-                with self.assertRaises(OSError): service.enable(checkout,authorize=True)
+                with self.assertRaises(OSError): service.enable(checkout,recovery_only=True)
             self.assertFalse(service.status()['enabled'])
 
     def test_unknown_fields_and_overlap_are_rejected(self):

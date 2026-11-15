@@ -1,7 +1,6 @@
 import unittest
 from tests.helpers import envelope,seal,uid,git
-from tests.retro_helpers import fixtures
-from tests.contract.test_retro_review import begin_input
+from tests.retro_helpers import fixtures, historical_notice
 from novel_creator import storage
 from novel_creator.cli import ToolError
 
@@ -10,9 +9,8 @@ class Notices(unittest.TestCase):
     def test_save_success_before_ack_is_reconciled_once(self):
         from novel_creator.retro import Retro,digest
         with fixtures() as (root,checkout,registry,fake,initial):
-            service=Retro(root,github=fake,registry=registry); service.enable(checkout,authorize=True)
-            run=service.begin(begin_input(root,initial))['run_id']
-            service.review(run,{'outcome':'insufficient_evidence'})
+            service=Retro(root,github=fake,registry=registry)
+            run=historical_notice(service,checkout,initial)
             notice=service.notices_pending()['notices'][0]
             service.disable() # Existing notices remain local and usable.
             exchange=envelope(root,previous=initial)
@@ -37,8 +35,8 @@ class Notices(unittest.TestCase):
     def test_unsaved_reservation_releases_without_consuming_notice(self):
         from novel_creator.retro import Retro,digest
         with fixtures() as (root,checkout,registry,fake,initial):
-            service=Retro(root,github=fake,registry=registry); service.enable(checkout,authorize=True)
-            run=service.begin(begin_input(root,initial))['run_id']; service.review(run,{'outcome':'insufficient_evidence'})
+            service=Retro(root,github=fake,registry=registry)
+            run=historical_notice(service,checkout,initial)
             notice=service.notices_pending()['notices'][0]
             data={'retro_version':1,'reservation_id':uid(),'exchange_id':uid(),'message_id':uid(),
                   'expected_head':git(root,'rev-parse','HEAD'),'payload_digest':'a'*64,

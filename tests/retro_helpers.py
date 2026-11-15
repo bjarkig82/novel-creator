@@ -68,3 +68,44 @@ def fixtures():
         storage.save(novel, initial)
         fake = FakeGithub(checkout)
         yield novel, checkout, Path(registry).resolve(), fake, initial
+
+
+def historical(service, checkout, initial, stage=None, status='selected'):
+    from novel_creator import retro
+    grant = retro.document('authorization', enabled=True, grant_id=retro.uid(), generation=1,
+        novel_id=service.novel_id, novel_root=str(service.root), checkout_root=str(checkout),
+        git_common_dir=str(Path(git(checkout, 'rev-parse', '--path-format=absolute', '--git-common-dir'))),
+        repository=retro.REPOSITORY, github_login='test-contributor', authorization_source='direct_cli')
+    retro.write(service.path('authorization.json'), grant, 'authorization')
+    retro.write(service.registry / (grant['grant_id']+'.json'), grant, 'authorization')
+    part = None
+    if stage:
+        worktree=checkout.parent / ('retained-'+retro.uid()); worktree.mkdir()
+        (worktree/'fix.txt').write_text('retained historical fix')
+        part=dict(base=dict(branch='main',sha=git(checkout,'rev-parse','HEAD')),
+            worktree=str(worktree),branch='novel-retro/'+retro.uid(),stage=stage,
+            commit=git(checkout,'rev-parse','HEAD') if stage != 'not_started' else None,
+            validation=None,pr=None,fingerprint='a'*64,public_id=retro.uid())
+    item=retro.document('run',run_id=retro.uid(),task_key='b'*64,
+        completion_exchange_id=initial['exchange_id'],checkpoint=git(service.root,'rev-parse','HEAD'),
+        grant_id=grant['grant_id'],authorization_generation=1,
+        bindings={k:grant[k] for k in ('checkout_root','git_common_dir','github_login')},
+        status=status,reason_code='',evidence_refs=[initial['exchange_id']],
+        finding=dict(category='runtime',problem='Synthetic parser issue',reproduction='Empty fixture'),
+        contribution=part,notice=None)
+    service.save_run(item)
+    base=Path(grant['git_common_dir'])/'novel-creator-retro'
+    retro.write(base/'owner.json',retro.document('owner',run_id=item['run_id'],
+        grant_id=grant['grant_id'],novel_root=str(service.root)),'owner')
+    return item,grant,base
+
+
+def historical_notice(service, checkout, initial):
+    """Seed an already-recorded old insufficient-evidence notice."""
+    from novel_creator import retro
+    item,grant,base=historical(service,checkout,initial,status='insufficient_evidence')
+    # This is an authentic historical local result, not new review work.
+    service.notice(item, 'Retrospective needs more evidence.')
+    service.save_run(item)
+    service.release_owner(item,base)
+    return item['run_id']

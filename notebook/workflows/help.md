@@ -110,3 +110,12 @@ Do not claim that an entry switches to a native agent or that self-review is an
 independent assessment. Use only the host's actual capabilities and permissions;
 explain unavailable support without blocking ordinary guidance. End with useful
 choices or the requested explanation, not an automatic command invocation.
+
+## Session retrospective
+
+`$novel-retro` or “review this session for Novel Creator problems” follows the
+[retrospective workflow](retrospective.md). Optional automatic review requires
+explicit opt-in for the active session and runs only at explicit closure. It
+stops current debugging and defaults to generalized local findings. Author
+approval of the full actual issue/attachments precedes any sharing. Explaining
+this entry in Help is read-only; it does not begin review or enable participation.

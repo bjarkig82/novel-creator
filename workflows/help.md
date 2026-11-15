@@ -44,3 +44,12 @@ files; omitting the optional validation-cache key prevents reads from writing a
 derived local cache. For example, run the configured interpreter's
 `-I -B .novel-creator/run.py context --novel PATH --view working --json` with that
 child environment. Never invoke input capture or an exchange/session write.
+
+## Session retrospective
+
+`$novel-retro` or “review this session for Novel Creator problems” follows the
+[retrospective workflow](retrospective.md). Optional automatic review requires
+explicit opt-in for the active session and runs only at explicit closure. It
+stops current debugging and defaults to generalized local findings. Author
+approval of the full actual issue/attachments precedes any sharing. Explaining
+this entry in Help is read-only; it does not begin review or enable participation.

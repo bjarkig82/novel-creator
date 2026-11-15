@@ -159,6 +159,18 @@ def parser():
     update.add_argument('--retry', action=SwitchOnce)
     update.add_argument('--json', action='store_true')
     retro = commands.add_parser('retro').add_subparsers(dest='action', required=True)
+    issue = retro.add_parser('issue').add_subparsers(dest='issue_action', required=True)
+    for name in ('setup', 'begin', 'draft', 'approve', 'publish', 'status', 'resume', 'attachment', 'cancel'):
+        child = issue.add_parser(name)
+        child.add_argument('--novel', required=True, action=Once)
+        child.add_argument('--json', action=SwitchOnce)
+        child.add_argument('--run', required=name not in ('setup', 'begin', 'status'), action=Once)
+        child.add_argument('--finding', required=name in ('draft', 'approve', 'publish', 'resume', 'attachment', 'cancel'), action=Once)
+        child.add_argument('--input', required=name not in ('setup', 'status'), action=Once)
+        if name == 'setup':
+            child.add_argument('--apply', action=SwitchOnce)
+            child.add_argument('--preview', action=Once)
+            child.add_argument('--expected-head', action=Once)
     for action in ('status', 'enable', 'disable', 'begin', 'review', 'compare', 'prepare',
                    'validate', 'publish', 'resume', 'release', 'notices'):
         target = retro.add_parser(action)
@@ -178,7 +190,8 @@ def parser():
             child.add_argument('--json', action='store_true')
         if action == 'enable':
             target.add_argument('--checkout', required=True)
-            target.add_argument('--authorize-draft-prs', required=True, action='store_true')
+            target.add_argument('--authorize-draft-prs', action='store_true', help='Retired; use retro issue for new reports')
+            target.add_argument('--recovery-only', action='store_true')
         if action in ('begin', 'review', 'compare', 'validate'):
             target.add_argument('--input', required=True)
         if action in ('status', 'review', 'compare', 'prepare', 'validate', 'publish', 'resume', 'release'):
@@ -278,6 +291,11 @@ def main(argv=None):
 
 
 def _dispatch(args):
+    if args.command == 'retro' and args.action == 'issue':
+        from .retro_issues import dispatch
+        result = dispatch(args)
+        print(json.dumps({'ok': True, 'data': result}, ensure_ascii=False, allow_nan=False))
+        return 0
     if args.command == 'debug':
         from .debug import dispatch
         result = dispatch(args)

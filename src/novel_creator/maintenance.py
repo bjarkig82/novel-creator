@@ -334,7 +334,9 @@ def require_quiet_retro(snapshot):
                 raise ToolError(3, 'Unfinished retrospective work must be resolved before updating')
             if value.get('contribution') and not bound:
                 raise ToolError(3, 'Retained contribution ownership needs separately authorized recovery')
-            if value.get('contribution') and value['contribution']['stage'] in ('push_intent', 'pushed', 'create_intent', 'publication_unknown'):
+            if (value.get('contribution') and
+                    (value['contribution']['stage'] in ('create_intent', 'publication_unknown') or
+                     (value['contribution']['stage'] in ('push_intent', 'pushed') and value['status'] != 'abandoned'))):
                 raise ToolError(3, 'Uncertain retrospective publication must be resolved separately')
         if item['kind'] == 'reservation' and value['state'] == 'reserved':
             raise ToolError(3, 'A pending notice reservation must be resolved before updating')

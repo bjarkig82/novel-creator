@@ -20,3 +20,13 @@ class RetroCLI(unittest.TestCase):
             with redirect_stdout(io.StringIO()), redirect_stderr(io.StringIO()):
                 result = main(['retro', 'enable', '--novel', str(root), '--checkout', str(checkout)])
             self.assertEqual(result, 2)
+
+    def test_old_opt_in_reports_migration_and_recovery_requires_history(self):
+        with fixtures() as (root, checkout, *unused):
+            for flag, expected in [('--authorize-draft-prs','retired'),
+                                   ('--recovery-only','historical authorization')]:
+                output=io.StringIO()
+                with redirect_stdout(output),redirect_stderr(io.StringIO()):
+                    result=main(['retro','enable','--novel',str(root),'--checkout',str(checkout),flag,'--json'])
+                self.assertNotEqual(result,0)
+                self.assertIn(expected,output.getvalue())

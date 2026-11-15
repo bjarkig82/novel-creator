@@ -29,22 +29,22 @@ class NotebookHosts(unittest.TestCase):
                         agents = list((target / '.claude/agents').glob('*.md'))
                         self.assertEqual(len(agents), 6 if host in ('claude', 'both') else 0)
                         for agent in agents:
-                            self.assertIn(f'name: {agent.stem}\n', agent.read_text())
-                            self.assertIn('disclose unavailable capabilities', agent.read_text())
-                            self.assertIn('You are ' + agent.stem, agent.read_text())
+                            self.assertIn(f'name: {agent.stem}\n', agent.read_text(encoding='utf-8'))
+                            self.assertIn('disclose unavailable capabilities', agent.read_text(encoding='utf-8'))
+                            self.assertIn('You are ' + agent.stem, agent.read_text(encoding='utf-8'))
                         for directory, selected in (('.agents', host in ('codex', 'both')),
                                                     ('.claude', host in ('claude', 'both'))):
                             skills = list((target / directory / 'skills').glob('*/SKILL.md'))
-                            self.assertEqual(len(skills), 15 if source == 'project' and selected else 0)
+                            self.assertEqual(len(skills), 16 if source == 'project' and selected else 0)
                         for path in target.rglob('*'):
                             if path.is_file() and path.suffix in ('.md', '.toml'):
-                                for link in re.findall(r'\]\(([^)#]+)(?:#[^)]*)?\)', path.read_text()):
+                                for link in re.findall(r'\]\(([^)#]+)(?:#[^)]*)?\)', path.read_text(encoding='utf-8')):
                                     if not re.match(r'[a-z]+:', link):
                                         self.assertTrue((path.parent / link).is_file(), (path, link))
-                        roles = (target / '.novel-notebook/workflows/agents.md').read_text()
+                        roles = (target / '.novel-notebook/workflows/agents.md').read_text(encoding='utf-8')
                         if host in ('claude', 'both'):
                             self.assertIn('`novel-scene-writer`', roles)
-                        help_text = (target / '.novel-notebook/workflows/help.md').read_text()
+                        help_text = (target / '.novel-notebook/workflows/help.md').read_text(encoding='utf-8')
                         self.assertIn('Help is strictly read-only', help_text)
                         if host in ('claude', 'both'):
                             expected = '/novel-creator:novel-clarify' if source == 'plugin' else '/novel-clarify'
@@ -54,8 +54,8 @@ class NotebookHosts(unittest.TestCase):
                             self.assertIn('actually enabled `novel-creator` plugin skills', help_text)
                         if host == 'both' and source == 'plugin':
                             self.assertIn('$novel-creator:novel-clarify', help_text)
-                        development = (target / '.novel-notebook/workflows/character-development.md').read_text()
-                        self.assertIn('keep the entire draft', (target / ('AGENTS.md' if host != 'claude' else 'CLAUDE.md')).read_text().lower())
+                        development = (target / '.novel-notebook/workflows/character-development.md').read_text(encoding='utf-8')
+                        self.assertIn('keep the entire draft', (target / ('AGENTS.md' if host != 'claude' else 'CLAUDE.md')).read_text(encoding='utf-8').lower())
                         self.assertIn('every revision in this chat', development)
                         self.assertIn('2–3 connected additions', development)
                         self.assertIn('novel-character-develop', help_text)
@@ -64,11 +64,11 @@ class NotebookHosts(unittest.TestCase):
                             invocation += ('novel-creator:' if source == 'plugin' else '') + 'novel-character-develop'
                             self.assertIn(invocation, development)
                             instructions = target / ('AGENTS.md' if active == 'codex' else 'CLAUDE.md')
-                            self.assertIn(invocation, instructions.read_text())
+                            self.assertIn(invocation, instructions.read_text(encoding='utf-8'))
                             if source == 'project':
                                 skill = target / ('.agents' if active == 'codex' else '.claude') / 'skills/novel-character-develop/SKILL.md'
-                                self.assertIn(invocation, skill.read_text())
-                        project = (target / 'notebook/project.md').read_text()
+                                self.assertIn(invocation, skill.read_text(encoding='utf-8'))
+                        project = (target / 'notebook/project.md').read_text(encoding='utf-8')
                         self.assertEqual(json.loads(project.split('```json\n')[1].split('```')[0])['language'], language)
                         self.assertEqual(subprocess.check_output(['git', '-C', str(target), 'status', '--porcelain']), b'')
 
@@ -83,10 +83,10 @@ class NotebookHosts(unittest.TestCase):
                     for active in active_hosts:
                         if active == 'codex':
                             agent = target / '.codex/agents/novel_brainstormer.toml'
-                            text = tomllib.loads(agent.read_text())['developer_instructions']
+                            text = tomllib.loads(agent.read_text(encoding='utf-8'))['developer_instructions']
                         else:
                             agent = target / '.claude/agents/novel-brainstormer.md'
-                            text = agent.read_text()
+                            text = agent.read_text(encoding='utf-8')
                         directory = plugin_skills if source == 'plugin' else (
                             target / ('.agents' if active == 'codex' else '.claude') / 'skills')
                         available = {('novel-creator:' if source == 'plugin' else '') + path.parent.name

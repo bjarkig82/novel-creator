@@ -9,10 +9,10 @@ AGENT_NAMES = ('novel_orchestrator', 'novel_brainstormer', 'novel_researcher',
 SKILL_NAMES = ('novel-outline', 'novel-book-idea', 'novel-premise', 'novel-character',
                'novel-character-develop', 'novel-plot', 'novel-setting', 'novel-agent', 'novel-research',
                'novel-scene', 'novel-chapter', 'novel-review', 'novel-clarify',
-               'novel-analyze', 'novel-help')
+               'novel-analyze', 'novel-help', 'novel-retro')
 WORKFLOW_NAMES = ('conversation', 'format', 'outline', 'brainstorming',
                   'agents', 'manuscript', 'research', 'review', 'clarify', 'analyze',
-                  'help', 'character-development', 'debugging')
+                  'help', 'character-development', 'debugging', 'retrospective')
 
 # Frozen published layout: future notebook additions must not become requirements
 # when verifying the already approved public 0.5.0 artifact.

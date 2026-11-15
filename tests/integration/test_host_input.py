@@ -110,19 +110,10 @@ class InstalledHostInputTests(unittest.TestCase):
                        'initiating_turn_id': 'fixture-host-initiating-turn',
                        'completion_exchange_id': completion['exchange_id'], 'checkpoint': storage.head(root)}
             self.assertFalse(service.begin(request)['eligible'])
-            service.enable(checkout, authorize=True)
+            # Saving delegated input remains independent of the retired producer.
             with self.assertRaises(ToolError):
-                service.begin(request)  # Completion is not saved.
+                service.enable(checkout, authorize=True)
             storage.save(root, seal(completion))
-            request['checkpoint'] = storage.head(root)
-            for field in ('thread_id', 'initiating_turn_id'):
-                for missing in (None, '', ' '):
-                    with self.subTest(field=field, missing=missing), self.assertRaises(ToolError):
-                        service.begin(dict(request, **{field: missing}))
-            self.assertEqual(list(service.path('runs').glob('*.json')), [])
-            result = service.begin(request)
-            self.assertTrue(result['eligible'])
-            self.assertTrue(result['review_required'])
-            retry = service.begin(request)
-            self.assertEqual(retry['run_id'], result['run_id'])
-            self.assertFalse(retry['review_required'])
+            self.assertEqual(storage.read_history(root)[-1]['exchange_id'],completion['exchange_id'])
+            self.assertFalse(service.begin(request)['eligible'])
+            self.assertEqual(fake.calls, [])

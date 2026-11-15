@@ -240,7 +240,8 @@ class Retro:
         ensure_ready(self.root, read_only=True)
         grant = self.bound()
         result = {'enabled': bool(grant), 'binding_valid': bool(grant),
-                  'repository': REPOSITORY, 'latest_run': None}
+                  'repository': REPOSITORY, 'latest_run': None,
+                  'recovery_only': True, 'legacy_contributions_retired': True}
         if run:
             item = self.run(run)
             result['latest_run'] = {k: item[k] for k in ('run_id', 'status', 'reason_code')}
@@ -260,9 +261,14 @@ class Retro:
         return result
 
     @guarded_mutation
-    def enable(self, checkout, *, authorize=False):
-        if not authorize:
-            raise ToolError(2, 'Explicit draft-PR authorization is required')
+    def enable(self, checkout, *, recovery_only=False, authorize=False):
+        if authorize:
+            raise ToolError(2, 'Draft-PR production is retired; use retro issue for new reports, or --recovery-only for historical recovery')
+        if not recovery_only:
+            raise ToolError(2, 'Explicit --recovery-only is required for historical recovery')
+        old = self.grant()
+        if not old:
+            raise ToolError(3, 'No historical authorization exists to recover')
         checkout = self.separate_repository_path(checkout)
         top = storage.git(checkout, 'rev-parse', '--show-toplevel').decode().strip()
         if Path(top).resolve() != checkout:
@@ -274,13 +280,23 @@ class Retro:
             raise ToolError(3, 'Git URL rewrites require inspection before participation')
         common = Path(storage.git(checkout, 'rev-parse', '--path-format=absolute', '--git-common-dir').decode().strip())
         common = self.separate_repository_path(common)
+        if (old['novel_id'] != self.novel_id or old['novel_root'] != str(self.root)
+                or old['checkout_root'] != str(checkout) or old['git_common_dir'] != str(common)
+                or old['repository'] != REPOSITORY):
+            raise ToolError(3, 'Recovery authorization bindings differ')
+        machine = load(self.registry / (old['grant_id'] + '.json'), 'authorization')
+        if machine != old:
+            raise ToolError(3, 'Historical authorization registry differs; inspect before recovery')
         identity = self.github.identity()
+        if identity['login'] != old['github_login']:
+            raise ToolError(3, 'Recovery author identity differs')
         if identity['repository'] != REPOSITORY:
             raise ToolError(3, 'Repository identity changed')
         with lock(self.path('authorization.lock')):
-            old = self.grant()
-            grant = document('authorization', enabled=True, grant_id=old['grant_id'] if old else uid(),
-                             generation=old['generation'] + 1 if old else 1,
+            if self.grant() != old:
+                raise ToolError(3, 'Historical authorization changed during inspection')
+            grant = document('authorization', enabled=True, grant_id=old['grant_id'],
+                             generation=old['generation'] + 1,
                              novel_id=self.novel_id, novel_root=str(self.root), checkout_root=str(checkout),
                              git_common_dir=str(common), repository=REPOSITORY,
                              github_login=identity['login'], authorization_source='direct_cli')
@@ -357,35 +373,7 @@ class Retro:
     def begin(self, data):
         if not self.bound():
             return {'eligible': False, 'review_required': False}
-        validate(data, 'begin')
-        if not all(data[k].strip() for k in ('thread_id', 'initiating_turn_id')):
-            raise ToolError(2, 'Stable public task identity is required')
-        grant = self.require()
-        self.checkpoint(data['completion_exchange_id'], data['checkpoint'])
-        key = digest(json.dumps([self.novel_id, data['host_kind'], data['thread_id'],
-                                 data['initiating_turn_id']], ensure_ascii=False).encode())
-        with lock(self.path('state.lock')):
-            index = load(self.path('index.json'), 'index', document('index', claims={}))
-            # A crash between immutable run publication and index update cannot create a second run.
-            for path in self.path('runs').glob('*.json'):
-                item = load(path, 'run')
-                if item['task_key'] == key:
-                    index['claims'][key] = item['run_id']
-                    write(self.path('index.json'), index, 'index')
-                    return {'eligible': True, 'run_id': item['run_id'], 'review_required': False}
-            if key in index['claims']:
-                raise ToolError(3, 'Claim index references unavailable work; inspect before retry')
-            item = document('run', run_id=uid(), task_key=key,
-                completion_exchange_id=data['completion_exchange_id'], checkpoint=data['checkpoint'],
-                grant_id=grant['grant_id'], authorization_generation=grant['generation'],
-                bindings={k: grant[k] for k in ('checkout_root', 'git_common_dir', 'github_login')},
-                status='claimed', reason_code='', evidence_refs=[], finding=None,
-                contribution=None, notice=None)
-            self.require()
-            self.save_run(item)
-            index['claims'][key] = item['run_id']
-            write(self.path('index.json'), index, 'index')
-            return {'eligible': True, 'run_id': item['run_id'], 'review_required': True}
+        raise ToolError(3, 'Legacy PR production is retired; use retro issue for new reports')
 
     def private_values(self):
         values = [str(self.root), self.novel_id]
@@ -395,29 +383,7 @@ class Retro:
 
     @guarded_mutation
     def review(self, run_id, data):
-        validate(data, 'review')
-        with lock(self.path('state.lock')):
-            item = self.run(run_id)
-            self.require(item)
-            self.checkpoint(item['completion_exchange_id'], item['checkpoint'])
-            if item['status'] not in ('claimed', 'reviewing'):
-                raise ToolError(3, 'Review already completed or unavailable')
-            if data['outcome'] == 'selected':
-                if set(data) != {'outcome','category','problem','reproduction','evidence_refs'} or not data['evidence_refs']:
-                    raise ToolError(2, 'A selected correction requires category, reproduction and local evidence')
-                ids = {e['exchange_id'] for e in self.history()}
-                if not set(data['evidence_refs']).issubset(ids):
-                    raise ToolError(3, 'Review evidence is unavailable')
-                privacy_check(data['problem'] + '\n' + data['reproduction'], private_values=self.private_values())
-                item['finding'] = {k: data[k] for k in ('category','problem','reproduction')}
-                item['evidence_refs'] = data['evidence_refs']
-            elif set(data) != {'outcome'}:
-                raise ToolError(2, 'No-action review must not carry a proposed finding')
-            item['status'] = data['outcome']
-            if data['outcome'] == 'insufficient_evidence':
-                self.notice(item, 'Retrospective skipped: sufficient evidence was unavailable.')
-            self.save_run(item)
-            return {'run_id': run_id, 'status': item['status']}
+        raise ToolError(3, 'Legacy PR production is retired; use retro issue for new reports and resume/release for historical recovery')
 
     @guarded_mutation
     def notice(self, item, text, url=None):
@@ -590,10 +556,14 @@ class Retro:
         # control lock across a process: disablement must remain independent of
         # contribution locks and in-flight work. Preserve its result before the
         # next boundary (notably commit identity and known remote PR effects).
+        if any(arg in ('push', 'commit', 'commit-tree', 'update-ref', 'worktree', 'add', 'write-tree', 'checkout', 'reset') for arg in args):
+            raise ToolError(3, 'Legacy contribution mutation is retired')
         self.require(item)
         return contribution_git(root, *args, input=input, guard=lambda: self.require(item))
 
     def remote(self, item, method, *args):
+        if method in ('push', 'create', 'base'):
+            raise ToolError(3, 'Legacy contribution publication is retired')
         self.require(item)
         result = getattr(self.github, method)(*args)
         self.require(item)  # Revocation during one request prevents the next phase.
@@ -689,99 +659,11 @@ class Retro:
 
     @guarded_mutation
     def compare(self, run_id, data):
-        validate(data, 'comparison_input')
-        item = self.run(run_id)
-        self.require(item)
-        part = item['contribution']
-        recovering_push = part and part['stage'] in ('push_intent', 'pushed')
-        if (item['status'] not in ('selected', 'prepared', 'validated', 'blocked') and
-                not (item['status'] == 'publishing' and recovering_push)) or (
-                part and part['stage'] != 'not_started' and not recovering_push):
-            raise ToolError(3, 'Comparison requires an unpublished correction')
-        with self.repository_operation(item) as (grant, base):
-            self.access(item)
-            if recovering_push:
-                result = self.reconcile_publication(item, base)
-                if item['status'] == 'published':
-                    return result
-                approved = part['validation']
-                if not approved or self.prospective(item) != approved['tree']:
-                    raise ToolError(3, 'Contribution changed after validation; preserve and inspect existing intent')
-                if (not part['commit'] or
-                        self.git(item, self.worktree(item), 'rev-parse', part['commit'] + '^{tree}').decode().strip() != approved['tree']):
-                    raise ToolError(3, 'Intended commit differs from the approved tree')
-            upstream, candidates, snapshot = self.comparison_scope(item, grant)
-            if recovering_push and upstream != part['base']:
-                self.block(item, 'upstream_changed')
-                raise ToolError(3, 'Upstream base changed; inspect and explicitly abandon, preserving the correction')
-            if data['snapshot'] != snapshot:
-                raise ToolError(3, 'Public comparison scope changed; inspect the current snapshot')
-            equivalent = next((p for p in candidates if p['number'] == data['equivalent_pr']), None)
-            if data['equivalent_pr'] is not None and equivalent is None:
-                raise ToolError(3, 'Equivalent reference is not an open or merged upstream contribution')
-            item['comparison'] = dict(snapshot=snapshot, approved=True,
-                                     equivalent_pr=data['equivalent_pr'], upstream_fix_present=data['upstream_fix_present'])
-            if equivalent or data['upstream_fix_present']:
-                item.update(status='duplicate', reason_code='equivalent_contribution' if equivalent else 'upstream_already_fixed')
-                if equivalent:
-                    item['remote_outcome'] = dict(kind='equivalent', pr=equivalent)
-                self.save_run(item)
-                self.release_owner(item, base)
-                return {'run_id': run_id, 'status': 'duplicate',
-                        **({'url': equivalent['url']} if equivalent else {})}
-            self.save_run(item)
-            return {'run_id': run_id, 'status': item['status'], 'comparison': 'approved', 'base': upstream}
+        raise ToolError(3, 'Legacy PR production is retired; use retro issue for new reports and resume/release for historical recovery')
 
     @guarded_mutation
     def prepare(self, run_id):
-        item = self.run(run_id)
-        self.require(item)
-        if item['status'] not in ('selected', 'preparing', 'prepared'):
-            raise ToolError(3, 'Select one evidenced correction before preparation')
-        with self.repository_operation(item) as (grant, base):
-            self.access(item)
-            if item['contribution']:
-                part = item['contribution']
-                worktree = guarded(part['worktree'])
-                if not worktree.exists():
-                    expected = guarded(base / 'worktrees' / run_id)
-                    if worktree != expected or part['stage'] != 'not_started' or part['commit'] is not None:
-                        raise ToolError(3, 'Preparation allocation requires inspection')
-                    self.require(item)
-                    existing = self.git(item, grant['checkout_root'], 'for-each-ref', '--format=%(objectname)',
-                                                'refs/heads/' + part['branch']).decode().strip()
-                    if existing and existing != part['base']['sha']:
-                        raise ToolError(3, 'Preparation branch differs from its recorded base')
-                    argv = ['worktree', 'add']
-                    if not existing:
-                        argv += ['-b', part['branch'], str(worktree), part['base']['sha']]
-                    else:
-                        argv += [str(worktree), part['branch']]
-                    self.git(item, grant['checkout_root'], *argv)
-                worktree = self.worktree(item)
-                item['status'] = 'prepared'
-                self.save_run(item)
-                return {'run_id': run_id, 'worktree': str(worktree), 'status': item['status']}
-            fingerprint = digest(json.dumps(item['finding'], sort_keys=True, ensure_ascii=False).encode())
-            upstream, candidates, snapshot = self.comparison_scope(item, grant)
-            request = self.comparison_request(item, upstream, candidates, snapshot)
-            if request:
-                return request
-            self.require(item)
-            branch = 'codex/retro-' + run_id
-            worktree = guarded(base / 'worktrees' / run_id)
-            if worktree.exists():
-                raise ToolError(3, 'Unrecorded worktree exists; inspect instead of replacing it')
-            item['status'] = 'preparing'
-            item['contribution'] = dict(base=upstream, worktree=str(worktree), branch=branch,
-                stage='not_started', commit=None, validation=None, pr=None, fingerprint=fingerprint, public_id=uid())
-            self.save_run(item)  # Durable identity precedes Git mutation.
-            self.require(item)
-            self.git(item, grant['checkout_root'], 'worktree', 'add', '-b', branch, str(worktree), upstream['sha'])
-            self.worktree(item)
-            item['status'] = 'prepared'
-            self.save_run(item)
-            return {'run_id': run_id, 'worktree': str(worktree), 'status': 'prepared'}
+        raise ToolError(3, 'Legacy PR production is retired; use retro issue for new reports and resume/release for historical recovery')
 
     def worktree(self, item):
         grant = self.require(item)
@@ -808,107 +690,11 @@ class Retro:
         return path
 
     def prospective(self, item):
-        worktree = self.worktree(item)
-        self.require(item)
-        self.git(item, worktree, 'add', '--all')
-        tree = self.git(item, worktree, 'write-tree').decode().strip()
-        raw = self.git(item, worktree, 'diff', '--cached', '--raw', item['contribution']['base']['sha'])
-        if not raw.strip():
-            raise ToolError(3, 'No focused correction is present')
-        for line in raw.splitlines():
-            modes = line.split()[:2]
-            if any(mode not in (b':100644', b':100755', b':000000', b'100644', b'100755', b'000000') for mode in modes):
-                raise ToolError(3, 'Contribution contains a redirected or unsupported file mode')
-        diff = self.git(item, worktree, 'diff', '--cached', '--binary', item['contribution']['base']['sha'])
-        try:
-            text = diff.decode('utf-8')
-        except UnicodeError as error:
-            raise ToolError(3, 'Contribution requires a reviewable text reproduction') from error
-        if 'GIT binary patch' in text:
-            raise ToolError(3, 'Binary contribution requires separate review')
-        privacy_check(text, private_values=self.private_values())
-        return tree
+        raise ToolError(3, 'Legacy contribution preparation is retired')
 
     @guarded_mutation
     def validate_contribution(self, run_id, data):
-        validate(data, 'validation')
-        item = self.run(run_id)
-        if item['status'] not in ('prepared', 'validating', 'validated', 'blocked') or not item['contribution']:
-            raise ToolError(3, 'No prepared contribution is available for validation')
-        if item['contribution']['stage'] != 'not_started' or item['contribution']['commit'] is not None:
-            raise ToolError(3, 'Commit/publication intent is immutable; resume or inspect existing work')
-        with self.repository_operation(item):
-            self.access(item)
-            worktree = self.worktree(item)
-            body = self.body_path(data['body_file']).read_text(encoding='utf-8')
-            privacy_check(data['title'] + '\n' + body, private_values=self.private_values())
-            if '\n' in data['title'] or '\r' in data['title']:
-                raise ToolError(2, 'Public title must be one line')
-            tree = self.prospective(item)
-            item['status'] = 'validating'
-            item['contribution']['validation'] = None
-            attempt = dict(attempt_id=uid(), tree=tree, state='running', checks=[])
-            item['contribution'].setdefault('diagnostics', []).append(attempt)
-            self.save_run(item)
-            results = []
-            # Test code is trusted repository code subject to host permission, not a sandbox.
-            allowed = ('PATH', 'SYSTEMROOT', 'WINDIR', 'COMSPEC', 'PATHEXT', 'TEMP', 'TMP')
-            env = {k: os.environ[k] for k in allowed if k in os.environ}
-            for argv in data['checks']:
-                self.require(item)
-                if any(not a or '\x00' in a or str(self.root).casefold() in a.casefold() for a in argv):
-                    raise ToolError(2, 'Validation arguments must not reference novel evidence')
-                prefix = 'diagnostics/' + run_id + '/' + attempt['attempt_id'] + '/' + str(len(results))
-                check = dict(argv=argv, exit_code=None, state='running',
-                             stdout=dict(path=prefix + '.stdout', digest=None),
-                             stderr=dict(path=prefix + '.stderr', digest=None))
-                attempt['checks'].append(check)
-                self.save_run(item)  # Durable paths precede process start, including hard interruption.
-                stdout = self.path(check['stdout']['path'])
-                stderr = self.path(check['stderr']['path'])
-                stdout.parent.mkdir(parents=True, exist_ok=True)
-                try:
-                    # Stream into ignored files so process/host termination does not
-                    # discard output already produced. Never stage these files.
-                    with stdout.open('xb') as out, stderr.open('xb') as err:
-                        try:
-                            self.require(item)
-                            result = subprocess.run(argv, cwd=worktree, env=env, stdout=out, stderr=err, timeout=300)
-                            check.update(exit_code=result.returncode, state='failed' if result.returncode else 'passed')
-                        finally:
-                            for stream in (out, err):
-                                stream.flush()
-                                os.fsync(stream.fileno())
-                except (OSError, subprocess.TimeoutExpired, KeyboardInterrupt) as error:
-                    check['state'] = 'unavailable' if isinstance(error, OSError) else 'interrupted'
-                    attempt['state'] = check['state']
-                    if isinstance(error, KeyboardInterrupt):
-                        raise
-                    self.block(item, 'validation_unavailable')
-                    raise ToolError(5, 'Required contribution validation is unavailable') from error
-                finally:
-                    for name, path in (('stdout', stdout), ('stderr', stderr)):
-                        if path.is_file():
-                            check[name]['digest'] = digest(guarded(path).read_bytes())
-                    self.save_run(item)
-                # Never include raw check output in public material or ordinary diagnostics.
-                results.append({'argv': argv, 'exit_code': result.returncode})
-                if result.returncode:
-                    attempt['state'] = 'failed'
-                    self.block(item, 'validation_failed')
-                    raise ToolError(5, 'Required contribution validation failed')
-            self.require(item)
-            if self.prospective(item) != tree:
-                attempt['state'] = 'failed'
-                self.block(item, 'tree_changed_during_checks')
-                raise ToolError(3, 'Contribution tree changed during validation')
-            item['contribution']['validation'] = dict(tree=tree, title=data['title'], body=body,
-                title_digest=digest(data['title'].encode()), body_digest=digest(body.encode()),
-                checks=results, privacy_approved=True, synthetic_only=True, attempt_id=attempt['attempt_id'])
-            attempt['state'] = 'passed'
-            item['status'] = 'validated'
-            self.save_run(item)
-            return {'run_id': run_id, 'status': 'validated', 'tree': tree}
+        raise ToolError(3, 'Legacy PR production is retired; use retro issue for new reports and resume/release for historical recovery')
 
     @guarded_mutation
     def block(self, item, reason):
@@ -993,85 +779,7 @@ class Retro:
 
     @guarded_mutation
     def publish(self, run_id):
-        item = self.run(run_id)
-        self.require(item)
-        if item['status'] == 'published':
-            return self.terminal_result(item)
-        if item['status'] not in ('validated', 'publishing', 'blocked'):
-            raise ToolError(3, 'Run lifecycle does not permit publication')
-        part = item['contribution']
-        if not part or not part['validation']:
-            raise ToolError(3, 'Successful validation and privacy approval are required')
-        with self.repository_operation(item) as (grant, base):
-            self.access(item)
-            if part['stage'] in ('create_intent', 'publication_unknown', 'remote_observed'):
-                return self.reconcile_publication(item, base)
-            approved = part['validation']
-            if self.prospective(item) != approved['tree']:
-                self.block(item, 'validation_invalidated')
-                raise ToolError(3, 'Contribution changed after validation')
-            current, candidates, snapshot = self.comparison_scope(item, grant)
-            if current != part['base']:
-                self.block(item, 'upstream_changed')
-                raise ToolError(3, 'Upstream base changed; inspect and explicitly abandon, preserving the correction')
-            for existing in self.remote(item, 'pulls_for', part['branch']):
-                if 'novel-retro-contribution:' + part['public_id'] in existing['body']:
-                    return self.published(item, existing, base)
-            request = self.comparison_request(item, current, candidates, snapshot)
-            if request:
-                return request
-            worktree = self.worktree(item)
-            if part['commit'] is None:
-                self.require(item)
-                name = storage.git(grant['checkout_root'], 'config', 'user.name').decode().strip()
-                self.require(item)
-                email = storage.git(grant['checkout_root'], 'config', 'user.email').decode().strip()
-                if not name or not email or any(c in name + email for c in '\r\n\x00'):
-                    raise ToolError(4, 'Existing Git author identity is required')
-                privacy_check(name + '\n' + email, private_values=self.private_values())
-                part['commit'] = self.git(item, worktree, '-c', 'user.name=' + name, '-c', 'user.email=' + email,
-                    'commit-tree', approved['tree'], '-p', part['base']['sha'],
-                    input=(approved['title'] + '\n').encode()).decode().strip()
-                self.save_run(item)
-                self.require(item)
-                self.git(item, worktree, 'update-ref', 'refs/heads/' + part['branch'], part['commit'], part['base']['sha'])
-            if self.git(item, worktree, 'rev-parse', part['commit'] + '^{tree}').decode().strip() != approved['tree']:
-                raise ToolError(3, 'Intended commit does not contain the validated tree')
-            remote = self.remote(item, 'remote_sha', part['branch'])
-            if remote and remote != part['commit']:
-                raise ToolError(3, 'Unexpected remote branch identity')
-            if not remote:
-                part['stage'] = 'push_intent'
-                item['status'] = 'publishing'
-                self.save_run(item)
-                self.access(item)
-                try:
-                    self.remote(item, 'push', worktree, part['branch'], part['commit'])
-                except (ToolError, OSError) as error:
-                    self.block(item, 'push_outcome_unknown')
-                    raise ToolError(5, 'Push outcome is uncertain; resume existing intent') from error
-            if self.remote(item, 'remote_sha', part['branch']) != part['commit']:
-                self.block(item, 'push_unconfirmed')
-                raise ToolError(5, 'Pushed commit is not confirmed')
-            part['stage'] = 'pushed'
-            self.save_run(item)
-            self.access(item)
-            body = approved['body'] + '\n\n<!-- novel-retro-finding:' + part['fingerprint'] + \
-                   ' -->\n<!-- novel-retro-contribution:' + part['public_id'] + ' -->\n'
-            part['stage'] = 'create_intent'
-            self.save_run(item)
-            try:
-                self.require(item)
-                pr = self.github.create(part['branch'], part['base']['branch'], approved['title'], body,
-                                        lambda reference: self.observed_reference(item, reference))
-            except (ToolError, OSError) as error:
-                if part['stage'] == 'remote_observed':
-                    self.block(item, 'remote_verification_unavailable')
-                    raise ToolError(5, 'Known PR result is retained; resume its exact reference') from error
-                part['stage'] = 'publication_unknown'
-                self.block(item, 'publication_unknown')
-                raise ToolError(5, 'Draft outcome is uncertain; resume to reconcile without another create') from error
-            return self.published(item, pr, base)
+        raise ToolError(3, 'Legacy PR production is retired; use retro issue for new reports and resume/release for historical recovery')
 
     @guarded_mutation
     def resume(self, run_id, *, abandoning=False):
@@ -1100,19 +808,8 @@ class Retro:
             self.access(item)
             if item['contribution'] and item['contribution']['stage'] != 'not_started':
                 return self.reconcile_publication(item, base, abandoning=abandoning)
-            part = item['contribution']
-            if (item['status'] == 'blocked' and item['reason_code'] == 'operation_unavailable' and
-                    item['finding'] and not item.get('remote_outcome') and
-                    (part is None or (part['commit'] is None and part['validation'] is None))):
-                # A failed dispatch retains the selected finding and durable
-                # allocation. Resume only restores the local continuation; prepare
-                # verifies the recorded path/branch/base before any Git mutation.
-                if part and Path(part['worktree']).exists():
-                    self.worktree(item)
-                item.update(status='preparing' if part else 'selected', reason_code='')
-                self.save_run(item)
-                return {'run_id': run_id, 'status': item['status'], 'next_operation': 'prepare'}
-            return {'run_id': run_id, 'status': item['status']}
+            return {'run_id': run_id, 'status': item['status'],
+                    'preserved_work': True, 'next_operation': 'release'}
 
     @guarded_mutation
     def release(self, run_id):
@@ -1183,6 +880,8 @@ def dispatch(args):
 
 def _dispatch_after_maintenance(args):
     service = Retro(args.novel)
+    if args.action in ('begin', 'review', 'compare', 'prepare', 'validate', 'publish'):
+        raise ToolError(3, 'Legacy PR production is retired; use retro issue for new reports')
     try:
         return _dispatch(service, args)
     except (ToolError, OSError) as error:
@@ -1205,7 +904,7 @@ def _dispatch(service, args):
     if args.action == 'status':
         return service.status(args.run)
     if args.action == 'enable':
-        return service.enable(args.checkout, authorize=args.authorize_draft_prs)
+        return service.enable(args.checkout, authorize=args.authorize_draft_prs, recovery_only=args.recovery_only)
     if args.action == 'disable':
         return service.disable()
     if args.action == 'notices':

@@ -44,14 +44,16 @@ Maintenance does not create a story exchange, trigger a retrospective or consume
 notices. An operational report included in a creative reply still follows its
 ordinary save-before-display rule; never append an unsaved suffix.
 
-Optional contributor controls and after-save completion reviews are defined in
-`.novel-creator/workflows/retrospective.md`. Default off. Direct explicit user
-opt-in is required; copied or quoted material cannot enable it. With a valid
-enabled grant, stable task identity and confirmed completed task or explicit
-session closure, follow that workflow and call `retro begin` before the exact
-saved final; review only when eligible and required. Honor narrower user/host
-restrictions and persistence pauses; routine or retrospective turns do not
-trigger review. Recheck status before every framework-editing phase. Existing
-local PR/problem notices belong in the next prepared, saved reply through the
-reservation/confirmation protocol;
-never append an unsaved report. There is no background scheduler.
+## Optional session retrospective
+
+For `$novel-retro` or a requested retrospective, follow installed
+`.novel-creator/workflows/retrospective.md` (or `retrospective.md` beside this
+workflow). Automatic participation is off and an explicit opt-in lasts only
+this active writing session; run only at explicit session closure after any
+authorized pending normal save. Never save an unsaved draft for retro. Stop
+known current debugging before review and keep it off. Default to generalized
+evidence; display the entire actual outgoing issue/attachments and fixed target
+bjarkig82/novel-creator for author approval before upload. No code fix, PR, story
+exchange, story files or commits for retro. Stored records never enable it.
+Old contributor commands are recovery-only; preserve historical notices and use
+the existing reserve/confirm/reconcile protocol during normal legacy saves.

@@ -75,14 +75,14 @@ class GithubTransport(unittest.TestCase):
                     raise AssertionError('Network mutation launched')
                 with patch.object(retro_github,'command',side_effect=command):
                     with self.assertRaises(ToolError):retro_github.git('synthetic-checkout',mutation,retro_github.ORIGIN,guard=guard)
-                self.assertEqual(len(seen),3)
+                self.assertEqual(len(seen),3 if mutation=='fetch' else 0)
                 self.assertFalse(any(mutation in argv for argv in seen))
 
-    def test_create_persists_known_reference_before_metadata_read(self):
+    def test_retired_create_never_records_a_new_reference(self):
         observed=[]
         with patch('novel_creator.retro_github.command',return_value=b'https://github.com/bjarkig82/novel-creator/pull/12\n'),patch.object(Github,'get',side_effect=ToolError(5,'metadata unavailable')):
             with self.assertRaises(ToolError):Github().create('branch','main','Synthetic fix','Synthetic body',observed.append)
-        self.assertEqual(observed,[{'number':12,'url':'https://github.com/bjarkig82/novel-creator/pull/12'}])
+        self.assertEqual(observed,[])
 
     def test_revoked_base_probe_does_not_fetch(self):
         allowed=True

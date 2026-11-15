@@ -56,7 +56,7 @@ class SessionGuidanceUpgrade(unittest.TestCase):
         update(root, apply=True, preview_id=preview['preview_id'], expected_head=preview['reviewed_head'])
         # The appended manual block does not become part of the protected old
         # Character development section when the older updater extracts it.
-        self.assertIn(b'local-notebook-retrospective', (root / 'AGENTS.md').read_bytes())
+        self.assertIn(b'novel-creator:issue-retro:start', (root / 'AGENTS.md').read_bytes())
 
     def test_changed_head_and_malformed_marker_refuse_without_writes(self):
         root = self.book()

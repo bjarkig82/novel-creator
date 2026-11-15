@@ -1,29 +1,27 @@
 # Update session guidance in an existing notebook
 
-The published 0.10.1 release contains revised save, checkpoint and handoff wording,
-and a local read-only notebook retrospective. Installing a
-Python package or updating a plugin leaves existing notebook snapshots unchanged.
-This bounded manual procedure delivers those shared guides to an existing
-format-1 notebook; it adds no CLI command, role, schema or host behavior.
+This **latest development-source procedure is unreleased** and requires current
+source or a future qualified artifact containing issue retrospectives. Published
+0.10.1 contains the earlier local read-only review and remains available; users
+of that package should follow the [version-pinned published 0.10.1 guide](https://github.com/bjarkig82/novel-creator/blob/v0.10.1/docs/session-guidance-upgrade.md).
+Do not install 0.10.1 to run the current-source snippet below: its resources and
+required new retrospective links differ.
 
-Use the published 0.10.1 package in an isolated Python 3.11+ environment:
-`python -m pip install --upgrade novel-creator==0.10.1`.
-The guide itself is source documentation, available from
-this checkout or [GitHub](https://github.com/bjarkig82/novel-creator/blob/main/docs/session-guidance-upgrade.md),
-not a newly installed command. New notebooks receive these resources at setup.
-For legacy novels, use the supported external-controller preview/application
-[framework update](upgrading-projects.md#legacy-novels), selecting 0.10.1; their
-legacy workflow remains distinct and this notebook procedure refuses them.
+First install the intended current source in an isolated Python 3.11+ environment,
+or install the exact future qualified package containing this feature. Then run
+`retro issue setup` preview/application as described in
+[project upgrades](upgrading-projects.md#unreleased-session-issue-retrospectives).
+It separately installs the retrospective snapshot and actual project skill (or
+plugin routing). The four-guide snippet below does not install the new entry.
+Package/plugin installation alone leaves existing notebook snapshots unchanged.
+New notebooks receive these resources at initialization. Existing legacy novels
+use their separate supported external-controller framework updater from a future
+qualified package; this notebook procedure does not convert formats.
 
-This supports English and Icelandic, Codex, Claude Code or both, with project or
-plugin skills. For plugin books, update and enable the matching reviewed plugin
-in the actual host first. The procedure leaves all existing skills and role
-files intact and installs no duplicate plugin skills. It replaces only exact
-public 0.10.0 versions of four shared workflows (or retains identical current
-bytes), appending a bounded routing section to selected root instructions.
-Customized workflows block; reconcile conflicting custom root instructions
-intentionally before proceeding, preserving their original text. Do not delete
-integration markers, convert formats or reinitialize a book to bypass refusal.
+The bounded snippet updates shared save/checkpoint/role guides only from the
+same current source/artifact used for setup. It adds no role, schema or host
+behavior. Customized resources and unsupported markers fail safely; never delete
+integration markers, reinitialize or convert a book to bypass refusal.
 
 Pause notebook editing and inspect its Git status and selected `AGENTS.md` and/or
 `CLAUDE.md`. Save the following **exact** snippet as `session-guidance-upgrade.py`
@@ -160,6 +158,7 @@ language = meta.get('language')
 require(language in ('en', 'is'), 'Unsupported project language')
 regular('notebook/working-summary.md')
 regular('.novel-notebook/languages/' + language + '.md')
+regular('.novel-notebook/workflows/retrospective.md')
 shared = files('novel_creator.notebook_resources').joinpath('workflows')
 planned, links = {}, {}
 for name, approved in PUBLIC_0100[host + '/' + source].items():
@@ -190,10 +189,10 @@ unsaved; saved files can have a pending checkpoint. Keep character-development
 drafts in chat until explicit save authority, including during a pending save.
 Use the host's approved scoped access route when available for an authorized
 checkpoint, preserving unrelated staging; otherwise disclose the limitation.
-For an explicitly requested local notebook retrospective, follow the read-only
-[debugging guide](.novel-notebook/workflows/debugging.md#local-notebook-retrospective)
-on writer-selected public evidence. This adds no retrospective CLI, capture
-activation, upload or publication authority.
+For a requested retrospective or active-session opt-in at explicit closure,
+follow the [retrospective workflow](.novel-notebook/workflows/retrospective.md).
+Stop known current debugging before review and keep it off. Exact outgoing
+issue/attachment approval is required before sharing; no story save or commit.
 """ + end + '\n').encode('utf-8')
 for selected in (('codex', 'claude') if host == 'both' else (host,)):
     relative = 'AGENTS.md' if selected == 'codex' else 'CLAUDE.md'

@@ -37,7 +37,7 @@ def exercise(python, book, expected, env, *, host, source):
     roots = ['AGENTS.md' if h == 'codex' else 'CLAUDE.md' for h in hosts]
     for name in roots:
         fresh = (expected / name).read_bytes()
-        require(b'local-notebook-retrospective' in fresh and b'approved but unwritten' in fresh,
+        require(b'novel-creator:issue-retro:start' in fresh and b'approved but unwritten' in fresh,
                 'New notebook root lacks explicit local-review/save-state routing')
     for name in roots:
         path = book / name
@@ -108,7 +108,7 @@ def exercise(python, book, expected, env, *, host, source):
         raw = (book / name).read_bytes()
         require(raw.startswith(root_bytes[name]) and raw.count(b'novel-creator:session-guidance:start') == 1,
                 'Custom root bytes or bounded routing lost')
-        require(b'approved but unwritten' in raw.lower() and b'local-notebook-retrospective' in raw,
+        require(b'approved but unwritten' in raw.lower() and b'novel-creator:issue-retro:start' in raw,
                 'Save-state/local-retro routing missing')
     check_links(book)
     if source == 'plugin':

@@ -10,6 +10,7 @@ import unittest
 import venv
 import zipfile
 
+from tests.release_fixtures import published_wheel
 from tests.notebook_resource_checks import resource_paths
 from tests.verify_wheel import run, verify_notebook
 
@@ -37,6 +38,11 @@ class NotebookPackageTest(unittest.TestCase):
             added = {
                 'src/novel_creator/debug.py': 'novel_creator/debug.py',
                 'workflows/debugging.md': 'novel_creator/workflows/debugging.md',
+                'src/novel_creator/retro_issues.py': 'novel_creator/retro_issues.py',
+                'src/novel_creator/retro_issue_setup.py': 'novel_creator/retro_issue_setup.py',
+                'src/novel_creator/retro_issue_provenance.py': 'novel_creator/retro_issue_provenance.py',
+                'workflows/retrospective.md': 'novel_creator/workflows/retrospective.md',
+                'adapters/codex/skills/novel-retro/SKILL.md': 'novel_creator/codex/skills/novel-retro/SKILL.md',
             }
             with zipfile.ZipFile(wheel) as archive:
                 for relative, (_, member) in resources.items():
@@ -57,6 +63,9 @@ class NotebookPackageTest(unittest.TestCase):
                     self.assertIsNotNone(stream, member)
                     with stream:
                         self.assertEqual(stream.read(), (checkout / source).read_bytes(), member)
+                plugin = prefix + '/plugins/novel-creator/skills/novel-retro/SKILL.md'
+                self.assertEqual(archive.extractfile(plugin).read(),
+                                 (checkout / 'plugins/novel-creator/skills/novel-retro/SKILL.md').read_bytes())
             for label, archive in [('wheel', wheel), ('sdist', sdist)]:
                 with self.subTest(artifact=label):
                     area = scratch / label
@@ -77,8 +86,69 @@ class NotebookPackageTest(unittest.TestCase):
                         result = verify_notebook(console, area, env, language, expected)
                         self.assertEqual(result['verified_resource_count'], len(expected))
                     self.verify_debug(console, area, env)
+                    self.verify_issue_setup(console, area, env)
+                    legacy = area / 'New legacy'
+                    legacy.mkdir()
+                    run(['git', '-C', legacy, 'init', '-b', 'main'], cwd=area, env=env)
+                    code = ("import json,sys; from novel_creator.install import initialize; "
+                            "r=initialize(sys.argv[1],json.dumps({'title':'Synthetic legacy','manuscript_language':'en'})); "
+                            "assert r['data']['saved'],r")
+                    run([python, '-I', '-c', code, legacy], cwd=area, env=env)
+                    legacy_skill = legacy / '.agents/skills/novel-retro/SKILL.md'
+                    self.assertTrue(legacy_skill.is_file())
+                    self.assertTrue((legacy / '.novel-creator/workflows/retrospective.md').is_file())
+                    self.assertIn('retro', (legacy / 'AGENTS.md').read_text(encoding='utf-8'))
+                    refused = subprocess.run([python, '-I', str(legacy / '.novel-creator/run.py'),
+                                              'retro', 'issue', 'setup', '--novel', str(legacy), '--json'],
+                                             cwd=area, env=env, capture_output=True, text=True, encoding='utf-8')
+                    self.assertEqual(refused.returncode, 3, refused.stdout + refused.stderr)
+                    self.assertFalse(json.loads(refused.stdout)['ok'])
+                    self.assertIn('framework update', refused.stdout)
+                    self.assertNotIn('Traceback', refused.stderr)
+                    # Valid mixed-marker metadata still needs the external notebook runtime.
+                    (legacy / 'notebook').mkdir()
+                    (legacy / 'notebook/project.md').write_bytes((area / 'Bréf notebook en/notebook/project.md').read_bytes())
+                    (legacy / 'notebook/working-summary.md').write_bytes((area / 'Bréf notebook en/notebook/working-summary.md').read_bytes())
+                    languages = legacy / '.novel-notebook/languages'
+                    languages.mkdir(parents=True)
+                    (languages / 'en.md').write_bytes((area / 'Bréf notebook en/.novel-notebook/languages/en.md').read_bytes())
+                    mixed = subprocess.run([python, '-I', str(legacy / '.novel-creator/run.py'),
+                                            'retro', 'issue', 'setup', '--novel', str(legacy), '--json'],
+                                           cwd=area, env=env, capture_output=True, text=True, encoding='utf-8')
+                    self.assertEqual(mixed.returncode, 3, mixed.stdout + mixed.stderr)
+                    self.assertIn('external current runtime', mixed.stdout)
+                    self.assertNotIn('Traceback', mixed.stderr)
+
+
                     print(f'{label}: {len(resources)} artifact resources match source bytes; '
                           'isolated install and en/is notebook resource checks passed')
+
+    def verify_issue_setup(self, console, area, env):
+        """Actual installed CLI upgrades old snapshots without story/index writes."""
+        previous = published_wheel('0.10.1')
+        root = area / 'Bréf notebook en'
+        from novel_creator.retro_issue_setup import ROUTING, OLD_ROOT
+        with zipfile.ZipFile(previous) as archive:
+            for name in ('conversation', 'debugging', 'help'):
+                (root / '.novel-notebook/workflows' / (name + '.md')).write_bytes(
+                    archive.read('novel_creator/notebook_resources/workflows/' + name + '.md'))
+        (root / '.novel-notebook/workflows/retrospective.md').unlink()
+        (root / '.agents/skills/novel-retro/SKILL.md').unlink()
+        instruction = root / 'AGENTS.md'
+        instruction.write_text(instruction.read_text(encoding='utf-8').replace(ROUTING, OLD_ROOT), encoding='utf-8')
+        story = (root / 'notebook/project.md').read_bytes()
+        index = (root / '.git/index').read_bytes()
+        def invoke(*args):
+            value = json.loads(run([console, 'retro', 'issue', 'setup', '--novel', root, '--json', *args], cwd=area, env=env))
+            self.assertTrue(value['ok'], value)
+            return value['data']
+        preview = invoke()
+        self.assertTrue(invoke('--apply', '--preview', preview['preview_id'], '--expected-head', preview['reviewed_head'])['applied'])
+        self.assertTrue(invoke()['already_current'])
+        self.assertEqual((root / 'notebook/project.md').read_bytes(), story)
+        self.assertEqual((root / '.git/index').read_bytes(), index)
+        skill = root / '.agents/skills/novel-retro/SKILL.md'
+        self.assertIn('retrospective.md', skill.read_text())
 
     def verify_debug(self, console, area, env):
         """Exercise the recorder from the installed distribution, outside source."""

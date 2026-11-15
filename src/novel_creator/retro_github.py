@@ -48,7 +48,9 @@ def command(argv, *, cwd=None, input=None):
 
 
 def git(root, *args, input=None, guard=None):
-    if 'fetch' in args or 'push' in args:
+    if 'push' in args:
+        raise ToolError(3, 'Legacy PR push is retired; use retro issue for new reports')
+    if 'fetch' in args:
         verify_transport(root, guard=guard)
     if guard is not None:
         guard()
@@ -86,9 +88,8 @@ class Github:
     def identity(self):
         user = self.get('user')
         repo = self.get('repos/' + REPOSITORY)
-        if (repo.get('full_name') != REPOSITORY or not repo.get('permissions', {}).get('push')
-                or not isinstance(user.get('login'), str) or not user['login']):
-            raise ToolError(4, 'Existing upstream push access is required')
+        if (repo.get('full_name') != REPOSITORY or not isinstance(user.get('login'), str) or not user['login']):
+            raise ToolError(4, 'Existing GitHub identity and designated repository access are required')
         return {'login': user['login'], 'repository': REPOSITORY}
 
     def base(self, checkout):
@@ -141,25 +142,7 @@ class Github:
         return self.normalize(self.get(f'repos/{REPOSITORY}/pulls/{number}'))
 
     def push(self, checkout, branch, commit):
-        self.check()
-        git(checkout, '-c', 'credential.helper=', '-c', 'credential.helper=!gh auth git-credential',
-            'push', ORIGIN, commit + ':refs/heads/' + branch, guard=self.check)
+        raise ToolError(3, 'Legacy PR push is retired; use retro issue for new reports')
 
     def create(self, branch, base, title, body, observe=None):
-        import tempfile
-        # The body is already approved synthetic material. Never use a novel file as --body-file.
-        with tempfile.TemporaryDirectory(prefix='novel-retro-public-') as folder:
-            body_path = Path(folder) / 'body.md'
-            body_path.write_text(body, encoding='utf-8')
-            self.check()
-            raw = command(['gh', 'pr', 'create', '--repo', REPOSITORY, '--base', base,
-                           '--head', branch, '--draft', '--title=' + title,
-                           '--body-file', str(body_path)])
-        import re
-        match = re.fullmatch(rb'https://github\.com/bjarkig82/novel-creator/pull/(\d+)\s*', raw)
-        if not match:
-            raise ToolError(5, 'Draft creation outcome is unavailable')
-        number = int(match[1])
-        if observe is not None:
-            observe(dict(number=number, url=f'https://github.com/{REPOSITORY}/pull/{number}'))
-        return self.normalize(self.get(f'repos/{REPOSITORY}/pulls/{number}'))
+        raise ToolError(3, 'Legacy PR creation is retired; use retro issue for new reports')

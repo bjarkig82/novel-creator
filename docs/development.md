@@ -240,3 +240,17 @@ Detailed historical observations remain available in
 and [notebook evidence](../tests/evaluations/agent-story-notebook.md).
 Historical task numbers, blocked states and timing targets describe those runs;
 use current functionality and evidence scope when reporting today's status.
+
+## Unreleased issue retrospective delivery
+
+`retro_issue_setup.py` provides explicit format-1 notebook preview/application.
+`retro_issue_provenance.py` pins trusted shipped workflow fingerprints from local
+0.10.0/0.10.1 artifacts and pre-feature source. Unknown custom resources refuse
+replacement. Setup binds bytes/file identities, rendered output, root/Git identity
+and HEAD, preserves story/staging/history and exposes partial-state recovery.
+The [installed workflow](../workflows/retrospective.md) owns current-session
+opt-in, diagnostic/privacy review, exact approval, semantic duplicate comparison
+and host-assisted upload. Host attestations cannot prove human observation,
+subjective quality, native discovery or uploaded byte integrity. Test transports
+must never invoke production GitHub operations. Focused delivery/artifact checks
+do not replace release gates or full Linux qualification.

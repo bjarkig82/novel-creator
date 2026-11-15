@@ -298,41 +298,13 @@ writer/host protocol. See the development qualification ledger for actual CLI,
 historical-wheel and platform results; native Codex acceptance is separate and
 must not be inferred from scripted tests.
 
-## Optional contributor retrospectives
+## Optional session retrospective
 
-New novels include an optional retrospective workflow, disabled by default for
-everyone. It can review completed requests and prepare a focused, checked draft
-PR for Novel Creator. Normal writing needs no GitHub CLI or framework checkout.
-Existing novels keep their pinned bundle when you upgrade the package.
-
-Contributors need a separate local Novel Creator checkout, the GitHub CLI (`gh`)
-and existing authenticated upstream push access. Do not use your novel directory
-as the framework checkout. In the following PowerShell example, replace the paths
-and use the exact Python interpreter reported by initialization:
-
-```powershell
-& 'C:\path\to\python.exe' .novel-creator/run.py retro status --novel 'C:\Novels\MyNovel' --json
-& 'C:\path\to\python.exe' .novel-creator/run.py retro enable --novel 'C:\Novels\MyNovel' --checkout 'C:\source\novel-creator' --authorize-draft-prs --json
-& 'C:\path\to\python.exe' .novel-creator/run.py retro disable --novel 'C:\Novels\MyNovel' --json
-```
-
-Enable is explicit authorization for local framework fixes, checks, branch pushes
-and automatic **draft** PRs to bjarkig82/novel-creator. It never authorizes merging,
-deploying, manuscript changes, credentials or package publication. Disable prevents
-subsequent contribution operations and retains prior work. Grants belong to this
-novel, location, machine and account; copying/moving settings does not enable a
-new location. Missing authentication/access leaves participation off.
-
-PR or problem notices appear briefly in the next normally saved reply, without a
-status request. No-action outcomes remain local unless requested. If there is no
-next reply, the notice remains pending. Writing saves and exact responses retain
-their existing recovery rules; a retrospective result is never an unsaved suffix.
-
-Use `retro status --run UUID`, then `retro resume --run UUID` with the same `--novel`
-and `--json` to inspect/reconcile existing work. Disabled recovery requires explicit
-re-enablement first; it makes no repository requests while disabled. Enabling alone
-does not resume work. `retro release --run UUID --confirm-abandon` is inspected
-abandonment, preserving files/PRs and blocked by live locks or uncertain publication.
-Never delete receipts, worktrees or locks to force recovery. Read the installed
-`retrospective.md` for the complete protocol and limitations. Local state cannot
-prove human intent against malicious code running as the same OS user.
+New legacy projects install `novel-retro` and the [retrospective workflow](retrospective.md).
+Use an explicit request or opt into automatic review for this active session at
+explicit session closure only. Sharing defaults to generalized local findings;
+complete actual issue and attachment approval precedes publication/upload.
+Existing legacy novels use the normal explicit framework update from a future
+qualified package containing this unreleased feature. Existing notebooks use
+`retro issue setup` preview/application. Installing published 0.10.1 alone does
+not deliver this working-tree feature. Historical PR runs support recovery only.

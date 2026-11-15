@@ -109,6 +109,16 @@ class UpdateRetroPreservationTests(unittest.TestCase):
                 retro.write(path, run, 'run')
                 with self.assertRaises(ToolError):
                     update.preview(book.root, transport=transport_for('0.2.0'))
+                run['status'] = 'abandoned'
+                for stage in ('create_intent', 'publication_unknown'):
+                    run['contribution']['stage'] = stage
+                    retro.write(path, run, 'run')
+                    with self.assertRaises(ToolError):
+                        update.preview(book.root, transport=transport_for('0.2.0'))
+                run['contribution']['stage'] = 'pushed'
+                retro.write(path, run, 'run')
+                update.preview(book.root, transport=transport_for('0.2.0'))
+                run['status'] = 'published'
                 run['contribution']['stage'] = 'published'
                 retro.write(path, run, 'run')
                 preview = update.preview(book.root, transport=transport_for('0.2.0'))['data']
