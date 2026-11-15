@@ -17,6 +17,24 @@ from tests.integration import test_notebook_init
 class IssueSetup(unittest.TestCase):
     setUp = test_notebook_init.NotebookInitialization.setUp
 
+    def test_new_notebook_keeps_legacy_notice_protocol_out_of_ordinary_turns(self):
+        root = self.parent / 'native-protocol'
+        initialize(root)
+        notebook = (root / '.novel-notebook/workflows/retrospective.md').read_text(encoding='utf-8')
+        for legacy_instruction in ('retro notices pending', 'retro notices reserve',
+                                   'retro notices confirm', 'retro notices reconcile',
+                                   'exchange/message UUIDs', 'schemas/v1/retro.schema.json'):
+            self.assertNotIn(legacy_instruction, notebook)
+        self.assertIn('Ordinary notebook turns do not run legacy notice or exchange routines', notebook)
+        self.assertIn('retained legacy markers', notebook)
+        self.assertIn('explicitly selects genuine legacy historical recovery', notebook)
+        self.assertIn('(https://github.com/bjarkig82/novel-creator/blob/main/workflows/retrospective.md)', notebook)
+        legacy = (Path(__file__).resolve().parents[2] / 'workflows/retrospective.md').read_text(encoding='utf-8')
+        for recovery_instruction in ('--recovery-only', 'retro notices pending',
+                                     'retro notices reserve', 'retro notices confirm',
+                                     'retro notices reconcile', 'normal legacy saves'):
+            self.assertIn(recovery_instruction, legacy)
+
     def call(self, root, preview=None):
         return setup(SimpleNamespace(novel=root, apply=preview is not None,
                                      preview=None if preview is None else preview['preview_id'],

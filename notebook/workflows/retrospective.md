@@ -156,51 +156,17 @@ attachment and uncertainty outcomes separately. `retro issue cancel --run RUN
 "observed_cancel_direction":true}` and preserves unknowns/receipts while stopping
 new creation/upload.
 
-## Historical PR recovery only
+## Separate legacy historical recovery
 
 The old `retro begin/review/compare/prepare/validate/publish` contribution producer
-is retired. Old grants cannot create fixes, branches, pushes or PRs. Status and
-historical notice recovery remain local. Existing notices use the established
-reserve/confirm/reconcile protocol in normal legacy saves; never create a story
-turn just to deliver one. For previously authorized historical runs only:
+is retired. Old grants cannot create fixes, branches, pushes or PRs.
+Ordinary notebook turns do not run legacy notice or exchange routines, including
+when retained legacy markers exist for debugging or history. Those markers do
+not change native notebook saving or require per-turn Python commands.
 
-```text
-retro status --novel PATH --json
-retro enable --novel PATH --checkout RECORDED_CHECKOUT --recovery-only --json
-retro resume --novel PATH --run OLD_UUID --json
-retro release --novel PATH --run OLD_UUID --confirm-abandon --json
-```
-
-Recovery enable requires the authentic prior matching local/machine grant and
-bindings; it cannot create a grant. Explicit resume adopts the new generation
-and reconciles old effects only. Release is inspected local bookkeeping,
-preserving worktrees/branches/PRs; live/unknown ownership and uncertain create
-stay blocked. Never delete locks by age, steal ownership, reset work, retry old
-publication or infer remote absence from transport failure.
-
-## Historical notices in the next normal saved reply
-
-On the next ordinary user turn, call `retro notices pending --novel PATH --language en|is --json` with the current interaction language. Rendering occurs before reservation and is independent of manuscript language.
-This is local-only and remains available for existing notices after disablement.
-Reconcile any returned reservations before allocating their notices elsewhere.
-Include pending PR/problem notices briefly in that turn's prepared response;
-no status request is needed and no unsolicited turn is started.
-
-Allocate the normal exchange and assistant message UUIDs, compute the normal
-payload digest, then call `retro notices reserve --novel PATH --input FILE --json`
-before saving. FILE contains metadata only: `retro_version: 1`, reservation and
-exchange/message UUIDs, expected pre-save HEAD, payload and assistant-text SHA-256
-digests, plus ordered notice UUID/digest/half-open UTF-8 byte spans in that exact
-assistant response. The schema is installed at
-`.novel-creator/src/novel_creator/schemas/v1/retro.schema.json`.
-
-Save the ordinary exchange unchanged, then call
-`retro notices confirm --novel PATH --reservation UUID --json` and display its
-exact committed reply. After interruption use `retro notices reconcile` with the
-same reservation. A committed matching exchange consumes the notice without a
-second save. A pending/unknown save retains reservation and pauses replacement;
-use ordinary story recovery. Only confirmed-unsaved attempts can return notices
-to pending. Previously confirmed inclusion is immutable: unavailable history or
-receipts require recovery/conflict handling and cannot requeue the notice.
-Similar text elsewhere is not confirmation. Saved inclusion proves
-neither actual display nor user acceptance; use normal saved-response recovery.
+If the author explicitly selects genuine legacy historical recovery, follow the
+[legacy retrospective workflow](https://github.com/bjarkig82/novel-creator/blob/main/workflows/retrospective.md)
+using that legacy project's configured external runtime and its own recovery
+authorization. Its historical notice protocol applies to genuine legacy saved
+exchanges only. Preserve historical records, grants and receipts; their presence
+never activates legacy notice handling in ordinary notebook turns.

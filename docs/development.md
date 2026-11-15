@@ -125,9 +125,10 @@ python -m unittest tests.unit.test_plugin_bootstrap tests.contract.test_plugin_b
 
 The following opt-in helpers perform real installations into temporary runtimes
 and books, outside the checkout. They can download dependencies; the previous
-release helper also downloads frozen hash-verified public 0.7.2, 0.8.0, 0.9.0
-and 0.10.0 wheels unless `--previous-wheel PATH`, `--previous-080-wheel PATH`,
-`--previous-090-wheel PATH` and `--previous-0100-wheel PATH` supply them locally. They are not unittest discovery
+release helper also downloads frozen hash-verified public 0.7.2, 0.8.0, 0.9.0,
+0.10.0 and 0.10.1 wheels unless `--previous-wheel PATH`, `--previous-080-wheel PATH`,
+`--previous-090-wheel PATH`, `--previous-0100-wheel PATH` and
+`--previous-0101-wheel PATH` supply them locally. They are not unittest discovery
 modules. They need Python 3.11+, Git 2.39+ and Windows/Linux; they set disposable
 Git identities only in subprocess environments and do not modify global settings.
 
@@ -153,6 +154,14 @@ notebooks across all twelve layouts, checks actual skills/links and preservation
 and exercises new legacy setup and the explicit previous-release legacy update
 under installed wheel and source-distribution runtimes. The older focused
 notebook method updater remains distinct from that manual guidance refresh.
+The same gate retains those historical journeys and adds public 0.10.1 delivery
+under both artifacts: all twelve host/source/language feature-only side-character
+and issue-retrospective setups, the two default-layout notebook updates, new
+legacy setup and explicit offline trusted-artifact legacy updates. It compares
+installed resource bytes and routing/links, preserves writer data, custom roots,
+history and raw staging, and checks current/no-op and customized/stale/unsafe
+refusals. Current session-guidance checks run their documented reviewed issue
+setup prerequisite first.
 These checks do not prove GUI skill discovery,
 native conversations or writing quality.
 

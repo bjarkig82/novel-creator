@@ -13,6 +13,7 @@ import sys
 import tempfile
 import urllib.request
 from urllib.parse import urlparse
+from packaging.version import Version
 
 try:
     from tests.verify_plugin_install import bootstrap, require, run, snapshot, temporary_environment, write_report
@@ -34,7 +35,52 @@ PUBLIC_WHEELS = {
                '097e9d093424a04fdf0d50fcfbc47c3ed7fd0e6d4d081167b3a78cda497ce4d6'),
     '0.9.0': ('novel_creator-0.9.0-py3-none-any.whl',
               '59050772544faa3056fa173f06c7c410e5f07e352fdad38d41bf88185e86667f'),
+    '0.10.1': ('novel_creator-0.10.1-py3-none-any.whl',
+               '6721c5a527f1b7e567743f2760ec5e13aec2d0394f520913e98589ac54b8b11a'),
 }
+
+
+def default_update_inventory(target_version, source_version, before):
+    """Explicit feature inventory, retaining the historical target contract."""
+    changed = {'AGENTS.md'}
+    if Version(source_version) < Version('0.9.0'):
+        changed |= {'.agents/skills/novel-character-develop/SKILL.md',
+                    '.novel-notebook/workflows/character-development.md',
+                    '.novel-notebook/workflows/help.md'}
+    elif Version(source_version) < Version('0.10.1'):
+        changed.add('.novel-notebook/workflows/character-development.md')
+    if Version(target_version) >= Version('0.10.2'):
+        changed |= {'.agents/skills/novel-side-character/SKILL.md',
+                    '.novel-notebook/workflows/side-character.md',
+                    '.novel-notebook/workflows/help.md'}
+        # The default updater only supplies absent passive prerequisites.
+        relative = '.novel-notebook/workflows/retrospective.md'
+        if relative not in before:
+            changed.add(relative)
+    return changed
+
+
+def check_default_delivery(book, expected, changed):
+    """Verify actual changed resource bytes and bounded new feature routing."""
+    for name in changed - {'AGENTS.md'}:
+        require((book / name).read_bytes().replace(b'\r\n', b'\n') ==
+                (expected / name).read_bytes().replace(b'\r\n', b'\n'),
+                'Wrong default-update resource bytes: ' + name)
+    root = (book / 'AGENTS.md').read_bytes()
+    if '.novel-notebook/workflows/side-character.md' in changed:
+        pattern = rb'<!-- novel-creator:side-character:start -->.*?<!-- novel-creator:side-character:end -->'
+        actual = re.search(pattern, root, re.S)
+        fresh = re.search(pattern, (expected / 'AGENTS.md').read_bytes(), re.S)
+        require(actual is not None and fresh is not None and actual.group() == fresh.group(),
+                'Wrong bounded side-character root routing')
+        workflow = (book / '.novel-notebook/workflows/side-character.md').read_bytes()
+        require(b'chat-only' in workflow and b'approval' in workflow.lower(),
+                'Side-character draft/save boundary missing')
+    try:
+        from tests.session_guidance_checks import check_links
+    except ModuleNotFoundError:
+        from session_guidance_checks import check_links
+    check_links(book)
 
 
 def previous_wheel(scratch, supplied=None, *, version=PREVIOUS_VERSION):
@@ -95,6 +141,17 @@ def verify(*, plugin, wheel, previous=None, source_version=PREVIOUS_VERSION, sdi
         python = runtime['runtime_python']
         old_product, old_cli = install_previous(python, scratch, env,
                                                version=source_version, supplied=previous)
+        if source_version == '0.10.1':
+            source = previous_wheel(scratch, previous or (scratch / PUBLIC_WHEELS[source_version][0]),
+                                    version=source_version)
+            return {'ok': True, 'source_sha256': PUBLIC_WHEELS[source_version][1],
+                    'verified_product_files': runtime['verified_product_files'],
+                    'candidate_artifact': 'sdist' if sdist else 'wheel',
+                    'candidate_artifact_sha256': hashlib.sha256((sdist or wheel).read_bytes()).hexdigest(),
+                    'candidate_wheel_sha256': hashlib.sha256(wheel.read_bytes()).hexdigest(),
+                    'notebooks': verify_feature_upgrade(python, old_product, old_cli, scratch, env),
+                    'legacy': verify_debug_legacy(python, source, wheel, scratch, env, runtime['version'],
+                                                  source_version=source_version)}
         if source_version == '0.10.0':
             source = previous_wheel(scratch, previous or (scratch / PUBLIC_WHEELS[source_version][0]),
                                     version=source_version)
@@ -114,7 +171,8 @@ def verify(*, plugin, wheel, previous=None, source_version=PREVIOUS_VERSION, sdi
                     'candidate_artifact': 'sdist' if sdist else 'wheel',
                     'candidate_artifact_sha256': hashlib.sha256((sdist or wheel).read_bytes()).hexdigest(),
                     'candidate_wheel_sha256': hashlib.sha256(wheel.read_bytes()).hexdigest(),
-                    'notebooks': verify_debug_upgrade(python, old_product, old_cli, scratch, env),
+                    'notebooks': verify_debug_upgrade(python, old_product, old_cli, scratch, env,
+                                                      target_version=runtime['version']),
                     'legacy': verify_debug_legacy(python, source, wheel, scratch, env, runtime['version'])}
         cases = []
         for language in ('en', 'is'):
@@ -123,7 +181,7 @@ def verify(*, plugin, wheel, previous=None, source_version=PREVIOUS_VERSION, sdi
                                       'init', book.name, '--path', book, '--language', language, '--json'],
                                      env=env, cwd=scratch))
             require(created.get('ok') and created['data']['ready'], f'Previous notebook not ready: {created}')
-            instructions = (book / 'AGENTS.md').read_bytes() + b'\nPreserve this custom writer direction.\n'
+            instructions = (book / 'AGENTS.md').read_bytes() + b'\n## Writer directions\nPreserve this custom writer direction.\n'
             (book / 'AGENTS.md').write_bytes(instructions)
             (book / 'notebook/writer-preserved.md').write_text('Accepted writer text.\n', encoding='utf-8')
             staged = book / 'writer-staging.txt'
@@ -144,10 +202,12 @@ def verify(*, plugin, wheel, previous=None, source_version=PREVIOUS_VERSION, sdi
             require((book / 'AGENTS.md').read_bytes().startswith(instructions),
                     'Update changed existing custom instructions')
             changed = {name for name in before.keys() | after.keys() if before.get(name) != after.get(name)}
-            allowed = {'AGENTS.md', '.agents/skills/novel-character-develop/SKILL.md',
-                       '.novel-notebook/workflows/character-development.md',
-                       '.novel-notebook/workflows/help.md'}
+            allowed = default_update_inventory(runtime['version'], source_version, before)
             require(changed == allowed, f'Unexpected resource changes: {sorted(changed)}')
+            expected = scratch / ('New ' + book.name)
+            run([python, '-I', '-B', '-m', 'novel_creator', 'notebook', 'init', expected.name,
+                 '--path', expected, '--language', language, '--json'], env=env, cwd=scratch)
+            check_default_delivery(book, expected, changed)
             require(b'## Character development' in (book / 'AGENTS.md').read_bytes(),
                     'Character-development routing missing')
             require(b'chat-only' in (book / '.novel-notebook/workflows/character-development.md').read_bytes(),
@@ -177,12 +237,53 @@ def verify(*, plugin, wheel, previous=None, source_version=PREVIOUS_VERSION, sdi
                 'notebooks': cases}
 
 
+def verify_feature_upgrade(python, old_product, old_cli, scratch, env):
+    """Actual previous-public initializers and installed feature APIs, all layouts."""
+    cases = []
+    probe = '''
+import sys,json,os
+from pathlib import Path
+import novel_creator
+assert Path(novel_creator.__file__).resolve().is_relative_to(Path(sys.prefix))
+sys.path.append(sys.argv[1])
+from tests.feature_upgrade_checks import exercise
+print(json.dumps(exercise(sys.executable,Path(sys.argv[2]),Path(sys.argv[3]),dict(os.environ),
+ host=sys.argv[4],source=sys.argv[5],default=sys.argv[6]=='default')))
+'''
+    for host in ('codex', 'claude', 'both'):
+        for source in ('project', 'plugin'):
+            for language in ('en', 'is'):
+                modes = ('feature', 'default') if (host, source) == ('codex', 'project') else ('feature',)
+                for mode in modes:
+                    book = scratch / f'Features {host} {source} {language} {mode}'
+                    expected = scratch / ('New ' + book.name)
+                    for path, command in ((book, [python, '-I', '-B', '-c', old_cli, old_product]),
+                                          (expected, [python, '-I', '-B', '-m', 'novel_creator'])):
+                        created = json.loads(run([*command, 'notebook', 'init', path.name, '--path', path,
+                            '--language', language, '--host', host, '--skill-source', source, '--json'],
+                            env=env, cwd=scratch))
+                        require(created.get('ok') and created['data']['ready'], 'Feature notebook init failed')
+                    result = json.loads(run([python, '-I', '-B', '-X', 'utf8', '-c', probe, ROOT, book,
+                                             expected, host, source, mode], env=env, cwd=scratch))
+                    cases.append(dict(host=host, skill_source=source, language=language, **result))
+    for language in ('en', 'is'):
+        book = scratch / ('Feature new legacy ' + language)
+        initialize_legacy_fixture(python, book, language, scratch, env)
+        check = ('import sys;from pathlib import Path;sys.path.append(sys.argv[1]);'
+                 'from tests.feature_upgrade_checks import check_legacy_features;'
+                 'check_legacy_features(Path(sys.argv[2]),fresh_root=True)')
+        run([python, '-I', '-B', '-c', check, ROOT, book], env=env, cwd=scratch)
+    return cases
+
+
 def verify_session_upgrade(python, old_product, old_cli, scratch, env):
     """Previous public 0.10.0 notebooks and actual candidate new setup, all layouts."""
     try:
         from tests.session_guidance_checks import exercise, check_links, procedure
     except ModuleNotFoundError:
         from session_guidance_checks import exercise, check_links, procedure
+    target = json.loads(run([python, '-I', '-c',
+        'import json,novel_creator;print(json.dumps(novel_creator.__version__))'], env=env, cwd=scratch))
     cases = []
     for host in ('codex', 'claude', 'both'):
         for source in ('project', 'plugin'):
@@ -213,11 +314,21 @@ def verify_session_upgrade(python, old_product, old_cli, scratch, env):
                          '--expected-head', review['reviewed_head'], '--json'], env=env, cwd=scratch)
                     after = snapshot(book)
                     changed = {n for n in before.keys() | after.keys() if before.get(n) != after.get(n)}
-                    require(changed <= {'AGENTS.md', '.novel-notebook/workflows/character-development.md'},
-                            'Focused updater refreshed unrelated existing guidance')
+                    require(changed == default_update_inventory(target, '0.10.0', before),
+                            f'Focused updater changed unexpected guidance: {sorted(changed)}')
+                    check_default_delivery(book, expected, changed)
                     repeated = json.loads(run([*focused, '--json'], env=env, cwd=scratch))['data']
                     require(repeated['already_current'], 'Focused update retry failed')
                 check_links(expected)
+                if Version(target) >= Version('0.10.2'):
+                    # The current documented four-guide procedure explicitly
+                    # requires reviewed issue setup first. Run that prerequisite
+                    # via the installed CLI; keep the guide's own checks intact.
+                    command = [python, '-I', '-B', '-m', 'novel_creator', 'retro', 'issue',
+                               'setup', '--novel', book]
+                    review = json.loads(run([*command, '--json'], env=env, cwd=scratch))['data']
+                    run([*command, '--apply', '--preview', review['preview_id'],
+                         '--expected-head', review['reviewed_head'], '--json'], env=env, cwd=scratch)
                 result = exercise(python, book, expected, env, host=host, source=source)
                 cases.append(dict(host=host, skill_source=source, language=language,
                                   source_version='0.10.0', new_notebook=True, **result))
@@ -274,6 +385,9 @@ def checked_book(*args, **kwargs):
    assert entry.is_file()
    for link in re.findall(r'\]\(([^)#]+)(?:#[^)]*)?\)', entry.read_text(encoding='utf-8')):
     assert (entry.parent / link).is_file()
+  if sys.argv[6] == '0.10.1':
+   from tests.feature_upgrade_checks import check_legacy_features
+   check_legacy_features(book.root)
   started = book.launch('debug','start','--novel',book.root,'--json')
   assert started.returncode == 0, started.stderr
   session = json.loads(started.stdout)['data']['debug_session']
@@ -291,7 +405,7 @@ print(json.dumps(result))
                            version, PUBLIC_WHEELS[source_version][1], source_version], env=env, cwd=scratch))
 
 
-def verify_debug_upgrade(python, old_product, old_cli, scratch, env):
+def verify_debug_upgrade(python, old_product, old_cli, scratch, env, *, target_version):
     """Use the real previous initializer and installed candidate on disposable books."""
     cases = []
     for host in ('codex', 'claude', 'both'):
@@ -322,6 +436,8 @@ def verify_debug_upgrade(python, old_product, old_cli, scratch, env):
                 require(setup.get('ok'), 'Debug setup failed on public 0.9.0 notebook')
                 after = snapshot(book)
                 allowed = set(roots) | {'.gitignore', '.novel-notebook/workflows/debugging.md'}
+                if Version(target_version) >= Version('0.10.2') and '.novel-notebook/workflows/retrospective.md' not in before:
+                    allowed.add('.novel-notebook/workflows/retrospective.md')
                 changed = {name for name in before.keys() | after.keys() if before.get(name) != after.get(name)}
                 require(changed <= allowed and '.novel-notebook/workflows/debugging.md' in changed,
                         f'Unexpected debug setup changes: {sorted(changed)}')
@@ -481,12 +597,14 @@ def main():
     parser.add_argument('--previous-080-wheel', type=Path, help='Local hash-verified public 0.8.0 wheel')
     parser.add_argument('--previous-090-wheel', type=Path, help='Local hash-verified public 0.9.0 wheel')
     parser.add_argument('--previous-0100-wheel', type=Path, help='Local hash-verified public 0.10.0 wheel')
+    parser.add_argument('--previous-0101-wheel', type=Path, help='Local hash-verified public 0.10.1 wheel')
     parser.add_argument('--sdist', type=Path, help='Also test installation from the exact candidate sdist')
     parser.add_argument('--report', type=Path, required=True, help='Success JSON report destination')
     args = parser.parse_args()
     reports = []
     for source_version, previous in (('0.7.2', args.previous_wheel), ('0.8.0', args.previous_080_wheel),
-                                     ('0.9.0', args.previous_090_wheel), ('0.10.0', args.previous_0100_wheel)):
+                                     ('0.9.0', args.previous_090_wheel), ('0.10.0', args.previous_0100_wheel),
+                                     ('0.10.1', args.previous_0101_wheel)):
         for sdist in ((None, args.sdist.resolve()) if args.sdist else (None,)):
             reports.append(verify(plugin=args.plugin.resolve(), wheel=args.wheel.resolve(),
                                   previous=previous, source_version=source_version, sdist=sdist))

@@ -61,6 +61,12 @@ def issue_url(value):
     return value
 
 
+def duplicate_reference_url(value):
+    if not isinstance(value, str) or not re.fullmatch(r'https://github\.com/bjarkig82/novel-creator/(?:issues|pull)/[1-9][0-9]*', value):
+        raise ToolError(2, 'Expected exact designated-repository issue or PR URL')
+    return value
+
+
 class Github:
     """Fixed public listings and exact-file create only. Existing gh credentials."""
     def call(self, args):
@@ -280,7 +286,7 @@ class Issues:
         if not snapshot or data.get('duplicate_snapshot_digest') != snapshot['sha256']:
             raise ToolError(3, 'Review the retained public listing before create')
         if data.get('equivalent_url'):
-            finding['equivalent_url'] = issue_url(data['equivalent_url'])
+            finding['equivalent_url'] = duplicate_reference_url(data['equivalent_url'])
             self.save(run)
             return finding
         self.transport.preflight()

@@ -77,6 +77,74 @@ class IssueTests(unittest.TestCase):
         with patch.object(self.fake,'preflight',side_effect=ToolError(4,'absent')):
             with self.assertRaises(ToolError):self.publish(f)
         self.assertEqual(f['creation']['state'],'draft')
+    def test_equivalent_issue_and_pr_are_retained_without_creation(self):
+        for kind, path in (('issue', 'issues'), ('pr', 'pull')):
+            with self.subTest(kind=kind):
+                self.fid = str(uuid.uuid4())
+                f = self.draft()
+                url = f'https://github.com/bjarkig82/novel-creator/{path}/123'
+                listing = {'issue': [], 'pr': []}
+                listing[kind] = [dict(number=123, title=f['title'], body=f['body'], url=url)]
+                self.approve(f)
+                with patch.object(self.fake, 'listing', return_value=listing):
+                    self.preflight(f)
+                data = dict(observed_publication_direction=True, observed_comparison_complete=True,
+                            duplicate_snapshot_digest=f['duplicate_snapshot']['sha256'], equivalent_url=url)
+                with patch.object(self.fake, 'preflight') as preflight:
+                    self.service.publish(self.run, f, data)
+                preflight.assert_not_called()
+                stored = self.service.load(self.run['run_id'])['findings'][self.fid]
+                self.assertEqual(stored['equivalent_url'], url)
+                self.assertEqual(stored['creation']['state'], 'draft')
+                self.assertEqual(self.fake.creates, 0)
+
+    def test_equivalent_reference_keeps_exact_repository_url_boundary(self):
+        f = self.draft(); self.approve(f); self.preflight(f)
+        urls = (
+            'http://github.com/bjarkig82/novel-creator/pull/123',
+            'https://github.com.evil.invalid/bjarkig82/novel-creator/pull/123',
+            'https://user@github.com/bjarkig82/novel-creator/pull/123',
+            'https://github.com:443/bjarkig82/novel-creator/pull/123',
+            'https://github.com/other/novel-creator/pull/123',
+            'https://github.com/bjarkig82/other/pull/123',
+            'https://github.com/bjarkig82/novel-creator/pulls/123',
+            'https://github.com/bjarkig82/novel-creator/pull/0',
+            'https://github.com/bjarkig82/novel-creator/pull/0123',
+            'https://github.com/bjarkig82/novel-creator/pull/123/',
+            'https://github.com/bjarkig82/novel-creator/pull/123?query=1',
+            'https://github.com/bjarkig82/novel-creator/issues/123#fragment',
+            123,
+        )
+        for url in urls:
+            with self.subTest(url=url):
+                with self.assertRaises(ToolError):
+                    self.service.publish(self.run, f, dict(
+                        observed_publication_direction=True, observed_comparison_complete=True,
+                        duplicate_snapshot_digest=f['duplicate_snapshot']['sha256'], equivalent_url=url))
+                self.assertNotIn('equivalent_url', f)
+                self.assertEqual(f['creation']['state'], 'draft')
+        self.assertEqual(self.fake.creates, 0)
+
+    def test_creation_and_reconciliation_still_refuse_pr_urls(self):
+        f = self.draft(); self.approve(f); self.preflight(f)
+        url = 'https://github.com/bjarkig82/novel-creator/pull/123'
+        with patch.object(self.fake, 'create', return_value=url) as create:
+            with self.assertRaisesRegex(ToolError, 'issue URL'):
+                self.publish(f)
+        create.assert_called_once()
+        self.assertEqual(f['creation']['state'], 'unknown')
+        with patch.object(self.fake, 'view') as view:
+            with self.assertRaisesRegex(ToolError, 'issue URL'):
+                self.service.resume(self.run, f, dict(observed_reconciliation_read_direction=True, issue_url=url))
+        view.assert_not_called()
+
+    def test_upload_still_refuses_pr_urls(self):
+        f = self.draft(sharing='excerpts', excerpt_text='Synthetic'); self.approve(f)
+        url = 'https://github.com/bjarkig82/novel-creator/pull/123'
+        f['creation'] = dict(state='created', url=url)
+        with self.assertRaisesRegex(ToolError, 'issue URL'):
+            self.service.attachment(self.run, f, dict(action='start', observed_upload_consent=True, issue_url=url))
+        self.assertEqual(f['upload']['state'], 'pending')
     def test_debug_stop_export_frozen_and_mixed_markers(self):
         (self.root/'.novel-creator').mkdir(); (self.root/'.novel-creator/manifest.json').write_text('{}')
         service=issues.Issues(self.root,self.fake)
