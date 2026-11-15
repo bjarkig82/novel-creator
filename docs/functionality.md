@@ -73,7 +73,7 @@ story files or committing; conflicts are reported. Existing legacy books need
 their supported explicit framework update. Package installation alone changes
 neither book format. Automated CLI/package checks do not establish real Codex
 conversation capture; a host smoke test is still required for that claim.
-The [0.10.1 candidate](releases/0.10.1.md) provides an exact reviewed
+The [0.10.1 release](releases/0.10.1.md) provides an exact reviewed
 [session-guidance preview/apply procedure](session-guidance-upgrade.md) for
 existing format-1 notebooks across English/Icelandic, Codex/Claude Code/both and
 project/plugin layouts. It refreshes four public-provenance shared workflows and
@@ -484,14 +484,17 @@ See [the update workflow](../workflows/update.md) for commands and recovery boun
 
 ## Delivery status and limits
 
-The latest verified published package is [0.10.0](releases/0.10.0.md), published
-2026-11-13. Full Linux/Windows qualification passed, published package hashes
-match its candidate, and its annotated source tag is verified. Public installation
-checks passed; the Linux check required a retry after index propagation delay.
-The [0.10.1 release notes](releases/0.10.1.md) describe an unpublished candidate;
-full candidate qualification and publication remain pending. Native conversations,
+The latest verified published package is [0.10.1](releases/0.10.1.md), published
+2026-11-15. Full Linux and full Windows qualification and both public installation
+checks passed. Published package hashes match the qualified candidate and the
+annotated source tag is verified. See the
+[release evidence](../tests/evaluations/release-0.10.1.md). Native conversations,
 discovery/reload, voice behavior, specialist interaction and literary quality
 remain unverified.
+
+The previous [0.10.0 release](releases/0.10.0.md), published 2026-11-13, added
+optional debugging. Its Linux public install needed a retry after index propagation;
+that historical result does not describe 0.10.1 publication.
 
 The previous [0.9.0 release](releases/0.9.0.md), published 2026-11-12, added
 bounded character profile development. Its qualification, public package and

@@ -1,0 +1,167 @@
+{
+  "version": "0.10.1",
+  "status": "published on PyPI; public installation checks and annotated source tag verified",
+  "evidence_date": "2026-11-15",
+  "repository": "bjarkig82/novel-creator",
+  "source_commit": "01fe9bf0ff033d690fda4343fbff1839842af2af",
+  "source_branch": "main",
+  "run_id": "43721068384",
+  "run_attempt": "1",
+  "run_url": "https://github.com/bjarkig82/novel-creator/actions/runs/43721068384/attempts/1",
+  "artifact_id": "14164582133",
+  "artifact_name": "candidate-43721068384-1",
+  "artifact_zip_sha256": "19f2fc48edc44265661070c2bc80d9fcf163056803c2ab40866b14f0961fdd87",
+  "manifest": {
+    "windows_suite": "full",
+    "windows_baseline": "8df4ca09e58f71d800211a4dad794dd6c1f0c610",
+    "windows_reason": "Manual full qualification requested",
+    "repository": "bjarkig82/novel-creator",
+    "run_id": "43721068384",
+    "run_attempt": "1",
+    "source_commit": "01fe9bf0ff033d690fda4343fbff1839842af2af",
+    "distribution": "novel-creator",
+    "version": "0.10.1",
+    "files": {
+      "novel_creator-0.10.1-py3-none-any.whl": "6721c5a527f1b7e567743f2760ec5e13aec2d0394f520913e98589ac54b8b11a",
+      "novel_creator-0.10.1.tar.gz": "82779fca16314ce90df295faf1065b5db115e5baf00b589018854344fa44bf8a"
+    }
+  },
+  "conclusion": "success",
+  "remote_release_verifier": "passed against exact completed candidate, immutable artifact, source, hashes and required platform jobs",
+  "artifact_content_verification": {
+    "source_commit": "01fe9bf0ff033d690fda4343fbff1839842af2af",
+    "wheel_product_files_exact_git_bytes": 101,
+    "sdist_tracked_source_files_exact_git_bytes": 129,
+    "sdist_generated_metadata": [
+      "PKG-INFO",
+      "novel_creator.egg-info/PKG-INFO",
+      "novel_creator.egg-info/SOURCES.txt",
+      "novel_creator.egg-info/dependency_links.txt",
+      "novel_creator.egg-info/entry_points.txt",
+      "novel_creator.egg-info/requires.txt",
+      "novel_creator.egg-info/top_level.txt",
+      "setup.cfg"
+    ],
+    "private_or_untracked_source_inclusion": false
+  },
+  "platforms": {
+    "linux": {
+      "job_id": "132833043352",
+      "conclusion": "success",
+      "suite": "full",
+      "test_count": 571,
+      "test_seconds": 658.389,
+      "skipped_tests": 4,
+      "job_url": "https://github.com/bjarkig82/novel-creator/actions/runs/43721068384/job/132833043352",
+      "required_gates_passed": [
+        "Verify candidate manifest",
+        "Check project skill upgrades",
+        "Verify plugin runtime installation",
+        "Verify previous published notebook compatibility",
+        "Run full unit suite",
+        "Verify wheel bytes and legacy journeys",
+        "Verify clean wheel installation",
+        "Verify clean installation from the candidate sdist",
+        "Follow the literal Bash getting-started guide"
+      ],
+      "installed_candidate_report_validated": true,
+      "previous_release_artifact_checks": 8
+    },
+    "windows": {
+      "job_id": "132833043392",
+      "conclusion": "success",
+      "suite": "full",
+      "test_count": 571,
+      "test_seconds": 2782.372,
+      "skipped_tests": 0,
+      "job_url": "https://github.com/bjarkig82/novel-creator/actions/runs/43721068384/job/132833043392",
+      "required_gates_passed": [
+        "Verify candidate manifest",
+        "Check project skill upgrades",
+        "Verify plugin runtime installation",
+        "Verify previous published notebook compatibility",
+        "Run full unit suite",
+        "Verify wheel bytes and legacy journeys",
+        "Verify clean wheel installation",
+        "Verify clean installation from the candidate sdist"
+      ],
+      "installed_candidate_report_validated": true,
+      "previous_release_artifact_checks": 8
+    }
+  },
+  "publication": {
+    "run_id": "43726705586",
+    "run_attempt": "1",
+    "run_url": "https://github.com/bjarkig82/novel-creator/actions/runs/43726705586/attempts/1",
+    "source_commit": "01fe9bf0ff033d690fda4343fbff1839842af2af",
+    "publish_job_id": "132850102873",
+    "publish_job_conclusion": "success",
+    "public_verified": true,
+    "publication_date": "2026-11-15",
+    "public_checks": {
+      "windows": {
+        "job_id": "132850523611",
+        "conclusion": "success"
+      },
+      "linux": {
+        "job_id": "132850523612",
+        "conclusion": "success"
+      }
+    },
+    "official_pypi_json": "https://pypi.org/pypi/novel-creator/0.10.1/json",
+    "files": [
+      {
+        "filename": "novel_creator-0.10.1-py3-none-any.whl",
+        "sha256": "6721c5a527f1b7e567743f2760ec5e13aec2d0394f520913e98589ac54b8b11a",
+        "size": 266973,
+        "upload_time": "2026-11-15T14:53:47.788173Z"
+      },
+      {
+        "filename": "novel_creator-0.10.1.tar.gz",
+        "sha256": "82779fca16314ce90df295faf1065b5db115e5baf00b589018854344fa44bf8a",
+        "size": 238534,
+        "upload_time": "2026-11-15T14:53:49.192760Z"
+      }
+    ],
+    "hashes_match_qualified_candidate": true
+  },
+  "tag": {
+    "name": "v0.10.1",
+    "object_sha": "af80d66dd28613490511fe418bdd3460ae745739",
+    "source_commit": "01fe9bf0ff033d690fda4343fbff1839842af2af",
+    "remote_verified": true,
+    "annotation_verified": true
+  },
+  "host_evidence": {
+    "candidate_run": "43721068384",
+    "candidate_attempt": "1",
+    "artifact_id": "14164582133",
+    "source_commit": "01fe9bf0ff033d690fda4343fbff1839842af2af",
+    "files": {
+      "novel_creator-0.10.1-py3-none-any.whl": "6721c5a527f1b7e567743f2760ec5e13aec2d0394f520913e98589ac54b8b11a",
+      "novel_creator-0.10.1.tar.gz": "82779fca16314ce90df295faf1065b5db115e5baf00b589018854344fa44bf8a"
+    },
+    "qualification": "automated-only",
+    "windows_host": false,
+    "linux_host": false
+  },
+  "native_host_acceptance": false,
+  "github_release_assets_published": false,
+  "previous_failed_candidate": {
+    "run_id": "43720005746",
+    "run_attempt": "1",
+    "source_commit": "837938804a67ba3fe99b21ba3000cd801f312003",
+    "artifact_id": "14164495343",
+    "conclusion": "failure",
+    "published": false,
+    "cause": "Linux new synthetic legacy fixture lacked local Git identity; production identity gate correctly refused",
+    "correction": "Test-harness-only local Git identity repair; qualified fresh candidate supersedes this failed candidate"
+  },
+  "limits": [
+    "Automated-only release qualification",
+    "Native host discovery/reload not verified",
+    "Actual voice/display delivery and specialist interaction not verified",
+    "Timing, archive completeness and subjective writing quality not verified",
+    "Later evidence documentation does not rebuild or replace qualified published artifacts"
+  ]
+}

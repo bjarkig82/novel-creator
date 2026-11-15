@@ -1,15 +1,14 @@
 # Update session guidance in an existing notebook
 
-The 0.10.1 candidate contains revised save, checkpoint and handoff wording,
+The published 0.10.1 release contains revised save, checkpoint and handoff wording,
 and a local read-only notebook retrospective. Installing a
 Python package or updating a plugin leaves existing notebook snapshots unchanged.
 This bounded manual procedure delivers those shared guides to an existing
 format-1 notebook; it adds no CLI command, role, schema or host behavior.
 
-Use a reviewed 0.10.1 checkout or candidate artifact in an isolated Python 3.11+
-environment. After publication the version-pinned installation is
-`python -m pip install --upgrade novel-creator==0.10.1`; this command is usable
-only after publication. The guide itself is source documentation, available from
+Use the published 0.10.1 package in an isolated Python 3.11+ environment:
+`python -m pip install --upgrade novel-creator==0.10.1`.
+The guide itself is source documentation, available from
 this checkout or [GitHub](https://github.com/bjarkig82/novel-creator/blob/main/docs/session-guidance-upgrade.md),
 not a newly installed command. New notebooks receive these resources at setup.
 For legacy novels, use the supported external-controller preview/application

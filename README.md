@@ -4,18 +4,20 @@ A home for developing an app that helps writers plan and create novels.
 
 ## Getting started
 
-**Novel Creator 0.10.1 is an unpublished candidate.** Compared with 0.10.0,
+**Novel Creator 0.10.1 is published, 2026-11-15.** Compared with 0.10.0,
 it clarifies debug-report coverage, notebook approval/save/checkpoint and
 voice/handoff wording, and local read-only notebook retrospectives. Existing
 notebooks have a supported, reviewed [session-guidance refresh](docs/session-guidance-upgrade.md)
 for every supported host, skill source and language; legacy novels use their
 separate framework updater. Installing a package or plugin leaves pinned book
-resources unchanged. See the [candidate notes](docs/releases/0.10.1.md) and
+resources unchanged. See the [release notes](docs/releases/0.10.1.md) and
 [release history](docs/releases/README.md) for install/update steps and limits.
-Full candidate qualification and publication are pending; native host reload,
+Full Linux and Windows qualification and both public installation checks passed;
+public PyPI hashes and the annotated source tag match the qualified candidate.
+See the [release evidence](tests/evaluations/release-0.10.1.md). Native host reload,
 voice behavior and specialist interaction remain unverified.
 
-**Novel Creator 0.10.0 is published, 2026-11-13.** It adds opt-in
+**The previous Novel Creator 0.10.0 release was published 2026-11-13.** It adds opt-in
 [session debugging](workflows/debugging.md) for notebooks and legacy novels,
 with local ZIP reports. Existing notebooks need `novel-creator debug setup --novel PATH`;
 legacy novels need their explicit framework update. Full Linux and Windows
@@ -93,11 +95,11 @@ which explains setup, everyday writing, and the Windows, Linux, and Mac limits.
 If someone has already prepared your novel, go straight to
 [everyday writing](https://github.com/bjarkig82/novel-creator/blob/main/workflows/everyday-writing.md).
 
-Install or upgrade [Novel Creator 0.10.0 from PyPI](https://pypi.org/project/novel-creator/0.10.0/)
+Install or upgrade [Novel Creator 0.10.1 from PyPI](https://pypi.org/project/novel-creator/0.10.1/)
 in your configured environment:
 
 ```text
-python -m pip install --upgrade novel-creator==0.10.0
+python -m pip install --upgrade novel-creator==0.10.1
 ```
 
 Existing legacy novels need an [explicit supported update](workflows/getting-started.md#updating-an-existing-book)

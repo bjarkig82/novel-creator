@@ -95,10 +95,11 @@ For every requested PyPI release, prepare versioned notes and update the
 
 ### Plugin artifacts and installation checks
 
-Version 0.10.0 is the latest verified PyPI release, published 2026-11-13; see its
-[release notes](releases/0.10.0.md). The checkout targets the unpublished
-[0.10.1 candidate](releases/0.10.1.md); full candidate qualification and
-publication remain pending. Generate plugin manifests/catalogs
+Version 0.10.1 is the latest verified PyPI release, published 2026-11-15; see its
+[release notes](releases/0.10.1.md) and
+[release evidence](../tests/evaluations/release-0.10.1.md). Full Linux/Windows
+qualification, both public installs, package hashes and the annotated source tag
+are verified. Generate plugin manifests/catalogs
 and deterministic archives from the package version, then check for drift
 without writes:
 
@@ -143,7 +144,7 @@ implicit marketplace adoption. The same gate executes the documented manual proc
 in actual public 0.8.0 notebooks for all twelve host/source/language layouts
 under installed wheel and source-distribution runtimes. It checks rendered
 resource bytes, conflicts, retry, story/custom directions, index and HEAD.
-For the 0.10.1 candidate it also executes the exact
+For release 0.10.1 it also executes the exact
 [session-guidance procedure](session-guidance-upgrade.md) against public 0.10.0
 notebooks across all twelve layouts, checks actual skills/links and preservation,
 and exercises new legacy setup and the explicit previous-release legacy update
@@ -157,7 +158,7 @@ candidate wheel bootstrap. In release preparation, preserve the full Linux
 suite, complete rebuilt-wheel verifier and all existing workflow gates. CLI and
 resource changes select full Windows qualification under the
 [Windows release policy](testing-and-completion-guide.md#windows-release-selection).
-See the [candidate release notes and remaining limits](releases/0.10.1.md).
+See the [release notes and remaining limits](releases/0.10.1.md).
 
 ### Completing GitHub release assets
 

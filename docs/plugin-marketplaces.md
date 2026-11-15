@@ -1,14 +1,14 @@
 # Marketplace setup for new notebooks
 
-Version **0.10.1 is an unpublished candidate**. Its manifest, local-wheel and
-runtime examples below all select 0.10.1. Use the reviewed matching local wheel
-before publication; the index bootstrap and version-pinned PyPI command are
-usable only after publication. The latest verified published package is
-[0.10.0](releases/0.10.0.md), published 2026-11-13. Candidate full qualification
-and publication remain pending; see [candidate notes](releases/0.10.1.md) and
-[release history](releases/README.md).
+Version **0.10.1 is published, 2026-11-15**. Its manifest, local-wheel and
+runtime examples below all select 0.10.1. Full Linux and Windows qualification
+and both public installation checks passed; public package hashes and the
+annotated source tag match the qualified candidate. See
+[release notes](releases/0.10.1.md), [release evidence](../tests/evaluations/release-0.10.1.md)
+and [release history](releases/README.md). No 0.10.1 GitHub release ZIP assets
+are claimed; the local archive instructions remain available for development.
 
-The candidate clarifies notebook approval/save/checkpoint/handoff guidance and
+The release clarifies notebook approval/save/checkpoint/handoff guidance and
 local read-only notebook reviews, alongside shared debug-report coverage.
 Existing plugin books need the [reviewed session-guidance refresh](session-guidance-upgrade.md)
 after updating/enabling the matching plugin; cached plugin or Python updates
@@ -79,8 +79,7 @@ Git repository. It does not request a model key or alter global Git settings.
 
 The agent runs the plugin's standard-library bootstrap using a compatible
 Python. Without `--wheel`, it installs the exact plugin manifest version from
-PyPI through the configured package index. For this 0.10.1 candidate, that route
-is usable only after publication:
+PyPI through the configured package index:
 
 ```text
 python /absolute/path/to/plugin/scripts/bootstrap.py --novel "/path/to/My Novel"
@@ -121,8 +120,7 @@ preserved while pip destination overrides are excluded. See the
 
 If the pinned version is missing from the index, report that actual failure;
 use a matching local wheel only when it is available for the intended setup.
-To install or upgrade the separate package in your configured environment, use
-the following command **only after 0.10.1 publication**:
+To install or upgrade the separate package in your configured environment:
 
 ```text
 python -m pip install --upgrade novel-creator==0.10.1
@@ -185,6 +183,6 @@ reload/reopen controls, possibly a new chat. File checks do not prove native
 discovery, reload, voice delivery or specialist behavior; unsaved chat drafts
 have no guaranteed recovery.
 
-See [candidate release notes](releases/0.10.1.md),
+See [release notes](releases/0.10.1.md),
 [development checks](development.md#plugin-artifacts-and-installation-checks) and
 [historical 0.9.0 qualification evidence](../tests/evaluations/release-0.9.0.md) for exact scope.

@@ -5,24 +5,22 @@ instructions require an explicit project update as well. Keep the configured
 Python environment outside the novel and open the intended novel folder in Codex.
 Do not initialize over an existing novel or convert formats to obtain a skill.
 
-[0.10.0](releases/0.10.0.md), published 2026-11-13, is the latest verified
-published package. It adds optional local session debugging to both formats.
+[0.10.1](releases/0.10.1.md), published 2026-11-15, is the latest verified
+published package. It clarifies local report coverage and notebook session,
+save/checkpoint and handoff guidance, with a read-only local notebook review.
 Install the exact published version in your configured environment:
 
 ```text
-python -m pip install --upgrade novel-creator==0.10.0
+python -m pip install --upgrade novel-creator==0.10.1
 ```
 
-The [0.10.1 candidate](releases/0.10.1.md) is unpublished. It revises report
-coverage and notebook session/save/handoff guidance. After publication only,
-install it with `python -m pip install --upgrade novel-creator==0.10.1`.
 New projects receive the resources appropriate to their format at setup.
 Existing projects need the format-specific updates below; package installation
 alone does not refresh their pinned resources.
 
 ## Session guidance in 0.10.1
 
-The 0.10.1 candidate provides an explicit [preview/apply manual procedure](session-guidance-upgrade.md)
+Release 0.10.1 provides an explicit [preview/apply manual procedure](session-guidance-upgrade.md)
 for existing format-1 notebooks in all supported host/skill-source/language layouts.
 It refreshes only four provenance-verified shared workflows and appends bounded
 root routing, preserving project skills, roles and custom instructions. Package
@@ -118,22 +116,21 @@ installation outside the novel;
 retain the verified runtime interpreter if it differs:
 
 ```text
-CONTROLLER -I -B -m novel_creator update --novel BOOK --python RUNTIME --version 0.10.0 --json
+CONTROLLER -I -B -m novel_creator update --novel BOOK --python RUNTIME --version 0.10.1 --json
 ```
 
 Review the concrete target version, changed paths, blockers and HEAD. After
 requesting that exact preview's application, use its returned preview ID and HEAD:
 
 ```text
-CONTROLLER -I -B -m novel_creator update --novel BOOK --apply --preview PREVIEW_ID --version 0.10.0 --expected-head REVIEWED_HEAD --json
+CONTROLLER -I -B -m novel_creator update --novel BOOK --apply --preview PREVIEW_ID --version 0.10.1 --expected-head REVIEWED_HEAD --json
 ```
 
 Follow the [existing update procedure](../workflows/getting-started.md#updating-an-existing-book),
 including client closure for initial 0.1.0/0.2.0 updates, `--confirm-quiescent`
 only after that confirmation, and external exact-operation recovery. Installing
-the new package alone does not replace pinned files. For 0.10.1, use
-`--version 0.10.1` in both commands only after publication; see its
-[candidate notes](releases/0.10.1.md).
+the new package alone does not replace pinned files. See the
+[release notes](releases/0.10.1.md) for compatibility and verification scope.
 
 The update installs legacy versions of `$novel-clarify`, `$novel-analyze` and
 `$novel-help` with linked workflows. In 0.7.2, Clarify offers labeled suggestions
