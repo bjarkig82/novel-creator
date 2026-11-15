@@ -79,7 +79,7 @@ The local full-suite/build commands are:
 ```bash
 python -m unittest discover -q
 python -m pip wheel . --no-deps --wheel-dir dist
-python tests/verify_wheel.py dist/novel_creator-0.10.1-py3-none-any.whl
+python tests/verify_wheel.py dist/novel_creator-0.10.2-py3-none-any.whl
 ```
 
 Use the actual versioned filename produced by the build. The wheel verifier
@@ -108,12 +108,15 @@ python scripts/build_plugins.py
 python scripts/build_plugins.py --check
 ```
 
-The current default outputs are `dist/novel-creator-plugin-0.10.1.zip` (plugin root) and
-`dist/novel-creator-marketplace-0.10.1.zip` (both catalogs and the plugin tree).
+Current source is the unpublished 0.10.2 candidate; these build examples do not
+establish publication or qualification. The current default outputs are
+`dist/novel-creator-plugin-0.10.2.zip` (plugin root) and
+`dist/novel-creator-marketplace-0.10.2.zip` (both catalogs and the plugin tree).
 Use `--output DIR` for a disposable destination. Both archives exclude runtime
 caches, credentials and bytecode. `tests.contract.test_plugin_bundle` checks
-manifest/version consistency, all sixteen entries (fifteen writing skills plus setup) and relative links, actual ZIP
-membership, wheel resources and source-distribution inputs; it also rebuilds the
+manifest/version consistency, all eighteen entries (seventeen writing skills
+plus setup) and relative links, actual ZIP membership, wheel resources and
+source-distribution inputs; it also rebuilds the
 plugin from the extracted source distribution. Focused checks are:
 
 ```text
@@ -129,8 +132,8 @@ modules. They need Python 3.11+, Git 2.39+ and Windows/Linux; they set disposabl
 Git identities only in subprocess environments and do not modify global settings.
 
 ```text
-python tests/verify_plugin_install.py --wheel dist/novel_creator-0.10.1-py3-none-any.whl --report /tmp/plugin-install.json
-python tests/verify_marketplace_previous.py --wheel dist/novel_creator-0.10.1-py3-none-any.whl --sdist dist/novel_creator-0.10.1.tar.gz --report /tmp/marketplace-previous.json
+python tests/verify_plugin_install.py --wheel dist/novel_creator-0.10.2-py3-none-any.whl --report /tmp/plugin-install.json
+python tests/verify_marketplace_previous.py --wheel dist/novel_creator-0.10.2-py3-none-any.whl --sdist dist/novel_creator-0.10.2.tar.gz --report /tmp/marketplace-previous.json
 ```
 
 On Windows choose a writable report path such as `$env:TEMP\plugin-install.json`.

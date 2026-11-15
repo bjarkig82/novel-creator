@@ -15,6 +15,9 @@ novels and format-1 notebooks: a short optional intake, one provisional practica
 profile, then revision/cancellation or one explicit save. Legacy sourced capture
 and notebook chat-only drafts retain their distinct save rules. Package/plugin
 installation alone leaves existing books pinned; host behavior remains unverified.
+The same candidate restores author-approved [session issue retrospectives](#session-issue-retrospectives-unreleased)
+and retires automatic fix/PR production. See [candidate release notes](releases/0.10.2.md)
+for the complete comparison and pending release gates.
 
 ## Marketplace integration (0.8.0)
 

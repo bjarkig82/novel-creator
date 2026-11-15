@@ -17,6 +17,14 @@ public PyPI hashes and the annotated source tag match the qualified candidate.
 See the [release evidence](tests/evaluations/release-0.10.1.md). Native host reload,
 voice behavior and specialist interaction remain unverified.
 
+**This checkout prepares 0.10.2.** It adds author-approved session issue
+retrospectives and complete side-character profiles for equipped legacy novels
+and notebooks, with explicit existing-project updates. It retires automatic
+fix/PR production. See the [version notes](docs/releases/0.10.2.md) for changes
+and all four delivery paths, and the [release history](docs/releases/README.md)
+for publication/qualification status. The verified published install guidance
+in this source snapshot remains on 0.10.1.
+
 **The previous Novel Creator 0.10.0 release was published 2026-11-13.** It adds opt-in
 [session debugging](workflows/debugging.md) for notebooks and legacy novels,
 with local ZIP reports. Existing notebooks need `novel-creator debug setup --novel PATH`;

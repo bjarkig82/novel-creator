@@ -1,7 +1,8 @@
 # Marketplace setup for new notebooks
 
-Version **0.10.1 is published, 2026-11-15**. Its manifest, local-wheel and
-runtime examples below all select 0.10.1. Full Linux and Windows qualification
+Version **0.10.1 is published, 2026-11-15**. The published-version local-wheel and
+runtime examples below select 0.10.1 and require the matching 0.10.1 plugin.
+Full Linux and Windows qualification
 and both public installation checks passed; public package hashes and the
 annotated source tag match the qualified candidate. See
 [release notes](releases/0.10.1.md), [release evidence](../tests/evaluations/release-0.10.1.md)
@@ -13,6 +14,15 @@ local read-only notebook reviews, alongside shared debug-report coverage.
 Existing plugin books need the [reviewed session-guidance refresh](session-guidance-upgrade.md)
 after updating/enabling the matching plugin; cached plugin or Python updates
 alone leave book snapshots unchanged.
+
+The current checkout instead contains the **unpublished 0.10.2 candidate** plugin,
+with eighteen entries (setup and seventeen writing entries), including side-character
+profiles and issue retrospectives. Its default bootstrap requests 0.10.2 from
+PyPI, which is not yet a verified published release. For disposable evaluation,
+use the matching reviewed local 0.10.2 wheel with `--wheel`; do not mix the
+candidate plugin with the published-version examples below. See the
+[candidate notes and explicit project updates](releases/0.10.2.md). Native plugin
+enablement and discovery still require observation in the actual host.
 
 **Historical 0.9.0 delivery:** published 2026-11-12, it added Character development as the
 fifteenth writing entry (sixteen entries including setup). Its drafts/revisions
@@ -62,8 +72,8 @@ plugin does not prove the matching Python package has been published.
 
 The permanent plugin name is `novel-creator` and the catalog is
 `novel-creator-marketplace`. Enable the plugin in your actual host and inspect
-its available skills. It contains `setup` and fifteen writing entries; the six
-writing roles are installed in the book during setup, so the plugin inventory
+its available skills. The published 0.10.1 plugin contains `setup` and fifteen
+writing entries; the six writing roles are installed in the book during setup, so the plugin inventory
 itself can report zero agents. Expected writing invocation syntax is Codex
 `$novel-creator:novel-help` and Claude Code `/novel-creator:novel-help`.
 Native menu discovery and these invocations still need confirmation in the

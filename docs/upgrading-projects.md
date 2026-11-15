@@ -249,17 +249,20 @@ check; filesystem tests do not prove the menu reloaded.
 
 ## Unreleased session issue retrospectives
 
-This feature is current-source work, **not included in published 0.10.1**.
-Package/plugin installation leaves pinned project snapshots unchanged. Once a
-future package containing the feature is qualified, install that exact version
-in the intended isolated controller environment first.
+This feature is in the **unpublished 0.10.2 candidate**, not published 0.10.1.
+Package/plugin installation leaves pinned project snapshots unchanged. For
+disposable evaluation, install reviewed candidate source or artifacts in an
+isolated environment outside novels as in the [side-character guide](side-characters.md#install-or-update-the-unpublished-candidate).
+After publication, install `novel-creator==0.10.2` in the intended external
+controller environment before updating an existing legacy novel.
 
 Existing **legacy novels** use the ordinary external-controller framework update
-preview/application above, selecting that future newer version. Review/apply the
+preview/application above, selecting `--version 0.10.2` **only after publication**.
+The ordinary updater requires a published stable target. Review/apply the
 exact preview/HEAD; it delivers shared retrospective guidance and the legacy
 `.agents/skills/novel-retro/SKILL.md`. Existing story/history/custom-instruction
 protections and historical recovery fences remain. No conversion is required.
-Do not apply an invented future version to a real novel from this checkout.
+Installing candidate source does not bypass public discovery for this route.
 
 Existing **format-1 notebooks**, including standalone pre-integration-marker
 books and Codex/Claude/both project/plugin layouts, use current source or an
@@ -280,7 +283,7 @@ fresh preview and explicitly apply the remainder. Story, index and history are
 preserved; no log conversion, debug relocation, novel save or commit occurs.
 Legacy-only books use the normal framework updater, not notebook setup.
 
-New **legacy novels** initialized from the future qualified package bundle the
+New **legacy novels** initialized from the selected package bundle the
 workflow and legacy adapter skill. New **notebooks** bundle the snapshot/project
 skill or selected plugin routing. Plugin delivery keeps its notebook-only scope.
 After each format's install/update, verify the actual skill file and links:
@@ -289,6 +292,14 @@ enabled plugin `novel-retro` plus the selected notebook snapshot. Reread/reload
 root instructions and host skills before invoking them. Python imports/file
 checks do not prove native Codex/Claude discovery. Checkpoint resource changes
 only through the normal authorized workflow; package installation is insufficient.
+
+Issue setup requires an independent format-1 notebook Git root, so legacy-only
+books and Git worktree/redirected roots refuse. Mixed-marker notebooks retain
+the actual legacy debug location, without moving or converting logs; this differs
+from the side-character helper, which refuses mixed/retained-legacy state.
+Setup does not enable debugging or automatic participation. Explicit session
+debugging and optional active-session automatic retrospective each need their
+own author opt-in; sharing/publication still needs exact current approval.
 
 Historical recovery uses `retro enable --novel PATH --checkout RECORDED_CHECKOUT
 --recovery-only --json`, then explicitly requested old-run resume/release only.
