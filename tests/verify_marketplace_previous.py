@@ -225,21 +225,32 @@ def verify_session_upgrade(python, old_product, old_cli, scratch, env):
     # must not silently introduce notebook save semantics or a retro CLI there.
     for language in ('en', 'is'):
         book = scratch / ('New legacy ' + language)
-        book.mkdir()
-        run(['git', '-C', book, 'init', '-b', 'main'], env=env, cwd=scratch)
-        probe = ("from novel_creator.install import initialize;import sys,json;"
-                 "r=initialize(sys.argv[1],json.dumps({'title':'Synthetic new legacy',"
-                 "'manuscript_language':sys.argv[2]}));assert r['data']['saved']")
-        run([python, '-I', '-B', '-c', probe, book, language], env=env, cwd=scratch)
+        initialize_legacy_fixture(python, book, language, scratch, env)
         require((book / '.novel-creator/workflows/debugging.md').is_file(), 'New legacy debug guide missing')
         require((book / '.agents/skills/novel-clarify/SKILL.md').is_file(), 'Legacy clarification entry missing')
         check_links(book)
     return cases
 
 
+def initialize_legacy_fixture(python, book, language, scratch, env):
+    """Give this disposable book its own identity, independent of developer Git."""
+    book.mkdir()
+    run(['git', '-C', book, 'init', '-b', 'main'], env=env, cwd=scratch)
+    # Production storage.git intentionally drops inherited GIT_* overrides.
+    # Configure only this synthetic repository; never rely on a global identity.
+    run(['git', '-C', book, 'config', '--local', 'user.name', 'Previous Release Qualification'],
+        env=env, cwd=scratch)
+    run(['git', '-C', book, 'config', '--local', 'user.email', 'test@example.invalid'],
+        env=env, cwd=scratch)
+    probe = ("from novel_creator.install import initialize;import sys,json;"
+             "r=initialize(sys.argv[1],json.dumps({'title':'Synthetic new legacy',"
+             "'manuscript_language':sys.argv[2]}));assert r['data']['saved']")
+    run([python, '-I', '-B', '-c', probe, book, language], env=env, cwd=scratch)
+
+
 def verify_debug_legacy(python, source, wheel, scratch, env, version, *, source_version="0.9.0"):
     """Upgrade a frozen public pinned book via the installed candidate controller."""
-    probe = '''
+    probe = r'''
 import json,sys,re
 from pathlib import Path
 from contextlib import contextmanager
