@@ -1,6 +1,20 @@
 # Marketplace setup for new notebooks
 
-Version **0.9.0 is published, 2026-11-12** and adds Character development as the
+Version **0.10.1 is an unpublished candidate**. Its manifest, local-wheel and
+runtime examples below all select 0.10.1. Use the reviewed matching local wheel
+before publication; the index bootstrap and version-pinned PyPI command are
+usable only after publication. The latest verified published package is
+[0.10.0](releases/0.10.0.md), published 2026-11-13. Candidate full qualification
+and publication remain pending; see [candidate notes](releases/0.10.1.md) and
+[release history](releases/README.md).
+
+The candidate clarifies notebook approval/save/checkpoint/handoff guidance and
+local read-only notebook reviews, alongside shared debug-report coverage.
+Existing plugin books need the [reviewed session-guidance refresh](session-guidance-upgrade.md)
+after updating/enabling the matching plugin; cached plugin or Python updates
+alone leave book snapshots unchanged.
+
+**Historical 0.9.0 delivery:** published 2026-11-12, it added Character development as the
 fifteenth writing entry (sixteen entries including setup). Its drafts/revisions
 stay in chat until explicit approval to save current or selected additions.
 Use `$novel-creator:novel-character-develop` in Codex or
@@ -9,7 +23,7 @@ the workflow; existing plugin books require the [explicit manual snapshot update
 after upgrading/enabling the plugin. Cached plugin updates alone do not rewrite
 books. See [release notes](releases/0.9.0.md).
 
-Full Windows/Linux automated qualification, both public package installation
+For 0.9.0, full Windows/Linux automated qualification, both public package installation
 checks and an independent clean public installation passed. Public wheel/source
 hashes and the annotated source tag are verified. The
 [GitHub release](https://github.com/bjarkig82/novel-creator/releases/tag/v0.9.0)
@@ -17,7 +31,7 @@ contains both qualified distributions and plugin/marketplace ZIPs; all four publ
 asset downloads, hashes and sizes are verified. The earlier isolated Claude Code
 GitHub marketplace
 installation reported fifteen skills for 0.8.0; that historical observation does
-not establish 0.9.0 host inventory. Native Codex/Claude Code conversations, GUI
+not establish 0.9.0 or 0.10.1 host inventory. Native Codex/Claude Code conversations, GUI
 discovery/reload and specialist interaction remain unverified; CLI installation
 and file checks do not establish them.
 
@@ -65,7 +79,8 @@ Git repository. It does not request a model key or alter global Git settings.
 
 The agent runs the plugin's standard-library bootstrap using a compatible
 Python. Without `--wheel`, it installs the exact plugin manifest version from
-PyPI through the configured package index:
+PyPI through the configured package index. For this 0.10.1 candidate, that route
+is usable only after publication:
 
 ```text
 python /absolute/path/to/plugin/scripts/bootstrap.py --novel "/path/to/My Novel"
@@ -76,7 +91,7 @@ archive can be added by absolute path instead of the GitHub repository. Supply
 the exact matching local wheel to validate that artifact explicitly:
 
 ```text
-python /absolute/path/to/plugin/scripts/bootstrap.py --wheel /absolute/path/to/novel_creator-0.9.0-py3-none-any.whl --novel "/path/to/My Novel"
+python /absolute/path/to/plugin/scripts/bootstrap.py --wheel /absolute/path/to/novel_creator-0.10.1-py3-none-any.whl --novel "/path/to/My Novel"
 ```
 
 Here `/absolute/path/to/plugin` is the installed plugin directory, not the
@@ -95,9 +110,9 @@ Codex/project setup. Never initialize over an existing notebook to change hosts.
 
 The runtime is an isolated virtual environment for the exact plugin version,
 outside the plugin cache and the book. Windows uses
-`%LOCALAPPDATA%/NovelCreator/runtimes/0.9.0`; Linux uses
-`$XDG_CACHE_HOME/novel-creator/runtimes/0.9.0`, falling back to
-`~/.cache/novel-creator/runtimes/0.9.0`. Reuse checks the installed version,
+`%LOCALAPPDATA%/NovelCreator/runtimes/0.10.1`; Linux uses
+`$XDG_CACHE_HOME/novel-creator/runtimes/0.10.1`, falling back to
+`~/.cache/novel-creator/runtimes/0.10.1`. Reuse checks the installed version,
 dependencies and installation source; a local wheel's SHA-256 binds its
 provenance. A changed candidate wheel or switching from wheel to PyPI needs a
 separate cache location. Proxy, CA and package-index transport settings are
@@ -106,10 +121,11 @@ preserved while pip destination overrides are excluded. See the
 
 If the pinned version is missing from the index, report that actual failure;
 use a matching local wheel only when it is available for the intended setup.
-To install or upgrade the separate package in your configured environment:
+To install or upgrade the separate package in your configured environment, use
+the following command **only after 0.10.1 publication**:
 
 ```text
-python -m pip install --upgrade novel-creator==0.9.0
+python -m pip install --upgrade novel-creator==0.10.1
 ```
 
 If setup fails, preserve its partial files and follow the reported recovery
@@ -149,16 +165,26 @@ or upgrading the Python package also leaves books unchanged. Uninstalling the
 plugin leaves book data and its independent runtime in place; plugin entries
 then require re-enabling a compatible plugin before use.
 
-The notebook updater supports the original standalone Codex/project layout,
+The older focused notebook updater supports the original standalone Codex/project layout,
 including focused Clarify/Analyze/Help resources and Character development.
 It refuses host/plugin integration layouts before writing and is not a marketplace
 adoption tool. For Character development in existing plugin or other supported
 host layouts, follow the [manual update](character-development.md#manually-install-into-an-existing-format-1-notebook)
-with the published 0.9.0 package and matching enabled plugin. This changes only
+with the selected package and matching enabled plugin. This changes only
 the feature workflow and bounded root sections and retains older Help; it does
 not migrate the whole book snapshot. Existing legacy books use their reviewed
 updater without this notebook-only method; see the [upgrade guide](upgrading-projects.md).
 
-See [release notes](releases/0.9.0.md),
+For revised 0.10.1 session guidance in existing plugin books, follow the exact
+[manual preview/apply procedure](session-guidance-upgrade.md). It supports all
+selected hosts/languages and keeps skills and role files intact. It is separate
+from the older method updater and refuses customized snapshots or retained legacy
+state. After verified changes, reread selected `AGENTS.md`/`CLAUDE.md` and linked
+workflows, inspect actual enabled entries, and use the host's supported
+reload/reopen controls, possibly a new chat. File checks do not prove native
+discovery, reload, voice delivery or specialist behavior; unsaved chat drafts
+have no guaranteed recovery.
+
+See [candidate release notes](releases/0.10.1.md),
 [development checks](development.md#plugin-artifacts-and-installation-checks) and
-[qualification evidence](../tests/evaluations/release-0.9.0.md) for exact scope.
+[historical 0.9.0 qualification evidence](../tests/evaluations/release-0.9.0.md) for exact scope.

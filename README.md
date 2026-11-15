@@ -4,6 +4,17 @@ A home for developing an app that helps writers plan and create novels.
 
 ## Getting started
 
+**Novel Creator 0.10.1 is an unpublished candidate.** Compared with 0.10.0,
+it clarifies debug-report coverage, notebook approval/save/checkpoint and
+voice/handoff wording, and local read-only notebook retrospectives. Existing
+notebooks have a supported, reviewed [session-guidance refresh](docs/session-guidance-upgrade.md)
+for every supported host, skill source and language; legacy novels use their
+separate framework updater. Installing a package or plugin leaves pinned book
+resources unchanged. See the [candidate notes](docs/releases/0.10.1.md) and
+[release history](docs/releases/README.md) for install/update steps and limits.
+Full candidate qualification and publication are pending; native host reload,
+voice behavior and specialist interaction remain unverified.
+
 **Novel Creator 0.10.0 is published, 2026-11-13.** It adds opt-in
 [session debugging](workflows/debugging.md) for notebooks and legacy novels,
 with local ZIP reports. Existing notebooks need `novel-creator debug setup --novel PATH`;
@@ -353,7 +364,7 @@ wheel from the configured dependency environment:
 
 ```bash
 python -m pip wheel . --no-deps --wheel-dir dist
-python tests/verify_wheel.py dist/novel_creator-0.9.0-py3-none-any.whl
+python tests/verify_wheel.py dist/novel_creator-0.10.1-py3-none-any.whl
 ```
 
 Use the actual versioned filename produced by the build. The verifier installs

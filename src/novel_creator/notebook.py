@@ -198,6 +198,11 @@ _CLARIFY_ORIGINALS = {
 # catalog adds the new entry while customized copies remain protected.
 _CLARIFY_ORIGINALS['.novel-notebook/workflows/help.md'] = (
     '6fb17350dcf24828279d1ab7417fb05fc6cba4df2dd7cede83ab0ff5279908e0')
+# Identical character-development snapshots in public 0.9.0 and 0.10.0
+# (wheel identities are frozen by tests/verify_marketplace_previous.py).
+# Preserve the focused updater's old journeys without refreshing other guides.
+_CLARIFY_ORIGINALS['.novel-notebook/workflows/character-development.md'] = (
+    '1c75c5b40a43ca73726904adc43020b5b31237d5cdc57740d432e2021c22313e')
 _FOCUS = ('clarify', 'analyze', 'help')
 _ROUTING_START = '<!-- novel-creator:focused-methods:start -->'
 _ROUTING_END = '<!-- novel-creator:focused-methods:end -->'
@@ -326,8 +331,11 @@ def update(target, *, apply=False, preview_id=None, expected_head=None):
     # focused-method blocks remain byte-compatible with previous updates.
     section = re.search(rb'^## Character development\n.*?(?=^## |\Z)',
                         default_agents, re.M | re.S).group().rstrip() + b'\n'
-    existing_section = re.search(rb'^## Character development\n.*?(?=^## |\Z)',
-                                 comparable_agents, re.M | re.S)
+    # The already-validated managed focused block may follow an old EOF
+    # Character section. Its marker is a boundary, not writer section text.
+    existing_section = re.search(
+        rb'^## Character development\n.*?(?=^## |^' +
+        re.escape(_ROUTING_START.encode()) + rb'$|\Z)', comparable_agents, re.M | re.S)
     if existing_section:
         if (len(re.findall(rb'^## Character development$', comparable_agents, re.M)) != 1
                 or existing_section.group().rstrip() + b'\n' != section):

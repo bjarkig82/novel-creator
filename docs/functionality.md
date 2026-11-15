@@ -25,7 +25,7 @@ Direct notebook setup accepts `--host codex|claude|both` and
 `--skill-source project|plugin`; omitted options retain Codex/project defaults.
 Installing/updating a package or plugin leaves existing book resources and data
 unchanged. Existing legacy books and original-layout notebooks retain their
-[supported explicit updates](upgrading-projects.md); the notebook updater
+[supported explicit updates](upgrading-projects.md); the older focused notebook updater
 refuses host/plugin layouts before writing and is not an adoption tool. New and
 existing legacy books remain standalone, and existing notebooks keep their
 installed routing. Marketplace adoption, a legacy host port, macOS, MCP and
@@ -73,13 +73,27 @@ story files or committing; conflicts are reported. Existing legacy books need
 their supported explicit framework update. Package installation alone changes
 neither book format. Automated CLI/package checks do not establish real Codex
 conversation capture; a host smoke test is still required for that claim.
-The revised notebook save/handoff and local-review guidance in this checkout is
-a local source improvement. Existing notebook workflows stay pinned: package
-installation does not refresh them, `debug setup` refuses differing existing
-debugging guidance, and the bounded notebook updater does not refresh every shared
-workflow. Applying these revisions to an existing notebook requires separately
-authorized maintenance to compare/reconcile the affected resources and then
-reread/reload instructions in the host; no novel is changed by this work.
+The [0.10.1 candidate](releases/0.10.1.md) provides an exact reviewed
+[session-guidance preview/apply procedure](session-guidance-upgrade.md) for
+existing format-1 notebooks across English/Icelandic, Codex/Claude Code/both and
+project/plugin layouts. It refreshes four public-provenance shared workflows and
+appends bounded root routing, preserving skills, roles and custom root bytes.
+Package installation leaves these snapshots pinned; `debug setup` refuses
+differing existing debugging guidance, and the older focused notebook updater
+does not refresh every shared workflow. Customized workflows/routing, stale
+previews and unsafe paths refuse. Mixed-format books retaining legacy state
+need separate adapter review. Follow the documented host reread/reload steps;
+file checks do not establish native discovery or voice behavior.
+
+The revised notebook rules distinguish discussion, approval, verified file saves
+and Git checkpoints, including voice continuations and role handoffs. Approved
+but unwritten work remains unsaved. An authorized Git permission retry may use
+the host's approved scoped access route after inspection; otherwise checkpointing
+remains pending. Unrelated staging stays protected. A requested local read-only
+notebook retrospective uses only writer-selected public evidence, distinguishing
+observations, hypotheses and missing evidence without reconstructing omitted
+messages or inferring latency causes. It adds no legacy retrospective CLI,
+capture activation, story save, contribution opt-in or upload authority.
 During a legacy update hold, the pinned launcher remains blocked. Use the
 separately installed external configured runtime for `debug status`, `stop` or
 `export`; this does not bypass or finish framework update recovery.
@@ -470,15 +484,18 @@ See [the update workflow](../workflows/update.md) for commands and recovery boun
 
 ## Delivery status and limits
 
-The latest published package is [0.9.0](releases/0.9.0.md), published
-2026-11-12. Full Linux and full Windows qualification, both public installation
-checks and an independent clean public install passed. Public wheel/source
-hashes match the qualified candidate and the annotated tag is verified at that
-source. The [GitHub release](https://github.com/bjarkig82/novel-creator/releases/tag/v0.9.0)
-contains both qualified distributions and plugin/marketplace ZIPs; all four public
-asset downloads, hashes and sizes are verified.
-Native conversations, discovery/reload and literary quality remain unverified.
-See the [release evidence](../tests/evaluations/release-0.9.0.md).
+The latest verified published package is [0.10.0](releases/0.10.0.md), published
+2026-11-13. Full Linux/Windows qualification passed, published package hashes
+match its candidate, and its annotated source tag is verified. Public installation
+checks passed; the Linux check required a retry after index propagation delay.
+The [0.10.1 release notes](releases/0.10.1.md) describe an unpublished candidate;
+full candidate qualification and publication remain pending. Native conversations,
+discovery/reload, voice behavior, specialist interaction and literary quality
+remain unverified.
+
+The previous [0.9.0 release](releases/0.9.0.md), published 2026-11-12, added
+bounded character profile development. Its qualification, public package and
+GitHub assets retain their [historical evidence](../tests/evaluations/release-0.9.0.md).
 
 The previous [0.8.0 package](releases/0.8.0.md), published 2026-11-12, added
 marketplace setup. Its public package, published-index bootstrap, annotated tag

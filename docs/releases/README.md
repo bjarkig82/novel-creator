@@ -4,6 +4,7 @@ Read the notes for each version to understand its changes, compatibility and
 upgrade considerations. Candidate notes describe planned changes and do not
 establish that the package is available on PyPI.
 
+- [0.10.1](0.10.1.md) — **unpublished candidate**: clearer debug coverage and notebook save/handoff guidance, local read-only notebook reviews and explicit existing-notebook guidance refresh.
 - [0.10.0](0.10.0.md) — **published 2026-11-13**: optional session debugging and local ZIP reports; full Linux/Windows qualification passed.
 - [0.9.0](0.9.0.md) — **published 2026-11-12**: bounded character profile prose, explicit selected saves and host-aware existing-notebook delivery.
 - [0.8.0](0.8.0.md) — **published 2026-11-12**: Codex/Claude Code marketplace plugins and isolated setup for new Windows/Linux notebooks; existing projects retain their supported standalone update paths.

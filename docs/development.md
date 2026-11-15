@@ -79,7 +79,7 @@ The local full-suite/build commands are:
 ```bash
 python -m unittest discover -q
 python -m pip wheel . --no-deps --wheel-dir dist
-python tests/verify_wheel.py dist/novel_creator-0.9.0-py3-none-any.whl
+python tests/verify_wheel.py dist/novel_creator-0.10.1-py3-none-any.whl
 ```
 
 Use the actual versioned filename produced by the build. The wheel verifier
@@ -95,10 +95,10 @@ For every requested PyPI release, prepare versioned notes and update the
 
 ### Plugin artifacts and installation checks
 
-Version 0.9.0 is the latest verified PyPI release, published 2026-11-12. Its
-[GitHub release assets](https://github.com/bjarkig82/novel-creator/releases/tag/v0.9.0)
-are published with all four downloaded hashes and sizes verified. Generate plugin
-manifests/catalogs
+Version 0.10.0 is the latest verified PyPI release, published 2026-11-13; see its
+[release notes](releases/0.10.0.md). The checkout targets the unpublished
+[0.10.1 candidate](releases/0.10.1.md); full candidate qualification and
+publication remain pending. Generate plugin manifests/catalogs
 and deterministic archives from the package version, then check for drift
 without writes:
 
@@ -107,8 +107,8 @@ python scripts/build_plugins.py
 python scripts/build_plugins.py --check
 ```
 
-The default outputs are `dist/novel-creator-plugin-0.9.0.zip` (plugin root) and
-`dist/novel-creator-marketplace-0.9.0.zip` (both catalogs and the plugin tree).
+The current default outputs are `dist/novel-creator-plugin-0.10.1.zip` (plugin root) and
+`dist/novel-creator-marketplace-0.10.1.zip` (both catalogs and the plugin tree).
 Use `--output DIR` for a disposable destination. Both archives exclude runtime
 caches, credentials and bytecode. `tests.contract.test_plugin_bundle` checks
 manifest/version consistency, all sixteen entries (fifteen writing skills plus setup) and relative links, actual ZIP
@@ -121,14 +121,15 @@ python -m unittest tests.unit.test_plugin_bootstrap tests.contract.test_plugin_b
 
 The following opt-in helpers perform real installations into temporary runtimes
 and books, outside the checkout. They can download dependencies; the previous
-release helper also downloads the frozen hash-verified public 0.7.2 and 0.8.0 wheels unless
-`--previous-wheel PATH` / `--previous-080-wheel PATH` supply them locally. They are not unittest discovery
+release helper also downloads frozen hash-verified public 0.7.2, 0.8.0, 0.9.0
+and 0.10.0 wheels unless `--previous-wheel PATH`, `--previous-080-wheel PATH`,
+`--previous-090-wheel PATH` and `--previous-0100-wheel PATH` supply them locally. They are not unittest discovery
 modules. They need Python 3.11+, Git 2.39+ and Windows/Linux; they set disposable
 Git identities only in subprocess environments and do not modify global settings.
 
 ```text
-python tests/verify_plugin_install.py --wheel dist/novel_creator-0.9.0-py3-none-any.whl --report /tmp/plugin-install.json
-python tests/verify_marketplace_previous.py --wheel dist/novel_creator-0.9.0-py3-none-any.whl --sdist dist/novel_creator-0.9.0.tar.gz --report /tmp/marketplace-previous.json
+python tests/verify_plugin_install.py --wheel dist/novel_creator-0.10.1-py3-none-any.whl --report /tmp/plugin-install.json
+python tests/verify_marketplace_previous.py --wheel dist/novel_creator-0.10.1-py3-none-any.whl --sdist dist/novel_creator-0.10.1.tar.gz --report /tmp/marketplace-previous.json
 ```
 
 On Windows choose a writable report path such as `$env:TEMP\plugin-install.json`.
@@ -142,6 +143,12 @@ implicit marketplace adoption. The same gate executes the documented manual proc
 in actual public 0.8.0 notebooks for all twelve host/source/language layouts
 under installed wheel and source-distribution runtimes. It checks rendered
 resource bytes, conflicts, retry, story/custom directions, index and HEAD.
+For the 0.10.1 candidate it also executes the exact
+[session-guidance procedure](session-guidance-upgrade.md) against public 0.10.0
+notebooks across all twelve layouts, checks actual skills/links and preservation,
+and exercises new legacy setup and the explicit previous-release legacy update
+under installed wheel and source-distribution runtimes. The older focused
+notebook method updater remains distinct from that manual guidance refresh.
 These checks do not prove GUI skill discovery,
 native conversations or writing quality.
 
@@ -150,7 +157,7 @@ candidate wheel bootstrap. In release preparation, preserve the full Linux
 suite, complete rebuilt-wheel verifier and all existing workflow gates. CLI and
 resource changes select full Windows qualification under the
 [Windows release policy](testing-and-completion-guide.md#windows-release-selection).
-See the [release evidence ledger](../tests/evaluations/release-0.9.0.md).
+See the [candidate release notes and remaining limits](releases/0.10.1.md).
 
 ### Completing GitHub release assets
 

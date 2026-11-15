@@ -30,6 +30,8 @@ PUBLIC_WHEELS = {
     '0.7.2': (PREVIOUS_FILENAME, PREVIOUS_SHA256),
     '0.8.0': ('novel_creator-0.8.0-py3-none-any.whl',
               '390c6e208fe71a803783cd2cf979bada3e20988518a0032572fcf9a1b8711c5b'),
+    '0.10.0': ('novel_creator-0.10.0-py3-none-any.whl',
+               '097e9d093424a04fdf0d50fcfbc47c3ed7fd0e6d4d081167b3a78cda497ce4d6'),
     '0.9.0': ('novel_creator-0.9.0-py3-none-any.whl',
               '59050772544faa3056fa173f06c7c410e5f07e352fdad38d41bf88185e86667f'),
 }
@@ -93,6 +95,17 @@ def verify(*, plugin, wheel, previous=None, source_version=PREVIOUS_VERSION, sdi
         python = runtime['runtime_python']
         old_product, old_cli = install_previous(python, scratch, env,
                                                version=source_version, supplied=previous)
+        if source_version == '0.10.0':
+            source = previous_wheel(scratch, previous or (scratch / PUBLIC_WHEELS[source_version][0]),
+                                    version=source_version)
+            return {'ok': True, 'source_sha256': PUBLIC_WHEELS[source_version][1],
+                    'verified_product_files': runtime['verified_product_files'],
+                    'candidate_artifact': 'sdist' if sdist else 'wheel',
+                    'candidate_artifact_sha256': hashlib.sha256((sdist or wheel).read_bytes()).hexdigest(),
+                    'candidate_wheel_sha256': hashlib.sha256(wheel.read_bytes()).hexdigest(),
+                    'notebooks': verify_session_upgrade(python, old_product, old_cli, scratch, env),
+                    'legacy': verify_debug_legacy(python, source, wheel, scratch, env, runtime['version'],
+                                                  source_version=source_version)}
         if source_version == '0.9.0':
             source = previous_wheel(scratch, previous or (scratch / PUBLIC_WHEELS[source_version][0]),
                                     version=source_version)
@@ -164,10 +177,70 @@ def verify(*, plugin, wheel, previous=None, source_version=PREVIOUS_VERSION, sdi
                 'notebooks': cases}
 
 
-def verify_debug_legacy(python, source, wheel, scratch, env, version):
-    """Upgrade a real 0.9.0 pinned book via the installed candidate controller."""
+def verify_session_upgrade(python, old_product, old_cli, scratch, env):
+    """Previous public 0.10.0 notebooks and actual candidate new setup, all layouts."""
+    try:
+        from tests.session_guidance_checks import exercise, check_links, procedure
+    except ModuleNotFoundError:
+        from session_guidance_checks import exercise, check_links, procedure
+    cases = []
+    for host in ('codex', 'claude', 'both'):
+        for source in ('project', 'plugin'):
+            for language in ('en', 'is'):
+                book = scratch / f'Session {host} {source} {language}'
+                expected = scratch / ('New ' + book.name)
+                for path, command in ((book, [python, '-I', '-B', '-c', old_cli, old_product]),
+                                      (expected, [python, '-I', '-B', '-m', 'novel_creator'])):
+                    created = json.loads(run([*command, 'notebook', 'init', path.name,
+                        '--path', path, '--language', language, '--host', host,
+                        '--skill-source', source, '--json'], env=env, cwd=scratch))
+                    require(created.get('ok') and created['data']['ready'], 'Notebook init failed')
+                if not cases:
+                    before = snapshot(book)
+                    old_probe = ('import sys;sys.path.insert(0,sys.argv.pop(1));exec(' +
+                                 repr(procedure()) + ')')
+                    run([python, '-I', '-B', '-c', old_probe, old_product, 'preview'],
+                        env=env, cwd=book, expected_exit=1)
+                    require(snapshot(book) == before, 'Old package capability refusal changed files')
+                if host == 'codex' and source == 'project':
+                    # Retain the established default-layout updater journey too.
+                    focused = [python, '-I', '-B', '-m', 'novel_creator', 'notebook',
+                               'update', '--path', book]
+                    before = snapshot(book)
+                    review = json.loads(run([*focused, '--json'], env=env, cwd=scratch))['data']
+                    require(snapshot(book) == before, 'Focused preview changed notebook')
+                    run([*focused, '--apply', '--preview', review['preview_id'],
+                         '--expected-head', review['reviewed_head'], '--json'], env=env, cwd=scratch)
+                    after = snapshot(book)
+                    changed = {n for n in before.keys() | after.keys() if before.get(n) != after.get(n)}
+                    require(changed <= {'AGENTS.md', '.novel-notebook/workflows/character-development.md'},
+                            'Focused updater refreshed unrelated existing guidance')
+                    repeated = json.loads(run([*focused, '--json'], env=env, cwd=scratch))['data']
+                    require(repeated['already_current'], 'Focused update retry failed')
+                check_links(expected)
+                result = exercise(python, book, expected, env, host=host, source=source)
+                cases.append(dict(host=host, skill_source=source, language=language,
+                                  source_version='0.10.0', new_notebook=True, **result))
+    # New legacy books retain their supported methods; notebook-only guidance
+    # must not silently introduce notebook save semantics or a retro CLI there.
+    for language in ('en', 'is'):
+        book = scratch / ('New legacy ' + language)
+        book.mkdir()
+        run(['git', '-C', book, 'init', '-b', 'main'], env=env, cwd=scratch)
+        probe = ("from novel_creator.install import initialize;import sys,json;"
+                 "r=initialize(sys.argv[1],json.dumps({'title':'Synthetic new legacy',"
+                 "'manuscript_language':sys.argv[2]}));assert r['data']['saved']")
+        run([python, '-I', '-B', '-c', probe, book, language], env=env, cwd=scratch)
+        require((book / '.novel-creator/workflows/debugging.md').is_file(), 'New legacy debug guide missing')
+        require((book / '.agents/skills/novel-clarify/SKILL.md').is_file(), 'Legacy clarification entry missing')
+        check_links(book)
+    return cases
+
+
+def verify_debug_legacy(python, source, wheel, scratch, env, version, *, source_version="0.9.0"):
+    """Upgrade a frozen public pinned book via the installed candidate controller."""
     probe = '''
-import json,sys
+import json,sys,re
 from pathlib import Path
 from contextlib import contextmanager
 import novel_creator
@@ -176,7 +249,7 @@ assert novel_creator.__version__ == sys.argv[4]
 sys.path.append(sys.argv[1])
 from tests import update_helpers
 from tests.verify_update import installed_matrix
-update_helpers.SOURCE_WHEELS['0.9.0'] = (sys.argv[2], sys.argv[5])
+update_helpers.SOURCE_WHEELS[sys.argv[6]] = (sys.argv[2], sys.argv[5])
 original = update_helpers.historical_book
 @contextmanager
 def checked_book(*args, **kwargs):
@@ -185,6 +258,11 @@ def checked_book(*args, **kwargs):
   pinned = book.root / '.novel-creator/src/novel_creator/debug.py'
   assert pinned.is_file()
   assert (book.root / '.novel-creator/workflows/debugging.md').is_file()
+  for skill in ('novel-clarify', 'novel-analyze', 'novel-help'):
+   entry = book.root / '.agents/skills' / skill / 'SKILL.md'
+   assert entry.is_file()
+   for link in re.findall(r'\]\(([^)#]+)(?:#[^)]*)?\)', entry.read_text(encoding='utf-8')):
+    assert (entry.parent / link).is_file()
   started = book.launch('debug','start','--novel',book.root,'--json')
   assert started.returncode == 0, started.stderr
   session = json.loads(started.stdout)['data']['debug_session']
@@ -199,7 +277,7 @@ result = installed_matrix([sys.argv[2]], sys.argv[3])
 print(json.dumps(result))
 '''
     return json.loads(run([python, '-I', '-B', '-X', 'utf8', '-c', probe, ROOT, source, wheel,
-                           version, PUBLIC_WHEELS['0.9.0'][1]], env=env, cwd=scratch))
+                           version, PUBLIC_WHEELS[source_version][1], source_version], env=env, cwd=scratch))
 
 
 def verify_debug_upgrade(python, old_product, old_cli, scratch, env):
@@ -391,12 +469,13 @@ def main():
     parser.add_argument('--previous-wheel', type=Path, help='Use a local hash-verified 0.7.2 wheel instead of downloading')
     parser.add_argument('--previous-080-wheel', type=Path, help='Local hash-verified public 0.8.0 wheel')
     parser.add_argument('--previous-090-wheel', type=Path, help='Local hash-verified public 0.9.0 wheel')
+    parser.add_argument('--previous-0100-wheel', type=Path, help='Local hash-verified public 0.10.0 wheel')
     parser.add_argument('--sdist', type=Path, help='Also test installation from the exact candidate sdist')
     parser.add_argument('--report', type=Path, required=True, help='Success JSON report destination')
     args = parser.parse_args()
     reports = []
     for source_version, previous in (('0.7.2', args.previous_wheel), ('0.8.0', args.previous_080_wheel),
-                                     ('0.9.0', args.previous_090_wheel)):
+                                     ('0.9.0', args.previous_090_wheel), ('0.10.0', args.previous_0100_wheel)):
         for sdist in ((None, args.sdist.resolve()) if args.sdist else (None,)):
             reports.append(verify(plugin=args.plugin.resolve(), wheel=args.wheel.resolve(),
                                   previous=previous, source_version=source_version, sdist=sdist))

@@ -19,6 +19,17 @@ On an explicit request to start debugging or export a debug report, follow
 unless explicitly started for this writing session; ordinary writing needs no
 debug recorder or Python runtime.
 
+For an explicitly requested local notebook retrospective, follow the read-only
+[notebook retrospective guidance](.novel-notebook/workflows/debugging.md#local-notebook-retrospective)
+on a debug archive or other public evidence the writer supplies or explicitly
+selects. Keep the review in chat; it enables no capture, story writes, commits,
+uploads or publication and adds no retrospective CLI.
+
+Keep discussed ideas, writer-approved changes, verified file saves and verified
+Git commits distinct. Approval does not prove a write; approved but unwritten
+work is unsaved, and saved files can have a pending checkpoint. Follow the
+shared conversation and character-development rules before reporting save status.
+
 After initializing this notebook, read these instructions, the linked guides,
 `notebook/project.md` and `notebook/working-summary.md` before any creative reply in the
 same conversation. Use this notebook's folder as the working directory and

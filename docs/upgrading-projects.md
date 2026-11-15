@@ -5,29 +5,64 @@ instructions require an explicit project update as well. Keep the configured
 Python environment outside the novel and open the intended novel folder in Codex.
 Do not initialize over an existing novel or convert formats to obtain a skill.
 
-[0.9.0](releases/0.9.0.md), published 2026-11-12, is the latest package. It adds
-Character development for notebooks and retains marketplace setup, clarification
-suggestions/custom answers and supported standalone updates. Install the exact
-version in your configured environment:
+[0.10.0](releases/0.10.0.md), published 2026-11-13, is the latest verified
+published package. It adds optional local session debugging to both formats.
+Install the exact published version in your configured environment:
 
 ```text
-python -m pip install --upgrade novel-creator==0.9.0
+python -m pip install --upgrade novel-creator==0.10.0
 ```
 
-New notebooks initialized with 0.9.0 receive Character development during setup;
-legacy novels retain their existing methods. Existing projects follow the
-format-specific procedure below;
-package installation alone does not refresh their pinned resources.
+The [0.10.1 candidate](releases/0.10.1.md) is unpublished. It revises report
+coverage and notebook session/save/handoff guidance. After publication only,
+install it with `python -m pip install --upgrade novel-creator==0.10.1`.
+New projects receive the resources appropriate to their format at setup.
+Existing projects need the format-specific updates below; package installation
+alone does not refresh their pinned resources.
+
+## Session guidance in 0.10.1
+
+The 0.10.1 candidate provides an explicit [preview/apply manual procedure](session-guidance-upgrade.md)
+for existing format-1 notebooks in all supported host/skill-source/language layouts.
+It refreshes only four provenance-verified shared workflows and appends bounded
+root routing, preserving project skills, roles and custom instructions. Package
+installation alone leaves notebook snapshots unchanged; follow that procedure
+and host reread/reload guidance after installing the reviewed package. First
+install missing debugging prerequisites with `novel-creator debug setup --novel PATH --json`
+if needed; this setup does not replace differing existing debugging guidance.
+Save the exact linked snippet outside the notebook, pause editing and run it
+with the notebook itself as the working directory:
+
+```text
+python /absolute/path/session-guidance-upgrade.py preview
+python /absolute/path/session-guidance-upgrade.py apply PREVIEW_ID REVIEWED_HEAD
+```
+
+Review the package/resource location, changed paths and returned preview ID/HEAD
+before applying. Customized workflows/routing, stale inputs and unsafe paths
+refuse; the procedure makes no Git commit. Review partial writes on interruption
+and take a fresh preview after reconciliation. It supports English/Icelandic,
+Codex/Claude Code/both and project/plugin layouts; update/enable the matching
+plugin first where used. Reread selected root instructions and linked workflows,
+inspect skills/links and use the host's supported reload/reopen controls, possibly
+a new chat. File checks do not prove native reload, voice delivery or specialist
+behavior. Unsaved chat drafts have no guaranteed recovery.
+
+Legacy novels use their separate framework update below; the notebook procedure
+refuses retained legacy or mixed-format state. A manually migrated mixed-format
+book needs separate adapter review. The older focused `notebook update` command
+below does not refresh all session guidance or adopt marketplace routing.
 
 ## 0.9.0 character development
 
-Install the published package above, then explicitly update the selected notebook.
+With the installed package, explicitly update the selected notebook.
 Package installation alone leaves its resources unchanged.
 
 For an original standalone Codex/project notebook (no integration marker), use
 the preview/apply commands under [Existing Markdown notebooks](#existing-markdown-notebooks)
-with the 0.9.0 CLI. It additionally installs Character development, its workflow
-and absent prerequisites, appends a separately protected approval section, and
+with the CLI's focused method updater (introduced in 0.9.0). It additionally
+installs Character development, its workflow and absent prerequisites,
+appends a separately protected approval section, and
 refreshes only the provenance-verified public Help catalog. Customized Help and
 differing feature resources block before application; LF/CRLF alone is harmless.
 
@@ -58,7 +93,7 @@ New notebooks can opt into the
 remain standalone. Existing notebooks keep their installed host routing and
 project-local resources; original Codex/project notebooks retain the focused
 Clarify/Analyze/Help and Character development update procedure below with the
-published 0.9.0 CLI.
+installed CLI. This focused command is separate from the session-guidance refresh.
 
 This updater refuses notebooks with a nondefault host/plugin integration marker
 at `.novel-notebook/integration.json` before writing. It is not an adoption tool;
@@ -77,38 +112,45 @@ the complete package → project preview/apply → Codex reload sequence below.
 ## Legacy novels
 
 A legacy novel contains `.novel-creator/`. Ask the agent in that novel to preview
-an update to 0.9.0 using `$novel-update` and its external controller. The controller
-is the absolute path to the compatible Python installation outside the novel;
+an update to the selected published version using `$novel-update` and its external
+controller. The controller is the absolute path to the compatible Python
+installation outside the novel;
 retain the verified runtime interpreter if it differs:
 
 ```text
-CONTROLLER -I -B -m novel_creator update --novel BOOK --python RUNTIME --version 0.9.0 --json
+CONTROLLER -I -B -m novel_creator update --novel BOOK --python RUNTIME --version 0.10.0 --json
 ```
 
 Review the concrete target version, changed paths, blockers and HEAD. After
 requesting that exact preview's application, use its returned preview ID and HEAD:
 
 ```text
-CONTROLLER -I -B -m novel_creator update --novel BOOK --apply --preview PREVIEW_ID --version 0.9.0 --expected-head REVIEWED_HEAD --json
+CONTROLLER -I -B -m novel_creator update --novel BOOK --apply --preview PREVIEW_ID --version 0.10.0 --expected-head REVIEWED_HEAD --json
 ```
 
 Follow the [existing update procedure](../workflows/getting-started.md#updating-an-existing-book),
 including client closure for initial 0.1.0/0.2.0 updates, `--confirm-quiescent`
 only after that confirmation, and external exact-operation recovery. Installing
-the new package alone does not replace pinned files.
+the new package alone does not replace pinned files. For 0.10.1, use
+`--version 0.10.1` in both commands only after publication; see its
+[candidate notes](releases/0.10.1.md).
 
 The update installs legacy versions of `$novel-clarify`, `$novel-analyze` and
 `$novel-help` with linked workflows. In 0.7.2, Clarify offers labeled suggestions
 and custom answers while keeping exact-exchange saving and writer authority.
 Story records, manuscripts, custom instructions and unrelated staging are
-preserved in the updater's dedicated framework commit. Analysis and help remain
-read-only passes, without session changes, input capture, journal saves or
+preserved in the updater's dedicated framework commit. The selected current
+framework also delivers its shared report builder and legacy debugging workflow;
+it does not add notebook character-draft semantics or convert the format.
+Analysis and help remain read-only passes, without session changes, input capture, journal saves or
 automatic maintenance. A request to save findings remains separate work.
 
 ## Existing Markdown notebooks
 
-A notebook contains `notebook/project.md` and `.novel-notebook/`. Use the 0.9.0
-CLI from your configured environment to preview the selected notebook:
+A notebook contains `notebook/project.md` and `.novel-notebook/`. This older
+focused method/prerequisite updater supports the original Codex/project layout;
+for revised 0.10.1 session guidance use the separate procedure above. Use the
+installed CLI from your configured environment to preview the selected notebook:
 
 ```text
 novel-creator notebook update --path "/path/to/My Novel" --json
