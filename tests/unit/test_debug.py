@@ -88,6 +88,60 @@ class DebugRecorder(unittest.TestCase):
         with self.assertRaises(ToolError):
             debug.status(other, first)
 
+    def test_export_counts_exact_observations_without_disclosing_content(self):
+        identifier = self.start()
+        debug.record(self.root, identifier, {'events': [
+            {'operation': 'message.user', 'content': 'Synthetic user prose',
+             'observed_at': '2026-11-12T12:00:00Z',
+             'correlation_ids': {'turn_id': 'synthetic-correlation'}},
+            {'operation': 'message.assistant.prepared', 'content': 'Synthetic prepared prose'},
+            {'operation': 'message.assistant', 'content': 'Synthetic assistant prose',
+             'correlation_ids': {}},
+            {'operation': 'message.assistant', 'observed_at': '2026-11-12T12:00:01Z'},
+            {'operation': 'capture.gap', 'metadata': {'scope': 'Synthetic unavailable observation'}},
+            {'operation': 'assistant.prepared'},
+        ]})
+        with debug.activate(self.root, identifier, 'command'):
+            debug.capture('message.assistant.prepared', content='Synthetic package observation')
+        original = (self.directory(identifier) / 'events.jsonl').read_bytes()
+        result = debug.export(self.root, identifier)
+        self.assertTrue(result['partial'])
+        with zipfile.ZipFile(result['output']) as archive:
+            report = archive.read('report.md').decode()
+            self.assertIn('Parsed events: 10.', report)
+            for operation, count in (('message.user', 1), ('message.assistant', 2),
+                                     ('message.assistant.prepared', 2), ('capture.gap', 1)):
+                self.assertIn(f'| {operation} | {count} |', report)
+            self.assertIn('| message.assistant.prepared | agent-recorded | 1 |', report)
+            self.assertIn('| message.assistant.prepared | package-measured | 1 |', report)
+            self.assertIn('| assistant.prepared | agent-recorded | 1 |', report)
+            self.assertIn('Events with nonempty observed_at text: 2 / 10.', report)
+            self.assertIn('Events with nonempty correlation_ids objects: 1 / 10.', report)
+            for private in ('Synthetic user prose', 'Synthetic prepared prose',
+                            'Synthetic assistant prose', 'Synthetic package observation',
+                            'synthetic-correlation', 'Synthetic unavailable observation'):
+                self.assertNotIn(private, report)
+            self.assertEqual(archive.read('events.jsonl'), original)
+            info = json.loads(archive.read('session.json'))
+            self.assertTrue(info['partial'])
+            self.assertEqual(info['debug_version'], 1)
+
+    def test_stopped_export_zero_counts_are_not_a_completeness_claim(self):
+        identifier = self.start()
+        debug.stop(self.root, identifier)
+        result = debug.export(self.root, identifier)
+        self.assertFalse(result['partial'])
+        with zipfile.ZipFile(result['output']) as archive:
+            report = archive.read('report.md').decode()
+        self.assertIn('Status: Stopped', report)
+        self.assertIn('Parsed events: 2.', report)
+        for operation in ('message.user', 'message.assistant', 'message.assistant.prepared', 'capture.gap'):
+            self.assertIn(f'| {operation} | 0 |', report)
+        self.assertIn('recording lifecycle only, not capture completeness', report)
+        self.assertIn('does not prove the action did not happen', report)
+        self.assertIn('Events with nonempty observed_at text: 0 / 2.', report)
+        self.assertIn('Events with nonempty correlation_ids objects: 0 / 2.', report)
+
     def test_capture_failure_never_changes_operation_outcome_and_resets(self):
         stderr = io.StringIO()
         with contextlib.redirect_stderr(stderr):
@@ -114,6 +168,10 @@ class DebugRecorder(unittest.TestCase):
         self.assertTrue(result['warnings'])
         with zipfile.ZipFile(result['output']) as archive:
             self.assertEqual(archive.read('events.jsonl'), log.read_bytes())
+            report = archive.read('report.md').decode()
+            self.assertIn('Parsed events: 1.', report)
+            self.assertIn('damaged lines are excluded', report)
+            self.assertIn('Damaged or incomplete event line 2', report)
         with self.assertRaises(ToolError):
             debug.record(self.root, identifier, {'operation': 'after-corruption'})
 

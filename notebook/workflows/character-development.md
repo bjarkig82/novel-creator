@@ -92,6 +92,17 @@ Clear save approval accepts the selected profile propositions unless the writer
 explicitly asks to save them as proposed. Split propositions as needed when only
 part of an addition is approved. Unselected suggestions stay chat-only.
 
+Approval, a saved file and committed history are separate states. Keep the
+approved current draft available in chat until its actual write to the owning
+file is verified. If writing is interrupted, denied or only partly succeeds,
+identify the approved text that remains unsaved; do not claim it is persisted or
+move it into a handoff/draft file to compensate. Verify current files before a
+retry and save only the still-authorized selection. A verified file save with a
+failed Git checkpoint is saved with history pending, not an unsaved draft.
+In voice continuations or specialist handoffs, retain these exact distinctions
+and the chat-only boundary; approval does not establish speech delivery or
+cross-chat draft recovery.
+
 Preserve format metadata and field labels, stable topic identity, ownership,
 provenance, history and unresolved questions unless actually resolved. A changed
 existing item retains its Item-ID; new facts receive their own items as

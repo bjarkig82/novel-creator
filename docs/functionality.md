@@ -55,6 +55,12 @@ or Python runtime when debugging is off.
 Sessions have independent IDs, require explicit activation and never automatically
 attach to another chat. Interrupted logs remain available for partial export.
 The ZIP contains `report.md`, metadata, `events.jsonl` and content attachments.
+The readable report counts exact operation/source pairs and keeps user, assistant,
+prepared-message and explicit `capture.gap` labels distinct. It reports nonempty
+`observed_at` and correlation-ID availability without copying message content or
+ID values into the coverage summary. Counts cover readable records only; zero
+does not prove an action was absent. Stopped/partial describes recording lifecycle,
+not completeness, and ingestion time does not establish observation time.
 Default logs/exports are Git-ignored under `.novel-notebook/local/debug/` or
 `.novel-creator/local/debug/`; exports never overwrite an existing destination.
 Private writing stays local. No hidden reasoning, credential files, environment
@@ -67,6 +73,13 @@ story files or committing; conflicts are reported. Existing legacy books need
 their supported explicit framework update. Package installation alone changes
 neither book format. Automated CLI/package checks do not establish real Codex
 conversation capture; a host smoke test is still required for that claim.
+The revised notebook save/handoff and local-review guidance in this checkout is
+a local source improvement. Existing notebook workflows stay pinned: package
+installation does not refresh them, `debug setup` refuses differing existing
+debugging guidance, and the bounded notebook updater does not refresh every shared
+workflow. Applying these revisions to an existing notebook requires separately
+authorized maintenance to compare/reconcile the affected resources and then
+reread/reload instructions in the host; no novel is changed by this work.
 During a legacy update hold, the pinned launcher remains blocked. Use the
 separately installed external configured runtime for `debug status`, `stop` or
 `export`; this does not bypass or finish framework update recovery.
@@ -249,6 +262,14 @@ The installed [format guidance](../notebook/workflows/format.md) is the detailed
 reference; [notebook evidence](../tests/evaluations/agent-story-notebook.md) records
 what has actually been exercised.
 
+Discussed ideas, approved propositions, verified file saves and verified Git
+checkpoints remain separate, including voice continuations and role handoffs.
+Read back owning files before claiming a save. A permission-denied index-lock
+creation can use a host-approved narrowly scoped access route after fresh Git
+and staging inspection; unavailable access means a disclosed pending checkpoint,
+never lock removal, sandbox bypass or consuming unrelated staging. These are
+workflow requirements; automated checks do not establish actual host compliance.
+
 Notebook brainstorming selects both a useful focus and a conversational method
 from actual book context, the current request and subsequent answers. Loose
 fragments can invite associations, a stuck idea can invite freewriting, and an
@@ -345,6 +366,12 @@ notes, summary changes or checkpoints. Approved saves preserve canon authority,
 stable identities, ownership, provenance, history and unresolved questions.
 Ordinary question-led character exploration remains available.
 
+Approval does not prove persistence: approved character drafts stay available in
+chat until their actual owning-file writes are verified. Interrupted/failed writes
+remain explicitly unsaved; successful writes with failed commits have history
+pending. Voice and specialist handoffs preserve this boundary without draft files
+or implied cross-chat recovery.
+
 This notebook-only English/Icelandic addition ships in published 0.9.0 and was
 absent from 0.8.0. New notebooks receive rendered host/project or plugin
 routing. Existing default Codex/project notebooks use the preview/apply updater;
@@ -408,6 +435,13 @@ Durable association with that reply prevents duplicate notices after interrupted
 acknowledgement; failed saves retain pending notices. No unsolicited turn is started,
 previous replies remain unchanged and saved inclusion does not prove display.
 See [the retrospective workflow](../workflows/retrospective.md) for controls and recovery.
+
+Notebooks also support a requested local, read-only evidence review of a supplied
+debug archive under the [notebook debugging workflow](../notebook/workflows/debugging.md#local-notebook-retrospective).
+It reports observations and limits in chat without invoking the legacy CLI,
+discovering host transcripts or enabling contributor participation. Archive review
+alone authorizes no file changes, uploads, issues, PRs or publication. Private
+archive content stays out of framework changes; improvements use synthetic cases.
 
 ## Updating existing legacy books
 

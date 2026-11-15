@@ -1,4 +1,5 @@
 """Explicit, local-only session diagnostics, independent of story authority."""
+from collections import Counter
 from contextlib import contextmanager
 from contextvars import ContextVar
 from datetime import datetime, timezone
@@ -465,8 +466,25 @@ def _report(info, events, warnings):
     lines.extend(['', f"Initial Git checkpoint: {info['initial_git_checkpoint']}", '',
                   '## Capture limits', '',
                   'Package-measured events describe observed package operations. Agent-recorded events describe supplied public observations; they are not an exhaustive host transcript. Missing host/model data remains unknown.', '',
+                  'Stopped and partial describe recording lifecycle only, not capture completeness. A stopped archive may still omit observations.', '',
                   'Durations measure individual operations using a monotonic clock. Gaps between timestamps are elapsed gaps, not measured work or evidence of their cause. Nested durations overlap. Debugging adds file, hashing and logging overhead.', '',
                   'Content includes the captured working set only. Hidden reasoning, private host storage and environment dumps are not collected. This archive may contain private story and conversation text; no upload is performed.', ''])
+    operations = Counter(event['operation'] for event in events)
+    counts = Counter((event['operation'], event['source']) for event in events)
+    observed = sum(isinstance(event.get('observed_at'), str) and bool(event['observed_at'].strip()) for event in events)
+    correlated = sum(isinstance(event.get('correlation_ids'), dict) and bool(event['correlation_ids']) for event in events)
+    lines.extend(['## Observed capture coverage', '',
+                  f'Parsed events: {len(events)}. Counts describe only the supplied, readable records; damaged lines are excluded.', '',
+                  'Exact operation labels are counted separately, without inferring aliases or missing actions. Zero means no event with that label was recorded; it does not prove the action did not happen. Prepared messages do not establish display, and explicit capture.gap events do not enumerate every possible gap.', '',
+                  '| Exact operation | Events |', '| --- | --- |'])
+    for operation in ('message.user', 'message.assistant', 'message.assistant.prepared', 'capture.gap'):
+        lines.append(f'| {operation} | {operations[operation]} |')
+    lines.extend(['', '| Exact operation | Source | Events |', '| --- | --- | --- |'])
+    for (operation, source), count in sorted(counts.items()):
+        lines.append(f'| {cell(operation)} | {cell(source)} | {count} |')
+    lines.extend(['', f'Events with nonempty observed_at text: {observed} / {len(events)}.',
+                  f'Events with nonempty correlation_ids objects: {correlated} / {len(events)}.',
+                  'Availability counts do not verify timestamp accuracy or host correlation. Ingestion timestamps are not observation timestamps. No message text or correlation values are reproduced in this summary.', ''])
     lines.extend(['## Capture warnings', ''] + (['- ' + w for w in warnings] or ['No damaged records detected. Missing observations may still exist.']))
     changed = sorted({ref['path'] for e in events for ref in e.get('files', []) if ref.get('phase') in ('before', 'after')})
     lines.extend(['', '## Touched files', ''] + (['- ' + cell(p) for p in changed] or ['No file-change snapshots recorded.']))

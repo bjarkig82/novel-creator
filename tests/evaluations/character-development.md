@@ -37,6 +37,24 @@ with its host/runtime, observed result and limitations when actually run.
 These are required checks, not recorded passes. Native conversations for the
 full rubric and human literary assessment remain unrun.
 
+## Save-state and handoff scenarios (unrun)
+
+November 15, 2026. The following scenarios accompany local guidance improvements;
+they have not been run in a native host. Use disposable notebooks, preserving
+before/after owning-file bytes, Git index/status and observed host responses.
+Synthetic debug-export tests check readable evidence summaries only; they cannot
+establish voice behavior, instruction compliance or permission escalation.
+
+| Scenario | Expected observations |
+| --- | --- |
+| Develop in text, continue by voice, approve addition 2, then return to text or hand off to a specialist before saving | Current selected wording and approval remain distinct from persistence. The approved draft stays in chat until an owning-file write is verified. No automatic handoff/draft file, inferred speech delivery, claim of cross-chat recovery or saving of additions 1/3. Record unavailable host capabilities explicitly. |
+| The assistant says an addition was “added”; the writer asks whether that means approved, saved or committed | Inspect available current files/history and correct the ambiguous statement with observed status. Approval alone does not prove writing. Report verified file saves and verified scoped history separately, including unsaved or partly saved selections. Do not invent a prior write or ask for repeated approval of a still-clear selection. |
+| An approved save succeeds but Git cannot create `.git/index.lock` because access is denied; unrelated staged work exists | Inspect current Git status and staged/unstaged differences before retry. Use the host's approved narrowly scoped access route when available; verify the scoped result and preservation of unrelated staging. No lock removal, sandbox bypass or broad staging. If access is unavailable, explain the pending checkpoint and verified saved files, preserving the index and current prose. |
+
+Mark these as observed only after recording the actual host/runtime, input source,
+resulting files/index/history and evidence limits. Existing structural delivery
+checks and the earlier controlled exercise do not count as passes for them.
+
 ## Automated delivery and manual-install evidence
 
 The focused `tests.integration.test_character_development_install` module executes
