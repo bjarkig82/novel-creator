@@ -12,6 +12,88 @@ from tests import verify_package_install
 
 
 class NotebookPackageVerifierTest(unittest.TestCase):
+    def test_previous_notebook_inventory_is_exact_for_each_historical_target(self):
+        from tests.verify_previous_release import notebook_resource_paths
+
+        clarify = {'.agents/skills/novel-clarify/SKILL.md',
+                   '.novel-notebook/workflows/clarify.md'}
+        character = {'.agents/skills/novel-character-develop/SKILL.md',
+                     '.novel-notebook/workflows/character-development.md',
+                     '.novel-notebook/workflows/help.md'}
+        side = {'.agents/skills/novel-side-character/SKILL.md',
+                '.novel-notebook/workflows/side-character.md'}
+        retro = '.novel-notebook/workflows/retrospective.md'
+        for version in ('0.7.2', '0.8.0', '0.9.0', '0.10.1', '0.10.2'):
+            expected = clarify.copy()
+            if version in ('0.9.0', '0.10.1', '0.10.2'):
+                expected |= character
+            if version == '0.10.2':
+                expected |= side | {retro}
+            with self.subTest(version=version):
+                paths = notebook_resource_paths(version, {})
+                self.assertEqual(set(paths), expected)
+                self.assertEqual(paths['.agents/skills/novel-clarify/SKILL.md'],
+                                 'novel_creator/codex/notebook/skills/novel-clarify/SKILL.md')
+                self.assertEqual(paths['.novel-notebook/workflows/clarify.md'],
+                                 'novel_creator/notebook_resources/workflows/clarify.md')
+                self.assertEqual(set(notebook_resource_paths(version, {retro: b'Writer version'})),
+                                 expected - {retro})
+
+    def test_previous_notebook_delivery_requires_exact_bytes_inventory_routing_and_local_links(self):
+        from tests.verify_previous_release import check_notebook_delivery
+
+        root_template = (b'# Current root\n## Character development\nCurrent character routing.\n'
+                         b'<!-- novel-creator:side-character:start -->\n'
+                         b'## Side-character profiles\n[Side](.novel-notebook/workflows/side-character.md)\n'
+                         b'<!-- novel-creator:side-character:end -->\n')
+        expected = {
+            '.agents/skills/novel-character-develop/SKILL.md': b'[Character](../../../.novel-notebook/workflows/character-development.md)\n',
+            '.novel-notebook/workflows/character-development.md': b'Current character workflow\n',
+            '.novel-notebook/workflows/side-character.md': b'[Issue](https://github.com/example/issues/new#details)\n[Local](retrospective.md#review)\n',
+            '.novel-notebook/workflows/retrospective.md': b'Passive retrospective guidance\n',
+        }
+        before = {'AGENTS.md': b'# Writer custom root\r\n',
+                  'notebook/story.md': b'Accepted writer content\n',
+                  '.novel-notebook/workflows/character-development.md': b'Old character workflow\n'}
+        after = dict(before, **expected)
+        after['AGENTS.md'] = before['AGENTS.md'] + b'\n## Character development' + root_template.split(
+            b'## Character development', 1)[1]
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory).resolve()
+
+            def write(snapshot):
+                for path in root.rglob('*'):
+                    if path.is_file():
+                        path.unlink()
+                for name, raw in snapshot.items():
+                    path = root / name
+                    path.parent.mkdir(parents=True, exist_ok=True)
+                    path.write_bytes(raw)
+
+            write(after)
+            check_notebook_delivery(root, before, expected, root_template)
+            mutations = {
+                'unrelated write': dict(after, **{'notebook/story.md': b'Rewritten story'}),
+                'extra resource': dict(after, **{'.novel-notebook/workflows/arbitrary.md': b'Extra'}),
+                'wrong bytes': dict(after, **{'.novel-notebook/workflows/retrospective.md': b'Wrong'}),
+                'missing local link': {name: raw for name, raw in after.items()
+                                       if name != '.novel-notebook/workflows/retrospective.md'},
+                'custom root lost': dict(after, **{'AGENTS.md': root_template}),
+                'wrong managed routing': dict(after, **{'AGENTS.md': after['AGENTS.md'].replace(
+                    b'Current character routing.', b'Wrong character routing.')}),
+            }
+            for label, snapshot in mutations.items():
+                with self.subTest(label=label):
+                    write(snapshot)
+                    with self.assertRaises(AssertionError):
+                        check_notebook_delivery(root, before, expected, root_template)
+            # A local link must resolve even when it points to an unchanged file.
+            broken = dict(expected)
+            broken['.novel-notebook/workflows/side-character.md'] = b'[Local](missing.md)\n'
+            write(dict(after, **broken))
+            with self.assertRaises(AssertionError):
+                check_notebook_delivery(root, before, broken, root_template)
+
     def test_previous_release_probe_is_gated_to_newer_stable_versions(self):
         from tests.verify_previous_release import applies, verify
 

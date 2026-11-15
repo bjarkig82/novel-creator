@@ -62,6 +62,51 @@ def _snapshot(root):
             if path.is_file() and '.git' not in path.relative_to(root).parts}
 
 
+def notebook_resource_paths(version, before):
+    """Exact 0.7.1 upgrade contract, bounded to the target's released features."""
+    target = tuple(map(int, version.split('.')))
+    skills, workflows = ['clarify'], ['clarify']
+    if target >= (0, 9, 0):
+        skills.append('character-develop')
+        workflows += ['character-development', 'help']
+    if target >= (0, 10, 2):
+        skills.append('side-character')
+        workflows.append('side-character')
+        if '.novel-notebook/workflows/retrospective.md' not in before:
+            workflows.append('retrospective')
+    return {
+        **{f'.agents/skills/novel-{name}/SKILL.md':
+           f'novel_creator/codex/notebook/skills/novel-{name}/SKILL.md' for name in skills},
+        **{f'.novel-notebook/workflows/{name}.md':
+           f'novel_creator/notebook_resources/workflows/{name}.md' for name in workflows}}
+
+
+def check_notebook_delivery(root, before, expected, agents):
+    """Require exact writes, installed-artifact bytes, managed routing and links."""
+    after = _snapshot(root)
+    changed = {name for name in before.keys() | after.keys() if before.get(name) != after.get(name)}
+    assert changed == set(expected) | {'AGENTS.md'}, changed
+    assert after['AGENTS.md'].startswith(before['AGENTS.md'])
+    for name, raw in expected.items():
+        assert after[name] == raw, name
+    routing = after['AGENTS.md'].replace(b'\r\n', b'\n')
+    sections = []
+    if '.agents/skills/novel-character-develop/SKILL.md' in expected:
+        sections.append(rb'^## Character development\n.*?(?=^## |^<!-- novel-creator:[^\n]+ -->$|\Z)')
+    if '.novel-notebook/workflows/side-character.md' in expected:
+        sections.append(rb'<!-- novel-creator:side-character:start -->\n.*?\n<!-- novel-creator:side-character:end -->')
+    for pattern in sections:
+        section = re.search(pattern, agents, re.M | re.S)
+        assert section is not None, pattern
+        assert routing.count(section.group().rstrip()) == 1, pattern
+    for name in (*expected, 'AGENTS.md'):
+        for link in re.findall(r'\]\(([^)#]+)(?:#[^)]*)?\)', after[name].decode()):
+            if re.match(r'^[a-zA-Z][a-zA-Z0-9+.-]*:', link):
+                continue
+            target = (root / name).parent.joinpath(link).resolve()
+            assert target.is_relative_to(root.resolve()) and target.is_file(), (name, link)
+
+
 def check_target_inventory(python, target_wheel, version, *, cwd, env):
     """Bind every shipped product file to the actual installed controller."""
     probe = '''
@@ -114,24 +159,14 @@ def verify(python, console, scratch, env, version, target_wheel, *, source_wheel
     probe = '''
 import base64,json,sys
 from pathlib import Path
-from importlib.resources import files
 import novel_creator
 assert Path(novel_creator.__file__).resolve().is_relative_to(Path(sys.prefix))
 assert novel_creator.__version__ == sys.argv[1]
-resources = files('novel_creator.notebook_resources')
-codex = files('novel_creator.codex')
-expected = {
- '.agents/skills/novel-clarify/SKILL.md': base64.b64encode(codex.joinpath('notebook/skills/novel-clarify/SKILL.md').read_bytes()).decode(),
- '.novel-notebook/workflows/clarify.md': base64.b64encode(resources.joinpath('workflows/clarify.md').read_bytes()).decode()}
-feature = codex.joinpath('notebook/skills/novel-character-develop/SKILL.md')
-if feature.is_file():
- expected['.agents/skills/novel-character-develop/SKILL.md'] = base64.b64encode(feature.read_bytes()).decode()
- for name in ('character-development', 'help'):
-  expected['.novel-notebook/workflows/' + name + '.md'] = base64.b64encode(resources.joinpath('workflows/' + name + '.md').read_bytes()).decode()
+product = Path(novel_creator.__file__).resolve().parent.parent
+expected = {name: base64.b64encode(product.joinpath(member).read_bytes()).decode()
+            for name, member in json.loads(sys.argv[2]).items()}
 print(json.dumps(expected))
 '''
-    expected = {path: base64.b64decode(raw).replace(b'\r\n', b'\n') for path, raw in json.loads(
-        _run([python, '-I', '-B', '-c', probe, current_version], cwd=scratch, env=env)).items()}
     cases = []
     for language in ('en', 'is'):
         root = scratch / ('Published notebook ' + language)
@@ -162,28 +197,30 @@ assert initialize(sys.argv[2], title='Published notebook', language=sys.argv[3])
         git('add', 'writer-verifier.txt')
         writer.write_bytes(b'Unstaged writer work\n')
         before, head, index = _snapshot(root), git('rev-parse', 'HEAD'), git('ls-files', '--stage', '-z')
+        raw_index = (root / '.git/index').read_bytes()
+        paths = notebook_resource_paths(current_version, before)
+        resources = dict(paths, **{'AGENTS.md': 'novel_creator/codex/notebook/AGENTS.md'})
+        installed = {path: base64.b64decode(raw).replace(b'\r\n', b'\n') for path, raw in json.loads(
+            _run([python, '-I', '-B', '-c', probe, current_version, json.dumps(resources)],
+                 cwd=scratch, env=env)).items()}
+        agents = installed.pop('AGENTS.md')
+        expected = installed
         assert all(before[path].replace(b'\r\n', b'\n') != expected[path] for path in CLARIFY_PATHS)
         preview = json.loads(_run([console, 'notebook', 'update', '--path', root, '--json'],
                                   cwd=scratch, env=env))['data']
         assert _snapshot(root) == before
-        replacements = {item['path'] for item in preview['changes'] if item['action'] == 'replace'}
-        expected_replacements = set(CLARIFY_PATHS)
-        if '.novel-notebook/workflows/help.md' in expected:
-            expected_replacements.add('.novel-notebook/workflows/help.md')
-        assert replacements == expected_replacements, preview
+        expected_changes = {name: 'replace' if name in before else 'add' for name in expected}
+        expected_changes['AGENTS.md'] = 'append'
+        assert len(preview['changes']) == len(expected_changes), preview
+        assert {item['path']: item['action'] for item in preview['changes']} == expected_changes, preview
         result = json.loads(_run([console, 'notebook', 'update', '--path', root, '--apply',
                                  '--preview', preview['preview_id'], '--expected-head', preview['reviewed_head'],
                                  '--json'], cwd=scratch, env=env))['data']
         assert result['ready'] and result['applied']
         assert git('rev-parse', 'HEAD') == head and git('ls-files', '--stage', '-z') == index
+        assert (root / '.git/index').read_bytes() == raw_index
+        check_notebook_delivery(root, before, expected, agents)
         after = _snapshot(root)
-        assert {name for name in before.keys() | after.keys() if before.get(name) != after.get(name)} <= set(expected) | {'AGENTS.md'}
-        assert after['AGENTS.md'].startswith(custom)
-        for name in expected:
-            assert after[name] == expected[name], name
-            text = after[name].decode()
-            for link in re.findall(r'\]\(([^)#]+)(?:#[^)]*)?\)', text):
-                assert (root / name).parent.joinpath(link).is_file(), (name, link)
         workflow = after[CLARIFY_PATHS[1]].decode()
         assert '2–4' in workflow and '**Custom — type your own answer**' in workflow
         assert '.novel-notebook/workflows/clarify.md' in after['AGENTS.md'].decode()
