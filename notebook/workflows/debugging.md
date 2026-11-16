@@ -60,13 +60,103 @@ observations with:
 novel-creator debug record --novel PATH --debug-session ID --input FILE --json
 ```
 
-The input is an object containing an `events` array. Each event has `operation`
-and may contain `outcome`, `metadata`, `correlation_ids`, `observed_at`, `content`
-and `files`. For example:
+Each `operation` must be a nonempty, nonblank string. The exact, case-sensitive `debug.`
+prefix is reserved for package lifecycle events; use labels such as
+`context.read`, `message.user`, `message.assistant.prepared` or `capture.gap`.
+File references use project-relative forward-slash paths under `notebook/`,
+`manuscript/`, `research/`, `reviews/` or `story/`, with `.md`, `.txt` or `.json`
+extensions (case-insensitive). Phases are `context`, `before` and `after`;
+omitting a phase defaults to `context`. Supported missing paths record
+`exists: false`, which can describe creation or deletion without inventing bytes.
 
-```json
-{"events":[{"operation":"context.read","metadata":{"role":"novel_orchestrator"},"files":[{"path":"notebook/project.md","phase":"context"}]}]}
+Absolute paths, `..` traversal, backslashes, colons, control characters, hidden
+components, trailing dots/spaces, symlinks, junctions and special files are
+excluded. Components named `credentials`, `secrets` or `private`, and filenames
+containing `credential`, `secret`, `password` or `token` are excluded
+(case-insensitive). These rules also exclude instructions, tool source and local
+debug files outside the story roots. Do not relocate unsupported files to evade
+these limits or bypass legacy managed-file restrictions. Payloads must never
+contain credentials, private host/transcript data or hidden reasoning.
+
+### Executable file-based recording recipe
+
+Use native file tools to save the following helper as `record-observation.py`
+inside the **returned current session directory**. Also put any exact available
+public text in a UTF-8 `public-text.txt` there, preserving its original Unicode,
+apostrophes, typography, line endings and whitespace. These are local diagnostic
+inputs, outside story notes. Do not type story text into shell command strings.
+The helper serializes one event as UTF-8 JSON and uses a subprocess argument list;
+it does not change the recorder API, start a session or edit story files.
+
+<!-- record-observation.py -->
+```python
+import argparse
+import json
+from pathlib import Path
+import subprocess
+import sys
+
+parser = argparse.ArgumentParser()
+parser.add_argument("novel")
+parser.add_argument("debug_session")
+parser.add_argument("--operation", default="context.read")
+parser.add_argument("--text-file")
+parser.add_argument("--file")
+parser.add_argument("--phase", choices=("context", "before", "after"), default="context")
+parser.add_argument("--launcher")
+args = parser.parse_args()
+event = {"operation": args.operation}
+if args.text_file:
+    event["content"] = Path(args.text_file).read_bytes().decode("utf-8")
+if args.file:
+    event["files"] = [{"path": args.file, "phase": args.phase}]
+input_file = Path(__file__).with_name("observation.json")
+input_file.write_text(json.dumps({"events": [event]}, ensure_ascii=False,
+                                allow_nan=False), encoding="utf-8")
+command = [sys.executable, args.launcher] if args.launcher else [sys.executable, "-m", "novel_creator"]
+completed = subprocess.run(command + ["debug", "record", "--novel", args.novel,
+    "--debug-session", args.debug_session, "--input", str(input_file), "--json"],
+    capture_output=True, text=True, encoding="utf-8")
+result = json.loads(completed.stdout)
+sequences = result.get("data", {}).get("recorded_sequences", [])
+if completed.returncode != 0 or result.get("ok") is not True or len(sequences) != 1:
+    raise SystemExit("Capture unconfirmed; disclose the gap. " + completed.stdout + completed.stderr)
+print(json.dumps(result, ensure_ascii=False))
 ```
+
+Run from PowerShell with the verified runtime and returned ID/directory. Replace
+only these path/ID placeholders; `$workingFile` is a supported path relative to
+the novel root. A plugin runtime uses its verified `runtime_python` here:
+
+```powershell
+$runtimePython = "C:\verified-runtime\python.exe"
+$novel = "C:\books\My Novel"
+$session = "RETURNED-DEBUG-SESSION-ID"
+$recordScript = "RETURNED-SESSION-DIRECTORY\record-observation.py"
+$publicText = "RETURNED-SESSION-DIRECTORY\public-text.txt"
+$workingFile = "notebook/project.md"
+& $runtimePython $recordScript $novel $session --text-file $publicText --file $workingFile --phase before
+if ($LASTEXITCODE -ne 0) { throw "Before capture unconfirmed; disclose the gap before proceeding." }
+```
+
+
+Before any authorized edit, require a zero exit status, `ok: true` and the
+expected `data.recorded_sequences` entry. Only then is that before snapshot
+confirmed. After the edit, run the helper again with `--phase after`; for reading
+context use `--phase context`. Omit `--text-file` for a file-only observation,
+or omit `--file` for a public-message observation and choose its exact operation
+with `--operation`. Use only genuinely available public text, not a reconstruction.
+
+If capture fails, report it concisely and continue the ordinary writing safeguards;
+debugging failure does not authorize a different save route or block otherwise
+authorized writing. If recording becomes available, record `capture.gap` using
+`--operation capture.gap --text-file PATH_TO_UTF8_GAP_DESCRIPTION` without
+`--file`. Describe only the known missing scope, not guessed original content.
+If writing proceeded before a successful snapshot, record the later file as
+`context` or `after` and disclose the missing original. Never retry it as an
+original `before` snapshot: the recorder reads bytes at command time and does not
+verify the truth of a supplied phase label. If the gap itself cannot be recorded,
+state it in the conversation/report and do not claim that any record was saved.
 
 Use `content` for available public text or structured public observations, and
 `files` for project-relative working-file references with `phase` of `context`,
@@ -78,7 +168,7 @@ public message only if available; do not reconstruct missing text from memory.
 Use distinct descriptive operations such as `message.user`, `message.assistant`
 and `message.assistant.prepared`; a prepared response is not an observed displayed
 message. Record an observed capture limitation as `capture.gap`, with only its
-known scope in public metadata. These are observation labels, not new required
+known scope in a public observation. These are observation labels, not new required
 fields or evidence that all messages or gaps were captured. Approval, verified
 file-save and verified Git-checkpoint observations must stay distinct, including
 voice/role handoffs. Explicit debugging consent still permits local diagnostic

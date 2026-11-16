@@ -321,9 +321,15 @@ def verify_session_upgrade(python, old_product, old_cli, scratch, env):
                     require(repeated['already_current'], 'Focused update retry failed')
                 check_links(expected)
                 if Version(target) >= Version('0.10.2'):
-                    # The current documented four-guide procedure explicitly
-                    # requires reviewed issue setup first. Run that prerequisite
-                    # via the installed CLI; keep the guide's own checks intact.
+                    # The current six-guide procedure needs explicit side-character
+                    # and issue setup first. Old nondefault notebooks lack the
+                    # feature; keep the documented procedure's checks intact.
+                    if not (book / '.novel-notebook/workflows/side-character.md').is_file():
+                        feature = ('from novel_creator.notebook_side_character import update;'
+                                   'import sys;p=update(sys.argv[1])["data"];'
+                                   'update(sys.argv[1],apply=True,preview_id=p["preview_id"],'
+                                   'expected_head=p["reviewed_head"])')
+                        run([python, '-I', '-B', '-c', feature, book], env=env, cwd=scratch)
                     command = [python, '-I', '-B', '-m', 'novel_creator', 'retro', 'issue',
                                'setup', '--novel', book]
                     review = json.loads(run([*command, '--json'], env=env, cwd=scratch))['data']

@@ -39,6 +39,7 @@ class NotebookPackageTest(unittest.TestCase):
             added = {
                 'src/novel_creator/debug.py': 'novel_creator/debug.py',
                 'workflows/debugging.md': 'novel_creator/workflows/debugging.md',
+                'workflows/brainstorm.md': 'novel_creator/workflows/brainstorm.md',
                 'src/novel_creator/retro_issues.py': 'novel_creator/retro_issues.py',
                 'src/novel_creator/retro_issue_setup.py': 'novel_creator/retro_issue_setup.py',
                 'src/novel_creator/retro_issue_provenance.py': 'novel_creator/retro_issue_provenance.py',
@@ -88,12 +89,16 @@ class NotebookPackageTest(unittest.TestCase):
                         self.assertEqual(result['verified_resource_count'], len(expected))
                     self.verify_debug(console, area, env)
                     self.verify_issue_setup(console, area, env)
+                    self.verify_session_guidance(python, console, area, env)
                     legacy = area / 'New legacy'
                     initialize_legacy_fixture(python, legacy, 'en', area, env)
                     legacy_skill = legacy / '.agents/skills/novel-retro/SKILL.md'
                     self.assertTrue(legacy_skill.is_file())
                     self.assertTrue((legacy / '.novel-creator/workflows/retrospective.md').is_file())
                     self.assertIn('retro', (legacy / 'AGENTS.md').read_text(encoding='utf-8'))
+                    for name in ('brainstorm.md', 'debugging.md'):
+                        self.assertEqual((legacy / '.novel-creator/workflows' / name).read_bytes(),
+                                         (checkout / 'workflows' / name).read_bytes().replace(b'\r\n', b'\n'))
                     refused = subprocess.run([python, '-I', str(legacy / '.novel-creator/run.py'),
                                               'retro', 'issue', 'setup', '--novel', str(legacy), '--json'],
                                              cwd=area, env=env, capture_output=True, text=True, encoding='utf-8')
@@ -118,6 +123,38 @@ class NotebookPackageTest(unittest.TestCase):
 
                     print(f'{label}: {len(resources)} artifact resources match source bytes; '
                           'isolated install and en/is notebook resource checks passed')
+
+    def verify_session_guidance(self, python, console, area, env):
+        """Installed artifacts run the documented six-guide procedure on public bytes."""
+        from tests import session_guidance_checks as checks
+        for version, host, source, language in (('0.10.2', 'both', 'plugin', 'is'),
+                                                 ('0.10.0', 'codex', 'project', 'en')):
+            root = area / ('Guidance ' + version)
+            expected = area / ('Expected guidance ' + version)
+            if version == '0.10.0':
+                code = ('import sys;sys.path.insert(0,sys.argv[1]);'
+                        'from novel_creator.notebook import initialize;initialize(sys.argv[2])')
+                run([python, '-I', '-B', '-c', code, published_wheel(version), root], cwd=area, env=env)
+                self.assertFalse((root / '.novel-notebook/workflows/side-character.md').exists())
+                feature = ('import sys;from novel_creator.notebook_side_character import update;'
+                           'p=update(sys.argv[1])["data"];'
+                           'update(sys.argv[1],apply=True,preview_id=p["preview_id"],expected_head=p["reviewed_head"])')
+                run([python, '-I', '-B', '-c', feature, root], cwd=area, env=env)
+            else:
+                run([console, 'notebook', 'init', root.name, '--path', root, '--host', host,
+                     '--skill-source', source, '--language', language, '--json'], cwd=area, env=env)
+                from novel_creator.notebook import _host_text
+                for name in checks.GUIDES:
+                    frozen = checks.ROOT / 'tests/fixtures/session-guidance-0.10.2' / name
+                    (root / '.novel-notebook/workflows' / name).write_text(
+                        _host_text(frozen.read_text(encoding='utf-8'), host, source), encoding='utf-8')
+            command = [console, 'retro', 'issue', 'setup', '--novel', root, '--json']
+            preview = json.loads(run(command, cwd=area, env=env))['data']
+            run([*command, '--apply', '--preview', preview['preview_id'], '--expected-head',
+                 preview['reviewed_head']], cwd=area, env=env)
+            run([console, 'notebook', 'init', expected.name, '--path', expected, '--host', host,
+                 '--skill-source', source, '--language', language, '--json'], cwd=area, env=env)
+            checks.exercise(python, root, expected, env, host=host, source=source)
 
     def verify_issue_setup(self, console, area, env):
         """Actual installed CLI upgrades old snapshots without story/index writes."""

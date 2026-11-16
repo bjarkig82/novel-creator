@@ -28,8 +28,12 @@ there is no mandatory questionnaire, genre checklist or narrative structure.
 Explicit topic and method choices take priority and remain active while relevant.
 A fresh session may begin anywhere, including a new character. Follow answers,
 known preferences and natural changes of direction without requiring completion
-of the previous topic. Suggestions are optional; freeform exploration and fewer
-suggestions take effect immediately.
+of the previous topic. Suggestions are optional. After repeated requests for
+examples/options, provisionally offer a small relevant set on subsequent
+applicable turns in this session without another request. This is current-session
+adaptation, not a permanent global preference or accepted story material.
+Freeform exploration and fewer/no suggestions take effect immediately; keep one
+useful question or invitation when appropriate rather than a forced questionnaire.
 
 Never give an unsolicited session-opening recap. On a request for a reminder or
 brief, determine its scope and summarize relevant notes concisely: accepted
@@ -86,6 +90,15 @@ when focus/navigation changes meaningfully, linking authoritative notes rather
 than duplicating detailed canon. Do this throughout the conversation without
 requiring save requests, repeated skill invocation or a session-close command.
 
+Keep owning notes readable under the [format](format.md) guidance: current
+coherent profile material first, with unselected possibilities, open/resolved
+questions and useful history clearly separated. Group compatible material only
+while preserving every independently selectable item, state, perspective,
+decision origin and link. Organization does not accept, reject or delete ideas,
+merge identities, create a second canon profile or authorize saving chat-only
+character-development/side-character drafts. Make targeted edits when material
+changes; do not rewrite whole files on every small turn just to tidy them.
+
 Clear writer commitments establish only the selected propositions without
 redundant approval. Praise, silence, speculation, hypotheticals and quoted
 dialogue are not acceptance. Ask one focused clarification for ambiguous
@@ -123,9 +136,16 @@ it was read, reload and reconcile, preserving direct writer edits. If the change
 cannot be resolved from context, ask. Never blindly overwrite a file. Update
 primary notes before derived summaries. Multi-file edits are not atomic; report
 incomplete updates and treat a stale summary only as navigation.
-After meaningful saves or direct writer edits, reconcile/regenerate affected
-working-summary links and focus from current owning notes. Never use a stale
-summary to override their accepted/proposed states, provenance or open questions.
+After meaningful owning-note saves or direct writer edits, verify affected
+working-summary links, focus and every existing derived value against current
+owning notes, refreshing stale values in those affected entries. If counts are
+present, count current items only, excluding historical revision text; keep
+accepted, proposed and rejected statements and open/resolved questions distinct.
+Check all affected derived values even when the focus/link text has not changed.
+Do not alter unrelated summary rows or unrelated staging. Navigation remains
+non-authoritative: never use a stale summary to override owning-note states,
+provenance or questions. This is a native file-save responsibility, not a per-turn
+Python validator or a new service/schema.
 
 For direct work, attempt a local Git checkpoint after meaningful updates, scoped
 to the exact project paths changed. During delegation, the coordinator owns shared

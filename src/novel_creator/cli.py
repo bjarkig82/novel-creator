@@ -116,12 +116,33 @@ def parser():
     debugging = commands.add_parser('debug', description='Explicit local session diagnostics and report export')
     actions = debugging.add_subparsers(dest='debug_action', required=True)
     for action in ('setup', 'start', 'status', 'record', 'stop', 'export'):
-        target = actions.add_parser(action)
+        if action == 'record':
+            target = actions.add_parser(action, formatter_class=argparse.RawDescriptionHelpFormatter,
+                description='Record explicit local agent observations from strict UTF-8 JSON.',
+                epilog='''Input: an event object or {"events": [event, ...]} (nonempty).
+Each operation is a nonempty string; the case-sensitive debug. prefix is reserved.
+Examples: context.read, message.user, message.assistant.prepared, capture.gap.
+File references use project-relative forward-slash paths under notebook/,
+manuscript/, research/, reviews/ or story/, ending in .md, .txt or .json.
+Use phase context, before or after (default: context). Only ordinary UTF-8 files
+or missing-file observations are supported. Absolute/traversing paths, backslashes,
+colons, control characters, hidden components, trailing dots/spaces, symlinks and
+other redirected/special files are excluded. Components named credentials,
+secrets or private and filenames containing credential, secret, password or token
+(case-insensitive) are excluded. Keep secrets and private host data out of payloads.
+Check exit status, ok=true and data.recorded_sequences before claiming capture or
+editing after a before snapshot. A late snapshot reads current bytes, never the
+original before state. On failure disclose the gap; record capture.gap if possible
+and continue normal writing safeguards. See the installed debugging workflow for
+an executable file-based JSON recipe; never interpolate story text into a shell.''')
+        else:
+            target = actions.add_parser(action)
         target.add_argument('--novel', required=True, action=Once)
         if action in ('status', 'record', 'stop', 'export'):
             target.add_argument('--debug-session', required=action != 'status', action=Once)
         if action == 'record':
-            target.add_argument('--input', required=True, action=Once)
+            target.add_argument('--input', required=True, action=Once,
+                                help='UTF-8 JSON file containing public observations; no story shell interpolation')
         if action == 'export':
             target.add_argument('--output', action=Once)
         target.add_argument('--json', action=SwitchOnce)

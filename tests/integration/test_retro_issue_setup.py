@@ -83,6 +83,30 @@ class IssueSetup(unittest.TestCase):
                             self.assertFalse((root/'.agents/skills').exists())
                         self.assertTrue(self.call(root)['already_current'])
 
+    def test_released_0102_shared_guides_refresh_without_weakening_custom_protection(self):
+        from tests.verify_plugin_install import snapshot
+        frozen = Path(__file__).resolve().parents[1] / 'fixtures/session-guidance-0.10.2'
+        for host in ('codex', 'claude', 'both'):
+            for source in ('project', 'plugin'):
+                with self.subTest(host=host, source=source):
+                    root = self.parent / ('released-' + host + '-' + source)
+                    initialize(root, host=host, skill_source=source)
+                    for name in ('conversation.md', 'debugging.md'):
+                        path = root / '.novel-notebook/workflows' / name
+                        path.write_text(_host_text((frozen / name).read_text(encoding='utf-8'), host, source), encoding='utf-8')
+                    path = root / '.novel-notebook/workflows/debugging.md'
+                    raw = path.read_bytes()
+                    path.write_bytes(raw + b'Custom instructions.\n')
+                    before = snapshot(root)
+                    with self.assertRaisesRegex(ToolError, 'Customized'):
+                        self.call(root)
+                    self.assertEqual(snapshot(root), before)
+                    path.write_bytes(raw)
+                    index = (root / '.git/index').read_bytes()
+                    self.assertTrue(self.call(root, self.call(root))['applied'])
+                    self.assertTrue(self.call(root)['already_current'])
+                    self.assertEqual((root / '.git/index').read_bytes(), index)
+
     def test_published_0101_and_unrelated_staging_preserved(self):
         root = self.old(version='0.10.1')
         (root/'unrelated.txt').write_bytes(b'staged')

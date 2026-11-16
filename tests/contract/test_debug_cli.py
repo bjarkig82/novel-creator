@@ -38,6 +38,18 @@ class DebugCLI(unittest.TestCase):
         self.assertEqual(args.debug_session, 'debug')
         self.assertIsNone(parser().parse_args(['context', '--novel', 'N']).debug_session)
 
+    def test_record_help_explains_the_strict_observation_contract(self):
+        output = io.StringIO()
+        with contextlib.redirect_stdout(output), self.assertRaises(SystemExit) as stopped:
+            parser().parse_args(['debug', 'record', '--help'])
+        self.assertEqual(stopped.exception.code, 0)
+        help_text = output.getvalue()
+        for detail in ('nonempty', 'debug.', 'notebook/', 'manuscript/', 'research/',
+                       'reviews/', 'story/', '.md', '.txt', '.json', 'context', 'before',
+                       'after', 'recorded_sequences', 'capture.gap', 'credentials',
+                       'symlinks', 'UTF-8'):
+            self.assertIn(detail, help_text)
+
     def test_debug_controls_skip_legacy_maintenance_and_wrap_result(self):
         with patch('novel_creator.debug.dispatch', return_value={'debug_session': 'id'}) as dispatch, \
                 patch('novel_creator.maintenance.ensure_ready', side_effect=AssertionError('must bypass')):

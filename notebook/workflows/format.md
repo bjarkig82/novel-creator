@@ -52,6 +52,32 @@ timestamps. Split compound ideas when only one part is selected. Resolved
 questions explain or link their resolution; they do not automatically establish
 every suggested answer. Topic changes do not change any item's status.
 
+## Readable owning notes
+
+Put coherent current profile material first. Use labeled sections such as Current
+profile, Unselected possibilities, Open questions, Resolved questions and
+Revisions when useful; these are ordinary Markdown organization, not new schema
+fields or mandatory empty sections. Keep bookkeeping out of the main profile
+reading path: lead each item with useful prose and keep its stable fields concise
+nearby. Do not create a second consolidated canon profile beside the owning items.
+
+Group compatible content by subject, but retain separate addressable item blocks
+for independently selectable propositions, each with its Item-ID, Type, State,
+Perspective, Origin and Links. A heading or a smooth paragraph must not merge
+decisions, identities or provenance. Preserve all topic/item IDs, including when
+moving items between sections. Never accept, reject or delete alternatives for
+tidiness. Unselected possibilities stay proposed; resolved questions retain their
+resolution and links. Distinguish character belief from objective truth and
+reader knowledge even when their prose belongs together.
+
+Keep edits proportionate to meaningful changes rather than rewriting whole notes
+on every small turn. Organization applies only to authorized owning-note saves;
+the chat-only boundaries in [character development](character-development.md) and
+[side-character profiles](side-character.md) still prohibit draft/summary/history
+writes until their required save approval.
+
+## Ownership and revisions
+
 Each current fact has one owner. A cross-reference pairs a plain semantic key
 such as `keeper#motivation` with an ordinary relative Markdown link to its file.
 For example: `keeper#motivation` plus a link labeled Keeper motivation targeting
@@ -65,3 +91,11 @@ section in the same edit. Include the target, former value, replacement and
 concise decision context. Historical prose is not current canon. Reversal is a
 new change, never a Git reset. Once history is confirmed, a historical entry can
 reference it rather than duplicating all old prose.
+
+Keep any historical Revisions section clearly separate from current item blocks.
+It may retain earlier fields and prose for recovery, but those historical copies
+are not additional current items. Derive summary values from current owning
+items only: exclude historical revision text and count accepted/proposed/rejected
+statements and open/resolved questions separately when those counts are present.
+On meaningful saves, verify all existing affected summary values, links and focus
+under [conversation](conversation.md), without changing unrelated entries.

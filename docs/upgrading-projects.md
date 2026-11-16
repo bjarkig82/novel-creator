@@ -20,6 +20,33 @@ New projects receive the resources appropriate to their format at setup.
 Existing projects need the format-specific updates below; package installation
 alone does not refresh their pinned resources.
 
+## Unpublished session usability guidance
+
+The reviewed development source improves debug record help/JSON recipes,
+brainstorm suggestions after repeated requests and organization of current notes.
+These changes are absent from public 0.10.2; the source version remains 0.10.2.
+The published install command above delivers the verified release, not these
+source improvements. Installing any package alone leaves book guidance pinned.
+
+For intentional source use, install the reviewed checkout or locally built artifact
+in an isolated environment outside novels. New notebooks and new legacy novels
+receive the respective source guidance at setup. For existing notebooks, follow
+[the current six-guide procedure](session-guidance-upgrade.md): preview/apply the
+side-character feature first if missing, preview/apply issue setup using that same
+source environment, then preview/apply the bounded shared-guidance refresh.
+It protects exact public 0.10.0/0.10.2 snapshots, custom roots, story/history and
+unrelated staging; customized guides, stale previews and redirected paths refuse.
+It does not save story content or make a commit. Inspect the resulting actual
+skill files, routing and links; reread/reload them using the host's controls.
+Plugin books also need the matching plugin updated/enabled, with no duplicate
+project skill copies. File checks do not prove native discovery or voice behavior.
+
+Existing legacy novels retain the normal external-controller newer stable public
+release update described below, followed by inspection and host reload. A legacy
+book already at 0.10.2 needs a future authorized newer release to receive these
+changes through that route; same-version source refresh is unsupported. Do not
+bypass version gates or convert/reinitialize a book. No release is authorized here.
+
 <a id="unreleased-side-character-profiles"></a>
 
 ## Side-character profiles in 0.10.2
@@ -78,8 +105,9 @@ clear approval, while legacy discussion retains normal sourced capture.
 
 Release 0.10.1 provides an explicit [version-pinned preview/apply manual procedure](https://github.com/bjarkig82/novel-creator/blob/v0.10.1/docs/session-guidance-upgrade.md)
 for existing format-1 notebooks in all supported host/skill-source/language layouts.
-For current 0.10.2 shared guidance, use the [current procedure](session-guidance-upgrade.md)
-after its explicit issue-setup prerequisite. The 0.10.1 procedure below remains a
+For published 0.10.2 shared guidance, use its [version-pinned procedure](https://github.com/bjarkig82/novel-creator/blob/v0.10.2/docs/session-guidance-upgrade.md)
+after its explicit issue-setup prerequisite. For unpublished source guidance,
+use the separate [current procedure](session-guidance-upgrade.md). The 0.10.1 procedure below remains a
 historical supported route for notebooks intentionally using that package.
 It refreshes only four provenance-verified shared workflows and appends bounded
 root routing, preserving project skills, roles and custom instructions. Package

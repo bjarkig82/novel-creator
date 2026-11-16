@@ -46,7 +46,7 @@ authenticated conversations and specialist interaction remain unverified;
 structural/install checks do not establish these behaviors.
 ## Optional session debugging
 
-This checkout adds opt-in debugging for both formats. Ask “start this session
+Published 0.10.0 introduced opt-in debugging for both formats. Ask “start this session
 with debugging” and later “stop debugging and export a report,” or use
 `novel-creator debug setup|start|status|record|stop|export`. All commands select
 `--novel PATH`; recording, stopping and exporting select `--debug-session ID`.
@@ -54,6 +54,18 @@ Use `record --input FILE` for batched agent observations and optional
 `export --output PATH` for a chosen new local ZIP. See the
 [legacy commands](../workflows/debugging.md) and
 [notebook capture workflow](../notebook/workflows/debugging.md).
+**Unpublished source improvements:** `debug record --help` explains reserved
+operation names, supported story paths
+and snapshot phases. Both workflows include an executable UTF-8 JSON helper
+usable from PowerShell without interpolating story text into commands. Check
+exit status, `ok` and `data.recorded_sequences` before claiming capture or editing
+after a before snapshot. Failed capture is a disclosed gap; a later snapshot
+captures current bytes and cannot establish the original before state. Continue
+ordinary writing safeguards and record `capture.gap` when recording is available.
+These help/recipe improvements are absent from public 0.10.2. See the
+[explicit source delivery sequence](upgrading-projects.md#unpublished-session-usability-guidance)
+for new setup, existing notebook preview/application and the existing legacy
+newer-release requirement, followed by host reread/reload.
 
 Capture includes available public messages, context actually retrieved, relevant
 file snapshots before/after edits, role/handoff observations, saves, failures and
@@ -288,6 +300,22 @@ The installed [format guidance](../notebook/workflows/format.md) is the detailed
 reference; [notebook evidence](../tests/evaluations/agent-story-notebook.md) records
 what has actually been exercised.
 
+Unreleased source guidance puts coherent current profile items first in owning
+notes, with labeled unselected possibilities, open/resolved questions and useful
+history. Grouping preserves separate Item-IDs, states, perspectives, origins and
+links; it cannot merge identities or decide alternatives. Earlier accepted prose
+remains recoverable, without a second canon profile or whole-file tidying every
+turn. Character-development and side-character drafts remain chat-only until
+their required save approval.
+
+On meaningful owning-note saves, verify affected summary links, focus and all
+existing derived values, including counts when present. Count current items
+without historical revisions, keeping statement and question states distinct;
+leave unrelated rows and staging intact. This is host guidance, with no new
+runtime/schema or per-turn validator. The [grouped examples and unexecuted host
+scenarios](../tests/evaluations/readable-notebooks.md) distinguish structural
+checks from automatic host behavior.
+
 Discussed ideas, approved propositions, verified file saves and verified Git
 checkpoints remain separate, including voice continuations and role handoffs.
 Read back owning files before claiming a save. A permission-denied index-lock
@@ -306,6 +334,14 @@ checklist or character/plot/outline prerequisite. An explicit topic or method,
 including a method chosen before a subject, takes priority and persists while
 relevant; writers can switch naturally. Suggestions and story choices remain
 provisional until clear acceptance, and moving on does not resolve questions.
+
+Unreleased notebook and legacy brainstorm guidance notices repeated requests
+for examples/options and provisionally continues a small relevant set on later
+applicable turns in the current session. Options adapt to the answer; this does
+not infer a permanent global preference or story fact. Explicit freeform,
+fewer/no suggestions or method changes take effect immediately. One useful
+question or invitation can remain, without a forced questionnaire. Legacy
+context, authority, exact capture and save-before-display requirements remain.
 
 Five thin Codex skills provide optional focused entries: `$novel-book-idea`,
 `$novel-premise`, `$novel-character`, `$novel-plot` and `$novel-setting`. Shared

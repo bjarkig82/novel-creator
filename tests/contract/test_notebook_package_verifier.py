@@ -179,7 +179,7 @@ class NotebookPackageVerifierTest(unittest.TestCase):
         # The approved fixture bytes must still be checked exactly on install.
         for relative in ('AGENTS.md', '.novel-notebook/workflows/conversation.md',
                          '.novel-notebook/workflows/agents.md', '.novel-notebook/workflows/review.md',
-                         '.novel-notebook/workflows/brainstorming.md'):
+                         '.novel-notebook/workflows/brainstorming.md', '.novel-notebook/workflows/format.md'):
             historical[relative] = b'# Historical 0.5.0 guidance fixture.\n'
         archive_bytes = io.BytesIO()
         with zipfile.ZipFile(archive_bytes, 'w') as archive:

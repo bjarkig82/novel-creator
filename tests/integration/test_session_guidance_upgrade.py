@@ -9,6 +9,10 @@ import unittest
 from unittest.mock import patch
 
 from novel_creator.notebook import initialize, _host_text, update
+from novel_creator.notebook_side_character import update as side_update
+from novel_creator.retro_issue_setup import setup as issue_setup, SESSION_BLOCKS
+from tests.release_fixtures import published_wheel
+from types import SimpleNamespace
 from tests import session_guidance_checks as checks
 from tests.integration import test_path_redirection
 from tests.verify_plugin_install import temporary_environment, snapshot
@@ -24,11 +28,11 @@ class SessionGuidanceUpgrade(unittest.TestCase):
         environment.start()
         self.addCleanup(environment.stop)
 
-    def book(self, host='codex', source='project', language='en'):
-        root = self.area / f'{host}-{source}-{language}'
+    def book(self, host='codex', source='project', language='en', version='0.10.0'):
+        root = self.area / f'{version}-{host}-{source}-{language}'
         initialize(root, host=host, skill_source=source, language=language)
         for name in checks.GUIDES:
-            public = checks.ROOT / 'tests/fixtures/session-guidance-0.10.0' / name
+            public = checks.ROOT / f'tests/fixtures/session-guidance-{version}' / name
             raw = _host_text(public.read_text(encoding='utf-8'), host, source).encode()
             (root / '.novel-notebook/workflows' / name).write_bytes(raw)
         return root
@@ -46,6 +50,61 @@ class SessionGuidanceUpgrade(unittest.TestCase):
                         expected = self.area / ('New ' + root.name)
                         initialize(expected, host=host, skill_source=source, language=language)
                         checks.exercise(sys.executable, root, expected, self.env, host=host, source=source)
+
+    def test_public_0102_guides_and_existing_exact_session_routing(self):
+        for host in ('codex', 'claude', 'both'):
+            for source in ('project', 'plugin'):
+                for language in ('en', 'is'):
+                    with self.subTest(host=host, source=source, language=language):
+                        root = self.book(host, source, language, version='0.10.2')
+                        for name in (('AGENTS.md', 'CLAUDE.md') if host == 'both' else
+                                     ('CLAUDE.md',) if host == 'claude' else ('AGENTS.md',)):
+                            path = root / name
+                            path.write_bytes(path.read_bytes() + b'\n## Session guidance\n\n' +
+                                             SESSION_BLOCKS[1].encode() + b'\n')
+                        expected = self.area / ('New ' + root.name)
+                        initialize(expected, host=host, skill_source=source, language=language)
+                        checks.exercise(sys.executable, root, expected, self.env, host=host, source=source)
+
+    def test_true_public_0100_requires_explicit_feature_then_issue_setup(self):
+        root = self.area / 'actual-public-0100'
+        code = ('import sys;sys.path.insert(0,sys.argv[1]);'
+                'from novel_creator.notebook import initialize;initialize(sys.argv[2])')
+        subprocess.run([sys.executable, '-I', '-B', '-c', code,
+                        str(published_wheel('0.10.0')), str(root)], cwd=self.area,
+                       env=self.env, check=True, capture_output=True)
+        self.assertFalse((root / '.novel-notebook/workflows/side-character.md').exists())
+        before = snapshot(root)
+        self.assertNotEqual(self.run_script(root, 'preview').returncode, 0)
+        self.assertEqual(snapshot(root), before)
+        preview = side_update(root)['data']
+        side_update(root, apply=True, preview_id=preview['preview_id'],
+                    expected_head=preview['reviewed_head'])
+        args = SimpleNamespace(novel=root, apply=False, preview=None, expected_head=None)
+        preview = issue_setup(args)
+        args.apply, args.preview, args.expected_head = True, preview['preview_id'], preview['reviewed_head']
+        issue_setup(args)
+        expected = self.area / 'New actual-public-0100'
+        initialize(expected)
+        checks.exercise(sys.executable, root, expected, self.env, host='codex', source='project')
+
+    def test_missing_side_character_prerequisite_refuses_before_writes(self):
+        root = self.book(version='0.10.2')
+        (root / '.novel-notebook/workflows/side-character.md').unlink()
+        before = snapshot(root)
+        result = self.run_script(root, 'preview')
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn('Missing prerequisite: .novel-notebook/workflows/side-character.md', result.stderr)
+        self.assertEqual(snapshot(root), before)
+
+    def test_custom_session_routing_refuses(self):
+        root = self.book(version='0.10.2')
+        path = root / 'AGENTS.md'
+        path.write_bytes(path.read_bytes() + b'\n' + SESSION_BLOCKS[1].encode().replace(
+            b'Keep character-development', b'Custom character-development') + b'\n')
+        before = snapshot(root)
+        self.assertNotEqual(self.run_script(root, 'preview').returncode, 0)
+        self.assertEqual(snapshot(root), before)
 
     def test_manual_routing_preserves_later_focused_update_character_boundary(self):
         root = self.book()

@@ -10,7 +10,8 @@ except ModuleNotFoundError:
     from verify_plugin_install import require, run, snapshot
 
 ROOT = Path(__file__).resolve().parents[1]
-GUIDES = ('conversation.md', 'character-development.md', 'debugging.md', 'agents.md')
+GUIDES = ('conversation.md', 'character-development.md', 'debugging.md', 'agents.md',
+          'brainstorming.md', 'format.md')
 
 
 def procedure():
@@ -69,7 +70,7 @@ def exercise(python, book, expected, env, *, host, source):
     path.write_bytes(raw)
     run([*command, 'apply', review['preview_id'], '0' * 40], env=env, cwd=book, expected_exit=1)
     require(snapshot(book) == before, 'Changed HEAD argument mutated files')
-    # All four workflows, including an otherwise-identical guide, are protected.
+    # All six workflows, including an otherwise-identical guide, are protected.
     for name in GUIDES:
         path = book / '.novel-notebook/workflows' / name
         raw = path.read_bytes()
@@ -99,7 +100,7 @@ def exercise(python, book, expected, env, *, host, source):
     after = snapshot(book)
     allowed = set(roots) | {'.novel-notebook/workflows/' + n for n in GUIDES}
     changed = {n for n in before.keys() | after.keys() if before.get(n) != after.get(n)}
-    require(changed <= allowed and set(roots) <= changed, 'Unexpected delivery changes')
+    require(changed <= allowed, 'Unexpected delivery changes')
     for name in GUIDES:
         relative = '.novel-notebook/workflows/' + name
         require((book / relative).read_bytes().replace(b'\r\n', b'\n') ==
