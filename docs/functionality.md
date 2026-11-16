@@ -512,6 +512,17 @@ Old contribution production is retired; authentic existing grants support only
 historical reconciliation/release and retained notice recovery. Existing
 worktrees/branches/PRs are preserved and uncertain create remains blocked.
 
+### Retrospective handoff clarification (unpublished source)
+
+The source workflows require the first findings response to distinguish local
+drafts from publication, show ready exact issue previews and ask for the writer's
+approval choice. Current exact approval is reused without another request.
+Finish/pause responses name actual receipts, equivalents, blocked/manual steps
+and uncertain outcomes, with attachment status separate from issue creation.
+Structural checks do not establish native host compliance. See the
+[source delivery steps](upgrading-projects.md#unpublished-retrospective-handoff-clarification).
+
+
 ## Updating existing legacy books
 
 Updates are explicit maintenance through an external updater-capable installation.

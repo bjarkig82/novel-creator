@@ -65,6 +65,39 @@ Run `retro issue draft --run RUN --finding FINDING --input FILE`. Optional
 "outcome":"no_action","reason":"No evidenced problem"}` for a local no-action
 finding. No fix, checkout, code edits, branch, push or PR is part of this flow.
 
+## First review response and completion status
+
+The first response after reviewing findings must state whether they are local
+drafts or published, and give the next concrete action. Local draft links alone
+are not a publication handoff. Never say the retrospective is complete while
+silently leaving publication or attachment work pending.
+
+For each finding ready to share, present the complete exact preview described
+below in that first review response, identify the finding and preview digest,
+and ask the writer to choose: approve these exact bytes for duplicate comparison
+and publication, request edits, or keep local/decline. Make clear that nothing
+has been published yet. Do not defer this choice until the writer asks how issues
+are created. If the current exact bytes already have observed approval and
+publication direction in this active context, proceed to duplicate comparison
+and publication without repeating approval. Changed bytes need a new preview.
+
+At every finish or pause, report each finding's actual status and next action:
+
+- Local draft or awaiting approval: nothing published; show the ready preview
+  and approval choice, or name the missing evidence/privacy edits needed first.
+- No action or declined: no issue created; state the reason and retain locally.
+- Published: give the verified issue URL/receipt; separately state whether
+  attachments are absent, pending/manual, reported with a receipt, or uncertain.
+- Equivalent issue: give its URL and explain no new issue was created after
+  semantic comparison; do not claim an automatic comment was posted.
+- Blocked/manual: explain the actual obstacle and concrete available next step,
+  including the approved sharing-copy path and issue URL for manual upload.
+- Uncertain creation/upload: say the outcome is unknown, preserve recorded
+  receipts, and give the exact status/reconciliation step; never blindly retry.
+
+Only claim publication or upload from observed receipts. A local draft, approval,
+duplicate preflight or pending manual handoff is not published/completed work.
+
 ## Exact sharing approval
 
 Before ANY outgoing upload, display fixed repository **bjarkig82/novel-creator**,

@@ -346,3 +346,24 @@ no novel-retro skill, opts into nothing and grants no publication/upload authori
 The issue setup also supplies absent trusted writing-guide prerequisites for
 older format-1 books, preserving existing custom prerequisite guides. Use its
 explicit preview/application to install the complete issue entry and routing.
+
+## Unpublished retrospective handoff clarification
+
+This clarification is source-only, not a new published package. An isolated
+runtime installed from this checkout supplies it to new legacy novels and new
+notebooks through normal initialization. Package installation leaves existing
+project snapshots unchanged.
+
+Existing notebooks can use that isolated source runtime with the two `retro issue
+setup` preview/application commands above; inspect the exact preview and HEAD.
+This refreshes recognized shipped retrospective guidance and the existing
+managed resources/routing. Customized resources and stale/redirected paths
+still refuse; story, history, custom instructions and unrelated staging remain
+protected. No story save, commit or publication is performed.
+
+Existing 0.10.2 legacy novels must wait for a newer published stable release and
+use the normal external-controller framework update preview/application. Source
+installation does not bypass its published-version gate. After either supported
+update, inspect the actual novel-retro skill and linked retrospective workflow,
+then reread/reload project instructions and skills in Codex. Native discovery and
+agent compliance require a separate host check.

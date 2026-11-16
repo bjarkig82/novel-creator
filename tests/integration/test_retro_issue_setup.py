@@ -35,6 +35,46 @@ class IssueSetup(unittest.TestCase):
                                      'retro notices reconcile', 'normal legacy saves'):
             self.assertIn(recovery_instruction, legacy)
 
+    def test_retrospective_handoff_and_exact_previous_snapshots(self):
+        from tests.verify_plugin_install import snapshot
+        fixtures = Path(__file__).resolve().parents[1] / 'fixtures'
+        for fixture in (fixtures / 'session-guidance-0.10.2/retrospective.md',):
+            for host in ('codex', 'claude', 'both'):
+                for source in ('project', 'plugin'):
+                    with self.subTest(fixture=fixture.name, host=host, source=source):
+                        root = self.parent / (fixture.parent.name + fixture.stem + host + source)
+                        initialize(root, host=host, skill_source=source)
+                        path = root / '.novel-notebook/workflows/retrospective.md'
+                        raw = _host_text(fixture.read_text(encoding='utf-8'), host, source).encode()
+                        path.write_bytes(raw + b'Writer customized guidance')
+                        before = snapshot(root)
+                        with self.assertRaisesRegex(ToolError, 'Customized'):
+                            self.call(root)
+                        self.assertEqual(snapshot(root), before)
+                        path.write_bytes(raw)
+                        (root / 'unrelated.txt').write_bytes(b'staged')
+                        subprocess.run(['git', '-C', str(root), 'add', '--', 'unrelated.txt'], check=True)
+                        index = (root / '.git/index').read_bytes()
+                        story = (root / 'notebook/project.md').read_bytes()
+                        preview = self.call(root)
+                        path.write_bytes(raw + b'Changed after preview')
+                        with self.assertRaises(ToolError):
+                            self.call(root, preview)
+                        path.write_bytes(raw)
+                        self.call(root, self.call(root))
+                        self.assertEqual((root / '.git/index').read_bytes(), index)
+                        self.assertEqual((root / 'notebook/project.md').read_bytes(), story)
+                        self.assertTrue(self.call(root)['already_current'])
+                        self.assertIn('First review response and completion status', path.read_text(encoding='utf-8'))
+        legacy = (Path(__file__).resolve().parents[2] / 'workflows/retrospective.md').read_text(encoding='utf-8')
+        notebook = path.read_text(encoding='utf-8')
+        for text in (legacy, notebook):
+            for requirement in ('complete exact preview', 'without repeating approval',
+                                'No action or declined', 'Equivalent issue', 'Blocked/manual',
+                                'Uncertain creation/upload', 'observed receipts',
+                                'Semantically compare', 'Never retry unknown creation blindly'):
+                self.assertIn(requirement, text)
+
     def call(self, root, preview=None):
         return setup(SimpleNamespace(novel=root, apply=preview is not None,
                                      preview=None if preview is None else preview['preview_id'],
