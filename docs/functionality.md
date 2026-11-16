@@ -20,6 +20,12 @@ and retires automatic fix/PR production. See [release notes](releases/0.10.2.md)
 for the complete comparison and [release evidence](../tests/evaluations/release-0.10.2.md)
 for qualification and public-check status.
 
+Version [0.10.3](releases/0.10.3.md) is an **unpublished candidate** adding
+suggestion adaptation, readable individually addressable notes, proportionate
+orchestration and retrospective publication next steps. Qualification and
+publication are pending. Follow the [complete four-format update sequence](upgrading-projects.md#session-usability-guidance-in-0103-candidate),
+including issue setup then the six-guide refresh for existing 0.10.2 notebooks.
+
 ## Marketplace integration (0.8.0)
 
 Version 0.8.0 is published, 2026-11-12. It adds Codex and Claude Code plugins for
@@ -54,7 +60,7 @@ Use `record --input FILE` for batched agent observations and optional
 `export --output PATH` for a chosen new local ZIP. See the
 [legacy commands](../workflows/debugging.md) and
 [notebook capture workflow](../notebook/workflows/debugging.md).
-**Unpublished source improvements:** `debug record --help` explains reserved
+**Unpublished 0.10.3 candidate improvements:** `debug record --help` explains reserved
 operation names, supported story paths
 and snapshot phases. Both workflows include an executable UTF-8 JSON helper
 usable from PowerShell without interpolating story text into commands. Check
@@ -63,9 +69,9 @@ after a before snapshot. Failed capture is a disclosed gap; a later snapshot
 captures current bytes and cannot establish the original before state. Continue
 ordinary writing safeguards and record `capture.gap` when recording is available.
 These help/recipe improvements are absent from public 0.10.2. See the
-[explicit source delivery sequence](upgrading-projects.md#unpublished-session-usability-guidance)
+[explicit candidate delivery sequence](upgrading-projects.md#unpublished-session-usability-guidance)
 for new setup, existing notebook preview/application and the existing legacy
-newer-release requirement, followed by host reread/reload.
+0.10.3 update after publication, followed by host reread/reload.
 
 Capture includes available public messages, context actually retrieved, relevant
 file snapshots before/after edits, role/handoff observations, saves, failures and
@@ -82,7 +88,7 @@ The saved `session.json` environment describes session start (`started_at`),
 including the package version then. The report labels this startup snapshot;
 later operations and export preserve it even after a mid-session upgrade.
 This applies to older sessions too and does not establish per-operation runtime
-provenance. This report label is an unpublished source change; public 0.10.2
+provenance. This report label is an unpublished 0.10.3 candidate change; public 0.10.2
 exports retain the earlier `Environment` heading.
 The readable report counts exact operation/source pairs and keeps user, assistant,
 prepared-message and explicit `capture.gap` labels distinct. It reports nonempty
@@ -512,7 +518,7 @@ Old contribution production is retired; authentic existing grants support only
 historical reconciliation/release and retained notice recovery. Existing
 worktrees/branches/PRs are preserved and uncertain create remains blocked.
 
-### Retrospective handoff clarification (unpublished source)
+### Retrospective handoff clarification (0.10.3 candidate)
 
 The source workflows require the first findings response to distinguish local
 drafts from publication, show ready exact issue previews and ask for the writer's
@@ -520,7 +526,7 @@ approval choice. Current exact approval is reused without another request.
 Finish/pause responses name actual receipts, equivalents, blocked/manual steps
 and uncertain outcomes, with attachment status separate from issue creation.
 Structural checks do not establish native host compliance. See the
-[source delivery steps](upgrading-projects.md#unpublished-retrospective-handoff-clarification).
+[candidate delivery steps](upgrading-projects.md#unpublished-retrospective-handoff-clarification).
 
 
 ## Updating existing legacy books

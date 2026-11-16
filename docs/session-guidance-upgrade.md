@@ -1,24 +1,28 @@
 # Update session guidance in an existing notebook
 
-The procedure below delivers **unpublished source improvements** to suggestion
-adaptation, note organization and debugging recipes. Public `0.10.2` does not
-contain these improvements; its verified [version-pinned guide](https://github.com/bjarkig82/novel-creator/blob/v0.10.2/docs/session-guidance-upgrade.md)
+This procedure delivers the **unpublished 0.10.3 candidate** guidance. Published
+0.10.2 lacks these improvements; its [version-pinned guide](https://github.com/bjarkig82/novel-creator/blob/v0.10.2/docs/session-guidance-upgrade.md)
 and [release evidence](../tests/evaluations/release-0.10.2.md) remain historical.
-The source package version is still `0.10.2`; installing `novel-creator==0.10.2`
-from PyPI does not deliver this development guidance.
+Use an isolated Python 3.11+ environment outside novels. For candidate validation,
+install the reviewed checkout or matching local artifact. **After publication only**:
 
-For intentional development-source use, install the reviewed checkout or its
-locally built artifact in an isolated Python 3.11+ environment outside novels
-(for example `python -m pip install /absolute/path/to/reviewed/novel-creator`).
-Use that same environment and reviewed source for every step below. Update/enable
-the matching plugin first where used; do not copy project skills into plugin books.
-Package/plugin installation alone leaves existing notebook snapshots unchanged.
+```text
+python -m pip install --upgrade novel-creator==0.10.3
+```
+
+Use that same environment for every step. Update/enable the matching 0.10.3 plugin
+first where used; do not copy project skills into plugin books. Installation
+alone leaves existing notebook snapshots unchanged, including 0.10.2 notebooks.
 
 Before this six-guide refresh, install missing feature prerequisites explicitly:
 
 1. If `side-character.md` is absent, run the supported [side-character feature-only
-   preview/application](side-characters.md#install-or-update-0102). Truly old public
-   0.10.0 notebooks lack it; the revised brainstorming/format links require it.
+   preview/application](side-characters.md#install-or-update-0102), using the
+   already-selected 0.10.3 environment and matching plugin. Follow only that guide's
+   existing-notebook feature preview/apply steps and short script; skip its
+   historical 0.10.2 package/plugin installation and new-project instructions.
+   Truly old public 0.10.0 notebooks lack this prerequisite; the revised
+   brainstorming/format links require it.
    This adds the feature workflow, actual project skill (or plugin routing) and
    bounded root section; it saves no profile. Preserve customized feature resources.
 2. Run `retro issue setup` preview/application as described in
@@ -30,11 +34,12 @@ Before this six-guide refresh, install missing feature prerequisites explicitly:
 3. Run the exact preview/application snippet below, review its diff, then reread
    and reload the selected host instructions, actual skills and linked workflows.
 
-New source notebooks receive the guidance at initialization. New legacy novels
-receive the legacy source workflows at setup. Existing legacy novels use only the
+New 0.10.3 notebooks receive the guidance at initialization. New legacy novels
+receive the legacy 0.10.3 workflows at setup. Existing legacy novels use only the
 normal external-controller updater selecting a newer stable published version.
-An existing 0.10.2 legacy book therefore needs a future authorized newer release;
-same-version source updates are unsupported. Do not bypass its version gate.
+After publication, existing 0.10.2 legacy books select `--version 0.10.3` in
+the external-controller preview/application. Same-version source updates remain
+unsupported; do not bypass the public version gate.
 
 This bounded manual procedure refreshes six shared guides from exact supported
 public snapshots or identical current resources and appends the existing bounded

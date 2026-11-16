@@ -5,8 +5,12 @@ from pathlib import Path
 import re
 from types import SimpleNamespace
 
-from tests.verify_plugin_install import require, run, snapshot
-from tests.session_guidance_checks import check_links
+try:
+    from tests.verify_plugin_install import require, run, snapshot
+    from tests.session_guidance_checks import check_links
+except ModuleNotFoundError:
+    from verify_plugin_install import require, run, snapshot
+    from session_guidance_checks import check_links
 
 
 def feature_paths(host, source, feature):

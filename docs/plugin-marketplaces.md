@@ -1,18 +1,16 @@
 # Marketplace setup for new notebooks
 
-Version **0.10.2 is published, 2026-11-16**. Examples below require the matching
-0.10.2 plugin and package. Full Linux and full Windows qualification passed;
-public package hashes match the immutable qualified candidate. Both named public
-installation checks passed after index propagation retries, and the annotated
-tag is remotely verified. See the
-[release evidence](../tests/evaluations/release-0.10.2.md). See
-[release notes](releases/0.10.2.md) and [release history](releases/README.md).
-No 0.10.2 GitHub release ZIP assets are claimed; local archive instructions remain
-available for development.
+Version **0.10.3 is an unpublished candidate**. Qualification and publication
+are pending; [0.10.2](releases/0.10.2.md) remains the latest verified PyPI release.
+Examples below target matching 0.10.3 plugin/package resources. The default
+PyPI bootstrap and pip command are usable **only after publication**; candidate
+validation uses the matching local wheel via `--wheel`. See [candidate notes](releases/0.10.3.md),
+[candidate evidence](../tests/evaluations/release-0.10.3.md) and [release history](releases/README.md).
+No 0.10.3 GitHub release ZIP assets are claimed.
 
 The plugin has eighteen entries (setup and seventeen writing entries), including
 complete side-character profiles and author-approved session issue retrospectives.
-Its default bootstrap requests exact 0.10.2 from PyPI; `--wheel` remains available
+Its default bootstrap requests exact 0.10.3 from PyPI; `--wheel` remains available
 for explicit matching local-artifact validation. Existing plugin books need the
 [explicit resource updates](upgrading-projects.md) after updating/enabling the
 matching plugin. Cached plugin or Python upgrades alone leave snapshots pinned.
@@ -66,7 +64,7 @@ plugin does not prove the matching Python package has been published.
 
 The permanent plugin name is `novel-creator` and the catalog is
 `novel-creator-marketplace`. Enable the plugin in your actual host and inspect
-its available skills. The published 0.10.2 plugin contains `setup` and seventeen
+its available skills. The candidate 0.10.3 plugin contains `setup` and seventeen
 writing entries; the six writing roles are installed in the book during setup, so the plugin inventory
 itself can report zero agents. Expected writing invocation syntax is Codex
 `$novel-creator:novel-help` and Claude Code `/novel-creator:novel-help`.
@@ -94,7 +92,7 @@ archive can be added by absolute path instead of the GitHub repository. Supply
 the exact matching local wheel to validate that artifact explicitly:
 
 ```text
-python /absolute/path/to/plugin/scripts/bootstrap.py --wheel /absolute/path/to/novel_creator-0.10.2-py3-none-any.whl --novel "/path/to/My Novel"
+python /absolute/path/to/plugin/scripts/bootstrap.py --wheel /absolute/path/to/novel_creator-0.10.3-py3-none-any.whl --novel "/path/to/My Novel"
 ```
 
 Here `/absolute/path/to/plugin` is the installed plugin directory, not the
@@ -113,9 +111,9 @@ Codex/project setup. Never initialize over an existing notebook to change hosts.
 
 The runtime is an isolated virtual environment for the exact plugin version,
 outside the plugin cache and the book. Windows uses
-`%LOCALAPPDATA%/NovelCreator/runtimes/0.10.2`; Linux uses
-`$XDG_CACHE_HOME/novel-creator/runtimes/0.10.2`, falling back to
-`~/.cache/novel-creator/runtimes/0.10.2`. Reuse checks the installed version,
+`%LOCALAPPDATA%/NovelCreator/runtimes/0.10.3`; Linux uses
+`$XDG_CACHE_HOME/novel-creator/runtimes/0.10.3`, falling back to
+`~/.cache/novel-creator/runtimes/0.10.3`. Reuse checks the installed version,
 dependencies and installation source; a local wheel's SHA-256 binds its
 provenance. A changed candidate wheel or switching from wheel to PyPI needs a
 separate cache location. Proxy, CA and package-index transport settings are
@@ -124,10 +122,10 @@ preserved while pip destination overrides are excluded. See the
 
 If the pinned version is missing from the index, report that actual failure;
 use a matching local wheel only when it is available for the intended setup.
-To install or upgrade the separate package in your configured environment:
+After publication only, install or upgrade the separate 0.10.3 package in your configured environment:
 
 ```text
-python -m pip install --upgrade novel-creator==0.10.2
+python -m pip install --upgrade novel-creator==0.10.3
 ```
 
 If setup fails, preserve its partial files and follow the reported recovery

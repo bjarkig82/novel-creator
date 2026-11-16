@@ -4,18 +4,15 @@ A home for developing an app that helps writers plan and create novels.
 
 ## Getting started
 
-**Novel Creator 0.10.2 is published, 2026-11-16.** It adds author-approved session
-issue retrospectives and complete side-character profiles for equipped legacy
-novels and notebooks, with explicit existing-project updates. It retires automatic
-fix/PR production. Full Linux and full Windows qualification passed, and both
-public PyPI archive hashes match the qualified candidate. Both named public
-installation checks passed after index propagation retries, and the annotated
-source tag is remotely verified. See the
-[version notes](docs/releases/0.10.2.md), [release evidence](tests/evaluations/release-0.10.2.md)
-and [release history](docs/releases/README.md) for current status and limits.
-Package/plugin installation leaves existing books pinned; follow the format's
-reviewed resource update and host reread/reload steps before using new entries.
-Native discovery, voice behavior and subjective writing quality remain unverified.
+**Novel Creator 0.10.3 is an unpublished candidate.** Compared with published
+0.10.2 it improves suggestion adaptation, readable notes, debugging recipes and
+retrospective handoffs. Qualification and publication are pending. Version 0.10.2
+remains the latest verified PyPI release. See the [candidate notes](docs/releases/0.10.3.md),
+[candidate evidence](tests/evaluations/release-0.10.3.md) and
+[release history](docs/releases/README.md). Package/plugin installation leaves
+existing books pinned: follow the [explicit format-specific update sequence](docs/upgrading-projects.md)
+and host reread/reload steps. Native discovery, voice behavior and writing quality
+remain unverified.
 
 **The previous Novel Creator 0.10.1 release was published, 2026-11-15.** Compared with 0.10.0,
 it clarifies debug-report coverage, notebook approval/save/checkpoint and
@@ -108,11 +105,11 @@ which explains setup, everyday writing, and the Windows, Linux, and Mac limits.
 If someone has already prepared your novel, go straight to
 [everyday writing](https://github.com/bjarkig82/novel-creator/blob/main/workflows/everyday-writing.md).
 
-Install or upgrade [Novel Creator 0.10.2 from PyPI](https://pypi.org/project/novel-creator/0.10.2/)
+After publication only, install or upgrade Novel Creator 0.10.3 from PyPI
 in your configured environment:
 
 ```text
-python -m pip install --upgrade novel-creator==0.10.2
+python -m pip install --upgrade novel-creator==0.10.3
 ```
 
 Existing legacy novels need an [explicit supported update](workflows/getting-started.md#updating-an-existing-book)
@@ -379,7 +376,7 @@ wheel from the configured dependency environment:
 
 ```bash
 python -m pip wheel . --no-deps --wheel-dir dist
-python tests/verify_wheel.py dist/novel_creator-0.10.2-py3-none-any.whl
+python tests/verify_wheel.py dist/novel_creator-0.10.3-py3-none-any.whl
 ```
 
 Use the actual versioned filename produced by the build. The verifier installs
@@ -444,5 +441,6 @@ fix or PR is part of retro administration.
 This was absent from 0.10.1. Package installation does not update
 project snapshots. See [all four new/existing format delivery paths](docs/upgrading-projects.md#session-issue-retrospectives-in-0102)
 and [workflow/JSON examples](workflows/retrospective.md). Existing notebooks use
-`retro issue setup` preview/application; legacy books use the published 0.10.2
-package's normal framework updater. Historical PR recovery remains available.
+`retro issue setup` preview/application followed by the six-guide refresh for
+0.10.3 candidate guidance; legacy books select 0.10.3 only after publication
+through the normal external-controller updater. Historical PR recovery remains available.

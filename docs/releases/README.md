@@ -4,6 +4,8 @@ Read the notes for each version to understand its changes, compatibility and
 upgrade considerations. Candidate notes describe planned changes and do not
 establish that the package is available on PyPI.
 
+- [0.10.3](0.10.3.md) — **unpublished candidate**: session usability, debug recipes/startup labeling and retrospective handoff fixes; qualification/publication pending.
+
 - [0.10.2](0.10.2.md) — **published 2026-11-16**: author-approved session issue retrospectives, retirement of automatic fix/PR production, complete side-character profiles and explicit updates for both formats; full Linux/Windows qualification, public hashes/installs and annotated tag verified.
 
 - [0.10.1](0.10.1.md) — **published 2026-11-15**: clearer debug coverage and notebook save/handoff guidance, local read-only notebook reviews and explicit existing-notebook guidance refresh; full Linux/Windows qualification and public installs passed.

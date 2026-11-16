@@ -44,7 +44,7 @@ class MarketplacePreviousTests(unittest.TestCase):
                 features.check_legacy_routing(root)
 
     def test_both_public_sources_fail_closed_on_a_corrupt_local_wheel(self):
-        self.assertEqual(set(previous.PUBLIC_WHEELS), {'0.7.2', '0.8.0', '0.9.0', '0.10.0', '0.10.1'})
+        self.assertEqual(set(previous.PUBLIC_WHEELS), {'0.7.2', '0.8.0', '0.9.0', '0.10.0', '0.10.1', '0.10.2'})
         self.assertEqual(previous.PUBLIC_WHEELS['0.10.1'][1],
                          '6721c5a527f1b7e567743f2760ec5e13aec2d0394f520913e98589ac54b8b11a')
         self.assertEqual(previous.PUBLIC_WHEELS['0.8.0'][1],
@@ -67,8 +67,8 @@ class MarketplacePreviousTests(unittest.TestCase):
                           for call in verify.call_args_list],
                          [('0.7.2', False), ('0.7.2', True), ('0.8.0', False), ('0.8.0', True),
                           ('0.9.0', False), ('0.9.0', True), ('0.10.0', False), ('0.10.0', True),
-                          ('0.10.1', False), ('0.10.1', True)])
-        self.assertEqual(len(report.call_args.args[1]['checks']), 10)
+                          ('0.10.1', False), ('0.10.1', True), ('0.10.2', False), ('0.10.2', True)])
+        self.assertEqual(len(report.call_args.args[1]['checks']), 12)
         workflow = (Path(__file__).resolve().parents[2] / '.github/workflows/package-release.yml').read_text()
         self.assertIn('tests/verify_marketplace_previous.py --wheel candidate/*.whl --sdist candidate/*.tar.gz', workflow)
 
@@ -91,13 +91,34 @@ class MarketplacePreviousTests(unittest.TestCase):
 
     def test_local_latest_public_fixture_flag_is_forwarded_for_both_artifacts(self):
         with (patch('sys.argv', ['probe', '--wheel', 'candidate.whl', '--sdist', 'candidate.tar.gz',
-                                 '--previous-0101-wheel', 'frozen.whl', '--report', 'report.json']),
+                                 '--previous-0102-wheel', 'frozen.whl', '--report', 'report.json']),
               patch.object(previous, 'verify', return_value={'ok': True}) as verify,
               patch.object(previous, 'write_report')):
             previous.main()
-        latest = [call for call in verify.call_args_list if call.kwargs['source_version'] == '0.10.1']
+        latest = [call for call in verify.call_args_list if call.kwargs['source_version'] == '0.10.2']
         self.assertEqual(len(latest), 2)
         self.assertTrue(all(call.kwargs['previous'] == Path('frozen.whl') for call in latest))
+
+    def test_0102_dispatch_uses_session_procedure_and_actual_legacy_source(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            wheel = Path(temporary) / 'candidate.whl'
+            wheel.write_bytes(b'candidate')
+            runtime = {'runtime_python': 'private-python', 'version': '0.10.3',
+                       'verified_product_files': 42}
+            with (patch.object(previous, 'candidate_runtime', return_value=runtime),
+                  patch.object(previous, 'install_previous', return_value=('old-product', 'old-cli')),
+                  patch.object(previous, 'previous_wheel', return_value=wheel),
+                  patch.object(previous, 'verify_session_upgrade', return_value=['sessions']) as session,
+                  patch.object(previous, 'verify_feature_upgrade') as feature,
+                  patch.object(previous, 'verify_debug_legacy', return_value={'ok': True}) as legacy):
+                report = previous.verify(plugin=Path('plugin'), wheel=wheel, previous=wheel,
+                                         source_version='0.10.2')
+            self.assertEqual(session.call_args.kwargs, {'source_version': '0.10.2'})
+            self.assertEqual(legacy.call_args.kwargs, {'source_version': '0.10.2'})
+            self.assertEqual(report['notebooks'], ['sessions'])
+            self.assertEqual(report['source_sha256'],
+                             '24117c4c17c7a56a981edbf1852440bbca94f668ea4f4fdf9aef4b940a000659')
+            feature.assert_not_called()
 
     def test_new_legacy_fixture_owns_identity_despite_valid_ambient_identity(self):
         with tempfile.TemporaryDirectory(prefix='previous-legacy-identity-') as temporary:

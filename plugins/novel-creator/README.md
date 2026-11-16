@@ -5,13 +5,15 @@ Claude Code. The 17 writing entries share creative workflows saved with the
 selected book; the setup entry creates new format-1 notebooks for both hosts.
 The permanent plugin name is `novel-creator` in `novel-creator-marketplace`.
 
-Version 0.10.2 is verified published on PyPI, 2026-11-16. It adds complete
-side-character profiles and author-approved issue retrospectives. Full Linux and
-full Windows qualification passed; public archive hashes match the qualified
-candidate. Both named public installation checks passed after index propagation
-retries, and the annotated source tag is remotely verified. See the repository's
-`docs/releases/0.10.2.md` and release evidence for explicit existing-book updates. No 0.10.2
-GitHub release ZIP assets are claimed.
+Version 0.10.3 is an unpublished candidate with session usability, debugging
+recipe/startup-label and retrospective handoff fixes. Qualification and
+publication are pending; 0.10.2 remains the latest verified PyPI release. See
+repository `docs/releases/0.10.3.md` and `docs/upgrading-projects.md` for complete
+four-format delivery. Existing notebooks, including 0.10.2, need explicit issue
+setup then the six-guide refresh, followed by host reread/reload. Package or plugin
+updates alone leave book snapshots pinned. Use a matching local wheel for candidate
+validation; default PyPI bootstrap requires publication. No 0.10.3 release ZIP
+assets are claimed.
 
 Historical version 0.9.0 was verified published on PyPI, 2026-11-12. Its
 [GitHub release](https://github.com/bjarkig82/novel-creator/releases/tag/v0.9.0)

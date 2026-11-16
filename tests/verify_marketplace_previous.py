@@ -35,6 +35,8 @@ PUBLIC_WHEELS = {
                '097e9d093424a04fdf0d50fcfbc47c3ed7fd0e6d4d081167b3a78cda497ce4d6'),
     '0.9.0': ('novel_creator-0.9.0-py3-none-any.whl',
               '59050772544faa3056fa173f06c7c410e5f07e352fdad38d41bf88185e86667f'),
+    '0.10.2': ('novel_creator-0.10.2-py3-none-any.whl',
+               '24117c4c17c7a56a981edbf1852440bbca94f668ea4f4fdf9aef4b940a000659'),
     '0.10.1': ('novel_creator-0.10.1-py3-none-any.whl',
                '6721c5a527f1b7e567743f2760ec5e13aec2d0394f520913e98589ac54b8b11a'),
 }
@@ -152,7 +154,7 @@ def verify(*, plugin, wheel, previous=None, source_version=PREVIOUS_VERSION, sdi
                     'notebooks': verify_feature_upgrade(python, old_product, old_cli, scratch, env),
                     'legacy': verify_debug_legacy(python, source, wheel, scratch, env, runtime['version'],
                                                   source_version=source_version)}
-        if source_version == '0.10.0':
+        if source_version in ('0.10.0', '0.10.2'):
             source = previous_wheel(scratch, previous or (scratch / PUBLIC_WHEELS[source_version][0]),
                                     version=source_version)
             return {'ok': True, 'source_sha256': PUBLIC_WHEELS[source_version][1],
@@ -160,7 +162,8 @@ def verify(*, plugin, wheel, previous=None, source_version=PREVIOUS_VERSION, sdi
                     'candidate_artifact': 'sdist' if sdist else 'wheel',
                     'candidate_artifact_sha256': hashlib.sha256((sdist or wheel).read_bytes()).hexdigest(),
                     'candidate_wheel_sha256': hashlib.sha256(wheel.read_bytes()).hexdigest(),
-                    'notebooks': verify_session_upgrade(python, old_product, old_cli, scratch, env),
+                    'notebooks': verify_session_upgrade(python, old_product, old_cli, scratch, env,
+                                                        source_version=source_version),
                     'legacy': verify_debug_legacy(python, source, wheel, scratch, env, runtime['version'],
                                                   source_version=source_version)}
         if source_version == '0.9.0':
@@ -276,12 +279,14 @@ print(json.dumps(exercise(sys.executable,Path(sys.argv[2]),Path(sys.argv[3]),dic
     return cases
 
 
-def verify_session_upgrade(python, old_product, old_cli, scratch, env):
-    """Previous public 0.10.0 notebooks and actual candidate new setup, all layouts."""
+def verify_session_upgrade(python, old_product, old_cli, scratch, env, *, source_version='0.10.0'):
+    """Frozen public notebooks and actual candidate new setup, all twelve layouts."""
     try:
-        from tests.session_guidance_checks import exercise, check_links, procedure
+        from tests.session_guidance_checks import exercise, check_links, procedure, prepare_retro
+        from tests.feature_upgrade_checks import check_features
     except ModuleNotFoundError:
-        from session_guidance_checks import exercise, check_links, procedure
+        from session_guidance_checks import exercise, check_links, procedure, prepare_retro
+        from feature_upgrade_checks import check_features
     target = json.loads(run([python, '-I', '-c',
         'import json,novel_creator;print(json.dumps(novel_creator.__version__))'], env=env, cwd=scratch))
     cases = []
@@ -296,14 +301,14 @@ def verify_session_upgrade(python, old_product, old_cli, scratch, env):
                         '--path', path, '--language', language, '--host', host,
                         '--skill-source', source, '--json'], env=env, cwd=scratch))
                     require(created.get('ok') and created['data']['ready'], 'Notebook init failed')
-                if not cases:
+                if not cases and source_version == '0.10.0':
                     before = snapshot(book)
                     old_probe = ('import sys;sys.path.insert(0,sys.argv.pop(1));exec(' +
                                  repr(procedure()) + ')')
                     run([python, '-I', '-B', '-c', old_probe, old_product, 'preview'],
                         env=env, cwd=book, expected_exit=1)
                     require(snapshot(book) == before, 'Old package capability refusal changed files')
-                if host == 'codex' and source == 'project':
+                if source_version == '0.10.0' and host == 'codex' and source == 'project':
                     # Retain the established default-layout updater journey too.
                     focused = [python, '-I', '-B', '-m', 'novel_creator', 'notebook',
                                'update', '--path', book]
@@ -330,14 +335,27 @@ def verify_session_upgrade(python, old_product, old_cli, scratch, env):
                                    'update(sys.argv[1],apply=True,preview_id=p["preview_id"],'
                                    'expected_head=p["reviewed_head"])')
                         run([python, '-I', '-B', '-c', feature, book], env=env, cwd=scratch)
-                    command = [python, '-I', '-B', '-m', 'novel_creator', 'retro', 'issue',
-                               'setup', '--novel', book]
-                    review = json.loads(run([*command, '--json'], env=env, cwd=scratch))['data']
-                    run([*command, '--apply', '--preview', review['preview_id'],
-                         '--expected-head', review['reviewed_head'], '--json'], env=env, cwd=scratch)
-                result = exercise(python, book, expected, env, host=host, source=source)
+                    if source_version == '0.10.2':
+                        preserved, _, raw_index, original_head = prepare_retro(
+                            python, book, expected, env, host=host, source=source)
+                    else:
+                        command = [python, '-I', '-B', '-m', 'novel_creator', 'retro', 'issue',
+                                   'setup', '--novel', book]
+                        review = json.loads(run([*command, '--json'], env=env, cwd=scratch))['data']
+                        run([*command, '--apply', '--preview', review['preview_id'],
+                             '--expected-head', review['reviewed_head'], '--json'], env=env, cwd=scratch)
+                result = exercise(python, book, expected, env, host=host, source=source,
+                                  prepared=source_version == '0.10.2')
+                if source_version == '0.10.2':
+                    check_features(book, expected, host=host, source=source)
+                    require((book / '.git/index').read_bytes() == raw_index,
+                            'Full guidance sequence changed original raw staging')
+                    require(run(['git', '-C', book, 'rev-parse', 'HEAD'], env=env, cwd=scratch) == original_head,
+                            'Full guidance sequence changed original history')
+                    for name in ('notebook/prerequisite-writer.md', 'prerequisite-staging.txt'):
+                        require(snapshot(book)[name] == preserved[name], 'Original writer bytes changed')
                 cases.append(dict(host=host, skill_source=source, language=language,
-                                  source_version='0.10.0', new_notebook=True, **result))
+                                  source_version=source_version, new_notebook=True, **result))
     # New legacy books retain their supported methods; notebook-only guidance
     # must not silently introduce notebook save semantics or a retro CLI there.
     for language in ('en', 'is'):
@@ -402,7 +420,7 @@ def checked_book(*args, **kwargs):
    assert entry.is_file()
    for link in re.findall(r'\]\(([^)#]+)(?:#[^)]*)?\)', entry.read_text(encoding='utf-8')):
     assert (entry.parent / link).is_file()
-  if sys.argv[6] == '0.10.1':
+  if sys.argv[6] in ('0.10.1', '0.10.2'):
    from tests.feature_upgrade_checks import check_legacy_features
    check_legacy_features(book.root)
   started = book.launch('debug','start','--novel',book.root,'--json')
@@ -414,6 +432,15 @@ def checked_book(*args, **kwargs):
   assert exported.returncode == 0, exported.stderr
   result = json.loads(exported.stdout)['data']
   assert Path(result['output']).is_file() and not result['partial']
+  if sys.argv[6] == '0.10.2':
+   from importlib.resources import files
+   import zipfile
+   for name in ('entry.md','clarify.md','brainstorm.md','debugging.md','retrospective.md'):
+    assert (book.root/'.novel-creator/workflows'/name).read_bytes().replace(b'\r\n',b'\n') == files('novel_creator.workflows').joinpath(name).read_bytes().replace(b'\r\n',b'\n')
+   with zipfile.ZipFile(result['output']) as archive:
+    reports = [archive.read(n) for n in archive.namelist() if n.endswith('report.md')]
+    assert len(reports) == 1 and b'These saved values describe session startup.' in reports[0]
+
 update_helpers.historical_book = checked_book
 result = installed_matrix([sys.argv[2]], sys.argv[3])
 print(json.dumps(result))
@@ -615,13 +642,14 @@ def main():
     parser.add_argument('--previous-090-wheel', type=Path, help='Local hash-verified public 0.9.0 wheel')
     parser.add_argument('--previous-0100-wheel', type=Path, help='Local hash-verified public 0.10.0 wheel')
     parser.add_argument('--previous-0101-wheel', type=Path, help='Local hash-verified public 0.10.1 wheel')
+    parser.add_argument('--previous-0102-wheel', type=Path, help='Local hash-verified public 0.10.2 wheel')
     parser.add_argument('--sdist', type=Path, help='Also test installation from the exact candidate sdist')
     parser.add_argument('--report', type=Path, required=True, help='Success JSON report destination')
     args = parser.parse_args()
     reports = []
     for source_version, previous in (('0.7.2', args.previous_wheel), ('0.8.0', args.previous_080_wheel),
                                      ('0.9.0', args.previous_090_wheel), ('0.10.0', args.previous_0100_wheel),
-                                     ('0.10.1', args.previous_0101_wheel)):
+                                     ('0.10.1', args.previous_0101_wheel), ('0.10.2', args.previous_0102_wheel)):
         for sdist in ((None, args.sdist.resolve()) if args.sdist else (None,)):
             reports.append(verify(plugin=args.plugin.resolve(), wheel=args.wheel.resolve(),
                                   previous=previous, source_version=source_version, sdist=sdist))

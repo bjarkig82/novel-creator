@@ -32,7 +32,83 @@ def check_links(book):
                             (path.parent / link).is_file(), 'Unresolved skill/role link: ' + str(path))
 
 
-def exercise(python, book, expected, env, *, host, source):
+def prepare_retro(python, book, expected, env, *, host, source):
+    """Actual CLI prerequisite with writer state present before the first preview."""
+    try:
+        from tests.feature_upgrade_checks import check_features, feature_paths
+    except ModuleNotFoundError:
+        from feature_upgrade_checks import check_features, feature_paths
+    roots = ('AGENTS.md', 'CLAUDE.md') if host == 'both' else (
+        'AGENTS.md' if host == 'codex' else 'CLAUDE.md',)
+    root_bytes = {}
+    for name in roots:
+        path = book / name
+        path.write_bytes(path.read_bytes() + b'\n## Before prerequisite\nPreserve exact writer directions.\n')
+        root_bytes[name] = path.read_bytes()
+    (book / 'notebook/prerequisite-writer.md').write_bytes(b'Accepted before prerequisite.\n')
+    staged = book / 'prerequisite-staging.txt'
+    staged.write_bytes(b'Staged before prerequisite\n')
+    run(['git', '-C', book, 'add', '--', staged.name], env=env, cwd=book.parent)
+    staged.write_bytes(b'Unstaged before prerequisite\n')
+    before = snapshot(book)
+    index = (book / '.git/index').read_bytes()
+    head = run(['git', '-C', book, 'rev-parse', 'HEAD'], env=env, cwd=book.parent)
+    command = [python, '-I', '-B', '-m', 'novel_creator', 'retro', 'issue', 'setup', '--novel', book]
+
+    def preview():
+        return json.loads(run([*command, '--json'], env=env, cwd=book.parent))['data']
+
+    review = preview()
+    require(snapshot(book) == before, 'Retro prerequisite preview wrote files')
+    path = book / roots[0]
+    raw = path.read_bytes()
+    path.write_bytes(raw + b'Late writer edit.\n')
+    changed = snapshot(book)
+    run([*command, '--apply', '--preview', review['preview_id'], '--expected-head',
+         review['reviewed_head'], '--json'], env=env, cwd=book.parent, expected_exit=3)
+    require(snapshot(book) == changed, 'Stale prerequisite mutated files')
+    path.write_bytes(raw)
+    path = book / '.novel-notebook/workflows/retrospective.md'
+    raw = path.read_bytes()
+    path.write_bytes(raw + b'Custom retrospective.\n')
+    changed = snapshot(book)
+    run([*command, '--json'], env=env, cwd=book.parent, expected_exit=3)
+    require(snapshot(book) == changed, 'Custom prerequisite mutated files')
+    path.write_bytes(raw)
+    outside = book.parent / (book.name + '-retro-hardlink.md')
+    outside.write_bytes(raw)
+    path.unlink()
+    os.link(outside, path)
+    changed = snapshot(book)
+    try:
+        run([*command, '--json'], env=env, cwd=book.parent, expected_exit=3)
+        require(snapshot(book) == changed and outside.read_bytes() == raw,
+                'Unsafe prerequisite path changed files')
+    finally:
+        path.unlink()
+        path.write_bytes(raw)
+    review = preview()
+    applied = json.loads(run([*command, '--apply', '--preview', review['preview_id'],
+        '--expected-head', review['reviewed_head'], '--json'], env=env, cwd=book.parent))['data']
+    require(applied['applied'], 'Prerequisite application failed')
+    after = snapshot(book)
+    allowed = set(roots) | feature_paths(host, source, 'retrospective') | {
+        '.novel-notebook/workflows/' + name + '.md' for name in ('help', 'conversation', 'debugging')}
+    require({n for n in before.keys() | after.keys() if before.get(n) != after.get(n)} <= allowed,
+            'Prerequisite changed writer files')
+    for name in roots:
+        require((book / name).read_bytes().startswith(root_bytes[name]), 'Prerequisite changed custom root')
+    require((book / '.git/index').read_bytes() == index, 'Prerequisite changed raw index')
+    require(run(['git', '-C', book, 'rev-parse', 'HEAD'], env=env, cwd=book.parent) == head,
+            'Prerequisite changed history')
+    check_features(book, expected, host=host, source=source)
+    repeated = preview()
+    require(repeated['already_current'], 'Prerequisite retry not current')
+    require(snapshot(book) == after, 'Prerequisite retry wrote files')
+    return before, after, index, head
+
+
+def exercise(python, book, expected, env, *, host, source, prepared=False):
     """Preview/apply, exact resources, refusals and byte preservation."""
     hosts = ('codex', 'claude') if host == 'both' else (host,)
     roots = ['AGENTS.md' if h == 'codex' else 'CLAUDE.md' for h in hosts]
@@ -44,10 +120,11 @@ def exercise(python, book, expected, env, *, host, source):
         path = book / name
         path.write_bytes(path.read_bytes() + b'\r\n## Custom writer direction\r\nKeep my exact bytes.\r\n')
     (book / 'notebook/writer-preserved.md').write_bytes(b'Synthetic accepted writer text.\n')
-    staged = book / 'writer-staging.txt'
-    staged.write_bytes(b'Staged writer bytes\n')
-    run(['git', '-C', book, 'add', '--', staged.name], env=env, cwd=book.parent)
-    staged.write_bytes(b'Unstaged writer bytes\n')
+    if not prepared:
+        staged = book / 'writer-staging.txt'
+        staged.write_bytes(b'Staged writer bytes\n')
+        run(['git', '-C', book, 'add', '--', staged.name], env=env, cwd=book.parent)
+        staged.write_bytes(b'Unstaged writer bytes\n')
     before = snapshot(book)
     root_bytes = {n: (book / n).read_bytes() for n in roots}
     index = (book / '.git/index').read_bytes()
