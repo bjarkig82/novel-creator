@@ -39,6 +39,15 @@ a test work. On Windows, if temporary-directory access is blocked, select an
 ordinary writable temporary location for the test process and retain the failure
 and environment details. Some real-host saves may require scoped filesystem access.
 
+Debug reports label the saved environment as captured at session start, using
+`session.json`'s `started_at`. Package/Python/platform values remain the original
+startup snapshot, including when an older session is exported after an upgrade.
+Later operations do not refresh it, and it cannot identify each operation's
+runtime. Compare explicit later observations separately when investigating an
+upgrade; do not replace historical metadata with the exporting runtime.
+The label is an unpublished source change; public 0.10.2 exports still use the
+earlier `Environment` heading.
+
 ### Retrospective network settings
 
 Optional legacy retrospective Git and GitHub CLI subprocesses preserve the host's

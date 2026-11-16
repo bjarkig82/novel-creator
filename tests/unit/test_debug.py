@@ -88,6 +88,49 @@ class DebugRecorder(unittest.TestCase):
         with self.assertRaises(ToolError):
             debug.status(other, first)
 
+    def test_mid_session_upgrade_preserves_and_labels_startup_environment(self):
+        with patch.object(debug, '__version__', '0.10.1'):
+            identifier = self.start()
+        with patch.object(debug, '__version__', '0.10.2'):
+            debug.record(self.root, identifier, {'operation': 'upgrade.observed',
+                         'metadata': {'package_version': '0.10.2'}})
+            debug.stop(self.root, identifier)
+            saved = (self.directory(identifier) / 'session.json').read_bytes()
+            events = (self.directory(identifier) / 'events.jsonl').read_bytes()
+            result = debug.export(self.root, identifier)
+        with zipfile.ZipFile(result['output']) as archive:
+            info = json.loads(archive.read('session.json'))
+            report = archive.read('report.md').decode()
+            self.assertEqual(info['environment']['package_version'], '0.10.1')
+            self.assertIn('## Environment (captured at session start)', report)
+            self.assertIn(f"Captured at: {info['started_at']}", report)
+            self.assertIn('- package_version: 0.10.1', report)
+            self.assertIn('Per-operation runtime provenance is not available', report)
+            self.assertEqual(archive.read('events.jsonl'), events)
+        self.assertEqual((self.directory(identifier) / 'session.json').read_bytes(), saved)
+        self.assertEqual(self.events(identifier)[1]['metadata']['package_version'], '0.10.2')
+
+    def test_pre_label_metadata_exports_without_migration_or_refresh(self):
+        identifier = self.start()
+        path = self.directory(identifier) / 'session.json'
+        # Version 1 metadata predates the report label and has no capture-scope field.
+        info = {'debug_version': 1, 'debug_session': identifier, 'format': 'notebook',
+                'state': 'recording', 'started_at': '2026-11-12T12:00:00Z',
+                'stopped_at': None, 'environment': {'package_version': '0.10.0',
+                'host': 'unknown', 'model': 'unknown'}, 'initial_git_checkpoint': 'unknown'}
+        original = json.dumps(info).encode()
+        path.write_bytes(original)
+        with patch.object(debug, '__version__', '0.10.2'):
+            result = debug.export(self.root, identifier)
+        with zipfile.ZipFile(result['output']) as archive:
+            exported = json.loads(archive.read('session.json'))
+            self.assertEqual(exported['environment'], info['environment'])
+            report = archive.read('report.md').decode()
+            self.assertIn('captured at session start', report)
+            self.assertIn('Captured at: 2026-11-12T12:00:00Z', report)
+            self.assertIn('- package_version: 0.10.0', report)
+        self.assertEqual(path.read_bytes(), original)
+
     def test_export_counts_exact_observations_without_disclosing_content(self):
         identifier = self.start()
         debug.record(self.root, identifier, {'events': [

@@ -470,7 +470,10 @@ def _report(info, events, warnings):
     state = 'Stopped' if info['state'] == 'stopped' else 'Partial — session was still recording at export'
     lines = ['# Session debugging report', '', f"Session: `{info['debug_session']}`", '',
              f'Status: {state}', '', f"Started: {info['started_at']}",
-             f"Stopped: {info.get('stopped_at') or 'unknown'}", '', '## Environment', '']
+             f"Stopped: {info.get('stopped_at') or 'unknown'}", '',
+             '## Environment (captured at session start)', '',
+             f"Captured at: {cell(info['started_at'])}", '',
+             'These saved values describe session startup. They are not refreshed by later operations or export; a mid-session upgrade can change the runtime. Per-operation runtime provenance is not available.', '']
     lines.extend(f'- {cell(k)}: {cell(v)}' for k, v in info['environment'].items())
     lines.extend(['', f"Initial Git checkpoint: {info['initial_git_checkpoint']}", '',
                   '## Capture limits', '',

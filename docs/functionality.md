@@ -78,6 +78,12 @@ or Python runtime when debugging is off.
 Sessions have independent IDs, require explicit activation and never automatically
 attach to another chat. Interrupted logs remain available for partial export.
 The ZIP contains `report.md`, metadata, `events.jsonl` and content attachments.
+The saved `session.json` environment describes session start (`started_at`),
+including the package version then. The report labels this startup snapshot;
+later operations and export preserve it even after a mid-session upgrade.
+This applies to older sessions too and does not establish per-operation runtime
+provenance. This report label is an unpublished source change; public 0.10.2
+exports retain the earlier `Environment` heading.
 The readable report counts exact operation/source pairs and keeps user, assistant,
 prepared-message and explicit `capture.gap` labels distinct. It reports nonempty
 `observed_at` and correlation-ID availability without copying message content or
