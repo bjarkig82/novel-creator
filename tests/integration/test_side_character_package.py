@@ -15,12 +15,14 @@ from tests.verify_plugin_install import temporary_environment, run
 
 PROBE = r'''
 import json,sys
+from importlib.metadata import version
 from pathlib import Path
 from unittest.mock import patch
 import novel_creator
 from novel_creator import notebook, notebook_side_character, storage, update, update_release
 from novel_creator.install import initialize
 assert Path(novel_creator.__file__).resolve().is_relative_to(Path(sys.prefix))
+candidate_version = version('novel-creator')
 area, previous_python, wheel, previous_wheel, checkout = map(Path, sys.argv[1:])
 sys.path.append(str(checkout))
 from tests.update_release_helpers import release_listing
@@ -91,11 +93,11 @@ root_instructions=(root/'AGENTS.md').read_bytes()+b'\nKeep custom writer directi
 (root/'AGENTS.md').write_bytes(root_instructions)
 history=storage.read_history(root);head=storage.head(root);staged=storage.index_entries(root,['writer.txt'])
 story={str(p.relative_to(root)):p.read_bytes() for p in (root/'story').rglob('*') if p.is_file()}
-transport=release_listing({'0.10.1':previous_wheel.read_bytes(),'0.10.2':wheel.read_bytes()})
+transport=release_listing({'0.10.1':previous_wheel.read_bytes(),candidate_version:wheel.read_bytes()})
 with patch.object(update_release,'cache_home',return_value=area/'release-cache'):
-    preview=update.preview(root,version='0.10.2',python=sys.executable,transport=transport)['data']
+    preview=update.preview(root,version=candidate_version,python=sys.executable,transport=transport)['data']
     assert not preview['blockers'],preview
-    result=update.apply(root,preview_id=preview['preview_id'],version='0.10.2',expected_head=preview['reviewed_head'])
+    result=update.apply(root,preview_id=preview['preview_id'],version=candidate_version,expected_head=preview['reviewed_head'])
     assert result['data']['ready'],result
 assert git(root,'rev-parse','HEAD^').strip()==head
 assert storage.read_history(root)==history and storage.index_entries(root,['writer.txt'])==staged
@@ -106,7 +108,7 @@ for name,raw in story.items():assert (root/name).read_bytes()==raw
 assert (root/'.agents/skills/novel-side-character/SKILL.md').is_file()
 assert (root/'.novel-creator/workflows/side-character.md').is_file()
 assert not (root/'.novel-creator/src/novel_creator/notebook_side_character.py').exists()
-print(json.dumps(dict(ok=True,new_legacy=True,new_notebooks=2,previous_legacy='0.10.1->0.10.2',previous_notebooks=3,story_history_custom_staging_preserved=True)))
+print(json.dumps(dict(ok=True,new_legacy=True,new_notebooks=2,previous_legacy='0.10.1->'+candidate_version,previous_notebooks=3,story_history_custom_staging_preserved=True)))
 '''
 
 
