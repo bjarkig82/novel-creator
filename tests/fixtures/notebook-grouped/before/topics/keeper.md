@@ -102,4 +102,3 @@ State: accepted
 Perspective: objective
 Origin: Writer first chose archivist; later replaced it with teaching.
 Links: none
-

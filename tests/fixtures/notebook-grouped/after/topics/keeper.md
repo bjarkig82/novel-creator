@@ -126,4 +126,3 @@ State: accepted
 Perspective: objective
 Origin: Writer chose teaching after an earlier archivist role.
 Links: none
-
