@@ -5,35 +5,37 @@ instructions require an explicit project update as well. Keep the configured
 Python environment outside the novel and open the intended novel folder in Codex.
 Do not initialize over an existing novel or convert formats to obtain a skill.
 
-[0.10.1](releases/0.10.1.md), published 2026-11-15, is the latest verified
-published package. It clarifies local report coverage and notebook session,
-save/checkpoint and handoff guidance, with a read-only local notebook review.
+[0.10.2](releases/0.10.2.md), published 2026-11-16, is the latest verified
+published package. It adds complete side-character profiles and author-approved
+session issue retrospectives and retires automatic fix/PR production. See the
+[release evidence](../tests/evaluations/release-0.10.2.md) for qualification and
+public-check status.
 Install the exact published version in your configured environment:
 
 ```text
-python -m pip install --upgrade novel-creator==0.10.1
+python -m pip install --upgrade novel-creator==0.10.2
 ```
 
 New projects receive the resources appropriate to their format at setup.
 Existing projects need the format-specific updates below; package installation
 alone does not refresh their pinned resources.
 
-## Unreleased side-character profiles
+<a id="unreleased-side-character-profiles"></a>
 
-The `0.10.2` side-character feature is an **unpublished checkout candidate**,
-absent from published 0.10.1. First install the selected candidate source, wheel
-or source distribution in an isolated Python 3.11+ environment outside novels.
-The [complete side-character installation procedure](side-characters.md#install-or-update-the-unpublished-candidate)
+## Side-character profiles in 0.10.2
+
+The side-character feature ships in published `0.10.2` and was absent from 0.10.1.
+First install the exact package in an isolated Python 3.11+ environment outside
+novels. The [complete side-character installation procedure](side-characters.md#install-or-update-0102)
 includes installation commands, the short feature-only maintenance script,
 new-project behavior, preservation/save effects and actual host reload steps.
 Installing Python or updating a plugin alone does not refresh existing books.
 
-For an existing **legacy novel**, **only after publication**, run the compatible
+For an existing **legacy novel**, run the compatible
 external controller (not the book's pinned runtime) and retain its verified
-runtime interpreter. These commands cannot discover unpublished 0.10.2 merely
-because candidate source was installed; the ordinary stable-public-release gate
-remains in force. Candidate tests use a controlled offline fixture transport,
-not a public availability claim:
+runtime interpreter. The ordinary stable-public-release gate remains in force;
+select the published target. Qualification used a controlled offline fixture
+transport separately from this public update route:
 
 ```text
 CONTROLLER -I -B -m novel_creator update --novel BOOK --python RUNTIME --version 0.10.2 --json
@@ -46,7 +48,7 @@ structured sourced-capture semantics, custom instructions, story and unrelated
 staging, and creates its dedicated framework commit. No format conversion occurs.
 
 For an existing **default standalone Codex/project notebook** without an
-integration marker, use the isolated candidate's focused notebook updater:
+integration marker, use the selected package's focused notebook updater:
 
 ```text
 novel-creator notebook update --path BOOK --json
@@ -58,7 +60,7 @@ prerequisites and recognized public Help refresh. It does not replace custom
 feature resources or make a commit. Review the concrete preview before applying.
 
 For **Codex/Claude Code/both project or plugin notebook layouts**, follow the
-[bounded feature-only procedure](side-characters.md#install-or-update-the-unpublished-candidate)
+[bounded feature-only procedure](side-characters.md#install-or-update-0102)
 using `novel_creator.notebook_side_character.update`. It adds only this feature;
 old Help/shared workflows/roles/root custom bytes remain. Matching plugin skill
 delivery must be updated/enabled first, with no duplicate project skill copies.
@@ -74,8 +76,11 @@ clear approval, while legacy discussion retains normal sourced capture.
 
 ## Session guidance in 0.10.1
 
-Release 0.10.1 provides an explicit [preview/apply manual procedure](session-guidance-upgrade.md)
+Release 0.10.1 provides an explicit [version-pinned preview/apply manual procedure](https://github.com/bjarkig82/novel-creator/blob/v0.10.1/docs/session-guidance-upgrade.md)
 for existing format-1 notebooks in all supported host/skill-source/language layouts.
+For current 0.10.2 shared guidance, use the [current procedure](session-guidance-upgrade.md)
+after its explicit issue-setup prerequisite. The 0.10.1 procedure below remains a
+historical supported route for notebooks intentionally using that package.
 It refreshes only four provenance-verified shared workflows and appends bounded
 root routing, preserving project skills, roles and custom instructions. Package
 installation alone leaves notebook snapshots unchanged; follow that procedure
@@ -170,21 +175,21 @@ installation outside the novel;
 retain the verified runtime interpreter if it differs:
 
 ```text
-CONTROLLER -I -B -m novel_creator update --novel BOOK --python RUNTIME --version 0.10.1 --json
+CONTROLLER -I -B -m novel_creator update --novel BOOK --python RUNTIME --version 0.10.2 --json
 ```
 
 Review the concrete target version, changed paths, blockers and HEAD. After
 requesting that exact preview's application, use its returned preview ID and HEAD:
 
 ```text
-CONTROLLER -I -B -m novel_creator update --novel BOOK --apply --preview PREVIEW_ID --version 0.10.1 --expected-head REVIEWED_HEAD --json
+CONTROLLER -I -B -m novel_creator update --novel BOOK --apply --preview PREVIEW_ID --version 0.10.2 --expected-head REVIEWED_HEAD --json
 ```
 
 Follow the [existing update procedure](../workflows/getting-started.md#updating-an-existing-book),
 including client closure for initial 0.1.0/0.2.0 updates, `--confirm-quiescent`
 only after that confirmation, and external exact-operation recovery. Installing
 the new package alone does not replace pinned files. See the
-[release notes](releases/0.10.1.md) for compatibility and verification scope.
+[release notes](releases/0.10.2.md) for compatibility and verification scope.
 
 The update installs legacy versions of `$novel-clarify`, `$novel-analyze` and
 `$novel-help` with linked workflows. In 0.7.2, Clarify offers labeled suggestions
@@ -247,26 +252,27 @@ that project in Codex so project skills can be discovered, then search for
 not just a parent folder. Native Codex Desktop discovery remains a separate host
 check; filesystem tests do not prove the menu reloaded.
 
-## Unreleased session issue retrospectives
+<a id="unreleased-session-issue-retrospectives"></a>
 
-This feature is in the **unpublished 0.10.2 candidate**, not published 0.10.1.
-Package/plugin installation leaves pinned project snapshots unchanged. For
-disposable evaluation, install reviewed candidate source or artifacts in an
-isolated environment outside novels as in the [side-character guide](side-characters.md#install-or-update-the-unpublished-candidate).
-After publication, install `novel-creator==0.10.2` in the intended external
-controller environment before updating an existing legacy novel.
+## Session issue retrospectives in 0.10.2
+
+This feature ships in **published 0.10.2** and was absent from 0.10.1.
+Package/plugin installation leaves pinned project snapshots unchanged. Install
+`novel-creator==0.10.2` in an isolated environment outside novels, as in the
+[side-character guide](side-characters.md#install-or-update-0102), before resource
+setup; use the external controller environment for an existing legacy novel.
 
 Existing **legacy novels** use the ordinary external-controller framework update
-preview/application above, selecting `--version 0.10.2` **only after publication**.
+preview/application above, selecting published `--version 0.10.2`.
 The ordinary updater requires a published stable target. Review/apply the
 exact preview/HEAD; it delivers shared retrospective guidance and the legacy
 `.agents/skills/novel-retro/SKILL.md`. Existing story/history/custom-instruction
 protections and historical recovery fences remain. No conversion is required.
-Installing candidate source does not bypass public discovery for this route.
+Installing source alone does not bypass public discovery for this route.
 
 Existing **format-1 notebooks**, including standalone pre-integration-marker
-books and Codex/Claude/both project/plugin layouts, use current source or an
-isolated qualified artifact containing this command:
+books and Codex/Claude/both project/plugin layouts, use the selected installed
+0.10.2 runtime:
 
 ```text
 novel-creator retro issue setup --novel PATH --json

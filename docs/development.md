@@ -95,11 +95,12 @@ For every requested PyPI release, prepare versioned notes and update the
 
 ### Plugin artifacts and installation checks
 
-Version 0.10.1 is the latest verified PyPI release, published 2026-11-15; see its
-[release notes](releases/0.10.1.md) and
-[release evidence](../tests/evaluations/release-0.10.1.md). Full Linux/Windows
-qualification, both public installs, package hashes and the annotated source tag
-are verified. Generate plugin manifests/catalogs
+Version 0.10.2 is the latest verified PyPI release, published 2026-11-16; see its
+[release notes](releases/0.10.2.md) and
+[release evidence](../tests/evaluations/release-0.10.2.md). Full Linux/Windows
+qualification, public package hashes, both named public installation checks and
+the remote annotated tag are verified. Public checks needed index propagation
+retries; the publisher ran once. Generate plugin manifests/catalogs
 and deterministic archives from the package version, then check for drift
 without writes:
 
@@ -108,8 +109,8 @@ python scripts/build_plugins.py
 python scripts/build_plugins.py --check
 ```
 
-Current source is the unpublished 0.10.2 candidate; these build examples do not
-establish publication or qualification. The current default outputs are
+These local build examples alone do not establish publication or qualification.
+The current default outputs are
 `dist/novel-creator-plugin-0.10.2.zip` (plugin root) and
 `dist/novel-creator-marketplace-0.10.2.zip` (both catalogs and the plugin tree).
 Use `--output DIR` for a disposable destination. Both archives exclude runtime
@@ -149,7 +150,7 @@ in actual public 0.8.0 notebooks for all twelve host/source/language layouts
 under installed wheel and source-distribution runtimes. It checks rendered
 resource bytes, conflicts, retry, story/custom directions, index and HEAD.
 For release 0.10.1 it also executes the exact
-[session-guidance procedure](session-guidance-upgrade.md) against public 0.10.0
+[version-pinned session-guidance procedure](https://github.com/bjarkig82/novel-creator/blob/v0.10.1/docs/session-guidance-upgrade.md) against public 0.10.0
 notebooks across all twelve layouts, checks actual skills/links and preservation,
 and exercises new legacy setup and the explicit previous-release legacy update
 under installed wheel and source-distribution runtimes. The older focused
@@ -166,11 +167,11 @@ These checks do not prove GUI skill discovery,
 native conversations or writing quality.
 
 Use the [marketplace guide](plugin-marketplaces.md) for host installation and
-candidate wheel bootstrap. In release preparation, preserve the full Linux
+matching local wheel bootstrap. In release preparation, preserve the full Linux
 suite, complete rebuilt-wheel verifier and all existing workflow gates. CLI and
 resource changes select full Windows qualification under the
 [Windows release policy](testing-and-completion-guide.md#windows-release-selection).
-See the [release notes and remaining limits](releases/0.10.1.md).
+See the [release notes and remaining limits](releases/0.10.2.md).
 
 ### Completing GitHub release assets
 
@@ -253,7 +254,9 @@ and [notebook evidence](../tests/evaluations/agent-story-notebook.md).
 Historical task numbers, blocked states and timing targets describe those runs;
 use current functionality and evidence scope when reporting today's status.
 
-## Unreleased issue retrospective delivery
+<a id="unreleased-issue-retrospective-delivery"></a>
+
+## Issue retrospective delivery (0.10.2)
 
 `retro_issue_setup.py` provides explicit format-1 notebook preview/application.
 `retro_issue_provenance.py` pins trusted shipped workflow fingerprints from local

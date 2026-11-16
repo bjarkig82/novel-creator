@@ -4,10 +4,23 @@ A home for developing an app that helps writers plan and create novels.
 
 ## Getting started
 
-**Novel Creator 0.10.1 is published, 2026-11-15.** Compared with 0.10.0,
+**Novel Creator 0.10.2 is published, 2026-11-16.** It adds author-approved session
+issue retrospectives and complete side-character profiles for equipped legacy
+novels and notebooks, with explicit existing-project updates. It retires automatic
+fix/PR production. Full Linux and full Windows qualification passed, and both
+public PyPI archive hashes match the qualified candidate. Both named public
+installation checks passed after index propagation retries, and the annotated
+source tag is remotely verified. See the
+[version notes](docs/releases/0.10.2.md), [release evidence](tests/evaluations/release-0.10.2.md)
+and [release history](docs/releases/README.md) for current status and limits.
+Package/plugin installation leaves existing books pinned; follow the format's
+reviewed resource update and host reread/reload steps before using new entries.
+Native discovery, voice behavior and subjective writing quality remain unverified.
+
+**The previous Novel Creator 0.10.1 release was published, 2026-11-15.** Compared with 0.10.0,
 it clarifies debug-report coverage, notebook approval/save/checkpoint and
 voice/handoff wording, and local read-only notebook retrospectives. Existing
-notebooks have a supported, reviewed [session-guidance refresh](docs/session-guidance-upgrade.md)
+notebooks have a supported, reviewed [version-pinned session-guidance refresh](https://github.com/bjarkig82/novel-creator/blob/v0.10.1/docs/session-guidance-upgrade.md)
 for every supported host, skill source and language; legacy novels use their
 separate framework updater. Installing a package or plugin leaves pinned book
 resources unchanged. See the [release notes](docs/releases/0.10.1.md) and
@@ -16,14 +29,6 @@ Full Linux and Windows qualification and both public installation checks passed;
 public PyPI hashes and the annotated source tag match the qualified candidate.
 See the [release evidence](tests/evaluations/release-0.10.1.md). Native host reload,
 voice behavior and specialist interaction remain unverified.
-
-**This checkout prepares 0.10.2.** It adds author-approved session issue
-retrospectives and complete side-character profiles for equipped legacy novels
-and notebooks, with explicit existing-project updates. It retires automatic
-fix/PR production. See the [version notes](docs/releases/0.10.2.md) for changes
-and all four delivery paths, and the [release history](docs/releases/README.md)
-for publication/qualification status. The verified published install guidance
-in this source snapshot remains on 0.10.1.
 
 **The previous Novel Creator 0.10.0 release was published 2026-11-13.** It adds opt-in
 [session debugging](workflows/debugging.md) for notebooks and legacy novels,
@@ -103,16 +108,17 @@ which explains setup, everyday writing, and the Windows, Linux, and Mac limits.
 If someone has already prepared your novel, go straight to
 [everyday writing](https://github.com/bjarkig82/novel-creator/blob/main/workflows/everyday-writing.md).
 
-Install or upgrade [Novel Creator 0.10.1 from PyPI](https://pypi.org/project/novel-creator/0.10.1/)
+Install or upgrade [Novel Creator 0.10.2 from PyPI](https://pypi.org/project/novel-creator/0.10.2/)
 in your configured environment:
 
 ```text
-python -m pip install --upgrade novel-creator==0.10.1
+python -m pip install --upgrade novel-creator==0.10.2
 ```
 
 Existing legacy novels need an [explicit supported update](workflows/getting-started.md#updating-an-existing-book)
 to change pinned resources. Existing notebooks use the explicit
-[notebook update procedure](docs/upgrading-projects.md#existing-markdown-notebooks);
+[side-character update](docs/upgrading-projects.md#side-character-profiles-in-0102) and
+[issue-retrospective setup](docs/upgrading-projects.md#session-issue-retrospectives-in-0102);
 package installation does not update either format automatically.
 
 For new notebooks, use the setup route below. The
@@ -159,11 +165,11 @@ edits and history, and keeps proposed facts and open questions distinct from
 accepted structure. It creates no chapter or scene manuscript files and adds no
 CLI command. Existing notebooks do not acquire the skill automatically.
 
-**Unpublished source addition:** [character profile development](docs/character-development.md)
+**Character profile development (published in 0.9.0):** [the workflow](docs/character-development.md)
 offers one small batch of connected profile additions through
 `$novel-character-develop` or a natural fill-gap request. Drafts and revisions
-stay in chat until explicit saving approval. It ships into new notebooks from
-a package containing the feature; the guide includes a manual installation for
+stay in chat until explicit saving approval. It ships into new notebooks;
+the guide includes a manual installation for
 existing format-1 notebooks. Published 0.6.0 does not contain it.
 
 Notebook brainstorming adapts to the book's stage and your chosen topic or method.
@@ -268,7 +274,7 @@ See the [host evaluation](https://github.com/bjarkig82/novel-creator/blob/v0.2.0
 
 Version 0.2.0 introduced optional contributor retrospectives that could prepare
 checked draft contributions. That historical producer is retired in current
-source; existing grants support recovery only. The new unreleased
+source; existing grants support recovery only. The 0.10.2
 [issue workflow](workflows/retrospective.md) requires exact author approval for
 outgoing material and creates no fixes or PRs. Existing novels retain their
 pinned resources after a package upgrade; use the supported explicit update.
@@ -373,7 +379,7 @@ wheel from the configured dependency environment:
 
 ```bash
 python -m pip wheel . --no-deps --wheel-dir dist
-python tests/verify_wheel.py dist/novel_creator-0.10.1-py3-none-any.whl
+python tests/verify_wheel.py dist/novel_creator-0.10.2-py3-none-any.whl
 ```
 
 Use the actual versioned filename produced by the build. The verifier installs
@@ -424,17 +430,19 @@ The repeatable benchmark creates its own temporary external key and removes it
 afterward. `--no-validation-cache` measures the full-validation configuration.
 See [measured performance and platform limits](https://github.com/bjarkig82/novel-creator/blob/v0.2.0/tests/evaluations/performance.md).
 
-### Unreleased session issue retrospectives
+<a id="unreleased-session-issue-retrospectives"></a>
 
-Current source adds explicit session reviews and optional exact-approved GitHub
+### Session issue retrospectives (0.10.2)
+
+Version 0.10.2 adds explicit session reviews and optional exact-approved GitHub
 issues, replacing old automatic fix/PR creation. Automatic review requires
 active-session opt-in and explicit closure only. Debugging stops before review;
 sharing defaults to generalized local findings. The entire actual issue and
 attachments require author approval before upload. No story save/commit, code
 fix or PR is part of retro administration.
 
-This is **not included in published 0.10.1**. Package installation does not update
-project snapshots. See [all four new/existing format delivery paths](docs/upgrading-projects.md#unreleased-session-issue-retrospectives)
+This was absent from 0.10.1. Package installation does not update
+project snapshots. See [all four new/existing format delivery paths](docs/upgrading-projects.md#session-issue-retrospectives-in-0102)
 and [workflow/JSON examples](workflows/retrospective.md). Existing notebooks use
-`retro issue setup` preview/application; legacy books use a future qualified
+`retro issue setup` preview/application; legacy books use the published 0.10.2
 package's normal framework updater. Historical PR recovery remains available.

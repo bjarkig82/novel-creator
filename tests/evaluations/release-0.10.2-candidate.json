@@ -1,0 +1,515 @@
+{
+  "version": "0.10.2",
+  "status": "published on PyPI; full Linux/Windows qualification, public archive hashes, both named public installation checks and annotated source tag verified",
+  "repository": "bjarkig82/novel-creator",
+  "source_commit": "9deeaa1cbbca6ad7c172b90687b698f5ae63b4f4",
+  "source_branch": "main",
+  "source_is_fully_qualified": true,
+  "run_id": "43783843943",
+  "run_attempt": "1",
+  "run_url": "https://github.com/bjarkig82/novel-creator/actions/runs/43783843943/attempts/1",
+  "artifact_id": "14189193059",
+  "artifact_name": "candidate-43783843943-1",
+  "artifact_zip_sha256": "1ddab6c2498c6c2621dcba1a54e026cb4c1922f6bb219bd9ff87b11bed1b78df",
+  "artifact_zip_size": 549405,
+  "manifest": {
+    "windows_suite": "full",
+    "windows_baseline": "8df4ca09e58f71d800211a4dad794dd6c1f0c610",
+    "windows_reason": "Changes require full qualification: .agents/plugins/marketplace.json, .claude-plugin/marketplace.json, .github/release-assets-0.8.0.json, .github/release-assets-0.9.0.json, .github/workflows/github-release-assets-0.9.0.yml, .github/workflows/github-release-assets.yml, MANIFEST.in, adapters/claude/__init__.py, adapters/claude/notebook/CLAUDE.fragment.md, plugins/novel-creator/.claude-plugin/plugin.json, plugins/novel-creator/README.md, plugins/novel-creator/plugin.json, plugins/novel-creator/references/notebook.md, plugins/novel-creator/references/setup.md, plugins/novel-creator/scripts/bootstrap.py, plugins/novel-creator/skills/novel-agent/SKILL.md, plugins/novel-creator/skills/novel-analyze/SKILL.md, plugins/novel-creator/skills/novel-book-idea/SKILL.md, plugins/novel-creator/skills/novel-chapter/SKILL.md, plugins/novel-creator/skills/novel-character-develop/SKILL.md, plugins/novel-creator/skills/novel-character/SKILL.md, plugins/novel-creator/skills/novel-clarify/SKILL.md, plugins/novel-creator/skills/novel-help/SKILL.md, plugins/novel-creator/skills/novel-outline/SKILL.md, plugins/novel-creator/skills/novel-plot/SKILL.md, plugins/novel-creator/skills/novel-premise/SKILL.md, plugins/novel-creator/skills/novel-research/SKILL.md, plugins/novel-creator/skills/novel-retro/SKILL.md, plugins/novel-creator/skills/novel-review/SKILL.md, plugins/novel-creator/skills/novel-scene/SKILL.md, plugins/novel-creator/skills/novel-setting/SKILL.md, plugins/novel-creator/skills/novel-side-character/SKILL.md, plugins/novel-creator/skills/setup/SKILL.md, pyproject.toml, scripts/build_plugins.py, scripts/github_release_assets.py, src/novel_creator/cli.py, src/novel_creator/debug.py, src/novel_creator/host_input.py, src/novel_creator/install.py, src/novel_creator/maintenance.py, src/novel_creator/notebook.py, src/novel_creator/notebook_side_character.py, src/novel_creator/retro.py, src/novel_creator/retro_github.py, src/novel_creator/retro_issue_provenance.py, src/novel_creator/retro_issue_setup.py, src/novel_creator/retro_issues.py, src/novel_creator/storage.py, src/novel_creator/update_release.py, src/novel_creator/validation.py, tests/contract/test_clarify_suggestions.py, tests/contract/test_debug_cli.py, tests/contract/test_github_release_assets.py, tests/contract/test_legacy_focused_methods.py, tests/contract/test_marketplace_previous.py, tests/contract/test_notebook_cli.py, tests/contract/test_notebook_package_verifier.py, tests/contract/test_plugin_bundle.py, tests/contract/test_retro_authorization.py, tests/contract/test_retro_cli.py, tests/contract/test_retro_publication.py, tests/contract/test_retro_review.py, tests/contract/test_retro_transport.py, tests/contract/test_side_character.py, tests/feature_upgrade_checks.py, tests/fixtures/releases/README.md, tests/fixtures/releases/novel_creator-0.10.0-py3-none-any.whl, tests/fixtures/releases/novel_creator-0.10.1-py3-none-any.whl, tests/fixtures/session-guidance-0.10.0/README.md, tests/fixtures/session-guidance-0.10.0/agents.md, tests/fixtures/session-guidance-0.10.0/character-development.md, tests/fixtures/session-guidance-0.10.0/conversation.md, tests/fixtures/session-guidance-0.10.0/debugging.md, tests/fixtures/session-guidance-0.10.0/root-AGENTS.md, tests/fixtures/side-character/scenarios.md, tests/integration/test_character_development_install.py, tests/integration/test_debug_legacy.py, tests/integration/test_host_input.py, tests/integration/test_notebook_hosts.py, tests/integration/test_notebook_init.py, tests/integration/test_notebook_package.py, tests/integration/test_notebook_side_character.py, tests/integration/test_notebook_update.py, tests/integration/test_retro_author_privacy.py, tests/integration/test_retro_comparison.py, tests/integration/test_retro_controls.py, tests/integration/test_retro_diagnostics.py, tests/integration/test_retro_failure_notice.py, tests/integration/test_retro_issue_setup.py, tests/integration/test_retro_journey.py, tests/integration/test_retro_notice_language.py, tests/integration/test_retro_notices.py, tests/integration/test_retro_preparation_recovery.py, tests/integration/test_retro_preservation.py, tests/integration/test_retro_publication_fences.py, tests/integration/test_retro_receipt_edges.py, tests/integration/test_retro_recovery.py, tests/integration/test_retro_release_edges.py, tests/integration/test_retro_retirement.py, tests/integration/test_retro_review_journey.py, tests/integration/test_retro_transport_mutation.py, tests/integration/test_retro_validation_resume.py, tests/integration/test_session_guidance_upgrade.py, tests/integration/test_side_character_install.py, tests/integration/test_side_character_package.py, tests/integration/test_update_apply.py, tests/integration/test_update_retro_preservation.py, tests/notebook_resource_checks.py, tests/release_fixtures.py, tests/retro_contribution_helpers.py, tests/retro_helpers.py, tests/session_guidance_checks.py, tests/unit/test_debug.py, tests/unit/test_plugin_bootstrap.py, tests/unit/test_release_fixtures.py, tests/unit/test_retro_issues.py, tests/verify_marketplace_previous.py, tests/verify_package_install.py, tests/verify_plugin_install.py, tests/verify_previous_release.py, tests/verify_wheel.py",
+    "repository": "bjarkig82/novel-creator",
+    "run_id": "43783843943",
+    "run_attempt": "1",
+    "source_commit": "9deeaa1cbbca6ad7c172b90687b698f5ae63b4f4",
+    "distribution": "novel-creator",
+    "version": "0.10.2",
+    "files": {
+      "novel_creator-0.10.2-py3-none-any.whl": "24117c4c17c7a56a981edbf1852440bbca94f668ea4f4fdf9aef4b940a000659",
+      "novel_creator-0.10.2.tar.gz": "78c9c16b6864b6ebc76157d0984cc9f4957cf013c84830614a2b136e95008956"
+    }
+  },
+  "conclusion": "success",
+  "remote_release_verifier": "passed against exact completed candidate, immutable artifact, source, hashes and required platform jobs",
+  "artifact_content_verification": {
+    "source_commit": "9deeaa1cbbca6ad7c172b90687b698f5ae63b4f4",
+    "wheel_product_files_exact_git_bytes": 112,
+    "sdist_tracked_source_files_exact_git_bytes": 142,
+    "private_or_untracked_source_inclusion": false,
+    "evidence": "Direct archive/source audit; exact downloaded candidate ZIP and both distribution hashes matched metadata/manifest."
+  },
+  "distributions": [
+    {
+      "filename": "novel_creator-0.10.2-py3-none-any.whl",
+      "candidate_sha256": "24117c4c17c7a56a981edbf1852440bbca94f668ea4f4fdf9aef4b940a000659",
+      "candidate_size": 297549,
+      "public_sha256": "24117c4c17c7a56a981edbf1852440bbca94f668ea4f4fdf9aef4b940a000659",
+      "public_size": 297549,
+      "public_upload_time": "2026-11-16T02:33:21.458180Z",
+      "public_match_status": "verified exact candidate bytes"
+    },
+    {
+      "filename": "novel_creator-0.10.2.tar.gz",
+      "candidate_sha256": "78c9c16b6864b6ebc76157d0984cc9f4957cf013c84830614a2b136e95008956",
+      "candidate_size": 262804,
+      "public_sha256": "78c9c16b6864b6ebc76157d0984cc9f4957cf013c84830614a2b136e95008956",
+      "public_size": 262804,
+      "public_upload_time": "2026-11-16T02:33:22.784968Z",
+      "public_match_status": "verified exact candidate bytes"
+    }
+  ],
+  "platforms": {
+    "linux": {
+      "job_id": "133027033185",
+      "job_url": "https://github.com/bjarkig82/novel-creator/actions/runs/43783843943/job/133027033185",
+      "status": "completed",
+      "conclusion": "success",
+      "suite": "full",
+      "test_count": 601,
+      "test_seconds": 524.424,
+      "skipped_tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "required_gates_passed": [
+        "Verify candidate manifest",
+        "Check project skill upgrades",
+        "Verify plugin runtime installation",
+        "Verify previous published notebook compatibility",
+        "Run full unit suite",
+        "Verify wheel bytes and legacy journeys",
+        "Verify clean wheel installation",
+        "Verify clean installation from the candidate sdist",
+        "Follow the literal Bash getting-started guide"
+      ],
+      "installed_candidate_report_validated": true,
+      "previous_release_artifact_checks": 10,
+      "clean_install_notebook_resource_counts": [
+        39,
+        39
+      ],
+      "plugin_runtime_created": true,
+      "plugin_runtime_reused": true
+    },
+    "windows": {
+      "job_id": "133027033095",
+      "job_url": "https://github.com/bjarkig82/novel-creator/actions/runs/43783843943/job/133027033095",
+      "status": "completed",
+      "conclusion": "success",
+      "suite": "full",
+      "test_count": 601,
+      "test_seconds": 3980.668,
+      "skipped_tests": 0,
+      "failures": 0,
+      "errors": 0,
+      "required_gates_passed": [
+        "Verify candidate manifest",
+        "Check project skill upgrades",
+        "Verify plugin runtime installation",
+        "Verify previous published notebook compatibility",
+        "Run full unit suite",
+        "Verify wheel bytes and legacy journeys",
+        "Verify clean wheel installation",
+        "Verify clean installation from the candidate sdist"
+      ],
+      "installed_candidate_report_validated": true,
+      "previous_release_artifact_checks": 10,
+      "clean_install_notebook_resource_counts": [
+        39,
+        39
+      ],
+      "plugin_runtime_created": true,
+      "plugin_runtime_reused": true
+    }
+  },
+  "publication": {
+    "status": "published; exact public bytes and both named public installation checks verified",
+    "run_id": "43792811241",
+    "run_attempt": "1",
+    "run_url": "https://github.com/bjarkig82/novel-creator/actions/runs/43792811241/attempts/1",
+    "source_commit": "9deeaa1cbbca6ad7c172b90687b698f5ae63b4f4",
+    "publish_job_id": "133054863954",
+    "publish_job_conclusion": "success",
+    "public_verified": true,
+    "publication_date": "2026-11-16",
+    "public_checks": {
+      "linux": {
+        "job_id": "133056643513",
+        "job_url": "https://github.com/bjarkig82/novel-creator/actions/runs/43792811241/job/133056643513",
+        "conclusion": "success",
+        "actual_execution_attempt": "3",
+        "started_at": "2026-11-16T02:38:22Z",
+        "completed_at": "2026-11-16T02:38:50Z",
+        "install_step_started_at": "2026-11-16T02:38:27Z",
+        "install_step_completed_at": "2026-11-16T02:38:46Z",
+        "named_install_report_validated": true,
+        "selected_wheel_matches_qualified_candidate": true,
+        "both_public_hashes_match": true
+      },
+      "windows": {
+        "job_id": "133055465937",
+        "job_url": "https://github.com/bjarkig82/novel-creator/actions/runs/43792811241/job/133055465937",
+        "conclusion": "success",
+        "actual_execution_attempt": "2",
+        "started_at": "2026-11-16T02:34:38Z",
+        "completed_at": "2026-11-16T02:36:26Z",
+        "install_step_started_at": "2026-11-16T02:34:49Z",
+        "install_step_completed_at": "2026-11-16T02:36:23Z",
+        "latest_attempt_alias_job_id": "133056644782",
+        "latest_alias_api_run_attempt": "3",
+        "carried_forward_by_github": true,
+        "actually_reexecuted_in_attempt_3": false,
+        "named_install_report_validated": true,
+        "selected_wheel_matches_qualified_candidate": true,
+        "both_public_hashes_match": true
+      }
+    },
+    "official_pypi_json": "https://pypi.org/pypi/novel-creator/0.10.2/json",
+    "files": [
+      {
+        "filename": "novel_creator-0.10.2-py3-none-any.whl",
+        "sha256": "24117c4c17c7a56a981edbf1852440bbca94f668ea4f4fdf9aef4b940a000659",
+        "size": 297549,
+        "upload_time": "2026-11-16T02:33:21.458180Z",
+        "url": "https://files.pythonhosted.org/packages/ed/09/6638fca95c8b5873f4eb757122c8b6eb1287f94fd488c76b4748c18f0693/novel_creator-0.10.2-py3-none-any.whl"
+      },
+      {
+        "filename": "novel_creator-0.10.2.tar.gz",
+        "sha256": "78c9c16b6864b6ebc76157d0984cc9f4957cf013c84830614a2b136e95008956",
+        "size": 262804,
+        "upload_time": "2026-11-16T02:33:22.784968Z",
+        "url": "https://files.pythonhosted.org/packages/5a/93/ea228493c99ac6026d85a05eedc06ac2c8742b9e9c2fc46530dc6fd20690/novel_creator-0.10.2.tar.gz"
+      }
+    ],
+    "hashes_match_qualified_candidate": true,
+    "public_installation_checks": "success",
+    "publisher_reexecuted": false,
+    "environment_review": {
+      "review_id": "25700067917",
+      "deployment_id": "7814059873",
+      "mechanism": "normal configured required reviewer approval; protections preserved"
+    },
+    "public_check_attempts": [
+      {
+        "attempt": "1",
+        "publisher_rerun": false,
+        "linux": {
+          "job_id": "133055095629",
+          "conclusion": "failure",
+          "reason": "PyPI index propagation; 0.10.2 not yet listed"
+        },
+        "windows": {
+          "job_id": "133055095615",
+          "conclusion": "failure",
+          "reason": "PyPI index propagation; 0.10.2 not yet listed"
+        }
+      },
+      {
+        "attempt": "2",
+        "publisher_rerun": false,
+        "linux": {
+          "job_id": "133055465641",
+          "conclusion": "failure",
+          "reason": "PyPI index propagation; 0.10.2 not yet listed"
+        },
+        "windows": {
+          "job_id": "133055465937",
+          "conclusion": "success",
+          "actual_execution": true
+        }
+      },
+      {
+        "attempt": "3",
+        "publisher_rerun": false,
+        "linux": {
+          "job_id": "133056643513",
+          "conclusion": "success",
+          "actual_execution": true
+        },
+        "windows": {
+          "alias_job_id": "133056644782",
+          "conclusion": "success",
+          "actual_execution": false,
+          "carried_from_attempt": "2",
+          "original_job_id": "133055465937"
+        }
+      }
+    ],
+    "latest_workflow_run_attempt": "3",
+    "latest_workflow_conclusion": "success",
+    "actual_publisher_execution_attempt": "1"
+  },
+  "tag": {
+    "name": "v0.10.2",
+    "object_sha": "2fe0f8bdbcfde192e46598d6179548192d4727ee",
+    "source_commit": "9deeaa1cbbca6ad7c172b90687b698f5ae63b4f4",
+    "remote_verified": true,
+    "annotation_verified": true,
+    "status": "verified",
+    "tagger_date": "2026-11-16T02:40:39Z",
+    "annotation": "Novel Creator 0.10.2\n\nPublished on PyPI 2026-11-16.\nQualified source: 9deeaa1cbbca6ad7c172b90687b698f5ae63b4f4\nCandidate: 43783843943 attempt1, artifact14189193059\nFull Linux and full Windows qualification passed.\nPublish: 43792811241, publisher job133054863954 (attempt1)\nExact candidate wheel and source distribution published and public hashes verified.\n"
+  },
+  "host_evidence": {
+    "candidate_run": "43783843943",
+    "candidate_attempt": "1",
+    "artifact_id": "14189193059",
+    "source_commit": "9deeaa1cbbca6ad7c172b90687b698f5ae63b4f4",
+    "files": {
+      "novel_creator-0.10.2-py3-none-any.whl": "24117c4c17c7a56a981edbf1852440bbca94f668ea4f4fdf9aef4b940a000659",
+      "novel_creator-0.10.2.tar.gz": "78c9c16b6864b6ebc76157d0984cc9f4957cf013c84830614a2b136e95008956"
+    },
+    "qualification": "automated-only",
+    "windows_host": false,
+    "linux_host": false
+  },
+  "native_host_acceptance": false,
+  "superseded_candidates": [
+    {
+      "run_id": "43766631897",
+      "run_attempt": "1",
+      "artifact_id": "14182815632",
+      "source_commit": "17f66649a7bc61aabc2fb3ae34c6195f9bf8e679",
+      "result": "failed",
+      "reason": "Stale exact-change inventory in previous-release compatibility verifier; both platform gate results are unusable for publication.",
+      "artifact_zip_sha256": "a5c99bcf9ba31d560643c6e3929d9281a7bea0841ae05d6422e5302b367dd9e3",
+      "files": {
+        "novel_creator-0.10.2-py3-none-any.whl": "b1564621ad51dede62febb388628dec6ed8c2525bd8dc0497d48b6c35d587549",
+        "novel_creator-0.10.2.tar.gz": "c38f57e61b4a4c75c4afff44ccba16dfc7ef6edff71d2ce3b1452a37a289fb64"
+      },
+      "run_url": "https://github.com/bjarkig82/novel-creator/actions/runs/43766631897/attempts/1",
+      "conclusion": "failure",
+      "superseded": true,
+      "published": false,
+      "repair_commit": "379b8040ae5135da93191f1badb17b44a6f6e4e6",
+      "correction": "Exact compatibility inventory repaired without weakening guards; previous-public 0.10.1 installed wheel/sdist coverage added. The same intervening source commit also fixes two independent runtime/workflow review findings; these are not test-only changes."
+    },
+    {
+      "run_id": "43769789773",
+      "run_attempt": "1",
+      "artifact_id": "14183464108",
+      "source_commit": "379b8040ae5135da93191f1badb17b44a6f6e4e6",
+      "result": "Linux full unit suite failed; remaining run cancelled",
+      "linux_job_id": "132983023062",
+      "full_suite": {
+        "tests": 599,
+        "seconds": 483.686,
+        "failures": 3,
+        "errors": 5,
+        "skipped": 5
+      },
+      "cause": "Disposable legacy repositories lack local Git identity; stale current resource count; external HTTP URL treated as local in test.",
+      "files": {
+        "novel_creator-0.10.2-py3-none-any.whl": "b378e7677ad5a053d4b44381a75066726fb2ba6be549598e09cfac20031a9f5e",
+        "novel_creator-0.10.2.tar.gz": "2d4be37072d4b105befd13a6c0d989f3b523f3690e186e00d97969f101416017"
+      },
+      "artifact_zip_sha256": "26db70460be8edd0a7650033e1abf55fb4446fcab4c62bf5ea384df3daeb7f93",
+      "run_url": "https://github.com/bjarkig82/novel-creator/actions/runs/43769789773/attempts/1",
+      "conclusion": "cancelled",
+      "linux_conclusion": "failure",
+      "superseded": true,
+      "published": false,
+      "repair_commit": "6b545beeb3e9f96ba52395bc38b345bedcedac54",
+      "correction": "Test fixtures made independent of developer/global Git identity; current exact inventory updated to 39; external HTTPS links no longer treated as local paths; fixture restored bytes follow existing LF normalization. Production guards/runtime/gates unchanged by this repair. Separate plugin README count correction 15 to 17."
+    },
+    {
+      "run_id": "43772275559",
+      "run_attempt": "1",
+      "run_url": "https://github.com/bjarkig82/novel-creator/actions/runs/43772275559/attempts/1",
+      "artifact_id": "14185051279",
+      "source_commit": "6b545beeb3e9f96ba52395bc38b345bedcedac54",
+      "artifact_zip_sha256": "443f9b8a9ddaf3550d60c3f97bdcad5446f53eb3c78e6107159eeee5e98ffccd",
+      "files": {
+        "novel_creator-0.10.2-py3-none-any.whl": "60ae3497e667850a494e8654814742d896506f930c781f985642940b9e6d6004",
+        "novel_creator-0.10.2.tar.gz": "dbd89217674092736ace253c91d972af2e2cf695f555ee3d0b277dca91d9c813"
+      },
+      "conclusion": "cancelled",
+      "linux_conclusion": "failure",
+      "superseded": true,
+      "published": false,
+      "linux_full_suite": {
+        "tests": 599,
+        "seconds": 685.298,
+        "skipped": 5,
+        "result": "success"
+      },
+      "linux_wheel_legacy_gate": "success",
+      "failed_gate": "Verify clean wheel installation",
+      "cause": "verify_previous_release.py:180 stale old-0.7.1 notebook changed-path inventory omitted side-character and retrospective prerequisite resources.",
+      "repair_commit": "d7297f077ede3cc8148026bdaa26f224c49cda45",
+      "correction": "Two verifier/test files only: target-version exact paths/preview actions/applied changes, installed expected bytes/root/local links and raw Git index checks. No production/runtime/gate relaxation.",
+      "focused_checks": "25 focused tests passed; exact candidate-3 wheel and sdist complete clean installs passed; independent scoped/overall review clean."
+    },
+    {
+      "run_id": "43774843761",
+      "run_attempt": "1",
+      "run_url": "https://github.com/bjarkig82/novel-creator/actions/runs/43774843761/attempts/1",
+      "artifact_id": "14185936333",
+      "source_commit": "d7297f077ede3cc8148026bdaa26f224c49cda45",
+      "artifact_zip_sha256": "89fe4b6846a7659b60554dffcd2075d99760481e2a77c83a309950a88d92d9ed",
+      "files": {
+        "novel_creator-0.10.2-py3-none-any.whl": "ec8e0d137a33983ae6423da51d48488eb980849e17008e5fa9942457a6559bb2",
+        "novel_creator-0.10.2.tar.gz": "4b7166b5066f625fdb8302ec30c46bd11a5f93e93c14b6fb470933c8808f3c95"
+      },
+      "conclusion": "cancelled",
+      "superseded": true,
+      "published": false,
+      "platforms": {
+        "linux": {
+          "job_id": "132998795987",
+          "job_url": "https://github.com/bjarkig82/novel-creator/actions/runs/43774843761/job/132998795987",
+          "status": "completed",
+          "conclusion": "success",
+          "suite": "full",
+          "test_count": 601,
+          "test_seconds": 440.579,
+          "skipped_tests": 5,
+          "failures": 0,
+          "errors": 0,
+          "required_gates_expected": [
+            "Verify candidate manifest",
+            "Check project skill upgrades",
+            "Verify plugin runtime installation",
+            "Verify previous published notebook compatibility",
+            "Run full unit suite",
+            "Verify wheel bytes and legacy journeys",
+            "Verify clean wheel installation",
+            "Verify clean installation from the candidate sdist",
+            "Follow the literal Bash getting-started guide"
+          ],
+          "required_gates_passed": [
+            "Verify candidate manifest",
+            "Check project skill upgrades",
+            "Verify plugin runtime installation",
+            "Verify previous published notebook compatibility",
+            "Run full unit suite",
+            "Verify wheel bytes and legacy journeys",
+            "Verify clean wheel installation",
+            "Verify clean installation from the candidate sdist",
+            "Follow the literal Bash getting-started guide"
+          ],
+          "installed_candidate_report_validated": true,
+          "previous_release_artifact_checks": 10,
+          "scope": "full Linux passed; superseded run, Windows final clean-sdist gate cancelled at whole-job limit",
+          "report_summary": {
+            "plugin_runtime_created": true,
+            "plugin_runtime_reused": true,
+            "plugin_dual_host_notebook_languages": [
+              "en",
+              "is"
+            ],
+            "clean_install_notebook_resource_counts": [
+              39,
+              39
+            ],
+            "clean_install_previous_notebook_source": "0.7.1"
+          }
+        },
+        "windows": {
+          "job_id": "132998795974",
+          "job_url": "https://github.com/bjarkig82/novel-creator/actions/runs/43774843761/job/132998795974",
+          "status": "completed",
+          "conclusion": "cancelled",
+          "suite": "full",
+          "test_count": 601,
+          "test_seconds": 4100.798,
+          "skipped_tests": 0,
+          "failures": 0,
+          "errors": 0,
+          "required_gates_expected": [
+            "Verify candidate manifest",
+            "Check project skill upgrades",
+            "Verify plugin runtime installation",
+            "Verify previous published notebook compatibility",
+            "Run full unit suite",
+            "Verify wheel bytes and legacy journeys",
+            "Verify clean wheel installation",
+            "Verify clean installation from the candidate sdist"
+          ],
+          "required_gates_passed": [
+            "Verify candidate manifest",
+            "Check project skill upgrades",
+            "Verify plugin runtime installation",
+            "Verify previous published notebook compatibility",
+            "Run full unit suite",
+            "Verify wheel bytes and legacy journeys",
+            "Verify clean wheel installation"
+          ],
+          "installed_candidate_report_validated": null,
+          "previous_release_artifact_checks": null,
+          "full_suite_conclusion": "success",
+          "required_gate_cancelled": "Verify clean installation from the candidate sdist",
+          "annotation_evidence": "GitHub job annotations retained by coordinator; exact annotation messages are recorded above."
+        }
+      },
+      "cause": "Windows candidate-check job exceeded hard maximum 1h30m0s during final clean sdist installation; incomplete required gate cannot qualify or publish.",
+      "windows_annotation_messages": [
+        "The job has exceeded the maximum execution time of 1h30m0s",
+        "The operation was canceled."
+      ],
+      "final_sdist_elapsed_seconds_before_cancellation": 53,
+      "repair_commit": "9deeaa1cbbca6ad7c172b90687b698f5ae63b4f4",
+      "correction": "One workflow configuration file only: bounded candidate-check budget 90 to 120 minutes with explanatory comment. All gate commands, conditions, matrix and source-bound Windows selection unchanged.",
+      "focused_checks": "3 focused release-contract tests passed in 20.998s after scoped Git/MSYS retry; independent task and overall reviews clean."
+    }
+  ],
+  "intervening_repairs": [
+    {
+      "commit": "379b8040ae5135da93191f1badb17b44a6f6e4e6",
+      "categories": [
+        "compatibility verifier coverage",
+        "production runtime fix",
+        "notebook workflow fix"
+      ],
+      "runtime_changes": [
+        "Strict same-repository duplicate equivalence accepts canonical issue or PR URL; creation, reconciliation and attachment targets remain issue-only.",
+        "Notebook retrospective no longer routes ordinary notebook turns through legacy notice/exchange commands; genuine historical legacy recovery stays explicit/external."
+      ],
+      "focused_checks": "34 affected tests passed with no skips; additional initialized-notebook check passed; restricted Windows legacy setup retry passed with approved scoped filesystem access.",
+      "full_release_qualification": false
+    },
+    {
+      "commit": "6b545beeb3e9f96ba52395bc38b345bedcedac54",
+      "categories": [
+        "test fixture repairs",
+        "plugin README count only"
+      ],
+      "runtime_changes": [],
+      "production_guards_changed": false,
+      "release_gates_changed": false,
+      "focused_checks": "52 focused tests passed with 1 existing local symlink skip; 3 installed wheel/sdist artifact tests passed with no skips; isolated scratch HOME/global configuration disabled.",
+      "full_release_qualification": false
+    },
+    {
+      "commit": "d7297f077ede3cc8148026bdaa26f224c49cda45",
+      "categories": [
+        "test/verifier exact-contract repair"
+      ],
+      "runtime_changes": [],
+      "production_guards_changed": false,
+      "release_gates_changed": false,
+      "focused_checks": "25 focused tests passed; exact candidate-3 wheel and sdist complete clean installs passed; independent scoped/overall review clean.",
+      "full_release_qualification": false
+    },
+    {
+      "commit": "9deeaa1cbbca6ad7c172b90687b698f5ae63b4f4",
+      "categories": [
+        "bounded release-job time budget configuration only"
+      ],
+      "runtime_changes": [],
+      "file": ".github/workflows/package-release.yml",
+      "old_timeout_minutes": 90,
+      "new_timeout_minutes": 120,
+      "gate_commands_conditions_or_matrix_changed": false,
+      "windows_selection_changed": false,
+      "focused_checks": "3 focused release-contract tests passed in 20.998s after scoped Git/MSYS retry; independent task and overall reviews clean.",
+      "full_release_qualification": false
+    }
+  ],
+  "limits": [
+    "Automated-only release qualification; windows_host=false and linux_host=false.",
+    "Native Codex/Claude Code discovery/reload, actual conversation/voice/display and specialist interaction remain unverified.",
+    "Capture completeness, semantic privacy, attachment byte integrity, timing and subjective writing quality remain unverified.",
+    "No real novel updates or global installation are performed as a publication side effect.",
+    "Later evidence documentation does not rebuild or replace immutable qualified/published artifacts or move a version tag."
+  ],
+  "pending_fields": [],
+  "evidence_date": "2026-11-16",
+  "github_release_assets_published": false
+}

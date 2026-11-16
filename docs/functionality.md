@@ -9,15 +9,16 @@ Start with the [beginner guide](../workflows/start-here.md) or
 [everyday writing](../workflows/everyday-writing.md). Legacy setup and update
 commands are in [getting started](../workflows/getting-started.md).
 
-The unpublished 0.10.2 checkout candidate adds a bounded
+Version 0.10.2, published 2026-11-16, adds a bounded
 [complete side-character profile](side-characters.md) mode for equipped legacy
 novels and format-1 notebooks: a short optional intake, one provisional practical
 profile, then revision/cancellation or one explicit save. Legacy sourced capture
 and notebook chat-only drafts retain their distinct save rules. Package/plugin
 installation alone leaves existing books pinned; host behavior remains unverified.
-The same candidate restores author-approved [session issue retrospectives](#session-issue-retrospectives-unreleased)
-and retires automatic fix/PR production. See [candidate release notes](releases/0.10.2.md)
-for the complete comparison and pending release gates.
+The release restores author-approved [session issue retrospectives](#session-issue-retrospectives-0102)
+and retires automatic fix/PR production. See [release notes](releases/0.10.2.md)
+for the complete comparison and [release evidence](../tests/evaluations/release-0.10.2.md)
+for qualification and public-check status.
 
 ## Marketplace integration (0.8.0)
 
@@ -104,7 +105,7 @@ notebook retrospective uses only writer-selected public evidence, distinguishing
 observations, hypotheses and missing evidence without reconstructing omitted
 messages or inferring latency causes. It adds no legacy retrospective CLI,
 capture activation, story save, contribution opt-in or upload authority. The
-unreleased issue-review replacement is described separately below.
+0.10.2 issue-review replacement is described separately below.
 During a legacy update hold, the pinned launcher remains blocked. Use the
 separately installed external configured runtime for `debug status`, `stop` or
 `export`; this does not bypass or finish framework update recovery.
@@ -437,9 +438,11 @@ skills, and the shared [role](../notebook/workflows/agents.md),
 per-turn Python requirement or automatic outline step. Existing notebooks and
 legacy resources are unchanged, with no new migration or updater command.
 
-## Session issue retrospectives (unreleased)
+<a id="session-issue-retrospectives-unreleased"></a>
 
-Current development source replaces automatic fix/PR creation with explicit
+## Session issue retrospectives (0.10.2)
+
+Published 0.10.2 replaces automatic fix/PR creation with explicit
 session review and optional exact-approved issues in bjarkig82/novel-creator.
 Automatic opt-in lasts only the active session and runs only at explicit closure,
 after any authorized pending normal save. Never save an unsaved draft for retro.
@@ -459,9 +462,9 @@ PR, story exchange, story files or commit occurs for retro administration.
 Saved records never re-enable participation or a new chat's publication direction.
 
 See [workflow and JSON contracts](../workflows/retrospective.md) and
-[explicit project upgrades](upgrading-projects.md#unreleased-session-issue-retrospectives).
+[explicit project upgrades](upgrading-projects.md#session-issue-retrospectives-in-0102).
 New projects receive the workflow/entry; existing legacy novels use the normal
-framework updater from a future qualified package, while existing notebooks use
+framework updater selecting published 0.10.2, while existing notebooks use
 preview-bound `retro issue setup`. Published 0.10.1 does not contain this feature.
 Old contribution production is retired; authentic existing grants support only
 historical reconciliation/release and retained notice recovery. Existing
@@ -494,7 +497,16 @@ See [the update workflow](../workflows/update.md) for commands and recovery boun
 
 ## Delivery status and limits
 
-The latest verified published package is [0.10.1](releases/0.10.1.md), published
+The latest verified published package is [0.10.2](releases/0.10.2.md), published
+2026-11-16. Full Linux and full Windows qualification passed, and public archive
+hashes match the immutable qualified source. Both named public installation
+checks passed after index propagation retries, and the annotated source tag is
+remotely verified. See the
+[release evidence](../tests/evaluations/release-0.10.2.md). Native conversations,
+discovery/reload, voice behavior, specialist interaction and literary quality
+remain unverified.
+
+The previous [0.10.1](releases/0.10.1.md) was published
 2026-11-15. Full Linux and full Windows qualification and both public installation
 checks passed. Published package hashes match the qualified candidate and the
 annotated source tag is verified. See the

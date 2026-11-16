@@ -1,28 +1,22 @@
 # Marketplace setup for new notebooks
 
-Version **0.10.1 is published, 2026-11-15**. The published-version local-wheel and
-runtime examples below select 0.10.1 and require the matching 0.10.1 plugin.
-Full Linux and Windows qualification
-and both public installation checks passed; public package hashes and the
-annotated source tag match the qualified candidate. See
-[release notes](releases/0.10.1.md), [release evidence](../tests/evaluations/release-0.10.1.md)
-and [release history](releases/README.md). No 0.10.1 GitHub release ZIP assets
-are claimed; the local archive instructions remain available for development.
+Version **0.10.2 is published, 2026-11-16**. Examples below require the matching
+0.10.2 plugin and package. Full Linux and full Windows qualification passed;
+public package hashes match the immutable qualified candidate. Both named public
+installation checks passed after index propagation retries, and the annotated
+tag is remotely verified. See the
+[release evidence](../tests/evaluations/release-0.10.2.md). See
+[release notes](releases/0.10.2.md) and [release history](releases/README.md).
+No 0.10.2 GitHub release ZIP assets are claimed; local archive instructions remain
+available for development.
 
-The release clarifies notebook approval/save/checkpoint/handoff guidance and
-local read-only notebook reviews, alongside shared debug-report coverage.
-Existing plugin books need the [reviewed session-guidance refresh](session-guidance-upgrade.md)
-after updating/enabling the matching plugin; cached plugin or Python updates
-alone leave book snapshots unchanged.
-
-The current checkout instead contains the **unpublished 0.10.2 candidate** plugin,
-with eighteen entries (setup and seventeen writing entries), including side-character
-profiles and issue retrospectives. Its default bootstrap requests 0.10.2 from
-PyPI, which is not yet a verified published release. For disposable evaluation,
-use the matching reviewed local 0.10.2 wheel with `--wheel`; do not mix the
-candidate plugin with the published-version examples below. See the
-[candidate notes and explicit project updates](releases/0.10.2.md). Native plugin
-enablement and discovery still require observation in the actual host.
+The plugin has eighteen entries (setup and seventeen writing entries), including
+complete side-character profiles and author-approved session issue retrospectives.
+Its default bootstrap requests exact 0.10.2 from PyPI; `--wheel` remains available
+for explicit matching local-artifact validation. Existing plugin books need the
+[explicit resource updates](upgrading-projects.md) after updating/enabling the
+matching plugin. Cached plugin or Python upgrades alone leave snapshots pinned.
+Native plugin enablement and discovery require observation in the actual host.
 
 **Historical 0.9.0 delivery:** published 2026-11-12, it added Character development as the
 fifteenth writing entry (sixteen entries including setup). Its drafts/revisions
@@ -72,7 +66,7 @@ plugin does not prove the matching Python package has been published.
 
 The permanent plugin name is `novel-creator` and the catalog is
 `novel-creator-marketplace`. Enable the plugin in your actual host and inspect
-its available skills. The published 0.10.1 plugin contains `setup` and fifteen
+its available skills. The published 0.10.2 plugin contains `setup` and seventeen
 writing entries; the six writing roles are installed in the book during setup, so the plugin inventory
 itself can report zero agents. Expected writing invocation syntax is Codex
 `$novel-creator:novel-help` and Claude Code `/novel-creator:novel-help`.
@@ -100,7 +94,7 @@ archive can be added by absolute path instead of the GitHub repository. Supply
 the exact matching local wheel to validate that artifact explicitly:
 
 ```text
-python /absolute/path/to/plugin/scripts/bootstrap.py --wheel /absolute/path/to/novel_creator-0.10.1-py3-none-any.whl --novel "/path/to/My Novel"
+python /absolute/path/to/plugin/scripts/bootstrap.py --wheel /absolute/path/to/novel_creator-0.10.2-py3-none-any.whl --novel "/path/to/My Novel"
 ```
 
 Here `/absolute/path/to/plugin` is the installed plugin directory, not the
@@ -119,9 +113,9 @@ Codex/project setup. Never initialize over an existing notebook to change hosts.
 
 The runtime is an isolated virtual environment for the exact plugin version,
 outside the plugin cache and the book. Windows uses
-`%LOCALAPPDATA%/NovelCreator/runtimes/0.10.1`; Linux uses
-`$XDG_CACHE_HOME/novel-creator/runtimes/0.10.1`, falling back to
-`~/.cache/novel-creator/runtimes/0.10.1`. Reuse checks the installed version,
+`%LOCALAPPDATA%/NovelCreator/runtimes/0.10.2`; Linux uses
+`$XDG_CACHE_HOME/novel-creator/runtimes/0.10.2`, falling back to
+`~/.cache/novel-creator/runtimes/0.10.2`. Reuse checks the installed version,
 dependencies and installation source; a local wheel's SHA-256 binds its
 provenance. A changed candidate wheel or switching from wheel to PyPI needs a
 separate cache location. Proxy, CA and package-index transport settings are
@@ -133,7 +127,7 @@ use a matching local wheel only when it is available for the intended setup.
 To install or upgrade the separate package in your configured environment:
 
 ```text
-python -m pip install --upgrade novel-creator==0.10.1
+python -m pip install --upgrade novel-creator==0.10.2
 ```
 
 If setup fails, preserve its partial files and follow the reported recovery
@@ -149,9 +143,10 @@ Open the initialized book folder itself in the host. Read its applicable
 `notebook/working-summary.md` before continuing. Setup cannot guarantee an
 automatic host project switch or access to another folder.
 
-The fifteen methods cover book ideas, premises, characters, plots, settings,
+The seventeen writing entries cover book ideas, premises, characters, plots, settings,
 outlines, role selection, scenes, chapters, research, review, clarification,
-analysis, help and character profile development. The six roles are orchestrator,
+analysis, help, character profile development, complete side-character profiles
+and session issue retrospectives. The six roles are orchestrator,
 brainstormer, researcher,
 scene writer, chapter writer and reviewer. Their native selection and ongoing
 specialist turns depend on the host. Help and Analyze remain read-only; Clarify
@@ -184,7 +179,7 @@ not migrate the whole book snapshot. Existing legacy books use their reviewed
 updater without this notebook-only method; see the [upgrade guide](upgrading-projects.md).
 
 For revised 0.10.1 session guidance in existing plugin books, follow the exact
-[manual preview/apply procedure](session-guidance-upgrade.md). It supports all
+[version-pinned manual preview/apply procedure](https://github.com/bjarkig82/novel-creator/blob/v0.10.1/docs/session-guidance-upgrade.md). It supports all
 selected hosts/languages and keeps skills and role files intact. It is separate
 from the older method updater and refuses customized snapshots or retained legacy
 state. After verified changes, reread selected `AGENTS.md`/`CLAUDE.md` and linked
@@ -193,6 +188,14 @@ reload/reopen controls, possibly a new chat. File checks do not prove native
 discovery, reload, voice delivery or specialist behavior; unsaved chat drafts
 have no guaranteed recovery.
 
-See [release notes](releases/0.10.1.md),
+For 0.10.2 side-character profiles, follow the [feature-only procedure](side-characters.md#install-or-update-0102).
+For issue retrospectives, use the separate [issue-setup preview/application](upgrading-projects.md#session-issue-retrospectives-in-0102).
+Both cover supported Codex/Claude Code/both and project/plugin layouts; inspect
+actual selected roots, skills/plugin entries and linked book workflows, then
+reread/reload them in the host. The [current shared-guidance procedure](session-guidance-upgrade.md)
+requires issue setup first. These operations make no notebook save or commit and
+do not enable capture, automatic participation or publication.
+
+See [release notes](releases/0.10.2.md),
 [development checks](development.md#plugin-artifacts-and-installation-checks) and
 [historical 0.9.0 qualification evidence](../tests/evaluations/release-0.9.0.md) for exact scope.

@@ -1,8 +1,9 @@
 # Create a complete side-character profile
 
-This feature is an **unpublished 0.10.2 checkout candidate**, not part of published
-0.10.1. Delivery/update qualification and native-host evaluation are separate
-from the writing guidance here. Installing a Python package or plugin alone does
+This feature ships in **0.10.2, published 2026-11-16**, and was absent from
+0.10.1. See the [release notes](releases/0.10.2.md) and
+[qualification evidence](../tests/evaluations/release-0.10.2.md) for verified scope
+and native-host limits. Installing a Python package or plugin alone does
 not refresh resources pinned into an existing novel. Use only a book equipped
 with the matching workflow and routing; do not reinitialize or convert a book
 to obtain it. Project upgrade instructions are maintained separately in the
@@ -78,38 +79,40 @@ The [synthetic host rubric](../tests/fixtures/side-character/scenarios.md) is
 explicitly unexecuted: resource contracts and storage tests do not verify native
 skill discovery, conversational compliance, idiom or literary quality.
 
-## Install or update the unpublished candidate
+<a id="install-or-update-the-unpublished-candidate"></a>
 
-Published 0.10.1 does not contain this feature. For checkout evaluation, create
-an isolated Python 3.11+ environment outside all novels, then install this source
-or a reviewed local candidate artifact into that environment:
+## Install or update 0.10.2
+
+Create an isolated Python 3.11+ environment outside all novels, then install
+the published version. Git 2.39+ and an existing local Git identity are required
+for project initialization:
 
 ```text
 python -m venv /outside/books/side-character-env
-/outside/books/side-character-env/bin/python -m pip install /path/to/novel-creator-source
+/outside/books/side-character-env/bin/python -m pip install --upgrade novel-creator==0.10.2
 ```
 
-On Windows use that environment's `Scripts/python.exe`. A local `.whl` or
-`.tar.gz` path can replace the source path. Use the environment's interpreter and
-console command throughout the steps below. This is a candidate installation,
-not a claim that 0.10.2 is available on PyPI or release-qualified.
+On Windows use that environment's `Scripts/python.exe`. For explicit local
+artifact evaluation, a reviewed matching `.whl` or `.tar.gz` can replace the
+package argument. Use the selected environment's interpreter and console command
+throughout the steps below. Package installation leaves existing books pinned.
 
 - **New legacy novel:** ordinary authorized legacy initialization from the
-  candidate installs `.agents/skills/novel-side-character/SKILL.md`, its legacy
+  package installs `.agents/skills/novel-side-character/SKILL.md`, its legacy
   workflow and routing. Existing structured save/capture rules remain.
-- **Existing legacy novel:** **after publication**, use the external controller's
+- **Existing legacy novel:** use the external controller's
   ordinary framework update preview/application, selecting version `0.10.2`, as described
-  in [project upgrades](upgrading-projects.md#unreleased-side-character-profiles).
+  in [project upgrades](upgrading-projects.md#side-character-profiles-in-0102).
   Review the concrete changed paths, blockers and HEAD; apply only that preview.
-  The public discovery gate requires a published target: installing candidate
-  source alone does not make this update available. Current candidate tests use
-  an offline fixture transport; existing-legacy rollout waits for publication.
+  The public discovery gate requires a published stable target; select 0.10.2.
+  Offline fixture transport used during qualification is separate from this
+  public update route and does not establish a real-novel update.
   The update changes managed resources in a framework commit while preserving story,
   custom instructions and unrelated staging. It does not convert the book.
 - **New format-1 notebook:** ordinary authorized notebook initialization installs
   the workflow, selected root section and project skill for the chosen host.
   Plugin layouts use the enabled matching plugin skill and keep no duplicate
-  local skill. Update/enable the candidate plugin in the actual host first;
+  local skill. Update/enable the matching 0.10.2 plugin in the actual host first;
   package installation does not update a plugin cache.
 - **Existing default Codex/project notebook without an integration marker:**
   run `novel-creator notebook update --path BOOK --json`, review its changes,
@@ -146,7 +149,7 @@ except ToolError as error:
 print(json.dumps(result, ensure_ascii=False, indent=2))
 ```
 
-Use the isolated candidate interpreter; preview writes no files or directories:
+Use the selected isolated interpreter; preview writes no files or directories:
 
 ```text
 python -B /outside/books/side-character-upgrade.py BOOK preview

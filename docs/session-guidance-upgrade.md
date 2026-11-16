@@ -1,22 +1,23 @@
 # Update session guidance in an existing notebook
 
-This **latest development-source procedure is unreleased** and requires current
-source or a future qualified artifact containing issue retrospectives. Published
+This procedure ships in **0.10.2, published 2026-11-16**, and requires its
+issue-retrospective resources. Published
 0.10.1 contains the earlier local read-only review and remains available; users
 of that package should follow the [version-pinned published 0.10.1 guide](https://github.com/bjarkig82/novel-creator/blob/v0.10.1/docs/session-guidance-upgrade.md).
 Do not install 0.10.1 to run the current-source snippet below: its resources and
-required new retrospective links differ.
+required new retrospective links differ. See [0.10.2 release evidence](../tests/evaluations/release-0.10.2.md)
+for qualification and public-check status.
 
-First install the intended current source in an isolated Python 3.11+ environment,
-or install the exact future qualified package containing this feature. Then run
+First install `novel-creator==0.10.2` in an isolated Python 3.11+ environment
+outside novels. Then run
 `retro issue setup` preview/application as described in
-[project upgrades](upgrading-projects.md#unreleased-session-issue-retrospectives).
+[project upgrades](upgrading-projects.md#session-issue-retrospectives-in-0102).
 It separately installs the retrospective snapshot and actual project skill (or
 plugin routing). The four-guide snippet below does not install the new entry.
 Package/plugin installation alone leaves existing notebook snapshots unchanged.
 New notebooks receive these resources at initialization. Existing legacy novels
-use their separate supported external-controller framework updater from a future
-qualified package; this notebook procedure does not convert formats.
+use their separate supported external-controller framework updater selecting
+published 0.10.2; this notebook procedure does not convert formats.
 
 The bounded snippet updates shared save/checkpoint/role guides only from the
 same current source/artifact used for setup. It adds no role, schema or host
