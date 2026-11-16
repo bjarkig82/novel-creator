@@ -1,12 +1,13 @@
 # Marketplace setup for new notebooks
 
-Version **0.10.3 is an unpublished candidate**. Qualification and publication
-are pending; [0.10.2](releases/0.10.2.md) remains the latest verified PyPI release.
-Examples below target matching 0.10.3 plugin/package resources. The default
-PyPI bootstrap and pip command are usable **only after publication**; candidate
-validation uses the matching local wheel via `--wheel`. See [candidate notes](releases/0.10.3.md),
-[candidate evidence](../tests/evaluations/release-0.10.3.md) and [release history](releases/README.md).
-No 0.10.3 GitHub release ZIP assets are claimed.
+Version **0.10.3 is published, 2026-11-16**. Examples below target matching
+0.10.3 plugin/package resources. Full Linux and full Windows qualification,
+public archive hashes, both named public installation checks and the annotated
+source tag are verified. Public checks passed after index propagation retries;
+the publisher ran once. See [release notes](releases/0.10.3.md),
+[release evidence](../tests/evaluations/release-0.10.3.md) and [release history](releases/README.md).
+No 0.10.3 GitHub release ZIP assets are claimed. Explicit matching local-artifact
+validation remains available with `--wheel`.
 
 The plugin has eighteen entries (setup and seventeen writing entries), including
 complete side-character profiles and author-approved session issue retrospectives.
@@ -64,7 +65,7 @@ plugin does not prove the matching Python package has been published.
 
 The permanent plugin name is `novel-creator` and the catalog is
 `novel-creator-marketplace`. Enable the plugin in your actual host and inspect
-its available skills. The candidate 0.10.3 plugin contains `setup` and seventeen
+its available skills. The published 0.10.3 plugin contains `setup` and seventeen
 writing entries; the six writing roles are installed in the book during setup, so the plugin inventory
 itself can report zero agents. Expected writing invocation syntax is Codex
 `$novel-creator:novel-help` and Claude Code `/novel-creator:novel-help`.
@@ -122,7 +123,7 @@ preserved while pip destination overrides are excluded. See the
 
 If the pinned version is missing from the index, report that actual failure;
 use a matching local wheel only when it is available for the intended setup.
-After publication only, install or upgrade the separate 0.10.3 package in your configured environment:
+Install or upgrade the separate 0.10.3 package in your configured environment:
 
 ```text
 python -m pip install --upgrade novel-creator==0.10.3

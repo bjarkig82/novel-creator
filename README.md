@@ -4,11 +4,13 @@ A home for developing an app that helps writers plan and create novels.
 
 ## Getting started
 
-**Novel Creator 0.10.3 is an unpublished candidate.** Compared with published
-0.10.2 it improves suggestion adaptation, readable notes, debugging recipes and
-retrospective handoffs. Qualification and publication are pending. Version 0.10.2
-remains the latest verified PyPI release. See the [candidate notes](docs/releases/0.10.3.md),
-[candidate evidence](tests/evaluations/release-0.10.3.md) and
+**Novel Creator 0.10.3 is published, 2026-11-16.** Compared with 0.10.2 it improves
+suggestion adaptation, readable notes, debugging recipes and retrospective handoffs.
+Full Linux and full Windows qualification passed; public archive hashes, both
+named public installation checks and the annotated qualified-source tag are verified.
+Public checks passed after index propagation retries; the publisher ran once.
+See the [release notes](docs/releases/0.10.3.md),
+[release evidence](tests/evaluations/release-0.10.3.md) and
 [release history](docs/releases/README.md). Package/plugin installation leaves
 existing books pinned: follow the [explicit format-specific update sequence](docs/upgrading-projects.md)
 and host reread/reload steps. Native discovery, voice behavior and writing quality
@@ -105,7 +107,7 @@ which explains setup, everyday writing, and the Windows, Linux, and Mac limits.
 If someone has already prepared your novel, go straight to
 [everyday writing](https://github.com/bjarkig82/novel-creator/blob/main/workflows/everyday-writing.md).
 
-After publication only, install or upgrade Novel Creator 0.10.3 from PyPI
+Install or upgrade [Novel Creator 0.10.3 from PyPI](https://pypi.org/project/novel-creator/0.10.3/)
 in your configured environment:
 
 ```text
@@ -442,5 +444,5 @@ This was absent from 0.10.1. Package installation does not update
 project snapshots. See [all four new/existing format delivery paths](docs/upgrading-projects.md#session-issue-retrospectives-in-0102)
 and [workflow/JSON examples](workflows/retrospective.md). Existing notebooks use
 `retro issue setup` preview/application followed by the six-guide refresh for
-0.10.3 candidate guidance; legacy books select 0.10.3 only after publication
+0.10.3 guidance; legacy books select published 0.10.3
 through the normal external-controller updater. Historical PR recovery remains available.

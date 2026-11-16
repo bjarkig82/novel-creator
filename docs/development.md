@@ -45,7 +45,7 @@ startup snapshot, including when an older session is exported after an upgrade.
 Later operations do not refresh it, and it cannot identify each operation's
 runtime. Compare explicit later observations separately when investigating an
 upgrade; do not replace historical metadata with the exporting runtime.
-The label is an unpublished source change; public 0.10.2 exports still use the
+The label ships in 0.10.3; public 0.10.2 exports still use the
 earlier `Environment` heading.
 
 ### Retrospective network settings
@@ -104,13 +104,11 @@ For every requested PyPI release, prepare versioned notes and update the
 
 ### Plugin artifacts and installation checks
 
-Version 0.10.3 is an unpublished candidate; its [evidence record](../tests/evaluations/release-0.10.3.md)
-will record qualification and publication. Version 0.10.2 is the latest verified PyPI release, published 2026-11-16; see its
-[release notes](releases/0.10.2.md) and
-[release evidence](../tests/evaluations/release-0.10.2.md). Full Linux/Windows
-qualification, public package hashes, both named public installation checks and
-the remote annotated tag are verified. Public checks needed index propagation
-retries; the publisher ran once. Generate plugin manifests/catalogs
+Version 0.10.3 is verified published on PyPI, 2026-11-16. Full Linux and full
+Windows qualification passed; public archive hashes, both named public installation
+checks and the annotated qualified-source tag are verified. Public checks needed
+index propagation retries; the publisher ran once. See [release notes](releases/0.10.3.md)
+and [release evidence](../tests/evaluations/release-0.10.3.md). Generate manifests/catalogs
 and deterministic archives from the package version, then check for drift
 without writes:
 

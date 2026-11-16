@@ -1,10 +1,10 @@
 # Update session guidance in an existing notebook
 
-This procedure delivers the **unpublished 0.10.3 candidate** guidance. Published
-0.10.2 lacks these improvements; its [version-pinned guide](https://github.com/bjarkig82/novel-creator/blob/v0.10.2/docs/session-guidance-upgrade.md)
+This procedure delivers **published 0.10.3 guidance (2026-11-16)**.
+Version 0.10.2 lacks these improvements; its [version-pinned guide](https://github.com/bjarkig82/novel-creator/blob/v0.10.2/docs/session-guidance-upgrade.md)
 and [release evidence](../tests/evaluations/release-0.10.2.md) remain historical.
-Use an isolated Python 3.11+ environment outside novels. For candidate validation,
-install the reviewed checkout or matching local artifact. **After publication only**:
+Use an isolated Python 3.11+ environment outside novels. Install the exact
+published package:
 
 ```text
 python -m pip install --upgrade novel-creator==0.10.3
@@ -37,7 +37,7 @@ Before this six-guide refresh, install missing feature prerequisites explicitly:
 New 0.10.3 notebooks receive the guidance at initialization. New legacy novels
 receive the legacy 0.10.3 workflows at setup. Existing legacy novels use only the
 normal external-controller updater selecting a newer stable published version.
-After publication, existing 0.10.2 legacy books select `--version 0.10.3` in
+Existing 0.10.2 legacy books select published `--version 0.10.3` in
 the external-controller preview/application. Same-version source updates remain
 unsupported; do not bypass the public version gate.
 
