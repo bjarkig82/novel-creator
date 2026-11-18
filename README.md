@@ -1,448 +1,108 @@
 # Novel Creator
 
-A home for developing an app that helps writers plan and create novels.
+Novel Creator is a writing toolkit for planning, drafting, and revising a novel
+with an AI assistant in Codex or Claude Code. Start with a complete premise, a
+rough idea, or a blank page. You make the creative decisions.
 
-## Getting started
+Each new novel gets its own **story notebook**. It holds your ideas, decisions,
+open questions, and manuscript drafts in readable Markdown files. Git keeps a
+local history of saved changes. When you return to the folder, the assistant
+can pick up from the saved notes.
 
-**Novel Creator 0.10.3 is published, 2026-11-16.** Compared with 0.10.2 it improves
-suggestion adaptation, readable notes, debugging recipes and retrospective handoffs.
-Full Linux and full Windows qualification passed; public archive hashes, both
-named public installation checks and the annotated qualified-source tag are verified.
-Public checks passed after index propagation retries; the publisher ran once.
-See the [release notes](docs/releases/0.10.3.md),
-[release evidence](tests/evaluations/release-0.10.3.md) and
-[release history](docs/releases/README.md). Package/plugin installation leaves
-existing books pinned: follow the [explicit format-specific update sequence](docs/upgrading-projects.md)
-and host reread/reload steps. Native discovery, voice behavior and writing quality
-remain unverified.
+## What you can do
 
-**The previous Novel Creator 0.10.1 release was published, 2026-11-15.** Compared with 0.10.0,
-it clarifies debug-report coverage, notebook approval/save/checkpoint and
-voice/handoff wording, and local read-only notebook retrospectives. Existing
-notebooks have a supported, reviewed [version-pinned session-guidance refresh](https://github.com/bjarkig82/novel-creator/blob/v0.10.1/docs/session-guidance-upgrade.md)
-for every supported host, skill source and language; legacy novels use their
-separate framework updater. Installing a package or plugin leaves pinned book
-resources unchanged. See the [release notes](docs/releases/0.10.1.md) and
-[release history](docs/releases/README.md) for install/update steps and limits.
-Full Linux and Windows qualification and both public installation checks passed;
-public PyPI hashes and the annotated source tag match the qualified candidate.
-See the [release evidence](tests/evaluations/release-0.10.1.md). Native host reload,
-voice behavior and specialist interaction remain unverified.
+| If you want to… | Try asking your assistant |
+| --- | --- |
+| Find a book idea | “I want to write a novel, but I don't have an idea yet. Ask me one question at a time.” |
+| Develop a character, plot, or setting | “Help me explore why the lighthouse keeper would hide the first letter.” |
+| Create a supporting character | “Propose a profile for the night ferry operator. She knows the lighthouse keeper from school.” |
+| Turn notes into an outline | “Propose a chapter outline from my notes and flag decisions I still need to make.” |
+| Draft or revise a scene | “Draft the scene where the first letter arrives. Keep the point of view with the lighthouse keeper.” |
+| Check continuity | “Analyze chapter two against the outline and flag contradictions. Keep your findings in chat.” |
+| Pick up where you left off | “Remind me what we decided about the letters and which questions are still open.” |
 
-**The previous Novel Creator 0.10.0 release was published 2026-11-13.** It adds opt-in
-[session debugging](workflows/debugging.md) for notebooks and legacy novels,
-with local ZIP reports. Existing notebooks need `novel-creator debug setup --novel PATH`;
-legacy novels need their explicit framework update. Full Linux and Windows
-qualification passed; public artifact hashes match the candidate. The Linux public
-installation check passed on retry after an initial index propagation delay, with
-no repeat upload. See the [release notes](docs/releases/0.10.0.md) and
-[release history](docs/releases/README.md). Actual host capture remains unverified.
+The notebook keeps confirmed story facts, suggestions, and unanswered questions
+distinct. Say which ideas you want to make part of the story. The assistant
+updates relevant notes as you work and drafts scenes or chapters when you ask.
+Proposed character profiles stay in chat until you explicitly ask to save them.
+[Character profile examples](https://github.com/bjarkig82/novel-creator/blob/main/docs/side-characters.md).
 
-**The previous Novel Creator 0.9.0 release was published 2026-11-12.** It adds bounded character
-profile development: one batch of proposed prose, with drafts and revisions kept
-in chat until explicit current/selected-save approval. New English/Icelandic
-notebooks support every Codex/Claude Code and project/plugin layout. Existing
-notebooks need the [explicit update](docs/upgrading-projects.md#090-character-development).
-See [release notes](docs/releases/0.9.0.md) and [release history](docs/releases/README.md).
-Package or plugin upgrades do not refresh a book's pinned snapshots. Full Linux
-and Windows qualification, public installation checks and an independent clean
-public install passed. Public wheel/source hashes and the annotated source tag
-are verified. The [GitHub release](https://github.com/bjarkig82/novel-creator/releases/tag/v0.9.0)
-contains all four assets with verified downloaded hashes and sizes. Native host
-discovery,
-conversations and literary quality remain unverified. See the
-[release evidence](tests/evaluations/release-0.9.0.md).
+## Create your first notebook
 
-**The previous Novel Creator 0.8.0 release was published 2026-11-12.** New
-Windows/Linux notebooks
-can use the Novel Creator plugin in Codex or Claude Code, with fourteen writing
-methods, setup and six roles per selected host. See [marketplace setup](docs/plugin-marketplaces.md)
-for GitHub installation and the isolated PyPI runtime, and the
-[release notes](docs/releases/0.8.0.md) for compatibility. Full Linux and Windows
-qualification, public installations and published-index plugin bootstrap passed;
-the annotated version tag is verified at the qualified source. The
-[GitHub release](https://github.com/bjarkig82/novel-creator/releases/tag/v0.8.0)
-contains the verified distributions and reproducible plugin ZIPs. Native host conversations and GUI discovery remain
-unverified. See the [release evidence](tests/evaluations/release-0.8.0.md).
-Existing notebook marketplace adoption and a legacy host port are deferred.
+### 1. Install Novel Creator and create a folder
 
-**The previous Novel Creator 0.7.2 release was published 2026-11-11.** Clarify offers a few
-suggested answers and an explicit custom-answer option in both story formats.
-Existing projects need an explicit update after package installation; see the
-[upgrade guide](docs/upgrading-projects.md) and [release notes](docs/releases/0.7.2.md).
-Full Linux/Windows qualification passed and public PyPI archive hashes match the
-qualified artifacts. Windows/Linux public installation checks passed and the
-annotated version tag is verified at the qualified source. Independent clean
-installation and prior-project updates passed on the third attempt after two
-initial index propagation delays. See the
-[release evidence](tests/evaluations/release-0.7.2.md).
+For the setup below, you'll need access to Codex, **Python 3.11 or
+newer**, and **Git 2.39 or newer** with your name and email configured. Git uses
+that identity for the local history. [Set up your Git identity](https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup#_your_identity).
 
-Start by asking your agent to set up a story, for example: “Use Novel Creator
-to create a new English story notebook called My Novel at /path/to/My Novel.
-I don't have a story idea yet.” Use your intended new folder. The agent can run
-setup, read the generated project instructions and continue in the same
-conversation. See [agent-led setup](workflows/start-here.md#ask-your-agent-to-set-up-a-story)
-for prerequisites, safe destinations and host access limits.
+Run the commands for your system in a terminal. They install Novel Creator
+0.10.3 in a separate Python environment and create a notebook called **My Novel**.
+Use a new folder outside any existing Git repository. Its parent folder must
+already exist.
 
-**The previous 0.7.1 package was published 2026-11-10.**
-It makes Clarify, Analyze and Help available to existing notebooks through an
-explicit retrofit and to legacy novels through their supported updater. The
-protected publication succeeded and PyPI archive hashes match the qualified
-candidate. See the [0.7.1 notes](docs/releases/0.7.1.md) for verification scope and
-compatibility, and the [upgrade guide](docs/upgrading-projects.md) for project steps.
-
-The previous **0.6.0 release, published 2026-11-06**, adds fresh legacy working
-context, targeted retrieval and focused notebook memory guidance, retaining the
-writing roles introduced in 0.5.0.
-Its public artifact hashes matched the qualified candidate and Windows/Linux
-installation checks passed; the Linux check passed on retry after an initial index
-propagation delay without repeating the upload. See the
-[0.6.0 notes](docs/releases/0.6.0.md) and
-[release evidence](tests/evaluations/release-0.6.0.md). Native specialist interaction,
-voice timing and spoken fidelity remain unverified. Installing a package does not
-rewrite existing project guidance.
-
-**New to the tools?** Start with the [beginner guide](https://github.com/bjarkig82/novel-creator/blob/main/workflows/start-here.md),
-which explains setup, everyday writing, and the Windows, Linux, and Mac limits.
-If someone has already prepared your novel, go straight to
-[everyday writing](https://github.com/bjarkig82/novel-creator/blob/main/workflows/everyday-writing.md).
-
-Install or upgrade [Novel Creator 0.10.3 from PyPI](https://pypi.org/project/novel-creator/0.10.3/)
-in your configured environment:
-
-```text
-python -m pip install --upgrade novel-creator==0.10.3
-```
-
-Existing legacy novels need an [explicit supported update](workflows/getting-started.md#updating-an-existing-book)
-to change pinned resources. Existing notebooks use the explicit
-[side-character update](docs/upgrading-projects.md#side-character-profiles-in-0102) and
-[issue-retrospective setup](docs/upgrading-projects.md#session-issue-retrospectives-in-0102);
-package installation does not update either format automatically.
-
-For new notebooks, use the setup route below. The
-[legacy getting-started guide](https://github.com/bjarkig82/novel-creator/blob/v0.4.0/workflows/getting-started.md)
-covers `novel-creator init 'My Novel'`, pinned saves and returning later for the
-separate legacy format, including Python/Git prerequisites and an isolated environment.
-Windows PowerShell and Linux Bash production installs are verified, together with
-Windows Codex Desktop setup/save/inspection/resume. Linux Codex integration remains
-unverified. The developer/older POC instructions below remain reference material.
-
-See the [release history](docs/releases/README.md) for version changes and
-compatibility. Candidate verification precedes publication.
-
-## New story notebook
-
-The published package includes a native Codex Markdown notebook for **new novels**,
-first introduced in 0.4.0. The default setup remains standalone Codex with
-project-local skills. Version 0.8.0 adds optional `--host codex|claude|both` and
-`--skill-source project|plugin` initialization; the plugin setup uses
-`--host both --skill-source plugin`. See [marketplace setup](docs/plugin-marketplaces.md).
-Install it in a Python 3.11+
-virtual environment, with Git 2.39+ and your Git identity configured. The
-older 0.3.0 package does not contain this command. Your agent can execute
-this direct CLI fallback using the configured environment and a new path outside
-every existing Git repository:
-
-```bash
-novel-creator notebook init "My Novel" --path "/path/to/My Novel" --language en
-```
-
-Use `--language is` for Icelandic and optionally `--title` for the working title.
-After successful setup, have the agent read the created folder's `AGENTS.md`
-and linked guides, project notes and working summary before continuing there.
-If the host cannot access the folder, select/open the initialized project in
-Codex. Talk naturally about your story; ask for a
-topic brief whenever useful. The notebook does not request an automatic recap.
-Python is used for setup; the writing workflow uses Codex's native file and Git
-tools. Existing novels use the separate legacy commands and are not converted.
-
-In a newly created notebook, invoke `$novel-outline` to propose a book outline
-from the notes, refine it in conversation, and save the chosen structure as a
-linked topic. It supports English and Icelandic, preserves existing outline
-edits and history, and keeps proposed facts and open questions distinct from
-accepted structure. It creates no chapter or scene manuscript files and adds no
-CLI command. Existing notebooks do not acquire the skill automatically.
-
-**Character profile development (published in 0.9.0):** [the workflow](docs/character-development.md)
-offers one small batch of connected profile additions through
-`$novel-character-develop` or a natural fill-gap request. Drafts and revisions
-stay in chat until explicit saving approval. It ships into new notebooks;
-the guide includes a manual installation for
-existing format-1 notebooks. Published 0.6.0 does not contain it.
-
-Notebook brainstorming adapts to the book's stage and your chosen topic or method.
-With no concept, it starts broadly and asks one question at a time. Optional
-`$novel-book-idea`, `$novel-premise`, `$novel-character`, `$novel-plot` and
-`$novel-setting` skills provide focused entry points; outlining remains explicit-only.
-These additions ship only into new notebooks. See the
-[0.4.0 release notes](docs/releases/0.4.0.md) for upgrade instructions,
-compatibility and evidence limits.
-
-Notebook conversations in Windows and Linux Codex Desktop remain unverified;
-see the [notebook evidence ledger](tests/evaluations/agent-story-notebook.md) and
-[release preparation](tests/evaluations/agent-story-notebook-release.md).
-
-## Writing agents and manuscripts (0.5.0)
-
-New notebooks initialized with 0.5.0 install six `.codex/agents/` roles.
-The root conversation follows the orchestrator; you can request a specialist in
-ordinary language, such as “Let me work with the scene writer.” Native role
-selection and ongoing direct turns depend on the actual Codex client and remain
-unverified in the target desktop. Ask the host to disclose unavailable capabilities.
-
-The [writing-agent usage guide](docs/writing-agents-usage.md) covers role choices,
-on-demand scenes and chapters, scoped revisions, research sources and review
-findings, with optional skill entries. Open the initialized novel folder itself.
-Existing notebooks and legacy novels stay unchanged; there is no new migration
-or updater command. See [focused evidence](tests/evaluations/writing-agents.md)
-and the [pending desktop checkpoint](tests/evaluations/writing-agents-host.md).
-
-## Project status
-
-**0.7.2 clarification:** each substantive question normally includes
-2–4 concise labeled suggestions plus **Custom — type your own answer**. Reply
-with a label or your own words, adapt a suggestion, or leave the question open.
-Nothing is chosen automatically. The release updates both formats and adds a
-reviewed replacement path for unchanged published notebook clarification files.
-See the [release notes](docs/releases/0.7.2.md) for qualification, upgrade steps
-and the scope of public verification.
-
-**0.7.0 clarification and analysis:** new notebooks initialized with this release
-include `$novel-clarify` for one-at-a-time questions about a character,
-outline or other target, with clear answers saved in owning notes, and
-`$novel-analyze` for read-only, evidence-based checks of scenes, chapters and
-related notes. For example: “Ask me clarifying questions about Elin's motivation”
-or “Analyze chapter two against the outline.” Analysis returns findings without
-changing files; `$novel-review` remains available for saved reviews. See the
-[usage examples](docs/writing-agents-usage.md#clarify-and-analyze-070).
-These additions are not in published 0.6.0 and do not update existing notebooks
-or legacy novels automatically.
-
-**0.7.0 writer help:** `$novel-help` offers a few suitable next steps and
-explains installed chat skills, accepted inputs, save effects and examples.
-No input is required; try `$novel-help novel-clarify` or `$novel-help commands`.
-Names/descriptions work as targets; IDs and file paths are optional. Help is
-read-only and does not execute its examples. It ships only to new notebooks
-initialized with 0.7.0, not 0.6.0 or existing notebooks.
-See [help usage](docs/writing-agents-usage.md#help-choosing-a-next-step-070).
-
-**Existing-book updater (0.3.0 release target):** this checkout implements explicit published
-release checks, reviewed previews, framework-only local update commits and exact
-operation recovery. The published 0.1.0/0.2.0 packages do not contain it. Package
-installation alone does not update a pinned book. See the
-[update instructions](workflows/getting-started.md#updating-an-existing-book),
-[shared workflow](workflows/update.md) and
-[qualification ledger](tests/evaluations/existing-book-update-qualification.md).
-Keep legacy clients closed through first application/recovery and use the
-external controller. The actual Windows Codex host workflow has been exercised
-with user-approved delegated evaluation input, including instruction/skill reload
-and exact saved-response checks; see the [host evidence and scope](tests/evaluations/existing-book-update-host.md).
-Direct native-user input and Linux Codex update behavior remain unverified.
-On Windows, keep preview/apply/recovery in the same scoped filesystem-access
-context so the configured runtime's detected platform markers remain consistent.
-No release, push or publication is implied by the implementation or evaluation.
-
-**Single-user POC:** the current delivery is the local Codex workflow for novel
-setup, brainstorming, saved story records, canon decisions, continuity and
-resumption. The owner is the initial user. Novice testing is out of scope;
-manual/owner testing follows delivery and does not block it. Start with the
-[POC quickstart](https://github.com/bjarkig82/novel-creator/blob/v0.2.0/docs/poc-quickstart.md) and
-[automated POC evidence](https://github.com/bjarkig82/novel-creator/blob/v0.2.0/tests/evaluations/poc-readiness-20261023.md).
-
-The Python/Git exchange-persistence foundation is implemented, with versioned
-JSON schemas, source/authorization validation, atomic local saves and a disposable
-installed host-spike fixture. Saves preserve unrelated staged work and manuscript
-files; the tool does not push automatically.
-
-Initialization, settings revisions, installed context/inspection/session listing
-and explicit pending/published recovery are implemented. Shared Codex workflows
-cover guided/open brainstorming, capture, authority and continuity; their new
-product-level creative judgments have scoped automated host evidence; subjective
-quality remains for the owner's later use.
-The actual Codex capture capability gate has **passed**
-for the tested Windows Desktop native-tool/text-input combination with scoped
-filesystem approval. Story tooling and shared workflows are delivered; their
-subjective literary quality remains unmeasured. All latency targets were withdrawn
-by the owner on 2026-10-28; timings are informational. The 0.6.0 release's
-focused context retrieval does not establish a measured voice speed improvement.
-See the [final functional qualification](https://github.com/bjarkig82/novel-creator/blob/v0.2.0/tests/evaluations/final-functional-qualification-20261028.md).
-See the [host evaluation](https://github.com/bjarkig82/novel-creator/blob/v0.2.0/tests/evaluations/host-capture.md).
-
-## Development
-
-Version 0.2.0 introduced optional contributor retrospectives that could prepare
-checked draft contributions. That historical producer is retired in current
-source; existing grants support recovery only. The 0.10.2
-[issue workflow](workflows/retrospective.md) requires exact author approval for
-outgoing material and creates no fixes or PRs. Existing novels retain their
-pinned resources after a package upgrade; use the supported explicit update.
-See the historical [qualification scope](tests/evaluations/automatic-retrospectives-qualification.md)
-and [0.2.0 release notes](docs/releases/0.2.0.md) for their recorded limits.
-
-Create a UTF-8 brief JSON file. `{}` starts with no concept and unknown creative
-preferences. A supplied brief can combine answers:
-
-```json
-{"title":"Bréf","original_concept":"A keeper receives letters from tomorrow.","manuscript_language":"is","creative_brief":{"genre":"Mystery","tone":null},"review_preferences":{"routine_checkpoint":"on_request"}}
-```
-
-From the configured Python environment, initialize an explicit novel path outside
-the framework and every other Git repository:
+**Windows PowerShell**
 
 ```powershell
-python -m novel_creator init --path C:\Novels\MyNovel --brief-file C:\Novels\brief.json --json
-python C:\Novels\MyNovel\.novel-creator\run.py context --novel C:\Novels\MyNovel --json
-python C:\Novels\MyNovel\.novel-creator\run.py session list --novel C:\Novels\MyNovel --json
-python C:\Novels\MyNovel\.novel-creator\run.py validate --novel C:\Novels\MyNovel --json
+py -3 -m venv "$env:USERPROFILE\.novel-creator-venv"
+& "$env:USERPROFILE\.novel-creator-venv\Scripts\python.exe" -m pip install novel-creator==0.10.3
+& "$env:USERPROFILE\.novel-creator-venv\Scripts\novel-creator.exe" notebook init "My Novel" --path "$env:USERPROFILE\My Novel" --language en
 ```
 
-Use your own paths. Git needs an existing author/committer identity; installation
-does not invent one or alter global configuration. Unrelated occupied directories
-are refused. Existing AGENTS.md is preserved. Interrupted initialization retains
-its original brief/payload; retry with that unchanged brief and inspect any conflict.
-Repeated setup on a recognized novel offers continuation without replacing it.
-
-Open the new novel folder in Codex. Its installed `$novel-init`,
-`$novel-brainstorm`, `$novel-resume` and `$novel-inspect` entries load pinned shared
-workflows. Setup can finish before brainstorming. Start guided or request open
-exploration, change topics or ask for fewer suggestions. The host prepares typed
-session/capture revisions and saves every exact exchange before displaying it.
-Session start, resume, mode changes and closure are records in that same transaction.
-Python/jsonschema/jsonschema-rs remain required; no framework path, model key or dashboard is needed.
-
-New or explicitly updated 0.6.0 bundles read fresh working context each turn and
-retrieve relevant complete records and sources on demand. See the
-[working-context guide](workflows/working-context.md). The journal remains the
-sole legacy authority; record status, provenance, exact input capture and
-save-before-display are preserved. Default CLI/API context remains full for
-compatibility; `--view current` omits archived exchanges. Older pinned runtimes
-require their original commands until an explicit supported update succeeds.
-
-Resume lists stable session IDs, restores saved focus/mode and offers any saved
-reply with display unconfirmed. Inspect source-backed records and history:
-
-```powershell
-python C:\Novels\MyNovel\.novel-creator\run.py inspect --novel C:\Novels\MyNovel --kind assertion --json
-python C:\Novels\MyNovel\.novel-creator\run.py recover --novel C:\Novels\MyNovel --exchange EXCHANGE_UUID --json
-python C:\Novels\MyNovel\.novel-creator\run.py recover --novel C:\Novels\MyNovel --exchange EXCHANGE_UUID --retry --expected-head CONFIRMED_HEAD --json
-```
-
-For a first unpublished bootstrap use `--expected-head unborn`. Inspection alone
-does not write. Explicit retry preserves the payload/IDs and published saves are
-cleaned without replay; stale checkpoints and changed managed files conflict.
-Held locks are disclosed and never silently stolen. On a save failure, pause
-authority and show the last confirmed checkpoint plus unsaved pending exchange.
-Default sandbox hard-link denials can require scoped filesystem approval.
-
-Clear acceptance establishes only selected facts. Ambiguity asks one focused
-question. Correct/revise/reverse explicitly, retaining prior versions, sources and
-direct impact for inspection. Contradictions cite sources and options; deferral
-keeps the idea unresolved and holds affected canon. Unavailable context is
-disclosed and revalidated after restoration. These changes never authorize
-manuscript edits. See [record ownership and compatibility](https://github.com/bjarkig82/novel-creator/blob/v0.2.0/docs/record-format.md).
-
-The automated journeys verify storage and record behavior on Linux and Windows.
-macOS support is deferred. Novice evaluations are out of scope for the initial
-single user. Full English/Icelandic literary parity and broader release/durability
-qualification remain separate from automated POC verification.
-The earlier Linux reference passed the performance targets. The final-source
-large Windows fixture misses its read target and times out on save attempt 27,
-so save p95 is unavailable; see the
-[measured configurations](https://github.com/bjarkig82/novel-creator/blob/v0.2.0/tests/evaluations/performance.md). Voice
-capture/transcription and spoken output belong to the host; exact
-spoken-output fidelity is unverified.
-
-For validation commands and current completion guidance, see
-[Testing and completing a change](docs/testing-and-completion-guide.md).
-
-Requires Python >=3.11 and Git >=2.39. From this checkout:
+**Linux Bash**
 
 ```bash
-python -m venv .venv
-. .venv/bin/activate
-python -m pip install -r requirements-lock.txt
-python -m pip install -e '.[test]'
-python -m novel_creator --help
-python -m unittest discover -v
+python3 -m venv "$HOME/.novel-creator-venv"
+"$HOME/.novel-creator-venv/bin/python" -m pip install novel-creator==0.10.3
+"$HOME/.novel-creator-venv/bin/novel-creator" notebook init "My Novel" --path "$HOME/My Novel" --language en
 ```
 
-On Windows, activate `.venv\Scripts\Activate.ps1`. Tests use disposable
-repositories and local test identities; no model credentials are required. The available persistence command is
-`exchange save --novel PATH --input FILE --json`, using a complete exchange
-envelope and a prepared independent repository. For a reproducible disposable
-installation, follow the [host-spike fixture procedure](https://github.com/bjarkig82/novel-creator/blob/v0.2.0/tests/evaluations/host-capture.md#reproducible-structural-fixture).
+Use `--language is` for Icelandic. Once the package is installed, you can also
+ask Codex to create the notebook for you by giving it the title, language, and
+full path to the new folder. [Agent-led setup](https://github.com/bjarkig82/novel-creator/blob/main/workflows/start-here.md#ask-your-agent-to-set-up-a-story).
 
-To check the distributable as well as the editable checkout, build and verify a
-wheel from the configured dependency environment:
+For Claude Code or a plugin-based setup in Codex, follow the marketplace
+installation instructions. Package and setup checks cover Windows and Linux.
+Native skill discovery and specialist interactions depend on the host and remain
+unverified. macOS support is deferred. [Marketplace setup](https://github.com/bjarkig82/novel-creator/blob/main/docs/plugin-marketplaces.md).
 
-```bash
-python -m pip wheel . --no-deps --wheel-dir dist
-python tests/verify_wheel.py dist/novel_creator-0.10.3-py3-none-any.whl
-```
+### 2. Open the novel folder and start writing
 
-Use the actual versioned filename produced by the build. The verifier installs
-the wheel in a disposable environment, checks its source
-and resource bytes, and exercises initialization, recovery, saves and Unicode
-readback outside the checkout. It reuses the calling environment's dependency
-packages and pip without downloading runtime dependencies. JSON output uses
-UTF-8 even when Python starts with a legacy terminal encoding.
+Open **My Novel** itself as the project folder in your assistant. Ask it to read
+the project instructions and try one of the prompts above. In a standalone Codex
+notebook, you can also type `$novel-help` in chat to see available writing tools
+and get suggestions for a next step.
 
-Saving failures disclose the last verifiable checkpoint and pending exchange.
-Published saves needing index cleanup remain saved, but further writes pause.
-Use the recovery inspection command above, then explicitly retry against its
-current checkpoint when safe. Pending retries use the unchanged receipt payload;
-published cleanup synchronizes managed index entries without replaying decisions
-or adding a commit. Changed payloads, managed files, staged entries or stale
-checkpoints can block recovery; preserve that evidence and inspect the conflict.
-Never reset history or delete receipts to clear a pause. See
-[development setup and limitations](https://github.com/bjarkig82/novel-creator/blob/v0.2.0/docs/development.md) and
-the [validation guide](docs/testing-and-completion-guide.md).
+To resume on another day, reopen the same folder and tell the assistant what
+you want to work on. You can open the Markdown files in a text editor to read
+your notes and drafts. The notebook files and Git history live in that folder.
+[More examples for drafting, revising, and reviewing](https://github.com/bjarkig82/novel-creator/blob/main/docs/writing-agents-usage.md).
 
-## Project tooling
+## Already have a Novel Creator project?
 
-Use lightweight planning and focused implementation for this single-maintainer
-project. Small changes need no separate plan document; larger changes can use a
-short list of concrete steps. Repository [agent instructions](AGENTS.md) require
-scoped subagent implementation and independent reviews when available.
+Open the existing project folder to continue. Older projects created with
+`novel-creator init` use the legacy workflow. [Legacy writing guide](https://github.com/bjarkig82/novel-creator/blob/main/workflows/everyday-writing.md).
 
-The [functionality guide](docs/functionality.md) describes setup, legacy persistence,
-canon and continuity, the Markdown notebook, updates, optional retrospectives and
-current limits. See [development setup](docs/development.md) and
-[testing guidance](docs/testing-and-completion-guide.md) for contributor commands.
-Shared application workflows and installed Codex skills remain product resources.
-
-### Optional validation cache
-
-For repeated reads/saves, `NOVEL_CREATOR_VALIDATION_KEY_FILE` may point to an
-existing private 32-byte cache key file at an absolute path outside the novel. The
-CLI only reads this runtime configuration; it never creates or modifies the key.
-With no key configured, full validation remains available.
-
-The cache under `.novel-creator/local/cache/` contains authenticated validation
-metadata bound to the exact Git snapshot, schemas and runtime. Records are read
-from Git and their object hashes are checked. Cache files can be deleted safely;
-the next read validates fully and rebuilds them. A changed snapshot/schema,
-malformed proof or novel-supplied key cannot bypass validation or authorize canon.
-
-The repeatable benchmark creates its own temporary external key and removes it
-afterward. `--no-validation-cache` measures the full-validation configuration.
-See [measured performance and platform limits](https://github.com/bjarkig82/novel-creator/blob/v0.2.0/tests/evaluations/performance.md).
+To add newer tools to an existing notebook or legacy novel, follow the
+project-specific upgrade steps after installing the package. Each project keeps
+its own copy of its instructions. [Upgrade guide for version 0.10.3](https://github.com/bjarkig82/novel-creator/blob/main/docs/upgrading-projects.md#session-usability-guidance-in-0103).
 
 <a id="unreleased-session-issue-retrospectives"></a>
 
-### Session issue retrospectives (0.10.2)
+## Review a writing session
 
-Version 0.10.2 adds explicit session reviews and optional exact-approved GitHub
-issues, replacing old automatic fix/PR creation. Automatic review requires
-active-session opt-in and explicit closure only. Debugging stops before review;
-sharing defaults to generalized local findings. The entire actual issue and
-attachments require author approval before upload. No story save/commit, code
-fix or PR is part of retro administration.
+You can ask the assistant to review a session for workflow problems. Findings
+stay local unless you explicitly approve the exact GitHub issue and any
+attachments to share. [Session review guide](https://github.com/bjarkig82/novel-creator/blob/main/workflows/retrospective.md).
 
-This was absent from 0.10.1. Package installation does not update
-project snapshots. See [all four new/existing format delivery paths](docs/upgrading-projects.md#session-issue-retrospectives-in-0102)
-and [workflow/JSON examples](workflows/retrospective.md). Existing notebooks use
-`retro issue setup` preview/application followed by the six-guide refresh for
-0.10.3 guidance; legacy books select published 0.10.3
-through the normal external-controller updater. Historical PR recovery remains available.
+## Releases
+
+- [Novel Creator 0.10.3 on PyPI](https://pypi.org/project/novel-creator/0.10.3/)
+- [0.10.3 release notes and compatibility](https://github.com/bjarkig82/novel-creator/blob/main/docs/releases/0.10.3.md)
+- [Release history](https://github.com/bjarkig82/novel-creator/blob/main/docs/releases/README.md)
+
+## Development
+
+- [Application functionality](https://github.com/bjarkig82/novel-creator/blob/main/docs/functionality.md)
+- [Development setup and packaging](https://github.com/bjarkig82/novel-creator/blob/main/docs/development.md)
+- [Testing guide](https://github.com/bjarkig82/novel-creator/blob/main/docs/testing-and-completion-guide.md)
+- [Legacy save recovery commands](https://github.com/bjarkig82/novel-creator/blob/main/workflows/getting-started.md#troubleshooting)
