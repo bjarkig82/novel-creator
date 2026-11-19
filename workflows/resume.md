@@ -22,7 +22,9 @@ never empty context. Explain only recorded connections with sources. New
 foreshadowing or motivation opportunities remain non-blocking proposals.
 
 Do not give an unsolicited recap. When a summary is requested, retrieve its full
-requested scope, using `--view current` or inspect where needed. In the visible
+requested scope, using `--view current` or inspect where needed. Apply the
+[brainstorming guidance](brainstorm.md) for preserving proposal status,
+attribution, practical dependencies and writer corrections. In the visible
 saved summary cite the supporting record IDs and revisions plus
 the checkpoint for established facts, proposal/question groups and findings.
 Session ID and checkpoint alone do not identify which record versions support

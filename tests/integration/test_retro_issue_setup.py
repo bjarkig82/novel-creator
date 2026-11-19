@@ -147,6 +147,40 @@ class IssueSetup(unittest.TestCase):
                     self.assertTrue(self.call(root)['already_current'])
                     self.assertEqual((root / '.git/index').read_bytes(), index)
 
+    def test_released_0103_conversation_guide_can_be_explicitly_refreshed(self):
+        from tests.verify_plugin_install import snapshot
+        frozen = Path(__file__).resolve().parents[1] / 'fixtures/session-guidance-0.10.3/conversation.md'
+        released = frozen.read_text(encoding='utf-8')
+        relative = '.novel-notebook/workflows/conversation.md'
+        for host in ('codex', 'claude', 'both'):
+            for source in ('project', 'plugin'):
+                with self.subTest(host=host, source=source):
+                    root = self.parent / f'continuation-{host}-{source}'
+                    initialize(root, host=host, skill_source=source)
+                    path = root / relative
+                    expected = path.read_bytes()
+                    original = _host_text(released, host, source).encode('utf-8')
+                    path.write_bytes(original + b'\nWriter custom instruction.\n')
+                    (root / 'notebook/project.md').write_bytes(
+                        (root / 'notebook/project.md').read_bytes() + b'\nWriter project note.\n')
+                    subprocess.run(['git', '-C', str(root), 'add', '--', 'notebook/project.md'], check=True)
+                    before = snapshot(root, include_git=True)
+                    with self.assertRaisesRegex(ToolError, 'Customized.*conversation.md'):
+                        self.call(root)
+                    self.assertEqual(snapshot(root, include_git=True), before)
+
+                    path.write_bytes(original)
+                    before = snapshot(root, include_git=True)
+                    preview = self.call(root)
+                    self.assertEqual(preview['changes'], [relative])
+                    self.assertEqual(snapshot(root, include_git=True), before)
+                    self.assertTrue(self.call(root, preview)['applied'])
+                    self.assertEqual(path.read_bytes(), expected)
+                    after = snapshot(root, include_git=True)
+                    self.assertEqual({name for name in before.keys() | after.keys()
+                                      if before.get(name) != after.get(name)}, {relative})
+                    self.assertTrue(self.call(root)['already_current'])
+
     def test_published_0101_and_unrelated_staging_preserved(self):
         root = self.old(version='0.10.1')
         (root/'unrelated.txt').write_bytes(b'staged')

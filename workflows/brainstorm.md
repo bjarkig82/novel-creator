@@ -43,6 +43,26 @@ Never promote an inferred interpretation to
 canon. Unknown timing, unselected alternatives, praise, hypotheses and quoted
 dialogue cannot establish accepted author truth.
 
+Preserve certainty and attribution in replies, recaps and handoffs, including
+voice continuations. Distinguish a writer's theory about a possible future
+outcome, an in-world belief, an established character aim and an open question.
+Keep a possible future alliance conditional and proposed until the writer clearly
+accepts the applicable proposition. Accepting the future event alone does not
+establish that a character already wants it. Retain the same states and exact
+sources in the saved captures and later summaries. In realtime delegation, the
+mixed earlier transcript is context under [entry.md](entry.md#exact-current-legacy-input).
+Only the exact current input supplies current writer direction. An assistant's
+earlier paraphrase or a statement with uncertain attribution cannot establish
+acceptance. Honor read-only exceptions before capturing or writing.
+
+Keep knowledge and practical leverage distinct. If an expert depends on a less
+knowledgeable party, retain what that party controls and any established ways
+it can cause harm or conditions that make it dangerous. Leave missing details
+open. Superior understanding or predictability does not erase the dependency or
+its danger. Carry the writer's correction into later replies, recaps, handoffs
+and relevant record revisions. Leave when or whether the vulnerability ends open
+unless the writer establishes a change.
+
 Capture the current user message and exact prepared reply on every turn, together
 with relevant ideas, characters/locations/events/plot threads, relationships,
 assertions, questions, alternatives and explicit decisions. Use immutable full

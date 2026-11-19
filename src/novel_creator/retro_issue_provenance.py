@@ -1,4 +1,4 @@
-"""Trusted shipped workflow fingerprints (0.10.0, 0.10.1, 0.10.2 and pre-feature source)."""
+"""Trusted shipped workflow fingerprints (0.10.0, 0.10.1, 0.10.2, 0.10.3 and pre-feature source)."""
 # Released 0.10.2 additions are frozen from immutable commit
 # 6259a15a73b7de93b7a0388feb90c451c6cf36b6; see
 # tests/fixtures/session-guidance-0.10.2/README.md for source provenance.
@@ -9,5 +9,16 @@ KNOWN = {
     'debugging.md': frozenset(['150d8aa8c008b2a9b0dfa8962a7fca0410c9f8cdca06c81ab8e1463f77cd3859', '23b8ada16221ce4f08532529a79dcf6c705c436767e17855d5507f080db87388', '082637983c394396bd0448b314c1892dabce7ccdb3f3a3af140ad377ace1cad2', 'bb416e58740a67828cc3de7106ed670fc240d9d0e8caaf452dce0339cf72a1bb', 'e0720957f6296e9bbf58b8d0adedc531eb5bbd12feec00ef73605a52dfbf6ade', 'f75990d434e77809839a951dc30d2fa6d3ac16e56f6b016888f00c2d5f8a3009']),
     'help.md': frozenset(['03e1988259f6617a685bfb981bf1adecbad1e0c50891df6c4bd6a27df03a8243', '97878836cf0f0cde39d4298cb5b8b8f2b5a3929b27a31d719cec0fa768f96423', 'a7b5bdd11509c04cd4cccceb997fed23d74ed9a8d66633cbbc051c237b6e55d7', 'c12d5a57442d484573efc80de8171e87821baaa41520a7a418828b0e5903e866', 'd6542c65dbe401eeeb539019f7f75c181205f53323cf71a7efeef07ae9f6439a', 'e67b0995b540301e3200ad8d121dc60209d81bf3499399e97ee8c9e4d426d00f']),
 }
+
+# Exact released 0.10.3 conversation guide rendered for each host/skill source,
+# from tests/fixtures/session-guidance-0.10.3/conversation.md.
+KNOWN['conversation.md'] |= frozenset({
+    'd1cea99c20586a85948277cbf6822ad73b53ab35d80fe12c4029fff3670bf3a3',  # Codex/project
+    '76cfc2c1819a97e9b685133156e7b62cbfb249c13a46d27b598bfeedebe09a9a',  # Codex/plugin
+    'c3dda002376380371803e69f08ca6752e2c2d92adf45f761506352091eb3a419',  # Claude/project
+    '7ed0ffc472683bf3e7c319f9f2e00f5cf4ca30ec7477483494a09171ac574e56',  # Claude/plugin
+    '7967cd4c3620b74d1d4423f5f9b6547a8ab382906dc4d8df2942d3c42d67a383',  # Both/project
+    'c2da78e087b6800a1102a8e473b6cc36f40b60b9d926ea2a0cabc6d87e402cf9',  # Both/plugin
+})
 
 SESSION_BLOCKS = ("<!-- novel-creator:session-guidance:start -->\nFollow the revised [conversation and save rules](.novel-notebook/workflows/conversation.md),\n[character-development boundary](.novel-notebook/workflows/character-development.md)\nand [role ownership](.novel-notebook/workflows/agents.md). These shared rules\nclarify older general save wording: writer approval, verified file saves and\nverified local Git checkpoints are distinct. Approved but unwritten work remains\nunsaved; saved files can have a pending checkpoint. Keep character-development\ndrafts in chat until explicit save authority, including during a pending save.\nUse the host's approved scoped access route when available for an authorized\ncheckpoint, preserving unrelated staging; otherwise disclose the limitation.\nFor an explicitly requested local notebook retrospective, follow the read-only\n[debugging guide](.novel-notebook/workflows/debugging.md#local-notebook-retrospective)\non writer-selected public evidence. This adds no retrospective CLI, capture\nactivation, upload or publication authority.\n<!-- novel-creator:session-guidance:end -->", "<!-- novel-creator:session-guidance:start -->\nFollow the revised [conversation and save rules](.novel-notebook/workflows/conversation.md),\n[character-development boundary](.novel-notebook/workflows/character-development.md)\nand [role ownership](.novel-notebook/workflows/agents.md). These shared rules\nclarify older general save wording: writer approval, verified file saves and\nverified local Git checkpoints are distinct. Approved but unwritten work remains\nunsaved; saved files can have a pending checkpoint. Keep character-development\ndrafts in chat until explicit save authority, including during a pending save.\nUse the host's approved scoped access route when available for an authorized\ncheckpoint, preserving unrelated staging; otherwise disclose the limitation.\nFor a requested retrospective or active-session opt-in at explicit closure,\nfollow the [retrospective workflow](.novel-notebook/workflows/retrospective.md).\nStop known current debugging before review and keep it off. Exact outgoing\nissue/attachment approval is required before sharing; no story save or commit.\n<!-- novel-creator:session-guidance:end -->")
