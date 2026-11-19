@@ -5,52 +5,13 @@ instructions require an explicit project update as well. Keep the configured
 Python environment outside the novel and open the intended novel folder in Codex.
 Do not initialize over an existing novel or convert formats to obtain a skill.
 
-[0.10.3](releases/0.10.3.md), published 2026-11-16, is the latest verified package.
-Full Linux and full Windows qualification, public hashes, both named public
-installation checks and the annotated source tag are verified; see the
-[release evidence](../tests/evaluations/release-0.10.3.md). Install externally:
-
-```text
-python -m pip install --upgrade novel-creator==0.10.3
-```
-
-<a id="unpublished-session-usability-guidance"></a>
-
-<a id="session-usability-guidance-in-0103-candidate"></a>
-
-## Session usability guidance in 0.10.3
-
-Version 0.10.3 improves debug help/UTF-8 JSON recipes, suggestion adaptation,
-readable individually addressable notes and retrospective publication handoffs.
-Installing a package alone leaves book guidance pinned.
-
-| Project case | Complete delivery sequence |
-| --- | --- |
-| New legacy novel | Install the selected package externally, then authorized normal legacy initialization. |
-| Existing legacy novel, including 0.10.2 | External-controller framework update preview/apply targeting `--version 0.10.3`; inspect the preview and HEAD. No same-version bypass. |
-| New format-1 notebook | Install the selected package and matching enabled plugin where selected, then normal notebook initialization. |
-| Existing notebook, including 0.10.2 | Install externally and update/enable matching plugin where selected. Add side-character prerequisites only if missing. Run `retro issue setup` preview/apply **first**, then the exact six-guide preview/apply [procedure](session-guidance-upgrade.md). |
-
-Issue setup refreshes retrospective/debugging/conversation/Help and actual skill
-entry/routing; the six-guide step delivers brainstorming, format, role and character
-guidance. Both steps are required for 0.10.2 notebooks. Notebook maintenance leaves
-changes uncommitted and saves no story. Legacy framework application creates its
-dedicated framework-only commit. Story/history, custom instructions and unrelated
-staging stay protected; customized managed files, stale previews and unsafe paths
-refuse. Inspect partial writes and take a new preview before resuming.
-
-Inspect actual skills or enabled plugin entries, root routing and linked workflows
-after applying. Have Codex reread/reload them in the novel folder, possibly in a
-new chat. Plugin books must not get duplicate project skills. File checks do not
-prove native discovery, voice behavior or conversational quality.
-
 <a id="unreleased-brainstorming-continuity-guidance"></a>
 
 ## Story status in summaries and handoffs in 0.10.4
 
-[0.10.4](releases/0.10.4.md) is an unpublished candidate. **After verified
-publication**, install the exact release in a Python 3.11+ environment outside the
-book. Use its interpreter for the following commands. Git 2.39+ is required.
+Install [0.10.4](releases/0.10.4.md), published on 2026-11-19, in a Python 3.11+
+environment outside the book. Use its interpreter for the following commands.
+Git 2.39+ is required. [Release evidence](../tests/evaluations/release-0.10.4.md)
 
 ```text
 python -m pip install --upgrade novel-creator==0.10.4
@@ -66,7 +27,7 @@ selected host. Installing Python or a plugin alone leaves each book's snapshots 
 | New format-1 notebook | Run `python -m novel_creator notebook init "My Novel" --language en --host codex --skill-source project` from a suitable parent. Choose `en` or `is`, `codex`, `claude` or `both`, and `project` or `plugin` for your setup. The selected root instructions link to the revised shared `conversation.md`. |
 | Existing format-1 notebook | From the external 0.10.4 environment use the issue-setup preview and apply below. This works for both languages and each host/skill source. Plugin notebooks use the enabled plugin's entries and need no project skill copies. |
 
-**Existing legacy novel.** Once the release is public, set `CONTROLLER` to the
+**Existing legacy novel.** Set `CONTROLLER` to the
 external interpreter, `RUNTIME` to the verified interpreter used by the book,
 and `BOOK` to the project path. Review the target, changes, blockers and HEAD
 before applying the exact preview. Follow any quiescence or recovery instructions
@@ -97,6 +58,37 @@ links to the selected workflows. Open the book folder in Codex or Claude Code,
 reread its applicable `AGENTS.md` or `CLAUDE.md`, and reload the skills using
 the host's controls or a fresh chat. Live voice behavior and native reload still
 need observation in the host.
+
+<a id="unpublished-session-usability-guidance"></a>
+
+<a id="session-usability-guidance-in-0103-candidate"></a>
+
+## Session usability guidance in 0.10.3
+
+For this earlier upgrade, install `novel-creator==0.10.3` in an external environment.
+Version 0.10.3 improves debug help/UTF-8 JSON recipes, suggestion adaptation,
+readable individually addressable notes and retrospective publication handoffs.
+Installing a package alone leaves book guidance pinned.
+
+| Project case | Complete delivery sequence |
+| --- | --- |
+| New legacy novel | Install the selected package externally, then authorized normal legacy initialization. |
+| Existing legacy novel, including 0.10.2 | External-controller framework update preview/apply targeting `--version 0.10.3`; inspect the preview and HEAD. No same-version bypass. |
+| New format-1 notebook | Install the selected package and matching enabled plugin where selected, then normal notebook initialization. |
+| Existing notebook, including 0.10.2 | Install externally and update/enable matching plugin where selected. Add side-character prerequisites only if missing. Run `retro issue setup` preview/apply **first**, then the exact six-guide preview/apply [procedure](session-guidance-upgrade.md). |
+
+Issue setup refreshes retrospective/debugging/conversation/Help and actual skill
+entry/routing; the six-guide step delivers brainstorming, format, role and character
+guidance. Both steps are required for 0.10.2 notebooks. Notebook maintenance leaves
+changes uncommitted and saves no story. Legacy framework application creates its
+dedicated framework-only commit. Story/history, custom instructions and unrelated
+staging stay protected; customized managed files, stale previews and unsafe paths
+refuse. Inspect partial writes and take a new preview before resuming.
+
+Inspect actual skills or enabled plugin entries, root routing and linked workflows
+after applying. Have Codex reread/reload them in the novel folder, possibly in a
+new chat. Plugin books must not get duplicate project skills. File checks do not
+prove native discovery, voice behavior or conversational quality.
 
 <a id="unreleased-side-character-profiles"></a>
 
@@ -157,8 +149,8 @@ clear approval, while legacy discussion retains normal sourced capture.
 Release 0.10.1 provides an explicit [version-pinned preview/apply manual procedure](https://github.com/bjarkig82/novel-creator/blob/v0.10.1/docs/session-guidance-upgrade.md)
 for existing format-1 notebooks in all supported host/skill-source/language layouts.
 For published 0.10.2 shared guidance, use its [version-pinned procedure](https://github.com/bjarkig82/novel-creator/blob/v0.10.2/docs/session-guidance-upgrade.md)
-after its explicit issue-setup prerequisite. For current 0.10.3 guidance,
-use the separate [current procedure](session-guidance-upgrade.md). The 0.10.1 procedure below remains a
+after its explicit issue-setup prerequisite. For the historical 0.10.3 guidance,
+use its [0.10.3 procedure](session-guidance-upgrade.md). The 0.10.1 procedure below remains a
 historical supported route for notebooks intentionally using that package.
 It refreshes only four provenance-verified shared workflows and appends bounded
 root routing, preserving project skills, roles and custom instructions. Package
@@ -250,25 +242,25 @@ the complete package → project preview/apply → Codex reload sequence below.
 A legacy novel contains `.novel-creator/`. Ask the agent in that novel to preview
 an update to the selected published version using `$novel-update` and its external
 controller. The controller is the absolute path to the compatible Python
-installation outside the novel. Use the published 0.10.3 target below;
+installation outside the novel. Use the published 0.10.4 target below;
 retain the verified runtime interpreter if it differs:
 
 ```text
-CONTROLLER -I -B -m novel_creator update --novel BOOK --python RUNTIME --version 0.10.3 --json
+CONTROLLER -I -B -m novel_creator update --novel BOOK --python RUNTIME --version 0.10.4 --json
 ```
 
 Review the concrete target version, changed paths, blockers and HEAD. After
 requesting that exact preview's application, use its returned preview ID and HEAD:
 
 ```text
-CONTROLLER -I -B -m novel_creator update --novel BOOK --apply --preview PREVIEW_ID --version 0.10.3 --expected-head REVIEWED_HEAD --json
+CONTROLLER -I -B -m novel_creator update --novel BOOK --apply --preview PREVIEW_ID --version 0.10.4 --expected-head REVIEWED_HEAD --json
 ```
 
 Follow the [existing update procedure](../workflows/getting-started.md#updating-an-existing-book),
 including client closure for initial 0.1.0/0.2.0 updates, `--confirm-quiescent`
 only after that confirmation, and external exact-operation recovery. Installing
 the new package alone does not replace pinned files. See the
-[release notes](releases/0.10.3.md) for compatibility and verification scope.
+[release notes](releases/0.10.4.md) for compatibility and verification scope.
 
 The update installs legacy versions of `$novel-clarify`, `$novel-analyze` and
 `$novel-help` with linked workflows. In 0.7.2, Clarify offers labeled suggestions

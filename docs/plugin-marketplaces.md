@@ -1,16 +1,9 @@
 # Marketplace setup for new notebooks
 
-The checkout contains the [unpublished 0.10.4 candidate](releases/0.10.4.md).
-For candidate validation, use its matching plugin and local 0.10.4 wheel.
-
-Version **0.10.3 is published, 2026-11-16**. Examples below target matching
-0.10.3 plugin/package resources. Full Linux and full Windows qualification,
-public archive hashes, both named public installation checks and the annotated
-source tag are verified. Public checks passed after index propagation retries;
-the publisher ran once. See [release notes](releases/0.10.3.md),
-[release evidence](../tests/evaluations/release-0.10.3.md) and [release history](releases/README.md).
-No 0.10.3 GitHub release ZIP assets are claimed. Explicit matching local-artifact
-validation remains available with `--wheel`.
+The plugin manifest and commands below target **0.10.4, published on 2026-11-19**.
+Existing 0.10.3 notebooks can receive the revised conversation guide through
+the reviewed issue-setup command. [Release notes](releases/0.10.4.md) ·
+[Project upgrades](upgrading-projects.md#story-status-in-summaries-and-handoffs-in-0104)
 
 The plugin has eighteen entries (setup and seventeen writing entries), including
 complete side-character profiles and author-approved session issue retrospectives.
@@ -68,7 +61,7 @@ plugin does not prove the matching Python package has been published.
 
 The permanent plugin name is `novel-creator` and the catalog is
 `novel-creator-marketplace`. Enable the plugin in your actual host and inspect
-its available skills. The published 0.10.3 plugin contains `setup` and seventeen
+its available skills. The published 0.10.4 plugin contains `setup` and seventeen
 writing entries; the six writing roles are installed in the book during setup, so the plugin inventory
 itself can report zero agents. Expected writing invocation syntax is Codex
 `$novel-creator:novel-help` and Claude Code `/novel-creator:novel-help`.
@@ -96,7 +89,7 @@ archive can be added by absolute path instead of the GitHub repository. Supply
 the exact matching local wheel to validate that artifact explicitly:
 
 ```text
-python /absolute/path/to/plugin/scripts/bootstrap.py --wheel /absolute/path/to/novel_creator-0.10.3-py3-none-any.whl --novel "/path/to/My Novel"
+python /absolute/path/to/plugin/scripts/bootstrap.py --wheel /absolute/path/to/novel_creator-0.10.4-py3-none-any.whl --novel "/path/to/My Novel"
 ```
 
 Here `/absolute/path/to/plugin` is the installed plugin directory, not the
@@ -115,9 +108,9 @@ Codex/project setup. Never initialize over an existing notebook to change hosts.
 
 The runtime is an isolated virtual environment for the exact plugin version,
 outside the plugin cache and the book. Windows uses
-`%LOCALAPPDATA%/NovelCreator/runtimes/0.10.3`; Linux uses
-`$XDG_CACHE_HOME/novel-creator/runtimes/0.10.3`, falling back to
-`~/.cache/novel-creator/runtimes/0.10.3`. Reuse checks the installed version,
+`%LOCALAPPDATA%/NovelCreator/runtimes/0.10.4`; Linux uses
+`$XDG_CACHE_HOME/novel-creator/runtimes/0.10.4`, falling back to
+`~/.cache/novel-creator/runtimes/0.10.4`. Reuse checks the installed version,
 dependencies and installation source; a local wheel's SHA-256 binds its
 provenance. A changed candidate wheel or switching from wheel to PyPI needs a
 separate cache location. Proxy, CA and package-index transport settings are
@@ -126,10 +119,10 @@ preserved while pip destination overrides are excluded. See the
 
 If the pinned version is missing from the index, report that actual failure;
 use a matching local wheel only when it is available for the intended setup.
-Install or upgrade the separate 0.10.3 package in your configured environment:
+Install or upgrade the separate 0.10.4 package in your configured environment:
 
 ```text
-python -m pip install --upgrade novel-creator==0.10.3
+python -m pip install --upgrade novel-creator==0.10.4
 ```
 
 If setup fails, preserve its partial files and follow the reported recovery
@@ -194,7 +187,7 @@ For 0.10.2 side-character profiles, follow the [feature-only procedure](side-cha
 For issue retrospectives, use the separate [issue-setup preview/application](upgrading-projects.md#session-issue-retrospectives-in-0102).
 Both cover supported Codex/Claude Code/both and project/plugin layouts; inspect
 actual selected roots, skills/plugin entries and linked book workflows, then
-reread/reload them in the host. The [current shared-guidance procedure](session-guidance-upgrade.md)
+reread/reload them in the host. The [0.10.3 six-guide procedure](session-guidance-upgrade.md)
 requires issue setup first. These operations make no notebook save or commit and
 do not enable capture, automatic participation or publication.
 

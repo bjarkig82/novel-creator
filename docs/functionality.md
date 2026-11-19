@@ -355,7 +355,7 @@ fewer/no suggestions or method changes take effect immediately. One useful
 question or invitation can remain, without a forced questionnaire. Legacy
 context, authority, exact capture and save-before-display requirements remain.
 
-In the [unpublished 0.10.4 candidate](releases/0.10.4.md), brainstorming replies, recaps, voice continuations and
+In the [0.10.4 release](releases/0.10.4.md), brainstorming replies, recaps, voice continuations and
 role handoffs retain the writer's theories as proposals, alongside distinct
 character beliefs and established goals. Established practical dependencies and
 their dangers carry forward with the writer's corrections, even when a character
@@ -567,11 +567,10 @@ See [the update workflow](../workflows/update.md) for commands and recovery boun
 
 ## Delivery status and limits
 
-The latest verified published package is [0.10.3](releases/0.10.3.md), published
-2026-11-16. Full Linux and full Windows qualification passed; exact public archive
-hashes, both named public installation checks and the annotated qualified-source
-tag are verified. Public checks needed index propagation retries; the publisher
-ran once. See the [release evidence](../tests/evaluations/release-0.10.3.md).
+[0.10.4](releases/0.10.4.md) was published on 2026-11-19. Full Linux and
+Windows qualification passed, including upgrades from public 0.10.3 under
+both candidate distributions. The downloaded public files match the qualified
+archives. [Release evidence](../tests/evaluations/release-0.10.4.md)
 Native conversations, discovery/reload, voice behavior, specialist interaction
 and literary quality remain unverified. Historical [0.10.2 evidence](../tests/evaluations/release-0.10.2.md)
 remains unchanged.

@@ -36,7 +36,7 @@ newer**, and **Git 2.39 or newer** with your name and email configured. Git uses
 that identity for the local history. [Set up your Git identity](https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup#_your_identity).
 
 Run the commands for your system in a terminal. They install Novel Creator
-0.10.3 in a separate Python environment and create a notebook called **My Novel**.
+0.10.4 in a separate Python environment and create a notebook called **My Novel**.
 Use a new folder outside any existing Git repository. Its parent folder must
 already exist.
 
@@ -44,7 +44,7 @@ already exist.
 
 ```powershell
 py -3 -m venv "$env:USERPROFILE\.novel-creator-venv"
-& "$env:USERPROFILE\.novel-creator-venv\Scripts\python.exe" -m pip install novel-creator==0.10.3
+& "$env:USERPROFILE\.novel-creator-venv\Scripts\python.exe" -m pip install novel-creator==0.10.4
 & "$env:USERPROFILE\.novel-creator-venv\Scripts\novel-creator.exe" notebook init "My Novel" --path "$env:USERPROFILE\My Novel" --language en
 ```
 
@@ -52,7 +52,7 @@ py -3 -m venv "$env:USERPROFILE\.novel-creator-venv"
 
 ```bash
 python3 -m venv "$HOME/.novel-creator-venv"
-"$HOME/.novel-creator-venv/bin/python" -m pip install novel-creator==0.10.3
+"$HOME/.novel-creator-venv/bin/python" -m pip install novel-creator==0.10.4
 "$HOME/.novel-creator-venv/bin/novel-creator" notebook init "My Novel" --path "$HOME/My Novel" --language en
 ```
 
@@ -84,7 +84,7 @@ Open the existing project folder to continue. Older projects created with
 
 To add newer tools to an existing notebook or legacy novel, follow the
 project-specific upgrade steps after installing the package. Each project keeps
-its own copy of its instructions. [Upgrade guide for version 0.10.3](https://github.com/bjarkig82/novel-creator/blob/main/docs/upgrading-projects.md#session-usability-guidance-in-0103).
+its own copy of its instructions. [Upgrade guide for version 0.10.4](https://github.com/bjarkig82/novel-creator/blob/main/docs/upgrading-projects.md#story-status-in-summaries-and-handoffs-in-0104).
 
 <a id="unreleased-session-issue-retrospectives"></a>
 
@@ -96,8 +96,8 @@ attachments to share. [Session review guide](https://github.com/bjarkig82/novel-
 
 ## Releases
 
-- [Novel Creator 0.10.3 on PyPI](https://pypi.org/project/novel-creator/0.10.3/)
-- [0.10.3 release notes and compatibility](https://github.com/bjarkig82/novel-creator/blob/main/docs/releases/0.10.3.md)
+- [Novel Creator 0.10.4 on PyPI](https://pypi.org/project/novel-creator/0.10.4/)
+- [0.10.4 release notes and compatibility](https://github.com/bjarkig82/novel-creator/blob/main/docs/releases/0.10.4.md)
 - [Release history](https://github.com/bjarkig82/novel-creator/blob/main/docs/releases/README.md)
 
 ## Development

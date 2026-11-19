@@ -104,11 +104,11 @@ For every requested PyPI release, prepare versioned notes and update the
 
 ### Plugin artifacts and installation checks
 
-Version 0.10.3 is verified published on PyPI, 2026-11-16. Full Linux and full
-Windows qualification passed; public archive hashes, both named public installation
-checks and the annotated qualified-source tag are verified. Public checks needed
-index propagation retries; the publisher ran once. See [release notes](releases/0.10.3.md)
-and [release evidence](../tests/evaluations/release-0.10.3.md). Generate manifests/catalogs
+[0.10.4](releases/0.10.4.md) was published on 2026-11-19 after full Linux and
+Windows qualification. The public files match the qualified candidate.
+[Release evidence](../tests/evaluations/release-0.10.4.md)
+
+Generate manifests/catalogs
 and deterministic archives from the package version, then check for drift
 without writes:
 
@@ -175,7 +175,7 @@ setup prerequisite first.
 The 0.10.3 gate also checks actual public 0.10.2 upgrades: new/existing legacy
 and notebook delivery, all twelve notebook layouts, issue setup followed by the
 exact six-guide procedure, preservation and customized/stale/unsafe refusals.
-The [0.10.4 candidate](releases/0.10.4.md) adds hash-verified public 0.10.3
+The [0.10.4 release](releases/0.10.4.md) adds hash-verified public 0.10.3
 initialization and upgrades under both installed artifacts. The gate checks the
 single conversation-guide refresh in all twelve notebook layouts, targeted
 refusals and preservation, and new and updated legacy brainstorming/resume
