@@ -44,6 +44,32 @@ after applying. Have Codex reread/reload them in the novel folder, possibly in a
 new chat. Plugin books must not get duplicate project skills. File checks do not
 prove native discovery, voice behavior or conversational quality.
 
+## Unreleased brainstorming continuity guidance
+
+The revised story-status and practical-dependency guidance is present in the
+current source. Published 0.10.3 predates it. New notebooks and legacy novels
+receive the revised guides when initialized with a build containing the change.
+
+For an existing format-1 notebook, run the existing preview and application
+with an external build that contains the revision. This also supports notebooks
+whose conversation guide matches the published 0.10.3 snapshot.
+
+```text
+novel-creator retro issue setup --novel BOOK --json
+novel-creator retro issue setup --novel BOOK --apply --preview PREVIEW_ID --expected-head REVIEWED_HEAD --json
+```
+
+Review the returned paths and expected HEAD before applying. In an otherwise
+current 0.10.3 notebook, the preview lists the shared `conversation.md` only.
+The command can also deliver existing issue-setup prerequisites if missing.
+Customized resources require reconciliation. The operation leaves changes
+uncommitted and saves no story. Reread the linked conversation guide from the
+selected notebook and reload the project's instructions in the host.
+
+For an existing legacy novel, the [ordinary external-controller update](#legacy-novels)
+will deliver the revised brainstorming and resume guides when a newer release
+containing them is published. The published version gate applies.
+
 <a id="unreleased-side-character-profiles"></a>
 
 ## Side-character profiles in 0.10.2

@@ -355,6 +355,15 @@ fewer/no suggestions or method changes take effect immediately. One useful
 question or invitation can remain, without a forced questionnaire. Legacy
 context, authority, exact capture and save-before-display requirements remain.
 
+In unreleased guidance, brainstorming replies, recaps, voice continuations and
+role handoffs retain the writer's theories as proposals, alongside distinct
+character beliefs and established goals. Established practical dependencies and
+their dangers carry forward with the writer's corrections, even when a character
+understands more than the party they depend on. A later end to a vulnerability
+stays open until the writer establishes it. The notebook and legacy guides apply
+the same story distinctions under their respective save rules. Live Codex voice
+evaluation is pending. [Synthetic scenarios](../tests/evaluations/brainstorming.md#voice-continuity-scenarios)
+
 Five thin Codex skills provide optional focused entries: `$novel-book-idea`,
 `$novel-premise`, `$novel-character`, `$novel-plot` and `$novel-setting`. Shared
 [brainstorming guidance](../notebook/workflows/brainstorming.md) supplies concrete

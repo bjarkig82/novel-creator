@@ -40,6 +40,7 @@ class NotebookPackageTest(unittest.TestCase):
                 'src/novel_creator/debug.py': 'novel_creator/debug.py',
                 'workflows/debugging.md': 'novel_creator/workflows/debugging.md',
                 'workflows/brainstorm.md': 'novel_creator/workflows/brainstorm.md',
+                'workflows/resume.md': 'novel_creator/workflows/resume.md',
                 'src/novel_creator/retro_issues.py': 'novel_creator/retro_issues.py',
                 'src/novel_creator/retro_issue_setup.py': 'novel_creator/retro_issue_setup.py',
                 'src/novel_creator/retro_issue_provenance.py': 'novel_creator/retro_issue_provenance.py',
@@ -96,7 +97,7 @@ class NotebookPackageTest(unittest.TestCase):
                     self.assertTrue(legacy_skill.is_file())
                     self.assertTrue((legacy / '.novel-creator/workflows/retrospective.md').is_file())
                     self.assertIn('retro', (legacy / 'AGENTS.md').read_text(encoding='utf-8'))
-                    for name in ('brainstorm.md', 'debugging.md'):
+                    for name in ('brainstorm.md', 'debugging.md', 'resume.md'):
                         self.assertEqual((legacy / '.novel-creator/workflows' / name).read_bytes(),
                                          (checkout / 'workflows' / name).read_bytes().replace(b'\r\n', b'\n'))
                     refused = subprocess.run([python, '-I', str(legacy / '.novel-creator/run.py'),
@@ -182,6 +183,19 @@ class NotebookPackageTest(unittest.TestCase):
         self.assertEqual((root / '.git/index').read_bytes(), index)
         skill = root / '.agents/skills/novel-retro/SKILL.md'
         self.assertIn('retrospective.md', skill.read_text())
+
+        relative = '.novel-notebook/workflows/conversation.md'
+        conversation = root / relative
+        current = conversation.read_bytes()
+        released = Path(__file__).resolve().parents[1] / 'fixtures/session-guidance-0.10.3/conversation.md'
+        conversation.write_bytes(released.read_bytes())
+        preview = invoke()
+        self.assertEqual(preview['changes'], [relative])
+        self.assertTrue(invoke('--apply', '--preview', preview['preview_id'], '--expected-head',
+                               preview['reviewed_head'])['applied'])
+        self.assertEqual(conversation.read_bytes(), current)
+        self.assertEqual((root / 'notebook/project.md').read_bytes(), story)
+        self.assertEqual((root / '.git/index').read_bytes(), index)
 
     def verify_debug(self, console, area, env):
         """Exercise the recorder from the installed distribution, outside source."""

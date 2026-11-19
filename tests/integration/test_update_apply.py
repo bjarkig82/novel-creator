@@ -117,6 +117,10 @@ class ApplyTests(unittest.TestCase):
                 self.assertTrue(skill.is_file(), 'Existing legacy update must deliver new skills')
                 self.assertTrue(workflow.is_file(), 'New skills require their linked legacy workflows')
                 self.assertNotIn('.novel-notebook/', skill.read_text(encoding='utf-8'))
+            workflows = Path(__file__).resolve().parents[2] / 'workflows'
+            for name in ('brainstorm.md', 'resume.md'):
+                installed = book.root / '.novel-creator/workflows' / name
+                self.assertEqual(installed.read_bytes(), (workflows / name).read_bytes())
             self.assertEqual(storage.index_entries(book.root, ['notes.txt']),
                 next(row + b'\0' for row in before['index'].encode().split(b'\0') if row.endswith(b'\tnotes.txt')))
             self.assertEqual((book.root / 'notes.txt').read_bytes(), b'working\n')

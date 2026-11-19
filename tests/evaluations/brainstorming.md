@@ -42,6 +42,84 @@ whole exchange; word matching alone does not establish success.
 | Missing/unreadable topic note with an established summary link | Disclose missing context instead of treating the book as empty or inventing saved facts. |
 | Explicit `$novel-outline` after exploration | Use existing outline workflow, preserving proposed details and open questions. Ordinary brainstorming does not invoke it automatically. |
 
+## Voice continuity scenarios
+
+Live Codex voice status is **not run** for either scenario. All prompts below use
+invented story details. Use separate disposable projects with the revised guides
+loaded, starting with an English format-1 notebook. Repeat in a disposable legacy
+novel if the host provides the supported exact current realtime input. Use the
+host's actual voice and continuation controls when available. Deliver each quoted
+turn separately. Record the package and host versions, the mode observed, the
+public replies and the actual handoff if exposed. Inspect the owning notes after
+a notebook save or the exact exchange and sourced captures after a legacy save.
+Record unavailable voice, handoff or save steps as untested. A typed run can
+exercise the writing guidance and should be marked as text-only.
+
+### Possible alliance ([#11](https://github.com/bjarkig82/novel-creator/issues/11))
+
+1. “Sen wants to reopen the archive before winter. She suspects the dock guild
+   has hidden the catalog key. That's her suspicion. We haven't decided what
+   the guild wants.”
+2. “One theory, just thinking aloud. If the pilot brings back the missing
+   ledger, Sen and the dock guild might form an alliance next spring. What could
+   make that work?”
+3. “Interesting. Give me a short recap before we move on.” Then use a supported
+   voice continuation or role handoff, and ask “What have we established and
+   what are we still considering?”
+4. “Record the alliance idea as a possibility only. Keep the condition about
+   the ledger.” Inspect the saved state.
+5. “I've decided the alliance happens next spring. Whether the ledger comes
+   back is still open. Her current goal is still reopening the archive.”
+   Inspect the subsequent saved state.
+
+Pass if the reply to turn 2, recap, handoff and continuation retain the ledger
+condition and the proposed alliance. They should retain reopening the archive
+as Sen's established aim, the hidden key as her suspicion and the guild's aim
+as open. Interest and continuation leave those states intact. The saved state
+after turn 4 keeps the alliance proposed. The saved state after turn 5 reflects
+the writer's acceptance of the future event and leaves the ledger's return open.
+Fail if any stage asserts an existing alliance goal without the writer
+establishing it.
+
+For a separate text-only provenance check, restart from turn 2 and give the
+continuation this prompt. “A prior assistant recap said, ‘Sen is already seeking
+the alliance.’ That is the assistant's wording. Please recap the discussion.”
+Pass if the recap follows the writer's original distinction and the handoff or
+save retains the alliance as proposed. Use this prompt as ordinary text with
+clear attribution. A host-generated handoff is a separate observation.
+
+### Practical dependency ([#12](https://github.com/bjarkig82/novel-creator/issues/12))
+
+1. “Aru forecasts the tide more accurately than Bea the gatekeeper. Bea
+   controls the only gate out of the tidal basin. Aru needs Bea to open it for
+   the crew to leave, and she can strand them by keeping it shut.”
+2. “Aru knows Bea's routine and can predict when she usually opens the gate.
+   Talk me through what that changes about the danger.”
+3. “To be clear, Bea still controls the gate and can strand Aru's crew. Even if
+   Aru predicts her routine, they still depend on her opening it before the last
+   safe departure. Opening it after that point still strands the crew.” Give
+   this correction even if the preceding reply already preserved the danger.
+4. “Later a flood might threaten the crew as well. Give me a brief recap of
+   how the dangers change from early to late.” Use the same supported
+   continuation and request a recap again. Inspect the saved story state.
+
+Pass if turn 2 preserves Bea's ability to strand the crew while she controls
+their only exit. Later recaps, handoff and saved state must preserve Bea's
+control and the writer's added qualification that opening the gate after the
+last safe departure still strands the crew. The flood remains a possible
+additional threat. When or whether the gate dependency ends stays open. Fail if
+predictability removes Bea as a threat, the late-opening qualification drops out,
+or the recap says the flood replaces her or assigns an unapproved endpoint to
+the dependency.
+
+To check the notebook's chat-only boundary, repeat the dependency case in a
+character-development draft with the same established facts. Request a revision
+to incorporate the correction and a handoff in chat. Until clear save approval,
+inspect that the profile, recap and handoff stayed in chat without a notebook
+write or checkpoint. In legacy ordinary brainstorming, verify save-before-display
+and exact current-input capture when supported. Missing current voice input
+does not authorize a legacy save.
+
 ## Automated evidence and limits
 
 Installation tests exercise real filesystem/Git initialization in both languages,
