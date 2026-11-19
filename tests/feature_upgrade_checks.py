@@ -197,3 +197,12 @@ def check_legacy_features(book, *, fresh_root=False):
                 'Notebook-only runtime copied into legacy novel')
     check_links(book)
     check_legacy_routing(book, fresh_root=fresh_root)
+
+
+def check_legacy_continuity(book, *, fresh_root=False):
+    check_legacy_features(book, fresh_root=fresh_root)
+    for name, phrase in (('brainstorm.md', b'Keep knowledge and practical leverage distinct.'),
+                         ('resume.md', b'[brainstorming guidance](brainstorm.md)')):
+        expected = files('novel_creator.workflows').joinpath(name).read_bytes().replace(b'\r\n', b'\n')
+        actual = (book / '.novel-creator/workflows' / name).read_bytes().replace(b'\r\n', b'\n')
+        require(actual == expected and phrase in actual, 'Wrong legacy continuity guide: ' + name)

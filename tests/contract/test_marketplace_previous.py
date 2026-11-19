@@ -44,7 +44,9 @@ class MarketplacePreviousTests(unittest.TestCase):
                 features.check_legacy_routing(root)
 
     def test_both_public_sources_fail_closed_on_a_corrupt_local_wheel(self):
-        self.assertEqual(set(previous.PUBLIC_WHEELS), {'0.7.2', '0.8.0', '0.9.0', '0.10.0', '0.10.1', '0.10.2'})
+        self.assertEqual(set(previous.PUBLIC_WHEELS), {'0.7.2', '0.8.0', '0.9.0', '0.10.0', '0.10.1', '0.10.2', '0.10.3'})
+        self.assertEqual(previous.PUBLIC_WHEELS['0.10.3'][1],
+                         'c29f36dad95f8289a9a2b19d0d0fe3246d8a6c2c2d2860bd736c2b981c6629f9')
         self.assertEqual(previous.PUBLIC_WHEELS['0.10.1'][1],
                          '6721c5a527f1b7e567743f2760ec5e13aec2d0394f520913e98589ac54b8b11a')
         self.assertEqual(previous.PUBLIC_WHEELS['0.8.0'][1],
@@ -67,8 +69,9 @@ class MarketplacePreviousTests(unittest.TestCase):
                           for call in verify.call_args_list],
                          [('0.7.2', False), ('0.7.2', True), ('0.8.0', False), ('0.8.0', True),
                           ('0.9.0', False), ('0.9.0', True), ('0.10.0', False), ('0.10.0', True),
-                          ('0.10.1', False), ('0.10.1', True), ('0.10.2', False), ('0.10.2', True)])
-        self.assertEqual(len(report.call_args.args[1]['checks']), 12)
+                          ('0.10.1', False), ('0.10.1', True), ('0.10.2', False), ('0.10.2', True),
+                          ('0.10.3', False), ('0.10.3', True)])
+        self.assertEqual(len(report.call_args.args[1]['checks']), 14)
         workflow = (Path(__file__).resolve().parents[2] / '.github/workflows/package-release.yml').read_text()
         self.assertIn('tests/verify_marketplace_previous.py --wheel candidate/*.whl --sdist candidate/*.tar.gz', workflow)
 
@@ -91,11 +94,11 @@ class MarketplacePreviousTests(unittest.TestCase):
 
     def test_local_latest_public_fixture_flag_is_forwarded_for_both_artifacts(self):
         with (patch('sys.argv', ['probe', '--wheel', 'candidate.whl', '--sdist', 'candidate.tar.gz',
-                                 '--previous-0102-wheel', 'frozen.whl', '--report', 'report.json']),
+                                 '--previous-0103-wheel', 'frozen.whl', '--report', 'report.json']),
               patch.object(previous, 'verify', return_value={'ok': True}) as verify,
               patch.object(previous, 'write_report')):
             previous.main()
-        latest = [call for call in verify.call_args_list if call.kwargs['source_version'] == '0.10.2']
+        latest = [call for call in verify.call_args_list if call.kwargs['source_version'] == '0.10.3']
         self.assertEqual(len(latest), 2)
         self.assertTrue(all(call.kwargs['previous'] == Path('frozen.whl') for call in latest))
 

@@ -44,31 +44,59 @@ after applying. Have Codex reread/reload them in the novel folder, possibly in a
 new chat. Plugin books must not get duplicate project skills. File checks do not
 prove native discovery, voice behavior or conversational quality.
 
-## Unreleased brainstorming continuity guidance
+<a id="unreleased-brainstorming-continuity-guidance"></a>
 
-The revised story-status and practical-dependency guidance is present in the
-current source. Published 0.10.3 predates it. New notebooks and legacy novels
-receive the revised guides when initialized with a build containing the change.
+## Story status in summaries and handoffs in 0.10.4
 
-For an existing format-1 notebook, run the existing preview and application
-with an external build that contains the revision. This also supports notebooks
-whose conversation guide matches the published 0.10.3 snapshot.
+[0.10.4](releases/0.10.4.md) is an unpublished candidate. **After verified
+publication**, install the exact release in a Python 3.11+ environment outside the
+book. Use its interpreter for the following commands. Git 2.39+ is required.
 
 ```text
-novel-creator retro issue setup --novel BOOK --json
-novel-creator retro issue setup --novel BOOK --apply --preview PREVIEW_ID --expected-head REVIEWED_HEAD --json
+python -m pip install --upgrade novel-creator==0.10.4
 ```
 
-Review the returned paths and expected HEAD before applying. In an otherwise
-current 0.10.3 notebook, the preview lists the shared `conversation.md` only.
-The command can also deliver existing issue-setup prerequisites if missing.
-Customized resources require reconciliation. The operation leaves changes
-uncommitted and saves no story. Reread the linked conversation guide from the
-selected notebook and reload the project's instructions in the host.
+For plugin notebooks, update and enable the matching 0.10.4 plugin in the
+selected host. Installing Python or a plugin alone leaves each book's snapshots pinned.
 
-For an existing legacy novel, the [ordinary external-controller update](#legacy-novels)
-will deliver the revised brainstorming and resume guides when a newer release
-containing them is published. The published version gate applies.
+| Project | How to receive the revised guidance |
+| --- | --- |
+| New legacy novel | From a suitable parent directory, run `python -m novel_creator init "My Novel"` to create an independent legacy novel. Its pinned workflows include `brainstorm.md` and `resume.md`. |
+| Existing legacy novel | Use the external controller preview and apply below. Keep the book's verified runtime interpreter. The update creates a dedicated framework commit and preserves story records, custom instructions and unrelated staging. |
+| New format-1 notebook | Run `python -m novel_creator notebook init "My Novel" --language en --host codex --skill-source project` from a suitable parent. Choose `en` or `is`, `codex`, `claude` or `both`, and `project` or `plugin` for your setup. The selected root instructions link to the revised shared `conversation.md`. |
+| Existing format-1 notebook | From the external 0.10.4 environment use the issue-setup preview and apply below. This works for both languages and each host/skill source. Plugin notebooks use the enabled plugin's entries and need no project skill copies. |
+
+**Existing legacy novel.** Once the release is public, set `CONTROLLER` to the
+external interpreter, `RUNTIME` to the verified interpreter used by the book,
+and `BOOK` to the project path. Review the target, changes, blockers and HEAD
+before applying the exact preview. Follow any quiescence or recovery instructions
+in the [legacy update procedure](../workflows/getting-started.md#updating-an-existing-book).
+
+```text
+CONTROLLER -I -B -m novel_creator update --novel BOOK --python RUNTIME --version 0.10.4 --json
+CONTROLLER -I -B -m novel_creator update --novel BOOK --apply --preview PREVIEW_ID --version 0.10.4 --expected-head REVIEWED_HEAD --json
+```
+
+**Existing notebook.** Use the returned preview ID and HEAD, after reviewing its
+resource paths. In an otherwise current 0.10.3 notebook, only
+`.novel-notebook/workflows/conversation.md` changes. The update also offers
+recognized missing issue-setup prerequisites on older notebooks. If you still
+need the earlier session guidance, complete its [0.10.3 upgrade](#session-usability-guidance-in-0103)
+in that version's environment first. The six-guide procedure belongs to that older
+upgrade. Moving from a current 0.10.3 notebook to 0.10.4 needs only issue setup.
+
+```text
+python -m novel_creator retro issue setup --novel BOOK --json
+python -m novel_creator retro issue setup --novel BOOK --apply --preview PREVIEW_ID --expected-head REVIEWED_HEAD --json
+```
+
+Notebook setup makes no story save or Git checkpoint. Review the resulting diff.
+Reconcile customized resources, stale previews or redirected paths, then preview
+again. Inspect the actual skill files or enabled plugin entries and follow their
+links to the selected workflows. Open the book folder in Codex or Claude Code,
+reread its applicable `AGENTS.md` or `CLAUDE.md`, and reload the skills using
+the host's controls or a fresh chat. Live voice behavior and native reload still
+need observation in the host.
 
 <a id="unreleased-side-character-profiles"></a>
 

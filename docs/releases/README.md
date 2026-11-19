@@ -4,6 +4,7 @@ Read the notes for each version to understand its changes, compatibility and
 upgrade considerations. Candidate notes describe planned changes and do not
 establish that the package is available on PyPI.
 
+- [0.10.4](0.10.4.md) — **unpublished candidate**. Voice summaries and handoffs preserve proposal status, speaker attribution and practical dependencies.
 - [0.10.3](0.10.3.md) — **published 2026-11-16**: session usability, debug recipes/startup labeling and retrospective handoff fixes; full Linux/Windows qualification, public hashes/installs and annotated source tag verified.
 
 - [0.10.2](0.10.2.md) — **published 2026-11-16**: author-approved session issue retrospectives, retirement of automatic fix/PR production, complete side-character profiles and explicit updates for both formats; full Linux/Windows qualification, public hashes/installs and annotated tag verified.

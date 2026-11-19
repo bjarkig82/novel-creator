@@ -32,7 +32,7 @@ def check_links(book):
                             (path.parent / link).is_file(), 'Unresolved skill/role link: ' + str(path))
 
 
-def prepare_retro(python, book, expected, env, *, host, source):
+def prepare_retro(python, book, expected, env, *, host, source, conversation_only=False):
     """Actual CLI prerequisite with writer state present before the first preview."""
     try:
         from tests.feature_upgrade_checks import check_features, feature_paths
@@ -59,6 +59,9 @@ def prepare_retro(python, book, expected, env, *, host, source):
         return json.loads(run([*command, '--json'], env=env, cwd=book.parent))['data']
 
     review = preview()
+    conversation = '.novel-notebook/workflows/conversation.md'
+    if conversation_only:
+        require(review['changes'] == [conversation], 'Expected only the public conversation guide to change')
     require(snapshot(book) == before, 'Retro prerequisite preview wrote files')
     path = book / roots[0]
     raw = path.read_bytes()
@@ -68,7 +71,7 @@ def prepare_retro(python, book, expected, env, *, host, source):
          review['reviewed_head'], '--json'], env=env, cwd=book.parent, expected_exit=3)
     require(snapshot(book) == changed, 'Stale prerequisite mutated files')
     path.write_bytes(raw)
-    path = book / '.novel-notebook/workflows/retrospective.md'
+    path = book / (conversation if conversation_only else '.novel-notebook/workflows/retrospective.md')
     raw = path.read_bytes()
     path.write_bytes(raw + b'Custom retrospective.\n')
     changed = snapshot(book)
@@ -94,7 +97,10 @@ def prepare_retro(python, book, expected, env, *, host, source):
     after = snapshot(book)
     allowed = set(roots) | feature_paths(host, source, 'retrospective') | {
         '.novel-notebook/workflows/' + name + '.md' for name in ('help', 'conversation', 'debugging')}
-    require({n for n in before.keys() | after.keys() if before.get(n) != after.get(n)} <= allowed,
+    changed = {n for n in before.keys() | after.keys() if before.get(n) != after.get(n)}
+    if conversation_only:
+        require(changed == {conversation}, 'Unexpected changes updating public conversation guidance')
+    require(changed <= allowed,
             'Prerequisite changed writer files')
     for name in roots:
         require((book / name).read_bytes().startswith(root_bytes[name]), 'Prerequisite changed custom root')

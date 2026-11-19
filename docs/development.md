@@ -88,7 +88,7 @@ The local full-suite/build commands are:
 ```bash
 python -m unittest discover -q
 python -m pip wheel . --no-deps --wheel-dir dist
-python tests/verify_wheel.py dist/novel_creator-0.10.3-py3-none-any.whl
+python tests/verify_wheel.py dist/novel_creator-0.10.4-py3-none-any.whl
 ```
 
 Use the actual versioned filename produced by the build. The wheel verifier
@@ -119,8 +119,8 @@ python scripts/build_plugins.py --check
 
 These local build examples alone do not establish publication or qualification.
 The current default outputs are
-`dist/novel-creator-plugin-0.10.3.zip` (plugin root) and
-`dist/novel-creator-marketplace-0.10.3.zip` (both catalogs and the plugin tree).
+`dist/novel-creator-plugin-0.10.4.zip` (plugin root) and
+`dist/novel-creator-marketplace-0.10.4.zip` (both catalogs and the plugin tree).
 Use `--output DIR` for a disposable destination. Both archives exclude runtime
 caches, credentials and bytecode. `tests.contract.test_plugin_bundle` checks
 manifest/version consistency, all eighteen entries (seventeen writing skills
@@ -135,16 +135,16 @@ python -m unittest tests.unit.test_plugin_bootstrap tests.contract.test_plugin_b
 The following opt-in helpers perform real installations into temporary runtimes
 and books, outside the checkout. They can download dependencies; the previous
 release helper also downloads frozen hash-verified public 0.7.2, 0.8.0, 0.9.0,
-0.10.0, 0.10.1 and 0.10.2 wheels unless `--previous-wheel PATH`, `--previous-080-wheel PATH`,
+0.10.0, 0.10.1, 0.10.2 and 0.10.3 wheels unless `--previous-wheel PATH`, `--previous-080-wheel PATH`,
 `--previous-090-wheel PATH`, `--previous-0100-wheel PATH`,
-`--previous-0101-wheel PATH` and `--previous-0102-wheel PATH` supply them locally.
+`--previous-0101-wheel PATH`, `--previous-0102-wheel PATH` and `--previous-0103-wheel PATH` supply them locally.
 They are not unittest discovery
 modules. They need Python 3.11+, Git 2.39+ and Windows/Linux; they set disposable
 Git identities only in subprocess environments and do not modify global settings.
 
 ```text
-python tests/verify_plugin_install.py --wheel dist/novel_creator-0.10.3-py3-none-any.whl --report /tmp/plugin-install.json
-python tests/verify_marketplace_previous.py --wheel dist/novel_creator-0.10.3-py3-none-any.whl --sdist dist/novel_creator-0.10.3.tar.gz --report /tmp/marketplace-previous.json
+python tests/verify_plugin_install.py --wheel dist/novel_creator-0.10.4-py3-none-any.whl --report /tmp/plugin-install.json
+python tests/verify_marketplace_previous.py --wheel dist/novel_creator-0.10.4-py3-none-any.whl --sdist dist/novel_creator-0.10.4.tar.gz --report /tmp/marketplace-previous.json
 ```
 
 On Windows choose a writable report path such as `$env:TEMP\plugin-install.json`.
@@ -175,8 +175,11 @@ setup prerequisite first.
 The 0.10.3 gate also checks actual public 0.10.2 upgrades: new/existing legacy
 and notebook delivery, all twelve notebook layouts, issue setup followed by the
 exact six-guide procedure, preservation and customized/stale/unsafe refusals.
-There are twelve source/artifact reports (six source journeys under each of
-wheel and source-distribution installations), rather than ten.
+The [0.10.4 candidate](releases/0.10.4.md) adds hash-verified public 0.10.3
+initialization and upgrades under both installed artifacts. The gate checks the
+single conversation-guide refresh in all twelve notebook layouts, targeted
+refusals and preservation, and new and updated legacy brainstorming/resume
+guides. Each artifact now produces seven source journeys.
 These checks do not prove GUI skill discovery,
 native conversations or writing quality.
 

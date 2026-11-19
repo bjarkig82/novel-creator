@@ -1,5 +1,8 @@
 # Marketplace setup for new notebooks
 
+The checkout contains the [unpublished 0.10.4 candidate](releases/0.10.4.md).
+For candidate validation, use its matching plugin and local 0.10.4 wheel.
+
 Version **0.10.3 is published, 2026-11-16**. Examples below target matching
 0.10.3 plugin/package resources. Full Linux and full Windows qualification,
 public archive hashes, both named public installation checks and the annotated
@@ -11,7 +14,7 @@ validation remains available with `--wheel`.
 
 The plugin has eighteen entries (setup and seventeen writing entries), including
 complete side-character profiles and author-approved session issue retrospectives.
-Its default bootstrap requests exact 0.10.3 from PyPI; `--wheel` remains available
+The bootstrap requests the exact installed plugin manifest version from PyPI; `--wheel` remains available
 for explicit matching local-artifact validation. Existing plugin books need the
 [explicit resource updates](upgrading-projects.md) after updating/enabling the
 matching plugin. Cached plugin or Python upgrades alone leave snapshots pinned.

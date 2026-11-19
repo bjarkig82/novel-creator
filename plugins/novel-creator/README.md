@@ -5,6 +5,11 @@ Claude Code. The 17 writing entries share creative workflows saved with the
 selected book; the setup entry creates new format-1 notebooks for both hosts.
 The permanent plugin name is `novel-creator` in `novel-creator-marketplace`.
 
+This plugin manifest targets the unpublished 0.10.4 candidate. Validate it
+with a matching local wheel. Existing 0.10.3 notebooks need the reviewed
+`retro issue setup` update for the revised conversation guide. See repository
+`docs/releases/0.10.4.md` for the complete upgrade paths.
+
 Version 0.10.3 is verified published on PyPI, 2026-11-16, with session usability,
 debugging recipe/startup-label and retrospective handoff fixes. Full Linux and
 full Windows qualification, public archive hashes, both named public installation

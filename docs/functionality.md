@@ -355,7 +355,7 @@ fewer/no suggestions or method changes take effect immediately. One useful
 question or invitation can remain, without a forced questionnaire. Legacy
 context, authority, exact capture and save-before-display requirements remain.
 
-In unreleased guidance, brainstorming replies, recaps, voice continuations and
+In the [unpublished 0.10.4 candidate](releases/0.10.4.md), brainstorming replies, recaps, voice continuations and
 role handoffs retain the writer's theories as proposals, alongside distinct
 character beliefs and established goals. Established practical dependencies and
 their dangers carry forward with the writer's corrections, even when a character
