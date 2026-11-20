@@ -248,7 +248,7 @@ class IssueSetup(unittest.TestCase):
                     after = snapshot(root, include_git=True)
                     self.assertEqual({name for name in before.keys() | after.keys()
                                       if before.get(name) != after.get(name)}, set(preview['changes']))
-                    self.assertIn(b'"keep_debugging":true', retro.read_bytes())
+                    self.assertIn(b'--keep-debugging', retro.read_bytes())
                     self.assertTrue(self.call(root)['already_current'])
 
     def test_published_0101_and_unrelated_staging_preserved(self):

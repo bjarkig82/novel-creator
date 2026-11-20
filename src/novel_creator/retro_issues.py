@@ -30,6 +30,18 @@ def digest(raw):
     return hashlib.sha256(raw).hexdigest()
 
 
+def read_frozen_debug(capture):
+    if capture.get('state') != 'frozen':
+        raise ToolError(3, 'Full debug sharing requires a successfully frozen export')
+    try:
+        raw = guarded(capture['path']).read_bytes()
+    except FileNotFoundError as error:
+        raise ToolError(3, 'Frozen debug export is missing') from error
+    if digest(raw) != capture['sha256']:
+        raise ToolError(3, 'Frozen debug export changed')
+    return raw
+
+
 def encoded(value):
     return debug._json(value)
 
@@ -122,6 +134,8 @@ class Issues:
                 raise ValueError()
             if type(run['capture'].get('keep_debugging', False)) is not bool:
                 raise ValueError()
+            if run['capture']['state'] == 'frozen':
+                require(run['capture'], ['path', 'sha256'])
             for key, finding in run['findings'].items():
                 identifier(key)
                 if not isinstance(finding, dict) or finding.get('outcome') not in ('no_action', 'issue'):
@@ -148,7 +162,7 @@ class Issues:
         # Status is entirely local and does not create operational storage.
         return normal_operation(self.root) if mutation and self.debug_kind == 'legacy' else nullcontext()
 
-    def begin(self, data):
+    def begin(self, data, *, keep_debugging=False):
         require(data, ['request_key', 'host_session'])
         session = data.get('debug_session')
         if session is not None:
@@ -156,11 +170,10 @@ class Issues:
         trigger = data.get('trigger', 'explicit')
         if trigger not in ('explicit', 'session_end'):
             raise ToolError(2, 'Unsupported begin trigger')
-        keep_debugging = data.get('keep_debugging', False)
-        if type(keep_debugging) is not bool:
-            raise ToolError(2, 'keep_debugging must be a JSON boolean')
+        if 'keep_debugging' in data:
+            raise ToolError(2, 'Use --keep-debugging to request a live snapshot')
         if keep_debugging and (session is None or trigger != 'explicit'):
-            raise ToolError(2, 'keep_debugging requires an explicit retrospective and a selected debug-session UUID')
+            raise ToolError(2, '--keep-debugging requires an explicit retrospective and a selected debug-session UUID')
         if trigger == 'session_end':
             observed(data, 'observed_session_end_authorization')
         self.path('issue.guard')
@@ -177,6 +190,8 @@ class Issues:
                     raise ToolError(3, 'This request key already selected a different capture or mode. Inspect the retained run.', data=existing)
                 if capture['state'] not in ('absent', 'frozen'):
                     raise ToolError(3, 'Selected capture is failed or interrupted; inspect retained run without repeating export', data=existing)
+                if capture['state'] == 'frozen':
+                    read_frozen_debug(capture)
                 return existing
         run_id = str(uuid.uuid4())
         if session is None:
@@ -250,11 +265,7 @@ class Issues:
         directory.mkdir(parents=True)
         if sharing == 'full_debug':
             capture = run['capture']
-            if capture.get('state') != 'frozen':
-                raise ToolError(3, 'Full debug sharing requires a successfully frozen export')
-            raw = guarded(capture['path']).read_bytes()
-            if digest(raw) != capture['sha256']:
-                raise ToolError(3, 'Frozen debug export changed')
+            raw = read_frozen_debug(capture)
             contents = [('debug.zip', raw)]
         elif sharing == 'excerpts':
             require(data, ['excerpt_text'])
@@ -399,13 +410,13 @@ def dispatch(args):
         return retro_issue_setup.setup(args)
     service = Issues(args.novel)
     data = read(args.input) if args.input else {}
-    if data and data.get('version') != 1:
-        raise ToolError(2, 'Issue input version must be 1')
+    if args.input and (type(data.get('version')) is not int or data['version'] != 1):
+        raise ToolError(2, 'Issue input version must be the integer 1')
     action = args.issue_action
     if action == 'status':
         return service.load(args.run) if args.run else {'version': 1, 'runs': [p.parent.name for p in service.base.glob('*/state.json')]}
     if action == 'begin':
-        return service.begin(data)
+        return service.begin(data, keep_debugging=bool(args.keep_debugging))
     service.path('issue.guard')
     with service.exclusion(mutation=action != 'resume'), inspection_guard(service.base, 'issue.guard'):
         run = service.load(args.run)

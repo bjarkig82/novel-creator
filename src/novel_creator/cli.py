@@ -188,6 +188,9 @@ an executable file-based JSON recipe; never interpolate story text into a shell.
         child.add_argument('--run', required=name not in ('setup', 'begin', 'status'), action=Once)
         child.add_argument('--finding', required=name in ('draft', 'approve', 'publish', 'resume', 'attachment', 'cancel'), action=Once)
         child.add_argument('--input', required=name not in ('setup', 'status'), action=Once)
+        if name == 'begin':
+            child.add_argument('--keep-debugging', action=SwitchOnce,
+                               help='Freeze a partial snapshot of an explicitly selected recording debug session')
         if name == 'setup':
             child.add_argument('--apply', action=SwitchOnce)
             child.add_argument('--preview', action=Once)

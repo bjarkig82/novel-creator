@@ -34,11 +34,12 @@ capturing evidence. By default, it stops the selected session before export.
 Keep debugging off afterward in that mode.
 
 When the writer explicitly requests review while continuing a selected active
-session, include `"keep_debugging":true` with its exact `debug_session` UUID and
-`"trigger":"explicit"`. Begin freezes a partial ZIP of that recording session
-and leaves the same session recording. Confirm `capture.partial` and review the
-frozen ZIP. Later events are outside that snapshot. Begin verifies the selected
-session is still recording during export.
+session, run `retro issue begin --keep-debugging --input FILE` with its exact
+`debug_session` UUID and `"trigger":"explicit"` in the input. Begin freezes a
+partial ZIP and leaves the same session recording. Confirm `capture.partial`
+and review the frozen ZIP. Later events are outside that snapshot. If the CLI
+rejects the flag, keep debugging active and review a writer-selected partial
+export locally.
 
 Never automatically select a log or restart capture. Omit `debug_session` when
 no session is known or selected. A session-closure run uses the default capture

@@ -541,7 +541,7 @@ Structural checks do not establish native host compliance. See the
 
 ### Live debug snapshots
 
-A version-1 `retro issue begin` input can include `"keep_debugging":true` with
+`retro issue begin --keep-debugging` takes a version-1 input with
 `"trigger":"explicit"` and the UUID of a writer-selected recording session.
 Begin checks that the session is still recording during export, freezes a partial
 ZIP and leaves that session recording. Later events stay outside the frozen ZIP.

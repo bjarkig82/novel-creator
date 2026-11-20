@@ -40,14 +40,15 @@ class IssueCaptureCLI(unittest.TestCase):
         self.assertEqual(result['ok'], expected == 0)
         return result if expected else result['data']
 
-    def begin(self, *, expected=0, **options):
-        return self.call('retro', 'issue', 'begin', expected=expected,
-                         data=dict(version=1, request_key='explicit-retro', host_session='current', **options))
+    def begin(self, *, expected=0, live=False, version=1, **options):
+        flags = ('--keep-debugging',) if live else ()
+        return self.call('retro', 'issue', 'begin', *flags, expected=expected,
+                         data=dict(version=version, request_key='explicit-retro', host_session='current', **options))
 
     def test_live_capture_freezes_evidence_and_keeps_the_selected_session_recording(self):
         selected = self.call('debug', 'start')['debug_session']
         other = self.call('debug', 'start')['debug_session']
-        options = dict(debug_session=selected, keep_debugging=True)
+        options = dict(debug_session=selected, live=True)
         run = self.begin(**options)
         capture = run['capture']
         self.assertEqual(capture['state'], 'frozen')
@@ -94,11 +95,12 @@ class IssueCaptureCLI(unittest.TestCase):
 
     def test_invalid_live_requests_leave_capture_and_run_storage_untouched(self):
         selected = self.call('debug', 'start')['debug_session']
-        for value in (None, 'true', 1, [], {}):
-            with self.subTest(value=value):
-                self.begin(expected=2, debug_session=selected, keep_debugging=value)
-        self.begin(expected=2, keep_debugging=True)
-        self.begin(expected=2, debug_session=selected, keep_debugging=True, trigger='session_end',
+        self.begin(expected=2, debug_session=selected, keep_debugging=True)
+        for version in (True, 1.0):
+            with self.subTest(version=version):
+                self.begin(expected=2, debug_session=selected, live=True, version=version)
+        self.begin(expected=2, live=True)
+        self.begin(expected=2, debug_session=selected, live=True, trigger='session_end',
                    observed_session_end_authorization=True)
         self.assertFalse(self.issue_dir.exists())
         status = self.call('debug', 'status', '--debug-session', selected)
@@ -109,7 +111,7 @@ class IssueCaptureCLI(unittest.TestCase):
 
     def test_live_export_rejects_a_stop_after_capture_reservation(self):
         session = self.call('debug', 'start')['debug_session']
-        options = dict(debug_session=session, keep_debugging=True)
+        options = dict(debug_session=session, live=True)
         export = debug.export
 
         def stop_before_export(*args, **kwargs):
@@ -130,6 +132,22 @@ class IssueCaptureCLI(unittest.TestCase):
         self.assertFalse((self.issue_dir / run_id / 'debug.zip').exists())
         self.begin(expected=3, **options)
 
+    def test_live_capture_retry_refuses_changed_or_missing_frozen_evidence(self):
+        session = self.call('debug', 'start')['debug_session']
+        options = dict(debug_session=session, live=True)
+        run = self.begin(**options)
+        archive = Path(run['capture']['path'])
+        archive.write_bytes(b'Changed evidence')
+        result = self.begin(expected=3, **options)
+        self.assertIn('changed', result['error']['message'].lower())
+        self.assertEqual(archive.read_bytes(), b'Changed evidence')
+        archive.unlink()
+        result = self.begin(expected=3, **options)
+        self.assertIn('missing', result['error']['message'].lower())
+        self.assertFalse(archive.exists())
+        self.assertEqual(self.call('retro', 'issue', 'status', '--run', run['run_id']), run)
+        self.assertEqual(self.call('debug', 'status', '--debug-session', session)['state'], 'recording')
+
     def test_default_stop_capture_remains_compatible_with_prior_run_state(self):
         session = self.call('debug', 'start')['debug_session']
         run = self.begin(debug_session=session)
@@ -141,5 +159,5 @@ class IssueCaptureCLI(unittest.TestCase):
         run['capture'].pop('partial', None)
         path = self.issue_dir / run['run_id'] / 'state.json'
         path.write_text(json.dumps(run), encoding='utf-8')
-        self.assertEqual(self.begin(debug_session=session, keep_debugging=False), run)
-        self.begin(expected=3, debug_session=session, keep_debugging=True)
+        self.assertEqual(self.begin(debug_session=session), run)
+        self.begin(expected=3, debug_session=session, live=True)
