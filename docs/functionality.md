@@ -535,19 +535,19 @@ The source workflows require the first findings response to distinguish local
 drafts from publication, show ready exact issue previews and ask for the writer's
 approval choice. Current exact approval is reused without another request.
 
-The current source also covers local review without a formal run or draft. The
-first reply names each GitHub issue candidate, explains why it merits filing and
-gives its status or next action. It says when the evidence supports no new
-candidates and whether anything was published. The review preserves the writer's
-requested debugging state. Publication and attachments still require exact
-outgoing approval.
-
 Finish/pause responses name actual receipts, equivalents, blocked/manual steps
 and uncertain outcomes, with attachment status separate from issue creation.
 Structural checks do not establish native host compliance. See the
 [delivery steps](upgrading-projects.md#unpublished-retrospective-handoff-clarification).
 
-### Live debug snapshots
+### Live debug snapshots and local review (0.10.5)
+
+The 0.10.5 candidate covers local review without a formal run or draft. The
+first reply names each GitHub issue candidate, explains why it merits filing and
+gives its status or next action. It says when the evidence supports no new
+candidates and whether anything was published. The review preserves the writer's
+requested debugging state. Publication and attachments still require exact
+outgoing approval.
 
 `retro issue begin --keep-debugging` takes a version-1 input with
 `"trigger":"explicit"` and the UUID of a writer-selected recording session.
@@ -562,7 +562,7 @@ Existing notebooks can refresh recognized installed resources through explicit
 `retro issue setup` preview and application using a runtime with live snapshot
 support. Plugin notebooks also use the matching enabled plugin. Existing legacy
 novels receive updated guides and runtime through the normal published-release
-framework update. [Project upgrade steps](upgrading-projects.md#session-issue-retrospectives-in-0102)
+framework update. [Project upgrade steps](upgrading-projects.md#live-debug-snapshots-and-local-retrospectives-in-0105)
 
 
 ## Updating existing legacy books

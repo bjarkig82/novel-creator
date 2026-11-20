@@ -5,6 +5,61 @@ instructions require an explicit project update as well. Keep the configured
 Python environment outside the novel and open the intended novel folder in Codex.
 Do not initialize over an existing novel or convert formats to obtain a skill.
 
+## Live debug snapshots and local retrospectives in 0.10.5
+
+[0.10.5](releases/0.10.5.md) is an unpublished candidate. Use the PyPI command
+below after publication. Install in a Python 3.11+ environment outside the book
+and use its interpreter for the rest of the update. Git 2.39+ is required.
+
+```text
+python -m pip install --upgrade novel-creator==0.10.5
+```
+
+| Project | How to receive the retrospective update |
+| --- | --- |
+| New legacy novel | From a suitable parent directory, run `python -m novel_creator init "My Novel"`. The new novel receives the pinned runtime, updated legacy guides and retrospective skill. |
+| Existing legacy novel | Use the external framework controller to preview and apply the update below. Keep the book's verified runtime interpreter. |
+| New format-1 notebook | Run `python -m novel_creator notebook init "My Novel" --language en --host codex --skill-source project` from a suitable parent. Other supported settings are `--language is`, `--host claude` or `both`, and `--skill-source plugin` with the matching enabled plugin. |
+| Existing format-1 notebook | Use the external 0.10.5 runtime to preview and apply issue setup below. It supports both languages, all three host selections and both skill sources. Also update and enable the matching plugin for plugin notebooks. |
+
+**Existing legacy novel.** Use the external Python interpreter as `CONTROLLER`,
+the book's verified interpreter as `RUNTIME` and its folder as `BOOK`. Review the
+target version, paths, blockers and HEAD. Apply the returned preview ID and HEAD.
+Follow any quiescence or recovery instructions in the
+[legacy update procedure](../workflows/getting-started.md#updating-an-existing-book).
+
+```text
+CONTROLLER -I -B -m novel_creator update --novel BOOK --python RUNTIME --version 0.10.5 --json
+CONTROLLER -I -B -m novel_creator update --novel BOOK --apply --preview PREVIEW_ID --version 0.10.5 --expected-head REVIEWED_HEAD --json
+```
+
+The update refreshes the managed workflows, skill and pinned runtime in a dedicated
+framework commit. It preserves story records, manuscript files, custom instructions
+and unrelated staging. The two project formats use their own update procedures.
+
+**Existing notebook.** Review the resource paths first. For a current 0.10.4
+notebook, issue setup refreshes `retrospective.md`, `conversation.md`,
+`debugging.md` and `help.md`, the managed retrospective routing in the applicable
+`AGENTS.md` or `CLAUDE.md`, and each installed project-local `novel-retro` skill.
+It also refreshes the recognized session-guidance routing block if present.
+Plugin notebooks use the enabled plugin's skill entries. For older projects
+that still need earlier features or writing guidance, follow the relevant
+historical sections below using their specified versions.
+
+```text
+python -m novel_creator retro issue setup --novel BOOK --json
+python -m novel_creator retro issue setup --novel BOOK --apply --preview PREVIEW_ID --expected-head REVIEWED_HEAD --json
+```
+
+The notebook update preserves story files, history, unrelated staging and custom
+instructions outside the managed blocks. It makes no story save or Git checkpoint.
+Customized managed resources, stale previews and unsafe paths require review before
+a new preview. Inspect the actual local skill or enabled plugin entry and its linked
+workflows. Reopen the novel folder in the host, reread its applicable `AGENTS.md`
+or `CLAUDE.md` and reload skills using the host's controls or a fresh chat. The
+same inspection and reload applies to the legacy framework update. Native skill
+reload and actual retrospective replies require observation in the host.
+
 <a id="unreleased-brainstorming-continuity-guidance"></a>
 
 ## Story status in summaries and handoffs in 0.10.4

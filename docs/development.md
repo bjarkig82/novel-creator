@@ -88,7 +88,7 @@ The local full-suite/build commands are:
 ```bash
 python -m unittest discover -q
 python -m pip wheel . --no-deps --wheel-dir dist
-python tests/verify_wheel.py dist/novel_creator-0.10.4-py3-none-any.whl
+python tests/verify_wheel.py dist/novel_creator-0.10.5-py3-none-any.whl
 ```
 
 Use the actual versioned filename produced by the build. The wheel verifier
@@ -119,8 +119,8 @@ python scripts/build_plugins.py --check
 
 These local build examples alone do not establish publication or qualification.
 The current default outputs are
-`dist/novel-creator-plugin-0.10.4.zip` (plugin root) and
-`dist/novel-creator-marketplace-0.10.4.zip` (both catalogs and the plugin tree).
+`dist/novel-creator-plugin-0.10.5.zip` (plugin root) and
+`dist/novel-creator-marketplace-0.10.5.zip` (both catalogs and the plugin tree).
 Use `--output DIR` for a disposable destination. Both archives exclude runtime
 caches, credentials and bytecode. `tests.contract.test_plugin_bundle` checks
 manifest/version consistency, all eighteen entries (seventeen writing skills
@@ -143,8 +143,8 @@ modules. They need Python 3.11+, Git 2.39+ and Windows/Linux; they set disposabl
 Git identities only in subprocess environments and do not modify global settings.
 
 ```text
-python tests/verify_plugin_install.py --wheel dist/novel_creator-0.10.4-py3-none-any.whl --report /tmp/plugin-install.json
-python tests/verify_marketplace_previous.py --wheel dist/novel_creator-0.10.4-py3-none-any.whl --sdist dist/novel_creator-0.10.4.tar.gz --report /tmp/marketplace-previous.json
+python tests/verify_plugin_install.py --wheel dist/novel_creator-0.10.5-py3-none-any.whl --report /tmp/plugin-install.json
+python tests/verify_marketplace_previous.py --wheel dist/novel_creator-0.10.5-py3-none-any.whl --sdist dist/novel_creator-0.10.5.tar.gz --report /tmp/marketplace-previous.json
 ```
 
 On Windows choose a writable report path such as `$env:TEMP\plugin-install.json`.
@@ -179,9 +179,13 @@ The [0.10.4 release](releases/0.10.4.md) adds hash-verified public 0.10.3
 initialization and upgrades under both installed artifacts. The gate checks the
 single conversation-guide refresh in all twelve notebook layouts, targeted
 refusals and preservation, and new and updated legacy brainstorming/resume
-guides. Each artifact now produces seven source journeys.
-These checks do not prove GUI skill discovery,
-native conversations or writing quality.
+guides. The [0.10.5 candidate](releases/0.10.5.md) adds hash-verified public
+0.10.4 initialization and upgrades under both installed artifacts. It checks
+the exact notebook issue-setup paths, refreshed guides and skill files, routing,
+links, protected custom resources and preservation for all twelve layouts. It
+also checks new legacy setup and the reviewed legacy framework update. Each
+artifact now runs eight source journeys. Native discovery, conversations and
+writing quality need direct observation.
 
 Use the [marketplace guide](plugin-marketplaces.md) for host installation and
 matching local wheel bootstrap. In release preparation, preserve the full Linux

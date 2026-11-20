@@ -206,3 +206,14 @@ def check_legacy_continuity(book, *, fresh_root=False):
         expected = files('novel_creator.workflows').joinpath(name).read_bytes().replace(b'\r\n', b'\n')
         actual = (book / '.novel-creator/workflows' / name).read_bytes().replace(b'\r\n', b'\n')
         require(actual == expected and phrase in actual, 'Wrong legacy continuity guide: ' + name)
+
+
+def check_legacy_retro_refresh(book):
+    """Verify the revised legacy workflows installed by setup or update."""
+    for name in ('debugging.md', 'help.md', 'retrospective.md'):
+        expected = files('novel_creator.workflows').joinpath(name).read_bytes().replace(b'\r\n', b'\n')
+        actual = (book / '.novel-creator/workflows' / name).read_bytes().replace(b'\r\n', b'\n')
+        require(actual == expected, 'Wrong installed legacy workflow: ' + name)
+    retrospective = (book / '.novel-creator/workflows/retrospective.md').read_bytes()
+    require(b'--keep-debugging' in retrospective and b'GitHub issue candidate in the first reply' in retrospective,
+            'Legacy retrospective lacks live snapshot or local candidate guidance')

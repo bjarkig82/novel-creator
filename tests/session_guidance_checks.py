@@ -32,7 +32,7 @@ def check_links(book):
                             (path.parent / link).is_file(), 'Unresolved skill/role link: ' + str(path))
 
 
-def prepare_retro(python, book, expected, env, *, host, source, conversation_only=False):
+def prepare_retro(python, book, expected, env, *, host, source, expected_changes=None):
     """Actual CLI prerequisite with writer state present before the first preview."""
     try:
         from tests.feature_upgrade_checks import check_features, feature_paths
@@ -60,8 +60,9 @@ def prepare_retro(python, book, expected, env, *, host, source, conversation_onl
 
     review = preview()
     conversation = '.novel-notebook/workflows/conversation.md'
-    if conversation_only:
-        require(review['changes'] == [conversation], 'Expected only the public conversation guide to change')
+    if expected_changes is not None:
+        require(sorted(review['changes']) == sorted(expected_changes),
+                'Unexpected issue-setup preview paths: ' + str(review['changes']))
     require(snapshot(book) == before, 'Retro prerequisite preview wrote files')
     path = book / roots[0]
     raw = path.read_bytes()
@@ -71,7 +72,9 @@ def prepare_retro(python, book, expected, env, *, host, source, conversation_onl
          review['reviewed_head'], '--json'], env=env, cwd=book.parent, expected_exit=3)
     require(snapshot(book) == changed, 'Stale prerequisite mutated files')
     path.write_bytes(raw)
-    path = book / (conversation if conversation_only else '.novel-notebook/workflows/retrospective.md')
+    custom_resource = (conversation if expected_changes == {conversation}
+                       else '.novel-notebook/workflows/retrospective.md')
+    path = book / custom_resource
     raw = path.read_bytes()
     path.write_bytes(raw + b'Custom retrospective.\n')
     changed = snapshot(book)
@@ -98,12 +101,22 @@ def prepare_retro(python, book, expected, env, *, host, source, conversation_onl
     allowed = set(roots) | feature_paths(host, source, 'retrospective') | {
         '.novel-notebook/workflows/' + name + '.md' for name in ('help', 'conversation', 'debugging')}
     changed = {n for n in before.keys() | after.keys() if before.get(n) != after.get(n)}
-    if conversation_only:
-        require(changed == {conversation}, 'Unexpected changes updating public conversation guidance')
+    if expected_changes is not None:
+        require(changed == expected_changes, 'Unexpected issue-setup changes: ' + str(sorted(changed)))
     require(changed <= allowed,
             'Prerequisite changed writer files')
+    pattern = rb'<!-- novel-creator:issue-retro:start -->.*?<!-- novel-creator:issue-retro:end -->'
     for name in roots:
-        require((book / name).read_bytes().startswith(root_bytes[name]), 'Prerequisite changed custom root')
+        original = root_bytes[name]
+        old_block = re.search(pattern, original, re.S)
+        updated = (book / name).read_bytes()
+        if old_block:
+            fresh = re.search(pattern, (expected / name).read_bytes(), re.S)
+            require(fresh is not None, 'New notebook lacks issue routing')
+            require(updated == original.replace(old_block.group(), fresh.group(), 1),
+                    'Issue setup changed bytes outside the managed retrospective routing')
+        else:
+            require(updated.startswith(original), 'Prerequisite changed custom root')
     require((book / '.git/index').read_bytes() == index, 'Prerequisite changed raw index')
     require(run(['git', '-C', book, 'rev-parse', 'HEAD'], env=env, cwd=book.parent) == head,
             'Prerequisite changed history')

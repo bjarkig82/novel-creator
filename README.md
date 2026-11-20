@@ -96,6 +96,7 @@ attachments to share. [Session review guide](https://github.com/bjarkig82/novel-
 
 ## Releases
 
+- [0.10.5 candidate release notes](https://github.com/bjarkig82/novel-creator/blob/main/docs/releases/0.10.5.md)
 - [Novel Creator 0.10.4 on PyPI](https://pypi.org/project/novel-creator/0.10.4/)
 - [0.10.4 release notes and compatibility](https://github.com/bjarkig82/novel-creator/blob/main/docs/releases/0.10.4.md)
 - [Release history](https://github.com/bjarkig82/novel-creator/blob/main/docs/releases/README.md)

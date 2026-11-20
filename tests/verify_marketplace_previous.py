@@ -35,6 +35,8 @@ PUBLIC_WHEELS = {
                '097e9d093424a04fdf0d50fcfbc47c3ed7fd0e6d4d081167b3a78cda497ce4d6'),
     '0.9.0': ('novel_creator-0.9.0-py3-none-any.whl',
               '59050772544faa3056fa173f06c7c410e5f07e352fdad38d41bf88185e86667f'),
+    '0.10.4': ('novel_creator-0.10.4-py3-none-any.whl',
+               'dc5988f53929ae2783169408fcab35e21305123434b305735a6ea6e38bf2bad3'),
     '0.10.3': ('novel_creator-0.10.3-py3-none-any.whl',
                'c29f36dad95f8289a9a2b19d0d0fe3246d8a6c2c2d2860bd736c2b981c6629f9'),
     '0.10.2': ('novel_creator-0.10.2-py3-none-any.whl',
@@ -156,7 +158,7 @@ def verify(*, plugin, wheel, previous=None, source_version=PREVIOUS_VERSION, sdi
                     'notebooks': verify_feature_upgrade(python, old_product, old_cli, scratch, env),
                     'legacy': verify_debug_legacy(python, source, wheel, scratch, env, runtime['version'],
                                                   source_version=source_version)}
-        if source_version in ('0.10.0', '0.10.2', '0.10.3'):
+        if source_version in ('0.10.0', '0.10.2', '0.10.3', '0.10.4'):
             source = previous_wheel(scratch, previous or (scratch / PUBLIC_WHEELS[source_version][0]),
                                     version=source_version)
             return {'ok': True, 'source_sha256': PUBLIC_WHEELS[source_version][1],
@@ -285,10 +287,10 @@ def verify_session_upgrade(python, old_product, old_cli, scratch, env, *, source
     """Frozen public notebooks and actual candidate new setup, all twelve layouts."""
     try:
         from tests.session_guidance_checks import exercise, check_links, procedure, prepare_retro
-        from tests.feature_upgrade_checks import check_features
+        from tests.feature_upgrade_checks import check_features, feature_paths
     except ModuleNotFoundError:
         from session_guidance_checks import exercise, check_links, procedure, prepare_retro
-        from feature_upgrade_checks import check_features
+        from feature_upgrade_checks import check_features, feature_paths
     target = json.loads(run([python, '-I', '-c',
         'import json,novel_creator;print(json.dumps(novel_creator.__version__))'], env=env, cwd=scratch))
     cases = []
@@ -303,17 +305,29 @@ def verify_session_upgrade(python, old_product, old_cli, scratch, env, *, source
                         '--path', path, '--language', language, '--host', host,
                         '--skill-source', source, '--json'], env=env, cwd=scratch))
                     require(created.get('ok') and created['data']['ready'], 'Notebook init failed')
-                if source_version == '0.10.3':
+                if source_version in ('0.10.3', '0.10.4'):
+                    live_snapshots = Version(target) >= Version('0.10.5')
+                    changed_paths = {'.novel-notebook/workflows/conversation.md'}
+                    if live_snapshots:
+                        changed_paths |= feature_paths(host, source, 'retrospective') | {
+                            '.novel-notebook/workflows/' + name + '.md' for name in ('help', 'debugging')}
+                        changed_paths |= {'AGENTS.md', 'CLAUDE.md'} if host == 'both' else {
+                            'AGENTS.md' if host == 'codex' else 'CLAUDE.md'}
                     prepare_retro(python, book, expected, env, host=host, source=source,
-                                  conversation_only=True)
+                                  expected_changes=changed_paths)
                     guide = (book / '.novel-notebook/workflows/conversation.md').read_bytes()
                     require(b'Keep knowledge and practical leverage distinct.' in guide and
                             b'unclear speaker cannot supply writer acceptance or save approval' in guide,
                             'Installed conversation guide lacks story status or attribution guidance')
+                    if live_snapshots:
+                        retro = (book / '.novel-notebook/workflows/retrospective.md').read_bytes()
+                        require(b'--keep-debugging' in retro and b'GitHub issue candidate in the first reply' in retro,
+                                'Installed retrospective lacks live snapshot or local candidate guidance')
                     cases.append(dict(host=host, skill_source=source, language=language,
                                       source_version=source_version, new_notebook=True, issue_setup=True,
-                                      conversation_only=True, exact_resources_root_and_links=True,
-                                      custom_stale_hardlink_refused=True, writer_index_history_preserved=True))
+                                      conversation_only=not live_snapshots, live_snapshot_and_candidates=live_snapshots,
+                                      exact_resources_root_and_links=True, custom_stale_hardlink_refused=True,
+                                      writer_index_history_preserved=True))
                     continue
                 if not cases and source_version == '0.10.0':
                     before = snapshot(book)
@@ -378,11 +392,12 @@ def verify_session_upgrade(python, old_product, old_cli, scratch, env, *, source
         require((book / '.novel-creator/workflows/debugging.md').is_file(), 'New legacy debug guide missing')
         require((book / '.agents/skills/novel-clarify/SKILL.md').is_file(), 'Legacy clarification entry missing')
         check_links(book)
-        if source_version == '0.10.3':
+        if source_version in ('0.10.3', '0.10.4'):
             probe = ('import sys;from pathlib import Path;sys.path.append(sys.argv[1]);'
-                     'from tests.feature_upgrade_checks import check_legacy_continuity;'
-                     'check_legacy_continuity(Path(sys.argv[2]),fresh_root=True)')
-            run([python, '-I', '-B', '-c', probe, ROOT, book], env=env, cwd=scratch)
+                     'from tests.feature_upgrade_checks import check_legacy_continuity, check_legacy_retro_refresh;'
+                     'root=Path(sys.argv[2]);check_legacy_continuity(root,fresh_root=True);'
+                     'check_legacy_retro_refresh(root) if sys.argv[3] == "0.10.4" else None')
+            run([python, '-I', '-B', '-c', probe, ROOT, book, source_version], env=env, cwd=scratch)
     return cases
 
 
@@ -442,9 +457,11 @@ def checked_book(*args, **kwargs):
   if sys.argv[6] in ('0.10.1', '0.10.2'):
    from tests.feature_upgrade_checks import check_legacy_features
    check_legacy_features(book.root)
-  if sys.argv[6] == '0.10.3':
-   from tests.feature_upgrade_checks import check_legacy_continuity
+  if sys.argv[6] in ('0.10.3', '0.10.4'):
+   from tests.feature_upgrade_checks import check_legacy_continuity, check_legacy_retro_refresh
    check_legacy_continuity(book.root)
+   if sys.argv[6] == '0.10.4':
+    check_legacy_retro_refresh(book.root)
   started = book.launch('debug','start','--novel',book.root,'--json')
   assert started.returncode == 0, started.stderr
   session = json.loads(started.stdout)['data']['debug_session']
@@ -666,6 +683,7 @@ def main():
     parser.add_argument('--previous-0101-wheel', type=Path, help='Local hash-verified public 0.10.1 wheel')
     parser.add_argument('--previous-0102-wheel', type=Path, help='Local hash-verified public 0.10.2 wheel')
     parser.add_argument('--previous-0103-wheel', type=Path, help='Local hash-verified public 0.10.3 wheel')
+    parser.add_argument('--previous-0104-wheel', type=Path, help='Local hash-verified public 0.10.4 wheel')
     parser.add_argument('--sdist', type=Path, help='Also test installation from the exact candidate sdist')
     parser.add_argument('--report', type=Path, required=True, help='Success JSON report destination')
     args = parser.parse_args()
@@ -673,7 +691,7 @@ def main():
     for source_version, previous in (('0.7.2', args.previous_wheel), ('0.8.0', args.previous_080_wheel),
                                      ('0.9.0', args.previous_090_wheel), ('0.10.0', args.previous_0100_wheel),
                                      ('0.10.1', args.previous_0101_wheel), ('0.10.2', args.previous_0102_wheel),
-                                     ('0.10.3', args.previous_0103_wheel)):
+                                     ('0.10.3', args.previous_0103_wheel), ('0.10.4', args.previous_0104_wheel)):
         for sdist in ((None, args.sdist.resolve()) if args.sdist else (None,)):
             reports.append(verify(plugin=args.plugin.resolve(), wheel=args.wheel.resolve(),
                                   previous=previous, source_version=source_version, sdist=sdist))
