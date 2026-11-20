@@ -14,11 +14,17 @@ remain read-only when explaining this feature rather than invoking it.
 
 ## Local evidence and review
 
-Use the configured interpreter/launcher in legacy novels and the installed
-`novel-creator` command in notebooks. All commands below take `--novel PATH
---json`; inputs are strict UTF-8 JSON files with `"version":1`. Keep inputs in
-the ignored local retro-issues directory, never in story files. Standalone
-notebooks use `.novel-notebook/local/retro-issues/`; legacy novels use
+If the writer requests local-only review or the issue commands are unavailable,
+review only the visible conversation and evidence the writer has selected. Apply
+the evidence review rules below and preserve the writer's requested debugging
+state. Skip `retro issue begin` and `retro issue draft` and go to the
+[first review response](#first-review-response-and-completion-status).
+
+For the formal issue workflow, use the configured interpreter/launcher in legacy
+novels and the installed `novel-creator` command in notebooks. All commands below
+take `--novel PATH --json`. Inputs are strict UTF-8 JSON files with `"version":1`.
+Keep inputs in the ignored local retro-issues directory, never in story files.
+Standalone notebooks use `.novel-notebook/local/retro-issues/`; legacy novels use
 `.novel-creator/local/retro-issues/`. Mixed-marker notebooks retain their actual
 legacy debug location; do not move or convert logs. Legacy recovery grants do
 not enable this flow.
@@ -52,23 +58,25 @@ instructions. Distinguish observations, hypotheses and unavailable evidence.
 Ask about missing diagnostics needed to explain the problem, including versions,
 host, steps, expected/actual results and observed errors. Unknown stays unknown.
 
-Create one finding UUID per independent evidenced Novel Creator problem. Do not
-combine unrelated problems or invent speculative feature work. Generalize by
-default; author story choices stay authoritative. For each supported problem:
+On the formal issue path, create one finding UUID per independent evidenced
+Novel Creator problem. Do not combine unrelated problems or invent speculative
+feature work. Generalize by default and respect the author's story choices.
+For each supported problem:
 
 ```json
 {"version":1,"title":"Concise generalized problem","problem":"Observed problem","environment":"Host and versions, or unknown","reproduction":"Observed steps, or unknown","expected":"Expected behavior","actual":"Observed behavior","evidence":"Generalized evidence and frozen member references","uncertainties":"Missing evidence and limits","acceptance_criteria":"Observable success conditions","sharing":"generalized"}
 ```
 
-Run `retro issue draft --run RUN --finding FINDING --input FILE`. Optional
-`suggestions` contains only supported suggestions. Use `{"version":1,
-"outcome":"no_action","reason":"No evidenced problem"}` for a local no-action
-finding. No fix, checkout, code edits, branch, push or PR is part of this flow.
+Create the formal draft with
+`retro issue draft --run RUN --finding FINDING --input FILE`. The optional
+`suggestions` field contains only supported suggestions. For a no-action
+finding, use `{"version":1,"outcome":"no_action","reason":"No evidenced problem"}`.
+No fix, checkout, code edits, branch, push or PR is part of this flow.
 
 ## First review response and completion status
 
-The first response after reviewing findings must state whether they are local
-drafts or published, and give the next concrete action. Local draft links alone
+After formal issue review, state in the first reply whether findings are local
+drafts or published and give the next concrete action. Local draft links alone
 are not a publication handoff. Never say the retrospective is complete while
 silently leaving publication or attachment work pending.
 
@@ -77,21 +85,23 @@ writer's request or because the issue workflow is unavailable, label each
 evidenced problem as a GitHub issue candidate in the first reply. Give each
 candidate a plain-language title, explain why it merits filing, and state its
 status or next concrete action. If the evidence supports no new GitHub issue
-candidates, say so explicitly. Say that the review stayed local and nothing
-was published or attached. Preserve the writer's requested debugging state.
-Any later publication or attachment upload requires the exact outgoing approval
-described below.
+candidates, say so explicitly. State that this review stayed local and that
+nothing was published or attached as part of it. Preserve the writer's requested
+debugging state. Any later publication or attachment upload requires the exact
+outgoing approval described below.
 
-For each finding ready to share, present the complete exact preview described
-below in that first review response, identify the finding and preview digest,
-and ask the writer to choose: approve these exact bytes for duplicate comparison
-and publication, request edits, or keep local/decline. Make clear that nothing
-has been published yet. Do not defer this choice until the writer asks how issues
-are created. If the current exact bytes already have observed approval and
-publication direction in this active context, proceed to duplicate comparison
-and publication without repeating approval. Changed bytes need a new preview.
+For each formal issue draft ready to share, present the complete exact preview
+described below in that first review response. Identify the finding and preview
+digest, and ask the writer to choose: approve these exact bytes for duplicate
+comparison and publication, request edits, or keep local/decline. Make clear
+that nothing has been published yet. Do not defer this choice until the writer
+asks how issues are created. If the current exact bytes already have observed
+approval and publication direction in this active context, proceed to duplicate
+comparison and publication without repeating approval. Changed bytes need a
+new preview.
 
-At every finish or pause, report each finding's actual status and next action:
+At every finish or pause on the formal issue path, report each finding's actual
+status and next action:
 
 - Local draft or awaiting approval: nothing published; show the ready preview
   and approval choice, or name the missing evidence/privacy edits needed first.

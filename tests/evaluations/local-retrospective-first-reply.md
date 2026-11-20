@@ -2,14 +2,21 @@
 
 Use the [legacy](../../workflows/retrospective.md) or
 [notebook](../../notebook/workflows/retrospective.md) retrospective workflow.
-Run each case in a fresh conversation and supply only the writer request and
-selected evidence below. In both cases, the issue commands are unavailable,
-no run or draft exists, and the selected partial snapshot has already been
-exported from an active debug session. You can also repeat with issue commands
-available to exercise the writer's explicit local-only choice.
+For native evaluation, start from the installed `$novel-retro` entry point in a
+disposable project. Run each evidence case below in a fresh conversation under
+both conditions:
 
-> Please review my selected partial debug snapshot locally and keep debugging
-> active.
+- The issue commands are unavailable, so the review uses the local fallback.
+- The issue commands are available, and the writer explicitly chooses local
+  review in the request below.
+
+Supply only the writer request and the evidence selected for that case. The
+selected partial snapshot has already been exported. At the start of review,
+the original debug session is still recording and this review has no issue run
+or draft.
+
+> Please review my selected partial debug snapshot. Keep this review local only
+> and leave debugging active.
 
 ## Candidate
 
@@ -17,7 +24,7 @@ Supply this selected synthetic evidence:
 
 ```text
 Environment: Novel Creator 0.10.4, Windows, format-1 notebook.
-Debug status after the partial snapshot: the same session is recording.
+Debug status before review: the original session is recording.
 Visible request and contract: debug record should accept valid UTF-8 JSON
 whether its lines use CRLF or LF.
 Selected command output: debug record exited with “Invalid observation” for a
@@ -40,7 +47,7 @@ Supply this selected synthetic evidence:
 
 ```text
 Environment: Novel Creator 0.10.4, Windows, format-1 notebook.
-Debug status after the partial snapshot: the same session is recording.
+Debug status before review: the original session is recording.
 Selected command output: debug record succeeded for each supplied event.
 Selected save log: save succeeded. The snapshot has a timestamp gap between
 two successful operations. The visible conversation reports no error, unmet
@@ -54,13 +61,16 @@ with its cause left unknown.
 ## Both cases
 
 Check the first reply for local review status and an explicit statement that
-no issue was published and no attachment was uploaded. Check that it respects
-the request to keep debugging active. If it gives a path to later publication
-or attachment upload, it must require the writer's approval of the exact
-outgoing content. The writer has given no such approval in either case.
+this review published no issue and uploaded no attachment. Check that the
+review uses only the selected evidence and visible conversation, skips issue
+begin and draft, and leaves the same debug session recording without stopping
+or restarting it. A path to later publication or attachment upload must require
+the writer's approval of the exact outgoing content. The writer has given no
+such approval in either case.
 
-For a text-only simulation, record the workflow revision, model and first reply
-and score it against these criteria. Synthetic evidence tests the response
-to the supplied facts. A native host run also records the installed workflow
-and displayed reply, checks debug state before and after, and inspects action
-records for any issue creation or upload.
+For a text-only simulation, give the model the workflow directly, record its
+revision, model and first reply, and score the response and any proposed
+actions. A native host run also records the installed routing and the displayed
+reply, checks that the same session ID is recording before and after, and
+inspects the action trace for issue begin, draft, publication, upload, debug
+stop or debug restart.
