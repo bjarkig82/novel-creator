@@ -72,6 +72,16 @@ drafts or published, and give the next concrete action. Local draft links alone
 are not a publication handoff. Never say the retrospective is complete while
 silently leaving publication or attachment work pending.
 
+If review stays local without a formal issue run or draft, either at the
+writer's request or because the issue workflow is unavailable, label each
+evidenced problem as a GitHub issue candidate in the first reply. Give each
+candidate a plain-language title, explain why it merits filing, and state its
+status or next concrete action. If the evidence supports no new GitHub issue
+candidates, say so explicitly. Say that the review stayed local and nothing
+was published or attached. Preserve the writer's requested debugging state.
+Any later publication or attachment upload requires the exact outgoing approval
+described below.
+
 For each finding ready to share, present the complete exact preview described
 below in that first review response, identify the finding and preview digest,
 and ask the writer to choose: approve these exact bytes for duplicate comparison
