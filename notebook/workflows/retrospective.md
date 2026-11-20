@@ -189,6 +189,81 @@ FILE` with `{"version":1,"observed_reconciliation_read_direction":true,
 "issue_url":"https://github.com/bjarkig82/novel-creator/issues/N"}`. This only
 reads the supplied exact issue and compares title/body/marker; it never creates.
 
+### Host GitHub connector fallback
+
+If `gh` cannot list, authenticate (including HTTP 401), or create, inspect
+`retro issue status --run RUN`. A finding still in `draft` can use the active
+host's GitHub connector with the same exact approval and current publication
+direction. For `unknown`, go straight to reconciliation below. Use this path
+only with a host capable of the required public reads and structured create.
+
+1. With current duplicate-read direction, call the connector's `search_issues`
+   with `{"query":"repo:bjarkig82/novel-creator is:issue","topn":100}` and
+   `search_prs` with `{"query":"repo:bjarkig82/novel-creator is:pr","topn":100}`.
+   Include open and closed results. Use only these public qualifiers, without
+   draft text, private terms or the finding marker in the remote query.
+2. For each observed hit, extract the integer number, original title, complete
+   Markdown body (empty string for a confirmed empty body), and GitHub web URL
+   (`html_url` or the connector's web `url`). An API URL or snippet cannot
+   substitute for the web URL or full body. Fetch incomplete hits by number
+   with `fetch_issue` (`repository_full_name`, `issue_number`) or `fetch_pr`
+   (`repo_full_name`, `pr_number`) in the fixed repository. If the read fails
+   or the comparison cannot be completed, keep the draft. Supply at most 100
+   records of each kind. For example, submit this shape to `retro issue publish
+   --run RUN --finding FINDING --input FILE`, replacing the sample results
+   with the two actual observed lists (either may be empty).
+
+   ```json
+   {"version":1,"stage":"connector_preflight","observed_publication_direction":true,"observed_duplicate_read_direction":true,"observed_connector_listing":true,"listing":{"issue":[{"number":1,"title":"Public title","body":"Public body","url":"https://github.com/bjarkig82/novel-creator/issues/1"}],"pr":[]}}
+   ```
+
+3. Semantically compare the returned `duplicate_snapshot.listing` with the
+   finding. Report plausible equivalents and resolve uncertainty before
+   proceeding. A marker in either listing blocks creation. To record an
+   equivalent, include its listed `equivalent_url` in the following publish
+   input. Otherwise, when the comparison is complete and the writer's
+   publication direction is current, submit this input to the same command.
+
+   ```json
+   {"version":1,"stage":"connector_create","observed_publication_direction":true,"observed_comparison_complete":true,"duplicate_snapshot_digest":"returned duplicate_snapshot.sha256"}
+   ```
+
+4. Only a successful **current** publish response containing `connector_create`
+   authorizes one immediate connector `create_issue` call. Pass that object as
+   its structured arguments (`repository_full_name`, `title`, `body`), including
+   the exact marker, whitespace and final newline. Omit labels, assignees and
+   attachments. The CLI has already saved creation intent as `unknown`. Never
+   create from status, resume, a saved response, or reconstructed draft bytes.
+5. From the directly observed create response, extract the exact web URL,
+   title and full body. If any are missing, use `fetch_issue` on the candidate
+   number in `bjarkig82/novel-creator`. With current reconciliation-read
+   direction, run `retro issue resume --run RUN --finding FINDING --input FILE`
+   with the following shape. Replace all sample values with observed fields.
+
+   ```json
+   {"version":1,"stage":"connector_receipt","observed_reconciliation_read_direction":true,"observed_connector_receipt":true,"issue_url":"https://github.com/bjarkig82/novel-creator/issues/1","receipt":{"url":"https://github.com/bjarkig82/novel-creator/issues/1","title":"Exact returned title","body":"Exact returned body including marker and newline"}}
+   ```
+
+   Only report the recorded URL after resume confirms it. The host attests to
+   the connector observation. The CLI checks the URL and exact issue content
+   against the saved intent. A receipt can still be recorded after cancellation
+   or loss of a sharing copy. Handle any attachments separately below.
+
+If the create response was lost or ambiguous, never issue another create.
+With current reconciliation-read direction, repeat the two bounded public
+searches above. Pass the actual normalized records to the same resume command
+using this shape (the example shows two empty lists).
+
+```json
+{"version":1,"stage":"connector_search","observed_reconciliation_read_direction":true,"observed_connector_listing":true,"listing":{"issue":[],"pr":[]}}
+```
+
+Inspect the returned `marker_urls`. Fetch the exact marked issue with
+`fetch_issue`, then supply its observed fields through `connector_receipt`.
+If there is no matching issue, multiple plausible matches, only a PR, or
+a payload mismatch, report the uncertainty and preserve the intent. Empty or
+limited results cannot establish absence or authorize a retry.
+
 ## Host-assisted attachments
 
 Issue creation and attachment upload have separate outcomes. `attachments_pending`

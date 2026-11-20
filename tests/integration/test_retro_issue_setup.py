@@ -39,7 +39,8 @@ class IssueSetup(unittest.TestCase):
     def test_retrospective_handoff_and_exact_previous_snapshots(self):
         from tests.verify_plugin_install import snapshot
         fixtures = Path(__file__).resolve().parents[1] / 'fixtures'
-        for fixture in (fixtures / 'session-guidance-0.10.2/retrospective.md',):
+        for fixture in (fixtures / 'session-guidance-0.10.2/retrospective.md',
+                        fixtures / 'session-guidance-0.10.5/retrospective.md'):
             for host in ('codex', 'claude', 'both'):
                 for source in ('project', 'plugin'):
                     with self.subTest(fixture=fixture.name, host=host, source=source):
@@ -73,7 +74,7 @@ class IssueSetup(unittest.TestCase):
         for text in (legacy, notebook):
             for requirement in ('complete exact preview', 'without repeating approval',
                                 'No action or declined', 'Equivalent issue', 'Blocked/manual',
-                                'Uncertain creation/upload', 'observed receipts',
+                                'Uncertain creation/upload', 'observed receipts', 'connector_create', 'connector_receipt',
                                 'Semantically compare', 'Never retry unknown creation blindly'):
                 self.assertIn(requirement, text)
             evidence_review = text.split('## Local evidence and review', 1)[1]

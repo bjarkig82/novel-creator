@@ -24,6 +24,27 @@ class Fake:
         return self.remote['url']
     def view(self, url): return self.remote
 
+class HostConnector:
+    def __init__(self):
+        self.issues = []
+
+    def create_issue(self, repository_full_name, title, body, *, lose_response=False):
+        if repository_full_name != issues.REPOSITORY:
+            raise AssertionError('Unexpected repository')
+        number = len(self.issues) + 1
+        remote = dict(title=title, body=body, url=f'https://github.com/{repository_full_name}/issues/{number}')
+        self.issues.append(remote)
+        if lose_response:
+            raise TimeoutError('Synthetic lost response after creation')
+        return remote
+
+    def listing(self):
+        return dict(issue=[dict(number=i, **remote) for i, remote in enumerate(self.issues, 1)], pr=[])
+
+    def fetch_issue(self, url):
+        return next(remote for remote in self.issues if remote['url'] == url)
+
+
 class IssueTests(unittest.TestCase):
     def setUp(self):
         temp = tempfile.TemporaryDirectory(); self.addCleanup(temp.cleanup)
@@ -77,6 +98,204 @@ class IssueTests(unittest.TestCase):
         with patch.object(self.fake,'preflight',side_effect=ToolError(4,'absent')):
             with self.assertRaises(ToolError):self.publish(f)
         self.assertEqual(f['creation']['state'],'draft')
+    def connector_publish(self, stage, **data):
+        return self.issue_command('publish', dict(stage=stage, observed_publication_direction=True, **data))
+
+    def issue_command(self, action, data):
+        import json
+        src = self.root / 'host-input.json'
+        src.write_text(json.dumps(dict(version=1, **data)), encoding='utf-8')
+        args = parser().parse_args(['retro', 'issue', action, '--novel', str(self.root), '--run',
+                                    self.run['run_id'], '--finding', self.fid, '--input', str(src), '--json'])
+        return issues.dispatch(args)
+
+    def connector_snapshot(self, listing=None):
+        return self.connector_publish('connector_preflight', observed_duplicate_read_direction=True,
+                                      observed_connector_listing=True,
+                                      listing={'issue': [], 'pr': []} if listing is None else listing)
+
+    def connector_intent(self, snapshot):
+        return self.connector_publish('connector_create', observed_comparison_complete=True,
+                                      duplicate_snapshot_digest=snapshot['duplicate_snapshot']['sha256'])
+
+    def connector_resume(self, remote):
+        return self.issue_command('resume', dict(stage='connector_receipt', observed_connector_receipt=True,
+                                  observed_reconciliation_read_direction=True, issue_url=remote['url'], receipt=remote))
+
+    def test_connector_create_after_gh_401_and_exact_receipt(self):
+        f = self.draft(sharing='excerpts', excerpt_text='private fixture')
+        self.approve(f)
+        self.preflight(f)
+        gh = issues.Github()
+        failure = subprocess.CompletedProcess([], 1, b'', b'HTTP 401: Bad credentials')
+        self.service.transport = gh
+        with patch.object(subprocess, 'run', return_value=failure) as auth:
+            with self.assertRaises(ToolError):
+                self.publish(f)
+        self.assertEqual(auth.call_args.args[0], ['gh', 'auth', 'status', '--hostname', 'github.com'])
+        self.assertEqual(self.service.load(self.run['run_id'])['findings'][self.fid]['creation']['state'], 'draft')
+        compared = self.connector_snapshot()
+        with patch.object(issues.storage, 'atomic_json', side_effect=OSError('disk full')):
+            with self.assertRaises(OSError):
+                self.connector_intent(compared)
+        response = self.connector_intent(compared)
+        stored = self.service.load(self.run['run_id'])['findings'][self.fid]
+        self.assertEqual(stored['creation']['state'], 'unknown')
+        self.assertNotIn('connector_create', stored)
+        self.assertEqual(response['connector_create'], dict(repository_full_name=issues.REPOSITORY,
+                                                           title=f['title'], body=f['body']))
+        connector = HostConnector()
+        receipt = connector.create_issue(**response['connector_create'])
+        self.assertIn(f['marker'], receipt['body'])
+        with self.assertRaises(ToolError):
+            self.connector_intent(compared)
+        self.issue_command('cancel', dict(observed_cancel_direction=True))
+        Path(f['attachments'][0]['path']).unlink()
+        for bad in (dict(receipt, title='changed'), dict(receipt, body=f['body'].replace(f['marker'], '')),
+                    dict(receipt, url='https://github.com/other/repo/issues/12'),
+                    dict(receipt, url=receipt['url'].replace('/issues/', '/pull/'))):
+            with self.subTest(receipt=bad), self.assertRaises(ToolError):
+                self.connector_resume(bad)
+        with self.assertRaises(ToolError):
+            self.issue_command('resume', dict(stage='connector_receipt', issue_url=receipt['url'],
+                               observed_reconciliation_read_direction=True, receipt=receipt))
+        verified = self.connector_resume(receipt)
+        self.assertEqual(verified['status'], 'cancelled')
+        self.assertEqual(verified['upload']['state'], 'pending')
+        self.assertEqual(verified['creation']['url'], receipt['url'])
+        with self.assertRaises(ToolError):
+            self.connector_resume(dict(receipt, url=receipt['url'] + '3'))
+        self.assertEqual(len(connector.issues), 1)
+
+    def test_connector_uncertain_write_reconciles_marker_then_exact_read(self):
+        f = self.draft()
+        self.approve(f)
+        compared = self.connector_snapshot()
+        payload = self.connector_intent(compared)['connector_create']
+        connector = HostConnector()
+        with self.assertRaises(TimeoutError):
+            connector.create_issue(**payload, lose_response=True)
+        search = dict(stage='connector_search', observed_connector_listing=True,
+                      observed_reconciliation_read_direction=True, listing=dict(issue=[], pr=[]))
+        self.assertEqual(self.issue_command('resume', search)['marker_urls'], [])
+        with self.assertRaises(ToolError):
+            self.connector_intent(compared)
+        search['listing'] = connector.listing()
+        matches = self.issue_command('resume', search)
+        self.assertEqual(matches['marker_urls'], [connector.issues[0]['url']])
+        remote = connector.fetch_issue(matches['marker_urls'][0])
+        self.assertEqual(self.service.load(self.run['run_id'])['findings'][self.fid]['creation']['state'], 'unknown')
+        self.assertEqual(self.connector_resume(remote)['creation']['url'], remote['url'])
+        self.assertEqual(len(connector.issues), 1)
+        with self.assertRaises(ToolError):
+            self.connector_intent(compared)
+
+    def test_connector_preflight_validates_scope_binding_and_marker(self):
+        f = self.draft()
+        self.approve(f)
+        row = dict(number=2, url='https://github.com/bjarkig82/novel-creator/issues/2', title='issue', body='')
+        for listing in (None, dict(issue=[]), dict(issue=[], pr=[], private=[]), dict(issue={}, pr=[]),
+                        dict(issue=[dict(row, number=n,
+                             url=f'https://github.com/{issues.REPOSITORY}/issues/{n}') for n in range(1, 102)], pr=[]), dict(issue=[row, row], pr=[]),
+                        dict(issue=[dict(row, number=True)], pr=[]), dict(issue=[dict(row, body=None)], pr=[]),
+                        dict(issue=[dict(row, url=row['url'] + '0')], pr=[]), dict(issue=[], pr=[row]),
+                        dict(issue=[dict(row, body_text='extra')], pr=[])):
+            with self.subTest(listing=listing), self.assertRaises(ToolError):
+                self.connector_publish('connector_preflight', observed_duplicate_read_direction=True,
+                                       observed_connector_listing=True, listing=listing)
+        with self.assertRaises(ToolError):
+            self.connector_publish('connector_preflight', observed_duplicate_read_direction=True, listing=dict(issue=[], pr=[]))
+        first = self.connector_snapshot()
+        self.fid = str(uuid.uuid4())
+        other = self.draft()
+        self.approve(other)
+        self.connector_snapshot()
+        with self.assertRaises(ToolError):
+            self.connector_intent(first)
+        listed = self.connector_snapshot(dict(issue=[dict(row, body=other['marker'])], pr=[]))
+        with self.assertRaises(ToolError):
+            self.connector_intent(listed)
+        with self.assertRaises(ToolError):
+            self.connector_intent(self.connector_snapshot())
+        self.assertEqual(self.service.load(self.run['run_id'])['findings'][self.fid]['creation']['state'], 'draft')
+
+    def test_connector_rejects_changed_snapshot_or_intent(self):
+        f = self.draft()
+        self.approve(f)
+        url = f'https://github.com/{issues.REPOSITORY}/issues/1'
+        remote = dict(url=url, title=f['title'], body=f['body'])
+        with self.assertRaises(ToolError):
+            self.connector_resume(remote)
+        snapshot = self.connector_snapshot()
+        run = self.service.load(self.run['run_id'])
+        stored = run['findings'][self.fid]['duplicate_snapshot']
+        stored['listing']['issue'].append(dict(number=1, **remote))
+        self.service.save(run)
+        with self.assertRaises(ToolError):
+            self.connector_intent(snapshot)
+        self.connector_intent(self.connector_snapshot())
+        run = self.service.load(self.run['run_id'])
+        finding = run['findings'][self.fid]
+        finding['title'] = 'Unapproved local edit'
+        self.service.save(run)
+        with self.assertRaisesRegex(ToolError, 'intent differs'):
+            self.connector_resume(dict(remote, title=finding['title']))
+
+    def test_publish_cannot_switch_transports_after_comparison(self):
+        f = self.draft()
+        self.approve(f)
+        gh_review = self.preflight(f)
+        with self.assertRaises(ToolError):
+            self.connector_intent(gh_review)
+        connector_review = self.connector_snapshot()
+        digest = connector_review['duplicate_snapshot']['sha256']
+        for stage in ({}, {'stage': 'create'}):
+            with self.subTest(stage=stage), patch.object(issues.Github, 'preflight') as auth, \
+                    patch.object(issues.Github, 'create') as create:
+                with self.assertRaises(ToolError):
+                    self.issue_command('publish', dict(observed_publication_direction=True,
+                                       observed_comparison_complete=True, duplicate_snapshot_digest=digest, **stage))
+                auth.assert_not_called()
+                create.assert_not_called()
+                self.assertEqual(self.service.load(self.run['run_id'])['findings'][self.fid]['creation']['state'], 'draft')
+
+    def test_marker_field_must_match_approved_body_before_listing_or_creation(self):
+        f = self.draft()
+        self.approve(f)
+        reviewed = self.connector_snapshot()
+        run = self.service.load(self.run['run_id'])
+        finding = run['findings'][self.fid]
+        original = finding['marker']
+        row = dict(number=1, title='Existing issue', body=original,
+                   url=f'https://github.com/{issues.REPOSITORY}/issues/1')
+        finding['marker'] = '<!-- novel-creator-issue:' + str(uuid.uuid4()) + ' -->'
+        self.service.save(run)
+        with self.assertRaisesRegex(ToolError, 'marker'):
+            self.connector_snapshot(dict(issue=[row], pr=[]))
+        with self.assertRaisesRegex(ToolError, 'marker'):
+            self.connector_intent(reviewed)
+        self.assertEqual(self.service.load(self.run['run_id'])['findings'][self.fid]['creation']['state'], 'draft')
+        # The same invariant applies to late receipts even after a valid reservation.
+        finding['marker'] = original
+        self.service.save(run)
+        self.connector_intent(reviewed)
+        run = self.service.load(self.run['run_id'])
+        run['findings'][self.fid]['marker'] = 'changed'
+        self.service.save(run)
+        remote = dict(title=f['title'], body=f['body'], url=row['url'])
+        with self.assertRaisesRegex(ToolError, 'marker'):
+            self.connector_resume(remote)
+
+    def test_older_gh_listing_still_supports_approved_create_and_resume(self):
+        f = self.draft()
+        self.approve(f)
+        listing = self.fake.listing()
+        f['duplicate_snapshot'] = dict(listing=listing, sha256=issues.digest(issues.encoded(listing)))
+        self.service.save(self.run)
+        self.publish(f)
+        receipt = self.connector_resume(self.fake.remote)
+        self.assertEqual(receipt['creation']['url'], self.fake.remote['url'])
+
     def test_equivalent_issue_and_pr_are_retained_without_creation(self):
         for kind, path in (('issue', 'issues'), ('pr', 'pull')):
             with self.subTest(kind=kind):
