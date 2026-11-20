@@ -534,6 +534,14 @@ worktrees/branches/PRs are preserved and uncertain create remains blocked.
 The source workflows require the first findings response to distinguish local
 drafts from publication, show ready exact issue previews and ask for the writer's
 approval choice. Current exact approval is reused without another request.
+
+The current source also covers local review without a formal run or draft. The
+first reply names each GitHub issue candidate, explains why it merits filing and
+gives its status or next action. It says when the evidence supports no new
+candidates and whether anything was published. The review preserves the writer's
+requested debugging state. Publication and attachments still require exact
+outgoing approval.
+
 Finish/pause responses name actual receipts, equivalents, blocked/manual steps
 and uncertain outcomes, with attachment status separate from issue creation.
 Structural checks do not establish native host compliance. See the

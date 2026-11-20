@@ -74,6 +74,20 @@ class IssueSetup(unittest.TestCase):
                                 'Uncertain creation/upload', 'observed receipts',
                                 'Semantically compare', 'Never retry unknown creation blindly'):
                 self.assertIn(requirement, text)
+            evidence_review = text.split('## Local evidence and review', 1)[1]
+            local_route = evidence_review.split('For the formal issue workflow', 1)[0]
+            local_route = ' '.join(local_route.split())
+            for requirement in ('writer requests local-only review', 'issue commands are unavailable',
+                                'evidence the writer has selected', 'requested debugging state',
+                                'Skip `retro issue begin` and `retro issue draft`'):
+                self.assertIn(requirement, local_route)
+            first_response = text.split('## First review response and completion status', 1)[1]
+            first_response = first_response.split('## Exact sharing approval', 1)[0]
+            first_response = ' '.join(first_response.split())
+            for requirement in ('GitHub issue candidate', 'why it merits filing',
+                                'no new GitHub issue candidates', 'debugging state',
+                                'exact outgoing approval'):
+                self.assertIn(requirement, first_response)
 
     def call(self, root, preview=None):
         return setup(SimpleNamespace(novel=root, apply=preview is not None,
