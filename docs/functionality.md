@@ -542,7 +542,7 @@ Structural checks do not establish native host compliance. See the
 
 ### Live debug snapshots and local review (0.10.5)
 
-The 0.10.5 candidate covers local review without a formal run or draft. The
+Version 0.10.5 covers local review without a formal run or draft. The
 first reply names each GitHub issue candidate, explains why it merits filing and
 gives its status or next action. It says when the evidence supports no new
 candidates and whether anything was published. The review preserves the writer's

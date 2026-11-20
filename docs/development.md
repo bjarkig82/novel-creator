@@ -179,7 +179,7 @@ The [0.10.4 release](releases/0.10.4.md) adds hash-verified public 0.10.3
 initialization and upgrades under both installed artifacts. The gate checks the
 single conversation-guide refresh in all twelve notebook layouts, targeted
 refusals and preservation, and new and updated legacy brainstorming/resume
-guides. The [0.10.5 candidate](releases/0.10.5.md) adds hash-verified public
+guides. The [0.10.5 release](releases/0.10.5.md) adds hash-verified public
 0.10.4 initialization and upgrades under both installed artifacts. It checks
 the exact notebook issue-setup paths, refreshed guides and skill files, routing,
 links, protected custom resources and preservation for all twelve layouts. It

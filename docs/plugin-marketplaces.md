@@ -1,7 +1,7 @@
 # Marketplace setup for new notebooks
 
-The plugin manifest targets **0.10.5, an unpublished candidate**. Use the PyPI
-commands below after publication. Existing notebooks can receive the revised
+The plugin manifest targets **0.10.5, published on 2026-11-20**. Existing notebooks
+can receive the revised
 retrospective resources through reviewed issue setup. [Release notes](releases/0.10.5.md) ·
 [Project upgrades](upgrading-projects.md#live-debug-snapshots-and-local-retrospectives-in-0105)
 
@@ -61,7 +61,7 @@ plugin does not prove the matching Python package has been published.
 
 The permanent plugin name is `novel-creator` and the catalog is
 `novel-creator-marketplace`. Enable the plugin in your actual host and inspect
-its available skills. The 0.10.5 candidate plugin contains `setup` and seventeen
+its available skills. The 0.10.5 plugin contains `setup` and seventeen
 writing entries; the six writing roles are installed in the book during setup, so the plugin inventory
 itself can report zero agents. Expected writing invocation syntax is Codex
 `$novel-creator:novel-help` and Claude Code `/novel-creator:novel-help`.

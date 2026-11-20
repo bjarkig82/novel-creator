@@ -7,9 +7,9 @@ Do not initialize over an existing novel or convert formats to obtain a skill.
 
 ## Live debug snapshots and local retrospectives in 0.10.5
 
-[0.10.5](releases/0.10.5.md) is an unpublished candidate. Use the PyPI command
-below after publication. Install in a Python 3.11+ environment outside the book
-and use its interpreter for the rest of the update. Git 2.39+ is required.
+Install [0.10.5](releases/0.10.5.md), published on 2026-11-20, in a Python 3.11+
+environment outside the book and use its interpreter for the rest of the update.
+Git 2.39+ is required.
 
 ```text
 python -m pip install --upgrade novel-creator==0.10.5
@@ -297,25 +297,25 @@ the complete package → project preview/apply → Codex reload sequence below.
 A legacy novel contains `.novel-creator/`. Ask the agent in that novel to preview
 an update to the selected published version using `$novel-update` and its external
 controller. The controller is the absolute path to the compatible Python
-installation outside the novel. Use the published 0.10.4 target below;
-retain the verified runtime interpreter if it differs:
+installation outside the novel. Use the published 0.10.5 target below and
+retain the verified runtime interpreter if it differs.
 
 ```text
-CONTROLLER -I -B -m novel_creator update --novel BOOK --python RUNTIME --version 0.10.4 --json
+CONTROLLER -I -B -m novel_creator update --novel BOOK --python RUNTIME --version 0.10.5 --json
 ```
 
 Review the concrete target version, changed paths, blockers and HEAD. After
 requesting that exact preview's application, use its returned preview ID and HEAD:
 
 ```text
-CONTROLLER -I -B -m novel_creator update --novel BOOK --apply --preview PREVIEW_ID --version 0.10.4 --expected-head REVIEWED_HEAD --json
+CONTROLLER -I -B -m novel_creator update --novel BOOK --apply --preview PREVIEW_ID --version 0.10.5 --expected-head REVIEWED_HEAD --json
 ```
 
 Follow the [existing update procedure](../workflows/getting-started.md#updating-an-existing-book),
 including client closure for initial 0.1.0/0.2.0 updates, `--confirm-quiescent`
 only after that confirmation, and external exact-operation recovery. Installing
 the new package alone does not replace pinned files. See the
-[release notes](releases/0.10.4.md) for compatibility and verification scope.
+[release notes](releases/0.10.5.md) for compatibility and verification scope.
 
 The update installs legacy versions of `$novel-clarify`, `$novel-analyze` and
 `$novel-help` with linked workflows. In 0.7.2, Clarify offers labeled suggestions
