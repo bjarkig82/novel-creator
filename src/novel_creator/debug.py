@@ -507,7 +507,7 @@ def _report(info, events, warnings):
     return '\n'.join(lines).encode('utf-8')
 
 
-def export(novel, debug_session, output=None):
+def export(novel, debug_session, output=None, *, require_recording=False):
     _, _, directory = _session(novel, debug_session)
     target = _guard(output) if output is not None else _guard(directory / 'report.zip')
     if not target.parent.is_dir():
@@ -516,6 +516,8 @@ def export(novel, debug_session, output=None):
         info = _metadata(directory)
         events, warnings, raw = _events(directory)
         info = _reconcile_stop(info, events)
+        if require_recording and info['state'] != 'recording':
+            raise ToolError(3, 'A live snapshot requires the selected debug session to still be recording')
         attachments = {}
         for event in events:
             refs = list(event.get('files', []))

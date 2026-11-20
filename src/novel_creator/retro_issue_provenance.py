@@ -10,6 +10,29 @@ KNOWN = {
     'help.md': frozenset(['03e1988259f6617a685bfb981bf1adecbad1e0c50891df6c4bd6a27df03a8243', '97878836cf0f0cde39d4298cb5b8b8f2b5a3929b27a31d719cec0fa768f96423', 'a7b5bdd11509c04cd4cccceb997fed23d74ed9a8d66633cbbc051c237b6e55d7', 'c12d5a57442d484573efc80de8171e87821baaa41520a7a418828b0e5903e866', 'd6542c65dbe401eeeb539019f7f75c181205f53323cf71a7efeef07ae9f6439a', 'e67b0995b540301e3200ad8d121dc60209d81bf3499399e97ee8c9e4d426d00f']),
 }
 
+# Exact released 0.10.4 notebook resources from 3a6807c, rendered for each host/skill source.
+KNOWN['debugging.md'] |= frozenset({'4fbfa3bab213d418ab46f668da24b7fe203e6637739e9e7f1f49eb82a8a65e44'})
+KNOWN['conversation.md'] |= frozenset({
+    '27086e663b497c88ce0932021fed61cb9f0d1d619795c349eef3c3a5eecd1af5',  # Codex/project
+    'c94dd6c6a9bcdf75d4d04329556da7872a5d8c8004cb3f8bb998b4fa33cfb9bf',  # Codex/plugin
+    '1eedfb7aae8a2ea636ca891770fae450bbbfb02c2f04369da4ae23cd11798c97',  # Claude/project
+    '89c575a9e6c20dfadc54251282e9cd624673daf5095bf565192e50c8af4c22f1',  # Claude/plugin
+    'd4288ee6fe15bfd7705783518d14a56846da1b7c40054f5775ced4f55f546128',  # Both/project
+    'be1819caa5a46585204a532e302e07f71db20e7cf798da90f6cc75ba65ab2a73',  # Both/plugin
+})
+KNOWN['help.md'] |= frozenset({
+    '175a41e664ccf192359fbe1817e65e4dac4ee48541082952cee7644b5362c3b5',  # Codex/project
+    '455df7fc9b2b404fe00a0e2598850a161c31d0653310c10ac6c163f58bab17fe',  # Codex/plugin
+    '91a18cd1bea62ff85138ba14a9ce1120996fa2738a45777f09111fa346da95b9',  # Claude/project
+    '70049f309dfaf94783b31f59be847b44ac23c8fb48fb568b4ecbf5eb98739e05',  # Claude/plugin
+    '8974d0adaf1798492561625c9acab51f3eef09177c939dc0436ceb1c3b5a3a02',  # Both/project
+    '01a98b25535644266ec6ec49c7d2a2b71c644cfea922ce44023fe0fcc2666a2c',  # Both/plugin
+})
+PREVIOUS_PROJECT_SKILLS = {
+    'codex': 'a7dc6e2f38236cca032f0c3f6760d75aa06058f36b799a41a3422471a33e9448',
+    'claude': '439e5dcd13b196ca0ce9e23b778ba7c82d5cda613f17bc699802219e7b782f47',
+}
+
 # Exact released 0.10.3 conversation guide rendered for each host/skill source,
 # from tests/fixtures/session-guidance-0.10.3/conversation.md.
 KNOWN['conversation.md'] |= frozenset({
@@ -19,6 +42,16 @@ KNOWN['conversation.md'] |= frozenset({
     '7ed0ffc472683bf3e7c319f9f2e00f5cf4ca30ec7477483494a09171ac574e56',  # Claude/plugin
     '7967cd4c3620b74d1d4423f5f9b6547a8ab382906dc4d8df2942d3c42d67a383',  # Both/project
     'c2da78e087b6800a1102a8e473b6cc36f40b60b9d926ea2a0cabc6d87e402cf9',  # Both/plugin
+})
+
+# Exact released 0.10.4 retrospective guide rendered for each host/skill source.
+KNOWN['retrospective.md'] |= frozenset({
+    '2975c6424003fbf6b45b39822e0985c0524bdcde1a60604b07a3e37e2af9c17e',  # Codex/project
+    '90b0022da5ac90023cf88023bdc76bf880c0aa5a5863c9c60f6ffcb1870f0497',  # Codex/plugin
+    'b15dfe00698684bfc57ffc188e012c84ab3b91a409edeb03d635325af91c335a',  # Claude/project
+    '0396fe76a5019a48cc543f4af43daab64858098f6afb39039ffec32841759cfc',  # Claude/plugin
+    '21a1e90cea96115abbdbac2e94a0ab48de2f9a1b65ef6fee317a89565636cec5',  # Both/project
+    'd11895243dceb40912ad4b45626114949a8e5b3f482a31927b793bf75cfdf846',  # Both/plugin
 })
 
 SESSION_BLOCKS = ("<!-- novel-creator:session-guidance:start -->\nFollow the revised [conversation and save rules](.novel-notebook/workflows/conversation.md),\n[character-development boundary](.novel-notebook/workflows/character-development.md)\nand [role ownership](.novel-notebook/workflows/agents.md). These shared rules\nclarify older general save wording: writer approval, verified file saves and\nverified local Git checkpoints are distinct. Approved but unwritten work remains\nunsaved; saved files can have a pending checkpoint. Keep character-development\ndrafts in chat until explicit save authority, including during a pending save.\nUse the host's approved scoped access route when available for an authorized\ncheckpoint, preserving unrelated staging; otherwise disclose the limitation.\nFor an explicitly requested local notebook retrospective, follow the read-only\n[debugging guide](.novel-notebook/workflows/debugging.md#local-notebook-retrospective)\non writer-selected public evidence. This adds no retrospective CLI, capture\nactivation, upload or publication authority.\n<!-- novel-creator:session-guidance:end -->", "<!-- novel-creator:session-guidance:start -->\nFollow the revised [conversation and save rules](.novel-notebook/workflows/conversation.md),\n[character-development boundary](.novel-notebook/workflows/character-development.md)\nand [role ownership](.novel-notebook/workflows/agents.md). These shared rules\nclarify older general save wording: writer approval, verified file saves and\nverified local Git checkpoints are distinct. Approved but unwritten work remains\nunsaved; saved files can have a pending checkpoint. Keep character-development\ndrafts in chat until explicit save authority, including during a pending save.\nUse the host's approved scoped access route when available for an authorized\ncheckpoint, preserving unrelated staging; otherwise disclose the limitation.\nFor a requested retrospective or active-session opt-in at explicit closure,\nfollow the [retrospective workflow](.novel-notebook/workflows/retrospective.md).\nStop known current debugging before review and keep it off. Exact outgoing\nissue/attachment approval is required before sharing; no story save or commit.\n<!-- novel-creator:session-guidance:end -->")

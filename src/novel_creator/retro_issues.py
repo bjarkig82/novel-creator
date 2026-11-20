@@ -120,6 +120,8 @@ class Issues:
             require(run, ['request_key', 'host_session'])
             if not isinstance(run['capture'], dict) or run['capture'].get('state') not in ('absent', 'stopping', 'exporting', 'frozen', 'failed') or not isinstance(run['findings'], dict):
                 raise ValueError()
+            if type(run['capture'].get('keep_debugging', False)) is not bool:
+                raise ValueError()
             for key, finding in run['findings'].items():
                 identifier(key)
                 if not isinstance(finding, dict) or finding.get('outcome') not in ('no_action', 'issue'):
@@ -151,43 +153,65 @@ class Issues:
         session = data.get('debug_session')
         if session is not None:
             identifier(session)
-        if data.get('trigger', 'explicit') not in ('explicit', 'session_end'):
+        trigger = data.get('trigger', 'explicit')
+        if trigger not in ('explicit', 'session_end'):
             raise ToolError(2, 'Unsupported begin trigger')
-        if data.get('trigger') == 'session_end':
+        keep_debugging = data.get('keep_debugging', False)
+        if type(keep_debugging) is not bool:
+            raise ToolError(2, 'keep_debugging must be a JSON boolean')
+        if keep_debugging and (session is None or trigger != 'explicit'):
+            raise ToolError(2, 'keep_debugging requires an explicit retrospective and a selected debug-session UUID')
+        if trigger == 'session_end':
             observed(data, 'observed_session_end_authorization')
+        self.path('issue.guard')
+        with self.exclusion(), inspection_guard(self.base, 'issue.guard'):
+            return self._begin(data, session, trigger, keep_debugging)
+
+    def _begin(self, data, session, trigger, keep_debugging):
         for path in self.base.glob('*/state.json') if self.base.exists() else []:
             old = read(path)
             if old.get('root') == str(self.root) and old.get('request_key') == data['request_key'] and old.get('host_session') == data['host_session']:
                 existing = self.load(old['run_id'])
-                if existing['capture'].get('debug_session') != session:
-                    raise ToolError(3, 'Request key already selected a different capture; inspect retained run', data=existing)
-                if existing['capture']['state'] not in ('absent', 'frozen'):
+                capture = existing['capture']
+                if capture.get('debug_session') != session or capture.get('keep_debugging', False) != keep_debugging:
+                    raise ToolError(3, 'This request key already selected a different capture or mode. Inspect the retained run.', data=existing)
+                if capture['state'] not in ('absent', 'frozen'):
                     raise ToolError(3, 'Selected capture is failed or interrupted; inspect retained run without repeating export', data=existing)
                 return existing
         run_id = str(uuid.uuid4())
+        if session is None:
+            capture = dict(state='absent', limitations=['No debugging capture; review only visible conversation.'])
+        else:
+            capture = dict(state='exporting' if keep_debugging else 'stopping',
+                           debug_session=session, keep_debugging=keep_debugging)
         run = dict(version=1, run_id=run_id, root=str(self.root), request_key=data['request_key'],
-                   host_session=data['host_session'], trigger=data.get('trigger', 'explicit'), findings={},
-                   capture={'state': 'absent', 'limitations': ['No debugging capture; review only visible conversation.']})
-        # Persist reservation before stop/export; repeated begin cannot repeat export.
+                   host_session=data['host_session'], trigger=trigger, findings={}, capture=capture)
+        # Write the selected capture reservation before any stop or export.
         self.save(run)
         if session is not None:
-            run['capture'] = dict(state='stopping', debug_session=session)
-            self.save(run)
             try:
-                stopped = debug.stop(self.root, session)
-                if stopped.get('state') != 'stopped':
-                    raise ToolError(3, 'Selected debug session was not stopped')
-                run['capture']['state'] = 'exporting'
-                self.save(run)
+                if not keep_debugging:
+                    stopped = debug.stop(self.root, session)
+                    if stopped.get('state') != 'stopped':
+                        raise ToolError(3, 'Selected debug session was not stopped')
+                    capture['state'] = 'exporting'
+                    self.save(run)
                 target = self.path(run_id + '/debug.zip')
-                result = debug.export(self.root, session, target)
-                run['capture'].update(state='frozen', path=str(target), sha256=digest(target.read_bytes()),
-                                      limitations=result.get('warnings', []))
+                result = debug.export(self.root, session, target, require_recording=keep_debugging)
+                limitations = list(result['warnings'])
+                if result['partial']:
+                    limitations.insert(0, 'Partial debug snapshot. The session was still recording at export. Later events are outside this snapshot.')
+                capture.update(state='frozen', path=str(target), sha256=digest(target.read_bytes()),
+                               partial=result['partial'], limitations=limitations)
                 self.save(run)
-            except Exception:
-                run['capture']['state'] = 'failed'
-                run['capture']['limitations'] = ['Selected capture could not be stopped/exported successfully; recording log was not reviewed.']
+            except Exception as error:
+                capture['state'] = 'failed'
+                capture['limitations'] = ['Selected capture could not be frozen. Inspect the retained run and debug status before starting a separate request.']
                 self.save(run)
+                if isinstance(error, ToolError) and error.data is None:
+                    error.data = run
+                if isinstance(error, OSError):
+                    raise ToolError(5, 'Selected capture could not be frozen. Inspect the retained run and check local paths and permissions.', data=run) from error
                 raise
         return run
 
@@ -227,7 +251,7 @@ class Issues:
         if sharing == 'full_debug':
             capture = run['capture']
             if capture.get('state') != 'frozen':
-                raise ToolError(3, 'No successfully stopped frozen debug export')
+                raise ToolError(3, 'Full debug sharing requires a successfully frozen export')
             raw = guarded(capture['path']).read_bytes()
             if digest(raw) != capture['sha256']:
                 raise ToolError(3, 'Frozen debug export changed')
@@ -380,10 +404,10 @@ def dispatch(args):
     action = args.issue_action
     if action == 'status':
         return service.load(args.run) if args.run else {'version': 1, 'runs': [p.parent.name for p in service.base.glob('*/state.json')]}
+    if action == 'begin':
+        return service.begin(data)
     service.path('issue.guard')
     with service.exclusion(mutation=action != 'resume'), inspection_guard(service.base, 'issue.guard'):
-        if action == 'begin':
-            return service.begin(data)
         run = service.load(args.run)
         if action == 'draft':
             return service.draft(run, args.finding, data)

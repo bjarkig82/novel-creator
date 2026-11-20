@@ -116,7 +116,9 @@ choices or the requested explanation, not an automatic command invocation.
 
 `$novel-retro` or “review this session for Novel Creator problems” follows the
 [retrospective workflow](retrospective.md). Optional automatic review requires
-explicit opt-in for the active session and runs only at explicit closure. It
-stops current debugging and defaults to generalized local findings. Author
-approval of the full actual issue/attachments precedes any sharing. Explaining
-this entry in Help is read-only; it does not begin review or enable participation.
+explicit opt-in for the active session and runs only at explicit closure.
+Review stops the selected debug session by default. An explicit retrospective
+can take a partial snapshot of a selected recording session and keep it active.
+Findings default to generalized local evidence. Sharing requires author approval
+of the complete outgoing issue and attachments. Explaining this entry in Help
+is read-only.
