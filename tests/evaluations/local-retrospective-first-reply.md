@@ -6,17 +6,19 @@ For native evaluation, start from the installed `$novel-retro` entry point in a
 disposable project. Run each evidence case below in a fresh conversation under
 both conditions:
 
-- The issue commands are unavailable, so the review uses the local fallback.
-- The issue commands are available, and the writer explicitly chooses local
-  review in the request below.
+- When issue commands are unavailable, use this request to exercise the fallback.
+
+  > Please review my selected partial debug snapshot and leave debugging active.
+
+- When issue commands are available, use this request to exercise explicit local review.
+
+  > Please review my selected partial debug snapshot. Keep this review local only
+  > and leave debugging active.
 
 Supply only the writer request and the evidence selected for that case. The
 selected partial snapshot has already been exported. At the start of review,
 the original debug session is still recording and this review has no issue run
 or draft.
-
-> Please review my selected partial debug snapshot. Keep this review local only
-> and leave debugging active.
 
 ## Candidate
 
