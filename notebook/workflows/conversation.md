@@ -243,6 +243,7 @@ At explicit closure, finish any already-authorized pending normal save first.
 Never silently save an unsaved draft for retro. If the writer explicitly opted
 into automatic retro for this active session, follow [retrospective](retrospective.md)
 after that save. Otherwise only an explicit retro request starts review. Routine
-replies, task completion and intermediate saves do not trigger it. Stop known
-current debugging before review and keep it off; never persist participation.
+replies, task completion and intermediate saves do not trigger it. The
+retrospective workflow governs stopping debugging and explicitly requested live
+snapshots. Never persist participation.
 Retro administration creates no story turn, file or commit.

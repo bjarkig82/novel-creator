@@ -61,10 +61,11 @@ For `$novel-retro` or a requested retrospective, follow installed
 `.novel-creator/workflows/retrospective.md` (or `retrospective.md` beside this
 workflow). Automatic participation is off and an explicit opt-in lasts only
 this active writing session; run only at explicit session closure after any
-authorized pending normal save. Never save an unsaved draft for retro. Stop
-known current debugging before review and keep it off. Default to generalized
-evidence; display the entire actual outgoing issue/attachments and fixed target
-bjarkig82/novel-creator for author approval before upload. No code fix, PR, story
-exchange, story files or commits for retro. Stored records never enable it.
+authorized pending normal save. Never save an unsaved draft for retro. Follow the
+workflow for stopping debugging or taking an explicitly requested live snapshot.
+Default to generalized evidence. Display the entire outgoing issue and
+attachments and the target repository, bjarkig82/novel-creator, for author
+approval before upload. Retro creates no code fix, PR, story exchange, story
+files or commits. Stored records never enable it.
 Old contributor commands are recovery-only; preserve historical notices and use
 the existing reserve/confirm/reconcile protocol during normal legacy saves.

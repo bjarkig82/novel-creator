@@ -505,8 +505,8 @@ Published 0.10.2 replaces automatic fix/PR creation with explicit
 session review and optional exact-approved issues in bjarkig82/novel-creator.
 Automatic opt-in lasts only the active session and runs only at explicit closure,
 after any authorized pending normal save. Never save an unsaved draft for retro.
-Known current debugging stops before frozen-evidence review and stays off; no
-log auto-selection. Without debugging, use visible conversation and explicitly
+In 0.10.2, known current debugging stops before frozen-evidence review and stays off.
+Log selection is explicit. Without debugging, use visible conversation and explicitly
 selected logs, disclosing missing observations. Each independent evidenced
 problem gets a separate generalized finding by default. Discuss diagnostics,
 show the complete actual title/body/attachments and obtain author approval
@@ -538,6 +538,23 @@ Finish/pause responses name actual receipts, equivalents, blocked/manual steps
 and uncertain outcomes, with attachment status separate from issue creation.
 Structural checks do not establish native host compliance. See the
 [delivery steps](upgrading-projects.md#unpublished-retrospective-handoff-clarification).
+
+### Live debug snapshots
+
+`retro issue begin --keep-debugging` takes a version-1 input with
+`"trigger":"explicit"` and the UUID of a writer-selected recording session.
+Begin checks that the session is still recording during export, freezes a partial
+ZIP and leaves that session recording. Later events stay outside the frozen ZIP.
+An identical request reuses the run and ZIP. A separate request is required to
+change the capture mode. Stop-before-export remains the default, including at
+session closure. Publication and attachments require the same author approval
+of the actual outgoing material. [Retrospective workflow](../notebook/workflows/retrospective.md#local-evidence-and-review)
+
+Existing notebooks can refresh recognized installed resources through explicit
+`retro issue setup` preview and application using a runtime with live snapshot
+support. Plugin notebooks also use the matching enabled plugin. Existing legacy
+novels receive updated guides and runtime through the normal published-release
+framework update. [Project upgrade steps](upgrading-projects.md#session-issue-retrospectives-in-0102)
 
 
 ## Updating existing legacy books

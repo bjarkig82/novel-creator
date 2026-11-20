@@ -181,6 +181,76 @@ class IssueSetup(unittest.TestCase):
                                       if before.get(name) != after.get(name)}, {relative})
                     self.assertTrue(self.call(root)['already_current'])
 
+    def test_released_0104_resources_upgrade_to_live_snapshot_routing(self):
+        from tests.verify_plugin_install import snapshot
+        frozen = Path(__file__).resolve().parents[1] / 'fixtures/session-guidance-0.10.4'
+        workflows = ('retrospective.md', 'conversation.md', 'debugging.md', 'help.md')
+        for host in ('codex', 'claude', 'both'):
+            for source in ('project', 'plugin'):
+                with self.subTest(host=host, source=source):
+                    root = self.parent / f'live-snapshot-{host}-{source}'
+                    initialize(root, host=host, skill_source=source, language='is')
+                    expected = {}
+
+                    def previous(path, fixture, selected):
+                        expected[path] = path.read_bytes()
+                        return _host_text((frozen / fixture).read_text(encoding='utf-8'),
+                                          selected, source).encode()
+
+                    for name in workflows:
+                        path = root / '.novel-notebook/workflows' / name
+                        path.write_bytes(previous(path, name, host))
+                    skills = []
+                    for selected in (('codex', 'claude') if host == 'both' else (host,)):
+                        path = root / ('AGENTS.md' if selected == 'codex' else 'CLAUDE.md')
+                        old = previous(path, 'root-issue-retro.md', selected)
+                        current = _host_text(ROUTING, selected, source).encode()
+                        custom = b'\r\n## Writer custom bytes\r\nKeep this exact prose.\r\n'
+                        original = expected[path]
+                        self.assertIn(current, original)
+                        # Keep a CRLF block between otherwise unchanged surrounding bytes.
+                        path.write_bytes(original.replace(current, old.replace(b'\n', b'\r\n'), 1) + custom)
+                        expected[path] = original.replace(current, current.replace(b'\n', b'\r\n'), 1) + custom
+                        if source == 'project':
+                            skill = root / ('.agents' if selected == 'codex' else '.claude') / 'skills/novel-retro/SKILL.md'
+                            skill.write_bytes(previous(skill, 'novel-retro.skill.md', selected))
+                            skills.append(skill)
+
+                    staged = root / 'unrelated.txt'
+                    staged.write_bytes(b'staged before setup')
+                    subprocess.run(['git', '-C', str(root), 'add', '--', staged.name], check=True)
+                    # Setup must refuse customized whole guides, root blocks and skills.
+                    retro = root / '.novel-notebook/workflows/retrospective.md'
+                    for path in (retro, *skills):
+                        raw = path.read_bytes()
+                        path.write_bytes(raw + b'\nWriter customized instructions.\n')
+                        before = snapshot(root, include_git=True)
+                        with self.assertRaisesRegex(ToolError, 'Customized'):
+                            self.call(root)
+                        self.assertEqual(snapshot(root, include_git=True), before)
+                        path.write_bytes(raw)
+                    path = root / ('CLAUDE.md' if host == 'claude' else 'AGENTS.md')
+                    raw = path.read_bytes()
+                    path.write_bytes(raw.replace(b'debugging before review', b'debugging before Writer review', 1))
+                    before = snapshot(root, include_git=True)
+                    with self.assertRaisesRegex(ToolError, 'Customized'):
+                        self.call(root)
+                    self.assertEqual(snapshot(root, include_git=True), before)
+                    path.write_bytes(raw)
+
+                    before = snapshot(root, include_git=True)
+                    preview = self.call(root)
+                    self.assertEqual(set(preview['changes']), {path.relative_to(root).as_posix() for path in expected})
+                    self.assertEqual(snapshot(root, include_git=True), before)
+                    self.assertTrue(self.call(root, preview)['applied'])
+                    for path, data in expected.items():
+                        self.assertEqual(path.read_bytes(), data)
+                    after = snapshot(root, include_git=True)
+                    self.assertEqual({name for name in before.keys() | after.keys()
+                                      if before.get(name) != after.get(name)}, set(preview['changes']))
+                    self.assertIn(b'--keep-debugging', retro.read_bytes())
+                    self.assertTrue(self.call(root)['already_current'])
+
     def test_published_0101_and_unrelated_staging_preserved(self):
         root = self.old(version='0.10.1')
         (root/'unrelated.txt').write_bytes(b'staged')
@@ -313,13 +383,13 @@ class IssueSetup(unittest.TestCase):
         self.assertEqual(retrospective.read_bytes(), b'Writer custom retrospective guide')
 
     def test_known_manual_session_routing_refreshes_and_custom_block_refuses(self):
-        from novel_creator.retro_issue_provenance import SESSION_BLOCKS
+        from novel_creator.retro_issue_setup import SESSION_BLOCKS, SESSION_ROUTING
         root = self.old('manual-routing')
         path = root / 'AGENTS.md'
         with path.open('ab') as stream:
             stream.write(b'\n' + SESSION_BLOCKS[0].encode() + b'\n')
         self.call(root, self.call(root))
-        self.assertIn(SESSION_BLOCKS[1].encode(), path.read_bytes())
+        self.assertIn(SESSION_ROUTING.encode(), path.read_bytes())
         self.assertNotIn(SESSION_BLOCKS[0].encode(), path.read_bytes())
         # Actual custom changes inside a product block must refuse before writes.
         raw = path.read_bytes().replace(b'Exact outgoing', b'Custom outgoing')

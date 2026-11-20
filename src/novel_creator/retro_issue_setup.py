@@ -10,11 +10,11 @@ import subprocess
 import tempfile
 
 from .cli import ToolError
-from .retro_issue_provenance import KNOWN, SESSION_BLOCKS
+from .retro_issue_provenance import KNOWN, PREVIOUS_PROJECT_SKILLS, SESSION_BLOCKS
 
 START = '<!-- novel-creator:issue-retro:start -->'
 END = '<!-- novel-creator:issue-retro:end -->'
-ROUTING = START + '''
+PREVIOUS_ROUTING = START + '''
 ## Optional session retrospective
 
 For `$novel-retro` or an explicit session retrospective, follow the
@@ -27,6 +27,21 @@ code fix or PR is created for retro administration. Publication and attachments
 require current approval of the entire actual outgoing material to the fixed
 repository bjarkig82/novel-creator. Saved records never enable participation.
 ''' + END + '\n'
+ROUTING = PREVIOUS_ROUTING.replace(
+    'Stop known current\ndebugging before review and keep it off. No story exchange, story file, commit,\n'
+    'code fix or PR is created for retro administration. Publication and attachments\n'
+    'require current approval of the entire actual outgoing material to the fixed\n'
+    'repository bjarkig82/novel-creator.',
+    'Use the workflow to\nstop debugging or take an explicitly requested live snapshot. Retro administration\n'
+    'creates no story exchange, story file, commit, code fix or PR.\n'
+    'Publication and attachments require current approval of the entire outgoing\n'
+    'material to bjarkig82/novel-creator.')
+SESSION_ROUTING = SESSION_BLOCKS[1].replace(
+    'Stop known current debugging before review and keep it off. Exact outgoing\n'
+    'issue/attachment approval is required before sharing; no story save or commit.',
+    'Follow its rules for stopping debugging or taking an explicitly requested live\n'
+    'snapshot. Exact outgoing issue and attachment approval is required before sharing.\n'
+    'Retro administration creates no story save or commit.')
 OLD_ROOT = '''For an explicitly requested local notebook retrospective, follow the read-only
 [notebook retrospective guidance](.novel-notebook/workflows/debugging.md#local-notebook-retrospective)
 on a debug archive or other public evidence the writer supplies or explicitly
@@ -148,11 +163,11 @@ def setup(args):
                 raise ToolError(3, 'Customized conflicting session routing block')
             block = text[text.index(session_start):text.index(session_end) + len(session_end)]
             normalized_block = block.replace('\r\n', '\n')
-            if normalized_block not in SESSION_BLOCKS:
+            if normalized_block not in (*SESSION_BLOCKS, SESSION_ROUTING):
                 raise ToolError(3, 'Customized conflicting session routing block')
-            if normalized_block == SESSION_BLOCKS[0]:
+            if normalized_block != SESSION_ROUTING:
                 actual = block.encode()
-                replacement = SESSION_BLOCKS[1].replace('\n', '\r\n') if '\r\n' in block else SESSION_BLOCKS[1]
+                replacement = SESSION_ROUTING.replace('\n', '\r\n') if '\r\n' in block else SESSION_ROUTING
                 original = original.replace(actual, replacement.encode(), 1)
                 text = original.decode('utf-8')
         route = _host_text(ROUTING, selected, source)
@@ -160,9 +175,16 @@ def setup(args):
             if text.count(START) != 1 or text.count(END) != 1:
                 raise ToolError(3, 'Customized conflicting retrospective routing block')
             block = text[text.index(START):text.index(END) + len(END)]
-            if block.replace('\r\n', '\n') != route.rstrip('\n'):
+            normalized_block = block.replace('\r\n', '\n')
+            if normalized_block == _host_text(PREVIOUS_ROUTING, selected, source).rstrip('\n'):
+                replacement = route.rstrip('\n')
+                if '\r\n' in block:
+                    replacement = replacement.replace('\n', '\r\n')
+                new = original.replace(block.encode(), replacement.encode(), 1)
+            elif normalized_block == route.rstrip('\n'):
+                new = original
+            else:
                 raise ToolError(3, 'Customized conflicting retrospective routing block')
-            new = original
         else:
             # Remove only the exact shipped obsolete paragraph; preserve all other bytes.
             old = OLD_ROOT.encode()
@@ -181,8 +203,10 @@ def setup(args):
             raw = files('novel_creator.codex').joinpath('notebook/skills/novel-retro/SKILL.md').read_text(encoding='utf-8')
             raw = _host_text(raw, selected, source).encode()
             original_skill = inspect(relative)
-            if original_skill is not None and original_skill.replace(b'\r\n', b'\n') != raw:
-                raise ToolError(3, 'Customized notebook retro skill would be overwritten')
+            if original_skill is not None:
+                normalized_skill = original_skill.replace(b'\r\n', b'\n')
+                if normalized_skill != raw and hashlib.sha256(normalized_skill).hexdigest() != PREVIOUS_PROJECT_SKILLS[selected]:
+                    raise ToolError(3, 'Customized notebook retro skill would be overwritten')
             desired[relative] = raw
     ignore = inspect('.gitignore') or b''
     if not ignore.splitlines() or ignore.splitlines()[-1] != b'.novel-notebook/local/':

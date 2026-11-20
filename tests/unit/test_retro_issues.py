@@ -151,7 +151,7 @@ class IssueTests(unittest.TestCase):
         session=debug.start(self.root)['debug_session']
         original_stop=debug.stop; original_export=debug.export; calls=[]
         def stop(*args):calls.append('stop');return original_stop(*args)
-        def export(*args):calls.append('export');return original_export(*args)
+        def export(*args, **kwargs):calls.append('export');return original_export(*args, **kwargs)
         data=dict(request_key='debug',host_session='current',debug_session=session)
         with patch.object(debug,'stop',side_effect=stop),patch.object(debug,'export',side_effect=export):
             run=service.begin(data); again=service.begin(data)

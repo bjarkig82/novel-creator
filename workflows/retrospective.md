@@ -29,19 +29,30 @@ Identify known current debugging before review and pass its exact UUID to begin:
 {"version":1,"request_key":"stable request identity","host_session":"current observed host identity","trigger":"explicit","debug_session":"canonical-debug-session-uuid"}
 ```
 
-Run `retro issue begin --input FILE`. Begin durably reserves the run, stops that
-selected session BEFORE export/review, and freezes exact local evidence. Keep
-debugging off afterward. Never automatically select a log or restart capture.
-Omit `debug_session` only when no session is known/selected. For a session-closure
-run use `"trigger":"session_end","observed_session_end_authorization":true`
+Run `retro issue begin --input FILE`. Begin durably reserves the run before
+capturing evidence. By default, it stops the selected session before export.
+Keep debugging off afterward in that mode.
+
+When the writer explicitly requests review while continuing a selected active
+session, run `retro issue begin --keep-debugging --input FILE` with its exact
+`debug_session` UUID and `"trigger":"explicit"` in the input. Begin freezes a
+partial ZIP and leaves the same session recording. Confirm `capture.partial`
+and review the frozen ZIP. Later events are outside that snapshot. If the CLI
+rejects the flag, keep debugging active and review a writer-selected partial
+export locally.
+
+Never automatically select a log or restart capture. Omit `debug_session` when
+no session is known or selected. A session-closure run uses the default capture
+behavior and `"trigger":"session_end","observed_session_end_authorization":true`
 only from the current explicit session closure and active session opt-in.
 Host/session request values are correlation keys, not native-ID proof. Prefer
 actual host IDs; if unavailable, allocate clearly labeled opaque local session
 and request tokens, retain them in active context for retries, and never claim
 them native. Persisted tokens never restore opt-in or supply authorization.
-Repeated identical request keys return the same run and never repeat export;
-a failed capture is retained, not silently retried. Inspect failure before any
-explicit separate request. `retro issue status [--run UUID]` is entirely local.
+Retry with the same request keys, selected session and capture mode to return
+the same run and frozen ZIP. A change of session or capture mode requires a
+separate request. Inspect a failed or interrupted capture with
+`retro issue status [--run UUID]` before starting a separate request.
 
 Review the frozen evidence, current visible conversation and explicitly selected
 logs. With no debugging, disclose absent observations and use available visible
