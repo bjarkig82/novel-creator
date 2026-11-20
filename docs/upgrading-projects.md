@@ -54,11 +54,28 @@ python -m novel_creator retro issue setup --novel BOOK --apply --preview PREVIEW
 The notebook update preserves story files, history, unrelated staging and custom
 instructions outside the managed blocks. It makes no story save or Git checkpoint.
 Customized managed resources, stale previews and unsafe paths require review before
-a new preview. Inspect the actual local skill or enabled plugin entry and its linked
+a new preview. Current source builds offer a [workflow conflict preview](#review-workflow-conflicts).
+Inspect the actual local skill or enabled plugin entry and its linked
 workflows. Reopen the novel folder in the host, reread its applicable `AGENTS.md`
 or `CLAUDE.md` and reload skills using the host's controls or a fresh chat. The
 same inspection and reload applies to the legacy framework update. Native skill
 reload and actual retrospective replies require observation in the host.
+
+### Review workflow conflicts
+
+In a read-only `retro issue setup --json` preview, `data.conflicts` lists the
+customized managed workflows. Each entry gives the notebook-relative `path` and
+the full shipped Markdown as `replacement`, rendered for the notebook's host
+and skill source. The `data.changes` list shows other pending updates. Setup
+refuses to apply any changes while a workflow conflict remains.
+
+Save a copy of each customized guide and compare it with its `replacement`.
+Decide which custom instructions to retain. To clear a conflict, put the shipped
+replacement at the listed path, then take a fresh preview. Once the conflict
+list is empty, review the changes and apply using that preview's ID and HEAD.
+Keep retained instructions in separate project guidance where practical so
+future upgrades can still recognize the shipped guide. If you restore edits to
+a managed guide after setup, future previews will flag it again.
 
 <a id="unreleased-brainstorming-continuity-guidance"></a>
 

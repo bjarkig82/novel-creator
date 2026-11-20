@@ -2,6 +2,7 @@
 import json
 from pathlib import Path
 import subprocess
+import sys
 from types import SimpleNamespace
 import unittest
 from unittest.mock import patch
@@ -48,8 +49,9 @@ class IssueSetup(unittest.TestCase):
                         raw = _host_text(fixture.read_text(encoding='utf-8'), host, source).encode()
                         path.write_bytes(raw + b'Writer customized guidance')
                         before = snapshot(root)
-                        with self.assertRaisesRegex(ToolError, 'Customized'):
-                            self.call(root)
+                        preview = self.call(root)
+                        self.assertEqual([entry['path'] for entry in preview['conflicts']],
+                                         [path.relative_to(root).as_posix()])
                         self.assertEqual(snapshot(root), before)
                         path.write_bytes(raw)
                         (root / 'unrelated.txt').write_bytes(b'staged')
@@ -152,8 +154,9 @@ class IssueSetup(unittest.TestCase):
                     raw = path.read_bytes()
                     path.write_bytes(raw + b'Custom instructions.\n')
                     before = snapshot(root)
-                    with self.assertRaisesRegex(ToolError, 'Customized'):
-                        self.call(root)
+                    preview = self.call(root)
+                    self.assertEqual([entry['path'] for entry in preview['conflicts']],
+                                     [path.relative_to(root).as_posix()])
                     self.assertEqual(snapshot(root), before)
                     path.write_bytes(raw)
                     index = (root / '.git/index').read_bytes()
@@ -179,8 +182,11 @@ class IssueSetup(unittest.TestCase):
                         (root / 'notebook/project.md').read_bytes() + b'\nWriter project note.\n')
                     subprocess.run(['git', '-C', str(root), 'add', '--', 'notebook/project.md'], check=True)
                     before = snapshot(root, include_git=True)
-                    with self.assertRaisesRegex(ToolError, 'Customized.*conversation.md'):
-                        self.call(root)
+                    preview = self.call(root)
+                    self.assertEqual([entry['path'] for entry in preview['conflicts']], [relative])
+                    self.assertEqual(preview['changes'], [])
+                    self.assertFalse(preview['ready'])
+                    self.assertFalse(preview['already_current'])
                     self.assertEqual(snapshot(root, include_git=True), before)
 
                     path.write_bytes(original)
@@ -233,9 +239,17 @@ class IssueSetup(unittest.TestCase):
                     staged = root / 'unrelated.txt'
                     staged.write_bytes(b'staged before setup')
                     subprocess.run(['git', '-C', str(root), 'add', '--', staged.name], check=True)
-                    # Setup must refuse customized whole guides, root blocks and skills.
+                    # Workflow conflicts are previewable. Customized root blocks and skills still raise.
                     retro = root / '.novel-notebook/workflows/retrospective.md'
-                    for path in (retro, *skills):
+                    raw = retro.read_bytes()
+                    retro.write_bytes(raw + b'\nWriter customized instructions.\n')
+                    before = snapshot(root, include_git=True)
+                    preview = self.call(root)
+                    self.assertEqual([entry['path'] for entry in preview['conflicts']],
+                                     [retro.relative_to(root).as_posix()])
+                    self.assertEqual(snapshot(root, include_git=True), before)
+                    retro.write_bytes(raw)
+                    for path in skills:
                         raw = path.read_bytes()
                         path.write_bytes(raw + b'\nWriter customized instructions.\n')
                         before = snapshot(root, include_git=True)
@@ -264,6 +278,73 @@ class IssueSetup(unittest.TestCase):
                                       if before.get(name) != after.get(name)}, set(preview['changes']))
                     self.assertIn(b'--keep-debugging', retro.read_bytes())
                     self.assertTrue(self.call(root)['already_current'])
+
+    def test_cli_previews_all_workflow_conflicts_without_applying_pending_changes(self):
+        from tests.verify_plugin_install import snapshot
+        frozen = Path(__file__).resolve().parents[1] / 'fixtures/session-guidance-0.10.4'
+        root = self.parent / 'customized-guides'
+        initialize(root, host='both', skill_source='plugin')
+        workflow_dir = '.novel-notebook/workflows/'
+        debug, help_guide, conversation = [workflow_dir + name + '.md'
+                                           for name in ('debugging', 'help', 'conversation')]
+        expected = {name: (root / name).read_bytes() for name in (debug, help_guide, conversation)}
+        custom = b'\nWriter customized instructions.\n'
+        for name in expected:
+            old = _host_text((frozen / Path(name).name).read_text(encoding='utf-8'),
+                             'both', 'plugin').encode()
+            (root / name).write_bytes(old + custom if name != conversation else old)
+        staged = root / 'unrelated.txt'
+        staged.write_bytes(b'staged writer material')
+        subprocess.run(['git', '-C', str(root), 'add', '--', help_guide, staged.name], check=True)
+        staged.write_bytes(b'unstaged writer edit')
+
+        def cli(*options):
+            return subprocess.run([sys.executable, '-m', 'novel_creator', 'retro', 'issue',
+                                   'setup', '--novel', str(root), '--json', *options],
+                                  capture_output=True, text=True, encoding='utf-8')
+
+        before = snapshot(root, include_git=True)
+        result = cli()
+        self.assertEqual(result.returncode, 0, result.stderr)
+        preview = json.loads(result.stdout)['data']
+        self.assertFalse(preview['ready'])
+        self.assertFalse(preview['already_current'])
+        self.assertFalse(preview['applied'])
+        self.assertEqual(preview['changes'], [conversation])
+        self.assertEqual(preview['conflicts'], [
+            {'path': name, 'replacement': expected[name].decode()} for name in (debug, help_guide)
+        ])
+        self.assertIn('`/novel-creator:novel-help`', preview['conflicts'][1]['replacement'])
+        self.assertEqual(snapshot(root, include_git=True), before)
+
+        options = ('--apply', '--preview', preview['preview_id'],
+                   '--expected-head', preview['reviewed_head'])
+        result = cli(*options)
+        self.assertEqual(result.returncode, 3, result.stderr)
+        self.assertEqual(json.loads(result.stdout)['error']['affected_refs'], [debug, help_guide])
+        self.assertEqual(snapshot(root, include_git=True), before)
+
+        with (root / debug).open('ab') as stream:
+            stream.write(b'A later customized instruction.\n')
+        before = snapshot(root, include_git=True)
+        result = cli(*options)
+        self.assertEqual(result.returncode, 3, result.stderr)
+        self.assertIn('stale', json.loads(result.stdout)['error']['message'])
+        self.assertEqual(snapshot(root, include_git=True), before)
+
+        for conflict in preview['conflicts']:
+            (root / conflict['path']).write_bytes(conflict['replacement'].encode())
+        before = snapshot(root, include_git=True)
+        fresh = json.loads(cli().stdout)['data']
+        self.assertEqual(fresh['conflicts'], [])
+        result = cli('--apply', '--preview', fresh['preview_id'],
+                     '--expected-head', fresh['reviewed_head'])
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertTrue(json.loads(result.stdout)['data']['applied'])
+        self.assertEqual((root / conversation).read_bytes(), expected[conversation])
+        after = snapshot(root, include_git=True)
+        self.assertEqual({name for name in before.keys() | after.keys()
+                          if before.get(name) != after.get(name)}, {conversation})
 
     def test_published_0101_and_unrelated_staging_preserved(self):
         root = self.old(version='0.10.1')
