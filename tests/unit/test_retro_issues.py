@@ -241,6 +241,51 @@ class IssueTests(unittest.TestCase):
         with self.assertRaisesRegex(ToolError, 'intent differs'):
             self.connector_resume(dict(remote, title=finding['title']))
 
+    def test_publish_cannot_switch_transports_after_comparison(self):
+        f = self.draft()
+        self.approve(f)
+        gh_review = self.preflight(f)
+        with self.assertRaises(ToolError):
+            self.connector_intent(gh_review)
+        connector_review = self.connector_snapshot()
+        digest = connector_review['duplicate_snapshot']['sha256']
+        for stage in ({}, {'stage': 'create'}):
+            with self.subTest(stage=stage), patch.object(issues.Github, 'preflight') as auth, \
+                    patch.object(issues.Github, 'create') as create:
+                with self.assertRaises(ToolError):
+                    self.issue_command('publish', dict(observed_publication_direction=True,
+                                       observed_comparison_complete=True, duplicate_snapshot_digest=digest, **stage))
+                auth.assert_not_called()
+                create.assert_not_called()
+                self.assertEqual(self.service.load(self.run['run_id'])['findings'][self.fid]['creation']['state'], 'draft')
+
+    def test_marker_field_must_match_approved_body_before_listing_or_creation(self):
+        f = self.draft()
+        self.approve(f)
+        reviewed = self.connector_snapshot()
+        run = self.service.load(self.run['run_id'])
+        finding = run['findings'][self.fid]
+        original = finding['marker']
+        row = dict(number=1, title='Existing issue', body=original,
+                   url=f'https://github.com/{issues.REPOSITORY}/issues/1')
+        finding['marker'] = '<!-- novel-creator-issue:' + str(uuid.uuid4()) + ' -->'
+        self.service.save(run)
+        with self.assertRaisesRegex(ToolError, 'marker'):
+            self.connector_snapshot(dict(issue=[row], pr=[]))
+        with self.assertRaisesRegex(ToolError, 'marker'):
+            self.connector_intent(reviewed)
+        self.assertEqual(self.service.load(self.run['run_id'])['findings'][self.fid]['creation']['state'], 'draft')
+        # The same invariant applies to late receipts even after a valid reservation.
+        finding['marker'] = original
+        self.service.save(run)
+        self.connector_intent(reviewed)
+        run = self.service.load(self.run['run_id'])
+        run['findings'][self.fid]['marker'] = 'changed'
+        self.service.save(run)
+        remote = dict(title=f['title'], body=f['body'], url=row['url'])
+        with self.assertRaisesRegex(ToolError, 'marker'):
+            self.connector_resume(remote)
+
     def test_older_gh_listing_still_supports_approved_create_and_resume(self):
         f = self.draft()
         self.approve(f)

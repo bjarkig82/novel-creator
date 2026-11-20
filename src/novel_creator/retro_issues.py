@@ -107,6 +107,14 @@ def public_listing(value):
     return value
 
 
+def finding_marker(finding):
+    marker = finding['marker']
+    _, separator, trailer = finding['body'].rpartition('\n\n')
+    if not separator or trailer != marker + '\n':
+        raise ToolError(3, 'Finding marker differs from the issue body')
+    return marker
+
+
 def marker_urls(listing, marker):
     return [row['url'] for rows in listing.values() for row in rows if marker in row['body']]
 
@@ -340,6 +348,7 @@ class Issues:
             raise ToolError(3, 'Cancelled finding cannot create again')
         observed(data, 'observed_publication_direction')
         self.approved(finding)
+        marker = finding_marker(finding)
         if finding['creation']['state'] != 'draft':
             raise ToolError(3, 'Retained creation intent/receipt forbids another create; reconcile explicitly')
         stage = data.get('stage', 'create')
@@ -353,7 +362,7 @@ class Issues:
             snapshot = dict(listing=listing, preview_digest=finding['approval']['preview_digest'], stage=stage)
             snapshot.update(sha256=digest(encoded(snapshot)), limits='At most 100 issues and 100 PRs; no proof of absence.')
             finding['duplicate_snapshot'] = snapshot
-            matches = marker_urls(listing, finding['marker'])
+            matches = marker_urls(listing, marker)
             if matches:
                 finding['existing_marker_urls'] = matches
             self.save(run)
@@ -364,8 +373,9 @@ class Issues:
         observed(data, 'observed_comparison_complete')
         if not snapshot or data.get('duplicate_snapshot_digest') != snapshot['sha256']:
             raise ToolError(3, 'Review the retained public listing before create')
-        if stage == 'connector_create' and snapshot.get('stage') != 'connector_preflight':
-            raise ToolError(3, 'Review a current connector listing before connector creation')
+        expected_stage = 'connector_preflight' if stage == 'connector_create' else 'preflight'
+        if snapshot.get('stage', 'preflight') != expected_stage:
+            raise ToolError(3, 'Review the public listing for the selected publication transport')
         listing = public_listing(snapshot['listing'])
         # Older gh snapshots hashed only the listing. New reviews bind that
         # listing and its transport to this finding's unique approved preview.
@@ -383,7 +393,7 @@ class Issues:
             finding['equivalent_url'] = equivalent
             self.save(run)
             return finding
-        if finding.get('equivalent_url') or finding.get('existing_marker_urls') or marker_urls(listing, finding['marker']):
+        if finding.get('equivalent_url') or finding.get('existing_marker_urls') or marker_urls(listing, marker):
             raise ToolError(3, 'Existing equivalent or publication marker in public results forbids creation')
         if stage == 'connector_create':
             self.reserve_create(run, finding)
@@ -418,14 +428,14 @@ class Issues:
             raise ToolError(3, 'No retained create intent to reconcile')
         # Verify the preview bytes reserved at publication, even after the author
         # cancels or loses a sharing file. Receipt handling never uploads files.
-        if (intent.get('preview_digest') != digest(encoded(self.preview(finding))) or
-                not finding['body'].endswith('\n\n' + finding['marker'] + '\n')):
-            raise ToolError(3, 'Retained publication intent differs from the finding payload or marker')
+        marker = finding_marker(finding)
+        if intent.get('preview_digest') != digest(encoded(self.preview(finding))):
+            raise ToolError(3, 'Retained publication intent differs from the finding payload')
         stage = data.get('stage', 'view')
         if stage == 'connector_search':
             observed(data, 'observed_connector_listing')
             listing = public_listing(data.get('listing'))
-            return dict(creation=intent, marker_urls=marker_urls(listing, finding['marker']))
+            return dict(creation=intent, marker_urls=marker_urls(listing, marker))
         url = issue_url(data.get('issue_url'))
         if intent.get('url', url) != url:
             raise ToolError(3, 'Confirmed issue URL differs from the candidate')
