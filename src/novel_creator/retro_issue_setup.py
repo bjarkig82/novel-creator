@@ -134,13 +134,16 @@ def setup(args):
         except (ValueError, KeyError, TypeError):
             raise ToolError(3, 'Unrecognized notebook integration marker') from None
     desired = {}
+    conflicts = {}
     workflows = files('novel_creator.notebook_resources').joinpath('workflows')
     for name in ('retrospective', 'debugging', 'help', 'conversation'):
         relative = '.novel-notebook/workflows/' + name + '.md'
         raw = _host_text(workflows.joinpath(name + '.md').read_text(encoding='utf-8'), host, source).encode()
         original = inspect(relative)
-        if original is not None and original.replace(b'\r\n', b'\n') != raw and hashlib.sha256(original.replace(b'\r\n', b'\n')).hexdigest() not in KNOWN.get(name + '.md', ()):
-            raise ToolError(3, 'Customized notebook resource would be overwritten: ' + relative)
+        if original is not None:
+            normalized = original.replace(b'\r\n', b'\n')
+            if normalized != raw and hashlib.sha256(normalized).hexdigest() not in KNOWN.get(name + '.md', ()):
+                conflicts[relative] = raw.decode('utf-8')
         desired[relative] = raw
     # Older supported notebooks may predate these linked writing guides.
     # Add missing trusted snapshots; existing custom prerequisite bytes stay put.
@@ -230,14 +233,23 @@ def setup(args):
                    inputs={p: None if value is None else [hashlib.sha256(value[0]).hexdigest(), value[1]] for p, value in sorted(inputs.items())},
                    outputs={p: hashlib.sha256(raw).hexdigest() for p, raw in sorted(desired.items())})
     preview = hashlib.sha256(json.dumps(binding, sort_keys=True).encode()).hexdigest()
-    changes = [p for p, raw in desired.items() if inputs[p] is None or inputs[p][0] != raw]
-    result = dict(ready=not changes, applied=False, preview_id=preview, reviewed_head=head, changes=changes,
-                  host=host, skill_source=source, novel_path=str(root), already_current=not changes,
+    changes = [p for p, raw in desired.items()
+               if p not in conflicts and (inputs[p] is None or inputs[p][0] != raw)]
+    already_current = not (changes or conflicts)
+    result = dict(ready=already_current, applied=False, preview_id=preview, reviewed_head=head, changes=changes,
+                  host=host, skill_source=source, novel_path=str(root), already_current=already_current,
                   next_action='Review this preview, then explicitly apply with its ID and HEAD. No story files, staging or commits are changed.')
     if not apply:
+        result['conflicts'] = [dict(path=path, replacement=replacement) for path, replacement in conflicts.items()]
+        if conflicts:
+            result['next_action'] = ('Reconcile the customized workflows using the shipped replacements '
+                                     'and take a fresh preview before applying.')
         return result
     if args.preview != preview or args.expected_head != head:
         raise ToolError(3, 'Issue setup preview is stale; take a fresh preview')
+    if conflicts:
+        raise ToolError(3, 'Customized notebook workflows block setup. Reconcile them and take a fresh preview.',
+                        affected_refs=list(conflicts))
     written = []
     def unchanged(relative, expected):
         current = inspect(relative)
