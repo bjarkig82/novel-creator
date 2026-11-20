@@ -520,6 +520,16 @@ Unknown writes are reconciled, never blindly retried. No fix, code edits, push,
 PR, story exchange, story files or commit occurs for retro administration.
 Saved records never re-enable participation or a new chat's publication direction.
 
+The current source adds a host GitHub connector fallback when `gh` reads or
+authentication fail. The host compares bounded public issue and PR results.
+The CLI journals a single creation intent, returns exact connector arguments,
+and records the issue URL after checking a host-observed receipt. A lost
+response can be reconciled by finding the marker and fetching the exact issue.
+The [connector handoff](../workflows/retrospective.md#host-github-connector-fallback)
+documents the publish and resume inputs. Existing notebooks can refresh the
+shipped 0.10.5 workflow with `retro issue setup` preview and apply using the
+updated runtime.
+
 See [workflow and JSON contracts](../workflows/retrospective.md) and
 [explicit project upgrades](upgrading-projects.md#session-issue-retrospectives-in-0102).
 New projects receive the workflow/entry; existing legacy novels use the normal

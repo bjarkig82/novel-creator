@@ -79,6 +79,38 @@ def duplicate_reference_url(value):
     return value
 
 
+def public_listing(value):
+    """Accept only the bounded public fields needed for a local comparison."""
+    if not isinstance(value, dict) or value.keys() != {'issue', 'pr'}:
+        raise ToolError(2, 'Expected issue and pr listing arrays')
+    numbers = set()
+    for kind, section in (('issue', 'issues'), ('pr', 'pull')):
+        rows = value[kind]
+        if not isinstance(rows, list) or len(rows) > 100:
+            raise ToolError(2, 'Expected at most 100 public records per listing')
+        for row in rows:
+            if not isinstance(row, dict) or row.keys() != {'number', 'title', 'body', 'url'}:
+                raise ToolError(2, 'Expected compact public number, title, body and url fields')
+            number = row['number']
+            if (type(number) is not int or number < 1 or number in numbers or
+                    row['url'] != f'https://github.com/{REPOSITORY}/{section}/{number}'):
+                raise ToolError(2, 'Invalid or repeated fixed-repository public record')
+            require(row, ['title'])
+            if not isinstance(row['body'], str) or '\x00' in row['body']:
+                raise ToolError(2, 'Expected public issue or PR body text')
+            try:
+                row['title'].encode('utf-8')
+                row['body'].encode('utf-8')
+            except UnicodeEncodeError as error:
+                raise ToolError(2, 'Expected UTF-8 public listing text') from error
+            numbers.add(number)
+    return value
+
+
+def marker_urls(listing, marker):
+    return [row['url'] for rows in listing.values() for row in rows if marker in row['body']]
+
+
 class Github:
     """Fixed public listings and exact-file create only. Existing gh credentials."""
     def call(self, args):
@@ -310,29 +342,60 @@ class Issues:
         self.approved(finding)
         if finding['creation']['state'] != 'draft':
             raise ToolError(3, 'Retained creation intent/receipt forbids another create; reconcile explicitly')
-        if data.get('stage') == 'preflight':
+        stage = data.get('stage', 'create')
+        if stage in ('preflight', 'connector_preflight'):
             observed(data, 'observed_duplicate_read_direction')
-            listing = self.transport.listing()
-            finding['duplicate_snapshot'] = dict(listing=listing, sha256=digest(encoded(listing)), limits='At most 100 issues and 100 PRs; no proof of absence.')
+            if stage == 'connector_preflight':
+                observed(data, 'observed_connector_listing')
+                listing = public_listing(data.get('listing'))
+            else:
+                listing = public_listing(self.transport.listing())
+            snapshot = dict(listing=listing, preview_digest=finding['approval']['preview_digest'], stage=stage)
+            snapshot.update(sha256=digest(encoded(snapshot)), limits='At most 100 issues and 100 PRs; no proof of absence.')
+            finding['duplicate_snapshot'] = snapshot
+            matches = marker_urls(listing, finding['marker'])
+            if matches:
+                finding['existing_marker_urls'] = matches
             self.save(run)
             return finding
+        if stage not in ('create', 'connector_create'):
+            raise ToolError(2, 'Unknown publication stage')
         snapshot = finding.get('duplicate_snapshot')
         observed(data, 'observed_comparison_complete')
         if not snapshot or data.get('duplicate_snapshot_digest') != snapshot['sha256']:
             raise ToolError(3, 'Review the retained public listing before create')
+        if stage == 'connector_create' and snapshot.get('stage') != 'connector_preflight':
+            raise ToolError(3, 'Review a current connector listing before connector creation')
+        listing = public_listing(snapshot['listing'])
+        # Older gh snapshots hashed only the listing. New reviews bind that
+        # listing and its transport to this finding's unique approved preview.
+        reviewed = listing
+        if 'stage' in snapshot:
+            if snapshot.get('preview_digest') != finding['approval']['preview_digest']:
+                raise ToolError(3, 'Public results were compared against a different finding preview')
+            reviewed = dict(listing=listing, preview_digest=snapshot['preview_digest'], stage=snapshot['stage'])
+        if digest(encoded(reviewed)) != snapshot['sha256']:
+            raise ToolError(3, 'Retained public listing or compared finding changed')
         if data.get('equivalent_url'):
-            finding['equivalent_url'] = duplicate_reference_url(data['equivalent_url'])
+            equivalent = duplicate_reference_url(data['equivalent_url'])
+            if stage == 'connector_create' and not any(row['url'] == equivalent for rows in listing.values() for row in rows):
+                raise ToolError(3, 'Equivalent URL must appear in the reviewed connector listing')
+            finding['equivalent_url'] = equivalent
             self.save(run)
             return finding
+        if finding.get('equivalent_url') or finding.get('existing_marker_urls') or marker_urls(listing, finding['marker']):
+            raise ToolError(3, 'Existing equivalent or publication marker in public results forbids creation')
+        if stage == 'connector_create':
+            self.reserve_create(run, finding)
+            # This single-use handoff exists only in the successful response.
+            return dict(connector_create=dict(repository_full_name=REPOSITORY, title=finding['title'], body=finding['body']))
         self.transport.preflight()
         body_file = self.path(run['run_id'] + '/approved-body-' + digest(finding['body'].encode('utf-8')) + '.md')
         if body_file.exists() and body_file.read_bytes() != finding['body'].encode('utf-8'):
             raise ToolError(3, 'Approved body file differs')
         if not body_file.exists():
             body_file.write_bytes(finding['body'].encode('utf-8'))
-        self.approved(finding)
-        finding['creation'] = {'state': 'unknown', 'preview_digest': self.preview_digest(finding)}
-        self.save(run)  # durable create intent BEFORE potentially ambiguous network write
+        self.reserve_create(run, finding)
         try:
             url = issue_url(self.transport.create(finding['title'], body_file))
         except Exception:
@@ -343,13 +406,36 @@ class Issues:
         self.save(run)
         return finding
 
+    def reserve_create(self, run, finding):
+        self.approved(finding)
+        finding['creation'] = dict(state='unknown', preview_digest=finding['approval']['preview_digest'])
+        self.save(run)
+
     def resume(self, run, finding, data):
-        # Default performs no writes to GitHub. Supplied URL must match exact payload.
         observed(data, 'observed_reconciliation_read_direction')
-        url = issue_url(data.get('issue_url'))
-        if finding['creation']['state'] not in ('unknown', 'created'):
+        intent = finding['creation']
+        if intent['state'] not in ('unknown', 'created'):
             raise ToolError(3, 'No retained create intent to reconcile')
-        remote = self.transport.view(url)
+        # Verify the preview bytes reserved at publication, even after the author
+        # cancels or loses a sharing file. Receipt handling never uploads files.
+        if (intent.get('preview_digest') != digest(encoded(self.preview(finding))) or
+                not finding['body'].endswith('\n\n' + finding['marker'] + '\n')):
+            raise ToolError(3, 'Retained publication intent differs from the finding payload or marker')
+        stage = data.get('stage', 'view')
+        if stage == 'connector_search':
+            observed(data, 'observed_connector_listing')
+            listing = public_listing(data.get('listing'))
+            return dict(creation=intent, marker_urls=marker_urls(listing, finding['marker']))
+        url = issue_url(data.get('issue_url'))
+        if intent.get('url', url) != url:
+            raise ToolError(3, 'Confirmed issue URL differs from the candidate')
+        if stage == 'connector_receipt':
+            observed(data, 'observed_connector_receipt')
+            remote = data.get('receipt')
+        elif stage == 'view':
+            remote = self.transport.view(url)
+        else:
+            raise ToolError(2, 'Unknown reconciliation stage')
         if remote != {'url': url, 'title': finding['title'], 'body': finding['body']}:
             raise ToolError(3, 'Issue repository, URL or exact payload differs')
         finding['creation'].update(state='created', url=url)
