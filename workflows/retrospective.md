@@ -17,8 +17,8 @@ remain read-only when explaining this feature rather than invoking it.
 If the writer requests local-only review or the issue commands are unavailable,
 review only the visible conversation and evidence the writer has selected. Apply
 the evidence review rules below and preserve the writer's requested debugging
-state. Skip `retro issue begin` and `retro issue draft` and go to the
-[first review response](#first-review-response-and-completion-status).
+state. Skip `retro issue begin` and `retro issue draft`. Follow the First review
+response and completion status section below.
 
 For the formal issue workflow, use the configured interpreter/launcher in legacy
 novels and the installed `novel-creator` command in notebooks. All commands below
