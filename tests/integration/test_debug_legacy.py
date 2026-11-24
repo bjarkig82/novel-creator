@@ -158,6 +158,29 @@ class LegacyDebugging(unittest.TestCase):
             self.assertEqual(result['data']['format'], 'legacy')
             self.assertEqual(result['data']['directory'], session['directory'])
 
+    def test_status_finds_legacy_session_with_regular_files_at_notebook_marker_parents(self):
+        for blocker in ('notebook', '.novel-notebook'):
+            with self.subTest(blocker=blocker), repository() as root:
+                session = debug.start(root)
+                if blocker == '.novel-notebook':
+                    (root / 'notebook').mkdir()
+                    (root / 'notebook/project.md').write_text('# Notebook draft\n', encoding='utf-8')
+                (root / blocker).write_text('Unrelated regular file\n', encoding='utf-8')
+                code, result, _ = self.call('debug', 'status', '--novel', root,
+                                            '--debug-session', session['debug_session'], '--json')
+                self.assertEqual(code, 0, result)
+                self.assertEqual(result['data']['directory'], session['directory'])
+
+    def test_status_finds_notebook_session_with_regular_file_at_legacy_marker_parent(self):
+        with self.migrated_repository() as (root, _, notebook):
+            legacy_root = root / '.novel-creator'
+            legacy_root.rename(root / 'retained-legacy')
+            legacy_root.write_text('Unrelated regular file\n', encoding='utf-8')
+            code, result, _ = self.call('debug', 'status', '--novel', root,
+                                        '--debug-session', notebook['debug_session'], '--json')
+            self.assertEqual(code, 0, result)
+            self.assertEqual(result['data']['directory'], notebook['directory'])
+
     def test_save_context_and_error_recording_leave_results_unchanged(self):
         with repository() as root, tempfile.TemporaryDirectory() as directory:
             identifier = debug.start(root)['debug_session']

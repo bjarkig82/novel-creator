@@ -88,11 +88,14 @@ def _projects(novel, project_format=None):
     if actual is None or Path(actual).resolve() != root:
         raise ToolError(2, 'Debugging requires an existing independent novel Git root')
     has_legacy = (project_format in (None, 'legacy') and
+                  _guard(root / '.novel-creator').is_dir() and
                   _guard(root / '.novel-creator/manifest.json').is_file())
     if has_legacy:
         yield root, 'legacy', _guard(root / '.novel-creator/local/debug')
     if (project_format in (None, 'novel-notebook') and
+            _guard(root / 'notebook').is_dir() and
             _guard(root / 'notebook/project.md').is_file() and
+            _guard(root / '.novel-notebook').is_dir() and
             _guard(root / '.novel-notebook/workflows').is_dir()):
         yield root, 'novel-notebook', _guard(root / '.novel-notebook/local/debug')
     elif not has_legacy:
