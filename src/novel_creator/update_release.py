@@ -308,7 +308,7 @@ def bundle_inventory(inventory, *, legacy=False):
         if relative == name:
             continue
         destination = None
-        if ('/' not in relative and relative not in ('notebook.py', 'notebook_side_character.py')
+        if ('/' not in relative and relative not in ('notebook.py', 'notebook_index.py', 'notebook_side_character.py')
                 and (relative.endswith('.py') or relative == 'update-release.json')):
             destination = '.novel-creator/src/novel_creator/' + relative
         for prefix, target in (('schemas/', '.novel-creator/src/novel_creator/schemas/'),

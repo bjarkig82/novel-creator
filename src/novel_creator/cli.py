@@ -161,6 +161,9 @@ an executable file-based JSON recipe; never interpolate story text into a shell.
         notebook_init.add_argument('--skill-source', choices=('project', 'plugin'), action=Once)
         notebook_init.add_argument('--json', action=SwitchOnce)
         notebook_init.set_defaults(brief_file=None)
+        check_index = notebook_actions.add_parser('check-index', help='Compare topic-index counts with current owning notes')
+        check_index.add_argument('--path', required=True, action=Once, help='story notebook project folder')
+        check_index.add_argument('--json', action=SwitchOnce)
         notebook_update = notebook_actions.add_parser('update', description='Preview or explicitly add focused methods to an existing story notebook')
         notebook_update.add_argument('--path', required=True, action=Once)
         notebook_update.add_argument('--apply', action=SwitchOnce)
@@ -325,6 +328,13 @@ def _dispatch(args):
         result = dispatch(args)
         print(json.dumps({'ok': True, 'data': result}, ensure_ascii=False, allow_nan=False))
         return 0
+    if args.command == 'notebook' and args.notebook_action == 'check-index':
+        from .notebook_index import check_index, describe
+        if not args.path.strip():
+            raise ToolError(2, 'Notebook index check requires a nonempty --path')
+        result = check_index(args.path)
+        print(json.dumps(result, ensure_ascii=False) if args.json else describe(result['data']))
+        return 0 if result['ok'] else 1
     if args.command == 'notebook' and args.notebook_action == 'update':
         from .notebook import update
         if not args.path:
