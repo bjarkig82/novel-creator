@@ -25,6 +25,7 @@ assert Path(novel_creator.__file__).resolve().is_relative_to(Path(sys.prefix))
 candidate_version = version('novel-creator')
 area, previous_python, wheel, previous_wheel, checkout = map(Path, sys.argv[1:])
 sys.path.append(str(checkout))
+from tests.release_fixtures import refreshed_character_root
 from tests.update_release_helpers import release_listing
 from tests.verify_plugin_install import run
 from tests.verify_marketplace_previous import initialize_legacy_fixture
@@ -82,7 +83,10 @@ for host,source,language in [('codex','project','en'),('claude','project','is'),
     assert (root/'.git/index').read_bytes()==index and git(root,'rev-parse','HEAD')==head
     assert (root/'writer.txt').read_bytes()==b'working'
     for name,raw in story.items():assert (root/name).read_bytes()==raw
-    for name,raw in original.items():assert (root/name).read_bytes().startswith(raw)
+    for name,raw in original.items():
+        if host == 'codex':
+            raw = refreshed_character_root(raw, (area / 'new-codex' / name).read_bytes())
+        assert (root / name).read_bytes().startswith(raw), name
     check(root,host=host,source=source)
 
 root=area/'old-legacy'

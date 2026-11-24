@@ -340,19 +340,35 @@ class NotebookSideCharacter(unittest.TestCase):
 
     def test_default_updater_rejects_same_bytes_identity_swap_at_open(self):
         from novel_creator import notebook
-        root = self.book()
         original_open = Path.open
-        def race(path, *args, **kwargs):
-            if path == root / 'AGENTS.md' and args and args[0] == 'r+b':
-                prior = path.with_suffix('.prior')
-                path.rename(prior)
-                path.write_bytes(prior.read_bytes())
-            return original_open(path, *args, **kwargs)
-        preview = notebook.update(root)['data']
-        with patch.object(Path, 'open', race), self.assertRaises(ToolError):
-            notebook.update(root, apply=True, preview_id=preview['preview_id'],
-                            expected_head=preview['reviewed_head'])
-        self.assertNotIn(b'side-character:start', (root / 'AGENTS.md').read_bytes())
+        for action in ('replace', 'append'):
+            with self.subTest(action=action):
+                root = self.book()
+                instructions = root / 'AGENTS.md'
+                if action == 'append':
+                    instructions.write_bytes(b'# Writer instructions\n')
+                original = instructions.read_bytes()
+                preview = notebook.update(root)['data']
+                self.assertIn({'path': 'AGENTS.md', 'action': action}, preview['changes'])
+                swapped = False
+
+                def race(path, *args, **kwargs):
+                    nonlocal swapped
+                    # Once the earlier side workflow is installed, the next root
+                    # open is the identity check immediately before its write.
+                    if path == instructions and not swapped and (root / WORKFLOW).exists():
+                        swapped = True
+                        prior = path.with_suffix('.prior')
+                        path.rename(prior)
+                        path.write_bytes(prior.read_bytes())
+                    return original_open(path, *args, **kwargs)
+
+                with patch.object(Path, 'open', race), self.assertRaises(ToolError) as caught:
+                    notebook.update(root, apply=True, preview_id=preview['preview_id'],
+                                    expected_head=preview['reviewed_head'])
+                self.assertTrue(swapped)
+                self.assertNotIn('AGENTS.md', caught.exception.data['written_paths'])
+                self.assertEqual(instructions.read_bytes(), original)
 
 
 if __name__ == '__main__':

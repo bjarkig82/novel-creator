@@ -180,6 +180,7 @@ class NotebookInitialization(unittest.TestCase):
 
     def test_brainstorming_resources_are_installed_linked_and_committed(self):
         import re
+        link_paths = re.compile(r'\]\(([^)#]+)(?:#[^)]*)?\)')
         stages = ('book-idea', 'premise', 'character', 'plot', 'setting')
         for language in ('en', 'is'):
             with self.subTest(language=language):
@@ -194,12 +195,12 @@ class NotebookInitialization(unittest.TestCase):
                     skill = self.target / f'.agents/skills/novel-{stage}/SKILL.md'
                     self.assertTrue(skill.is_file(), stage)
                     self.assertIn(skill.relative_to(self.target).as_posix(), tracked)
-                    links = re.findall(r'\]\(([^)]+)\)', skill.read_text(encoding='utf-8'))
+                    links = link_paths.findall(skill.read_text(encoding='utf-8'))
                     self.assertIn(workflow.resolve(), [(skill.parent / link).resolve() for link in links])
                     for link in links:
                         self.assertTrue((skill.parent / link).is_file(), link)
                 for path in (self.target / '.novel-notebook/workflows').glob('*.md'):
-                    for link in re.findall(r'\]\(([^)]+)\)', path.read_text(encoding='utf-8')):
+                    for link in link_paths.findall(path.read_text(encoding='utf-8')):
                         if re.match(r'^[a-zA-Z][a-zA-Z0-9+.-]*:', link):
                             continue
                         self.assertTrue((path.parent / link).is_file(), (path, link))

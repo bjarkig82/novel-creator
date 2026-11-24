@@ -15,7 +15,7 @@ from novel_creator import notebook
 from novel_creator.cli import ToolError
 from novel_creator.update_release import export_bundle
 from tests.integration import test_notebook_update as update_tests
-from tests.release_fixtures import published_wheel
+from tests.release_fixtures import published_wheel, refreshed_character_root
 from tests.verify_marketplace_previous import initialize_legacy_fixture
 
 
@@ -80,6 +80,8 @@ class SideCharacterInstall(unittest.TestCase):
         self.assertEqual(result.returncode, 0, result.stderr)
 
     def test_previous_public_updates_preserve_story_root_history_and_raw_index(self):
+        self.initialize()
+        fresh = self.target
         for version in ('0.10.0', '0.10.1'):
             for newline in (b'\n', b'\r\n'):
                 with self.subTest(version=version, newline=newline):
@@ -99,12 +101,16 @@ class SideCharacterInstall(unittest.TestCase):
                     preview = notebook.update(self.target)
                     self.assertEqual(self.snapshot(), before)
                     expected = {SKILL, WORKFLOW, HELP, 'AGENTS.md',
-                                '.novel-notebook/workflows/retrospective.md'}
-                    if version == '0.10.0':
-                        expected.add('.novel-notebook/workflows/character-development.md')
+                                '.novel-notebook/workflows/retrospective.md',
+                                '.agents/skills/novel-character-develop/SKILL.md',
+                                '.novel-notebook/workflows/character-development.md'}
                     self.assertEqual({c['path'] for c in preview['data']['changes']}, expected)
                     self.apply(preview)
-                    self.assertTrue(agents.read_bytes().startswith(original))
+                    preserved = refreshed_character_root(original, (fresh / 'AGENTS.md').read_bytes())
+                    self.assertTrue(agents.read_bytes().startswith(preserved))
+                    for name in expected - {'AGENTS.md'}:
+                        self.assertEqual((self.target / name).read_bytes().replace(b'\r\n', b'\n'),
+                                         (fresh / name).read_bytes().replace(b'\r\n', b'\n'), name)
                     self.assertIn(START, agents.read_bytes())
                     self.assertIn(b'novel-side-character', (self.target / HELP).read_bytes())
                     self.assertEqual((self.target / '.git/index').read_bytes(), index)
