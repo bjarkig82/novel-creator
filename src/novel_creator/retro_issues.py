@@ -510,7 +510,12 @@ def dispatch(args):
         raise ToolError(2, 'Issue input version must be the integer 1')
     action = args.issue_action
     if action == 'status':
-        return service.load(args.run) if args.run else {'version': 1, 'runs': [p.parent.name for p in service.base.glob('*/state.json')]}
+        if not args.run:
+            if args.finding is not None:
+                raise ToolError(2, '--finding requires --run')
+            return {'version': 1, 'runs': [p.parent.name for p in service.base.glob('*/state.json')]}
+        run = service.load(args.run)
+        return service.finding(run, args.finding) if args.finding is not None else run
     if action == 'begin':
         return service.begin(data, keep_debugging=bool(args.keep_debugging))
     service.path('issue.guard')

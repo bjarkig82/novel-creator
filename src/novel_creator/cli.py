@@ -188,8 +188,10 @@ an executable file-based JSON recipe; never interpolate story text into a shell.
         child = issue.add_parser(name)
         child.add_argument('--novel', required=True, action=Once)
         child.add_argument('--json', action=SwitchOnce)
-        child.add_argument('--run', required=name not in ('setup', 'begin', 'status'), action=Once)
-        child.add_argument('--finding', required=name in ('draft', 'approve', 'publish', 'resume', 'attachment', 'cancel'), action=Once)
+        child.add_argument('--run', required=name not in ('setup', 'begin', 'status'), action=Once,
+                           help='Run UUID. Omit to list saved runs.' if name == 'status' else None)
+        child.add_argument('--finding', required=name in ('draft', 'approve', 'publish', 'resume', 'attachment', 'cancel'), action=Once,
+                           help='Return only this finding UUID. Requires --run.' if name == 'status' else None)
         child.add_argument('--input', required=name not in ('setup', 'status'), action=Once)
         if name == 'begin':
             child.add_argument('--keep-debugging', action=SwitchOnce,

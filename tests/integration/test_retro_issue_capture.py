@@ -12,6 +12,7 @@ import zipfile
 
 from novel_creator import debug
 from novel_creator.cli import main
+from novel_creator.retro import inspection_guard
 
 
 class IssueCaptureCLI(unittest.TestCase):
@@ -44,6 +45,38 @@ class IssueCaptureCLI(unittest.TestCase):
         flags = ('--keep-debugging',) if live else ()
         return self.call('retro', 'issue', 'begin', *flags, expected=expected,
                          data=dict(version=version, request_key='explicit-retro', host_session='current', **options))
+
+    def test_issue_status_selects_a_saved_finding_without_writes(self):
+        run = self.begin()
+        run_id = run['run_id']
+        issue_id = str(uuid.uuid4())
+        no_action_id = str(uuid.uuid4())
+        draft = {name: 'Synthetic ' + name for name in ('title', 'problem', 'environment', 'reproduction',
+                 'expected', 'actual', 'evidence', 'uncertainties', 'acceptance_criteria')}
+        issue = self.call('retro', 'issue', 'draft', '--run', run_id, '--finding', issue_id,
+                          data=dict(version=1, **draft))
+        no_action = {'outcome': 'no_action', 'reason': 'No issue needed'}
+        self.call('retro', 'issue', 'draft', '--run', run_id, '--finding', no_action_id,
+                  data=dict(version=1, **no_action))
+        findings = {issue_id: issue, no_action_id: no_action}
+        status = ('retro', 'issue', 'status')
+        state_path = self.issue_dir / run_id / 'state.json'
+        saved_state = state_path.read_bytes()
+
+        with inspection_guard(self.issue_dir, 'issue.guard'):
+            for finding_id, finding in findings.items():
+                with self.subTest(finding_id=finding_id):
+                    self.assertEqual(self.call(*status, '--run', run_id, '--finding', finding_id), finding)
+            with self.subTest(selector='unknown finding'):
+                result = self.call(*status, '--run', run_id, '--finding', str(uuid.uuid4()), expected=2)
+                self.assertIn('Finding not found', result['error']['message'])
+            with self.subTest(selector='finding without run'):
+                result = self.call(*status, '--finding', issue_id, expected=2)
+                self.assertIn('--finding requires --run', result['error']['message'])
+            self.assertEqual(self.call(*status, '--run', run_id), dict(run, findings=findings))
+            self.assertEqual(self.call(*status), {'version': 1, 'runs': [run_id]})
+
+        self.assertEqual(state_path.read_bytes(), saved_state)
 
     def test_live_capture_freezes_evidence_and_keeps_the_selected_session_recording(self):
         selected = self.call('debug', 'start')['debug_session']
