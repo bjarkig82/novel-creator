@@ -569,6 +569,11 @@ Unknown writes are reconciled, never blindly retried. No fix, code edits, push,
 PR, story exchange, story files or commit occurs for retro administration.
 Saved records never re-enable participation or a new chat's publication direction.
 
+Use `retro issue status --novel BOOK --json` to list saved runs. Add
+`--run RUN` to read the whole run, or add both `--run RUN --finding FINDING`
+to read just that finding in `data`, including a no-action finding. A finding
+UUID absent from the selected run gives a nonzero exit and a finding-not-found error.
+
 Version 0.10.6 adds a host GitHub connector fallback when `gh` reads or
 authentication fail. The host compares bounded public issue and PR results.
 The CLI journals a single creation intent, returns exact connector arguments,
