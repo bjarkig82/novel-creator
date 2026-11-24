@@ -78,8 +78,15 @@ def prepare_retro(python, book, expected, env, *, host, source, expected_changes
     raw = path.read_bytes()
     path.write_bytes(raw + b'Custom retrospective.\n')
     changed = snapshot(book)
-    run([*command, '--json'], env=env, cwd=book.parent, expected_exit=3)
-    require(snapshot(book) == changed, 'Custom prerequisite mutated files')
+    conflict = preview()
+    require(conflict['conflicts'] == [{'path': custom_resource, 'replacement':
+            (expected / custom_resource).read_text(encoding='utf-8')}]
+            and custom_resource not in conflict['changes'] and not conflict['ready']
+            and not conflict['already_current'], 'Customized workflow conflict preview mismatch')
+    require(snapshot(book) == changed, 'Custom prerequisite preview mutated files')
+    run([*command, '--apply', '--preview', conflict['preview_id'], '--expected-head',
+         conflict['reviewed_head'], '--json'], env=env, cwd=book.parent, expected_exit=3)
+    require(snapshot(book) == changed, 'Custom prerequisite apply mutated files')
     path.write_bytes(raw)
     outside = book.parent / (book.name + '-retro-hardlink.md')
     outside.write_bytes(raw)

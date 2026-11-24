@@ -1,6 +1,6 @@
 # Writing with notebook agents
 
-The unpublished 0.10.2 checkout candidate also defines
+Version [0.10.2](releases/0.10.2.md) introduced
 [complete side-character profiles](side-characters.md): a short optional intake,
 one provisional full profile, and one clear save instruction. In equipped
 notebooks, the entire intake/draft/revisions stay chat-only until approval in
@@ -16,11 +16,9 @@ Git checkpoints to the coordinator.
 
 This guide covers the writing roles introduced in **published 0.5.0**, focused
 memory guidance in **published 0.6.0**, and clarification, analysis and help
-introduced in **published 0.7.0**. The latest published package is
-[0.7.2](releases/0.7.2.md), published 2026-11-11; it adds clarification suggestions
-and custom input, with explicit project updates for both formats. The earlier
-0.4.1 package does not include these writing roles or manuscript workflows. Package installation
-leaves existing notebooks and legacy novels unchanged; follow the
+introduced in **published 0.7.0**. Version [0.7.2](releases/0.7.2.md) added
+clarification suggestions and custom input in both formats. See the
+[release history](releases/README.md) for current versions and follow the
 [project upgrade steps](upgrading-projects.md) to update installed guidance.
 For setup, see [start here](../workflows/start-here.md#ask-your-agent-to-set-up-a-story).
 The [everyday-writing guide](../workflows/everyday-writing.md) covers legacy novels.

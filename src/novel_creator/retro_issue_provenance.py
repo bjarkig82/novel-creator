@@ -54,6 +54,16 @@ KNOWN['retrospective.md'] |= frozenset({
     'd11895243dceb40912ad4b45626114949a8e5b3f482a31927b793bf75cfdf846',  # Both/plugin
 })
 
+# Published 0.10.5 help guide rendered by the hash-verified wheel.
+KNOWN['help.md'] |= frozenset({
+    '2a4fdc6069c4aba26b696e66c741077c9aee41c4de730dbb62d72a7469f4c6ca',  # codex/project
+    'e9033b7b1d75f5ef033ac4ae9ad0b7b392770e7aadee774dac0e459e758e5290',  # codex/plugin
+    '667cb115e8d869c63d3969175196fa06e0d79d67b4ba96d4747c2dec61ec10f1',  # claude/project
+    '02b48364d98fbd38a9d4422c9d88e1a3e25c6a6ccdbf721eadde72566074d20c',  # claude/plugin
+    'a69a70938026b3ede244a87be16046a6737816c53d39dff55e6aa70c0842a65a',  # both/project
+    '4c4a3ca93dea6391949d61952e3e5bf673d90fb8d063dca4aad9c89b18fbd153',  # both/plugin
+})
+
 # Published 0.10.5 conversation guide from the verified wheel, rendered per
 # host/skill source. See tests/fixtures/session-guidance-0.10.5/README.md.
 KNOWN['conversation.md'] |= frozenset({

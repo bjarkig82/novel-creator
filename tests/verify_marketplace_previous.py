@@ -55,6 +55,8 @@ def default_update_inventory(target_version, source_version, before):
                     '.novel-notebook/workflows/help.md'}
     elif Version(source_version) < Version('0.10.1'):
         changed.add('.novel-notebook/workflows/character-development.md')
+        if Version(target_version) >= Version('0.10.6'):
+            changed.add('.agents/skills/novel-character-develop/SKILL.md')
     if Version(target_version) >= Version('0.10.2'):
         changed |= {'.agents/skills/novel-side-character/SKILL.md',
                     '.novel-notebook/workflows/side-character.md',
@@ -73,6 +75,14 @@ def check_default_delivery(book, expected, changed):
                 (expected / name).read_bytes().replace(b'\r\n', b'\n'),
                 'Wrong default-update resource bytes: ' + name)
     root = (book / 'AGENTS.md').read_bytes()
+    if '.agents/skills/novel-character-develop/SKILL.md' in changed:
+        pattern = rb'^## Character development\n.*?(?=^## |^<!-- novel-creator:|\Z)'
+        actual = re.search(pattern, root.replace(b'\r\n', b'\n'), re.M | re.S)
+        fresh = re.search(pattern, (expected / 'AGENTS.md').read_bytes().replace(b'\r\n', b'\n'),
+                          re.M | re.S)
+        require(actual is not None and fresh is not None and
+                actual.group().rstrip(b'\n') == fresh.group().rstrip(b'\n'),
+                'Wrong bounded character-development root routing')
     if '.novel-notebook/workflows/side-character.md' in changed:
         pattern = rb'<!-- novel-creator:side-character:start -->.*?<!-- novel-creator:side-character:end -->'
         actual = re.search(pattern, root, re.S)

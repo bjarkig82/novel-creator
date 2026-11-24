@@ -1,9 +1,8 @@
 # Marketplace setup for new notebooks
 
-The plugin manifest targets **0.10.5, published on 2026-11-20**. Existing notebooks
-can receive the revised
-retrospective resources through reviewed issue setup. [Release notes](releases/0.10.5.md) ·
-[Project upgrades](upgrading-projects.md#live-debug-snapshots-and-local-retrospectives-in-0105)
+The plugin manifest targets the **unpublished 0.10.6 candidate**. Existing
+plugin notebooks need reviewed issue setup and the character guidance refresh.
+[Release notes](releases/0.10.6.md) · [Project upgrades](upgrading-projects.md#upgrade-to-0106)
 
 The plugin has eighteen entries (setup and seventeen writing entries), including
 complete side-character profiles and author-approved session issue retrospectives.
@@ -61,7 +60,7 @@ plugin does not prove the matching Python package has been published.
 
 The permanent plugin name is `novel-creator` and the catalog is
 `novel-creator-marketplace`. Enable the plugin in your actual host and inspect
-its available skills. The 0.10.5 plugin contains `setup` and seventeen
+its available skills. The 0.10.6 plugin contains `setup` and seventeen
 writing entries; the six writing roles are installed in the book during setup, so the plugin inventory
 itself can report zero agents. Expected writing invocation syntax is Codex
 `$novel-creator:novel-help` and Claude Code `/novel-creator:novel-help`.
@@ -89,7 +88,7 @@ archive can be added by absolute path instead of the GitHub repository. Supply
 the exact matching local wheel to validate that artifact explicitly:
 
 ```text
-python /absolute/path/to/plugin/scripts/bootstrap.py --wheel /absolute/path/to/novel_creator-0.10.5-py3-none-any.whl --novel "/path/to/My Novel"
+python /absolute/path/to/plugin/scripts/bootstrap.py --wheel /absolute/path/to/novel_creator-0.10.6-py3-none-any.whl --novel "/path/to/My Novel"
 ```
 
 Here `/absolute/path/to/plugin` is the installed plugin directory, not the
@@ -108,9 +107,9 @@ Codex/project setup. Never initialize over an existing notebook to change hosts.
 
 The runtime is an isolated virtual environment for the exact plugin version,
 outside the plugin cache and the book. Windows uses
-`%LOCALAPPDATA%/NovelCreator/runtimes/0.10.5`; Linux uses
-`$XDG_CACHE_HOME/novel-creator/runtimes/0.10.5`, falling back to
-`~/.cache/novel-creator/runtimes/0.10.5`. Reuse checks the installed version,
+`%LOCALAPPDATA%/NovelCreator/runtimes/0.10.6`; Linux uses
+`$XDG_CACHE_HOME/novel-creator/runtimes/0.10.6`, falling back to
+`~/.cache/novel-creator/runtimes/0.10.6`. Reuse checks the installed version,
 dependencies and installation source; a local wheel's SHA-256 binds its
 provenance. A changed candidate wheel or switching from wheel to PyPI needs a
 separate cache location. Proxy, CA and package-index transport settings are
@@ -119,10 +118,10 @@ preserved while pip destination overrides are excluded. See the
 
 If the pinned version is missing from the index, report that actual failure;
 use a matching local wheel only when it is available for the intended setup.
-Install or upgrade the separate 0.10.5 package in your configured environment:
+After publication, install or upgrade the separate 0.10.6 package in your configured environment:
 
 ```text
-python -m pip install --upgrade novel-creator==0.10.5
+python -m pip install --upgrade novel-creator==0.10.6
 ```
 
 If setup fails, preserve its partial files and follow the reported recovery

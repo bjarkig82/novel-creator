@@ -35,8 +35,11 @@ For the setup below, you'll need access to Codex, **Python 3.11 or
 newer**, and **Git 2.39 or newer** with your name and email configured. Git uses
 that identity for the local history. [Set up your Git identity](https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup#_your_identity).
 
-Run the commands for your system in a terminal. They install Novel Creator
-0.10.5 in a separate Python environment and create a notebook called **My Novel**.
+Use the commands below once 0.10.6 is available on PyPI. Run them in a
+terminal for your system to install Novel Creator in a separate Python
+environment and create a notebook called **My Novel**.
+For the currently published version, follow the
+[0.10.5 install steps](https://github.com/bjarkig82/novel-creator/blob/main/docs/releases/0.10.5.md#install-or-upgrade).
 Use a new folder outside any existing Git repository. Its parent folder must
 already exist.
 
@@ -44,7 +47,7 @@ already exist.
 
 ```powershell
 py -3 -m venv "$env:USERPROFILE\.novel-creator-venv"
-& "$env:USERPROFILE\.novel-creator-venv\Scripts\python.exe" -m pip install novel-creator==0.10.5
+& "$env:USERPROFILE\.novel-creator-venv\Scripts\python.exe" -m pip install novel-creator==0.10.6
 & "$env:USERPROFILE\.novel-creator-venv\Scripts\novel-creator.exe" notebook init "My Novel" --path "$env:USERPROFILE\My Novel" --language en
 ```
 
@@ -52,7 +55,7 @@ py -3 -m venv "$env:USERPROFILE\.novel-creator-venv"
 
 ```bash
 python3 -m venv "$HOME/.novel-creator-venv"
-"$HOME/.novel-creator-venv/bin/python" -m pip install novel-creator==0.10.5
+"$HOME/.novel-creator-venv/bin/python" -m pip install novel-creator==0.10.6
 "$HOME/.novel-creator-venv/bin/novel-creator" notebook init "My Novel" --path "$HOME/My Novel" --language en
 ```
 
@@ -84,7 +87,7 @@ Open the existing project folder to continue. Older projects created with
 
 To add newer tools to an existing notebook or legacy novel, follow the
 project-specific upgrade steps after installing the package. Each project keeps
-its own copy of its instructions. [Upgrade guide for version 0.10.5](https://github.com/bjarkig82/novel-creator/blob/main/docs/upgrading-projects.md#live-debug-snapshots-and-local-retrospectives-in-0105).
+its own copy of its instructions. [Upgrade guide for version 0.10.6](https://github.com/bjarkig82/novel-creator/blob/main/docs/upgrading-projects.md#upgrade-to-0106).
 
 <a id="unreleased-session-issue-retrospectives"></a>
 
@@ -96,7 +99,8 @@ attachments to share. [Session review guide](https://github.com/bjarkig82/novel-
 
 ## Releases
 
-- [Novel Creator 0.10.5 on PyPI](https://pypi.org/project/novel-creator/0.10.5/)
+- [0.10.6 unpublished candidate notes](https://github.com/bjarkig82/novel-creator/blob/main/docs/releases/0.10.6.md)
+- [Published Novel Creator 0.10.5 on PyPI](https://pypi.org/project/novel-creator/0.10.5/)
 - [0.10.5 release notes and compatibility](https://github.com/bjarkig82/novel-creator/blob/main/docs/releases/0.10.5.md)
 - [Release history](https://github.com/bjarkig82/novel-creator/blob/main/docs/releases/README.md)
 

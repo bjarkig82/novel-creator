@@ -57,7 +57,9 @@ def check_features(book, expected, *, host, source):
 
 
 def exercise(python, book, expected, env, *, host, source, default=False):
-    from novel_creator import notebook, notebook_side_character, retro_issue_setup
+    from packaging.version import Version
+    from novel_creator import __version__, notebook, notebook_side_character, retro_issue_setup
+    refresh_character = default and Version(__version__) >= Version('0.10.6')
     from novel_creator.cli import ToolError
     roots = ('AGENTS.md', 'CLAUDE.md') if host == 'both' else (
         'AGENTS.md' if host == 'codex' else 'CLAUDE.md',)
@@ -104,7 +106,17 @@ def exercise(python, book, expected, env, *, host, source, default=False):
         path = book / resource
         raw = path.read_bytes() if path.exists() else None
         path.write_bytes((raw or b'') + b'Writer customized resource.\n')
-        refuses(helper)
+        if name == 'retrospective':
+            customized = snapshot(book)
+            conflict = helper()
+            require(conflict['conflicts'] == [{'path': resource, 'replacement':
+                    (expected / resource).read_text(encoding='utf-8')}]
+                    and resource not in conflict['changes'] and not conflict['ready']
+                    and not conflict['already_current'], 'Unexpected workflow conflict preview')
+            require(snapshot(book) == customized, 'Workflow conflict preview changed files')
+            refuses(lambda: helper(conflict))
+        else:
+            refuses(helper)
         if raw is None:
             path.unlink()
         else:
@@ -132,10 +144,17 @@ def exercise(python, book, expected, env, *, host, source, default=False):
         changed = {p for p in state.keys() | after.keys() if state.get(p) != after.get(p)}
         expected_paths = set(roots) | feature_paths(host, source, name)
         if name == 'side-character' and default:
-            # Public 0.10.1 has current character guidance; default setup also
-            # refreshes help and adds the absent passive retro prerequisite.
+            # Default setup refreshes help and adds the absent retro prerequisite.
             expected_paths |= {'.novel-notebook/workflows/retrospective.md',
                                '.novel-notebook/workflows/help.md'}
+            if refresh_character:
+                character_paths = {'.novel-notebook/workflows/character-development.md',
+                                   '.agents/skills/novel-character-develop/SKILL.md'}
+                expected_paths |= character_paths
+                for path in character_paths:
+                    require((book / path).read_bytes().replace(b'\r\n', b'\n') ==
+                            (expected / path).read_bytes().replace(b'\r\n', b'\n'),
+                            'Wrong refreshed character resource: ' + path)
         if name == 'retrospective':
             expected_paths |= {'.gitignore', '.novel-notebook/workflows/conversation.md',
                                '.novel-notebook/workflows/help.md', '.novel-notebook/workflows/debugging.md'}
@@ -155,6 +174,11 @@ def exercise(python, book, expected, env, *, host, source, default=False):
     for name in roots:
         # Only the exact shipped obsolete paragraph is replaced by retro setup.
         preserved = root_bytes[name].replace(OLD_ROOT.encode(), b'')
+        if refresh_character:
+            pattern = rb'^## Character development\r?\n.*?(?=^## |^<!-- novel-creator:|\Z)'
+            old = re.search(pattern, preserved, re.M | re.S).group().rstrip(b'\r\n')
+            new = re.search(pattern, (expected / name).read_bytes(), re.M | re.S).group().rstrip(b'\r\n')
+            preserved = preserved.replace(old, new, 1)
         require((book / name).read_bytes().startswith(preserved), 'Custom root bytes changed')
     require((book / '.git/index').read_bytes() == index, 'Feature setup changed staging')
     require(run(['git', '-C', book, 'rev-parse', 'HEAD'], env=env, cwd=book.parent) == head,

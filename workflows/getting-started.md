@@ -10,13 +10,10 @@ and return to saved conversations in Codex. You can start with no story idea.
 Each novel is its own local Git repository. Initialization finishes before creative
 setup begins; you choose when to start brainstorming.
 
-**Current published release:** `novel-creator` 0.5.0 is available on
-[PyPI](https://pypi.org/project/novel-creator/0.5.0/). This checkout prepares the
-unpublished 0.6.0 candidate with fresh working context and targeted retrieval.
-This guide describes the
-legacy format retained from 0.3.0; use the [beginner guide](start-here.md) for
-new Markdown notebooks. During prepublication verification of a future release,
-install only the maintainer's identified candidate wheel in the same environment.
+See the [release history](https://github.com/bjarkig82/novel-creator/blob/main/docs/releases/README.md)
+for verified PyPI versions. This guide describes the legacy format. For a new
+Markdown notebook, use the [beginner guide](start-here.md). During prepublication
+verification, install the maintainer's identified candidate wheel.
 
 ## Before you begin
 

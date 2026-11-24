@@ -7,11 +7,13 @@ import re
 from pathlib import Path
 import subprocess
 import unittest
+import zipfile
 from unittest.mock import patch
 
 from novel_creator import notebook
 from novel_creator.cli import ToolError, main
 from tests.integration import test_notebook_init as notebook_init_tests
+from tests.release_fixtures import published_wheel
 
 
 # Frozen from both verified public 0.7.0 and 0.7.1 wheels, independently of
@@ -445,6 +447,29 @@ class NotebookUpdate(unittest.TestCase):
                     path.unlink()
                 else:
                     path.write_bytes(original)
+
+    def test_published_character_section_and_skill_refresh_preserves_neighboring_bytes(self):
+        self.initialize()
+        root = self.target / 'AGENTS.md'
+        skill = self.target / '.agents/skills/novel-character-develop/SKILL.md'
+        pattern = rb'^## Character development\n.*?(?=^## |^<!-- novel-creator:|\Z)'
+        current_section = re.search(pattern, root.read_bytes().replace(b'\r\n', b'\n'),
+                                    re.M | re.S).group().rstrip(b'\n')
+        current_skill = skill.read_bytes().replace(b'\r\n', b'\n')
+        with zipfile.ZipFile(published_wheel('0.10.0')) as wheel:
+            old_root = wheel.read('novel_creator/codex/notebook/AGENTS.md')
+            old_section = re.search(pattern, old_root, re.M | re.S).group().rstrip(b'\n')
+            skill.write_bytes(wheel.read('novel_creator/codex/notebook/skills/novel-character-develop/SKILL.md'))
+        prefix = b'# Writer instructions  \r\n\n'
+        suffix = b'\r\n\r\n## Writer notes\nKeep these exact bytes.  \r\n'
+        root.write_bytes(prefix + old_section.replace(b'\n', b'\r\n') + suffix)
+        before = self.snapshot()
+        preview = notebook.update(self.target)
+        self.assertEqual(self.snapshot(), before)
+        self.apply(preview)
+        self.assertTrue(root.read_bytes().startswith(prefix + current_section.replace(b'\n', b'\r\n') + suffix))
+        self.assertEqual(skill.read_bytes(), current_skill)
+        self.assertTrue(notebook.update(self.target)['data']['already_current'])
 
     def test_character_identical_crlf_resources_are_harmless_and_keep_bytes(self):
         self.old_notebook()

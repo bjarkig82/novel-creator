@@ -5,21 +5,73 @@ instructions require an explicit project update as well. Keep the configured
 Python environment outside the novel and open the intended novel folder in Codex.
 Do not initialize over an existing novel or convert formats to obtain a skill.
 
-## Timeline recap guidance in current source
+<a id="timeline-recap-guidance-in-current-source"></a>
 
-To try the updated notebook guidance before a package release, install the
-reviewed source in a separate Python environment outside the book
-(`python -m pip install /path/to/novel-creator-source`). A new format-1 notebook
-gets the revised conversation guide at initialization. In an existing notebook,
-use that environment to preview and apply the
-[notebook issue setup](#live-debug-snapshots-and-local-retrospectives-in-0105)
-commands below. Review the proposed changes and use the returned preview ID and
-HEAD. The recap change itself updates only
-`.novel-notebook/workflows/conversation.md`. The preview may also include
-separate pending framework updates. Customized guides are reported for review
-before apply. Inspect the file and reopen the notebook in the host or begin a
-fresh chat so it reads the revised guide. The published 0.10.5 package predates
-this recap change.
+## Upgrade to 0.10.6
+
+Version [0.10.6](releases/0.10.6.md) is an unpublished candidate. After
+publication, install it in a Python 3.11+ environment outside the book.
+Use that interpreter for the commands below. Git 2.39+ is required.
+
+```text
+python -m pip install --upgrade novel-creator==0.10.6
+```
+
+**New projects.** For a legacy novel, run `python -m novel_creator init "My Novel"`
+from a suitable parent directory. It includes the revised retrospective workflow.
+For a new format-1 notebook, run
+`python -m novel_creator notebook init "My Novel" --language en --host codex --skill-source project`.
+Select the intended language (`en` or `is`), host (`codex`, `claude` or
+`both`) and skill source (`project` or `plugin`). New notebooks also receive
+the revised recap and delegated character-development guidance. Enable the
+matching 0.10.6 plugin for plugin notebooks.
+
+**Existing legacy novel.** Use the external 0.10.6 interpreter as `CONTROLLER`,
+the book's verified interpreter as `RUNTIME` and its folder as `BOOK`. Review
+the preview, resolve any blockers and apply with the reviewed ID and HEAD.
+For an initial update from 0.1.0 or 0.2.0, close other book clients and add
+`--confirm-quiescent` to the apply command after confirming they are closed.
+
+```text
+CONTROLLER -I -B -m novel_creator update --novel BOOK --python RUNTIME --version 0.10.6 --json
+CONTROLLER -I -B -m novel_creator update --novel BOOK --apply --preview PREVIEW_ID --version 0.10.6 --expected-head REVIEWED_HEAD --json
+```
+
+The framework updater refreshes the pinned runtime and managed guidance in a
+dedicated commit, preserving story content, custom instructions and unrelated
+staging. Follow the [legacy update procedure](../workflows/getting-started.md#updating-an-existing-book).
+
+**Existing format-1 notebook.** A package upgrade alone leaves local instructions
+pinned. For a current 0.10.5 notebook, pause editing and follow these steps.
+
+1. Preview issue setup and review the proposed paths, including the retrospective,
+   conversation and help guides. Handle [customized workflows](#review-workflow-conflicts)
+   before applying. For a stale preview, changed HEAD or redirected path, resolve
+   the problem and preview again. Apply with the returned ID and HEAD.
+
+   ```text
+   python -m novel_creator retro issue setup --novel BOOK --json
+   python -m novel_creator retro issue setup --novel BOOK --apply --preview PREVIEW_ID --expected-head REVIEWED_HEAD --json
+   ```
+
+2. Complete the [character guidance refresh](character-development.md#refresh-an-existing-notebook-for-delegated-proposal-saves).
+   Use the **same 0.10.6 interpreter** to create a disposable reference outside
+   the novel with matching language, host and skill source. Compare the listed
+   workflows, root Character development section, specialist role and project
+   skill. Merge the remaining changes while preserving custom instructions.
+   Plugin notebooks also need the matching 0.10.6 plugin installed and enabled.
+   Neither step creates a story save or Git checkpoint. Review the diff and
+   verify story content, history and unrelated staging are preserved.
+3. Inspect the selected skill and role and follow their links in the actual
+   book. Reopen the folder in Codex or Claude Code, reread its `AGENTS.md`
+   and/or `CLAUDE.md`, and reload skills using host controls or a fresh chat.
+   Use the same host reload after a legacy update.
+
+The [topic-index checker](functionality.md#check-topic-index-counts-on-demand)
+runs from the external runtime on new or existing format-1 notebooks without
+the guidance refresh. Its report leaves book files and staging untouched.
+The recap and delegated character guidance also apply to format-1 notebooks.
+Use the [legacy writing workflows](../workflows/everyday-writing.md) in a legacy novel.
 
 ## Live debug snapshots and local retrospectives in 0.10.5
 

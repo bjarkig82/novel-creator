@@ -45,7 +45,7 @@ another chat. File saves and pending/failed checkpoints must be reported separat
 
 ### Assign a specialist a proposal save
 
-The reviewed source adds a narrow option for existing profiles. You can say
+The 0.10.6 candidate adds a narrow option for existing profiles. You can say
 “Assign Elin to one specialist and Ari to another. Each can draft, review, approve
 and save additions to their assigned existing profile as proposals.” The
 coordinator resolves each profile to its owning path and gives each specialist
@@ -250,7 +250,7 @@ needed, and chat-only drafts will not thereby become recoverable.
 
 ## Refresh an existing notebook for delegated proposal saves
 
-The delegated-save guidance is in this source checkout. Installing published
+The delegated-save guidance is in the 0.10.6 candidate. Installing published
 0.10.5 alone leaves the installed project guidance unchanged. The feature-only
 procedure above is for adding character development where it was missing.
 If you add the feature from this source to an older notebook, follow this
@@ -259,7 +259,8 @@ To refresh an equipped format-1 notebook, compare and merge the affected
 guidance from a disposable notebook rendered by the reviewed checkout.
 
 1. Install the reviewed source into an isolated environment outside the novel
-   using the source install command above. Use that same Python to render a new
+   using the source install command above, or use the matching 0.10.6 package
+   once published. Use that same Python to render a new
    reference notebook at a nonexistent path outside the existing novel. Match
    the existing book's integration marker (`codex`/`claude`/`both` and
    `project`/`plugin`). An absent marker means `codex/project`. For example,

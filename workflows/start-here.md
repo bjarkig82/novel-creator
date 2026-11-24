@@ -1,26 +1,15 @@
 # Start here: Novel Creator for writers
 
-The latest verified PyPI release is 0.9.0, published 2026-11-12. It adds Character
-development for notebooks: a batch of proposed profile prose stays in chat until
-you explicitly approve a current or selected save. Existing notebooks need an
-explicit project update; the upgrade guide includes every supported host/plugin
-layout. Legacy novels retain their existing methods. Existing projects also
-have explicit update paths for Clarify, Analyze and Help, including clarification
-suggestions/custom answers. Package installation alone does not add skills to
-your novel. Legacy novels use the reviewed framework
-updater; original-layout notebooks use a preview and explicit apply. Do not
-initialize over an existing novel. Follow `docs/upgrading-projects.md` in the
-updated source checkout.
+See the [release history](https://github.com/bjarkig82/novel-creator/blob/main/docs/releases/README.md)
+for verified published versions. Existing projects need a project update after
+installing the package. Follow the
+[upgrade steps for your format](https://github.com/bjarkig82/novel-creator/blob/main/docs/upgrading-projects.md).
 
-**0.8.0 adds marketplace setup** for new notebooks in Codex or Claude Code on
-Windows/Linux. Follow the marketplace guide at `docs/plugin-marketplaces.md` in
-the updated source checkout for GitHub installation, the exact-version PyPI
-runtime and host prerequisites. Automated Windows/Linux package and public
-installation checks passed. Its expected
-Help syntax is Codex `$novel-creator:novel-help` or Claude Code
-`/novel-creator:novel-help`; actual native discovery remains pending. Existing
-notebooks keep their installed routing; marketplace adoption and a legacy host
-port are deferred. The standalone Codex route below remains supported.
+For a new plugin notebook in Codex or Claude Code on Windows or Linux, follow the
+[marketplace guide](https://github.com/bjarkig82/novel-creator/blob/main/docs/plugin-marketplaces.md)
+for prerequisites and the matching PyPI runtime. The expected Help invocation is
+`$novel-creator:novel-help` in Codex or `/novel-creator:novel-help` in Claude Code.
+Check that the skill appears in your host. The standalone Codex route is below.
 
 Novel Creator helps you develop a novel through conversations in Codex. You can
 start with a detailed idea, a few loose thoughts, or no idea at all. It keeps a
