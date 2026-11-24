@@ -93,6 +93,14 @@ Use `record --input FILE` for batched agent observations and optional
 `export --output PATH` for a chosen new local ZIP. See the
 [legacy commands](../workflows/debugging.md) and
 [notebook capture workflow](../notebook/workflows/debugging.md).
+
+In a migrated notebook that retains legacy markers, `debug status --novel PATH
+--debug-session ID --json` checks both debug directories for that ID. If the ID
+appears in both, rerun with `--format novel-notebook` or `--format legacy`.
+To list the notebook sessions in a mixed-format book, use `debug status --novel
+PATH --format novel-notebook --json`. The list defaults to legacy when both
+formats are present.
+
 **0.10.3 improvements:** `debug record --help` explains reserved
 operation names, supported story paths
 and snapshot phases. Both workflows include an executable UTF-8 JSON helper

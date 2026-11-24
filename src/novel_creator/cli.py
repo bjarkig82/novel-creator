@@ -140,6 +140,9 @@ an executable file-based JSON recipe; never interpolate story text into a shell.
         target.add_argument('--novel', required=True, action=Once)
         if action in ('status', 'record', 'stop', 'export'):
             target.add_argument('--debug-session', required=action != 'status', action=Once)
+        if action == 'status':
+            target.add_argument('--format', dest='project_format', choices=('novel-notebook', 'legacy'), action=Once,
+                                help='Inspect one project format explicitly when both formats are present')
         if action == 'record':
             target.add_argument('--input', required=True, action=Once,
                                 help='UTF-8 JSON file containing public observations; no story shell interpolation')

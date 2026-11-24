@@ -80,21 +80,29 @@ def _git(root, *args):
     return result.stdout.decode('utf-8', 'replace').strip() if result.returncode == 0 else None
 
 
-def _project(novel):
+def _projects(novel, project_format=None):
     root = _guard(novel)
     if not root.is_dir() or not _guard(root / '.git').is_dir():
         raise ToolError(2, 'Debugging requires an existing independent novel Git root')
     actual = _git(root, 'rev-parse', '--show-toplevel')
     if actual is None or Path(actual).resolve() != root:
         raise ToolError(2, 'Debugging requires an existing independent novel Git root')
-    if _guard(root / '.novel-creator/manifest.json').is_file():
-        kind, base = 'legacy', '.novel-creator/local/debug'
-    elif (_guard(root / 'notebook/project.md').is_file() and
-          _guard(root / '.novel-notebook/workflows').is_dir()):
-        kind, base = 'novel-notebook', '.novel-notebook/local/debug'
-    else:
+    has_legacy = (project_format in (None, 'legacy') and
+                  _guard(root / '.novel-creator/manifest.json').is_file())
+    if has_legacy:
+        yield root, 'legacy', _guard(root / '.novel-creator/local/debug')
+    if (project_format in (None, 'novel-notebook') and
+            _guard(root / 'notebook/project.md').is_file() and
+            _guard(root / '.novel-notebook/workflows').is_dir()):
+        yield root, 'novel-notebook', _guard(root / '.novel-notebook/local/debug')
+    elif not has_legacy:
+        if project_format is not None:
+            raise ToolError(2, f'No supported {project_format} format was found in the selected novel')
         raise ToolError(2, 'No supported notebook or legacy novel was found')
-    return root, kind, _guard(root / base)
+
+
+def _project(novel):
+    return next(_projects(novel))
 
 
 def _identifier(value):
@@ -304,9 +312,9 @@ def start(novel):
     return dict(info, directory=str(directory))
 
 
-def status(novel, debug_session=None):
+def status(novel, debug_session=None, *, project_format=None):
     if debug_session is None:
-        _, _, base = _project(novel)
+        _, _, base = next(_projects(novel, project_format))
         sessions = []
         if base.exists():
             for path in sorted(base.iterdir()):
@@ -316,9 +324,23 @@ def status(novel, debug_session=None):
                     continue
                 _guard(path)
                 if path.is_dir():
-                    sessions.append(status(novel, path.name))
+                    sessions.append(_read_status(path))
         return {'sessions': sessions, 'automatic_activation': False}
-    _, _, directory = _session(novel, debug_session)
+
+    identifier = _identifier(debug_session)
+    matches = []
+    for _, _, base in _projects(novel, project_format):
+        directory = _guard(base / identifier)
+        if directory.is_dir():
+            matches.append(directory)
+    if not matches:
+        raise ToolError(2, 'Debug session was not found in the selected novel')
+    if len(matches) > 1:
+        raise ToolError(2, 'Debug session exists in both formats. Rerun with --format novel-notebook or --format legacy')
+    return _read_status(matches[0])
+
+
+def _read_status(directory):
     with _lock(directory):
         info = _metadata(directory)
         events, warnings, _ = _events(directory)
@@ -561,7 +583,7 @@ def dispatch(args):
     if action in ('setup', 'start'):
         return globals()[action](args.novel)
     if action == 'status':
-        return status(args.novel, args.debug_session)
+        return status(args.novel, args.debug_session, project_format=args.project_format)
     if action == 'record':
         try:
             payload = _loads(_guard(args.input).read_bytes())
