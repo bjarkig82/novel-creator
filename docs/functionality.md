@@ -575,6 +575,20 @@ novels receive updated guides and runtime through the normal published-release
 framework update. [Project upgrade steps](upgrading-projects.md#live-debug-snapshots-and-local-retrospectives-in-0105)
 
 
+### Early duplicate check (unreleased)
+
+The host checks existing issues once per retrospective with evidenced problems
+before drafting or suggesting a new issue. It reads up to 100 open and closed
+public issues from `bjarkig82/novel-creator`, using `gh` or the host's GitHub
+connector. It compares findings against issue titles and full bodies locally,
+including paraphrases, and sends no private search terms. The first reply links
+confirmed equivalents and suggests a new issue only when the comparison found
+no equivalent in the bounded listing. An unavailable or incomplete comparison
+keeps the finding local and pending. An explicit local-only review skips the
+lookup and can explain the potential filing rationale while marking the finding
+unchecked. Later publication still requires exact approval and a fresh duplicate
+preflight. [Duplicate check workflow](../workflows/retrospective.md#check-existing-github-issues)
+
 ## Updating existing legacy books
 
 Updates are explicit maintenance through an external updater-capable installation.

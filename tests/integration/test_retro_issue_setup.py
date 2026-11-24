@@ -87,10 +87,36 @@ class IssueSetup(unittest.TestCase):
             first_response = text.split('## First review response and completion status', 1)[1]
             first_response = first_response.split('## Exact sharing approval', 1)[0]
             first_response = ' '.join(first_response.split())
-            for requirement in ('GitHub issue candidate', 'why it merits filing',
-                                'no new GitHub issue candidates', 'debugging state',
+            for requirement in ('potential filing rationale', 'no evidenced problems', 'debugging state',
                                 'exact outgoing approval'):
                 self.assertIn(requirement, first_response)
+
+    def test_duplicate_check_precedes_issue_suggestions(self):
+        root = self.parent / 'early-duplicate-check'
+        initialize(root)
+        legacy = Path(__file__).resolve().parents[2] / 'workflows/retrospective.md'
+        notebook = root / '.novel-notebook/workflows/retrospective.md'
+        for path in (legacy, notebook):
+            with self.subTest(path=path):
+                workflow = path.read_text(encoding='utf-8')
+                _, check = workflow.split('## Check existing GitHub issues', 1)
+                check, draft = check.split('## Formal issue drafts', 1)
+                draft, response = draft.split('## First review response and completion status', 1)
+                response, _ = response.split('## Exact sharing approval', 1)
+                for requirement in (
+                    'once per retrospective', 'before drafting or suggesting',
+                    'gh issue list --repo github.com/bjarkig82/novel-creator --state all --limit 100'
+                    ' --json number,title,body,url',
+                    'repo:bjarkig82/novel-creator is:issue', 'complete Markdown body',
+                    'without sending private search terms', 'including paraphrases',
+                    'skip all GitHub reads', 'permission to read public GitHub issues',
+                ):
+                    self.assertIn(requirement, check)
+                self.assertIn('Only create new issue drafts for findings with no equivalent in the reviewed listing',
+                              ' '.join(draft.split()))
+                for requirement in ('existing issue URL', 'duplicate comparison pending',
+                                    'do not recommend creating', 'no equivalent in the reviewed listing'):
+                    self.assertIn(requirement, ' '.join(response.split()))
 
     def call(self, root, preview=None):
         return setup(SimpleNamespace(novel=root, apply=preview is not None,
