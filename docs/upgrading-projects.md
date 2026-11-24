@@ -5,6 +5,22 @@ instructions require an explicit project update as well. Keep the configured
 Python environment outside the novel and open the intended novel folder in Codex.
 Do not initialize over an existing novel or convert formats to obtain a skill.
 
+## Timeline recap guidance in current source
+
+To try the updated notebook guidance before a package release, install the
+reviewed source in a separate Python environment outside the book
+(`python -m pip install /path/to/novel-creator-source`). A new format-1 notebook
+gets the revised conversation guide at initialization. In an existing notebook,
+use that environment to preview and apply the
+[notebook issue setup](#live-debug-snapshots-and-local-retrospectives-in-0105)
+commands below. Review the proposed changes and use the returned preview ID and
+HEAD. The recap change itself updates only
+`.novel-notebook/workflows/conversation.md`. The preview may also include
+separate pending framework updates. Customized guides are reported for review
+before apply. Inspect the file and reopen the notebook in the host or begin a
+fresh chat so it reads the revised guide. The published 0.10.5 package predates
+this recap change.
+
 ## Live debug snapshots and local retrospectives in 0.10.5
 
 Install [0.10.5](releases/0.10.5.md), published on 2026-11-20, in a Python 3.11+

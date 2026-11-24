@@ -62,6 +62,17 @@ remove its leverage. Carry the writer's correction into later replies, recaps
 and handoffs. Leave when or whether the vulnerability ends open unless the
 writer establishes a change.
 
+In timeline recaps and handoffs, including short spoken continuations, preserve
+who did what, in which role, and at that point in the story. Keep workplace
+supervision, academic appointments and mentorship separate when the writer has
+distinguished them. Use a scoped verb instead of shorthand that implies a
+stronger relationship. For example, if Imani supervises Leif's lab work at the
+company and his academic supervisor is still undecided, say “Imani supervises
+Leif's lab work at the company.” If the academic role matters to the recap, add
+“His academic supervisor is still undecided.” Calling Leif “Imani's PhD student”
+would invent an appointment. Carry both the established scope and the relevant
+open question into a handoff, even when the spoken recap is brief.
+
 If the host supplies a current request together with earlier transcript text,
 keep the current writer's words, prior writer speech and assistant paraphrases
 distinct. Earlier transcript text is context. An assistant recap or an
