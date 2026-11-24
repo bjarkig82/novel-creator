@@ -7,6 +7,13 @@ notebooks, the entire intake/draft/revisions stay chat-only until approval in
 every writing role. Existing books need explicit project resources; a package
 upgrade alone does not add this mode.
 
+For existing-profile enrichment, a writer can expressly
+[delegate a proposal save](character-development.md#assign-a-specialist-a-proposal-save)
+to a designated specialist. Resolve authority and the exact owning path before
+dispatch. Ordinary drafting and review stay in chat until the writer approves
+the current text. Delegates save only their assigned proposals and leave local
+Git checkpoints to the coordinator.
+
 This guide covers the writing roles introduced in **published 0.5.0**, focused
 memory guidance in **published 0.6.0**, and clarification, analysis and help
 introduced in **published 0.7.0**. The latest published package is

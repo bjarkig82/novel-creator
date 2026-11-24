@@ -105,8 +105,11 @@ a save succeeded before it does; disclose persistence failures as usual.
 
 For `$novel-character-develop` or an ordinary request to fill gaps, enrich or
 deepen a character profile, follow [character development](character-development.md).
-This mode keeps the entire draft and revisions in chat until clear approval to
-save the current draft or specific additions. Its no-write exception overrides
+Keep drafts and revisions in chat until the writer clearly approves saving the
+current draft or specific additions. Follow the workflow's narrow
+[explicit delegation exception](character-development.md#explicit-delegation-for-existing-profiles)
+for a designated specialist saving proposed additions to an existing profile.
+The workflow's save boundary overrides
 automatic notes, meaningful-turn saves, summaries, handoff/draft files and Git
 checkpoints in this workflow, including in specialists and language guidance. Praise,
 selection or revision alone is not save authority. Ordinary question-led

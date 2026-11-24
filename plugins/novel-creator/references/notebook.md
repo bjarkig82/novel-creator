@@ -36,10 +36,10 @@ Codex `$novel-creator:novel-outline`; Claude Code `/novel-creator:novel-outline`
 Use the active host's syntax for other entries in the same way.
 
 Character development uses the selected book's `character-development.md`
-snapshot for one numbered batch of proposed profile prose. Drafts and every
-revision stay entirely in chat until explicit approval to save current or selected
-additions. This overrides automatic notes, summaries, handoffs and checkpoints
-in all roles and language guidance. Do not generate another batch unless asked.
+snapshot for one numbered batch of proposed profile prose. Follow its save
+boundary, including the narrow explicit delegation option for proposed additions
+to an existing profile. The boundary overrides automatic notes, summaries,
+handoffs and checkpoints in all roles and language guidance. Do not generate another batch unless asked.
 Preserve canon and scoped ownership/history when saving approved prose.
 Question-led Character and Clarify remain separate methods.
 

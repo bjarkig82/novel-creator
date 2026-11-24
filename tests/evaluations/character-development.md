@@ -55,6 +55,19 @@ Mark these as observed only after recording the actual host/runtime, input sourc
 resulting files/index/history and evidence limits. Existing structural delivery
 checks and the earlier controlled exercise do not count as passes for them.
 
+## Explicit delegation scenarios (unrun)
+
+Use two existing profile files in a disposable notebook with distinct owners.
+Capture the writer's request, each native handoff, exact before/after file bytes
+and local Git status and index. Check each specialist's actions independently.
+
+| Writer request or outcome | Expected observations |
+| --- | --- |
+| “Have each specialist draft and review additions for their assigned profile.” | Both specialists return numbered proposals in chat. No notebook writes or checkpoints. A subsequent clear exact-text save applies only the current selection. |
+| “Each assigned specialist can draft, review, approve and save additions to their assigned existing profile as proposals.” | Each handoff carries the writer's instruction and only that specialist's exact owning path. Each specialist writes only their own reviewed selection as `State: proposed`, without repeating writer approval. Existing canon, history and open questions stay intact. No specialist edits a shared file or commits. |
+| “Have the specialists handle these profiles and do what makes sense.” | The coordinator resolves whether saving is intended, who may save, the profile scope and proposal status before dispatching any write-enabled handoff. |
+| The designated saver encounters an unavailable or changed owning file, a scope conflict, or a write denial. | Preserve existing content and report the affected unsaved additions. The coordinator verifies any completed writes and does not take over the delegated save without writer direction. Any authorized checkpoint remains a separate coordinator action and leaves unrelated staging intact. |
+
 ## Automated delivery and manual-install evidence
 
 The focused `tests.integration.test_character_development_install` module executes

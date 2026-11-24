@@ -151,11 +151,12 @@ default for exploratory character work; a character topic alone does not select
 this mode. Offer one connected batch of proposed profile prose, then stop until
 the writer requests further work.
 
-In this mode, keep the entire draft and revisions in chat until the writer
-clearly approves saving the current draft or specific current additions. This
-exception overrides automatic notes, meaningful-turn saves, summaries, handoff
-or draft files and Git checkpoints in all roles and language guidance: make no
-notebook file writes before that approval. Praise, tentative acceptance,
+Keep drafts and revisions in chat until the writer clearly approves saving the
+current draft or specific current additions. Follow the workflow's narrow
+[explicit delegation exception](.novel-notebook/workflows/character-development.md#explicit-delegation-for-existing-profiles)
+for a designated specialist saving proposed additions to an existing profile.
+The workflow's save boundary overrides automatic notes, meaningful-turn saves,
+summaries, handoff or draft files and Git checkpoints in all roles and languages. Praise, tentative acceptance,
 selection, discussion or modification alone is not save authority. Do not ask
 again for an unambiguous save. Save only approved current content under the shared
 workflow's identity, canon, ownership and history rules; unsaved additions stay

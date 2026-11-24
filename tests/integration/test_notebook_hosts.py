@@ -55,8 +55,12 @@ class NotebookHosts(unittest.TestCase):
                         if host == 'both' and source == 'plugin':
                             self.assertIn('$novel-creator:novel-clarify', help_text)
                         development = (target / '.novel-notebook/workflows/character-development.md').read_text(encoding='utf-8')
-                        self.assertIn('keep the entire draft', (target / ('AGENTS.md' if host != 'claude' else 'CLAUDE.md')).read_text(encoding='utf-8').lower())
-                        self.assertIn('every revision in this chat', development)
+                        section = '#explicit-delegation-for-existing-profiles'
+                        self.assertIn(section, roles)
+                        self.assertIn(section, help_text)
+                        self.assertIn('## Explicit delegation for existing profiles', development)
+                        self.assertIn('State: proposed', development)
+                        self.assertIn('Without explicit delegation, make no notebook file writes', development)
                         self.assertIn('2–3 connected additions', development)
                         self.assertIn('novel-character-develop', help_text)
                         for active in (('codex', 'claude') if host == 'both' else (host,)):
@@ -64,10 +68,15 @@ class NotebookHosts(unittest.TestCase):
                             invocation += ('novel-creator:' if source == 'plugin' else '') + 'novel-character-develop'
                             self.assertIn(invocation, development)
                             instructions = target / ('AGENTS.md' if active == 'codex' else 'CLAUDE.md')
-                            self.assertIn(invocation, instructions.read_text(encoding='utf-8'))
+                            root_guidance = instructions.read_text(encoding='utf-8')
+                            self.assertIn(invocation, root_guidance)
+                            self.assertIn(section, root_guidance)
+                            self.assertIn('until the writer clearly approves', root_guidance)
                             if source == 'project':
                                 skill = target / ('.agents' if active == 'codex' else '.claude') / 'skills/novel-character-develop/SKILL.md'
-                                self.assertIn(invocation, skill.read_text(encoding='utf-8'))
+                                skill_text = skill.read_text(encoding='utf-8')
+                                self.assertIn(invocation, skill_text)
+                                self.assertIn('narrow explicit delegation option', skill_text)
                         project = (target / 'notebook/project.md').read_text(encoding='utf-8')
                         self.assertEqual(json.loads(project.split('```json\n')[1].split('```')[0])['language'], language)
                         self.assertEqual(subprocess.check_output(['git', '-C', str(target), 'status', '--porcelain']), b'')
@@ -103,7 +112,7 @@ class NotebookHosts(unittest.TestCase):
                         for destination in links:
                             self.assertTrue(destination.is_relative_to(target.resolve()))
                             self.assertTrue(destination.is_file())
-                        self.assertIn('no notebook writes or checkpoints until clear approval', text)
+                        self.assertIn('narrow express delegation for proposed additions', text)
                         self.assertIn('profile enrichment/gap filling', text)
 
     def test_update_refuses_nondefault_integrations_without_changes(self):
