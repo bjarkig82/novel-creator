@@ -28,7 +28,7 @@ including issue setup then the six-guide refresh for existing 0.10.2 notebooks.
 
 ## Check topic-index counts on demand
 
-From the 0.10.6 candidate runtime, run this command with the folder
+From a 0.10.6 runtime, run this command with the folder
 that contains `notebook/`. It works for new and existing format-1 notebooks,
 including those created with 0.10.5. No project update is needed.
 
@@ -560,7 +560,7 @@ Unknown writes are reconciled, never blindly retried. No fix, code edits, push,
 PR, story exchange, story files or commit occurs for retro administration.
 Saved records never re-enable participation or a new chat's publication direction.
 
-The 0.10.6 candidate adds a host GitHub connector fallback when `gh` reads or
+Version 0.10.6 adds a host GitHub connector fallback when `gh` reads or
 authentication fail. The host compares bounded public issue and PR results.
 The CLI journals a single creation intent, returns exact connector arguments,
 and records the issue URL after checking a host-observed receipt. A lost
@@ -615,7 +615,7 @@ novels receive updated guides and runtime through the normal published-release
 framework update. [Project upgrade steps](upgrading-projects.md#live-debug-snapshots-and-local-retrospectives-in-0105)
 
 
-### Early duplicate check (0.10.6 candidate)
+### Early duplicate check (0.10.6)
 
 The host checks existing issues once per retrospective with evidenced problems
 before drafting or suggesting a new issue. It reads up to 100 open and closed

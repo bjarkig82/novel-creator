@@ -9,8 +9,8 @@ Do not initialize over an existing novel or convert formats to obtain a skill.
 
 ## Upgrade to 0.10.6
 
-Version [0.10.6](releases/0.10.6.md) is an unpublished candidate. After
-publication, install it in a Python 3.11+ environment outside the book.
+Install [0.10.6](releases/0.10.6.md), published on 2026-11-24, in a Python 3.11+
+environment outside the book.
 Use that interpreter for the commands below. Git 2.39+ is required.
 
 ```text

@@ -1,6 +1,6 @@
 # Marketplace setup for new notebooks
 
-The plugin manifest targets the **unpublished 0.10.6 candidate**. Existing
+The plugin manifest targets **0.10.6, published on 2026-11-24**. Existing
 plugin notebooks need reviewed issue setup and the character guidance refresh.
 [Release notes](releases/0.10.6.md) · [Project upgrades](upgrading-projects.md#upgrade-to-0106)
 
@@ -118,7 +118,7 @@ preserved while pip destination overrides are excluded. See the
 
 If the pinned version is missing from the index, report that actual failure;
 use a matching local wheel only when it is available for the intended setup.
-After publication, install or upgrade the separate 0.10.6 package in your configured environment:
+Install or upgrade the separate 0.10.6 package in your configured environment:
 
 ```text
 python -m pip install --upgrade novel-creator==0.10.6

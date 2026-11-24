@@ -5,7 +5,7 @@ Claude Code. The 17 writing entries share creative workflows saved with the
 selected book; the setup entry creates new format-1 notebooks for both hosts.
 The permanent plugin name is `novel-creator` in `novel-creator-marketplace`.
 
-The plugin targets the unpublished 0.10.6 candidate. In existing notebooks,
+The plugin targets 0.10.6, published on PyPI on 2026-11-24. In existing notebooks,
 apply reviewed issue setup, then merge the remaining character guidance from a
 matching reference notebook. Enable the matching plugin and reload the book's
 instructions. [Release notes and upgrade steps](https://github.com/bjarkig82/novel-creator/blob/main/docs/releases/0.10.6.md)
