@@ -4,12 +4,13 @@ import io
 import json
 import os
 from pathlib import Path
-import tempfile
 import subprocess
 import sys
+import tempfile
 import unittest
 import zipfile
 from unittest.mock import patch
+from uuid import UUID
 
 from novel_creator import debug, storage
 from novel_creator.cli import main, ToolError
@@ -26,6 +27,159 @@ class LegacyDebugging(unittest.TestCase):
     def events(self, root, identifier):
         path = root / '.novel-creator/local/debug' / identifier / 'events.jsonl'
         return [json.loads(line) for line in path.read_text(encoding='utf-8').splitlines()]
+
+    @contextlib.contextmanager
+    def migrated_repository(self, duplicate_id=False):
+        with repository() as root:
+            legacy = debug.start(root)
+            manifest = root / '.novel-creator/manifest.json'
+            saved_manifest = manifest.read_bytes()
+            manifest.unlink()
+            (root / 'notebook').mkdir()
+            (root / 'notebook/project.md').write_text('# Migrated novel\n', encoding='utf-8')
+            (root / '.novel-notebook/workflows').mkdir(parents=True)
+            with (root / '.gitignore').open('a', encoding='utf-8') as ignore:
+                ignore.write('.novel-notebook/local/\n')
+            if duplicate_id:
+                with patch('novel_creator.debug.uuid.uuid4', return_value=UUID(legacy['debug_session'])):
+                    notebook = debug.start(root)
+            else:
+                notebook = debug.start(root)
+            manifest.write_bytes(saved_manifest)
+            yield root, legacy, notebook
+
+    def test_status_finds_either_session_id_in_a_migrated_notebook(self):
+        with self.migrated_repository() as (root, legacy, notebook):
+            for session in (notebook, legacy):
+                identifier = session['debug_session']
+                with self.subTest(project_format=session['format']):
+                    directory = Path(session['directory'])
+                    original = {path.name: path.read_bytes() for path in directory.iterdir()}
+                    code, result, stderr = self.call('debug', 'status', '--novel', root,
+                                                     '--debug-session', identifier, '--json')
+                    self.assertEqual(code, 0, result)
+                    self.assertEqual(stderr, '')
+                    self.assertEqual(result['data']['debug_session'], identifier)
+                    self.assertEqual(result['data']['format'], session['format'])
+                    self.assertEqual(result['data']['directory'], session['directory'])
+                    self.assertEqual(result['data']['state'], 'recording')
+                    self.assertEqual(result['data']['event_count'], 1)
+                    self.assertEqual({path.name: path.read_bytes() for path in directory.iterdir()}, original)
+
+    def test_status_can_disambiguate_a_session_id_retained_in_both_layouts(self):
+        with self.migrated_repository(duplicate_id=True) as (root, legacy, notebook):
+            args = ('debug', 'status', '--novel', root, '--debug-session', legacy['debug_session'], '--json')
+            code, result, _ = self.call(*args)
+            self.assertEqual(code, 2, result)
+            self.assertFalse(result['ok'])
+            self.assertIn('--format', result['error']['message'])
+            for session in (notebook, legacy):
+                with self.subTest(project_format=session['format']):
+                    self.assertIn(session['format'], result['error']['message'])
+                    selected_code, selected, stderr = self.call(*args, '--format', session['format'])
+                    self.assertEqual(selected_code, 0, selected)
+                    self.assertEqual(stderr, '')
+                    self.assertEqual(selected['data']['format'], session['format'])
+                    self.assertEqual(selected['data']['directory'], session['directory'])
+
+    def test_status_finds_the_session_when_the_other_layout_has_only_a_directory(self):
+        with self.migrated_repository() as (root, legacy, notebook):
+            identifier = legacy['debug_session']
+            orphan = Path(notebook['directory']).with_name(identifier)
+            orphan.mkdir()
+            code, result, _ = self.call('debug', 'status', '--novel', root, '--debug-session', identifier, '--json')
+            self.assertEqual(code, 0, result)
+            self.assertEqual(result['data']['directory'], legacy['directory'])
+            self.assertEqual(list(orphan.iterdir()), [])
+
+    def test_status_reports_incomplete_session_without_creating_files(self):
+        with self.migrated_repository() as (root, legacy, notebook):
+            identifier = legacy['debug_session']
+            orphan = Path(notebook['directory']).with_name(identifier)
+            orphan.mkdir()
+            code, result, _ = self.call('debug', 'status', '--novel', root, '--debug-session', identifier,
+                                        '--format', 'novel-notebook', '--json')
+            self.assertEqual(code, 4, result)
+            self.assertIn('incomplete', result['error']['message'])
+            self.assertIn('session.json', result['error']['message'])
+            self.assertEqual(list(orphan.iterdir()), [])
+
+    def test_status_rejects_redirected_metadata_in_the_other_layout(self):
+        with self.migrated_repository() as (root, legacy, notebook):
+            identifier = legacy['debug_session']
+            candidate = Path(notebook['directory']).with_name(identifier)
+            candidate.mkdir()
+            (candidate / 'session.json').symlink_to(Path(legacy['directory']) / 'session.json')
+            code, result, _ = self.call('debug', 'status', '--novel', root, '--debug-session', identifier, '--json')
+            self.assertEqual(code, 2, result)
+            self.assertIn('redirected', result['error']['message'])
+
+    def test_status_inventory_can_select_the_notebook_layout(self):
+        with self.migrated_repository() as (root, legacy, notebook):
+            args = ('debug', 'status', '--novel', root, '--json')
+            for options, session in (((), legacy), (('--format', 'novel-notebook'), notebook)):
+                with self.subTest(options=options):
+                    code, result, _ = self.call(*args, *options)
+                    self.assertEqual(code, 0, result)
+                    self.assertEqual([entry['debug_session'] for entry in result['data']['sessions']],
+                                     [session['debug_session']])
+                    self.assertFalse(result['data']['automatic_activation'])
+
+    def test_status_rejects_invalid_missing_or_wrong_format_session_ids(self):
+        with self.migrated_repository() as (root, _, notebook):
+            args = ('debug', 'status', '--novel', root, '--json', '--debug-session')
+            for options, message in (
+                (('../outside',), 'canonical debug-session UUID'),
+                (('00000000-0000-4000-8000-000000000000',), 'session was not found'),
+                ((notebook['debug_session'], '--format', 'legacy'), 'session was not found'),
+            ):
+                with self.subTest(options=options):
+                    code, result, _ = self.call(*args, *options)
+                    self.assertEqual(code, 2, result)
+                    self.assertIn(message, result['error']['message'])
+
+    def test_status_rejects_a_redirected_session_in_the_notebook_layout(self):
+        with self.migrated_repository() as (root, legacy, notebook):
+            legacy_dir = Path(legacy['directory'])
+            notebook_candidate = Path(notebook['directory']).with_name(legacy['debug_session'])
+            notebook_candidate.symlink_to(legacy_dir, target_is_directory=True)
+            code, result, _ = self.call('debug', 'status', '--novel', root,
+                                        '--debug-session', legacy['debug_session'], '--json')
+            self.assertEqual(code, 2, result)
+            self.assertIn('redirected', result['error']['message'])
+
+    def test_status_keeps_legacy_only_sessions_available(self):
+        with repository() as root:
+            session = debug.start(root)
+            code, result, stderr = self.call('debug', 'status', '--novel', root,
+                                             '--debug-session', session['debug_session'], '--json')
+            self.assertEqual(code, 0, result)
+            self.assertEqual(stderr, '')
+            self.assertEqual(result['data']['format'], 'legacy')
+            self.assertEqual(result['data']['directory'], session['directory'])
+
+    def test_status_finds_legacy_session_with_regular_files_at_notebook_marker_parents(self):
+        for blocker in ('notebook', '.novel-notebook'):
+            with self.subTest(blocker=blocker), repository() as root:
+                session = debug.start(root)
+                if blocker == '.novel-notebook':
+                    (root / 'notebook').mkdir()
+                    (root / 'notebook/project.md').write_text('# Notebook draft\n', encoding='utf-8')
+                (root / blocker).write_text('Unrelated regular file\n', encoding='utf-8')
+                code, result, _ = self.call('debug', 'status', '--novel', root,
+                                            '--debug-session', session['debug_session'], '--json')
+                self.assertEqual(code, 0, result)
+                self.assertEqual(result['data']['directory'], session['directory'])
+
+    def test_status_finds_notebook_session_with_regular_file_at_legacy_marker_parent(self):
+        with self.migrated_repository() as (root, _, notebook):
+            legacy_root = root / '.novel-creator'
+            legacy_root.rename(root / 'retained-legacy')
+            legacy_root.write_text('Unrelated regular file\n', encoding='utf-8')
+            code, result, _ = self.call('debug', 'status', '--novel', root,
+                                        '--debug-session', notebook['debug_session'], '--json')
+            self.assertEqual(code, 0, result)
+            self.assertEqual(result['data']['directory'], notebook['directory'])
 
     def test_save_context_and_error_recording_leave_results_unchanged(self):
         with repository() as root, tempfile.TemporaryDirectory() as directory:
