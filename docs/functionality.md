@@ -26,6 +26,39 @@ orchestration and retrospective publication next steps. Full Linux and full
 Windows qualification, public hashes/installs and annotated source tag are verified. Follow the [complete four-format update sequence](upgrading-projects.md#session-usability-guidance-in-0103-candidate),
 including issue setup then the six-guide refresh for existing 0.10.2 notebooks.
 
+## Check topic-index counts on demand
+
+From a package build containing the checker, run this command with the folder
+that contains `notebook/`. It works for new and existing format-1 notebooks,
+including those created with 0.10.5. No project update is needed.
+
+```sh
+novel-creator notebook check-index --path "/path/to/My Novel"
+```
+
+The checker reads existing count tables in `notebook/working-summary.md` and
+follows each row's topic link. For example:
+
+```markdown
+| Topic | Accepted | Proposed | Rejected | Open questions | Resolved questions |
+| --- | --- | --- | --- | --- | --- |
+| keeper [Alex](topics/keeper.md) | 5 | 1 | 0 | 1 | 1 |
+```
+
+The numeric columns can appear in any order or be omitted. Additional text
+columns can carry navigation details such as notes or the last update. Icelandic labels
+include Efni, Samþykkt, Tillögur, Hafnað, Opnar spurningar and Leystar spurningar.
+The checker counts current Item-ID blocks in the linked file and skips fenced
+examples and historical sections headed Revisions, Revision history, Breytingasaga
+or Endurskoðanir. Each mismatch identifies the owning topic, the displayed counts
+and the correct totals for all five states. Unreadable or unsupported rows are
+reported separately. With no count rows, it reports zero checked.
+
+Add `--json` for machine-readable results. Exit 0 means all checked counts agree
+or there were no counts to check. Exit 1 means a mismatch or an unavailable
+comparison. This optional command reads working-tree files and leaves notes and
+Git staging untouched. It applies only to Markdown notebooks.
+
 ## Marketplace integration (0.8.0)
 
 Version 0.8.0 is published, 2026-11-12. It adds Codex and Claude Code plugins for

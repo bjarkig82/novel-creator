@@ -49,7 +49,7 @@ def _resources(node, destination):
 def bundle_files():
     result = {'.novel-creator/src/novel_creator/' + p.name: p.read_bytes()
               for p in files('novel_creator').iterdir()
-              if p.is_file() and p.name.endswith('.py') and p.name not in ('notebook.py', 'notebook_side_character.py')}
+              if p.is_file() and p.name.endswith('.py') and p.name not in ('notebook.py', 'notebook_index.py', 'notebook_side_character.py')}
     result['.novel-creator/src/novel_creator/update-release.json'] = files(
         'novel_creator').joinpath('update-release.json').read_bytes()
     result.update(_resources(files('novel_creator.schemas'), '.novel-creator/src/novel_creator/schemas'))

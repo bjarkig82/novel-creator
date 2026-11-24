@@ -23,6 +23,14 @@ _AGENTS = ('novel_orchestrator', 'novel_brainstormer', 'novel_researcher',
 _INTEGRATION = '.novel-notebook/integration.json'
 
 
+def split_document(text):
+    envelope = re.match(r'\A(?P<fence>```|~~~)json\r?\n(?P<metadata>.*?)\r?\n(?P=fence)(?:\r?\n|\Z)',
+                        text, re.S)
+    if envelope is None:
+        raise ValueError('Notebook metadata must start with a matching JSON fence')
+    return json.loads(envelope['metadata']), text[envelope.end():]
+
+
 def _host_text(text, host, skill_source):
     """Render host entry syntax without changing shared creative behavior."""
     def invocation(match):
@@ -323,11 +331,7 @@ def update(target, *, apply=False, preview_id=None, expected_head=None):
     project_raw = read('notebook/project.md', required=True)
     try:
         project_text = project_raw.decode('utf-8')
-        envelope = re.match(r'\A(?P<fence>```|~~~)json\r?\n(?P<metadata>.*?)\r?\n(?P=fence)(?:\r?\n|\Z)',
-                            project_text, re.S)
-        if envelope is None:
-            raise ValueError('Project metadata must start with a matching JSON fence')
-        metadata = json.loads(envelope['metadata'])
+        metadata, _ = split_document(project_text)
         valid = (metadata.get('format') == 'novel-notebook' and metadata.get('version') == 1
                  and metadata.get('kind') == 'project' and metadata.get('id') == 'project'
                  and metadata.get('language') in ('en', 'is'))

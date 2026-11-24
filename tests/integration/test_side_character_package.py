@@ -117,11 +117,12 @@ class SideCharacterPackage(unittest.TestCase):
         from novel_creator.install import bundle_files
         from novel_creator.update_release import bundle_inventory
         inventory = {'novel_creator/notebook.py': b'notebook',
+                     'novel_creator/notebook_index.py': b'external count check',
                      'novel_creator/notebook_side_character.py': b'external notebook helper',
                      'novel_creator/ordinary.py': b'ordinary runtime'}
         derived = bundle_inventory(inventory)
         bundled = bundle_files()
-        for name in ('notebook.py', 'notebook_side_character.py'):
+        for name in ('notebook.py', 'notebook_index.py', 'notebook_side_character.py'):
             relative = '.novel-creator/src/novel_creator/' + name
             self.assertNotIn(relative, derived)
             self.assertNotIn(relative, bundled)
@@ -141,6 +142,7 @@ class SideCharacterPackage(unittest.TestCase):
             wheel = next(artifacts.glob('*.whl'))
             sdist = next(artifacts.glob('*.tar.gz'))
             members = {
+                'src/novel_creator/notebook_index.py': 'novel_creator/notebook_index.py',
                 'src/novel_creator/notebook_side_character.py': 'novel_creator/notebook_side_character.py',
                 'workflows/side-character.md': 'novel_creator/workflows/side-character.md',
                 'notebook/workflows/side-character.md': 'novel_creator/notebook_resources/workflows/side-character.md',
