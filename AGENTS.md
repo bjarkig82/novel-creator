@@ -49,8 +49,18 @@ results do not establish full-suite or full-coverage success.
 
 ## PyPI releases
 
-When asked to publish a new version of `novel-creator` to PyPI, prepare its
-release documentation before publication as part of the release work:
+A request to publish a new version of `novel-creator` to PyPI also authorizes
+creating and pushing its release tag. Complete tagging as part of the same
+release request.
+
+After verifying publication, create an annotated Git tag named
+`v<exact package version>` at the immutable source commit used to build the
+qualified, published artifacts. Push that specific tag to `origin` and verify
+its annotation and peeled source commit there before reporting the release
+complete. Reuse an existing matching annotated tag. Stop on a mismatch and
+preserve the existing tag. Include the verified tag in the release report.
+
+Prepare the release documentation before publication.
 
 - Create or update `docs/releases/<version>.md` and add it to the
   [release history](docs/releases/README.md), newest version first. Link the
@@ -87,12 +97,6 @@ release documentation before publication as part of the release work:
   project preview/application and reloading instructions/skills in Codex. State
   which resources change, save effects and limitations. Verify actual skill files
   and links; successful Python imports do not prove native Codex discovery.
-- Create an annotated Git tag named `v<exact package version>` for each release,
-  pointing to the immutable source commit whose candidate artifacts passed release
-  qualification and were published. Push that tag to origin and verify its
-  annotation and peeled commit there before reporting the release complete.
-  Tag the qualified source, not a later evidence/documentation commit. Never move,
-  delete or force-push an existing version tag; stop on a mismatch.
 
 ## Implementation and review
 
