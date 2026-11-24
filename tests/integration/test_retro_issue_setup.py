@@ -192,8 +192,14 @@ class IssueSetup(unittest.TestCase):
                     self.assertEqual((root / '.git/index').read_bytes(), index)
 
     def test_released_0103_conversation_guide_can_be_explicitly_refreshed(self):
+        self.assert_conversation_guide_refresh('0.10.3')
+
+    def test_released_0105_conversation_guide_can_be_explicitly_refreshed(self):
+        self.assert_conversation_guide_refresh('0.10.5')
+
+    def assert_conversation_guide_refresh(self, version):
         from tests.verify_plugin_install import snapshot
-        frozen = Path(__file__).resolve().parents[1] / 'fixtures/session-guidance-0.10.3/conversation.md'
+        frozen = Path(__file__).resolve().parents[1] / f'fixtures/session-guidance-{version}/conversation.md'
         released = frozen.read_text(encoding='utf-8')
         relative = '.novel-notebook/workflows/conversation.md'
         for host in ('codex', 'claude', 'both'):

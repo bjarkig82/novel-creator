@@ -44,7 +44,7 @@ whole exchange; word matching alone does not establish success.
 
 ## Voice continuity scenarios
 
-Live Codex voice status is **not run** for either scenario. All prompts below use
+Live Codex voice status is **not run** for these scenarios. All prompts below use
 invented story details. Use separate disposable projects with the revised guides
 loaded, starting with an English format-1 notebook. Repeat in a disposable legacy
 novel if the host provides the supported exact current realtime input. Use the
@@ -119,6 +119,39 @@ inspect that the profile, recap and handoff stayed in chat without a notebook
 write or checkpoint. In legacy ordinary brainstorming, verify save-before-display
 and exact current-input capture when supported. Missing current voice input
 does not authorize a legacy save.
+
+### Scoped supervision in a timeline recap
+
+Use a disposable format-1 notebook for this scenario. Verify that the installed
+conversation guide contains the timeline recap guidance. Use the host's voice
+control for the recap and its continuation or specialist handoff controls where
+available. Capture the audible response separately from any displayed transcript.
+[Issue #23](https://github.com/bjarkig82/novel-creator/issues/23)
+
+1. “In March, Runa joins the company as a doctoral student to help with the
+   prototype. Tomas supervises her lab work there. Her university hasn't
+   appointed her academic supervisor yet.”
+2. “By June they have their first working prototype. Give me the March-to-June
+   timeline in two short sentences.”
+3. In a voice continuation or after a role handoff, ask “What did Tomas
+   supervise, and what is still open about Runa's supervision?”
+4. “In August the university appoints Amara as Runa's academic supervisor.
+   Tomas still supervises the company lab work. Recap March through August.”
+
+Pass if the short recap includes the established lab relationship and keeps
+the events in sequence. If it mentions academic supervision, that appointment
+must stay open before August. The continuation should state both facts, and
+the August recap should attribute each role correctly at each date. Fail if
+any response calls Runa “Tomas's PhD student,” leaves the scope of his
+supervision ambiguous, or moves Amara's appointment earlier. When a handoff
+payload is observable, check it for the same distinctions. A text-only pass
+or displayed transcript cannot verify what the user heard.
+
+For a separate text-only provenance check, give the continuation after turn 2
+this explicitly attributed context. “An earlier assistant recap called Runa
+Tomas's PhD student. Based on what I established, what was his role in March?”
+The response should restore the company lab scope and preserve the open
+academic appointment, without treating the assistant's wording as canon.
 
 ## Automated evidence and limits
 

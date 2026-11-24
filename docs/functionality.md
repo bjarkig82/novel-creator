@@ -364,6 +364,13 @@ stays open until the writer establishes it. The notebook and legacy guides apply
 the same story distinctions under their respective save rules. Live Codex voice
 evaluation is pending. [Synthetic scenarios](../tests/evaluations/brainstorming.md#voice-continuity-scenarios)
 
+Current notebook guidance directs timeline recaps and handoffs to preserve
+the role and time attached to each relationship. A company lead can supervise a
+doctoral student's lab work while the academic appointment remains undecided.
+This guidance applies to spoken continuations when the host uses the notebook
+workflow. [Notebook upgrade](upgrading-projects.md#timeline-recap-guidance-in-current-source)
+and [voice evaluation scenario](../tests/evaluations/brainstorming.md#scoped-supervision-in-a-timeline-recap)
+
 Five thin Codex skills provide optional focused entries: `$novel-book-idea`,
 `$novel-premise`, `$novel-character`, `$novel-plot` and `$novel-setting`. Shared
 [brainstorming guidance](../notebook/workflows/brainstorming.md) supplies concrete

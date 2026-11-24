@@ -54,6 +54,17 @@ KNOWN['retrospective.md'] |= frozenset({
     'd11895243dceb40912ad4b45626114949a8e5b3f482a31927b793bf75cfdf846',  # Both/plugin
 })
 
+# Published 0.10.5 conversation guide from the verified wheel, rendered per
+# host/skill source. See tests/fixtures/session-guidance-0.10.5/README.md.
+KNOWN['conversation.md'] |= frozenset({
+    'ffbace2ddacbbe95a5dda5a38dc68540b0dc51c790e61de0502ab61051ffb0de',  # Codex/project
+    '7daa12e2469e257e23775b3322ea446ef9e1ceb0e82a7f9cb1c00a6287bb42d4',  # Codex/plugin
+    'd1afc2f633304fe4a43b61bd85c9906c858d2c393932aa9b7fbfac29d0de1133',  # Claude/project
+    'dbaceeb30030e54140aafb4b385ff6ed19e4dc178e6898c931050712d3e797a6',  # Claude/plugin
+    'f047c2080506bf96befc6500a0bdc76d6296e5d1c9a7f3ff38df8d26a3d5b70e',  # Both/project
+    '1d37b9817a90b0f75fb749a61c7ed4087cce3709457934c9149e843192c3ccfb',  # Both/plugin
+})
+
 # v0.10.5 notebook/workflows/retrospective.md from 7e1dc48020bdf078555e5dbdf62cf5247547e7df.
 KNOWN['retrospective.md'] |= frozenset({
     'df76c4ff8f41d969dcfb2fab3ddcc69f979d8b234c6ee88d5b41a59b5d261cf4',  # Codex/project
