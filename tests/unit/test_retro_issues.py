@@ -1,7 +1,9 @@
 """Focused real-local issue state tests with no network transport."""
+import json
 import os
 from pathlib import Path
 import subprocess
+import sys
 import tempfile
 import unittest
 from unittest.mock import patch
@@ -102,7 +104,6 @@ class IssueTests(unittest.TestCase):
         return self.issue_command('publish', dict(stage=stage, observed_publication_direction=True, **data))
 
     def issue_command(self, action, data):
-        import json
         src = self.root / 'host-input.json'
         src.write_text(json.dumps(dict(version=1, **data)), encoding='utf-8')
         args = parser().parse_args(['retro', 'issue', action, '--novel', str(self.root), '--run',
@@ -121,6 +122,38 @@ class IssueTests(unittest.TestCase):
     def connector_resume(self, remote):
         return self.issue_command('resume', dict(stage='connector_receipt', observed_connector_receipt=True,
                                   observed_reconciliation_read_direction=True, issue_url=remote['url'], receipt=remote))
+
+    def test_connector_receipt_cli_is_compact_and_keeps_full_audit_in_status(self):
+        finding = self.draft()
+        self.approve(finding)
+        listing = {
+            'issue': [dict(number=42, title='Existing issue', body='Complete issue body\n' * 1000,
+                           url=f'https://github.com/{issues.REPOSITORY}/issues/42')],
+            'pr': [dict(number=43, title='Existing PR', body='Complete PR body\n' * 1000,
+                        url=f'https://github.com/{issues.REPOSITORY}/pull/43')],
+        }
+        reviewed = self.connector_snapshot(listing)
+        connector = HostConnector()
+        receipt = connector.create_issue(**self.connector_intent(reviewed)['connector_create'])
+        src = self.root / 'connector-receipt.json'
+        src.write_text(json.dumps(dict(version=1, stage='connector_receipt', observed_connector_receipt=True,
+                                       observed_reconciliation_read_direction=True, issue_url=receipt['url'],
+                                       receipt=receipt)), encoding='utf-8')
+        cli = [sys.executable, '-m', 'novel_creator', 'retro', 'issue']
+        scope = ['--novel', str(self.root), '--run', self.run['run_id'], '--json']
+        args = [*cli, 'resume', *scope, '--finding', self.fid, '--input', str(src)]
+        expected = {'ok': True, 'data': {'status': 'created', 'upload': {'state': 'none'}, 'creation': {
+            'state': 'created', 'url': receipt['url'], 'preview_digest': finding['preview_digest'],
+        }}}
+        for attempt in ('first receipt', 'exact replay'):
+            with self.subTest(attempt=attempt):
+                response = subprocess.run(args, capture_output=True, check=True)
+                self.assertEqual(expected, json.loads(response.stdout))
+        response = subprocess.run([*cli, 'status', *scope], capture_output=True, check=True)
+        audit = json.loads(response.stdout)['data']['findings'][self.fid]
+        self.assertEqual(audit['duplicate_snapshot'], reviewed['duplicate_snapshot'])
+        self.assertEqual(audit['duplicate_snapshot']['listing'], listing)
+        self.assertEqual(audit['creation'], expected['data']['creation'])
 
     def test_connector_create_after_gh_401_and_exact_receipt(self):
         f = self.draft(sharing='excerpts', excerpt_text='private fixture')

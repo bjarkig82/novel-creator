@@ -579,6 +579,12 @@ documents the publish and resume inputs. Existing 0.10.5 notebooks can receive
 the updated workflow with `retro issue setup` preview and apply.
 [Upgrade to 0.10.6](upgrading-projects.md#upgrade-to-0106)
 
+The connector receipt returns a compact confirmation with the verified issue
+URL, approved preview digest and upload state. The full duplicate listing
+remains available through `retro issue status --run RUN --json`. Existing
+notebooks can install the revised receipt guidance with `retro issue setup`
+preview and apply.
+
 See [workflow and JSON contracts](../workflows/retrospective.md) and
 [explicit project upgrades](upgrading-projects.md#session-issue-retrospectives-in-0102).
 New projects receive the workflow/entry; existing legacy novels use the normal
