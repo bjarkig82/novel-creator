@@ -329,11 +329,18 @@ def status(novel, debug_session=None, *, project_format=None):
 
     identifier = _identifier(debug_session)
     matches = []
+    incomplete = False
     for _, _, base in _projects(novel, project_format):
         directory = _guard(base / identifier)
-        if directory.is_dir():
+        if not directory.is_dir():
+            continue
+        if _guard(directory / 'session.json').is_file():
             matches.append(directory)
+        else:
+            incomplete = True
     if not matches:
+        if incomplete:
+            raise ToolError(4, 'Debug session is incomplete. Expected a regular session.json file')
         raise ToolError(2, 'Debug session was not found in the selected novel')
     if len(matches) > 1:
         raise ToolError(2, 'Debug session exists in both formats. Rerun with --format novel-notebook or --format legacy')

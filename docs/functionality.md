@@ -95,8 +95,9 @@ Use `record --input FILE` for batched agent observations and optional
 [notebook capture workflow](../notebook/workflows/debugging.md).
 
 In a migrated notebook that retains legacy markers, `debug status --novel PATH
---debug-session ID --json` checks both debug directories for that ID. If the ID
-appears in both, rerun with `--format novel-notebook` or `--format legacy`.
+--debug-session ID --json` looks for session metadata for that ID in both
+formats. If both contain metadata, rerun with `--format novel-notebook` or
+`--format legacy`. Format selection applies to `debug status` only.
 To list the notebook sessions in a mixed-format book, use `debug status --novel
 PATH --format novel-notebook --json`. The list defaults to legacy when both
 formats are present.

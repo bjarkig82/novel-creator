@@ -82,6 +82,38 @@ class LegacyDebugging(unittest.TestCase):
                     self.assertEqual(selected['data']['format'], session['format'])
                     self.assertEqual(selected['data']['directory'], session['directory'])
 
+    def test_status_finds_the_session_when_the_other_layout_has_only_a_directory(self):
+        with self.migrated_repository() as (root, legacy, notebook):
+            identifier = legacy['debug_session']
+            orphan = Path(notebook['directory']).with_name(identifier)
+            orphan.mkdir()
+            code, result, _ = self.call('debug', 'status', '--novel', root, '--debug-session', identifier, '--json')
+            self.assertEqual(code, 0, result)
+            self.assertEqual(result['data']['directory'], legacy['directory'])
+            self.assertEqual(list(orphan.iterdir()), [])
+
+    def test_status_reports_incomplete_session_without_creating_files(self):
+        with self.migrated_repository() as (root, legacy, notebook):
+            identifier = legacy['debug_session']
+            orphan = Path(notebook['directory']).with_name(identifier)
+            orphan.mkdir()
+            code, result, _ = self.call('debug', 'status', '--novel', root, '--debug-session', identifier,
+                                        '--format', 'novel-notebook', '--json')
+            self.assertEqual(code, 4, result)
+            self.assertIn('incomplete', result['error']['message'])
+            self.assertIn('session.json', result['error']['message'])
+            self.assertEqual(list(orphan.iterdir()), [])
+
+    def test_status_rejects_redirected_metadata_in_the_other_layout(self):
+        with self.migrated_repository() as (root, legacy, notebook):
+            identifier = legacy['debug_session']
+            candidate = Path(notebook['directory']).with_name(identifier)
+            candidate.mkdir()
+            (candidate / 'session.json').symlink_to(Path(legacy['directory']) / 'session.json')
+            code, result, _ = self.call('debug', 'status', '--novel', root, '--debug-session', identifier, '--json')
+            self.assertEqual(code, 2, result)
+            self.assertIn('redirected', result['error']['message'])
+
     def test_status_inventory_can_select_the_notebook_layout(self):
         with self.migrated_repository() as (root, legacy, notebook):
             args = ('debug', 'status', '--novel', root, '--json')
