@@ -283,16 +283,23 @@ only with a host capable of the required public reads and structured create.
    title and full body. If any are missing, use `fetch_issue` on the candidate
    number in `bjarkig82/novel-creator`. With current reconciliation-read
    direction, run `retro issue resume --run RUN --finding FINDING --input FILE`
-   with the following shape. Replace all sample values with observed fields.
+   with `--json` and the following input. Replace all sample values with observed fields.
 
    ```json
    {"version":1,"stage":"connector_receipt","observed_reconciliation_read_direction":true,"observed_connector_receipt":true,"issue_url":"https://github.com/bjarkig82/novel-creator/issues/1","receipt":{"url":"https://github.com/bjarkig82/novel-creator/issues/1","title":"Exact returned title","body":"Exact returned body including marker and newline"}}
    ```
 
-   Only report the recorded URL after resume confirms it. The host attests to
-   the connector observation. The CLI checks the URL and exact issue content
-   against the saved intent. A receipt can still be recorded after cancellation
-   or loss of a sharing copy. Handle any attachments separately below.
+   Before reporting the issue URL, check that `ok` is `true`,
+   `data.creation.state` is `"created"`, `data.creation.url` exactly matches the
+   observed issue URL, and `data.creation.preview_digest` matches the approved
+   preview digest. For a finding with no attachments, check that
+   `data.upload.state` is `"none"`. The host attests to the connector observation
+   and the CLI checks the URL and exact issue content against the saved intent.
+   A receipt can still be recorded after cancellation or loss of a sharing copy.
+   Check `data.status` for cancellation and handle any attachments separately
+   below. To inspect the retained duplicate listing, use the read-only
+   `retro issue status --run RUN --json` and look in
+   `data.findings[FINDING].duplicate_snapshot`.
 
 If the create response was lost or ambiguous, never issue another create.
 With current reconciliation-read direction, repeat the two bounded public

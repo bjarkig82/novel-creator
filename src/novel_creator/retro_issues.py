@@ -451,6 +451,12 @@ class Issues:
         finding['creation'].update(state='created', url=url)
         self.refresh_status(finding)
         self.save(run)
+        if stage == 'connector_receipt':
+            upload = finding['upload']
+            return dict(status=finding['status'],
+                        creation=dict(state=intent['state'], url=intent['url'], preview_digest=intent['preview_digest']),
+                        upload={key: upload[key] for key in ('state', 'issue_url', 'attachment_url', 'verification')
+                                if key in upload})
         return finding
 
     def refresh_status(self, finding):
