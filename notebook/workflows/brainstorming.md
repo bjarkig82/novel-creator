@@ -14,8 +14,8 @@ current complete profile. This narrow rule overrides ordinary automatic notes.
 
 For `$novel-character-develop` or a request to fill gaps, enrich or deepen a
 character profile, use [character development](character-development.md) instead:
-one batch of proposed profile prose, kept entirely in chat until clear approval
-to save current content. Its no-write exception overrides automatic note rules
+one batch of proposed profile prose under that workflow's save boundary.
+That boundary overrides automatic note rules
 for that mode. Ordinary character exploration and `$novel-character` remain
 question-led here unless the writer requests that development mode.
 

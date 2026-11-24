@@ -43,6 +43,20 @@ there are no notes, summary changes, draft/handoff files or Git checkpoints for
 this mode. Unsaved drafts have no guaranteed recovery after interruption or in
 another chat. File saves and pending/failed checkpoints must be reported separately.
 
+### Assign a specialist a proposal save
+
+The reviewed source adds a narrow option for existing profiles. You can say
+“Assign Elin to one specialist and Ari to another. Each can draft, review, approve
+and save additions to their assigned existing profile as proposals.” The
+coordinator resolves each profile to its owning path and gives each specialist
+only that file. Each specialist can save the additions they select after review
+without another approval. They remain proposed in the profile. A request to
+“draft and review additions” keeps the numbered draft in chat until you approve
+specific current text. If your instruction is unclear about who can save or
+what they can save, the coordinator clarifies before dispatching write-enabled
+work. Specialists report verified saves and leave scoped Git checkpoints to the
+coordinator under the notebook's existing history rules.
+
 English and Icelandic project languages are supported, for example:
 
 > Dýpkaðu persónulýsingu Elínar, sérstaklega sambandið við bróður hennar.
@@ -233,3 +247,49 @@ writing. Installed bytes do not prove native skill discovery or that an active
 chat has reloaded guidance. Use the host's actual supported project/reload
 controls if available; there is no universal reload command. A new chat may be
 needed, and chat-only drafts will not thereby become recoverable.
+
+## Refresh an existing notebook for delegated proposal saves
+
+The delegated-save guidance is in this source checkout. Installing published
+0.10.5 alone leaves the installed project guidance unchanged. The feature-only
+procedure above is for adding character development where it was missing.
+If you add the feature from this source to an older notebook, follow this
+refresh as well to align the remaining routing.
+To refresh an equipped format-1 notebook, compare and merge the affected
+guidance from a disposable notebook rendered by the reviewed checkout.
+
+1. Install the reviewed source into an isolated environment outside the novel
+   using the source install command above. Use that same Python to render a new
+   reference notebook at a nonexistent path outside the existing novel. Match
+   the existing book's integration marker (`codex`/`claude`/`both` and
+   `project`/`plugin`). An absent marker means `codex/project`. For example,
+   with Codex project skills and an English notebook, run:
+
+   ```text
+   python -m novel_creator notebook init disposable-reference --path /absolute/path/to/disposable-reference --host codex --skill-source project --language en
+   ```
+
+2. Pause notebook editing and inspect Git status in the actual notebook. Review
+   the differences from the rendered reference in these paths only.
+
+   | Installed path | Guidance to merge |
+   | --- | --- |
+   | `.novel-notebook/workflows/{character-development,agents,conversation,brainstorming,help}.md` | Delegation rules and character-development routing |
+   | `AGENTS.md` and/or `CLAUDE.md` for the selected host | Save boundary in the Character development section |
+   | `.codex/agents/novel_brainstormer.toml` and/or `.claude/agents/novel-brainstormer.md` for the selected host | Profile-enrichment instructions |
+   | `.agents/skills/novel-character-develop/SKILL.md` and/or `.claude/skills/novel-character-develop/SKILL.md` in project-skill notebooks | Character-development save boundary |
+
+   Apply only the reviewed delegation and routing differences. Preserve
+   custom instructions, all unrelated workflow and root text, and any
+   project-local skill or role customizations. If an affected file is missing,
+   redirected or cannot be reconciled with local guidance, resolve that before
+   applying the refresh. Use the matching reviewed plugin build in the host
+   for plugin notebooks. Its character-development skill and notebook reference
+   carry the same routing. Keep plugin notebooks free of duplicate local skills.
+
+3. Inspect the resulting diff and verify the changed links resolve in the
+   installed layout. The refresh touches guidance only and leaves story files,
+   staging and history alone. Use the host's supported project reload controls
+   or reopen the notebook, then have the active chat read the changed guidance.
+   Verify the selected native role and skill in the actual host when using
+   delegation. This refresh applies only to format-1 notebooks.

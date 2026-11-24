@@ -5,7 +5,7 @@ an ordinary request to fill gaps, enrich or deepen a character profile, optional
 with a focus such as relationships or motivation. Ordinary question-led character
 exploration remains under [brainstorming](brainstorming.md); a character topic or
 `$novel-character` alone does not select this mode. Follow [conversation](conversation.md),
-[format](format.md) and [role guidance](agents.md), with the chat-only exception
+[format](format.md) and [role guidance](agents.md), with the save boundary
 below taking precedence over their automatic persistence rules in this mode.
 If the workflow or supported notebook context is unavailable, explain the
 limitation and preserve files; do not convert a legacy novel.
@@ -47,10 +47,11 @@ about what could be written are not a substitute for the actual text. Make the
 additions work together without assuming that any will be accepted. There is no
 separate approval gate for the summary before offering the prose.
 
-Keep the entire draft, discussion and every revision in this chat. Briefly make
-clear that the text is proposed and remains unsaved until the writer clearly
-approves saving it. After this one batch, stop; another batch requires a request.
-Do not generate the next batch automatically after a save, rejection or revision.
+Keep the entire draft, discussion and every revision in the active conversation
+until the applicable save boundary is met. Ordinarily, state that the proposals
+remain unsaved until the writer clearly approves saving them. For an explicitly
+delegated save, follow the instructions below after preparing the batch. After
+this one batch, stop. Another batch requires a request.
 
 ## Revise and select in chat
 
@@ -70,27 +71,70 @@ if that resulting content or selection is unclear, keeping it in chat meanwhile.
 Discarded or cancelled suggestions remain unsaved. Cancellation ends this mode;
 unselected draft material never becomes an automatic note when the topic changes.
 
-## Chat-only exception and approved saving
+## Explicit delegation for existing profiles
 
-Until clear approval to save the current draft or specific current additions,
-make no notebook file writes for this mode. This narrowly overrides automatic
-notes, meaningful-turn saves, summaries, handoff or draft files and Git
-checkpoints, including in direct specialist or delegated work and despite the
-language resources' automatic-note guidance. Do not save proposals elsewhere as
+The writer may expressly authorize a specific assigned specialist to select and
+save proposed additions to an existing profile before seeing the draft. The
+writer's instruction must make clear who has the final decision to save, which
+existing profile and scope of additions are assigned, and that the additions
+are to be saved as proposals. A clear instruction to each assigned specialist
+to draft, review, approve and save their own proposed additions qualifies. A
+request to delegate drafting or review, a role selection, a coordinator's
+assignment or general encouragement to proceed does not grant this authority.
+
+The coordinator resolves any ambiguity about the authority, saver, profile or
+scope with the writer before dispatching write-enabled work. Resolve the named
+profile to its existing owning file before granting write ownership. Pass its
+exact project-relative path and stable identity, the scope and proposal-only
+status, any protected content, and the writer's express instruction in the
+conversational handoff. The designated
+saver owns only that output. Give parallel specialists disjoint paths. If the
+designated specialist cannot save, report the limitation and obtain the writer's
+direction before passing the save to someone else.
+
+After reviewing the draft for fit with current facts and the assigned scope, the
+authorized specialist can save the additions they select without a second
+writer approval. Store only selected profile prose as items with `State: proposed`
+and concise Origin reflecting the delegated instruction. Preserve accepted
+facts, other items, history and open questions. Canon promotion, revision of
+existing facts, other files, working summaries and Git checkpoints require their
+own authority under the applicable rules. No delegated specialist commits.
+Report the verified owning-file write and the exact text saved to the coordinator,
+together with any conflicts or remaining unsaved text.
+
+- “Have the specialist draft and review additions for Elin.” Return the numbered
+  batch in chat for the writer's exact save selection.
+- “Assign Elin to one specialist and Ari to another. Each can draft, review,
+  approve and save additions to their assigned existing profile as proposals.”
+  Resolve each owner and hand off only its path. Each specialist saves their own
+  reviewed selection as proposed.
+- “Have the specialists handle Elin and Ari and do what makes sense.” Clarify
+  with the writer before dispatching any write-enabled handoff.
+
+## Chat-only boundary and authorized saving
+
+Without explicit delegation, make no notebook file writes for this mode until
+the writer clearly approves saving the current draft or specific current
+additions. In delegated work, the only exception is the bounded proposal write
+described above after the designated specialist has reviewed and selected the
+additions. This boundary overrides automatic notes, meaningful-turn saves,
+summaries, handoff or draft files and Git checkpoints in all roles and languages. Do not save proposals elsewhere as
 a workaround. Read-only context and Git inspection are allowed. Do not promise
 cross-chat or interruption recovery for chat-only drafts. Other workflows retain
 their normal save rules outside this mode; leaving it does not authorize saving
 its unsaved draft.
 
-On unambiguous save approval, read current owning files and Git state, reconcile
+Before either authorized save, read current owning files and Git state, reconcile
 writer edits since the draft was prepared and preserve unrelated content. If new
 facts or edits conflict with the approved text, surface the conflict and clarify
 the affected change rather than overwrite the writer or silently alter the
-approved draft. Save only the approved current profile prose to its appropriate owner, not the
-navigation summary or contribution explanations.
-Clear save approval accepts the selected profile propositions unless the writer
-explicitly asks to save them as proposed. Split propositions as needed when only
-part of an addition is approved. Unselected suggestions stay chat-only.
+approved draft. Save only the approved current profile prose to its appropriate
+owner. Leave the contribution explanations in chat.
+A writer's clear approval of the exact text accepts the selected profile
+propositions unless the writer explicitly asks to save them as proposed.
+Delegated approval authorizes saving the selected items as proposals only.
+Split propositions as needed when only part of an addition is approved.
+Unselected suggestions stay chat-only.
 
 Approval, a saved file and committed history are separate states. Keep the
 approved current draft available in chat until its actual write to the owning
@@ -110,8 +154,8 @@ appropriate. Record concise approval/revision context in Origin and preserve
 superseded accepted values under the format/history rules. Check linked facts
 without duplicating their owners. Saving a character addition does not authorize
 manuscript edits or rewrites of other characters; clarify separately if a linked
-canon change needs that authority. Update derived navigation only as needed for
-the approved save, never including unsaved draft material.
+canon change needs that authority. For a writer-approved exact-text save,
+update derived navigation only as needed, excluding unsaved draft material.
 
 Follow the shared scoped save/checkpoint rules after approved writes, including
 delegate ownership, preservation of staged writer edits and no automatic push.

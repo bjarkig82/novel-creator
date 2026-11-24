@@ -99,12 +99,20 @@ its inventions. Preserve proposals and open questions under the format rules.
 
 Every role, direct or delegated, follows [character development](character-development.md)
 when the writer requests profile enrichment, gap filling or `$novel-character-develop`.
-Keep its entire draft and revisions in chat until clear approval to save current
-content. This overrides automatic topic, summary, handoff/draft file writes and
-Git checkpoints below; delegate ownership never supplies save approval. Preserve
-ordinary question-led brainstorming for other character exploration. Carry this
-boundary and the current numbered text/selection into any relevant handoff
-without writing a handoff file before approval.
+Keep drafts and revisions in chat pending the writer's approval of the exact
+current selection. The sole pre-draft exception for this mode is
+[explicit delegation for existing profiles](character-development.md#explicit-delegation-for-existing-profiles).
+Before dispatching a write-enabled handoff, resolve any ambiguity with the writer.
+Pass the writer's express instruction, designated saver, profile identity, exact
+owning path, scope and proposal-only status. The designated specialist reviews
+and saves only their selected additions under that authority, without another
+approval. A delegate never commits. The coordinator verifies files and handles
+any separately authorized scoped Git checkpoint.
+
+This boundary overrides automatic topic, summary, handoff/draft writes and
+checkpoints. An editing assignment alone supplies no save approval. Carry the
+current numbered text, selection and applicable authority in the conversational
+handoff. Preserve ordinary question-led brainstorming for other exploration.
 
 ## Direct work and persistence
 
