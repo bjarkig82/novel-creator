@@ -372,11 +372,20 @@ checks from automatic host behavior.
 
 Discussed ideas, approved propositions, verified file saves and verified Git
 checkpoints remain separate, including voice continuations and role handoffs.
-Read back owning files before claiming a save. A permission-denied index-lock
-creation can use a host-approved narrowly scoped access route after fresh Git
-and staging inspection; unavailable access means a disclosed pending checkpoint,
-never lock removal, sandbox bypass or consuming unrelated staging. These are
-workflow requirements; automated checks do not establish actual host compliance.
+Read back changed files before claiming a save.
+
+<a id="deferred-notebook-checkpoints"></a>
+
+With the current-source notebook guidance, the host reports the first Git index
+permission block separately from any file-save failure. Later writing turns
+still save and verify authorized changes. The active conversation carries the
+exact saved paths with history pending. While access remains unchanged, the host
+skips Git write retries, write probes and repeated notices. It can retry a scoped
+checkpoint after fresh Git inspection when an approved access route becomes
+available or the writer explicitly asks for a retry within the host's
+permissions. Unrelated staging remains protected. Existing notebooks can
+[refresh the conversation guide explicitly](upgrading-projects.md#refresh-current-source-notebook-conversation-guidance).
+Host behavior remains unverified.
 
 Notebook brainstorming selects both a useful focus and a conversational method
 from actual book context, the current request and subsequent answers. Loose

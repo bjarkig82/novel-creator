@@ -191,10 +191,12 @@ non-authoritative: never use a stale summary to override owning-note states,
 provenance or questions. This is a native file-save responsibility, not a per-turn
 Python validator or a new service/schema.
 
-For direct work, attempt a local Git checkpoint after meaningful updates, scoped
-to the exact project paths changed. During delegation, the coordinator owns shared
-notebook updates and checkpointing; a delegate edits only explicitly assigned
-output paths and never commits, following the [role workflow](agents.md).
+After verified meaningful saves, follow the shared checkpoint policy below for
+any workflow that calls for a local checkpoint, including manuscript work,
+outlining and specialist saves. Scope the checkpoint to the exact project paths
+changed. During delegation, the coordinator owns shared notebook updates and
+checkpointing. A delegate edits only explicitly assigned output paths and never
+commits, following the [role workflow](agents.md).
 Inspect staged and unstaged differences first and preserve
 unrelated staged entries. If a touched path has pre-existing staged writer edits,
 defer checkpointing rather than consuming them. For new untracked notes, stage
@@ -203,16 +205,14 @@ must exclude them. Verify the resulting status and history. No broad staging,
 reset, stash, force, lock deletion, hook bypass or automatic push is allowed.
 
 Saving files and committing history are different outcomes. If history fails,
-preserve any superseded accepted prose in historical revisions and disclose that
-files are saved but checkpointing remains pending. If a file save fails, state
-what remains unsaved; do not claim it is persisted canon. Tentative conversation
-may continue with that limitation explicit. Inspect the latest state before
-retrying. A held lock is not permission to remove it.
+preserve any superseded accepted prose in historical revisions and report the
+pending checkpoint under the policy below. If a file save fails, state what
+remains unsaved. Tentative conversation may continue with that limitation explicit.
 
 Keep discussed ideas, writer-approved propositions, verified file saves and
 committed history distinct. Approval establishes only the selected creative
-decision or save authority; it does not prove a write occurred. Verify the owning
-file after writing before calling the material saved, and verify the scoped
+decision or save authority; it does not prove a write occurred. Read back each
+changed file before calling the material saved, and verify the scoped
 commit before calling it checkpointed. An approved but unwritten change remains
 unsaved. In character-development mode, retain the approved draft in chat until
 the actual write is verified; do not turn an interrupted or failed save into an
@@ -221,13 +221,6 @@ When status needs explaining, use precise wording such as “drafted in chat, no
 saved,” “approved, save pending” or “saved; checkpoint pending.” Do not describe
 chat-only text as “added,” “updated” or “saved” in the notebook. Correct ambiguous
 wording by checking and stating the actual file/history state.
-
-For a permission-denied `.git/index.lock` creation, inspect the current project,
-Git status and staged/unstaged differences before retrying. When the host offers
-an approved, narrowly scoped filesystem-access route, use that route for the
-authorized checkpoint. Do not bypass the sandbox, remove a lock or consume
-unrelated staging. If that access is unavailable, defer the checkpoint and explain
-the permission limitation and which files are verified saved or still unsaved.
 
 Apply these distinctions in voice continuations and role handoffs too. When a
 handoff is needed, convey the story status above, the current selection/approval
@@ -238,6 +231,49 @@ not grant save authority or make chat-only drafts recoverable across chats.
 
 Quietly maintain notes on success; do not clutter every reply with save notices.
 Do not promise recovery of an interrupted current turn or exact response replay.
+
+### Deferred Git checkpoints
+
+After a meaningful save, attempt the scoped local checkpoint unless a known
+block still applies. If Git cannot write its index or create `.git/index.lock`
+because permission is denied, use an already approved, narrowly scoped host
+access route if available, following the retry rules below. Otherwise defer the
+checkpoint. When the first block leaves history pending, tell the writer which
+files were verified saved and that index writes were denied. Report any failed
+file saves separately.
+
+On later authorized writing turns, continue saving and verifying meaningful file
+changes. Track pending checkpoints in the active conversation and any necessary
+handoff, with the exact verified saved paths, the reason and whether it has
+been reported. Add subsequent verified saved paths without duplicating entries.
+Use this context for handoffs and after compaction when it is available. Keep it
+out of notebook files, Git metadata and separate logs. Pending paths convey
+neither new authorization nor ownership of other changes in those files.
+
+On ordinary follow-up turns while access remains unchanged, do not retry Git
+writes, probe write access or repeat the same notice. Use read-only Git
+inspection for required checks, such as `git --no-optional-locks status`, which
+avoids optional index refresh writes. Disclose a changed checkpoint outcome, a
+new file-save failure or incomplete save, and answer explicit status requests.
+
+When an approved, narrowly scoped host access route is available during
+authorized writing work, or the writer explicitly asks to retry, retry within
+the host's permissions for the authorized checkpoint. Inspect the current
+project, Git status and staged and unstaged differences before writing. Check
+the exact pending paths against the verified saves and current writer changes.
+Leave a path pending if it contains pre-existing staged writer edits or if the
+authorized changes cannot be checkpointed without including other edits.
+Preserve unrelated staging and use only the scoped checkpoint rules above.
+Clear a pending path only after verifying its saved changes in committed
+history and checking the resulting status. Report the result of an explicit
+retry, including any paths still pending. A retry request supplies no sandbox
+bypass or permission to stage or commit other work.
+
+A lock held by another Git process is temporary contention. Report the pending
+checkpoint and retry only after observing the lock has cleared and inspecting
+the latest state. Leave existing locks in place. Disclose other checkpoint
+failures separately from file-save failures and inspect the latest state
+before retrying.
 
 ## Boundaries
 
