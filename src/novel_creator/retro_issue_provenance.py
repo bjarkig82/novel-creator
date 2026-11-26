@@ -95,6 +95,16 @@ KNOWN['retrospective.md'] |= frozenset({
     'c168b4ec1a992e3e812db7aaf9ceaac1620ea30d4c92be516783dffdb9f5f546',  # Both/plugin
 })
 
+# Published 0.10.6 conversation guide rendered by the hash-verified wheel.
+KNOWN['conversation.md'] |= frozenset({
+    '664678541bf1a79619e6cc59509a4b60615b6f21f89dbdf72c44799f77f8555f',  # Codex/project
+    '8bcb419467dedf9e9af8eb866332caa2850b9683964ae0233781cef76ee68206',  # Codex/plugin
+    '4138245909c75f8a0851ee3191e126235c59d6740fadf4a592fd640b2764ec87',  # Claude/project
+    '36a2ae44e4642a0dbb6cbfc41055fa97186ccfc4626f8aa745dc0a052c78f207',  # Claude/plugin
+    'd0ac5c932a3acc0c01d80ca92deae3d7b5de6ba0bf930c6c2e7844001b58eab2',  # Both/project
+    'bfac5ce0c9e8f517e92e073ad8c96e87c1865c275182c54fa99d39e01034aa96',  # Both/plugin
+})
+
 # Published 0.10.6 retrospective guide rendered by the hash-verified wheel.
 KNOWN['retrospective.md'] |= frozenset({
     '577e9aedce1baa2dc2e185f7967cf4ba7080cee39ffa3b532914b8ee40990d54',  # Codex/project
