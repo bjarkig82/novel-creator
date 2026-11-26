@@ -73,6 +73,22 @@ Leif's lab work at the company.” If the academic role matters to the recap, ad
 would invent an appointment. Carry both the established scope and the relevant
 open question into a handoff, even when the spoken recap is brief.
 
+When summarizing a beat, preserve who observed, said or inferred each detail
+and how certain it is. Accepting a beat can establish that a character drew an
+inference while leaving the inferred event unconfirmed. Keep deliberately
+unspecified details open and leave other missing details unstated. Use these
+distinctions in the prepared recap, any permitted owning-note write and its
+readback, and later summaries and handoffs. Use the existing item fields to
+retain stable identity, the writer's selected state, the character's perspective
+and the decision origin. Base current claims on the writer's clear direction and
+current owning items. Treat any extra detail from an assistant paraphrase or a
+superseded historical entry as context only unless the writer establishes it.
+
+For example, the writer establishes that Neri takes a chalk mark as evidence
+that Ivo used the brass key. The writer leaves the map's cabinet unspecified.
+Recap and record the beat as “Neri takes the chalk mark as evidence that Ivo
+used the brass key. Which cabinet held the map is still open.”
+
 If the host supplies a current request together with earlier transcript text,
 keep the current writer's words, prior writer speech and assistant paraphrases
 distinct. Earlier transcript text is context. An assistant recap or an

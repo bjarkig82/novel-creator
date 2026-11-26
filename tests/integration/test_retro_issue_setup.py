@@ -200,6 +200,9 @@ class IssueSetup(unittest.TestCase):
     def test_released_0105_help_can_be_explicitly_refreshed(self):
         self.assert_released_guide_refresh('0.10.5', 'help.md')
 
+    def test_released_0106_conversation_guide_can_be_explicitly_refreshed(self):
+        self.assert_released_guide_refresh('0.10.6')
+
     def assert_released_guide_refresh(self, version, guide='conversation.md'):
         from tests.verify_plugin_install import snapshot
         frozen = Path(__file__).resolve().parents[1] / f'fixtures/session-guidance-{version}/{guide}'

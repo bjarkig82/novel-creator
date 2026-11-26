@@ -413,6 +413,16 @@ This guidance applies to spoken continuations when the host uses the notebook
 workflow. [Notebook upgrade](upgrading-projects.md#upgrade-to-0106)
 and [voice evaluation scenario](../tests/evaluations/brainstorming.md#scoped-supervision-in-a-timeline-recap)
 
+The current-source notebook guide carries character inferences and deliberately
+unspecified details through prepared recaps, permitted owning-note saves and
+readback, and later summaries and handoffs. Accepting a beat can establish a
+character's interpretation while leaving the underlying event unconfirmed. An
+earlier assistant paraphrase or superseded history supplies context only. New
+notebooks receive the guide at initialization. Existing format-1 notebooks can
+use the [current-source conversation guide refresh](upgrading-projects.md#refresh-current-source-notebook-conversation-guidance).
+Native host evaluation is pending.
+[Evaluation scenario](../tests/evaluations/brainstorming.md#attributed-inference-and-unspecified-timeline-detail)
+
 Five thin Codex skills provide optional focused entries: `$novel-book-idea`,
 `$novel-premise`, `$novel-character`, `$novel-plot` and `$novel-setting`. Shared
 [brainstorming guidance](../notebook/workflows/brainstorming.md) supplies concrete

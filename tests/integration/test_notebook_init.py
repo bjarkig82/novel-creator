@@ -231,6 +231,15 @@ class NotebookInitialization(unittest.TestCase):
                 self.assertEqual(subprocess.check_output(
                     ['git', '-C', str(self.target), 'status', '--porcelain']), b'')
 
+    def test_timeline_attribution_and_open_details_guidance_is_installed(self):
+        self.initialize()
+        guide = self.target / '.novel-notebook/workflows/conversation.md'
+        guidance = ' '.join(guide.read_text(encoding='utf-8').split())
+        self.assertIn('Accepting a beat can establish that a character drew an inference', guidance)
+        self.assertIn('Keep deliberately unspecified details open', guidance)
+        self.assertIn('prepared recap, any permitted owning-note write and its readback', guidance)
+        self.assertIn('later summaries and handoffs', guidance)
+
     def test_existing_empty_directory_is_preserved(self):
         self.target.mkdir()
         with self.assertRaises(ToolError):
