@@ -35,8 +35,8 @@ For the setup below, you'll need access to Codex, **Python 3.11 or
 newer**, and **Git 2.39 or newer** with your name and email configured. Git uses
 that identity for the local history. [Set up your Git identity](https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup#_your_identity).
 
-Run the commands for your system to install Novel Creator 0.10.6 in a
-separate Python environment and create a notebook called **My Novel**.
+Run the commands for your system to install the published Novel Creator 0.10.6
+in a separate Python environment and create a notebook called **My Novel**.
 Use a new folder outside any existing Git repository. Its parent folder must
 already exist.
 
@@ -96,6 +96,7 @@ attachments to share. [Session review guide](https://github.com/bjarkig82/novel-
 
 ## Releases
 
+- [0.10.7 release candidate](https://github.com/bjarkig82/novel-creator/blob/main/docs/releases/0.10.7.md) (unpublished)
 - [Novel Creator 0.10.6 on PyPI](https://pypi.org/project/novel-creator/0.10.6/)
 - [0.10.6 release notes and compatibility](https://github.com/bjarkig82/novel-creator/blob/main/docs/releases/0.10.6.md)
 - [Release history](https://github.com/bjarkig82/novel-creator/blob/main/docs/releases/README.md)

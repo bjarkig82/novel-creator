@@ -4,6 +4,7 @@ Read the notes for each version to understand its changes, compatibility and
 upgrade considerations. Candidate notes describe planned changes and do not
 establish that the package is available on PyPI.
 
+- [0.10.7](0.10.7.md) — **unpublished candidate**. Debug status across retained formats, compact issue receipts, individual finding status, and notebook guidance for timeline details and deferred checkpoints.
 - [0.10.6](0.10.6.md) — **published 2026-11-24**. Earlier duplicate checks, connector publication, scoped timeline recaps, delegated character proposals and read-only notebook index checks.
 - [0.10.5](0.10.5.md) — **published 2026-11-20**. Live debug snapshots and GitHub issue candidates in local retrospective replies.
 - [0.10.4](0.10.4.md) — **published 2026-11-19**. Updated guidance for voice summaries and handoffs preserves proposal status, speaker attribution and practical dependencies.

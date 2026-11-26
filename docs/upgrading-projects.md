@@ -5,6 +5,80 @@ instructions require an explicit project update as well. Keep the configured
 Python environment outside the novel and open the intended novel folder in Codex.
 Do not initialize over an existing novel or convert formats to obtain a skill.
 
+## Upgrade to 0.10.7
+
+[0.10.7](releases/0.10.7.md) is an unpublished candidate. Use a supplied
+candidate artifact for prepublication testing in a disposable project. For
+published installation now, follow the [0.10.6 instructions](#upgrade-to-0106).
+Once 0.10.7 is published, install it in a Python 3.11+ environment outside the
+book. Use that interpreter in the commands below. Git 2.39+ is required.
+
+```text
+python -m pip install --upgrade novel-creator==0.10.7
+```
+
+**New legacy novel.** Run `python -m novel_creator init "My Novel"` from a
+suitable parent directory. Setup includes the updated legacy retrospective
+workflow. Open the created book and read its root instructions and linked
+workflows. [Legacy setup](../workflows/getting-started.md)
+
+**New format-1 notebook.** Run
+`python -m novel_creator notebook init "My Novel" --language en --host codex --skill-source project`
+from a suitable parent directory. Choose `en` or `is`, `codex`, `claude` or
+`both`, and `project` or `plugin` for the intended layout. Setup installs the
+updated conversation and retrospective guides. For a plugin layout, enable
+the matching plugin. [Marketplace setup](plugin-marketplaces.md)
+
+**Existing legacy novel.** After publication, use the external 0.10.7
+interpreter as `CONTROLLER`, the book's verified interpreter as `RUNTIME` and
+the novel folder as `BOOK`. Review the preview and resolve any blockers before
+applying its ID and reviewed HEAD. For a first update from 0.1.0 or 0.2.0,
+close other book clients and add `--confirm-quiescent` to the apply command
+once they are closed. [Legacy update procedure](../workflows/getting-started.md#updating-an-existing-book)
+
+```text
+CONTROLLER -I -B -m novel_creator update --novel BOOK --python RUNTIME --version 0.10.7 --json
+CONTROLLER -I -B -m novel_creator update --novel BOOK --apply --preview PREVIEW_ID --version 0.10.7 --expected-head REVIEWED_HEAD --json
+```
+
+The updater refreshes the pinned framework, including the runtime and managed
+workflow and instruction files, in a dedicated framework commit. It preserves
+story content, custom instructions and unrelated staging. The notebook recap
+and deferred checkpoint guidance applies to format-1 notebooks.
+
+**Existing format-1 notebook.** For a notebook with the published 0.10.6
+workflows, pause editing and run the following from the external 0.10.7
+environment. The same steps apply across both languages, all supported hosts
+and both skill sources. If the notebook predates 0.10.6, check the earlier
+upgrade instructions for any feature resources the book still needs. In
+particular, the [separate character guidance refresh](character-development.md#refresh-an-existing-notebook-for-delegated-proposal-saves)
+covers resources outside issue setup.
+
+```text
+python -m novel_creator retro issue setup --novel BOOK --json
+python -m novel_creator retro issue setup --novel BOOK --apply --preview PREVIEW_ID --expected-head REVIEWED_HEAD --json
+```
+
+Review the paths before applying. For a current 0.10.6 notebook, the reviewed
+update refreshes `.novel-notebook/workflows/conversation.md` and
+`.novel-notebook/workflows/retrospective.md`. The existing root instructions,
+roles and skill entries use those updated guides via their existing links.
+Resolve [customized workflows](#review-workflow-conflicts) before applying. A
+stale preview, changed HEAD or redirected path requires resolving the blocker
+and taking a fresh preview. The refresh preserves story files, story history,
+custom instructions outside the managed resources and unrelated staging. It
+creates no story save or Git checkpoint. Plugin notebooks also need the
+matching 0.10.7 plugin enabled in each selected host. [Plugin updates](plugin-marketplaces.md#updates-and-removal)
+
+**Reopen and reload.** For either project format, open the actual book folder
+again in Codex or Claude Code. Reread the applicable `AGENTS.md` or `CLAUDE.md`
+and follow the installed links to the updated workflows. Inspect the local
+skill entries or matching enabled plugin entries for the selected host. Use the
+host's reload controls or a fresh chat. File and package checks cannot confirm
+native discovery, active-chat reload, speech or how the host handles a permission
+denial. Updating the Python package or plugin alone leaves a book's workflow
+snapshots pinned.
+
 <a id="timeline-recap-guidance-in-current-source"></a>
 
 ## Upgrade to 0.10.6

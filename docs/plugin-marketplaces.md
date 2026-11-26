@@ -1,8 +1,9 @@
 # Marketplace setup for new notebooks
 
-The plugin manifest targets **0.10.6, published on 2026-11-24**. Existing
-plugin notebooks need reviewed issue setup and the character guidance refresh.
-[Release notes](releases/0.10.6.md) · [Project upgrades](upgrading-projects.md#upgrade-to-0106)
+The source plugin manifest targets the **unpublished 0.10.7 candidate**. For
+published setup, use the matching plugin from the `v0.10.6` tag. Candidate
+setup requires a local 0.10.7 wheel. [0.10.7 candidate notes](releases/0.10.7.md) ·
+[0.10.6 release notes](releases/0.10.6.md)
 
 The plugin has eighteen entries (setup and seventeen writing entries), including
 complete side-character profiles and author-approved session issue retrospectives.
@@ -40,18 +41,24 @@ instructions and [supported update paths](upgrading-projects.md).
 
 ## Install the plugin
 
-Install from the GitHub repository. In Codex CLI 0.163.0 the install command
-is `plugin add`:
+For the published 0.10.6 plugin, clone the tagged marketplace to a separate
+folder. Use its full absolute path when adding it to either host.
 
 ```text
-codex plugin marketplace add https://github.com/bjarkig82/novel-creator.git
+git clone --depth 1 --branch v0.10.6 https://github.com/bjarkig82/novel-creator.git /absolute/path/to/marketplace
+```
+
+In Codex CLI 0.163.0 the install command is `plugin add`.
+
+```text
+codex plugin marketplace add /absolute/path/to/marketplace
 codex plugin add novel-creator@novel-creator-marketplace
 ```
 
 In Claude Code:
 
 ```text
-claude plugin marketplace add bjarkig82/novel-creator
+claude plugin marketplace add /absolute/path/to/marketplace
 claude plugin install novel-creator@novel-creator-marketplace
 ```
 
@@ -83,12 +90,12 @@ PyPI through the configured package index:
 python /absolute/path/to/plugin/scripts/bootstrap.py --novel "/path/to/My Novel"
 ```
 
-For optional development validation, a local checkout or extracted marketplace
-archive can be added by absolute path instead of the GitHub repository. Supply
-the exact matching local wheel to validate that artifact explicitly:
+For optional candidate validation, add a local 0.10.7 checkout or extracted
+candidate marketplace archive by absolute path in a test host. Supply the
+matching 0.10.7 wheel to its installed bootstrap.
 
 ```text
-python /absolute/path/to/plugin/scripts/bootstrap.py --wheel /absolute/path/to/novel_creator-0.10.6-py3-none-any.whl --novel "/path/to/My Novel"
+python /absolute/path/to/plugin/scripts/bootstrap.py --wheel /absolute/path/to/novel_creator-0.10.7-py3-none-any.whl --novel "/path/to/My Novel"
 ```
 
 Here `/absolute/path/to/plugin` is the installed plugin directory, not the
@@ -107,9 +114,9 @@ Codex/project setup. Never initialize over an existing notebook to change hosts.
 
 The runtime is an isolated virtual environment for the exact plugin version,
 outside the plugin cache and the book. Windows uses
-`%LOCALAPPDATA%/NovelCreator/runtimes/0.10.6`; Linux uses
-`$XDG_CACHE_HOME/novel-creator/runtimes/0.10.6`, falling back to
-`~/.cache/novel-creator/runtimes/0.10.6`. Reuse checks the installed version,
+`%LOCALAPPDATA%/NovelCreator/runtimes/VERSION`; Linux uses
+`$XDG_CACHE_HOME/novel-creator/runtimes/VERSION`, falling back to
+`~/.cache/novel-creator/runtimes/VERSION`. Reuse checks the installed version,
 dependencies and installation source; a local wheel's SHA-256 binds its
 provenance. A changed candidate wheel or switching from wheel to PyPI needs a
 separate cache location. Proxy, CA and package-index transport settings are
@@ -161,6 +168,11 @@ workflow snapshots, instructions, role files, prose or Git history. Installing
 or upgrading the Python package also leaves books unchanged. Uninstalling the
 plugin leaves book data and its independent runtime in place; plugin entries
 then require re-enabling a compatible plugin before use.
+
+For existing 0.10.6 plugin notebooks, the [0.10.7 project refresh](upgrading-projects.md#upgrade-to-0107)
+covers the notebook's conversation and retrospective guide snapshots. For
+earlier notebooks, see the [0.10.6 project refresh](upgrading-projects.md#upgrade-to-0106)
+for the separate character guidance step.
 
 The older focused notebook updater supports the original standalone Codex/project layout,
 including focused Clarify/Analyze/Help resources and Character development.
