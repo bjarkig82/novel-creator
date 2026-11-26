@@ -382,8 +382,9 @@ still save and verify authorized changes. The active conversation carries the
 exact saved paths with history pending. While access remains unchanged, the host
 skips Git write retries, write probes and repeated notices. It can retry a scoped
 checkpoint after fresh Git inspection when an approved access route becomes
-available or the writer explicitly asks for a retry within the host's
-permissions. Unrelated staging remains protected. Existing notebooks can
+available, access materially changes since the last failure, or the writer
+explicitly asks for a retry within the host's permissions. Unrelated staging
+remains protected. Existing notebooks can
 [refresh the conversation guide explicitly](upgrading-projects.md#refresh-current-source-notebook-conversation-guidance).
 Host behavior remains unverified.
 

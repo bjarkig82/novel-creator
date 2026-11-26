@@ -75,5 +75,10 @@ already held by another Git process is a separate case.
    before retrying and verify that the retry preserves that edit and reports the
    path still pending.
 
+Repeat the first two steps with an approved scoped route whose Git write also
+fails. Leave that route available and its access unchanged. Include a linked
+outline or clarification save on a follow-up turn. Verify the file save and
+check that the host skips Git writes and a repeated checkpoint notice.
+
 No native scenario is a recorded pass. Structural examples establish format and
 count consistency only; installation/update delivery has its own checks.

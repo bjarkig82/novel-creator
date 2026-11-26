@@ -234,18 +234,26 @@ Do not promise recovery of an interrupted current turn or exact response replay.
 
 ### Deferred Git checkpoints
 
+For authorized saves, this policy governs when to attempt or retry a checkpoint
+and when to report checkpoint status across root project instructions and linked
+workflows, including outlining, clarification and specialist saves. Apply it
+even if older pinned guidance calls for a routine attempt or notice. Follow the
+applicable rules for save authority, checkpoint scope and read-only work.
+
 After a meaningful save, attempt the scoped local checkpoint unless a known
 block still applies. If Git cannot write its index or create `.git/index.lock`
-because permission is denied, use an already approved, narrowly scoped host
-access route if available, following the retry rules below. Otherwise defer the
-checkpoint. When the first block leaves history pending, tell the writer which
-files were verified saved and that index writes were denied. Report any failed
-file saves separately.
+because permission is denied on the initial attempt, try an already approved,
+narrowly scoped host access route once if it is available and has yet to fail
+under the current access conditions. Follow the retry inspection rules below.
+If the checkpoint remains blocked, defer it. When the first block leaves
+history pending, tell the writer which files were verified saved and that index
+writes were denied. Report any failed file saves separately.
 
 On later authorized writing turns, continue saving and verifying meaningful file
 changes. Track pending checkpoints in the active conversation and any necessary
-handoff, with the exact verified saved paths, the reason and whether it has
-been reported. Add subsequent verified saved paths without duplicating entries.
+handoff, with the exact verified saved paths, the reason, the access conditions
+at the last failed attempt and whether the block has been reported. Add
+subsequent verified saved paths without duplicating entries.
 Use this context for handoffs and after compaction when it is available. Keep it
 out of notebook files, Git metadata and separate logs. Pending paths convey
 neither new authorization nor ownership of other changes in those files.
@@ -256,11 +264,15 @@ inspection for required checks, such as `git --no-optional-locks status`, which
 avoids optional index refresh writes. Disclose a changed checkpoint outcome, a
 new file-save failure or incomplete save, and answer explicit status requests.
 
-When an approved, narrowly scoped host access route is available during
-authorized writing work, or the writer explicitly asks to retry, retry within
-the host's permissions for the authorized checkpoint. Inspect the current
-project, Git status and staged and unstaged differences before writing. Check
-the exact pending paths against the verified saves and current writer changes.
+After deferral for a permission block, retry only if an approved, narrowly
+scoped host access route becomes available, an observed material access
+change since the last failure makes a retry possible, or the writer explicitly
+asks to retry. Outside an explicit request, retry during authorized writing
+work. An unchanged route that already failed does not qualify on its own.
+Retry within the host's permissions for the authorized checkpoint. Inspect
+the current project, Git status and staged and unstaged differences before
+writing. Check the exact pending paths against the verified saves and current
+writer changes.
 Leave a path pending if it contains pre-existing staged writer edits or if the
 authorized changes cannot be checkpointed without including other edits.
 Preserve unrelated staging and use only the scoped checkpoint rules above.

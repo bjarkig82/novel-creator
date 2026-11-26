@@ -140,10 +140,14 @@ class NotebookInitialization(unittest.TestCase):
         self.assertEqual(len(guidance), 2, 'Notebook is missing deferred checkpoint guidance')
         policy = ' '.join(guidance[1].split('## Boundaries', 1)[0].split())
         for requirement in (
+            'when to attempt or retry a checkpoint and when to report checkpoint status',
+            'even if older pinned guidance calls for a routine attempt or notice',
             'first block',
             'continue saving and verifying meaningful file changes',
             'exact verified saved paths',
             'do not retry Git writes, probe write access or repeat the same notice',
+            'material access change since the last failure',
+            'An unchanged route that already failed does not qualify',
             'writer explicitly asks to retry',
             'Inspect the current project, Git status and staged and unstaged differences',
             'Clear a pending path only after verifying',
