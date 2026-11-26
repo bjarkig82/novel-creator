@@ -73,6 +73,22 @@ the guidance refresh. Its report leaves book files and staging untouched.
 The recap and delegated character guidance also apply to format-1 notebooks.
 Use the [legacy writing workflows](../workflows/everyday-writing.md) in a legacy novel.
 
+### Refresh current-source notebook conversation guidance
+
+Use an external Novel Creator build from the current source to refresh a
+format-1 notebook with the published 0.10.6 conversation guide. Installing the
+build leaves the notebook's local guide pinned. Pause editing, then use the
+same [preview and apply commands above](#upgrade-to-0106) with the current-source
+interpreter. Review the paths and resolve any [workflow conflicts](#review-workflow-conflicts)
+before applying the reviewed preview ID and HEAD. If those inputs become stale,
+take a fresh preview. The refresh preserves story files, history, custom
+instructions outside managed resources and unrelated staging.
+
+Inspect the installed `.novel-notebook/workflows/conversation.md`, reopen the
+notebook in the host and reread its project guidance in a fresh chat. New
+notebooks initialized from current source already include this conversation
+guide. The current-source instructions apply to notebook format 1.
+
 ## Live debug snapshots and local retrospectives in 0.10.5
 
 Install [0.10.5](releases/0.10.5.md), published on 2026-11-20, in a Python 3.11+

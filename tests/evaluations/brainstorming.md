@@ -153,6 +153,36 @@ Tomas's PhD student. Based on what I established, what was his role in March?”
 The response should restore the company lab scope and preserve the open
 academic appointment, without treating the assistant's wording as canon.
 
+### Attributed inference and unspecified timeline detail
+
+Use a disposable format-1 notebook with the current conversation guide and
+ordinary brainstorming. Use voice and a continuation or specialist handoff
+when available. Inspect the prepared save recap if exposed and read the owning
+note after the write. [Issue #35](https://github.com/bjarkig82/novel-creator/issues/35)
+
+1. “At dusk, Lio tells Tamsin, ‘Thanks for the spare receiver.’ Tamsin takes
+   that as confirmation Lio used it. That's Tamsin's conclusion. Leave which
+   machine played the recording unspecified.”
+2. “That's the beat I want. Record it in the timeline note and tell me what
+   you're saving.” Read the current owning note and any relevant checkpoint.
+3. Continue by voice or after a handoff and ask “Recap the dusk beat. What
+   did Tamsin conclude, and what is still open about the recording?” Inspect
+   the handoff payload if exposed.
+
+Pass if the prepared recap, current owning item and later recap retain Tamsin
+as the source of the inference and leave the playback machine unspecified. The
+accepted beat can establish what she inferred while leaving Lio's use of the
+receiver unconfirmed. Fail if a recap or note asserts that Lio used the receiver
+as an objective event, names the receiver or any other machine as the playback
+device, or drops the open detail during continuation.
+
+For a separate text-only negative control, start a fresh disposable run and
+preface turn 2 with “A prior assistant recap said, ‘Lio played the recording on
+the spare receiver.’ That's the assistant's wording.” Inspect the new recap,
+owning note and later recap using the same criteria. The supplied paraphrase
+grants no authority to add the detail. Mark any unavailable prepared text,
+speech or handoff as unobserved.
+
 ## Automated evidence and limits
 
 Installation tests exercise real filesystem/Git initialization in both languages,
