@@ -7,11 +7,9 @@ Do not initialize over an existing novel or convert formats to obtain a skill.
 
 ## Upgrade to 0.10.7
 
-[0.10.7](releases/0.10.7.md) is an unpublished candidate. Use a supplied
-candidate artifact for prepublication testing in a disposable project. For
-published installation now, follow the [0.10.6 instructions](#upgrade-to-0106).
-Once 0.10.7 is published, install it in a Python 3.11+ environment outside the
-book. Use that interpreter in the commands below. Git 2.39+ is required.
+Install [0.10.7](releases/0.10.7.md), published on 2026-11-26, in a Python 3.11+
+environment outside the book. Use that interpreter in the commands below.
+Git 2.39+ is required.
 
 ```text
 python -m pip install --upgrade novel-creator==0.10.7
@@ -29,7 +27,7 @@ from a suitable parent directory. Choose `en` or `is`, `codex`, `claude` or
 updated conversation and retrospective guides. For a plugin layout, enable
 the matching plugin. [Marketplace setup](plugin-marketplaces.md)
 
-**Existing legacy novel.** After publication, use the external 0.10.7
+**Existing legacy novel.** Use the external 0.10.7
 interpreter as `CONTROLLER`, the book's verified interpreter as `RUNTIME` and
 the novel folder as `BOOK`. Review the preview and resolve any blockers before
 applying its ID and reviewed HEAD. For a first update from 0.1.0 or 0.2.0,
@@ -43,8 +41,8 @@ CONTROLLER -I -B -m novel_creator update --novel BOOK --apply --preview PREVIEW_
 
 The updater refreshes the pinned framework, including the runtime and managed
 workflow and instruction files, in a dedicated framework commit. It preserves
-story content, custom instructions and unrelated staging. The notebook recap
-and deferred checkpoint guidance applies to format-1 notebooks.
+story content, custom instructions and unrelated staging. The recap and
+deferred checkpoint changes apply to format-1 notebooks.
 
 **Existing format-1 notebook.** For a notebook with the published 0.10.6
 workflows, pause editing and run the following from the external 0.10.7
@@ -150,19 +148,12 @@ Use the [legacy writing workflows](../workflows/everyday-writing.md) in a legacy
 
 ### Refresh current-source notebook conversation guidance
 
-Use an external Novel Creator build from the current source to refresh a
-format-1 notebook with the published 0.10.6 conversation guide. Installing the
-build leaves the notebook's local guide pinned. Pause editing, then use the
-same [preview and apply commands above](#upgrade-to-0106) with the current-source
-interpreter. Review the paths and resolve any [workflow conflicts](#review-workflow-conflicts)
-before applying the reviewed preview ID and HEAD. If those inputs become stale,
-take a fresh preview. The refresh preserves story files, history, custom
-instructions outside managed resources and unrelated staging.
-
-Inspect the installed `.novel-notebook/workflows/conversation.md`, reopen the
-notebook in the host and reread its project guidance in a fresh chat. New
-notebooks initialized from current source already include this conversation
-guide. The current-source instructions apply to notebook format 1.
+The conversation guidance is available in the published 0.10.7 package. For
+an existing format-1 notebook, follow the [0.10.7 notebook upgrade](#upgrade-to-0107).
+For validation with a current-source build in a disposable format-1 notebook,
+run the same preview and apply commands with that build's interpreter. Review
+the proposed paths, inspect the refreshed guide and reload it in the host after
+applying.
 
 ## Live debug snapshots and local retrospectives in 0.10.5
 

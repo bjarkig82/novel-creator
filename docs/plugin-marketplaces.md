@@ -1,9 +1,8 @@
 # Marketplace setup for new notebooks
 
-The source plugin manifest targets the **unpublished 0.10.7 candidate**. For
-published setup, use the matching plugin from the `v0.10.6` tag. Candidate
-setup requires a local 0.10.7 wheel. [0.10.7 candidate notes](releases/0.10.7.md) ·
-[0.10.6 release notes](releases/0.10.6.md)
+The plugin manifest targets **0.10.7, published on 2026-11-26**. Use the matching
+plugin from the `v0.10.7` tag. [Release notes](releases/0.10.7.md) ·
+[Project upgrades](upgrading-projects.md#upgrade-to-0107)
 
 The plugin has eighteen entries (setup and seventeen writing entries), including
 complete side-character profiles and author-approved session issue retrospectives.
@@ -41,11 +40,11 @@ instructions and [supported update paths](upgrading-projects.md).
 
 ## Install the plugin
 
-For the published 0.10.6 plugin, clone the tagged marketplace to a separate
+For the published 0.10.7 plugin, clone the tagged marketplace to a separate
 folder. Use its full absolute path when adding it to either host.
 
 ```text
-git clone --depth 1 --branch v0.10.6 https://github.com/bjarkig82/novel-creator.git /absolute/path/to/marketplace
+git clone --depth 1 --branch v0.10.7 https://github.com/bjarkig82/novel-creator.git /absolute/path/to/marketplace
 ```
 
 In Codex CLI 0.163.0 the install command is `plugin add`.
@@ -67,7 +66,7 @@ plugin does not prove the matching Python package has been published.
 
 The permanent plugin name is `novel-creator` and the catalog is
 `novel-creator-marketplace`. Enable the plugin in your actual host and inspect
-its available skills. The 0.10.6 plugin contains `setup` and seventeen
+its available skills. The 0.10.7 plugin contains `setup` and seventeen
 writing entries; the six writing roles are installed in the book during setup, so the plugin inventory
 itself can report zero agents. Expected writing invocation syntax is Codex
 `$novel-creator:novel-help` and Claude Code `/novel-creator:novel-help`.
@@ -90,9 +89,9 @@ PyPI through the configured package index:
 python /absolute/path/to/plugin/scripts/bootstrap.py --novel "/path/to/My Novel"
 ```
 
-For optional candidate validation, add a local 0.10.7 checkout or extracted
-candidate marketplace archive by absolute path in a test host. Supply the
-matching 0.10.7 wheel to its installed bootstrap.
+For optional local artifact validation, add a matching checkout or extracted
+marketplace archive by absolute path in a test host. Supply the corresponding
+wheel to its installed bootstrap.
 
 ```text
 python /absolute/path/to/plugin/scripts/bootstrap.py --wheel /absolute/path/to/novel_creator-0.10.7-py3-none-any.whl --novel "/path/to/My Novel"
@@ -125,10 +124,10 @@ preserved while pip destination overrides are excluded. See the
 
 If the pinned version is missing from the index, report that actual failure;
 use a matching local wheel only when it is available for the intended setup.
-Install or upgrade the separate 0.10.6 package in your configured environment:
+Install or upgrade the separate 0.10.7 package in your configured environment:
 
 ```text
-python -m pip install --upgrade novel-creator==0.10.6
+python -m pip install --upgrade novel-creator==0.10.7
 ```
 
 If setup fails, preserve its partial files and follow the reported recovery

@@ -5,10 +5,9 @@ Claude Code. The 17 writing entries share creative workflows saved with the
 selected book; the setup entry creates new format-1 notebooks for both hosts.
 The permanent plugin name is `novel-creator` in `novel-creator-marketplace`.
 
-This plugin targets 0.10.7. Before the matching package is available on PyPI,
-use its local wheel for candidate validation. In existing 0.10.6 notebooks,
-apply reviewed issue setup with the 0.10.7 package, enable the matching plugin
-and reload the book's instructions.
+This plugin targets 0.10.7, published on PyPI on 2026-11-26. In existing 0.10.6
+notebooks, apply reviewed issue setup with the 0.10.7 package, enable the matching
+plugin and reload the book's instructions.
 [0.10.7 release notes](https://github.com/bjarkig82/novel-creator/blob/main/docs/releases/0.10.7.md) ·
 [Project upgrade steps](https://github.com/bjarkig82/novel-creator/blob/main/docs/upgrading-projects.md#upgrade-to-0107)
 
