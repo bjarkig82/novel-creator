@@ -70,14 +70,15 @@ custom instructions outside the managed resources and unrelated staging. It
 creates no story save or Git checkpoint. Plugin notebooks also need the
 matching 0.10.7 plugin enabled in each selected host. [Plugin updates](plugin-marketplaces.md#updates-and-removal)
 
-**Reopen and reload.** For either project format, open the actual book folder
-again in Codex or Claude Code. Reread the applicable `AGENTS.md` or `CLAUDE.md`
-and follow the installed links to the updated workflows. Inspect the local
-skill entries or matching enabled plugin entries for the selected host. Use the
-host's reload controls or a fresh chat. File and package checks cannot confirm
-native discovery, active-chat reload, speech or how the host handles a permission
-denial. Updating the Python package or plugin alone leaves a book's workflow
-snapshots pinned.
+**Reopen and reload.** For a legacy novel, reopen the book folder in Codex,
+reread `AGENTS.md` and follow its links to the updated workflows. For a format-1
+notebook, reopen the book folder in the configured host. Reread `AGENTS.md` in
+Codex or `CLAUDE.md` in Claude Code, follow its links to the updated workflows,
+and inspect the project-local skill entries or matching enabled plugin entries.
+Use the host's reload controls or a fresh chat. File and package checks cannot
+confirm native discovery, active-chat reload, speech or how the host handles a
+permission denial. Updating the Python package or plugin alone leaves a book's
+workflow snapshots pinned.
 
 <a id="timeline-recap-guidance-in-current-source"></a>
 
