@@ -133,6 +133,28 @@ class NotebookInitialization(unittest.TestCase):
         self.assertIn('Continue in this notebook folder', handoff)
         self.assertIn('do not initialize it again', handoff)
 
+    def test_installed_conversation_guidance_defers_blocked_checkpoints(self):
+        self.initialize()
+        workflow = self.target / '.novel-notebook/workflows/conversation.md'
+        guidance = workflow.read_text(encoding='utf-8').split('### Deferred Git checkpoints', 1)
+        self.assertEqual(len(guidance), 2, 'Notebook is missing deferred checkpoint guidance')
+        policy = ' '.join(guidance[1].split('## Boundaries', 1)[0].split())
+        for requirement in (
+            'when to attempt or retry a checkpoint and when to report checkpoint status',
+            'even if older pinned guidance calls for a routine attempt or notice',
+            'first block',
+            'continue saving and verifying meaningful file changes',
+            'exact verified saved paths',
+            'do not retry Git writes, probe write access or repeat the same notice',
+            'material access change since the last failure',
+            'An unchanged route that already failed does not qualify',
+            'writer explicitly asks to retry',
+            'Inspect the current project, Git status and staged and unstaged differences',
+            'Clear a pending path only after verifying',
+        ):
+            with self.subTest(requirement=requirement):
+                self.assertIn(requirement, policy)
+
     def test_focused_guidance_resources_are_required_before_creation(self):
         from importlib.resources import files
 

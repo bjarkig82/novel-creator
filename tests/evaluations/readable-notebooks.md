@@ -47,5 +47,38 @@ discovery/reload, voice behavior, literary usefulness and latency are unverified
 | Start from the before snapshot; save the new accepted responsibility and revise the occupation while the existing summary still says four accepted/one proposal. | Targeted owning-note edits preserve IDs, old accepted text, questions and provenance. Check every affected existing derived value, focus and link even if navigation text is unchanged; summary becomes five accepted/one proposal, plus one open/one resolved question, excluding history. A failed summary update is disclosed as stale navigation and cannot override the owner. |
 | Before that save, stage an unrelated writer file and add an unrelated summary row; separately stage pre-existing edits to the touched owner. | Unrelated row, working files and staged bytes remain unchanged. Checkpoints cover exact authorized paths; defer when touched-path staged writer work would be consumed. No whole-file tidying, broad staging or automatic push. |
 
+### Deferred Git checkpoint across writing turns
+
+Unexecuted. In a disposable initialized notebook, commit the
+[before snapshot](../fixtures/notebook-grouped/before/topics/keeper.md) and its
+summary. Stage an unrelated synthetic writer file and record its index entry and
+HEAD. Use a host policy that permits worktree writes and Git reads but denies Git
+index writes. Observe a permission denial creating the index lock. A lock
+already held by another Git process is a separate case.
+
+1. Ask the host to save the keeper's accepted family responsibility. Verify the
+   owning note and its affected summary on disk. Confirm the host reports the
+   index denial once and identifies which files were saved with history pending.
+2. On a second turn, establish a new setting detail that needs its own topic.
+   On a third turn, revise the keeper's occupation and check its historical
+   revision. Verify each file save and the affected summary. If a specialist
+   takes over, observe whether the handoff carries the pending paths. Across
+   both turns, check the tool trace for Git writes and write probes, and the
+   replies for repeated notices. Expect none. Required read-only Git inspection
+   may still occur. HEAD and the unrelated staged entry remain as recorded.
+3. Make a narrowly scoped approved Git-write route available and explicitly ask
+   to retry the pending checkpoint. Verify fresh status and staged and
+   unstaged diff inspection, then a scoped commit of the accumulated saved
+   paths. Verify committed content, resulting status and the unrelated staged
+   entry. Ask for checkpoint status and confirm that the committed paths are no
+   longer pending. In a separate run, stage a writer edit to one pending path
+   before retrying and verify that the retry preserves that edit and reports the
+   path still pending.
+
+Repeat the first two steps with an approved scoped route whose Git write also
+fails. Leave that route available and its access unchanged. Include a linked
+outline or clarification save on a follow-up turn. Verify the file save and
+check that the host skips Git writes and a repeated checkpoint notice.
+
 No native scenario is a recorded pass. Structural examples establish format and
 count consistency only; installation/update delivery has its own checks.
